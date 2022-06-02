@@ -1,0 +1,43 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDEA
+.idea/
+.vscode/
+
+# Directories
+coverage/
+esm/
+lib/
+dts/
+node_modules/
+
+# Configs
+.eslintignore
+.eslintrc.js
+.prettierignore
+jest.config.js
+prettier.config.js
+*.tsbuildinfo
+
+# MacOS
+.DS_Store
+
+# Cache
+.eslintcache
+.idea
+.npm
+.vscode
+
+# Yarn Folders
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

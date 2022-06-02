@@ -1,0 +1,7 @@
+{
+  "borderWidth": {
+    "large": { "value": "0.1875rem" },
+    "medium": { "value": "0.125rem" },
+    "small": { "value": "0.0625rem" }
+  }
+}

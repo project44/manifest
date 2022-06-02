@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.options.json",
+  "files": [],
+  "references": [
+    {
+      "path": "packages/design-tokens"
+    },
+    {
+      "path": "packages/react"
+    },
+    {
+      "path": "packages/react/tests"
+    },
+    {
+      "path": "packages/vessel"
+    }
+  ]
+}

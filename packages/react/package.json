@@ -1,0 +1,54 @@
+{
+  "name": "@manifest/react",
+  "version": "0.0.0",
+  "author": "project44",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "module": "./esm/index.js",
+  "types": "./dts/index.d.ts",
+  "files": [
+    "dts/**/*.d.ts",
+    "esm/**/*.{js,map}",
+    "lib/**/*.{js,map}",
+    "src/**/*.{ts,tsx,json}"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:project-44/manifest.git",
+    "directory": "packages/react"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "dependencies": {
+    "@manifest/design-tokens": "^0.0.0",
+    "@react-aria/button": "^3.5.0",
+    "@react-aria/checkbox": "^3.4.0",
+    "@react-aria/focus": "^3.6.0",
+    "@react-aria/interactions": "^3.9.0",
+    "@react-aria/link": "^3.3.0",
+    "@react-aria/radio": "^3.2.0",
+    "@react-aria/switch": "^3.2.0",
+    "@react-aria/utils": "^3.13.0",
+    "@react-aria/visually-hidden": "^3.3.0",
+    "@react-stately/checkbox": "^3.1.0",
+    "@react-stately/radio": "^3.4.0",
+    "@react-stately/toggle": "^3.3.0",
+    "@react-stately/utils": "^3.5.0",
+    "@react-types/button": "^3.5.0",
+    "@react-types/checkbox": "^3.3.0",
+    "@react-types/link": "^3.3.0",
+    "@react-types/radio": "^3.2.0",
+    "@react-types/shared": "^3.13.0",
+    "@stitches/react": "^1.2.8",
+    "dom-lib": "^3.1.2"
+  },
+  "devDependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "packemon": {
+    "platform": "browser"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "breakpoint": {
+    "large": { "value": "{size.large.value}" },
+    "medium": { "value": "{size.medium.value}" },
+    "small": { "value": "{size.small.value}" },
+    "x-large": { "value": "{size.x-large.value}" }
+  }
+}
