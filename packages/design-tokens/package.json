@@ -17,6 +17,9 @@
   },
   "author": "project44",
   "license": "MIT",
+  "devDependencies": {
+    "style-dictionary": "^3.7.0"
+  },
   "packemon": {
     "platform": "browser"
   }

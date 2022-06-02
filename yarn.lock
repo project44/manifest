@@ -3096,6 +3096,8 @@ __metadata:
 "@manifest/design-tokens@^0.0.0, @manifest/design-tokens@workspace:packages/design-tokens":
   version: 0.0.0-use.local
   resolution: "@manifest/design-tokens@workspace:packages/design-tokens"
+  dependencies:
+    style-dictionary: ^3.7.0
   languageName: unknown
   linkType: soft
 
@@ -3110,7 +3112,6 @@ __metadata:
     "@react-aria/interactions": ^3.9.0
     "@react-aria/link": ^3.3.0
     "@react-aria/radio": ^3.2.0
-    "@react-aria/separator": ^3.2.0
     "@react-aria/switch": ^3.2.0
     "@react-aria/utils": ^3.13.0
     "@react-aria/visually-hidden": ^3.3.0
@@ -3526,19 +3527,6 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
   checksum: d6a291903979ae68b5ce5112ebd813bb91e41a6f975b59c518576f19a361767286f74cbb20432b43632de9b8d5757dc750c311d352666b060d86ad119176bdaa
-  languageName: node
-  linkType: hard
-
-"@react-aria/separator@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "@react-aria/separator@npm:3.2.0"
-  dependencies:
-    "@babel/runtime": ^7.6.2
-    "@react-aria/utils": ^3.13.0
-    "@react-types/shared": ^3.13.0
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
-  checksum: 9650340c61f759035924c011317c6db88179d80984862e1300e7e21fc21579e93808088133e6c05a932f2c4e540922fa2de67597606fa7ab08361713b1dd6830
   languageName: node
   linkType: hard
 
@@ -14582,7 +14570,6 @@ __metadata:
     react-dom: ^18.1.0
     rimraf: ^3.0.2
     storybook-addon-performance: ^0.16.1
-    style-dictionary: ^3.7.0
     webpack: ^5.70.0
   languageName: unknown
   linkType: soft

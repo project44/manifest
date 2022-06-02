@@ -16,7 +16,7 @@
     "build:ci": "yarn run build:tokens && yarn run build:packages",
     "build:packages": "packemon build --addEngines",
     "build:storybook": "build-storybook -c .storybook -o ./docs -s .storybook/static",
-    "build:tokens": "node scripts/generate-tokens.mjs",
+    "build:tokens": "node packages/design-tokens/build",
     "build:types": "beemo typescript --build",
     "format": "beemo prettier",
     "lint": "beemo eslint",
@@ -67,7 +67,6 @@
     "react-dom": "^18.1.0",
     "rimraf": "^3.0.2",
     "storybook-addon-performance": "^0.16.1",
-    "style-dictionary": "^3.7.0",
     "webpack": "^5.70.0"
   },
   "packageManager": "yarn@3.2.0"
