@@ -1,8 +1,22 @@
+import { Fallback, Image, Root } from '@radix-ui/react-avatar';
 import { styled } from '../../styles';
 
-export const StyledAvatarFallback = styled('span', { textTransform: 'uppercase' });
+export const StyledAvatarFallback = styled(Fallback, {
+  alignItems: 'center',
+  color: '$text-secondary',
+  display: 'flex',
+  fontFamily: '$text',
+  fontSize: 'inherit',
+  fontWeight: '$semibold',
+  letterSpacing: '$medium',
+  lineHeight: 'inherit',
+  height: '100%',
+  justifyContent: 'center',
+  width: '100%',
+});
 
-export const StyledAvatarImage = styled('img', {
+export const StyledAvatarImage = styled(Image, {
+  borderRadius: 'inherit',
   boxSizing: 'border-box',
   height: '100%',
   objectFit: 'cover',
@@ -10,44 +24,33 @@ export const StyledAvatarImage = styled('img', {
   width: '100%',
 });
 
-export const StyledAvatar = styled('span', {
-  $$avatarFontSize: '$fontSizes$small',
-  $$avatarLineHeight: '$lineHeights$medium',
+export const StyledAvatar = styled(Root, {
+  $$avatarSize: '2.5rem',
+  $$avatarFontSize: '$small',
+  $$avatarLineHeight: '$medium',
 
   alignItems: 'center',
   backgroundColor: '$background-secondary',
-  border: 'none',
   borderRadius: '$full',
   boxSizing: 'border-box',
   display: 'flex',
-  flexShrink: 0,
-  fontFamily: '$text',
-  fontSize: '$$avatarFontSize',
-  fontWeight: '$semibold',
-  letterSpacing: '$medium',
-  lineHeight: '$$avatarLineHeight',
   justifyContent: 'center',
-  margin: 0,
   outline: 'none',
   overflow: 'hidden',
-  padding: 0,
-  position: 'relative',
+  size: '$$avatarSize',
   verticalAlign: 'middle',
-  userSelect: 'none',
 
   variants: {
     size: {
       medium: {
+        $$avatarSize: '2.5rem',
         $$avatarFontSize: '$fontSizes$small',
         $$avatarLineHeight: '$lineHeights$medium',
-
-        size: 40,
       },
       small: {
+        $$avatarSize: '1.75rem',
         $$avatarFontSize: '$fontSizes$x-small',
         $$avatarLineHeight: '$lineHeights$small',
-
-        size: 28,
       },
     },
   },

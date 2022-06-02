@@ -1,14 +1,15 @@
+import type * as RadixAvatar from '@radix-ui/react-avatar';
 import * as React from 'react';
-import { cx, VariantProps } from '../../styles';
 import { StyledAvatar, StyledAvatarFallback, StyledAvatarImage } from './Avatar.styles';
 import { ManifestProps } from '../../types';
-import { useIsomorphicLayoutEffect } from '../../hooks';
+import { VariantProps } from '../../styles';
 
-type ImageStatus = 'error' | 'pending' | 'loaded' | 'loading';
-
-export interface AvatarProps extends ManifestProps, VariantProps<typeof StyledAvatar> {
+export interface AvatarProps
+  extends ManifestProps,
+    RadixAvatar.AvatarProps,
+    VariantProps<typeof StyledAvatar> {
   /**
-   * Text description of the avatar.
+   * The alt text passed to the image.
    */
   alt?: string;
   /**
@@ -16,68 +17,20 @@ export interface AvatarProps extends ManifestProps, VariantProps<typeof StyledAv
    */
   fallback?: React.ReactNode;
   /**
-   * The image `src` attribute
+   * The `src` attribute for the `img` element.
    */
   src?: string;
-  /**
-   * The image `srcset` attribute
-   */
-  srcSet?: string;
 }
 
-export const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, forwardedRef) => {
-  const { alt, as, className: classNameProp, fallback, src, srcSet, ...other } = props;
+export const Avatar = React.forwardRef<React.ElementRef<typeof StyledAvatar>, AvatarProps>(
+  (props, ref) => {
+    const { alt, fallback, src = '', ...other } = props;
 
-  const [status, setStatus] = React.useState<ImageStatus>('pending');
-
-  const mountedRef = React.useRef(false);
-
-  const className = cx(
-    'manifest-avatar',
-    {
-      [`manifest-avatar__${status}`]: status,
-    },
-    classNameProp,
-  );
-
-  const handleStatusChange = React.useCallback((newStatus: ImageStatus) => {
-    if (!mountedRef.current) return;
-
-    setStatus(newStatus);
-  }, []);
-
-  React.useEffect(() => {
-    handleStatusChange(src ? 'loading' : 'pending');
-  }, [handleStatusChange, src]);
-
-  useIsomorphicLayoutEffect(() => {
-    if (!src) return;
-
-    mountedRef.current = true;
-
-    const image = new Image();
-
-    image.src = src;
-    image.onload = () => handleStatusChange('loaded');
-    image.onerror = () => handleStatusChange('error');
-
-    if (srcSet) {
-      image.srcset = srcSet;
-    }
-
-    return () => {
-      mountedRef.current = false;
-    };
-  }, [src]);
-
-  return (
-    <StyledAvatar {...other} as={as} className={className} ref={forwardedRef}>
-      {status === 'loaded' && (
-        <StyledAvatarImage alt={alt} className="manifest-avatar-image" src={src} />
-      )}
-      {status !== 'loaded' && (
-        <StyledAvatarFallback className="manifest-avatar-fallback">{fallback}</StyledAvatarFallback>
-      )}
-    </StyledAvatar>
-  );
-});
+    return (
+      <StyledAvatar {...other} ref={ref}>
+        <StyledAvatarImage alt={alt} src={src} />
+        <StyledAvatarFallback>{fallback}</StyledAvatarFallback>
+      </StyledAvatar>
+    );
+  },
+);

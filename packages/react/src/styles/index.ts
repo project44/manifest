@@ -1,5 +1,5 @@
-export * from './shared';
 export * from './config';
+export * from './shared';
 
 export { default as cx } from 'clsx';
 

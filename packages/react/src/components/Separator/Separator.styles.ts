@@ -1,6 +1,7 @@
+import { Separator } from '@radix-ui/react-separator';
 import { styled } from '../../styles';
 
-export const StyledSeparator = styled('hr', {
+export const StyledSeparator = styled(Separator, {
   alignSelf: 'stretch',
   backgroundColor: '$border-primary',
   border: 'none',

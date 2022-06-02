@@ -1,25 +1,16 @@
+import type * as RadixSeparator from '@radix-ui/react-separator';
 import * as React from 'react';
-import { AriaLabelingProps, DOMProps, Orientation } from '@react-types/shared';
-import { cx } from '../../styles';
+import { cx, VariantProps } from '../../styles';
 import { ManifestProps } from '../../types';
 import { StyledSeparator } from './Separator.styles';
-import { useSeparator } from '@react-aria/separator';
 
-export interface SeparatorProps extends ManifestProps, DOMProps, AriaLabelingProps {
-  /**
-   * The axis the separator should align with.
-   *
-   * @default 'horizontal'
-   */
-  orientation?: Orientation;
-}
+export interface SeparatorProps
+  extends ManifestProps,
+    Omit<RadixSeparator.SeparatorProps, 'orientation'>,
+    VariantProps<typeof StyledSeparator> {}
 
 export const Separator = React.forwardRef<HTMLHRElement, SeparatorProps>((props, forwardedRef) => {
-  const { as, className: classNameProp, css, orientation = 'horizontal', ...other } = props;
-
-  const elementType: keyof JSX.IntrinsicElements = orientation === 'vertical' ? 'div' : 'hr';
-
-  const { separatorProps } = useSeparator({ ...other, elementType });
+  const { className: classNameProp, orientation = 'horizontal', ...other } = props;
 
   const className = cx(
     'manifest-separator',
@@ -29,10 +20,8 @@ export const Separator = React.forwardRef<HTMLHRElement, SeparatorProps>((props,
 
   return (
     <StyledSeparator
-      {...separatorProps}
-      as={as ?? elementType}
+      {...other}
       className={className}
-      css={css}
       orientation={orientation}
       ref={forwardedRef}
     />

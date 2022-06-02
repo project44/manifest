@@ -8,4 +8,5 @@ export type VariantProps<T> = Stitches.VariantProps<T>;
 
 export type Theme = typeof theme;
 
-export const { styled, config, globalCss, getCssText, theme, css } = createStitches(defaultTheme);
+export const { styled, config, globalCss, getCssText, keyframes, theme, css } =
+  createStitches(defaultTheme);

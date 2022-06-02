@@ -1,6 +1,7 @@
 import { focusVisible, styled } from '../../styles';
+import { Primitive } from '@radix-ui/react-primitive';
 
-export const StyledButtonIcon = styled('span', {
+export const StyledButtonIcon = styled(Primitive.span, {
   alignSelf: 'center',
   display: 'inline-flex',
   flexShrink: 0,
@@ -18,7 +19,7 @@ export const StyledButtonIcon = styled('span', {
 });
 
 export const StyledButton = styled(
-  'button',
+  Primitive.button,
   {
     $$buttonPadding: '$space$small',
 
@@ -47,12 +48,6 @@ export const StyledButton = styled(
     },
 
     variants: {
-      isPressed: {
-        true: {},
-      },
-      isHovered: {
-        true: {},
-      },
       variant: {
         danger: {
           backgroundColor: '$status-danger-500',

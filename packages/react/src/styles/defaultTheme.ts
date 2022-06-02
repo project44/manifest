@@ -51,6 +51,7 @@ const transitions = {
     'filter',
     'backdrop-filter',
   ]),
+  opacity: createTransition(['opacity']),
 };
 
 const theme = {
