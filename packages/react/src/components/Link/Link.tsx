@@ -3,7 +3,9 @@ import { cx } from '../../styles';
 import { ManifestProps } from '../../types';
 import { StyledLink } from './Link.styles';
 
-export interface LinkProps extends ManifestProps, React.ComponentProps<typeof StyledLink> {}
+export interface LinkProps
+  extends ManifestProps,
+    React.ComponentPropsWithoutRef<typeof StyledLink> {}
 
 export const Link = React.forwardRef<React.ElementRef<typeof StyledLink>, LinkProps>(
   (props, forwardedRef) => {

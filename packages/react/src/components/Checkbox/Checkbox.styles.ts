@@ -1,5 +1,4 @@
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
-import { Primitive } from '@radix-ui/react-primitive';
 import { focus, styled } from '../../styles';
 
 export const StyledCheckbox = styled(
@@ -66,7 +65,7 @@ export const StyledCheckboxLabel = styled('label', {
   },
 });
 
-export const StyledCheckboxText = styled(Primitive.span, {
+export const StyledCheckboxText = styled('span', {
   fontFamily: '$text',
   fontSize: '$small',
   letterSpacing: '$medium',

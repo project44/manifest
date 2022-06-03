@@ -8,7 +8,9 @@ import {
 import { cx } from '../../styles';
 import { ManifestProps } from '../../types';
 
-export interface RadioProps extends ManifestProps, React.ComponentProps<typeof StyledRadio> {}
+export interface RadioProps
+  extends ManifestProps,
+    React.ComponentPropsWithoutRef<typeof StyledRadio> {}
 
 export const Radio = React.forwardRef<React.ElementRef<typeof StyledRadio>, RadioProps>(
   (props, forwardedRef) => {

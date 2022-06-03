@@ -1,8 +1,7 @@
 import { focus, styled } from '../../styles';
-import { Primitive } from '@radix-ui/react-primitive';
 
 export const StyledLink = styled(
-  Primitive.a,
+  'a',
   {
     alignItems: 'baseline',
     borderRadius: '$small',

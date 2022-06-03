@@ -8,7 +8,9 @@ import {
 import { cx } from '../../styles';
 import { ManifestProps } from '../../types';
 
-export interface ToggleProps extends ManifestProps, React.ComponentProps<typeof StyledToggle> {}
+export interface ToggleProps
+  extends ManifestProps,
+    React.ComponentPropsWithoutRef<typeof StyledToggle> {}
 
 export const Toggle = React.forwardRef<React.ElementRef<typeof StyledToggle>, ToggleProps>(
   (props, forwardedRef) => {

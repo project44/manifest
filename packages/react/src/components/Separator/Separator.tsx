@@ -5,7 +5,7 @@ import { StyledSeparator } from './Separator.styles';
 
 export interface SeparatorProps
   extends ManifestProps,
-    React.ComponentProps<typeof StyledSeparator>,
+    React.ComponentPropsWithoutRef<typeof StyledSeparator>,
     VariantProps<typeof StyledSeparator> {}
 
 export const Separator = React.forwardRef<React.ElementRef<typeof StyledSeparator>, SeparatorProps>(

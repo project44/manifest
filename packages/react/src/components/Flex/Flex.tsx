@@ -1,10 +1,9 @@
-import { Primitive } from '@radix-ui/react-primitive';
 import { ManifestProps } from '../../types';
 import { styled } from '../../styles';
 
-export interface FlexProps extends ManifestProps, React.ComponentProps<typeof Flex> {}
+export interface FlexProps extends ManifestProps, React.ComponentPropsWithoutRef<typeof Flex> {}
 
-export const Flex = styled(Primitive.div, {
+export const Flex = styled('div', {
   display: 'flex',
 
   variants: {

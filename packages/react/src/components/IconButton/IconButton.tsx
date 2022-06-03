@@ -3,7 +3,7 @@ import { cx } from '../../styles';
 import { StyledIconButton } from './IconButton.styles';
 
 export type IconButtonProps = Omit<
-  React.ComponentProps<typeof StyledIconButton>,
+  React.ComponentPropsWithoutRef<typeof StyledIconButton>,
   'endIcon' | 'startIcon'
 >;
 

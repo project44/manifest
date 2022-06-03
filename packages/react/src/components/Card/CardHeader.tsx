@@ -1,10 +1,9 @@
-import type * as Radix from '@radix-ui/react-primitive';
 import * as React from 'react';
 import { cx } from '../../styles';
 import { StyledCardHeader } from './Card.styles';
 import { Typography } from '../Typography';
 
-export type CardHeaderProps = Radix.ComponentPropsWithoutRef<typeof StyledCardHeader>;
+export type CardHeaderProps = React.ComponentPropsWithoutRef<typeof StyledCardHeader>;
 
 export const CardHeader = React.forwardRef<
   React.ElementRef<typeof StyledCardHeader>,

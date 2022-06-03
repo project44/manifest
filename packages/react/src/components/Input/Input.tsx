@@ -12,7 +12,7 @@ import { ManifestProps } from '../../types';
 export interface InputProps
   extends ManifestProps,
     VariantProps<typeof StyledInput>,
-    React.ComponentProps<typeof StyledInput> {
+    React.ComponentPropsWithoutRef<typeof StyledInput> {
   /**
    * Icon displayed at the end of the text field.
    */

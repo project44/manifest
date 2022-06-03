@@ -1,9 +1,8 @@
-import type * as Radix from '@radix-ui/react-primitive';
 import * as React from 'react';
 import { ButtonGroupContext } from './ButtonGroup.context';
 import { StyledButtonGroup } from './Button.styles';
 
-export interface ButtonGroupProps extends Radix.ComponentPropsWithoutRef<typeof StyledButtonGroup> {
+export interface ButtonGroupProps extends React.ComponentPropsWithoutRef<typeof StyledButtonGroup> {
   /**
    * Whether the buttons in the button group are all disabled.
    *
