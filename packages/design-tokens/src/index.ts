@@ -24,7 +24,7 @@ export const COLOR_BRAND_PRIMARY = '#0072EC';
 export const COLOR_BRAND_GRADIENT =
   'linear-gradient(90deg, #0072EC 0%, #4E00C6 163.65%, #8C18E2  191.59%)';
 export const COLOR_CONTRAST_BRAND = '#FFFFFF';
-export const COLOR_CONTRAST_DANGER = '#091521';
+export const COLOR_CONTRAST_DANGER = '#FFFFFF';
 export const COLOR_CONTRAST_PRIMARY = '#FFFFFF';
 export const COLOR_CONTRAST_SUCCESS = '#091521';
 export const COLOR_CONTRAST_WARNING = '#091521';

@@ -27,7 +27,7 @@
     },
     "contrast": {
       "brand": { "value": "{color.white.value}" },
-      "danger": { "value": "{color.black.value}" },
+      "danger": { "value": "{color.white.value}" },
       "primary": { "value": "{color.white.value}" },
       "success": { "value": "{color.black.value}" },
       "warning": { "value": "{color.black.value}" }

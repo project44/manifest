@@ -5,6 +5,7 @@ export * from './components/Checkbox';
 export * from './components/CssBaseline';
 export * from './components/Flex';
 export * from './components/Icon';
+export * from './components/IconButton';
 export * from './components/Link';
 export * from './components/Provider';
 export * from './components/Radio';
