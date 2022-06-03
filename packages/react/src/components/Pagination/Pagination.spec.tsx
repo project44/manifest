@@ -3,7 +3,7 @@ import { fireEvent, render } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { Pagination } from './Pagination';
 
-describe('@manifest-ui/pagination', () => {
+describe('@manifest/react - Pagination', () => {
   it('should pass accessibility', async () => {
     const { container } = render(<Pagination totalRowCount={100} />);
 

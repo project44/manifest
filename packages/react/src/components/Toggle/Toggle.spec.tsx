@@ -3,7 +3,7 @@ import { act, fireEvent, render } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { Toggle } from './Toggle';
 
-describe('@manifest-ui/Toggle', () => {
+describe('@manifest/react - Toggle', () => {
   it('should pass accessibility', async () => {
     const { container } = render(<Toggle aria-label="toggle">Toggle</Toggle>);
 

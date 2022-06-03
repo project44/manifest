@@ -11,7 +11,7 @@ import { TableHeader } from './TableHeader';
 import { TableRow } from './TableRow';
 import userEvent from '@testing-library/user-event';
 
-describe('@manifest-ui/table', () => {
+describe('@manifest/react - Table', () => {
   it('should pass accessibility', async () => {
     const { container } = render(
       <TableContainer>
