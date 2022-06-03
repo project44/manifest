@@ -10,7 +10,9 @@ import { Icon } from '../Icon';
 import { ManifestProps } from '../../types';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
 
-export interface CheckboxProps extends ManifestProps, React.ComponentProps<typeof StyledCheckbox> {}
+export interface CheckboxProps
+  extends ManifestProps,
+    React.ComponentPropsWithoutRef<typeof StyledCheckbox> {}
 
 export const Checkbox = React.forwardRef<React.ElementRef<typeof StyledCheckbox>, CheckboxProps>(
   (props, forwardedRef) => {

@@ -5,7 +5,7 @@ import { VariantProps } from '../../styles';
 
 export interface AvatarProps
   extends ManifestProps,
-    React.ComponentProps<typeof StyledAvatar>,
+    React.ComponentPropsWithoutRef<typeof StyledAvatar>,
     VariantProps<typeof StyledAvatar> {
   /**
    * The alt text passed to the image.

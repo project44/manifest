@@ -8,7 +8,9 @@ export type TypographyVariant =
   | 'body'
   | 'body-bold'
   | 'subtext'
-  | 'caption';
+  | 'subtext-bold'
+  | 'caption'
+  | 'caption-bold';
 
 type TypographyVariantToken = `$${TypographyVariant}`;
 
@@ -18,7 +20,6 @@ type TypographyVariants = {
 
 const variants: TypographyVariants = {
   $display: {
-    color: '$text-primary',
     fontFamily: '$text',
     fontSize: '$xx-large',
     fontWeight: '$bold',
@@ -26,7 +27,6 @@ const variants: TypographyVariants = {
     lineHeight: '$xx-large',
   },
   $heading: {
-    color: '$text-primary',
     fontFamily: '$text',
     fontSize: '$x-large',
     fontWeight: '$semibold',
@@ -34,7 +34,6 @@ const variants: TypographyVariants = {
     lineHeight: '$x-large',
   },
   $title: {
-    color: '$text-primary',
     fontFamily: '$text',
     fontSize: '$large',
     fontWeight: '$semibold',
@@ -42,7 +41,6 @@ const variants: TypographyVariants = {
     lineHeight: '$large',
   },
   $subtitle: {
-    color: '$text-primary',
     fontFamily: '$text',
     fontSize: '$medium',
     fontWeight: '$bold',
@@ -50,7 +48,6 @@ const variants: TypographyVariants = {
     lineHeight: '$medium',
   },
   $body: {
-    color: '$text-primary',
     fontFamily: '$text',
     fontSize: '$medium',
     fontWeight: '$regular',
@@ -58,7 +55,6 @@ const variants: TypographyVariants = {
     lineHeight: '$medium',
   },
   '$body-bold': {
-    color: '$text-primary',
     fontFamily: '$text',
     fontSize: '$medium',
     fontWeight: '$semibold',
@@ -66,18 +62,30 @@ const variants: TypographyVariants = {
     lineHeight: '$medium',
   },
   $subtext: {
-    color: '$text-primary',
     fontFamily: '$text',
     fontSize: '$small',
     fontWeight: '$regular',
     letterSpacing: '$medium',
     lineHeight: '$small',
   },
+  '$subtext-bold': {
+    fontFamily: '$text',
+    fontSize: '$small',
+    fontWeight: '$semibold',
+    letterSpacing: '$medium',
+    lineHeight: '$small',
+  },
   $caption: {
-    color: '$text-primary',
     fontFamily: '$text',
     fontSize: '$x-small',
     fontWeight: '$regular',
+    letterSpacing: '$medium',
+    lineHeight: '$x-small',
+  },
+  '$caption-bold': {
+    fontFamily: '$text',
+    fontSize: '$x-small',
+    fontWeight: '$semibold',
     letterSpacing: '$medium',
     lineHeight: '$x-small',
   },

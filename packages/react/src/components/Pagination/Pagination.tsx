@@ -63,116 +63,117 @@ const range = (start: number, end: number) => {
   return Array.from({ length }, (_, i) => start + i);
 };
 
-export const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
-  (props: PaginationProps, ref) => {
-    const {
-      boundaries = 1,
-      defaultPage = 1,
-      onChange,
-      page,
-      rowsPerPage = 10,
-      siblings = 1,
-      showPageNumbers = true,
-      totalRowCount = 1,
-      ...other
-    } = props;
+export const Pagination = React.forwardRef<
+  React.ElementRef<typeof StyledPagination>,
+  PaginationProps
+>((props: PaginationProps, ref) => {
+  const {
+    boundaries = 1,
+    defaultPage = 1,
+    onChange,
+    page,
+    rowsPerPage = 10,
+    siblings = 1,
+    showPageNumbers = true,
+    totalRowCount = 1,
+    ...other
+  } = props;
 
-    const pageCount = Math.ceil(totalRowCount / rowsPerPage);
+  const pageCount = Math.ceil(totalRowCount / rowsPerPage);
 
-    const [activePage, setActivePage] = useControllableState({
-      prop: page,
-      defaultProp: defaultPage,
-      onChange,
-    });
+  const [activePage, setActivePage] = useControllableState({
+    prop: page,
+    defaultProp: defaultPage,
+    onChange,
+  });
 
-    const next = () => setActivePage(Number(activePage) + 1);
-    const previous = () => setActivePage(Number(activePage) - 1);
-    const setPage = (pageNumber: number) => setActivePage(pageNumber);
+  const next = () => setActivePage(Number(activePage) + 1);
+  const previous = () => setActivePage(Number(activePage) - 1);
+  const setPage = (pageNumber: number) => setActivePage(pageNumber);
 
-    const pages = React.useMemo((): PageType[] => {
-      const startRange = range(1, Math.min(boundaries, pageCount));
-      const endRange = range(Math.max(pageCount - boundaries + 1, boundaries + 1), pageCount);
+  const pages = React.useMemo((): PageType[] => {
+    const startRange = range(1, Math.min(boundaries, pageCount));
+    const endRange = range(Math.max(pageCount - boundaries + 1, boundaries + 1), pageCount);
 
-      const startIndex = Math.max(
-        Math.min(Number(activePage) - siblings, pageCount - boundaries - siblings * 2 - 1),
-        boundaries + 2,
-      );
-      const endIndex = Math.min(
-        Math.max(Number(activePage) + siblings, boundaries + siblings * 2 + 2),
-        endRange.length > 0 ? endRange[0] - 2 : pageCount - 1,
-      );
-
-      // Show siblings or dots
-      let siblingsEndRange: PageType[] =
-        pageCount - boundaries > boundaries ? [pageCount - boundaries] : [];
-      let siblingsStartRange: PageType[] =
-        boundaries + 1 < pageCount - boundaries ? [boundaries + 1] : [];
-
-      if (endIndex < pageCount - boundaries - 1) {
-        siblingsEndRange = ['dots'];
-      }
-
-      if (startIndex > boundaries + 2) {
-        siblingsStartRange = ['dots'];
-      }
-
-      return [
-        ...startRange,
-        ...siblingsStartRange,
-        ...range(startIndex, endIndex),
-        ...siblingsEndRange,
-        ...endRange,
-      ];
-    }, [activePage, boundaries, pageCount, siblings]);
-
-    return (
-      <StyledPagination className="manifest-pagination" ref={ref} {...other}>
-        <StyledPaginationButton
-          aria-label="go to previous page"
-          className="manifest-pagination--button"
-          disabled={activePage === 1}
-          onClick={previous}
-        >
-          <Icon icon="keyboard_arrow_left" />
-          <Typography>Previous</Typography>
-        </StyledPaginationButton>
-
-        {showPageNumbers &&
-          pages.map((item, index) => (
-            <React.Fragment key={`${item}_${index}`}>
-              {item === 'dots' && (
-                <StyledPaginationEllipsis aria-hidden className="manifest-pagination--ellipsis">
-                  <Typography>...</Typography>
-                </StyledPaginationEllipsis>
-              )}
-              {item !== 'dots' && (
-                <StyledPaginationButton
-                  aria-current={item === activePage ? 'true' : undefined}
-                  aria-label={`${item === activePage ? '' : 'go to '}page ${String(item)}`}
-                  className="manifest-pagination--button"
-                  isActive={item === activePage}
-                  onClick={() => {
-                    setPage(item as number);
-                  }}
-                >
-                  <Typography>{item.toString()}</Typography>
-                </StyledPaginationButton>
-              )}
-            </React.Fragment>
-          ))}
-
-        <StyledPaginationButton
-          aria-label="go to next page"
-          className="manifest-pagination--button"
-          disabled={activePage === pageCount}
-          onClick={next}
-        >
-          <Typography>Next</Typography>
-          <Icon icon="keyboard_arrow_right" />
-        </StyledPaginationButton>
-      </StyledPagination>
+    const startIndex = Math.max(
+      Math.min(Number(activePage) - siblings, pageCount - boundaries - siblings * 2 - 1),
+      boundaries + 2,
     );
-  },
-);
+    const endIndex = Math.min(
+      Math.max(Number(activePage) + siblings, boundaries + siblings * 2 + 2),
+      endRange.length > 0 ? endRange[0] - 2 : pageCount - 1,
+    );
+
+    // Show siblings or dots
+    let siblingsEndRange: PageType[] =
+      pageCount - boundaries > boundaries ? [pageCount - boundaries] : [];
+    let siblingsStartRange: PageType[] =
+      boundaries + 1 < pageCount - boundaries ? [boundaries + 1] : [];
+
+    if (endIndex < pageCount - boundaries - 1) {
+      siblingsEndRange = ['dots'];
+    }
+
+    if (startIndex > boundaries + 2) {
+      siblingsStartRange = ['dots'];
+    }
+
+    return [
+      ...startRange,
+      ...siblingsStartRange,
+      ...range(startIndex, endIndex),
+      ...siblingsEndRange,
+      ...endRange,
+    ];
+  }, [activePage, boundaries, pageCount, siblings]);
+
+  return (
+    <StyledPagination className="manifest-pagination" ref={ref} {...other}>
+      <StyledPaginationButton
+        aria-label="go to previous page"
+        className="manifest-pagination--button"
+        disabled={activePage === 1}
+        onClick={previous}
+      >
+        <Icon icon="keyboard_arrow_left" />
+        <Typography>Previous</Typography>
+      </StyledPaginationButton>
+
+      {showPageNumbers &&
+        pages.map((item, index) => (
+          <React.Fragment key={`${item}_${index}`}>
+            {item === 'dots' && (
+              <StyledPaginationEllipsis aria-hidden className="manifest-pagination--ellipsis">
+                <Typography>...</Typography>
+              </StyledPaginationEllipsis>
+            )}
+            {item !== 'dots' && (
+              <StyledPaginationButton
+                aria-current={item === activePage ? 'true' : undefined}
+                aria-label={`${item === activePage ? '' : 'go to '}page ${String(item)}`}
+                className="manifest-pagination--button"
+                isActive={item === activePage}
+                onClick={() => {
+                  setPage(item as number);
+                }}
+              >
+                <Typography>{item.toString()}</Typography>
+              </StyledPaginationButton>
+            )}
+          </React.Fragment>
+        ))}
+
+      <StyledPaginationButton
+        aria-label="go to next page"
+        className="manifest-pagination--button"
+        disabled={activePage === pageCount}
+        onClick={next}
+      >
+        <Typography>Next</Typography>
+        <Icon icon="keyboard_arrow_right" />
+      </StyledPaginationButton>
+    </StyledPagination>
+  );
+});
 
 Pagination.displayName = 'Pagination';

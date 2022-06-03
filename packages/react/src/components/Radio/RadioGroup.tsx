@@ -5,7 +5,7 @@ import { StyledRadioGroup } from './Radio.styles';
 
 export interface RadioGroupProps
   extends ManifestProps,
-    React.ComponentProps<typeof StyledRadioGroup> {}
+    React.ComponentPropsWithoutRef<typeof StyledRadioGroup> {}
 
 export const RadioGroup = React.forwardRef<
   React.ElementRef<typeof StyledRadioGroup>,

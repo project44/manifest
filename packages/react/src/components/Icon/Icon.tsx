@@ -3,7 +3,9 @@ import { cx } from '../../styles';
 import { ManifestProps } from '../../types';
 import { StyledIcon } from './Icon.styles';
 
-export interface IconProps extends ManifestProps, React.ComponentProps<typeof StyledIcon> {
+export interface IconProps
+  extends ManifestProps,
+    React.ComponentPropsWithoutRef<typeof StyledIcon> {
   /**
    * The material-icons icon name
    */

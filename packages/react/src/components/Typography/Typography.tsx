@@ -6,9 +6,13 @@ import { StyledTypography } from './Typography.styles';
 export interface TypographyProps
   extends ManifestProps,
     VariantProps<typeof StyledTypography>,
-    React.ComponentProps<typeof StyledTypography> {}
+    React.ComponentPropsWithoutRef<typeof StyledTypography> {}
 
-type TypographyVariantTags = Exclude<TypographyVariant, 'body-bold'> | 'bodyBold';
+type TypographyVariantTags =
+  | Exclude<TypographyVariant, 'body-bold' | 'caption-bold' | 'subtext-bold'>
+  | 'bodyBold'
+  | 'captionBold'
+  | 'subtextBold';
 type TypographyTagMap = {
   [key in TypographyVariantTags]: keyof JSX.IntrinsicElements;
 };
@@ -21,7 +25,9 @@ const tagMap: TypographyTagMap = {
   body: 'p',
   bodyBold: 'p',
   subtext: 'span',
+  subtextBold: 'span',
   caption: 'span',
+  captionBold: 'span',
 };
 
 export const Typography = React.forwardRef<
