@@ -8,9 +8,7 @@ import {
 import { cx } from '../../styles';
 import { Icon } from '../Icon';
 import { ManifestProps } from '../../types';
-import { mergeProps } from '../../utils';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
-import { useFocusRing } from '@react-aria/focus';
 
 export interface CheckboxProps extends ManifestProps, React.ComponentProps<typeof StyledCheckbox> {}
 
@@ -18,7 +16,6 @@ export const Checkbox = React.forwardRef<React.ElementRef<typeof StyledCheckbox>
   (props, forwardedRef) => {
     const {
       as,
-      autoFocus,
       checked,
       children,
       className,
@@ -35,8 +32,6 @@ export const Checkbox = React.forwardRef<React.ElementRef<typeof StyledCheckbox>
       onChange: onCheckedChange,
     });
 
-    const { focusProps, isFocusVisible } = useFocusRing({ autoFocus });
-
     return (
       <StyledCheckboxLabel
         as={as}
@@ -45,11 +40,10 @@ export const Checkbox = React.forwardRef<React.ElementRef<typeof StyledCheckbox>
         isDisabled={disabled}
       >
         <StyledCheckbox
-          {...mergeProps(focusProps, other)}
+          {...other}
           className={cx('manifest-checkbox', className)}
           checked={isChecked}
           disabled={disabled}
-          isFocusVisible={isFocusVisible}
           onCheckedChange={setIsChecked}
           ref={forwardedRef}
         >

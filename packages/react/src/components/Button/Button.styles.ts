@@ -1,4 +1,4 @@
-import { focusVisible, styled } from '../../styles';
+import { focus, styled } from '../../styles';
 import { Primitive } from '@radix-ui/react-primitive';
 
 export const StyledButtonIcon = styled(Primitive.span, {
@@ -131,5 +131,5 @@ export const StyledButton = styled(
       variant: 'primary',
     },
   },
-  focusVisible,
+  focus,
 );

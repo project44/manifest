@@ -7,16 +7,12 @@ import {
 } from './Toggle.styles';
 import { cx } from '../../styles';
 import { ManifestProps } from '../../types';
-import { mergeProps } from '../../utils';
-import { useFocusRing } from '@react-aria/focus';
 
 export interface ToggleProps extends ManifestProps, React.ComponentProps<typeof StyledToggle> {}
 
 export const Toggle = React.forwardRef<React.ElementRef<typeof StyledToggle>, ToggleProps>(
   (props, forwardedRef) => {
-    const { as, autoFocus, children, className, css, disabled, ...other } = props;
-
-    const { focusProps, isFocusVisible } = useFocusRing({ autoFocus });
+    const { as, children, className, css, disabled, ...other } = props;
 
     return (
       <StyledToggleLabel
@@ -25,12 +21,7 @@ export const Toggle = React.forwardRef<React.ElementRef<typeof StyledToggle>, To
         css={css}
         isDisabled={disabled}
       >
-        <StyledToggle
-          {...mergeProps(focusProps, other)}
-          className="manifest-toggle"
-          isFocusVisible={isFocusVisible}
-          ref={forwardedRef}
-        >
+        <StyledToggle {...other} className="manifest-toggle" ref={forwardedRef}>
           <StyledToggleIndicator />
         </StyledToggle>
         {children && (

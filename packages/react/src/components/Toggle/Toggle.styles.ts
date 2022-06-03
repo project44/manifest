@@ -1,5 +1,5 @@
 import * as SwitchPrimitive from '@radix-ui/react-switch';
-import { focusVisible, styled } from '../../styles';
+import { focus, styled } from '../../styles';
 
 export const StyledToggle = styled(
   SwitchPrimitive.Root,
@@ -34,7 +34,7 @@ export const StyledToggle = styled(
       backgroundColor: '$primary',
     },
   },
-  focusVisible,
+  focus,
 );
 
 export const StyledToggleIndicator = styled(SwitchPrimitive.Thumb, {
