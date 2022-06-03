@@ -4,7 +4,7 @@ import { axe } from 'jest-axe';
 import { Radio } from './Radio';
 import { RadioGroup } from './RadioGroup';
 
-describe('@manifest-ui/radio - Radio', () => {
+describe('@manifest/react - Radio', () => {
   it('should pass accessibility', async () => {
     const { container } = render(
       <RadioGroup defaultValue="one">
