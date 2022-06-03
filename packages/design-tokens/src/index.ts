@@ -188,11 +188,14 @@ export const SIZE_LARGE = '80rem';
 export const SIZE_MEDIUM = '64rem';
 export const SIZE_SMALL = '37.5rem';
 export const SIZE_X_LARGE = '120rem';
-export const SPACE_LARGE = '1.5rem';
+export const SPACE_LARGE = '1.25rem';
 export const SPACE_MEDIUM = '1rem';
-export const SPACE_SMALL = '0.5rem';
-export const SPACE_X_LARGE = '2rem';
-export const SPACE_X_SMALL = '0.25rem';
+export const SPACE_SMALL = '0.75rem';
+export const SPACE_X_SMALL = '0.5rem';
+export const SPACE_X_LARGE = '1.5rem';
+export const SPACE_XX_LARGE = '2rem';
+export const SPACE_XXX_LARGE = '2.5rem';
+export const SPACE_XX_SMALL = '0.25rem';
 export const FONT_FAMILY_MONO = '"Fira Mono", Courier, monospace';
 export const FONT_FAMILY_TEXT =
   '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif';
@@ -444,8 +447,11 @@ export const theme = {
     large: SPACE_LARGE,
     medium: SPACE_MEDIUM,
     small: SPACE_SMALL,
-    'x-large': SPACE_X_LARGE,
     'x-small': SPACE_X_SMALL,
+    'x-large': SPACE_X_LARGE,
+    'xx-large': SPACE_XX_LARGE,
+    'xxx-large': SPACE_XXX_LARGE,
+    'xx-small': SPACE_XX_SMALL,
   },
   zIndices: {
     dropdown: Z_INDEX_DROPDOWN,
