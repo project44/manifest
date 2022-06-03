@@ -1,7 +1,7 @@
-import { Primitive } from '@radix-ui/react-primitive';
 import { focus, styled } from '../../styles';
+import { Icon } from '../Icon';
 
-export const StyledPagination = styled(Primitive.div, {
+export const StyledPagination = styled('div', {
   alignItems: 'center',
   boxSizing: 'border-box',
   columnGap: '$x-small',
@@ -12,7 +12,7 @@ export const StyledPagination = styled(Primitive.div, {
 });
 
 export const StyledPaginationButton = styled(
-  Primitive.button,
+  'button',
   {
     $$paginationBackgroundColor: '$colors$palette-grey-50',
 
@@ -59,7 +59,20 @@ export const StyledPaginationButton = styled(
   focus,
 );
 
-export const StyledPaginationEllipsis = styled(Primitive.div, {
+export const StyledPaginationIcon = styled(Icon, {
+  variants: {
+    placment: {
+      end: {
+        marginLeft: '$xx-small',
+      },
+      start: {
+        marginRight: '$xx-small',
+      },
+    },
+  },
+});
+
+export const StyledPaginationEllipsis = styled('div', {
   height: 'auto',
   padding: '$xx-small $small',
   textAlign: 'center',

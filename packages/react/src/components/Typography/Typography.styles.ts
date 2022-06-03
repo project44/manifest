@@ -17,7 +17,9 @@ export const StyledTypography = styled('span', {
       body: { typography: '$body' },
       bodyBold: { typography: '$body-bold' },
       subtext: { typography: '$subtext' },
+      subtextBold: { typography: '$subtext-bold' },
       caption: { typography: '$caption' },
+      captionBold: { typography: '$caption-bold' },
     },
   },
 

@@ -4,8 +4,8 @@ import {
   StyledPagination,
   StyledPaginationButton,
   StyledPaginationEllipsis,
+  StyledPaginationIcon,
 } from './Pagination.styles';
-import { Icon } from '../Icon';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { Typography } from '../Typography';
 
@@ -135,8 +135,12 @@ export const Pagination = React.forwardRef<
         disabled={activePage === 1}
         onClick={previous}
       >
-        <Icon icon="keyboard_arrow_left" />
-        <Typography>Previous</Typography>
+        <StyledPaginationIcon
+          className="manifest-pagination--button-icon__start"
+          icon="keyboard_arrow_left"
+          placment="start"
+        />
+        <Typography variant="subtextBold">Previous</Typography>
       </StyledPaginationButton>
 
       {showPageNumbers &&
@@ -144,7 +148,7 @@ export const Pagination = React.forwardRef<
           <React.Fragment key={`${item}_${index}`}>
             {item === 'dots' && (
               <StyledPaginationEllipsis aria-hidden className="manifest-pagination--ellipsis">
-                <Typography>...</Typography>
+                <Typography variant="subtextBold">...</Typography>
               </StyledPaginationEllipsis>
             )}
             {item !== 'dots' && (
@@ -157,7 +161,7 @@ export const Pagination = React.forwardRef<
                   setPage(item as number);
                 }}
               >
-                <Typography>{item.toString()}</Typography>
+                <Typography variant="subtextBold">{item.toString()}</Typography>
               </StyledPaginationButton>
             )}
           </React.Fragment>
@@ -169,8 +173,12 @@ export const Pagination = React.forwardRef<
         disabled={activePage === pageCount}
         onClick={next}
       >
-        <Typography>Next</Typography>
-        <Icon icon="keyboard_arrow_right" />
+        <Typography variant="subtextBold">Next</Typography>
+        <StyledPaginationIcon
+          className="manifest-pagination--button-icon__end"
+          icon="keyboard_arrow_right"
+          placment="end"
+        />
       </StyledPaginationButton>
     </StyledPagination>
   );
