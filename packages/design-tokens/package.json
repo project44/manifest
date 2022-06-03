@@ -1,0 +1,26 @@
+{
+  "name": "@manifest/design-tokens",
+  "version": "0.0.0",
+  "main": "./lib/index.js",
+  "module": "./esm/index.js",
+  "types": "./dts/index.d.ts",
+  "files": [
+    "dts/**/*.d.ts",
+    "esm/**/*.{js,map}",
+    "lib/**/*.{js,map}",
+    "src/**/*.{ts,tsx,json}"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:project-44/manifest.git",
+    "directory": "packages/design-tokens"
+  },
+  "author": "project44",
+  "license": "MIT",
+  "devDependencies": {
+    "style-dictionary": "^3.7.0"
+  },
+  "packemon": {
+    "platform": "browser"
+  }
+}

@@ -1,0 +1,23 @@
+name: Pull request
+
+on: pull_request
+
+jobs:
+  package-size:
+    name: Package size
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - uses: preactjs/compressed-size-action@v2
+        with:
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          pattern: '{**/lib/**/*.js}'
+          exclude: '{**/*.map,**/node_modules/**}'

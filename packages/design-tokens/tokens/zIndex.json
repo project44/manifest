@@ -1,0 +1,10 @@
+{
+  "zIndex": {
+    "dropdown": { "value": 7000 },
+    "modal": { "value": 9000 },
+    "overlay": { "value": 8000 },
+    "popover": { "value": 5000 },
+    "sticky": { "value": 100 },
+    "tooltip": { "value": 10000 }
+  }
+}

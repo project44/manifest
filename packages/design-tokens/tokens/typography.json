@@ -1,0 +1,35 @@
+{
+  "fontFamily": {
+    "mono": { "value": "\"Fira Mono\", Courier, monospace" },
+    "text": {
+      "value": "\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif"
+    }
+  },
+  "fontSize": {
+    "large": { "value": "1.25rem" },
+    "medium": { "value": "1rem" },
+    "small": { "value": "0.875rem" },
+    "x-large": { "value": "1.5rem" },
+    "x-small": { "value": "0.75rem" },
+    "xx-large": { "value": "2rem" }
+  },
+  "fontWeight": {
+    "bold": { "value": 700 },
+    "regular": { "value": 400 },
+    "semibold": { "value": 600 }
+  },
+  "letterSpacing": {
+    "large": { "value": "0em" },
+    "medium": { "value": "-0.01em" },
+    "small": { "value": "-0.02em" },
+    "x-small": { "value": "-0.03em" }
+  },
+  "lineHeight": {
+    "large": { "value": "1.875rem" },
+    "medium": { "value": "1.5rem" },
+    "small": { "value": "1.25rem" },
+    "x-large": { "value": "2rem" },
+    "x-small": { "value": "1.125rem" },
+    "xx-large": { "value": "2.625rem" }
+  }
+}
