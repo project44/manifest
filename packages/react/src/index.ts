@@ -10,6 +10,7 @@ export * from './components/IconButton';
 export * from './components/Input';
 export * from './components/Link';
 export * from './components/Pagination';
+export * from './components/Popover';
 export * from './components/Provider';
 export * from './components/Radio';
 export * from './components/Separator';
