@@ -1,4 +1,3 @@
-import type * as Radix from '@radix-ui/react-primitive';
 import * as React from 'react';
 import { cx, VariantProps } from '../../styles';
 import { StyledButton, StyledButtonIcon } from './Button.styles';
@@ -8,7 +7,7 @@ import { useButtonGroup } from './ButtonGroup.context';
 export interface ButtonProps
   extends ManifestProps,
     VariantProps<typeof StyledButton>,
-    Radix.ComponentPropsWithoutRef<typeof StyledButton> {
+    React.ComponentPropsWithoutRef<typeof StyledButton> {
   /**
    * Icon added after the button text.
    */

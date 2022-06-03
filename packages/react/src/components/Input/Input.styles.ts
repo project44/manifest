@@ -1,7 +1,6 @@
-import { Primitive } from '@radix-ui/react-primitive';
 import { styled } from '../../styles';
 
-export const StyledInputContainer = styled(Primitive.div, {
+export const StyledInputContainer = styled('div', {
   $$inputBackgroundColor: '$colors$background-primary',
   $$inputBorderColor: '$colors$palette-grey-200',
 
@@ -113,7 +112,7 @@ export const StyledInput = styled('input', {
   },
 });
 
-export const StyledInputIcon = styled(Primitive.div, {
+export const StyledInputIcon = styled('div', {
   $$iconColor: '$colors$text-tertiary',
 
   alignItems: 'center',
@@ -133,7 +132,7 @@ export const StyledInputIcon = styled(Primitive.div, {
   },
 });
 
-export const StyledInputWrapper = styled(Primitive.div, {
+export const StyledInputWrapper = styled('div', {
   alignItems: 'center',
   border: 0,
   cursor: 'text',

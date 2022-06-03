@@ -1,4 +1,3 @@
-import type * as Radix from '@radix-ui/react-primitive';
 import * as React from 'react';
 import {
   StyledPagination,
@@ -12,7 +11,7 @@ import { Typography } from '../Typography';
 type PageType = number | 'dots' | 'next' | 'previous';
 
 export interface PaginationProps
-  extends Omit<Radix.ComponentPropsWithoutRef<typeof StyledPagination>, 'onChange'> {
+  extends Omit<React.ComponentPropsWithoutRef<typeof StyledPagination>, 'onChange'> {
   /**
    * The outer visible boundaries of the pagination list.
    *

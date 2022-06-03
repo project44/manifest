@@ -1,7 +1,6 @@
 import { styled } from '../../styles';
-import { Primitive } from '@radix-ui/react-primitive';
 
-export const StyledCard = styled(Primitive.div, {
+export const StyledCard = styled('div', {
   backgroundColor: '$background-surface',
   borderRadius: '$small',
   boxShadow: '$medium',
@@ -9,7 +8,7 @@ export const StyledCard = styled(Primitive.div, {
   overflow: 'hidden',
 });
 
-export const StyledCardBody = styled(Primitive.div, {
+export const StyledCardBody = styled('div', {
   alignItems: 'inherit',
   display: 'flex',
   flex: '1 1 auto',
@@ -21,7 +20,7 @@ export const StyledCardBody = styled(Primitive.div, {
   width: '100%',
 });
 
-export const StyledCardFooter = styled(Primitive.div, {
+export const StyledCardFooter = styled('div', {
   alignItems: 'center',
   display: 'flex',
   height: 'auto',
@@ -32,7 +31,7 @@ export const StyledCardFooter = styled(Primitive.div, {
   width: '100%',
 });
 
-export const StyledCardHeader = styled(Primitive.div, {
+export const StyledCardHeader = styled('div', {
   alignItems: 'center',
   display: 'flex',
   justifyContent: 'flex-start',

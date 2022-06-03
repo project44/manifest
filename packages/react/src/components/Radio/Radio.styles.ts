@@ -1,5 +1,4 @@
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
-import { Primitive } from '@radix-ui/react-primitive';
 import { focus, styled } from '../../styles';
 
 export const StyledRadio = styled(
@@ -92,7 +91,7 @@ export const StyledRadioLabel = styled('label', {
   },
 });
 
-export const StyledRadioText = styled(Primitive.span, {
+export const StyledRadioText = styled('span', {
   fontFamily: '$text',
   fontSize: '$small',
   letterSpacing: '$medium',
