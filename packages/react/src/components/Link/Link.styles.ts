@@ -1,4 +1,4 @@
-import { focusVisible, styled } from '../../styles';
+import { focus, styled } from '../../styles';
 import { Primitive } from '@radix-ui/react-primitive';
 
 export const StyledLink = styled(
@@ -20,5 +20,5 @@ export const StyledLink = styled(
       textDecoration: 'underline',
     },
   },
-  focusVisible,
+  focus,
 );

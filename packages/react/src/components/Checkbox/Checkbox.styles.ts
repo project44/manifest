@@ -1,6 +1,6 @@
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { Primitive } from '@radix-ui/react-primitive';
-import { focusVisible, styled } from '../../styles';
+import { focus, styled } from '../../styles';
 
 export const StyledCheckbox = styled(
   CheckboxPrimitive.Root,
@@ -38,7 +38,7 @@ export const StyledCheckbox = styled(
       fontSize: '$$checkboxSize',
     },
   },
-  focusVisible,
+  focus,
 );
 
 export const StyledCheckboxIndicator = styled(CheckboxPrimitive.Indicator, {

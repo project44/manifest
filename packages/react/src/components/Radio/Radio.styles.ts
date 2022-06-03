@@ -1,6 +1,6 @@
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 import { Primitive } from '@radix-ui/react-primitive';
-import { focusVisible, styled } from '../../styles';
+import { focus, styled } from '../../styles';
 
 export const StyledRadio = styled(
   RadioGroupPrimitive.Item,
@@ -32,7 +32,7 @@ export const StyledRadio = styled(
       borderColor: 'transparent',
     },
   },
-  focusVisible,
+  focus,
 );
 
 export const StyledRadioIndicator = styled(RadioGroupPrimitive.Indicator, {
