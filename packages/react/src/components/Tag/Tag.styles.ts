@@ -1,9 +1,15 @@
 import { styled } from '../../styles';
 import { Icon } from '../Icon';
+import { IconButton } from '../IconButton';
 import { Typography } from '../Typography';
 
 export const StyledTag = styled('div', {
+  all: 'unset',
+
   alignItems: 'center',
+  appearance: 'none',
+  background: 'none',
+  border: 'none',
   borderRadius: '$small',
   boxSizing: 'border-box',
   color: '$text-primary',
@@ -18,6 +24,15 @@ export const StyledTag = styled('div', {
   whiteSpace: 'nowrap',
 
   variants: {
+    isDisabled: {
+      true: {
+        opacity: 0.32,
+        pointerEvents: 'none',
+      },
+    },
+    isClickable: {
+      true: {},
+    },
     variant: {
       filled: {
         backgroundColor: '$palette-grey-100',
@@ -28,15 +43,65 @@ export const StyledTag = styled('div', {
     },
   },
 
+  compoundVariants: [
+    {
+      variant: 'outlined',
+      isClickable: true,
+      css: {
+        '&:hover': {
+          backgroundColor: '$palette-grey-50',
+          borderColor: '$palette-grey-400',
+        },
+
+        '&:focus': {
+          backgroundColor: '$palette-grey-100',
+          borderColor: '$palette-grey-400',
+        },
+
+        '&:active': {
+          backgroundColor: '$palette-grey-200',
+          borderColor: '$palette-grey-400',
+        },
+      },
+    },
+    {
+      variant: 'filled',
+      isClickable: true,
+      css: {
+        '&:hover': {
+          backgroundColor: '$palette-grey-200',
+        },
+
+        '&:focus': {
+          backgroundColor: '$palette-grey-300',
+        },
+
+        '&:active': {
+          backgroundColor: '$palette-grey-400',
+        },
+      },
+    },
+  ],
+
   defaultVariants: {
     variant: 'outlined',
   },
 });
 
-export const StyledDismissIcon = styled(Icon, {
-  cursor: 'pointer',
+export const StyledRemoveButton = styled(IconButton, {
+  marginRight: '$xx-small',
+
+  variants: {
+    size: {
+      small: {
+        padding: '0.125rem',
+      },
+    },
+  },
+});
+
+export const StyledRemoveIcon = styled(Icon, {
   fontSize: '1rem',
-  marginRight: '6px',
   size: '1rem',
 });
 

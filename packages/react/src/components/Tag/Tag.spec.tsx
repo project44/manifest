@@ -1,32 +1,46 @@
 import * as React from 'react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
-import { act, fireEvent, render, screen } from '@testing-library/react';
 import { Tag } from './Tag';
 
-describe('@manifest-ui/tag', () => {
+describe('@manifest/react - Tag', () => {
   it('should pass accessibility', async () => {
     const { container } = render(<Tag>Custom Tag</Tag>);
 
     expect(await axe(container)).toHaveNoViolations();
   });
 
-  it('should render with just text', () => {
-    render(<Tag>Custom Tag</Tag>);
+  it('should support being removed', () => {
+    const onRemove = jest.fn();
 
-    expect(screen.getByText('Custom Tag')).toBeDefined();
+    render(<Tag onRemove={onRemove}>Custom Tag</Tag>);
+
+    fireEvent.click(screen.getByLabelText('remove'));
+
+    expect(onRemove).toHaveBeenCalled();
   });
 
-  it('should support being dismissible', () => {
-    const dismissSpy = jest.fn();
+  it('should support being clicked', () => {
+    const onClick = jest.fn();
+
+    render(<Tag onClick={onClick}>Custom Tag</Tag>);
+
+    fireEvent.click(screen.getByText('Custom Tag'));
+
+    expect(onClick).toHaveBeenCalled();
+  });
+
+  it('should support disabled', () => {
+    const onClick = jest.fn();
 
     render(
-      <Tag isDismissible onDismiss={dismissSpy}>
+      <Tag isDisabled onClick={onClick}>
         Custom Tag
       </Tag>,
     );
 
-    fireEvent.click(screen.getByLabelText('dismiss'));
+    fireEvent.click(screen.getByText('Custom Tag'));
 
-    expect(dismissSpy).toHaveBeenCalled();
+    expect(onClick).not.toHaveBeenCalled();
   });
 });

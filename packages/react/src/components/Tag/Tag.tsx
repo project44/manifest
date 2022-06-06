@@ -1,48 +1,65 @@
 import * as React from 'react';
-import { StyledDismissIcon, StyledTag, StyledTagText } from './Tag.styles';
+import { StyledRemoveButton, StyledRemoveIcon, StyledTag, StyledTagText } from './Tag.styles';
 import { cx, VariantProps } from '../../styles';
 import { ManifestProps } from '../../types';
 
 type TagElement = React.ElementRef<typeof StyledTag>;
 type TagNativeProps = React.ComponentPropsWithRef<typeof StyledTag>;
 
-export interface TagProps extends ManifestProps, VariantProps<typeof StyledTag>, TagNativeProps {
+export interface TagProps
+  extends ManifestProps,
+    Omit<VariantProps<typeof StyledTag>, 'isClickable'>,
+    TagNativeProps {
   /**
-   * Whether the tag is dismissible.
-   *
-   * @default false
+   * Callback function fired when the tag is clicked.
    */
-  isDismissible?: boolean;
+  onClick?(): void;
   /**
-   * Callback function fired when the dismiss icon is clicked.
+   * Callback function fired when the remove icon is clicked.
    */
-  onDismiss?: React.EventHandler<any>;
+  onRemove?(): void;
 }
 
 export const Tag = React.forwardRef<TagElement, TagProps>((props, forwardedRef) => {
-  const { children, className, isDismissible, onDismiss, ...other } = props;
+  const { children: childrenProp, className, isDisabled, onClick, onRemove, ...other } = props;
 
-  const handleDismiss = React.useCallback(
-    (event: React.MouseEvent<HTMLSpanElement>) => {
-      event.stopPropagation();
-
-      onDismiss?.(event);
-    },
-    [onDismiss],
+  const children = (
+    <StyledTagText className="manifest-tag--text" variant="caption">
+      {childrenProp}
+    </StyledTagText>
   );
+
+  if (onClick) {
+    return (
+      <StyledTag
+        {...(other as React.ComponentPropsWithRef<'button'>)}
+        as="button"
+        className={cx('manifest-tag', className)}
+        disabled={!!isDisabled}
+        isClickable={!!onClick}
+        isDisabled={isDisabled}
+        onClick={onClick}
+        ref={forwardedRef as React.RefObject<HTMLButtonElement>}
+        type="button"
+      >
+        {children}
+      </StyledTag>
+    );
+  }
 
   return (
     <StyledTag {...other} className={cx('manifest-tag', className)} ref={forwardedRef}>
-      <StyledTagText className="manifest-tag--text" variant="caption">
-        {children}
-      </StyledTagText>
-      {isDismissible && (
-        <StyledDismissIcon
-          aria-label="dismiss"
-          className="manifest-tag--dismiss-icon"
-          icon="clear"
-          onClick={handleDismiss}
-        />
+      {children}
+      {onRemove && (
+        <StyledRemoveButton
+          aria-label="remove"
+          className="manifest-tag--remove"
+          onClick={onRemove}
+          size="small"
+          variant="tertiary"
+        >
+          <StyledRemoveIcon className="manifest-tag--remove__icon" icon="clear" />
+        </StyledRemoveButton>
       )}
     </StyledTag>
   );

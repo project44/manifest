@@ -19,4 +19,6 @@ export const Default = Template.bind({});
 
 Default.args = {
   children: 'Tag',
+  onClick: undefined,
+  onRemove: undefined,
 };
