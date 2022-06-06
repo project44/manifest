@@ -3027,6 +3027,7 @@ __metadata:
     "@radix-ui/react-dropdown-menu": ^0.1.6
     "@radix-ui/react-popover": ^0.1.6
     "@radix-ui/react-radio-group": ^0.1.5
+    "@radix-ui/react-select": ^0.1.1
     "@radix-ui/react-separator": ^0.1.4
     "@radix-ui/react-slot": ^0.1.2
     "@radix-ui/react-switch": ^0.1.5
@@ -3285,6 +3286,15 @@ __metadata:
     webpack-plugin-serve:
       optional: true
   checksum: 3490649181878cc8808fb91f3870ef095e5a1fb9647b3ac83740df07379c9d1cf540f24bf2b09d5f26a3a8c805b2c6b9c5be7192bdb9317d0ffffa67426e9f66
+  languageName: node
+  linkType: hard
+
+"@radix-ui/number@npm:0.1.0":
+  version: 0.1.0
+  resolution: "@radix-ui/number@npm:0.1.0"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+  checksum: 6d4efbf9158c1b1d18861da9c232e27a67ed496e46ab621521cc076952f1b93e6c56121e9b597e2e245b77dea294f0b1f79cd2ea1467d8361ba51334b00ffb1f
   languageName: node
   linkType: hard
 
@@ -3632,6 +3642,36 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@radix-ui/react-select@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "@radix-ui/react-select@npm:0.1.1"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/number": 0.1.0
+    "@radix-ui/primitive": 0.1.0
+    "@radix-ui/react-collection": 0.1.4
+    "@radix-ui/react-compose-refs": 0.1.0
+    "@radix-ui/react-context": 0.1.1
+    "@radix-ui/react-dismissable-layer": 0.1.5
+    "@radix-ui/react-focus-scope": 0.1.4
+    "@radix-ui/react-id": 0.1.5
+    "@radix-ui/react-label": 0.1.5
+    "@radix-ui/react-portal": 0.1.4
+    "@radix-ui/react-primitive": 0.1.4
+    "@radix-ui/react-use-callback-ref": 0.1.0
+    "@radix-ui/react-use-controllable-state": 0.1.0
+    "@radix-ui/react-use-layout-effect": 0.1.0
+    "@radix-ui/react-use-previous": 0.1.1
+    "@radix-ui/react-visually-hidden": 0.1.4
+    aria-hidden: ^1.1.1
+    react-remove-scroll: ^2.4.0
+  peerDependencies:
+    react: ^16.8 || ^17.0
+    react-dom: ^16.8 || ^17.0
+  checksum: 88fe1645e1a2dcb00f1d4c3383206e7e5de89e1d0ec1dfd5e56c01fee13678715d0f7b1b4581fb6bc8656568f9d9c8a14501d86ef45fc7aa16f2ee9fcebd9795
+  languageName: node
+  linkType: hard
+
 "@radix-ui/react-separator@npm:^0.1.4":
   version: 0.1.4
   resolution: "@radix-ui/react-separator@npm:0.1.4"
@@ -3778,7 +3818,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-visually-hidden@npm:^0.1.4":
+"@radix-ui/react-visually-hidden@npm:0.1.4, @radix-ui/react-visually-hidden@npm:^0.1.4":
   version: 0.1.4
   resolution: "@radix-ui/react-visually-hidden@npm:0.1.4"
   dependencies:
