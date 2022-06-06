@@ -4,6 +4,7 @@ export * from './components/Button';
 export * from './components/Card';
 export * from './components/Checkbox';
 export * from './components/CssBaseline';
+export * from './components/Dropdown';
 export * from './components/Flex';
 export * from './components/Icon';
 export * from './components/IconButton';
