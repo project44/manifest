@@ -44,7 +44,7 @@ describe('@manifest/react - Input', () => {
   it('should render disabled state and not allow input', async () => {
     const onChangeSpy = jest.fn();
 
-    const container = render(<Input disabled onChange={onChangeSpy} value="foo" />);
+    const container = render(<Input isDisabled onChange={onChangeSpy} value="foo" />);
 
     const input = container.getByDisplayValue('foo');
 

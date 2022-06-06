@@ -3025,7 +3025,6 @@ __metadata:
     "@radix-ui/react-avatar": ^0.1.4
     "@radix-ui/react-checkbox": ^0.1.5
     "@radix-ui/react-dropdown-menu": ^0.1.6
-    "@radix-ui/react-label": ^0.1.5
     "@radix-ui/react-popover": ^0.1.6
     "@radix-ui/react-radio-group": ^0.1.5
     "@radix-ui/react-separator": ^0.1.4
@@ -3465,7 +3464,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-label@npm:0.1.5, @radix-ui/react-label@npm:^0.1.5":
+"@radix-ui/react-label@npm:0.1.5":
   version: 0.1.5
   resolution: "@radix-ui/react-label@npm:0.1.5"
   dependencies:
