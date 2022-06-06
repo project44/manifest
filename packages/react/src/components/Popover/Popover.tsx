@@ -12,6 +12,8 @@ export interface PopoverProps {
   align?: Align;
   /**
    * The offset of the menu in relation to its trigger.
+   *
+   * @default '[0, 4]'
    */
   offset?: [crossAxis: number, mainAxis: number];
   /**
@@ -43,7 +45,7 @@ export const Popover: React.FC<React.PropsWithChildren<PopoverProps>> = props =>
     align = 'center',
     children,
     isOpen,
-    offset = [0, 8],
+    offset = [0, 4],
     placement = 'bottom',
     onChange,
     onEscapeKeyDown,

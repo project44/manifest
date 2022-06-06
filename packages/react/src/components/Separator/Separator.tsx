@@ -3,12 +3,15 @@ import { cx, VariantProps } from '../../styles';
 import { ManifestProps } from '../../types';
 import { StyledSeparator } from './Separator.styles';
 
+type SeparatorElement = React.ElementRef<typeof StyledSeparator>;
+type SeparatorNativeProps = React.ComponentPropsWithRef<typeof StyledSeparator>;
+
 export interface SeparatorProps
   extends ManifestProps,
-    React.ComponentPropsWithoutRef<typeof StyledSeparator>,
-    VariantProps<typeof StyledSeparator> {}
+    VariantProps<typeof StyledSeparator>,
+    SeparatorNativeProps {}
 
-export const Separator = React.forwardRef<React.ElementRef<typeof StyledSeparator>, SeparatorProps>(
+export const Separator = React.forwardRef<SeparatorElement, SeparatorProps>(
   (props, forwardedRef) => {
     const { className, orientation = 'horizontal', ...other } = props;
 
