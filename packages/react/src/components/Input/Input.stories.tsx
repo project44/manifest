@@ -1,7 +1,6 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
 import { Input } from './Input';
-import { Icon } from '../Icon';
 
 export default {
   title: 'Components/Input',

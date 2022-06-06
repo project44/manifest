@@ -79,14 +79,6 @@ export const StyledInput = styled('input', {
     userSelect: 'none',
   },
 
-  '&.mainfest-input__has-end-icon': {
-    paddingRight: 0,
-  },
-
-  '&.manifest-input__has-start-icon': {
-    paddingLeft: 0,
-  },
-
   variants: {
     isInvalid: {
       true: {
@@ -103,6 +95,16 @@ export const StyledInput = styled('input', {
       },
       small: {
         minHeight: '2rem',
+      },
+    },
+    hasEndIcon: {
+      true: {
+        paddingRight: 0,
+      },
+    },
+    hasStartIcon: {
+      true: {
+        paddingLeft: 0,
       },
     },
   },
