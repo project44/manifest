@@ -1,6 +1,6 @@
 import { focusWithin, styled } from '../../styles';
 
-export const StyledInput = styled('input', {
+export const StyledSelect = styled('select', {
   $$inputTextColor: '$colors$text-primary',
 
   appearance: 'none',
@@ -8,7 +8,7 @@ export const StyledInput = styled('input', {
   border: 'none',
   borderRadius: '$small',
   color: '$$inputTextColor',
-  cursor: 'text',
+  cursor: 'pointer',
   margin: 0,
   outline: 0,
   resize: 'none',
@@ -26,6 +26,10 @@ export const StyledInput = styled('input', {
         $$inputTextColor: '$colors$text-disabled',
 
         cursor: 'not-allowed',
+
+        '&::placeholder': {
+          color: '$text-disabled',
+        },
       },
     },
     isInvalid: {
@@ -48,7 +52,7 @@ export const StyledInput = styled('input', {
   },
 });
 
-export const StyledInputIcon = styled('div', {
+export const StyledSelectIcon = styled('div', {
   $$iconColor: '$colors$text-tertiary',
 
   alignItems: 'center',
@@ -65,9 +69,12 @@ export const StyledInputIcon = styled('div', {
     },
     placement: {
       end: {
-        borderBottomRightRadius: '$small',
-        borderTopRightRadius: '$small',
-        borderLeft: '1px solid $palette-grey-200',
+        right: 0,
+        pointerEvents: 'none',
+        position: 'absolute',
+        transform: 'translateY(-50%)',
+        top: '50%',
+        zIndex: 10,
       },
       start: {
         borderBottomLefttRadius: '$small',
@@ -98,7 +105,12 @@ export const StyledInputIcon = styled('div', {
   },
 });
 
-export const StyledInputWrapper = styled(
+export const StyledSelectOption = styled('option', {
+  boxSizing: 'border-box',
+  color: 'inherit',
+});
+
+export const StyledSelectWrapper = styled(
   'div',
   {
     $$inputBackgroundColor: '$colors$background-primary',
@@ -110,6 +122,7 @@ export const StyledInputWrapper = styled(
     boxSizing: 'border-box',
     cursor: 'text',
     display: 'flex',
+    position: 'relative',
     transition: '$default',
     width: '100%',
 
@@ -118,8 +131,7 @@ export const StyledInputWrapper = styled(
         true: {
           $$inputBackgroundColor: '$colors$palette-grey-50',
 
-          opacity: 0.38,
-          pointerEvents: 'none',
+          cursor: 'not-allowed',
         },
       },
       isHovered: {

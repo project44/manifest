@@ -1,13 +1,16 @@
 import { css } from '../config';
 
 export const focus = css({
-  WebkitTapHighlightColor: 'transparent',
-
-  '&:focus:not(&:focus-visible)': {
-    outline: 'none',
-  },
-
   '&:focus': {
-    outline: '$colors$palette-indigo-200 solid 3px',
+    boxShadow: '0 0 0 3px $colors$palette-indigo-200',
+    transition: '$shadow',
+  },
+});
+
+export const focusWithin = css({
+  '&:focus-within': {
+    borderColor: '$primary',
+    boxShadow: '0 0 0 3px $colors$palette-indigo-200',
+    transition: '$shadow',
   },
 });

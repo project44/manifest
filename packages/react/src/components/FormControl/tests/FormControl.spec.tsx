@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { axe } from 'jest-axe';
-import { FormControl } from './FormControl';
-import { FormControlHelperText } from './FormControlHelperText';
-import { FormControlLabel } from './FormControlLabel';
-import { Input } from '../Input';
+import { FormControl } from '../FormControl';
+import { FormControlHelperText } from '../FormControlHelperText';
+import { FormControlLabel } from '../FormControlLabel';
+import { Input } from '../../Input';
 import { render } from '@testing-library/react';
 
 describe('@manifest-ui/form-control', () => {

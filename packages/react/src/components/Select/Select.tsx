@@ -1,22 +1,19 @@
 import * as React from 'react';
-import { StyledInput, StyledInputIcon, StyledInputWrapper } from './Input.styles';
+import { StyledSelect, StyledSelectIcon, StyledSelectWrapper } from './Select.styles';
 import { cx, VariantProps } from '../../styles';
 import { ManifestProps } from '../../types';
 import { useFormControl } from '../FormControl';
+import { Icon } from '../Icon';
 import { useHover } from '@react-aria/interactions';
 
-type OmittedInputProps = 'disabled' | 'readOnly' | 'required';
-type InputElement = React.ElementRef<typeof StyledInput>;
-type InputNativeProps = Omit<React.ComponentPropsWithRef<typeof StyledInput>, OmittedInputProps>;
+type OmittedSelectProps = 'disabled' | 'readOnly' | 'required';
+type SelectElement = React.ElementRef<typeof StyledSelect>;
+type SelectNativeProps = Omit<React.ComponentPropsWithRef<typeof StyledSelect>, OmittedSelectProps>;
 
-export interface InputProps
+export interface SelectProps
   extends ManifestProps,
-    VariantProps<typeof StyledInput>,
-    InputNativeProps {
-  /**
-   * Icon displayed at the end of the text field.
-   */
-  endIcon?: React.ReactNode;
+    VariantProps<typeof StyledSelect>,
+    SelectNativeProps {
   /**
    * Whether the control is disabled.
    */
@@ -39,12 +36,12 @@ export interface InputProps
   startIcon?: React.ReactNode;
 }
 
-export const Input = React.forwardRef<InputElement, InputProps>((props, forwardedRef) => {
+export const Select = React.forwardRef<SelectElement, SelectProps>((props, forwardedRef) => {
   const formControl = useFormControl();
 
   const {
+    children,
     className,
-    endIcon,
     id = formControl?.id,
     isDisabled = formControl?.isDisabled,
     isInvalid = formControl?.isInvalid,
@@ -58,25 +55,25 @@ export const Input = React.forwardRef<InputElement, InputProps>((props, forwarde
   const { hoverProps, isHovered } = useHover({ isDisabled });
 
   return (
-    <StyledInputWrapper
+    <StyledSelectWrapper
       {...hoverProps}
-      className="manifest-input--wrapper"
+      className="manifest-select--wrapper"
       isDisabled={isDisabled}
       isHovered={isHovered}
       isInvalid={isInvalid}
     >
       {startIcon && (
-        <StyledInputIcon
+        <StyledSelectIcon
           className="manifest-input--icon__start"
           isInvalid={isInvalid}
           placement="start"
           size={size}
         >
           {startIcon}
-        </StyledInputIcon>
+        </StyledSelectIcon>
       )}
 
-      <StyledInput
+      <StyledSelect
         {...other}
         aria-describedby={formControl?.hasHelperText ? formControl?.helperTextId : undefined}
         aria-invalid={isInvalid ? true : undefined}
@@ -84,25 +81,24 @@ export const Input = React.forwardRef<InputElement, InputProps>((props, forwarde
         className={cx('manifest-input', className)}
         disabled={isDisabled}
         id={id}
+        isDisabled={isDisabled}
         isInvalid={isInvalid}
         ref={forwardedRef}
         readOnly={isReadOnly}
         required={isRequired}
         size={size}
-      />
+      >
+        {children}
+      </StyledSelect>
 
-      {endIcon && (
-        <StyledInputIcon
-          className="manifest-input--icon__end"
-          isInvalid={isInvalid}
-          placement="end"
-          size={size}
-        >
-          {endIcon}
-        </StyledInputIcon>
-      )}
-    </StyledInputWrapper>
+      <StyledSelectIcon
+        className="manifest-input--icon__start"
+        isInvalid={isInvalid}
+        placement="end"
+        size={size}
+      >
+        <Icon icon="expand_more" />
+      </StyledSelectIcon>
+    </StyledSelectWrapper>
   );
 });
-
-Input.displayName = 'Input';

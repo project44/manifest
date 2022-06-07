@@ -52,6 +52,7 @@ const transitions = {
     'backdrop-filter',
   ]),
   opacity: createTransition(['opacity']),
+  shadow: createTransition(['box-shadow']),
   transform: createTransition(['transform']),
 };
 

@@ -1541,7 +1541,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.10.4, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.16.0, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.2, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.10.4, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.16.0, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.2, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.6.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.18.3
   resolution: "@babel/runtime@npm:7.18.3"
   dependencies:
@@ -3027,12 +3027,12 @@ __metadata:
     "@radix-ui/react-dropdown-menu": ^0.1.6
     "@radix-ui/react-popover": ^0.1.6
     "@radix-ui/react-radio-group": ^0.1.5
-    "@radix-ui/react-select": ^0.1.1
     "@radix-ui/react-separator": ^0.1.4
     "@radix-ui/react-slot": ^0.1.2
     "@radix-ui/react-switch": ^0.1.5
     "@radix-ui/react-use-controllable-state": ^0.1.0
     "@radix-ui/react-visually-hidden": ^0.1.4
+    "@react-aria/interactions": ^3.9.0
     "@stitches/react": ^1.2.8
     clsx: ^1.1.1
     dom-lib: ^3.1.2
@@ -3286,15 +3286,6 @@ __metadata:
     webpack-plugin-serve:
       optional: true
   checksum: 3490649181878cc8808fb91f3870ef095e5a1fb9647b3ac83740df07379c9d1cf540f24bf2b09d5f26a3a8c805b2c6b9c5be7192bdb9317d0ffffa67426e9f66
-  languageName: node
-  linkType: hard
-
-"@radix-ui/number@npm:0.1.0":
-  version: 0.1.0
-  resolution: "@radix-ui/number@npm:0.1.0"
-  dependencies:
-    "@babel/runtime": ^7.13.10
-  checksum: 6d4efbf9158c1b1d18861da9c232e27a67ed496e46ab621521cc076952f1b93e6c56121e9b597e2e245b77dea294f0b1f79cd2ea1467d8361ba51334b00ffb1f
   languageName: node
   linkType: hard
 
@@ -3642,36 +3633,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-select@npm:^0.1.1":
-  version: 0.1.1
-  resolution: "@radix-ui/react-select@npm:0.1.1"
-  dependencies:
-    "@babel/runtime": ^7.13.10
-    "@radix-ui/number": 0.1.0
-    "@radix-ui/primitive": 0.1.0
-    "@radix-ui/react-collection": 0.1.4
-    "@radix-ui/react-compose-refs": 0.1.0
-    "@radix-ui/react-context": 0.1.1
-    "@radix-ui/react-dismissable-layer": 0.1.5
-    "@radix-ui/react-focus-scope": 0.1.4
-    "@radix-ui/react-id": 0.1.5
-    "@radix-ui/react-label": 0.1.5
-    "@radix-ui/react-portal": 0.1.4
-    "@radix-ui/react-primitive": 0.1.4
-    "@radix-ui/react-use-callback-ref": 0.1.0
-    "@radix-ui/react-use-controllable-state": 0.1.0
-    "@radix-ui/react-use-layout-effect": 0.1.0
-    "@radix-ui/react-use-previous": 0.1.1
-    "@radix-ui/react-visually-hidden": 0.1.4
-    aria-hidden: ^1.1.1
-    react-remove-scroll: ^2.4.0
-  peerDependencies:
-    react: ^16.8 || ^17.0
-    react-dom: ^16.8 || ^17.0
-  checksum: 88fe1645e1a2dcb00f1d4c3383206e7e5de89e1d0ec1dfd5e56c01fee13678715d0f7b1b4581fb6bc8656568f9d9c8a14501d86ef45fc7aa16f2ee9fcebd9795
-  languageName: node
-  linkType: hard
-
 "@radix-ui/react-separator@npm:^0.1.4":
   version: 0.1.4
   resolution: "@radix-ui/react-separator@npm:0.1.4"
@@ -3818,7 +3779,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-visually-hidden@npm:0.1.4, @radix-ui/react-visually-hidden@npm:^0.1.4":
+"@radix-ui/react-visually-hidden@npm:^0.1.4":
   version: 0.1.4
   resolution: "@radix-ui/react-visually-hidden@npm:0.1.4"
   dependencies:
@@ -3836,6 +3797,65 @@ __metadata:
   dependencies:
     "@babel/runtime": ^7.13.10
   checksum: 6f781fe3f6546930a69de7f3763593c1fbaffd17f03ec613c78946344769c157ebf4d8a5e4eb36e31c7ff51fbff6f7e9b27a3e9f1f411fc6a4528f439b2fba96
+  languageName: node
+  linkType: hard
+
+"@react-aria/interactions@npm:^3.9.0":
+  version: 3.9.0
+  resolution: "@react-aria/interactions@npm:3.9.0"
+  dependencies:
+    "@babel/runtime": ^7.6.2
+    "@react-aria/utils": ^3.13.0
+    "@react-types/shared": ^3.13.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+  checksum: 783d4fa59bda9329f4977d8e83c88555c3376c489e40d97c974c7725ebf286849ed149f8e20226fbab070bd45356e5ba01ace328d2ed785f0f40e28790e7b0d5
+  languageName: node
+  linkType: hard
+
+"@react-aria/ssr@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "@react-aria/ssr@npm:3.2.0"
+  dependencies:
+    "@babel/runtime": ^7.6.2
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+  checksum: 30468b436f9d56636eb3fb89cbbbf861c55ad841e255e529d225a0efd9c23628badaee72c42ab3870b5f17a9d5b5163564a64e9b928565230a090cb4f7de23bf
+  languageName: node
+  linkType: hard
+
+"@react-aria/utils@npm:^3.13.0":
+  version: 3.13.0
+  resolution: "@react-aria/utils@npm:3.13.0"
+  dependencies:
+    "@babel/runtime": ^7.6.2
+    "@react-aria/ssr": ^3.2.0
+    "@react-stately/utils": ^3.5.0
+    "@react-types/shared": ^3.13.0
+    clsx: ^1.1.1
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+  checksum: 7a154d6258adf6205ac367def0fcaf1b3fd0db3644c43481b2cb6eb9bc0f35ebddab9ecbddbec8dee92bbf5e38b63222137e1df5c26e5c8c1775ffa0e0b172fa
+  languageName: node
+  linkType: hard
+
+"@react-stately/utils@npm:^3.5.0":
+  version: 3.5.0
+  resolution: "@react-stately/utils@npm:3.5.0"
+  dependencies:
+    "@babel/runtime": ^7.6.2
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+  checksum: e948b783a01325a5396c46915508981152fcc02a8738c848342c8ecfbc64bdefc14530616d8ccfb6680fc85f24d0546f3df3686b189a9fbaa86ccbbe29e2fe1b
+  languageName: node
+  linkType: hard
+
+"@react-types/shared@npm:^3.13.0":
+  version: 3.13.0
+  resolution: "@react-types/shared@npm:3.13.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+  checksum: 59b94fd8ef8fbb8edeb44e233113450a15fee107f231eaced043a1acb820c7fb8bf690623a0f85e2a638a870ee074919d6f89263ad2395c26e363ae25b102bdf
   languageName: node
   linkType: hard
 

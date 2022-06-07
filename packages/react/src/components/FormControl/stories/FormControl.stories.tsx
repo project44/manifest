@@ -1,9 +1,9 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
-import { FormControl } from './FormControl';
-import { FormControlHelperText } from './FormControlHelperText';
-import { FormControlLabel } from './FormControlLabel';
-import { Input } from '../Input';
+import { FormControl } from '../FormControl';
+import { FormControlHelperText } from '../FormControlHelperText';
+import { FormControlLabel } from '../FormControlLabel';
+import { Input } from '../../Input';
 
 export default {
   title: 'Components/FormControl',
