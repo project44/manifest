@@ -16,6 +16,7 @@ export * from './components/Provider';
 export * from './components/Radio';
 export * from './components/Separator';
 export * from './components/Table';
+export * from './components/Tag';
 export * from './components/Toggle';
 export * from './components/Typography';
 export * from './components/VisuallyHidden';
