@@ -1,0 +1,8 @@
+{
+  "size": {
+    "large": { "value": "80rem" },
+    "medium": { "value": "64rem" },
+    "small": { "value": "37.5rem" },
+    "x-large": { "value": "120rem" }
+  }
+}

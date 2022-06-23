@@ -1,0 +1,48 @@
+{
+  "name": "@manifest/react",
+  "version": "0.0.0",
+  "author": "project44",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "module": "./esm/index.js",
+  "types": "./dts/index.d.ts",
+  "files": [
+    "dts/**/*.d.ts",
+    "esm/**/*.{js,map}",
+    "lib/**/*.{js,map}",
+    "src/**/*.{ts,tsx,json}"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:project-44/manifest.git",
+    "directory": "packages/react"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "dependencies": {
+    "@manifest/design-tokens": "^0.0.0",
+    "@radix-ui/react-avatar": "^0.1.4",
+    "@radix-ui/react-checkbox": "^0.1.5",
+    "@radix-ui/react-dropdown-menu": "^0.1.6",
+    "@radix-ui/react-popover": "^0.1.6",
+    "@radix-ui/react-radio-group": "^0.1.5",
+    "@radix-ui/react-separator": "^0.1.4",
+    "@radix-ui/react-slot": "^0.1.2",
+    "@radix-ui/react-switch": "^0.1.5",
+    "@radix-ui/react-use-controllable-state": "^0.1.0",
+    "@radix-ui/react-visually-hidden": "^0.1.4",
+    "@react-aria/interactions": "^3.9.0",
+    "@stitches/react": "^1.2.8",
+    "clsx": "^1.1.1",
+    "dom-lib": "^3.1.2"
+  },
+  "devDependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "packemon": {
+    "platform": "browser"
+  }
+}

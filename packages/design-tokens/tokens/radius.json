@@ -1,0 +1,6 @@
+{
+  "radius": {
+    "full": { "value": "8rem" },
+    "small": { "value": "0.125rem" }
+  }
+}

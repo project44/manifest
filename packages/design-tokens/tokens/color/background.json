@@ -1,0 +1,15 @@
+{
+  "color": {
+    "background": {
+      "danger": { "value": "{color.palette.red.50.value}" },
+      "primary": { "value": "{color.palette.white.value}" },
+      "secondary": { "value": "{color.palette.grey.100.value}" },
+      "sideNav": { "value": "#021C6B" },
+      "success": { "value": "{color.palette.green.50.value}" },
+      "surface": { "value": "{color.palette.white.value}" },
+      "tertiary": { "value": "{color.palette.grey.200.value}" },
+      "topNav": { "value": "#1F3987" },
+      "warning": { "value": "{color.palette.orange.50.value}" }
+    }
+  }
+}

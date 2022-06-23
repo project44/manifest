@@ -1,0 +1,10 @@
+{
+  "line-height": {
+    "large": { "value": "30" },
+    "medium": { "value": "24" },
+    "small": { "value": "20" },
+    "x-large": { "value": "32" },
+    "x-small": { "value": "18" },
+    "xx-large": { "value": "42" }
+  }
+}

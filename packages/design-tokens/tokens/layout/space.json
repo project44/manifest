@@ -1,0 +1,9 @@
+{
+  "space": {
+    "medium": { "value": "16" },
+    "small": { "value": "8" },
+    "large": { "value": "24" },
+    "x-large": { "value": "32" },
+    "x-small": { "value": "4" }
+  }
+}
