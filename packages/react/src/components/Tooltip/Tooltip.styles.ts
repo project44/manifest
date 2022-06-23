@@ -1,11 +1,14 @@
-import { styled } from '../../styles';
+import { css } from '../../styles';
 
-export const StyledTooltip = styled('div', {
+export const useTooltipStyles = css({
   backgroundColor: '$palette-grey-700',
   borderRadius: '$small',
   boxSizing: 'border-box',
-  color: '$contrast-primary',
+  color: '$palette-white',
   overflow: 'hidden',
   padding: '$x-small $small',
   position: 'relative',
 });
+
+export type { CSS } from '../../styles';
+export { cx } from '../../styles';

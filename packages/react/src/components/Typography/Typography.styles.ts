@@ -1,6 +1,6 @@
-import { styled } from '../../styles';
+import { css } from '../../styles';
 
-export const StyledTypography = styled('span', {
+export const useTypographyStyles = css({
   margin: '0',
 
   variants: {
@@ -27,3 +27,6 @@ export const StyledTypography = styled('span', {
     variant: 'body',
   },
 });
+
+export type { CSS } from '../../styles';
+export { cx } from '../../styles';

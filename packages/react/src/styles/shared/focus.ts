@@ -1,9 +1,15 @@
 import { css } from '../config';
 
 export const focus = css({
-  '&:focus': {
-    boxShadow: '0 0 0 3px $colors$palette-indigo-200',
-    transition: '$shadow',
+  variants: {
+    isFocusVisible: {
+      true: {
+        outline: '$colors$palette-indigo-200 solid 2px',
+      },
+      false: {
+        outline: 'none',
+      },
+    },
   },
 });
 

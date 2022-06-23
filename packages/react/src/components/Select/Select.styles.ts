@@ -1,150 +1,137 @@
-import { focusWithin, styled } from '../../styles';
+import { css } from '../../styles';
 
-export const StyledSelect = styled('select', {
-  $$inputTextColor: '$colors$text-primary',
+export const useSelectStyles = css({
+  $$backgroundColor: '$colors$background-primary',
+  $$borderColor: '$colors$palette-grey-500',
+  $$iconColor: '$colors$text-tertiary',
+  $$textColor: '$colors$text-primary',
 
-  appearance: 'none',
-  backgroundColor: 'transparent',
-  border: 'none',
-  borderRadius: '$small',
-  color: '$$inputTextColor',
-  cursor: 'pointer',
-  margin: 0,
-  outline: 0,
-  resize: 'none',
-  transition: '$color',
-  typography: '$subtext',
+  display: 'flex',
+  minWidth: '3rem',
+  position: 'relative',
   width: '100%',
 
-  '&::placeholder': {
+  '.manifest-select--icon': {
+    alignItems: 'center',
+    color: '$$iconColor',
+    display: 'inline-flex',
+    justifyContent: 'center',
+    padding: '$small',
+    pointerEvents: 'none',
+    position: 'absolute',
+    top: 0,
+    zIndex: 2,
+  },
+
+  '.manifest-select--icon__end': {
+    right: 0,
+  },
+
+  '.manifest-select--icon__start': {
+    left: 0,
+  },
+
+  '.manifest-select--input': {
+    appearance: 'none',
+    backgroundColor: '$$backgroundColor',
+    border: '1px solid $$borderColor',
+    borderRadius: '$small',
+    boxSizing: 'border-box',
+    color: '$$textColor',
+    cursor: 'default',
+    margin: 0,
+    outline: 0,
+    padding: '0 $small',
+    paddingRight: '2.5rem',
+    textAlign: 'start',
+    width: '100%',
+  },
+
+  '.manifest-select--text': {
     color: '$text-tertiary',
   },
 
   variants: {
+    hasStartIcon: {
+      true: {
+        '.manifest-select--input': {
+          paddingLeft: '2.5rem',
+        },
+      },
+    },
     isDisabled: {
       true: {
-        $$inputTextColor: '$colors$text-disabled',
+        $$backgroundColor: '$colors$palette-grey-50',
+        $$textColor: '$colors$text-disabled',
 
-        cursor: 'not-allowed',
-
-        '&::placeholder': {
-          color: '$text-disabled',
-        },
-      },
-    },
-    isInvalid: {
-      true: {
-        $$inputTextColor: '$colors$text-danger',
-      },
-    },
-    size: {
-      medium: {
-        padding: '0.625rem $small',
-      },
-      small: {
-        padding: '0.375rem $small',
-      },
-    },
-  },
-
-  defaultVariants: {
-    size: 'medium',
-  },
-});
-
-export const StyledSelectIcon = styled('div', {
-  $$iconColor: '$colors$text-tertiary',
-
-  alignItems: 'center',
-  color: '$$iconColor',
-  display: 'inline-flex',
-  justifyContent: 'center',
-  px: '$x-small',
-
-  variants: {
-    isInvalid: {
-      true: {
-        $$iconColor: '$colors$text-danger',
-      },
-    },
-    placement: {
-      end: {
-        right: 0,
-        pointerEvents: 'none',
-        position: 'absolute',
-        transform: 'translateY(-50%)',
-        top: '50%',
-        zIndex: 10,
-      },
-      start: {
-        borderBottomLefttRadius: '$small',
-        borderTopLefttRadius: '$small',
-        borderRight: '1px solid $palette-grey-200',
-      },
-    },
-    size: {
-      medium: {
-        fontSize: '$x-large',
-
-        '> .material-icons': {
-          fontSize: '$x-large',
-        },
-      },
-      small: {
-        fontSize: '1.125rem',
-
-        '> .material-icons': {
-          fontSize: '1.125rem',
-        },
-      },
-    },
-  },
-
-  defaultVariants: {
-    size: 'medium',
-  },
-});
-
-export const StyledSelectOption = styled('option', {
-  boxSizing: 'border-box',
-  color: 'inherit',
-});
-
-export const StyledSelectWrapper = styled(
-  'div',
-  {
-    $$inputBackgroundColor: '$colors$background-primary',
-    $$inputBorderColor: '$colors$palette-grey-200',
-
-    backgroundColor: '$$inputBackgroundColor',
-    border: '1px solid $$inputBorderColor',
-    borderRadius: '$small',
-    boxSizing: 'border-box',
-    cursor: 'text',
-    display: 'flex',
-    position: 'relative',
-    transition: '$default',
-    width: '100%',
-
-    variants: {
-      isDisabled: {
-        true: {
-          $$inputBackgroundColor: '$colors$palette-grey-50',
-
+        '.manifest-select--input': {
           cursor: 'not-allowed',
         },
       },
-      isHovered: {
-        true: {
-          $$inputBorderColor: '$colors$palette-grey-600',
+    },
+    isFocusVisible: {
+      true: {
+        '.manifest-select--input': {
+          outline: '$colors$palette-indigo-200 solid 3px',
         },
       },
-      isInvalid: {
-        true: {
-          $$inputBorderColor: '$colors$border-danger',
+      false: {
+        outline: 'none',
+      },
+    },
+    isHovered: {
+      true: {
+        $$borderColor: '$colors$palette-grey-600',
+      },
+    },
+    isInvalid: {
+      true: {
+        $$borderColor: '$colors$border-danger',
+        $$iconColor: '$colors$text-danger',
+        $$textColor: '$colors$text-danger',
+      },
+    },
+    isPlaceholder: {
+      true: {
+        $$textColor: '$colors$text-tertiary',
+      },
+    },
+    size: {
+      medium: {
+        '.manifest-select--icon': {
+          fontSize: '$x-large',
+          size: '2.5rem',
+
+          '> .material-icons': {
+            fontSize: '$x-large',
+          },
+        },
+
+        '.manifest-select--input': {
+          height: '2.5rem',
+        },
+      },
+      small: {
+        '.manifest-select--icon': {
+          fontSize: '1.125rem',
+          size: '2.125rem',
+
+          '> .material-icons': {
+            fontSize: '1.125rem',
+          },
+        },
+
+        '.manifest-select--input': {
+          height: '2.125rem',
         },
       },
     },
   },
-  focusWithin,
-);
+
+  defaultVariants: {
+    size: 'medium',
+  },
+});
+
+export type { CSS } from '../../styles';
+export { cx } from '../../styles';

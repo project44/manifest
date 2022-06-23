@@ -1,6 +1,6 @@
 import { css } from '../../styles';
 
-export const flexStyles = css({
+export const useFlexStyles = css({
   display: 'flex',
 
   variants: {

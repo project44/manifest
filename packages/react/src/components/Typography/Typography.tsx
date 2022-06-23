@@ -1,50 +1,57 @@
 import * as React from 'react';
-import { cx, VariantProps, TypographyVariant } from '../../styles';
-import { ManifestProps } from '../../types';
-import { StyledTypography } from './Typography.styles';
+import { CSS, cx, useTypographyStyles } from './Typography.styles';
 
-export interface TypographyProps
-  extends ManifestProps,
-    VariantProps<typeof StyledTypography>,
-    React.ComponentPropsWithoutRef<typeof StyledTypography> {}
+/**
+ * -----------------------------------------------------------------------------------------------
+ * Typography
+ * -----------------------------------------------------------------------------------------------
+ */
 
-type TypographyVariantTags =
-  | Exclude<TypographyVariant, 'body-bold' | 'caption-bold' | 'subtext-bold'>
-  | 'bodyBold'
-  | 'captionBold'
-  | 'subtextBold';
-type TypographyTagMap = {
-  [key in TypographyVariantTags]: keyof JSX.IntrinsicElements;
-};
+type TypographyElement = React.ElementRef<'span'>;
+type TypographyNativeProps = React.ComponentPropsWithRef<'span'>;
 
-const tagMap: TypographyTagMap = {
-  display: 'h1',
-  heading: 'h2',
-  title: 'h3',
-  subtitle: 'h4',
-  body: 'p',
-  bodyBold: 'p',
-  subtext: 'span',
-  subtextBold: 'span',
-  caption: 'span',
-  captionBold: 'span',
-};
+interface TypographyProps extends TypographyNativeProps {
+  /**
+   * Theme aware style object.
+   */
+  css?: CSS;
+  /**
+   * The display variant of the text.
+   *
+   * @default 'primary'
+   */
+  variant?:
+    | 'body'
+    | 'bodyBold'
+    | 'caption'
+    | 'captionBold'
+    | 'display'
+    | 'heading'
+    | 'subtext'
+    | 'subtextBold'
+    | 'subtitle'
+    | 'title';
+}
 
-export const Typography = React.forwardRef<
-  React.ElementRef<typeof StyledTypography>,
-  TypographyProps
->((props, ref) => {
-  const { className, variant = 'body', ...other } = props;
+const Typography = React.forwardRef<TypographyElement, TypographyProps>((props, forwardedRef) => {
+  const { className: classNameProp, css, variant = 'body', ...other } = props;
 
-  const tag = React.useMemo(() => tagMap[variant as TypographyVariantTags] ?? 'span', [variant]);
+  const { className } = useTypographyStyles({ css, variant });
 
   return (
-    <StyledTypography
+    <span
       {...other}
-      as={tag}
-      className={cx('manifest-typography', className)}
-      ref={ref}
-      variant={variant}
+      className={cx('manifest-typography', className, classNameProp)}
+      ref={forwardedRef}
     />
   );
 });
+
+if (__DEV__) {
+  Typography.displayName = 'ManifestTypography';
+}
+
+Typography.toString = () => '.manifest-typography';
+
+export { Typography };
+export type { TypographyProps };

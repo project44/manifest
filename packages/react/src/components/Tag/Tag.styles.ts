@@ -1,15 +1,10 @@
-import { styled } from '../../styles';
-import { Icon } from '../Icon';
-import { IconButton } from '../IconButton';
-import { Typography } from '../Typography';
+import { css } from '../../styles';
 
-export const StyledTag = styled('div', {
-  all: 'unset',
-
+export const useTagStyles = css({
   alignItems: 'center',
   appearance: 'none',
   background: 'none',
-  border: 'none',
+  border: '1px solid $colors$palette-grey-200',
   borderRadius: '$small',
   boxSizing: 'border-box',
   color: '$text-primary',
@@ -17,98 +12,38 @@ export const StyledTag = styled('div', {
   height: '1.5rem',
   justifyContent: 'center',
   outline: 0,
-  padding: 0,
+  padding: '0.1875rem $small',
   textDecoration: 'none',
-  transition: '$color',
   verticalAlign: 'middle',
   whiteSpace: 'nowrap',
 
+  '.manifest-tag--button': {
+    padding: 0,
+    margin: 0,
+    marginLeft: '$x-small',
+    size: '1rem',
+  },
+
+  '.manifest-tag--icon': {
+    fontSize: '$medium',
+    size: '1rem',
+  },
+
+  '.manifest-tag--text': {
+    color: 'inherit',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+  },
+
   variants: {
-    isDisabled: {
+    isRemovable: {
       true: {
-        opacity: 0.32,
-        pointerEvents: 'none',
-      },
-    },
-    isClickable: {
-      true: {},
-    },
-    variant: {
-      filled: {
-        backgroundColor: '$palette-grey-100',
-      },
-      outlined: {
-        border: '1px solid $palette-grey-200',
-      },
-    },
-  },
-
-  compoundVariants: [
-    {
-      variant: 'outlined',
-      isClickable: true,
-      css: {
-        '&:hover': {
-          backgroundColor: '$palette-grey-50',
-          borderColor: '$palette-grey-400',
-        },
-
-        '&:focus': {
-          backgroundColor: '$palette-grey-100',
-          borderColor: '$palette-grey-400',
-        },
-
-        '&:active': {
-          backgroundColor: '$palette-grey-200',
-          borderColor: '$palette-grey-400',
-        },
-      },
-    },
-    {
-      variant: 'filled',
-      isClickable: true,
-      css: {
-        '&:hover': {
-          backgroundColor: '$palette-grey-200',
-        },
-
-        '&:focus': {
-          backgroundColor: '$palette-grey-300',
-        },
-
-        '&:active': {
-          backgroundColor: '$palette-grey-400',
-        },
-      },
-    },
-  ],
-
-  defaultVariants: {
-    variant: 'outlined',
-  },
-});
-
-export const StyledRemoveButton = styled(IconButton, {
-  marginRight: '$xx-small',
-
-  variants: {
-    size: {
-      small: {
-        padding: '0.125rem',
+        paddingRight: '0.375rem',
       },
     },
   },
 });
 
-export const StyledRemoveIcon = styled(Icon, {
-  fontSize: '1rem',
-  size: '1rem',
-});
-
-export const StyledTagText = styled(Typography, {
-  color: 'inherit',
-  overflow: 'hidden',
-  px: '$x-small',
-  textOverflow: 'ellipsis',
-  whiteSpace: 'nowrap',
-});
+export type { CSS } from '../../styles';
+export { cx } from '../../styles';

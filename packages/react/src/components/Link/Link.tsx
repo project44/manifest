@@ -1,16 +1,39 @@
 import * as React from 'react';
-import { cx } from '../../styles';
-import { ManifestProps } from '../../types';
-import { StyledLink } from './Link.styles';
+import { CSS, cx, useLinkStyles } from './Link.styles';
 
-export interface LinkProps
-  extends ManifestProps,
-    React.ComponentPropsWithoutRef<typeof StyledLink> {}
+/**
+ * -----------------------------------------------------------------------------------------------
+ * Link
+ * -----------------------------------------------------------------------------------------------
+ */
 
-export const Link = React.forwardRef<React.ElementRef<typeof StyledLink>, LinkProps>(
-  (props, forwardedRef) => {
-    const { className, ...other } = props;
+type LinkElement = React.ElementRef<'a'>;
+type LinkNativeProps = React.ComponentPropsWithoutRef<'a'>;
 
-    return <StyledLink {...other} className={cx('manifest-link', className)} ref={forwardedRef} />;
-  },
-);
+interface LinkProps extends LinkNativeProps {
+  /**
+   * Theme aware style object.
+   */
+  css?: CSS;
+}
+
+const Link = React.forwardRef<LinkElement, LinkProps>((props, forwardedRef) => {
+  const { children, className: classNameProp, css, ...other } = props;
+
+  const { className } = useLinkStyles({ css });
+
+  return (
+    <a {...other} className={cx('manifest-link', className, classNameProp)} ref={forwardedRef}>
+      {children}
+    </a>
+  );
+});
+
+if (__DEV__) {
+  Link.displayName = 'Link';
+}
+
+Link.toString = () => '.manifest-link';
+
+export { Link };
+export type { LinkProps };

@@ -8,14 +8,11 @@ export default {
   component: Tooltip,
 } as ComponentMeta<typeof Tooltip>;
 
-const Template: ComponentStory<typeof Tooltip> = args => (
-  <Tooltip {...args}>
-    <button>Hover Me</button>
-  </Tooltip>
-);
+const Template: ComponentStory<typeof Tooltip> = args => <Tooltip {...args} />;
 
 export const Default = Template.bind({});
 
 Default.args = {
-  title: 'I am a Tooltip!',
+  children: <Button>Hover Me</Button>,
+  title: 'Tooltip',
 };

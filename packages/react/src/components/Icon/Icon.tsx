@@ -1,25 +1,47 @@
 import * as React from 'react';
-import { cx } from '../../styles';
-import { ManifestProps } from '../../types';
-import { StyledIcon } from './Icon.styles';
+import { CSS, cx, useIconStyles } from './Icon.styles';
 
-export interface IconProps
-  extends ManifestProps,
-    React.ComponentPropsWithoutRef<typeof StyledIcon> {
+/**
+ * -----------------------------------------------------------------------------------------------
+ * Icon
+ * -----------------------------------------------------------------------------------------------
+ */
+
+type IconElement = React.ElementRef<'span'>;
+type IconNativeProps = React.ComponentPropsWithoutRef<'span'>;
+
+interface IconProps extends IconNativeProps {
+  /**
+   * Theme aware style object.
+   */
+  css?: CSS;
   /**
    * The material-icons icon name
    */
   icon?: string;
 }
 
-export const Icon = React.forwardRef<React.ElementRef<typeof StyledIcon>, IconProps>(
-  (props, ref) => {
-    const { className, icon, ...other } = props;
+const Icon = React.forwardRef<IconElement, IconProps>((props, forwardedRef) => {
+  const { className: classNameProp, css, icon, ...other } = props;
 
-    return (
-      <StyledIcon {...other} className={cx('manifest-icon', 'material-icons', className)} ref={ref}>
-        {icon}
-      </StyledIcon>
-    );
-  },
-);
+  const { className } = useIconStyles({ css });
+
+  return (
+    <span
+      {...other}
+      className={cx('manifest-icon', 'material-icons', className, classNameProp)}
+      ref={forwardedRef}
+    >
+      {icon}
+    </span>
+  );
+});
+
+if (__DEV__) {
+  Icon.displayName = 'ManifestIcon';
+}
+
+Icon.toString = () => '.manifest-icon';
+
+export { Icon };
+export type { IconProps };

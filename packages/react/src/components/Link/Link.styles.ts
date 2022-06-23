@@ -1,23 +1,17 @@
-import { focus, styled } from '../../styles';
+import { css } from '../../styles';
 
-export const StyledLink = styled(
-  'a',
-  {
-    alignItems: 'baseline',
-    borderRadius: '$small',
-    color: '$primary',
-    display: 'inline-flex',
-    fontFamily: '$text',
-    fontSize: '$medium',
-    fontWeight: '$semibold',
-    letterSpacing: '$medium',
-    lineHeight: '$medium',
-    textDecoration: 'none',
-    width: 'fitContent',
+export const useLinkStyles = css({
+  alignItems: 'baseline',
+  color: '$text-primary',
+  display: 'inline-flex',
+  fontFamily: '$text',
+  fontSize: '$medium',
+  fontWeight: '$semibold',
+  letterSpacing: '$medium',
+  lineHeight: '$medium',
+  textDecoration: 'underline',
+  width: 'fitContent',
+});
 
-    '&:hover': {
-      textDecoration: 'underline',
-    },
-  },
-  focus,
-);
+export type { CSS } from '../../styles';
+export { cx } from '../../styles';

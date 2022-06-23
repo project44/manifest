@@ -1,68 +1,63 @@
 import * as React from 'react';
-import { StyledRemoveButton, StyledRemoveIcon, StyledTag, StyledTagText } from './Tag.styles';
-import { cx, VariantProps } from '../../styles';
-import { ManifestProps } from '../../types';
+import { CSS, cx, useTagStyles } from './Tag.styles';
+import { Icon } from '../Icon';
+import { IconButton } from '../Button';
+import { Typography } from '../Typography';
 
-type TagElement = React.ElementRef<typeof StyledTag>;
-type TagNativeProps = React.ComponentPropsWithRef<typeof StyledTag>;
+/**
+ * -----------------------------------------------------------------------------------------------
+ * Tag
+ * -----------------------------------------------------------------------------------------------
+ */
 
-export interface TagProps
-  extends ManifestProps,
-    Omit<VariantProps<typeof StyledTag>, 'isClickable'>,
-    TagNativeProps {
+type TagElement = React.ElementRef<'div'>;
+type TagNativeProps = React.ComponentPropsWithRef<'div'>;
+
+interface TagProps extends TagNativeProps {
   /**
-   * Callback function fired when the tag is clicked.
+   * Theme aware style object.
    */
-  onClick?(): void;
+  css?: CSS;
   /**
-   * Callback function fired when the remove icon is clicked.
+   * Whether the tag is removeable.
+   */
+  isRemovable?: boolean;
+  /**
+   * Handler called on tag removable.
    */
   onRemove?(): void;
 }
 
-export const Tag = React.forwardRef<TagElement, TagProps>((props, forwardedRef) => {
-  const { children: childrenProp, className, isDisabled, onClick, onRemove, ...other } = props;
+const Tag = React.forwardRef<TagElement, TagProps>((props, forwardedRef) => {
+  const { children, className: classNameProp, css, isRemovable, onRemove, ...other } = props;
 
-  const children = (
-    <StyledTagText className="manifest-tag--text" variant="caption">
-      {childrenProp}
-    </StyledTagText>
-  );
-
-  if (onClick) {
-    return (
-      <StyledTag
-        {...(other as React.ComponentPropsWithRef<'button'>)}
-        as="button"
-        className={cx('manifest-tag', className)}
-        disabled={!!isDisabled}
-        isClickable={!!onClick}
-        isDisabled={isDisabled}
-        onClick={onClick}
-        ref={forwardedRef as React.RefObject<HTMLButtonElement>}
-        type="button"
-      >
-        {children}
-      </StyledTag>
-    );
-  }
+  const { className } = useTagStyles({ css, isRemovable });
 
   return (
-    <StyledTag {...other} className={cx('manifest-tag', className)} ref={forwardedRef}>
-      {children}
-      {onRemove && (
-        <StyledRemoveButton
+    <div {...other} className={cx('manifest-tag', className, classNameProp)} ref={forwardedRef}>
+      <Typography className="manifest-tag--text" variant="caption">
+        {children}
+      </Typography>
+      {isRemovable && (
+        <IconButton
           aria-label="remove"
-          className="manifest-tag--remove"
-          onClick={onRemove}
+          className="manifest-tag--button"
+          onPress={onRemove}
           size="small"
           variant="tertiary"
         >
-          <StyledRemoveIcon className="manifest-tag--remove__icon" icon="clear" />
-        </StyledRemoveButton>
+          <Icon className="manifest-tag--icon" icon="clear" />
+        </IconButton>
       )}
-    </StyledTag>
+    </div>
   );
 });
 
-Tag.displayName = 'Tag';
+if (__DEV__) {
+  Tag.displayName = 'ManifestTag';
+}
+
+Tag.toString = () => '.manifest-tag';
+
+export { Tag };
+export type { TagProps };

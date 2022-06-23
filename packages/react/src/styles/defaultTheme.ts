@@ -2,26 +2,25 @@ import { theme as designTokens } from '@manifest/design-tokens';
 import { utils } from './utils';
 
 const {
-  borderWidths,
-  breakpoints,
-  colors,
-  fonts,
-  fontSizes,
-  fontWeights,
-  letterSpacings,
-  lineHeights,
-  radii,
-  shadows,
-  sizes,
+  borderWidth,
+  color,
+  fontFamily,
+  fontSize,
+  fontWeight,
+  letterSpacing,
+  lineHeight,
+  radius,
+  shadow,
+  size,
   space,
-  zIndices,
+  zIndex,
 } = designTokens;
 
 const media = {
-  lg: `(min-width: ${breakpoints.large})`,
-  md: `(min-width: ${breakpoints.medium})`,
-  sm: `(min-width: ${breakpoints.small})`,
-  xl: `(min-width: ${breakpoints['x-large']})`,
+  lg: `(min-width: ${size.large})`,
+  md: `(min-width: ${size.medium})`,
+  sm: `(min-width: ${size.small})`,
+  xl: `(min-width: ${size['x-large']})`,
 };
 
 const createTransition = (properties: string[]) => {
@@ -57,19 +56,19 @@ const transitions = {
 };
 
 const theme = {
-  borderWidths,
-  colors,
-  fonts,
-  fontSizes,
-  fontWeights,
-  letterSpacings,
-  lineHeights,
-  radii,
-  shadows,
-  sizes,
+  borderWidth: borderWidth,
+  colors: color,
+  fonts: fontFamily,
+  fontSizes: fontSize,
+  fontWeights: fontWeight,
+  letterSpacings: letterSpacing,
+  lineHeights: lineHeight,
+  radii: radius,
+  shadows: shadow,
+  sizes: size,
   space,
   transitions,
-  zIndices,
+  zIndices: zIndex,
 };
 
 export const defaultTheme = {

@@ -1,10 +1,10 @@
-import * as React from 'react';
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import * as React from 'react';
 import { Box } from './Box';
 
 export default {
-  component: Box,
   title: 'Components/Box',
+  component: Box,
 } as ComponentMeta<typeof Box>;
 
 const Template: ComponentStory<typeof Box> = args => <Box {...args} />;
@@ -12,5 +12,5 @@ const Template: ComponentStory<typeof Box> = args => <Box {...args} />;
 export const Default = Template.bind({});
 
 Default.args = {
-  css: { backgroundColor: '$background-secondary', height: 200, width: 200 },
+  css: { backgroundColor: '$background-top-nav', size: 200 },
 };

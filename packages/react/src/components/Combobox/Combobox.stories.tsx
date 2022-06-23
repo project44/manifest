@@ -1,33 +1,85 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
-import { Combobox, ComboboxItem } from '.';
+import { Combobox, ComboboxItem, ComboboxSection } from './Combobox';
+import { Flex } from '../Flex';
 import { Icon } from '../Icon';
 
 export default {
   title: 'Components/Combobox',
   component: Combobox,
-  argTypes: {
-    size: {
-      control: { type: 'radio' },
-      options: ['small', 'medium'],
-    },
-  },
+  subcomponents: { ComboboxItem, ComboboxSection },
 } as ComponentMeta<typeof Combobox>;
 
-const Template: ComponentStory<typeof Combobox> = args => (
-  <Combobox {...args}>
-    <ComboboxItem key="california">California</ComboboxItem>
-    <ComboboxItem key="illinois">Illinois</ComboboxItem>
-    <ComboboxItem key="new_york">New York</ComboboxItem>
-    <ComboboxItem key="oregon">Oregon</ComboboxItem>
-    <ComboboxItem key="texas">Texas</ComboboxItem>
-  </Combobox>
-);
+const Template: ComponentStory<typeof Combobox> = args => <Combobox {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {
-  helperText: 'Please select a location.',
-  label: 'State',
-  placeholder: 'Select state...',
-  startIcon: <Icon icon="public" />,
-};
+
+Default.decorators = [
+  () => (
+    <Combobox>
+      <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+      <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+      <ComboboxItem key="snake">Snake</ComboboxItem>
+    </Combobox>
+  ),
+];
+
+export const Sizes = Template.bind({});
+
+Sizes.decorators = [
+  () => (
+    <Flex css={{ gap: '$small' }} orientation="vertical">
+      <Combobox size="medium">
+        <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+        <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+        <ComboboxItem key="snake">Snake</ComboboxItem>
+      </Combobox>
+      <Combobox size="small">
+        <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+        <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+        <ComboboxItem key="snake">Snake</ComboboxItem>
+      </Combobox>
+    </Flex>
+  ),
+];
+
+export const StartIcon = Template.bind({});
+
+StartIcon.decorators = [
+  () => (
+    <Combobox startIcon={<Icon icon="search" />}>
+      <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+      <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+      <ComboboxItem key="snake">Snake</ComboboxItem>
+    </Combobox>
+  ),
+];
+
+export const FormControl = Template.bind({});
+
+FormControl.decorators = [
+  () => (
+    <Combobox label="Label" helperText="Helper text" startIcon={<Icon icon="search" />}>
+      <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+      <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+      <ComboboxItem key="snake">Snake</ComboboxItem>
+    </Combobox>
+  ),
+];
+
+export const Invalid = Template.bind({});
+
+Invalid.decorators = [
+  () => (
+    <Combobox
+      label="Label"
+      helperText="Error text"
+      startIcon={<Icon icon="search" />}
+      validationState="invalid"
+    >
+      <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+      <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+      <ComboboxItem key="snake">Snake</ComboboxItem>
+    </Combobox>
+  ),
+];

@@ -1,75 +1,123 @@
+import type { AriaLabelingProps, DOMProps, Validation } from '@react-types/shared';
 import * as React from 'react';
-import { cx, VariantProps } from '../../styles';
-import { FormControlProvider } from './FormControl.context';
-import { ManifestProps } from '../../types';
-import { StyledFormControl } from './FormControl.styles';
+import { CSS, cx, useFormControlStyles } from './FormControl.styles';
+import { mergeProps } from '@react-aria/utils';
+import { Typography } from '../Typography';
+import { useField } from '@react-aria/label';
 
-type FormControlElement = React.ElementRef<typeof StyledFormControl>;
-type FormControlNativeProps = React.ComponentPropsWithRef<typeof StyledFormControl>;
+/**
+ * -----------------------------------------------------------------------------------------------
+ * FormControl Context
+ * -----------------------------------------------------------------------------------------------
+ */
 
-export interface FormControlProps
-  extends ManifestProps,
-    VariantProps<typeof StyledFormControl>,
-    FormControlNativeProps {
-  /**
-   * Whether the control is disabled.
-   */
-  isDisabled?: boolean;
-  /**
-   * Whether the control is invalid.
-   */
-  isInvalid?: boolean;
-  /**
-   * Whether the control is readonly.
-   */
-  isReadOnly?: boolean;
-  /**
-   * Whether the control is required.
-   */
-  isRequired?: boolean;
+interface FormControlContext {
+  fieldProps?: AriaLabelingProps & DOMProps;
 }
 
-export const FormControl = React.forwardRef<FormControlElement, FormControlProps>(
+const FormControlContext = React.createContext<FormControlContext | null>(null);
+
+const useFormControlContext = () => React.useContext(FormControlContext);
+
+/**
+ * -----------------------------------------------------------------------------------------------
+ * FormControl
+ * -----------------------------------------------------------------------------------------------
+ */
+
+type FormControlElement = React.ElementRef<'div'>;
+type FormControlNativeProps = React.ComponentPropsWithRef<'div'>;
+
+interface FormControlProps extends FormControlNativeProps, Validation {
+  /**
+   * Theme aware style object.
+   */
+  css?: CSS;
+  /**
+   * Helper text appended to the input element.
+   */
+  helperText?: React.ReactNode;
+  /**
+   * Props passed to the helper text element.
+   */
+  helperTextProps?: React.HTMLAttributes<HTMLElement>;
+  /**
+   * The label for the form control input element.
+   */
+  label?: React.ReactNode;
+  /**
+   * Props passed to the label element.
+   */
+  labelProps?: React.LabelHTMLAttributes<HTMLLabelElement>;
+  /**
+   * The layout orientation of the form control.
+   *
+   * @default 'vertical'
+   */
+  orientation?: 'horizontal' | 'vertical';
+}
+
+const FormControl = React.forwardRef<FormControlElement, FormControlProps>(
   (props, forwardedRef) => {
     const {
-      className,
-      isDisabled,
-      isInvalid,
-      isReadOnly,
+      children,
+      className: classNameProp,
+      css,
+      helperText,
+      helperTextProps = {},
       isRequired,
+      label,
+      labelProps: labelPropsProp = {},
       orientation = 'vertical',
+      validationState,
       ...other
     } = props;
 
-    const id = React.useId();
-    const labelId = `${id}-label`;
-    const helperTextId = `${id}-helperText`;
+    const { labelProps, fieldProps, descriptionProps, errorMessageProps } = useField(props);
 
-    /**
-     * Used to determine if we should apply an `aria-describedBy` for the `input`.
-     */
-    const [hasHelperText, setHasHelperText] = React.useState(false);
+    const { className } = useFormControlStyles({
+      css,
+      isInvalid: validationState === 'invalid',
+      orientation,
+    });
 
     return (
-      <FormControlProvider
-        hasHelperText={hasHelperText}
-        helperTextId={helperTextId}
-        id={id}
-        isDisabled={isDisabled}
-        isInvalid={isInvalid}
-        isReadOnly={isReadOnly}
-        isRequired={isRequired}
-        labelId={labelId}
-        setHasHelperText={setHasHelperText}
+      <div
+        {...other}
+        className={cx('manifest-form-control', className, classNameProp)}
+        ref={forwardedRef}
       >
-        <StyledFormControl
-          {...other}
-          className={cx('manifest-form-control', className)}
-          orientation={orientation}
-          ref={forwardedRef}
-          role="group"
-        />
-      </FormControlProvider>
+        {label && (
+          <label
+            {...mergeProps(labelProps, labelPropsProp)}
+            className="manifest-form-control--label"
+          >
+            {label}
+            {isRequired && <span>*</span>}
+          </label>
+        )}
+
+        <FormControlContext.Provider value={{ fieldProps }}>{children}</FormControlContext.Provider>
+
+        {helperText && (
+          <Typography
+            {...mergeProps(descriptionProps, errorMessageProps, helperTextProps)}
+            className="manifest-form-control--helper-text"
+            variant="caption"
+          >
+            {helperText}
+          </Typography>
+        )}
+      </div>
     );
   },
 );
+
+if (__DEV__) {
+  FormControl.displayName = 'ManifestFormControl';
+}
+
+FormControl.toString = () => '.manifest-form-control';
+
+export { FormControl, useFormControlContext };
+export type { FormControlProps };

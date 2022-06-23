@@ -1,6 +1,6 @@
-import { styled } from '../../styles';
+import { css } from '../../styles';
 
-export const StyledCard = styled('div', {
+export const useCardStyles = css({
   backgroundColor: '$background-surface',
   borderRadius: '$small',
   boxShadow: '$medium',
@@ -8,7 +8,7 @@ export const StyledCard = styled('div', {
   overflow: 'hidden',
 });
 
-export const StyledCardBody = styled('div', {
+export const useCardBodyStyles = css({
   alignItems: 'inherit',
   display: 'flex',
   flex: '1 1 auto',
@@ -16,27 +16,30 @@ export const StyledCardBody = styled('div', {
   height: 'auto',
   justifyContent: 'inherit',
   position: 'relative',
-  px: '1.25rem',
+  padding: '$large',
+  typography: '$body',
   width: '100%',
 });
 
-export const StyledCardFooter = styled('div', {
+export const useCardFooterStyles = css({
   alignItems: 'center',
   display: 'flex',
   height: 'auto',
   justifyContent: 'flex-end',
-  paddingBottom: '1.25rem',
-  paddingTop: '$large',
-  px: '1.25rem',
+  paddingBottom: '$large',
+  px: '$large',
   width: '100%',
 });
 
-export const StyledCardHeader = styled('div', {
+export const useCardHeaderStyles = css({
   alignItems: 'center',
   display: 'flex',
   justifyContent: 'flex-start',
   width: '100%',
-  paddingTop: '1.25rem',
-  paddingBottom: '$large',
-  px: '1.25rem',
+  paddingTop: '$large',
+  px: '$large',
+  typography: '$title',
 });
+
+export type { CSS } from '../../styles';
+export { cx } from '../../styles';

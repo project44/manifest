@@ -1,29 +1,198 @@
+import type { AriaButtonProps } from '@react-types/button';
 import * as React from 'react';
-import {
-  StyledPagination,
-  StyledPaginationButton,
-  StyledPaginationEllipsis,
-  StyledPaginationIcon,
-} from './Pagination.styles';
-import { useControllableState } from '@radix-ui/react-use-controllable-state';
+import { CSS, cx, usePaginationStyles, usePaginationButtonStyles } from './Pagination.styles';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
+import { Icon } from '../Icon';
 import { Typography } from '../Typography';
+import { useButton } from '@react-aria/button';
+import { useControlledState } from '@react-stately/utils';
+import { useFocusRing } from '@react-aria/focus';
+import { useHover } from '@react-aria/interactions';
+
+/**
+ * -----------------------------------------------------------------------------------------------
+ * Pagination
+ * -----------------------------------------------------------------------------------------------
+ */
+
+type PaginationElement = React.ElementRef<'div'>;
+type PaginationNativeProps = React.ComponentPropsWithoutRef<'div'>;
 
 type PageType = number | 'dots' | 'next' | 'previous';
 
-export interface PaginationProps
-  extends Omit<React.ComponentPropsWithoutRef<typeof StyledPagination>, 'onChange'> {
+interface PaginationProps extends UsePaginationProps, Omit<PaginationNativeProps, 'onChange'> {
   /**
-   * The outer visible boundaries of the pagination list.
-   *
-   * @default 1
+   * Theme aware style object.
    */
-  boundaries?: number;
+  css?: CSS;
   /**
    * The default page number (uncontrolled).
    *
    * @default 1
    */
   defaultPage?: number;
+  /**
+   * Whether to show page numbers buttons.
+   *
+   * @default true
+   */
+  showPageNumbers?: boolean;
+  /**
+   * Callback executed on page change.
+   */
+  onChange?(page: number): void;
+}
+
+const Pagination = React.forwardRef<PaginationElement, PaginationProps>(
+  (props: PaginationProps, forwardedRef) => {
+    const {
+      boundaries,
+      className: classNameProp,
+      css,
+      defaultPage = 1,
+      onChange = () => {
+        // noop
+      },
+      page = 1,
+      rowsPerPage,
+      siblings,
+      showPageNumbers = true,
+      totalRowCount,
+      ...other
+    } = props;
+
+    const [activePage, setActivePage] = useControlledState(page, defaultPage, onChange);
+
+    const [pages, pageCount] = usePagination({
+      boundaries,
+      page: activePage,
+      rowsPerPage,
+      siblings,
+      totalRowCount,
+    });
+
+    const next = () => setActivePage(Number(activePage) + 1);
+    const previous = () => setActivePage(Number(activePage) - 1);
+    const setPage = (pageNumber: number) => setActivePage(pageNumber);
+
+    const { className } = usePaginationStyles({ css });
+
+    return (
+      <div
+        {...other}
+        className={cx('manifest-pagination', className, classNameProp)}
+        ref={forwardedRef}
+      >
+        <PaginationItem
+          aria-label="go to previous page"
+          isDisabled={activePage === 1}
+          onPress={previous}
+        >
+          <Icon className="manifest-pagination-item--icon__start" icon="keyboard_arrow_left" />
+          <Typography variant="subtextBold">Previous</Typography>
+        </PaginationItem>
+
+        {showPageNumbers &&
+          pages.map((item, index) => (
+            <React.Fragment key={`${item}_${index}`}>
+              {item === 'dots' && (
+                <div aria-hidden className="manifest-pagination--ellipsis">
+                  <Typography variant="subtextBold">...</Typography>
+                </div>
+              )}
+              {item !== 'dots' && (
+                <PaginationItem
+                  aria-current={item === activePage ? 'true' : undefined}
+                  aria-label={`${item === activePage ? '' : 'go to '}page ${String(item)}`}
+                  isActive={item === activePage}
+                  onPress={() => setPage(item as number)}
+                >
+                  <Typography variant="subtextBold">{item.toString()}</Typography>
+                </PaginationItem>
+              )}
+            </React.Fragment>
+          ))}
+
+        <PaginationItem
+          aria-label="go to next page"
+          isDisabled={activePage === pageCount}
+          onPress={next}
+        >
+          <Typography variant="subtextBold">Next</Typography>
+          <Icon className="manifest-pagination-item--icon__end" icon="keyboard_arrow_right" />
+        </PaginationItem>
+      </div>
+    );
+  },
+);
+
+Pagination.displayName = 'Pagination';
+
+/**
+ * -----------------------------------------------------------------------------------------------
+ * Pagination Item
+ * -----------------------------------------------------------------------------------------------
+ */
+
+type PaginationItemElement = React.ElementRef<'button'>;
+type PaginationItemNativeProps = Omit<
+  React.ComponentPropsWithoutRef<'button'>,
+  keyof AriaButtonProps
+>;
+
+interface PaginationItemProps extends PaginationItemNativeProps, AriaButtonProps {
+  /**
+   * Whether the pagination item is active.
+   */
+  isActive?: boolean;
+}
+
+const PaginationItem = React.forwardRef<PaginationItemElement, PaginationItemProps>(
+  (props, forwardedRef) => {
+    const { autoFocus, children, className: classNameProp, isActive, isDisabled } = props;
+
+    const itemRef = React.useRef<HTMLButtonElement>(null);
+
+    const { buttonProps, isPressed } = useButton(
+      { ...props, elementType: 'button', isDisabled },
+      itemRef,
+    );
+    const { isFocusVisible, focusProps } = useFocusRing({ autoFocus });
+    const { hoverProps, isHovered } = useHover({ isDisabled });
+
+    const { className } = usePaginationButtonStyles({
+      isActive,
+      isDisabled,
+      isFocusVisible,
+      isHovered,
+      isPressed,
+    });
+
+    return (
+      <button
+        {...mergeProps(buttonProps, focusProps, hoverProps)}
+        className={cx('manifest-pagination-item', className, classNameProp)}
+        ref={mergeRefs(itemRef, forwardedRef)}
+      >
+        {children}
+      </button>
+    );
+  },
+);
+
+/**
+ * -----------------------------------------------------------------------------------------------
+ * usePagination
+ * -----------------------------------------------------------------------------------------------
+ */
+
+interface UsePaginationProps {
+  /**
+   * The outer visible boundaries of the pagination list.
+   *
+   * @default 1
+   */
+  boundaries?: number;
   /**
    * The current page (controlled).
    */
@@ -41,19 +210,9 @@ export interface PaginationProps
    */
   siblings?: number;
   /**
-   * Whether to show page numbers buttons.
-   *
-   * @default true
-   */
-  showPageNumbers?: boolean;
-  /**
    * The total number of rows in the table.
    */
   totalRowCount?: number;
-  /**
-   * Callback executed on page change.
-   */
-  onChange?(page: number): void;
 }
 
 const range = (start: number, end: number) => {
@@ -62,44 +221,21 @@ const range = (start: number, end: number) => {
   return Array.from({ length }, (_, i) => start + i);
 };
 
-export const Pagination = React.forwardRef<
-  React.ElementRef<typeof StyledPagination>,
-  PaginationProps
->((props: PaginationProps, ref) => {
-  const {
-    boundaries = 1,
-    defaultPage = 1,
-    onChange,
-    page,
-    rowsPerPage = 10,
-    siblings = 1,
-    showPageNumbers = true,
-    totalRowCount = 1,
-    ...other
-  } = props;
+function usePagination(props: UsePaginationProps) {
+  const { boundaries = 1, page, rowsPerPage = 10, siblings = 1, totalRowCount = 1 } = props;
 
   const pageCount = Math.ceil(totalRowCount / rowsPerPage);
-
-  const [activePage, setActivePage] = useControllableState({
-    prop: page,
-    defaultProp: defaultPage,
-    onChange,
-  });
-
-  const next = () => setActivePage(Number(activePage) + 1);
-  const previous = () => setActivePage(Number(activePage) - 1);
-  const setPage = (pageNumber: number) => setActivePage(pageNumber);
 
   const pages = React.useMemo((): PageType[] => {
     const startRange = range(1, Math.min(boundaries, pageCount));
     const endRange = range(Math.max(pageCount - boundaries + 1, boundaries + 1), pageCount);
 
     const startIndex = Math.max(
-      Math.min(Number(activePage) - siblings, pageCount - boundaries - siblings * 2 - 1),
+      Math.min(Number(page) - siblings, pageCount - boundaries - siblings * 2 - 1),
       boundaries + 2,
     );
     const endIndex = Math.min(
-      Math.max(Number(activePage) + siblings, boundaries + siblings * 2 + 2),
+      Math.max(Number(page) + siblings, boundaries + siblings * 2 + 2),
       endRange.length > 0 ? endRange[0] - 2 : pageCount - 1,
     );
 
@@ -124,63 +260,10 @@ export const Pagination = React.forwardRef<
       ...siblingsEndRange,
       ...endRange,
     ];
-  }, [activePage, boundaries, pageCount, siblings]);
+  }, [page, boundaries, pageCount, siblings]);
 
-  return (
-    <StyledPagination className="manifest-pagination" ref={ref} {...other}>
-      <StyledPaginationButton
-        aria-label="go to previous page"
-        className="manifest-pagination--button"
-        disabled={activePage === 1}
-        onClick={previous}
-      >
-        <StyledPaginationIcon
-          className="manifest-pagination--button-icon__start"
-          icon="keyboard_arrow_left"
-          placment="start"
-        />
-        <Typography variant="subtextBold">Previous</Typography>
-      </StyledPaginationButton>
+  return [pages, pageCount] as [PageType[], number];
+}
 
-      {showPageNumbers &&
-        pages.map((item, index) => (
-          <React.Fragment key={`${item}_${index}`}>
-            {item === 'dots' && (
-              <StyledPaginationEllipsis aria-hidden className="manifest-pagination--ellipsis">
-                <Typography variant="subtextBold">...</Typography>
-              </StyledPaginationEllipsis>
-            )}
-            {item !== 'dots' && (
-              <StyledPaginationButton
-                aria-current={item === activePage ? 'true' : undefined}
-                aria-label={`${item === activePage ? '' : 'go to '}page ${String(item)}`}
-                className="manifest-pagination--button"
-                isActive={item === activePage}
-                onClick={() => {
-                  setPage(item as number);
-                }}
-              >
-                <Typography variant="subtextBold">{item.toString()}</Typography>
-              </StyledPaginationButton>
-            )}
-          </React.Fragment>
-        ))}
-
-      <StyledPaginationButton
-        aria-label="go to next page"
-        className="manifest-pagination--button"
-        disabled={activePage === pageCount}
-        onClick={next}
-      >
-        <Typography variant="subtextBold">Next</Typography>
-        <StyledPaginationIcon
-          className="manifest-pagination--button-icon__end"
-          icon="keyboard_arrow_right"
-          placment="end"
-        />
-      </StyledPaginationButton>
-    </StyledPagination>
-  );
-});
-
-Pagination.displayName = 'Pagination';
+export { Pagination, usePagination };
+export type { PaginationProps, UsePaginationProps };

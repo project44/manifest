@@ -1,24 +1,28 @@
 import type { AriaTextFieldProps } from '@react-types/textfield';
-import type { ManifestProps } from '../../types';
 import type { PressEvents } from '@react-types/shared';
 import * as React from 'react';
-import { StyledInput, StyledIcon } from './TextField.styles';
-import { cx } from '../../styles';
-import { Flex } from '../Flex';
+import { CSS, cx, useTextFieldStyles } from './TextField.styles';
 import { FormControl } from '../FormControl';
 import { mergeProps } from '@react-aria/utils';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
 import { useTextField } from '@react-aria/textfield';
 
-type TextFieldAriaProps = AriaTextFieldProps & PressEvents;
-type TextFieldElement = React.ElementRef<typeof StyledInput>;
-type TextFieldNativeProps = Omit<
-  React.ComponentPropsWithoutRef<typeof StyledInput>,
-  keyof TextFieldAriaProps
->;
+/**
+ * -----------------------------------------------------------------------------------------------
+ * TextField
+ * -----------------------------------------------------------------------------------------------
+ */
 
-export interface TextFieldProps extends ManifestProps, TextFieldNativeProps, TextFieldAriaProps {
+type TextFieldAriaProps = AriaTextFieldProps & PressEvents;
+type TextFieldElement = React.ElementRef<'div'>;
+type TextFieldNativeProps = Omit<React.ComponentPropsWithoutRef<'div'>, keyof TextFieldAriaProps>;
+
+interface TextFieldProps extends TextFieldNativeProps, TextFieldAriaProps {
+  /**
+   * Theme aware style object.
+   */
+  css?: CSS;
   /**
    * Icon displayed at the end of the text field.
    */
@@ -40,89 +44,92 @@ export interface TextFieldProps extends ManifestProps, TextFieldNativeProps, Tex
    */
   labelProps?: React.HTMLAttributes<HTMLElement>;
   /**
+   * The size of the combobox
+   *
+   * @default 'medium'
+   */
+  size?: 'medium' | 'small';
+  /**
    * Icon displayed at the start of the text field.
    */
   startIcon?: React.ReactNode;
 }
 
-export const TextField = React.forwardRef<TextFieldElement, TextFieldProps>(
-  (props, forwardedRef) => {
-    const {
-      as,
-      autoFocus,
-      className,
-      css,
-      endIcon,
-      isDisabled,
-      helperText,
-      helperTextProps: helperTextPropsProp = {},
-      label,
-      labelProps: labelPropsProp = {},
-      validationState,
-      size = 'medium',
-      startIcon,
-    } = props;
+const TextField = React.forwardRef<TextFieldElement, TextFieldProps>((props, forwardedRef) => {
+  const {
+    autoFocus,
+    className: classNameProp,
+    css,
+    endIcon,
+    isDisabled,
+    helperText,
+    helperTextProps: helperTextPropsProp = {},
+    label,
+    labelProps: labelPropsProp = {},
+    validationState,
+    size = 'medium',
+    startIcon,
+  } = props;
 
-    const inputRef = React.useRef<HTMLInputElement>(null);
+  const inputRef = React.useRef<HTMLInputElement>(null);
 
-    const isInvalid = validationState === 'invalid';
+  const isInvalid = validationState === 'invalid';
 
-    const { inputProps, descriptionProps, errorMessageProps, labelProps } = useTextField(
-      props,
-      inputRef,
-    );
+  const { inputProps, descriptionProps, errorMessageProps, labelProps } = useTextField(
+    props,
+    inputRef,
+  );
 
-    const { hoverProps, isHovered } = useHover({ isDisabled });
-    const { isFocusVisible, focusProps } = useFocusRing({ autoFocus, isTextInput: true });
+  const { hoverProps, isHovered } = useHover({ isDisabled });
+  const { isFocusVisible, isFocused, focusProps } = useFocusRing({ autoFocus, isTextInput: true });
 
-    return (
-      <FormControl
-        helperText={helperText}
-        helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextPropsProp)}
-        label={label}
-        labelProps={mergeProps(labelProps, labelPropsProp)}
-      >
-        <Flex
-          className="manifest-text-field"
-          css={{ minWidth: '3rem', position: 'relative', width: '100%' }}
-        >
-          {startIcon && (
-            <StyledIcon
-              className="manifest-text-field--icon__start"
-              isInvalid={isInvalid}
-              placement="start"
-              size={size}
-            >
-              {startIcon}
-            </StyledIcon>
-          )}
+  const { className } = useTextFieldStyles({
+    hasEndIcon: !!endIcon,
+    hasStartIcon: !!startIcon,
+    isDisabled,
+    isFocused,
+    isFocusVisible,
+    isHovered,
+    isInvalid,
+    size,
+    css,
+  });
 
-          <StyledInput
-            {...mergeProps(inputProps, focusProps, hoverProps)}
-            as={as}
-            className={cx('manifest-text-field--input', className)}
-            css={css}
-            hasEndIcon={!!endIcon}
-            hasStartIcon={!!startIcon}
-            isInvalid={isInvalid}
-            isHovered={isHovered}
-            isFocusVisible={isFocusVisible}
-            ref={forwardedRef}
-            size={size}
-          />
+  return (
+    <FormControl
+      helperText={helperText}
+      helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextPropsProp)}
+      label={label}
+      labelProps={mergeProps(labelProps, labelPropsProp)}
+    >
+      <div className={cx('manifest-text-field', className, classNameProp)} ref={forwardedRef}>
+        {startIcon && (
+          <span className={cx('manifest-text-field--icon', 'manifest-text-field--icon__start')}>
+            {startIcon}
+          </span>
+        )}
 
-          {endIcon && (
-            <StyledIcon
-              className="manifest-text-field--icon__end"
-              isInvalid={isInvalid}
-              placement="end"
-              size={size}
-            >
-              {endIcon}
-            </StyledIcon>
-          )}
-        </Flex>
-      </FormControl>
-    );
-  },
-);
+        <input
+          {...mergeProps(inputProps, focusProps, hoverProps)}
+          className="manifest-text-field--input"
+          ref={inputRef}
+        />
+
+        {endIcon && (
+          <span className={cx('manifest-text-field--icon', 'manifest-text-field--icon__end')}>
+            {endIcon}
+          </span>
+        )}
+      </div>
+    </FormControl>
+  );
+});
+
+if (__DEV__) {
+  TextField.displayName = 'ManifestTextField';
+}
+
+TextField.toString = () => '.manifest-textField';
+
+export { TextField };
+export type { TextFieldProps };

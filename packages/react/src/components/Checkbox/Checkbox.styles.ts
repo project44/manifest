@@ -1,54 +1,9 @@
-import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
-import { focus, styled } from '../../styles';
+import { css } from '../../styles';
 
-export const StyledCheckbox = styled(
-  CheckboxPrimitive.Root,
-  {
-    $$checkboxSize: '1.125rem',
+export const useCheckboxStyles = css({
+  $$backgroundColor: '$colors$background-primary',
+  $$borderColor: '$colors$palette-grey-500',
 
-    alignItems: 'center',
-    backgroundColor: '$background-primary',
-    border: '2px solid $palette-grey-500',
-    borderRadius: '$small',
-    color: '$contrast-primary',
-    display: 'inline-flex',
-    flexShrink: 0,
-    justifyContent: 'center',
-    size: '$$checkboxSize',
-    transition: '$color',
-    userSelect: 'none',
-    verticalAlign: 'top',
-
-    '&:disabled': {
-      opacity: 0.38,
-      pointerEvents: 'none',
-    },
-
-    '&:hover': {
-      borderColor: '$palette-grey-600',
-    },
-
-    '&[data-state="checked"]': {
-      backgroundColor: '$primary',
-      borderColor: '$primary',
-    },
-
-    [`& .manifest-icon`]: {
-      fontSize: '$$checkboxSize',
-    },
-  },
-  focus,
-);
-
-export const StyledCheckboxIndicator = styled(CheckboxPrimitive.Indicator, {
-  alignItems: 'center',
-  display: 'flex',
-  height: '100%',
-  justifyContent: 'center',
-  width: '100%',
-});
-
-export const StyledCheckboxLabel = styled('label', {
   alignItems: 'center',
   boxSizing: 'border-box',
   display: 'inline-flex',
@@ -56,19 +11,81 @@ export const StyledCheckboxLabel = styled('label', {
   position: 'relative',
   width: 'auto',
 
+  '.manifest-checkbox--control': {
+    backgroundColor: '$$backgroundColor',
+    border: '2px solid $$borderColor',
+    borderRadius: '$small',
+    color: '$palette-white',
+    cursor: 'pointer',
+    size: '1.125rem',
+  },
+
+  '.manifest-checkbox--indicator': {
+    alignItems: 'center',
+    display: 'flex',
+    height: '100%',
+    justifyContent: 'center',
+    pointerEvents: 'none',
+    width: '100%',
+
+    [`& .manifest-icon`]: {
+      fontSize: '1.125rem',
+    },
+  },
+
+  '.manifest-checkbox--input': {
+    cursor: 'pointer',
+    height: '100%',
+    left: 0,
+    margin: 0,
+    opacity: 0,
+    padding: 0,
+    position: 'absolute',
+    top: 0,
+    width: '100%',
+  },
+
+  '.manifest-checkbox--text': {
+    marginLeft: '$small',
+  },
+
   variants: {
+    isChecked: {
+      true: {
+        $$backgroundColor: '$colors$primary-default',
+        $$borderColor: '$colors$primary-default',
+      },
+    },
     isDisabled: {
       true: {
+        cursor: 'not-allowed',
+        opacity: 0.58,
         pointerEvents: 'none',
+      },
+    },
+    isFocusVisible: {
+      true: {
+        '.manifest-checkbox--control': {
+          outline: '$colors$palette-indigo-200 solid 3px',
+        },
+      },
+      false: {
+        outline: 'none',
+      },
+    },
+    isHovered: {
+      true: {
+        $$borderColor: '$colors$palette-grey-600',
+      },
+    },
+    isIndeterminate: {
+      true: {
+        $$backgroundColor: '$colors$primary-default',
+        $$borderColor: '$colors$primary-default',
       },
     },
   },
 });
 
-export const StyledCheckboxText = styled('span', {
-  fontFamily: '$text',
-  fontSize: '$small',
-  letterSpacing: '$medium',
-  lineHeight: '$medium',
-  marginLeft: '$small',
-});
+export type { CSS } from '../../styles';
+export { cx } from '../../styles';

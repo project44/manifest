@@ -1,5 +1,4 @@
-import { css, focus, styled } from '../../styles';
-import { Icon } from '../Icon';
+import { css } from '../../styles';
 
 const alignment = css({
   variants: {
@@ -24,16 +23,13 @@ const alignment = css({
   },
 });
 
-export const StyledTable = styled('table', {
+export const useTableStyles = css({
   borderCollapse: 'collapse',
   borderSpacing: 0,
   width: '100%',
 });
 
-export const StyledTableBody = styled('tbody');
-
-export const StyledTableCell = styled(
-  'td',
+export const useTableCellStyles = css(
   {
     borderBottom: '1px solid $colors$border-primary',
     color: '$text-primary',
@@ -47,8 +43,7 @@ export const StyledTableCell = styled(
   alignment,
 );
 
-export const StyledTableColumn = styled(
-  'th',
+export const useTableColumnStyles = css(
   {
     borderBottom: '1px solid $colors$border-primary',
     color: '$text-secondary',
@@ -57,6 +52,18 @@ export const StyledTableColumn = styled(
     position: 'relative',
     px: '$large',
     typography: '$subtext-bold',
+    userSelect: 'none',
+
+    '.manifest-table-column--icon': {
+      bottom: 'calc(50% - 12px)',
+      margin: '0 $x-small',
+      position: 'absolute',
+      transition: '$transform',
+    },
+
+    '.manifest-table-column--icon__ascending': {
+      transform: 'rotate(180deg)',
+    },
 
     variants: {
       isActive: {
@@ -79,46 +86,19 @@ export const StyledTableColumn = styled(
   alignment,
 );
 
-export const StyledTableContainer = styled('div', {
-  backgroundColor: '$white',
-  borderRadius: '$small',
-  boxShadow: '$medium',
-  overflowX: 'auto',
-  width: '100%',
-});
-
-export const StyledTableHeader = styled('thead');
-
-export const StyledTableFooter = styled('tfoot', { height: '3.5rem' });
-
-export const StyledTableRow = styled('tr', {
+export const useTableRowStyles = css({
   overflow: 'visible',
 
   variants: {
     isHovered: {
       true: {
-        [`& ${StyledTableCell}`]: {
-          backgroundColor: '$palette-grey-100',
+        '.manifest-table-cell': {
+          backgroundColor: '$palette-grey-50',
         },
       },
     },
   },
 });
 
-export const StyledTableSortIcon = styled(Icon, {
-  color: '$primary',
-  bottom: 'calc(50% - 9px)',
-  fontSize: '$medium',
-  margin: '0 $x-small',
-  position: 'absolute',
-  transition: '$transform',
-
-  variants: {
-    sortDirection: {
-      ascending: {
-        transform: 'rotate(180deg)',
-      },
-      descending: {},
-    },
-  },
-});
+export type { CSS } from '../../styles';
+export { cx } from '../../styles';

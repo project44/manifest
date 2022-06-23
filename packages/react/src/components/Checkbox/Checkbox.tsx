@@ -1,65 +1,92 @@
+import type { AriaCheckboxProps } from '@react-types/checkbox';
 import * as React from 'react';
-import {
-  StyledCheckbox,
-  StyledCheckboxLabel,
-  StyledCheckboxIndicator,
-  StyledCheckboxText,
-} from './Checkbox.styles';
-import { cx } from '../../styles';
+import { CSS, cx, useCheckboxStyles } from './Checkbox.styles';
 import { Icon } from '../Icon';
-import { ManifestProps } from '../../types';
-import { useControllableState } from '@radix-ui/react-use-controllable-state';
+import { mergeProps } from '@react-aria/utils';
+import { Typography } from '../Typography';
+import { useCheckbox } from '@react-aria/checkbox';
+import { useFocusRing } from '@react-aria/focus';
+import { useHover } from '@react-aria/interactions';
+import { useToggleState } from '@react-stately/toggle';
 
-export interface CheckboxProps
-  extends ManifestProps,
-    React.ComponentPropsWithoutRef<typeof StyledCheckbox> {}
+/**
+ * -----------------------------------------------------------------------------------------------
+ * Checkbox
+ * -----------------------------------------------------------------------------------------------
+ */
 
-export const Checkbox = React.forwardRef<React.ElementRef<typeof StyledCheckbox>, CheckboxProps>(
-  (props, forwardedRef) => {
-    const {
-      as,
-      checked,
-      children,
-      className,
-      css,
-      defaultChecked,
-      disabled,
-      onCheckedChange,
-      ...other
-    } = props;
+type CheckboxElement = React.ElementRef<'label'>;
+type CheckboxNativeProps = Omit<React.ComponentPropsWithoutRef<'label'>, keyof AriaCheckboxProps>;
 
-    const [isChecked, setIsChecked] = useControllableState({
-      prop: checked,
-      defaultProp: defaultChecked,
-      onChange: onCheckedChange,
-    });
+interface CheckboxProps extends CheckboxNativeProps, AriaCheckboxProps {
+  /**
+   * Theme aware style object.
+   */
+  css?: CSS;
+}
 
-    return (
-      <StyledCheckboxLabel
-        as={as}
-        className="manifest-checkbox-label"
-        css={css}
-        isDisabled={disabled}
-      >
-        <StyledCheckbox
-          {...other}
-          className={cx('manifest-checkbox', className)}
-          checked={isChecked}
-          disabled={disabled}
-          onCheckedChange={setIsChecked}
-          ref={forwardedRef}
-        >
-          <StyledCheckboxIndicator>
-            <Icon
-              className="manifest-checkbox-icon"
-              icon={isChecked === 'indeterminate' ? 'remove' : 'check'}
-            />
-          </StyledCheckboxIndicator>
-        </StyledCheckbox>
-        {children && (
-          <StyledCheckboxText className="manifest-checkbox-text">{children}</StyledCheckboxText>
-        )}
-      </StyledCheckboxLabel>
-    );
-  },
-);
+const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>((props, forwardedRef) => {
+  const {
+    autoFocus,
+    children,
+    className: classNameProp,
+    css,
+    isDisabled,
+    isIndeterminate,
+    ...other
+  } = props;
+
+  const inputRef = React.useRef<HTMLInputElement>(null);
+
+  const state = useToggleState(props);
+
+  const isChecked = state.isSelected;
+
+  const { inputProps } = useCheckbox(props, state, inputRef);
+  const { isFocusVisible, focusProps } = useFocusRing({ autoFocus });
+  const { isHovered, hoverProps } = useHover({ isDisabled });
+
+  const { className } = useCheckboxStyles({
+    css,
+    isChecked,
+    isDisabled,
+    isFocusVisible,
+    isHovered,
+    isIndeterminate,
+  });
+
+  return (
+    <label
+      {...mergeProps(hoverProps, other)}
+      className={cx('manifest-checkbox', className, classNameProp)}
+      ref={forwardedRef}
+    >
+      <input
+        {...mergeProps(inputProps, focusProps)}
+        className="manifest-checkbox--input"
+        ref={inputRef}
+      />
+
+      <div className="manifest-checkbox--control">
+        <span className="manifest-checkbox--indicator">
+          <Icon icon={isIndeterminate ? 'remove' : 'check'} />
+        </span>
+      </div>
+
+      {children && (
+        <Typography className="manifest-checkbox--text" variant="subtext">
+          {children}
+        </Typography>
+      )}
+    </label>
+  );
+});
+
+if (__DEV__) {
+  Checkbox.displayName = 'ManifestCheckbox';
+}
+
+Checkbox.toString = () => '.manifest-checkbox';
+
+export { Checkbox };
+export type { CheckboxProps };

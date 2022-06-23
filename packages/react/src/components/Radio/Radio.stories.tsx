@@ -1,27 +1,35 @@
-import * as React from 'react';
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Radio } from './Radio';
-import { RadioGroup } from './RadioGroup';
+import * as React from 'react';
+import { Radio, RadioGroup } from './Radio';
 
 export default {
   title: 'Components/Radio',
-  component: Radio,
-  argTypes: {
-    isDisabled: {
-      control: { type: 'boolean' },
-    },
-  },
-} as ComponentMeta<typeof Radio>;
+  component: RadioGroup,
+  subcomponents: { Radio },
+} as ComponentMeta<typeof RadioGroup>;
 
-const Template: ComponentStory<typeof RadioGroup> = args => (
-  <RadioGroup {...args}>
-    <Radio value="one">Radio</Radio>
-    <Radio value="two">Radio</Radio>
-    <Radio value="three">Radio</Radio>
-  </RadioGroup>
-);
+const Template: ComponentStory<typeof RadioGroup> = args => <RadioGroup {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {
-  defaultValue: 'two',
-};
+
+Default.decorators = [
+  () => (
+    <RadioGroup>
+      <Radio value="cats">Cats</Radio>
+      <Radio value="dogs">Dogs</Radio>
+    </RadioGroup>
+  ),
+];
+
+export const Disabled = Template.bind({});
+
+Disabled.decorators = [
+  () => (
+    <RadioGroup>
+      <Radio value="cats">Cats</Radio>
+      <Radio isDisabled value="dogs">
+        Dogs
+      </Radio>
+    </RadioGroup>
+  ),
+];

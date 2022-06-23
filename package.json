@@ -15,7 +15,7 @@
     "build": "yarn run build:tokens && yarn run build:packages && yarn run build:types",
     "build:packages": "packemon build --addEngines",
     "build:storybook": "build-storybook -c .storybook -o ./docs -s .storybook/static",
-    "build:tokens": "node packages/design-tokens/build",
+    "build:tokens": "node -r @swc-node/register packages/design-tokens/scripts/build.ts",
     "build:types": "beemo typescript --build",
     "format": "beemo prettier",
     "lint": "beemo eslint",
@@ -24,7 +24,7 @@
     "release": "yarn changeset publish",
     "start": "yarn run start:build && yarn run start:storybook",
     "start:build": "yarn run build",
-    "start:storybook": "start-storybook -p 6006",
+    "start:storybook": "start-storybook -p 6006 --quiet",
     "test": "beemo jest",
     "test:coverage": "yarn run test --coverage",
     "version": "yarn changeset version && yarn install --mode=update-lockfile"
@@ -36,13 +36,12 @@
     "@changesets/cli": "^2.22.0",
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^17.0.0",
-    "@storybook/addon-a11y": "^6.5.5",
-    "@storybook/addon-essentials": "^6.5.5",
-    "@storybook/addon-links": "^6.5.5",
-    "@storybook/builder-webpack5": "^6.5.4",
-    "@storybook/core": "^6.5.4",
-    "@storybook/manager-webpack5": "^6.5.4",
-    "@storybook/react": "^6.5.4",
+    "@storybook/addon-a11y": "^6.5.9",
+    "@storybook/addon-essentials": "^6.5.9",
+    "@storybook/builder-webpack5": "^6.5.9",
+    "@storybook/manager-webpack5": "^6.5.9",
+    "@storybook/react": "^6.5.9",
+    "@swc-node/register": "^1.5.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^14.2.0",
@@ -56,8 +55,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "rimraf": "^3.0.2",
-    "storybook-addon-performance": "^0.16.1",
-    "webpack": "^5.70.0"
+    "webpack": "^5.73.0"
   },
   "packageManager": "yarn@3.2.0"
 }

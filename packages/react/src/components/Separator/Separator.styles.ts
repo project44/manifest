@@ -1,11 +1,10 @@
-import * as SeparatorPrimitives from '@radix-ui/react-separator';
-import { styled } from '../../styles';
+import { css } from '../../styles';
 
-export const StyledSeparator = styled(SeparatorPrimitives.Root, {
+export const useSeparatorStyles = css({
   alignSelf: 'stretch',
   backgroundColor: '$border-primary',
   border: 'none',
-  borderWidth: '$small',
+  borderWidth: '1px',
   margin: 0,
   overflow: 'visible',
 
@@ -26,3 +25,6 @@ export const StyledSeparator = styled(SeparatorPrimitives.Root, {
     orientation: 'horizontal',
   },
 });
+
+export type { CSS } from '../../styles';
+export { cx } from '../../styles';

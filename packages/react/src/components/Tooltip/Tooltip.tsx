@@ -1,19 +1,29 @@
-import type { ManifestProps } from '../../types';
 import type { OverlayTriggerProps } from '@react-types/overlays';
 import * as React from 'react';
+import { CSS, cx, useTooltipStyles } from './Tooltip.styles';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useTooltip, useTooltipTrigger } from '@react-aria/tooltip';
+import { FocusableProvider } from '@react-aria/focus';
 import { OverlayContainer } from '@react-aria/overlays';
 import { Primitive } from '@radix-ui/react-primitive';
-import { StyledTooltip } from './Tooltip.styles';
 import { Typography } from '../Typography';
 import { useOverlayPosition } from '@react-aria/overlays';
 import { useTooltipTriggerState } from '@react-stately/tooltip';
 
-type TooltipElement = React.ElementRef<typeof StyledTooltip>;
-type TooltipNativeProps = Omit<React.ComponentPropsWithRef<typeof StyledTooltip>, 'title'>;
+/**
+ * -----------------------------------------------------------------------------------------------
+ * Tooltip
+ * -----------------------------------------------------------------------------------------------
+ */
 
-export interface TooltipProps extends ManifestProps, TooltipNativeProps, OverlayTriggerProps {
+type TooltipElement = React.ElementRef<'div'>;
+type TooltipNativeProps = Omit<React.ComponentPropsWithRef<'div'>, 'title'>;
+
+interface TooltipProps extends TooltipNativeProps, OverlayTriggerProps {
+  /**
+   * Theme aware style object.
+   */
+  css?: CSS;
   /**
    * Whether the tooltip should be disabled, independent from the trigger.
    */
@@ -30,8 +40,16 @@ export interface TooltipProps extends ManifestProps, TooltipNativeProps, Overlay
   title?: React.ReactNode;
 }
 
-export const Tooltip = React.forwardRef<TooltipElement, TooltipProps>((props, forwardedRef) => {
-  const { children, isDisabled, placement = 'top', title, ...other } = props;
+const Tooltip = React.forwardRef<TooltipElement, TooltipProps>((props, forwardedRef) => {
+  const {
+    children,
+    className: classNameProp,
+    css,
+    isDisabled,
+    placement = 'top',
+    title,
+    ...other
+  } = props;
 
   const [trigger] = React.Children.toArray(children);
 
@@ -54,21 +72,31 @@ export const Tooltip = React.forwardRef<TooltipElement, TooltipProps>((props, fo
   });
   const { tooltipProps } = useTooltip({ isOpen: state.isOpen }, state);
 
+  const { className } = useTooltipStyles({ css });
+
   return (
-    <>
-      <Primitive.button {...triggerProps} asChild ref={triggerRef}>
-        {trigger}
-      </Primitive.button>
+    <FocusableProvider {...triggerProps} ref={triggerRef}>
+      {trigger}
       {state.isOpen && (
         <OverlayContainer>
-          <StyledTooltip
-            {...mergeProps(contentProps, positionProps, tooltipProps, other)}
+          <div
+            {...mergeProps(tooltipProps, positionProps, contentProps, other)}
+            className={cx('manifest-tooltip', className, classNameProp)}
             ref={mergeRefs(overlayRef, forwardedRef)}
           >
             <Typography variant="caption">{title}</Typography>
-          </StyledTooltip>
+          </div>
         </OverlayContainer>
       )}
-    </>
+    </FocusableProvider>
   );
 });
+
+if (__DEV__) {
+  Tooltip.displayName = 'ManifestTooltip';
+}
+
+Tooltip.toString = () => '.manifest-tooltip';
+
+export { Tooltip };
+export type { TooltipProps };

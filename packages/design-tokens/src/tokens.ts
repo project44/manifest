@@ -1,8 +1,3 @@
-/**
- * Do not edit directly
- * Generated on Wed, 22 Jun 2022 21:31:51 GMT
- */
-
 export const RADIUS_FULL = '999em';
 export const RADIUS_SMALL = '2px';
 export const BORDER_WIDTH_LARGE = '3px';

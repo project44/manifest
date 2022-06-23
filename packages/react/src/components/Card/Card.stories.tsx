@@ -1,7 +1,7 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
-import { Card, CardBody, CardFooter, CardHeader } from '.';
 import { Button, ButtonGroup } from '../Button';
+import { Card, CardBody, CardFooter, CardHeader } from './Card';
 
 export default {
   title: 'Components/Card',
@@ -13,9 +13,9 @@ const Template: ComponentStory<typeof Card> = args => <Card {...args} />;
 
 export const Default = Template.bind({});
 
-Default.args = {
-  children: (
-    <>
+Default.decorators = [
+  () => (
+    <Card>
       <CardHeader>Title</CardHeader>
       <CardBody>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -25,9 +25,9 @@ Default.args = {
       <CardFooter>
         <ButtonGroup>
           <Button variant="secondary">Cancel</Button>
-          <Button>Submit</Button>
+          <Button variant="primary">Cancel</Button>
         </ButtonGroup>
       </CardFooter>
-    </>
+    </Card>
   ),
-};
+];

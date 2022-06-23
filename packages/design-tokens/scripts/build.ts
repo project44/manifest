@@ -25,7 +25,7 @@ StyleDictionary.registerTransform(pxToRemTransformer);
 StyleDictionary.extend({
   source: [path.join(ROOT_DIR, 'tokens/**/*.json')],
   platforms: {
-    stitches: {
+    theme: {
       buildPath: OUT_PUT_DIR,
       files: [{ destination: 'theme.ts', format: 'manifest/theme' }],
       transformGroup: 'manifest/typescript',

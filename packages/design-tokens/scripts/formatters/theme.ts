@@ -1,7 +1,6 @@
 import type { Named, Format, TransformedToken } from 'style-dictionary';
 import camelCase from 'lodash/camelCase';
 import { format } from 'prettier';
-import { formatHelpers } from 'style-dictionary';
 import kebabCase from 'lodash/kebabCase';
 
 const themeTemplate = (tokens: TransformedToken[]) => {
@@ -32,22 +31,15 @@ const themeTemplate = (tokens: TransformedToken[]) => {
 
 export const themeFormatter: Named<Format> = {
   name: 'manifest/theme',
-  formatter: ({ dictionary, file }) => {
+  formatter: ({ dictionary }) => {
     const { allTokens } = dictionary;
 
     const categories = themeTemplate(allTokens);
 
-    return format(
-      [
-        formatHelpers.fileHeader({ file }),
-        'import * as tokens from "./tokens"\n',
-        ` ${categories}\n`,
-      ].join('\n'),
-      {
-        parser: 'typescript',
-        printWidth: 100,
-        singleQuote: true,
-      },
-    );
+    return format(['import * as tokens from "./tokens"\n', ` ${categories}\n`].join('\n'), {
+      parser: 'typescript',
+      printWidth: 100,
+      singleQuote: true,
+    });
   },
 };

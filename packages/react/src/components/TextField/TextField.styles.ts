@@ -1,12 +1,39 @@
-import { focus, styled } from '../../styles';
+import { css } from '../../styles';
 
-export const StyledInput = styled(
-  'input',
-  {
-    $$backgroundColor: '$colors$background-primary',
-    $$borderColor: '$colors$palette-grey-500',
-    $$textColor: '$colors$text-primary',
+export const useTextFieldStyles = css({
+  $$backgroundColor: '$colors$background-primary',
+  $$borderColor: '$colors$palette-grey-500',
+  $$iconColor: '$colors$text-tertiary',
+  $$textColor: '$colors$text-primary',
 
+  alignItems: 'center',
+  boxSizing: 'border-box',
+  display: 'inline-flex',
+  justifyContent: 'flex-start',
+  position: 'relative',
+  width: 'auto',
+
+  '.manifest-text-field--icon': {
+    alignItems: 'center',
+    color: '$$iconColor',
+    display: 'inline-flex',
+    justifyContent: 'center',
+    padding: '$small',
+    pointerEvents: 'none',
+    position: 'absolute',
+    top: 0,
+    zIndex: 2,
+  },
+
+  '.manifest-text-field--icon__end': {
+    right: 0,
+  },
+
+  '.manifest-text-field--icon__start': {
+    left: 0,
+  },
+
+  '.manifest-text-field--input': {
     appearance: 'none',
     backgroundColor: '$$backgroundColor',
     border: '1px solid $$borderColor',
@@ -25,92 +52,85 @@ export const StyledInput = styled(
     '&::placeholder': {
       color: '$text-tertiary',
     },
+  },
 
-    variants: {
-      hasEndIcon: {
-        true: {
+  variants: {
+    hasEndIcon: {
+      true: {
+        '.manifest-text-field--input': {
           paddingRight: '2.5rem',
         },
       },
-      hasStartIcon: {
-        true: {
+    },
+    hasStartIcon: {
+      true: {
+        '.manifest-text-field--input': {
           paddingLeft: '2.5rem',
         },
       },
-      isDisabled: {
-        true: {
-          $$backgroundColor: '$colors$palette-grey-50',
-          $$textColor: '$colors$text-disabled',
+    },
+    isDisabled: {
+      true: {
+        $$backgroundColor: '$colors$palette-grey-50',
+        $$textColor: '$colors$text-disabled',
 
-          cursor: 'not-allowed',
-        },
-      },
-      isHovered: {
-        true: {
-          $$borderColor: '$colors$palette-grey-600',
-        },
-      },
-      isInvalid: {
-        true: {
-          $$borderColor: '$colors$border-danger',
-          $$textColor: '$colors$text-danger',
-        },
-      },
-      size: {
-        medium: {
-          height: '2.5rem',
-        },
-        small: {
-          height: '2.125rem',
-        },
+        cursor: 'not-allowed',
       },
     },
-
-    defaultVariants: {
-      size: 'medium',
+    isFocused: {
+      true: {
+        $$borderColor: '$colors$primary-default',
+      },
     },
-  },
-  focus,
-);
-
-export const StyledIcon = styled('span', {
-  $$iconColor: '$colors$text-tertiary',
-
-  alignItems: 'center',
-  color: '$$iconColor',
-  display: 'inline-flex',
-  justifyContent: 'center',
-  padding: '$small',
-  pointerEvents: 'none',
-  position: 'absolute',
-  top: 0,
-  zIndex: 2,
-
-  variants: {
+    isFocusVisible: {
+      true: {
+        '.manifest-text-field--input': {
+          outline: '$colors$palette-indigo-200 solid 3px',
+        },
+      },
+      false: {
+        outline: 'none',
+      },
+    },
+    isHovered: {
+      true: {
+        $$borderColor: '$colors$palette-grey-600',
+      },
+    },
     isInvalid: {
       true: {
+        $$borderColor: '$colors$border-danger',
         $$iconColor: '$colors$text-danger',
+        $$textColor: '$colors$text-danger',
       },
-    },
-    placement: {
-      end: { right: 0 },
-      start: { left: 0 },
     },
     size: {
       medium: {
-        fontSize: '$x-large',
-        size: '2.5rem',
-
-        '> .material-icons': {
+        '.manifest-text-field--icon': {
           fontSize: '$x-large',
+          size: '2.5rem',
+
+          '> .material-icons': {
+            fontSize: '$x-large',
+          },
+        },
+
+        '.manifest-text-field--input': {
+          height: '2.5rem',
         },
       },
       small: {
-        fontSize: '1.125rem',
-        size: '2.125rem',
-
-        '> .material-icons': {
+        '.manifest-text-field--icon': {
           fontSize: '1.125rem',
+          size: '2.125rem',
+
+          '> .material-icons': {
+            fontSize: '1.125rem',
+          },
+        },
+
+        '.manifest-text-field--input': {
+          height: '2.125rem',
         },
       },
     },
@@ -120,3 +140,6 @@ export const StyledIcon = styled('span', {
     size: 'medium',
   },
 });
+
+export type { CSS } from '../../styles';
+export { cx } from '../../styles';

@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { CssBaseline } from '../CssBaseline';
+import { OverlayProvider } from '@react-aria/overlays';
+import { SSRProvider } from '@react-aria/ssr';
 
 export interface ProviderProps {
   /**
@@ -18,9 +20,11 @@ export function Provider(props: ProviderProps) {
   const { children, disableCSSBaseline = false } = props;
 
   return (
-    <>
-      {!disableCSSBaseline && <CssBaseline />}
-      {children}
-    </>
+    <SSRProvider>
+      <OverlayProvider>
+        {!disableCSSBaseline && <CssBaseline />}
+        {children}
+      </OverlayProvider>
+    </SSRProvider>
   );
 }

@@ -1,30 +1,6 @@
-import { Fallback, Image, Root } from '@radix-ui/react-avatar';
-import { styled } from '../../styles';
+import { css } from '../../styles';
 
-export const StyledAvatarFallback = styled(Fallback, {
-  alignItems: 'center',
-  color: '$text-secondary',
-  display: 'flex',
-  fontFamily: '$text',
-  fontSize: 'inherit',
-  fontWeight: '$semibold',
-  letterSpacing: '$medium',
-  lineHeight: 'inherit',
-  height: '100%',
-  justifyContent: 'center',
-  width: '100%',
-});
-
-export const StyledAvatarImage = styled(Image, {
-  borderRadius: 'inherit',
-  boxSizing: 'border-box',
-  height: '100%',
-  objectFit: 'cover',
-  verticalAlign: 'middle',
-  width: '100%',
-});
-
-export const StyledAvatar = styled(Root, {
+export const useAvatarStyles = css({
   $$avatarSize: '2.5rem',
   $$avatarFontSize: '$small',
   $$avatarLineHeight: '$medium',
@@ -40,6 +16,29 @@ export const StyledAvatar = styled(Root, {
   size: '$$avatarSize',
   verticalAlign: 'middle',
 
+  '.manifest-avatar--fallback': {
+    alignItems: 'center',
+    color: '$text-secondary',
+    display: 'flex',
+    fontFamily: '$text',
+    fontSize: '$$avatarFontSize',
+    fontWeight: '$semibold',
+    letterSpacing: '$medium',
+    lineHeight: '$$avatarLineHeight',
+    height: '100%',
+    justifyContent: 'center',
+    width: '100%',
+  },
+
+  '.manifest-avatar--image': {
+    borderRadius: 'inherit',
+    boxSizing: 'border-box',
+    height: '100%',
+    objectFit: 'cover',
+    verticalAlign: 'middle',
+    width: '100%',
+  },
+
   variants: {
     size: {
       medium: {
@@ -50,7 +49,7 @@ export const StyledAvatar = styled(Root, {
       small: {
         $$avatarSize: '1.75rem',
         $$avatarFontSize: '$fontSizes$x-small',
-        $$avatarLineHeight: '$lineHeights$small',
+        $$avatarLineHeight: '$0.875rem',
       },
     },
   },
@@ -59,3 +58,6 @@ export const StyledAvatar = styled(Root, {
     size: 'medium',
   },
 });
+
+export type { CSS } from '../../styles';
+export { cx } from '../../styles';

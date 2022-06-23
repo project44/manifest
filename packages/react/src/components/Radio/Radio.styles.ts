@@ -1,60 +1,97 @@
-import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
-import { focus, styled } from '../../styles';
+import { css } from '../../styles';
 
-export const StyledRadio = styled(
-  RadioGroupPrimitive.Item,
-  {
-    $$radioSize: '1.125rem',
+export const useRadioStyles = css({
+  $$backgroundColor: '$colors$palette-white',
+  $$borderColor: '$colors$palette-grey-500',
 
+  alignItems: 'center',
+  boxSizing: 'border-box',
+  display: 'inline-flex',
+  justifyContent: 'flex-start',
+  position: 'relative',
+  width: 'auto',
+
+  '.manifest-radio--control': {
     alignItems: 'center',
-    backgroundColor: '$white',
-    border: '3px solid $colors$palette-grey-500',
+    backgroundColor: '$$backgroundColor',
+    border: '3px solid $$borderColor',
     borderRadius: '$full',
     boxSizing: 'border-box',
-    color: '$white',
+    color: '$palette-white',
     display: 'inline-flex',
     justifyContent: 'center',
-    size: '$$radioSize',
-    transition: '$color',
+    size: '1.125rem',
+  },
 
-    '&:disabled': {
-      opacity: 0.38,
-      pointerEvents: 'none',
-    },
+  '.manifest-radio--indicator': {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100%',
+    position: 'relative',
 
-    '&:hover': {
-      borderColor: '$palette-grey-600',
-    },
-
-    '&[data-state=checked]': {
-      backgroundColor: '$primary',
-      borderColor: 'transparent',
+    '&::after': {
+      backgroundColor: '$palette-white',
+      borderRadius: '$full',
+      content: '""',
+      display: 'block',
+      size: '0.625rem',
     },
   },
-  focus,
-);
 
-export const StyledRadioIndicator = styled(RadioGroupPrimitive.Indicator, {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  height: '100%',
-  position: 'relative',
+  '.manifest-radio--input': {
+    cursor: 'pointer',
+    height: '100%',
+    left: 0,
+    margin: 0,
+    opacity: 0,
+    padding: 0,
+    position: 'absolute',
+    top: 0,
+    width: '100%',
+  },
 
-  '&::after': {
-    backgroundColor: '$white',
-    borderRadius: '$full',
-    content: '""',
-    display: 'block',
-    size: '0.625rem',
+  '.manifest-radio--text': {
+    marginLeft: '$small',
+  },
+
+  variants: {
+    isChecked: {
+      true: {
+        $$backgroundColor: '$colors$primary-default',
+        $$borderColor: 'transparent',
+      },
+    },
+    isDisabled: {
+      true: {
+        cursor: 'not-allowed',
+        opacity: 0.58,
+        pointerEvents: 'none',
+      },
+    },
+    isFocusVisible: {
+      true: {
+        '.manifest-radio--control': {
+          outline: '$colors$palette-indigo-200 solid 3px',
+        },
+      },
+      false: {
+        outline: 'none',
+      },
+    },
+    isHovered: {
+      true: {
+        $$borderColor: '$colors$palette-grey-600',
+      },
+    },
   },
 });
 
-export const StyledRadioGroup = styled(RadioGroupPrimitive.Root, {
+export const useRadioGroupStyles = css({
   border: 0,
   display: 'flex',
   flexDirection: 'column',
-  gap: 3,
+  gap: '$small',
   margin: 0,
   padding: 0,
 
@@ -74,27 +111,5 @@ export const StyledRadioGroup = styled(RadioGroupPrimitive.Root, {
   },
 });
 
-export const StyledRadioLabel = styled('label', {
-  alignItems: 'center',
-  boxSizing: 'border-box',
-  display: 'inline-flex',
-  justifyContent: 'flex-start',
-  position: 'relative',
-  width: 'auto',
-
-  variants: {
-    isDisabled: {
-      true: {
-        pointerEvents: 'none',
-      },
-    },
-  },
-});
-
-export const StyledRadioText = styled('span', {
-  fontFamily: '$text',
-  fontSize: '$small',
-  letterSpacing: '$medium',
-  lineHeight: '$medium',
-  marginLeft: '$small',
-});
+export type { CSS } from '../../styles';
+export { cx } from '../../styles';
