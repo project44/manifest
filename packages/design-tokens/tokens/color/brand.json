@@ -2,9 +2,15 @@
   "color": {
     "brand": {
       "default": { "value": "{color.palette.blue.500.value}" },
-      "active":  { "value": "linear-gradient(0deg, rgba(9, 21, 33, 0.4), rgba(9, 21, 33, 0.4)), linear-gradient(90deg, {color.palette.blue.500.value} 0%, {color.palette.purple.900.value} 163.65%, {color.palette.purple.500.value}  191.59%)" },
-      "hover": { "value": "linear-gradient(0deg, rgba(9, 21, 33, 0.2), rgba(9, 21, 33, 0.2)), linear-gradient(90deg, {color.palette.blue.500.value} 0%, {color.palette.purple.900.value} 163.65%, {color.palette.purple.500.value}  191.59%)" },
-      "gradient": { "value": "linear-gradient(90deg, {color.palette.blue.500.value} 0%, {color.palette.purple.900.value} 163.65%, {color.palette.purple.500.value}  191.59%)" }
+      "active": {
+        "value": "linear-gradient(0deg, rgba(9, 21, 33, 0.4), rgba(9, 21, 33, 0.4)), linear-gradient(90deg, {color.palette.blue.500.value} 0%, {color.palette.purple.900.value} 163.65%, {color.palette.purple.500.value}  191.59%)"
+      },
+      "hover": {
+        "value": "linear-gradient(0deg, rgba(9, 21, 33, 0.2), rgba(9, 21, 33, 0.2)), linear-gradient(90deg, {color.palette.blue.500.value} 0%, {color.palette.purple.900.value} 163.65%, {color.palette.purple.500.value}  191.59%)"
+      },
+      "gradient": {
+        "value": "linear-gradient(90deg, {color.palette.blue.500.value} 0%, {color.palette.purple.900.value} 163.65%, {color.palette.purple.500.value}  191.59%)"
+      }
     }
   }
 }

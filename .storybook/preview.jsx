@@ -1,7 +1,7 @@
 import { Provider } from '@manifest/react';
 
 export const decorators = [
-  (Story) => (
+  Story => (
     <Provider>
       <Story />
     </Provider>

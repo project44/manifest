@@ -95,12 +95,12 @@ jobs:
           name: build-artifacts
           path: packages/
 
-      - name: "Create Pull Request or Publish to npm"
+      - name: 'Create Pull Request or Publish to npm'
         uses: changesets/action@v1
         with:
           version: yarn version
           publish: yarn release
-          commit: "chore(release): version packages"
+          commit: 'chore(release): version packages'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -150,8 +150,8 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          buildScriptName: "build:storybook"
-          autoAcceptChanges: "main"
+          buildScriptName: 'build:storybook'
+          autoAcceptChanges: 'main'
           exitOnceUploaded: true
         env:
           STORYBOOK_GITHUB_SHA: ${{ github.sha }}

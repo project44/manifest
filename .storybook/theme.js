@@ -13,7 +13,8 @@ export default create({
   appBorderRadius: '2px',
 
   // Typography
-  fontBase: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
+  fontBase:
+    '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
   fontCode: '"Fira Mono", Courier, monospace',
 
   // Text colors

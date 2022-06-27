@@ -5,7 +5,6 @@ import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useTooltip, useTooltipTrigger } from '@react-aria/tooltip';
 import { FocusableProvider } from '@react-aria/focus';
 import { OverlayContainer } from '@react-aria/overlays';
-import { Primitive } from '@radix-ui/react-primitive';
 import { Typography } from '../Typography';
 import { useOverlayPosition } from '@react-aria/overlays';
 import { useTooltipTriggerState } from '@react-stately/tooltip';
