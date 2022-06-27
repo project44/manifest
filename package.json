@@ -21,7 +21,7 @@
     "lint": "beemo eslint",
     "pack": "NODE_ENV=production packemon pack --addEngines --declaration",
     "postinstall": "husky install && beemo create-config",
-    "prerelease": "yarn pack && yarn lint",
+    "prerelease": "yarn run pack && yarn lint",
     "release": "yarn changeset publish",
     "start": "yarn run start:build && yarn run start:storybook",
     "start:build": "yarn run build",
