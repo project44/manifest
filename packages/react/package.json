@@ -1,6 +1,6 @@
 {
   "name": "@manifest/react",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "author": "project44",
   "license": "MIT",
   "main": "./lib/index.js",
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@internationalized/date": "^3.0.0",
-    "@manifest/design-tokens": "^0.0.0",
+    "@manifest/design-tokens": "^1.0.0",
     "@react-aria/button": "^3.5.1",
     "@react-aria/calendar": "^3.0.0",
     "@react-aria/checkbox": "^3.4.1",
