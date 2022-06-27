@@ -1,14 +1,16 @@
-name: ci
+name: release
 
 on:
   push:
+    paths:
+      - '.changeset/**'
+      - 'packages/**'
     branches:
       - main
-  pull_request:
 
 jobs:
-  build:
-    name: Build packages
+  prerelease:
+    name: Prerelease
     runs-on: ubuntu-latest
 
     steps:
@@ -37,8 +39,8 @@ jobs:
         if: steps.yarn_cache.outputs.cache-hit != 'true'
         run: yarn install --immutable
 
-      - name: Run build
-        run: yarn build
+      - name: Run prerelease
+        run: yarn prerelease
 
       - name: Store build artifacts
         uses: actions/upload-artifact@v2
@@ -49,11 +51,10 @@ jobs:
             packages/**/lib/**/*
             packages/**/dts/**/*
 
-  format:
-    name: Format code
-    needs: build
+  version_or_publish:
+    name: Version or publish the packages
+    needs: prerelease
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -63,11 +64,20 @@ jobs:
         with:
           node-version: 16
 
+      - name: Configure NPM
+        run: |
+          cat << EOF > "$HOME/.npmrc"
+            //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          EOF
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
-      - uses: actions/cache@v3
+      - name: Load yarn cache
+        uses: actions/cache@v3
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -85,17 +95,27 @@ jobs:
           name: build-artifacts
           path: packages/
 
-      - name: Run formatter
-        run: yarn run format
+      - name: "Create Pull Request or Publish to npm"
+        uses: changesets/action@v1
+        with:
+          version: yarn version
+          publish: yarn release
+          commit: "chore(release): version packages"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
 
-  lint:
-    name: Lint repository
-    needs: build
+  chromatic:
+    name: Chromatic update
+    needs: prerelease
     runs-on: ubuntu-latest
-
+    if: "!contains(github.event.head_commit.message, 'chore(release): version packages')"
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -106,7 +126,8 @@ jobs:
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
-      - uses: actions/cache@v3
+      - name: Load yarn cache
+        uses: actions/cache@v3
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -124,5 +145,13 @@ jobs:
           name: build-artifacts
           path: packages/
 
-      - name: Run linter
-        run: yarn run lint
+      - name: Run Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          buildScriptName: "build:storybook"
+          autoAcceptChanges: "main"
+          exitOnceUploaded: true
+        env:
+          STORYBOOK_GITHUB_SHA: ${{ github.sha }}
