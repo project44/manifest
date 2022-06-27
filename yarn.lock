@@ -3106,106 +3106,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@manifest/design-tokens@^1.0.0, @manifest/design-tokens@workspace:packages/design-tokens":
-  version: 0.0.0-use.local
-  resolution: "@manifest/design-tokens@workspace:packages/design-tokens"
-  dependencies:
-    style-dictionary: ^3.7.0
-  languageName: unknown
-  linkType: soft
-
-"@manifest/react@workspace:packages/react":
-  version: 0.0.0-use.local
-  resolution: "@manifest/react@workspace:packages/react"
-  dependencies:
-    "@internationalized/date": ^3.0.0
-    "@manifest/design-tokens": ^1.0.0
-    "@react-aria/button": ^3.5.1
-    "@react-aria/calendar": ^3.0.0
-    "@react-aria/checkbox": ^3.4.1
-    "@react-aria/combobox": ^3.3.1
-    "@react-aria/dialog": ^3.2.1
-    "@react-aria/focus": ^3.6.1
-    "@react-aria/i18n": ^3.4.1
-    "@react-aria/interactions": ^3.9.1
-    "@react-aria/label": ^3.3.1
-    "@react-aria/listbox": ^3.5.1
-    "@react-aria/menu": ^3.5.1
-    "@react-aria/overlays": ^3.9.1
-    "@react-aria/radio": ^3.2.1
-    "@react-aria/select": ^3.7.1
-    "@react-aria/separator": ^3.2.1
-    "@react-aria/ssr": ^3.2.0
-    "@react-aria/switch": ^3.2.1
-    "@react-aria/tooltip": ^3.2.1
-    "@react-aria/utils": ^3.13.1
-    "@react-aria/visually-hidden": ^3.3.1
-    "@react-stately/calendar": ^3.0.0
-    "@react-stately/collections": ^3.4.1
-    "@react-stately/combobox": ^3.1.1
-    "@react-stately/menu": ^3.3.1
-    "@react-stately/overlays": ^3.3.1
-    "@react-stately/radio": ^3.4.1
-    "@react-stately/select": ^3.2.1
-    "@react-stately/toggle": ^3.3.1
-    "@react-stately/tooltip": ^3.1.1
-    "@react-stately/utils": ^3.5.0
-    "@stitches/react": ^1.2.8
-    clsx: ^1.1.1
-    react: ^18.1.0
-    react-dom: ^18.1.0
-  peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-  languageName: unknown
-  linkType: soft
-
-"@manifest/vessel@workspace:packages/vessel":
-  version: 0.0.0-use.local
-  resolution: "@manifest/vessel@workspace:packages/vessel"
-  dependencies:
-    "@babel/cli": ^7.16.8
-    "@babel/core": ^7.18.0
-    "@babel/plugin-proposal-class-properties": ^7.17.12
-    "@babel/plugin-proposal-decorators": ^7.18.2
-    "@babel/plugin-proposal-export-default-from": ^7.17.12
-    "@babel/plugin-proposal-export-namespace-from": ^7.17.12
-    "@babel/plugin-proposal-private-methods": ^7.17.12
-    "@babel/plugin-proposal-private-property-in-object": ^7.17.12
-    "@babel/preset-env": ^7.18.2
-    "@babel/preset-react": ^7.17.12
-    "@babel/preset-typescript": ^7.17.12
-    "@beemo/cli": ^2.0.6
-    "@beemo/core": ^2.1.4
-    "@beemo/driver-babel": ^2.0.6
-    "@beemo/driver-eslint": ^2.0.5
-    "@beemo/driver-jest": ^2.0.5
-    "@beemo/driver-prettier": ^2.0.6
-    "@beemo/driver-typescript": ^2.1.2
-    "@swc/core": ^1.2.196
-    "@swc/jest": ^0.2.21
-    "@types/jest": ^27.5.1
-    "@typescript-eslint/eslint-plugin": ^5.27.0
-    "@typescript-eslint/parser": ^5.27.0
-    babel-plugin-transform-dev: ^2.0.1
-    eslint: ^8.16.0
-    eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^26.4.6
-    eslint-plugin-jsx-a11y: ^6.5.1
-    eslint-plugin-react: ^7.30.0
-    eslint-plugin-react-hooks: ^4.5.0
-    eslint-plugin-react-perf: ^3.3.1
-    jest: ^28.1.0
-    jest-environment-jsdom: ^28.1.0
-    prettier: ^2.6.2
-    typescript: ^4.6.4
-  peerDependencies:
-    "@beemo/cli": ">=2.0.0"
-    "@beemo/core": ">=2.0.0"
-  languageName: unknown
-  linkType: soft
-
 "@manypkg/find-root@npm:^1.1.0":
   version: 1.1.0
   resolution: "@manypkg/find-root@npm:1.1.0"
@@ -3404,6 +3304,106 @@ __metadata:
   checksum: 3490649181878cc8808fb91f3870ef095e5a1fb9647b3ac83740df07379c9d1cf540f24bf2b09d5f26a3a8c805b2c6b9c5be7192bdb9317d0ffffa67426e9f66
   languageName: node
   linkType: hard
+
+"@project44-manifest/design-tokens@^0.0.0, @project44-manifest/design-tokens@workspace:packages/design-tokens":
+  version: 0.0.0-use.local
+  resolution: "@project44-manifest/design-tokens@workspace:packages/design-tokens"
+  dependencies:
+    style-dictionary: ^3.7.0
+  languageName: unknown
+  linkType: soft
+
+"@project44-manifest/react@workspace:packages/react":
+  version: 0.0.0-use.local
+  resolution: "@project44-manifest/react@workspace:packages/react"
+  dependencies:
+    "@internationalized/date": ^3.0.0
+    "@project44-manifest/design-tokens": ^0.0.0
+    "@react-aria/button": ^3.5.1
+    "@react-aria/calendar": ^3.0.0
+    "@react-aria/checkbox": ^3.4.1
+    "@react-aria/combobox": ^3.3.1
+    "@react-aria/dialog": ^3.2.1
+    "@react-aria/focus": ^3.6.1
+    "@react-aria/i18n": ^3.4.1
+    "@react-aria/interactions": ^3.9.1
+    "@react-aria/label": ^3.3.1
+    "@react-aria/listbox": ^3.5.1
+    "@react-aria/menu": ^3.5.1
+    "@react-aria/overlays": ^3.9.1
+    "@react-aria/radio": ^3.2.1
+    "@react-aria/select": ^3.7.1
+    "@react-aria/separator": ^3.2.1
+    "@react-aria/ssr": ^3.2.0
+    "@react-aria/switch": ^3.2.1
+    "@react-aria/tooltip": ^3.2.1
+    "@react-aria/utils": ^3.13.1
+    "@react-aria/visually-hidden": ^3.3.1
+    "@react-stately/calendar": ^3.0.0
+    "@react-stately/collections": ^3.4.1
+    "@react-stately/combobox": ^3.1.1
+    "@react-stately/menu": ^3.3.1
+    "@react-stately/overlays": ^3.3.1
+    "@react-stately/radio": ^3.4.1
+    "@react-stately/select": ^3.2.1
+    "@react-stately/toggle": ^3.3.1
+    "@react-stately/tooltip": ^3.1.1
+    "@react-stately/utils": ^3.5.0
+    "@stitches/react": ^1.2.8
+    clsx: ^1.1.1
+    react: ^18.1.0
+    react-dom: ^18.1.0
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  languageName: unknown
+  linkType: soft
+
+"@project44-manifest/vessel@workspace:packages/vessel":
+  version: 0.0.0-use.local
+  resolution: "@project44-manifest/vessel@workspace:packages/vessel"
+  dependencies:
+    "@babel/cli": ^7.16.8
+    "@babel/core": ^7.18.0
+    "@babel/plugin-proposal-class-properties": ^7.17.12
+    "@babel/plugin-proposal-decorators": ^7.18.2
+    "@babel/plugin-proposal-export-default-from": ^7.17.12
+    "@babel/plugin-proposal-export-namespace-from": ^7.17.12
+    "@babel/plugin-proposal-private-methods": ^7.17.12
+    "@babel/plugin-proposal-private-property-in-object": ^7.17.12
+    "@babel/preset-env": ^7.18.2
+    "@babel/preset-react": ^7.17.12
+    "@babel/preset-typescript": ^7.17.12
+    "@beemo/cli": ^2.0.6
+    "@beemo/core": ^2.1.4
+    "@beemo/driver-babel": ^2.0.6
+    "@beemo/driver-eslint": ^2.0.5
+    "@beemo/driver-jest": ^2.0.5
+    "@beemo/driver-prettier": ^2.0.6
+    "@beemo/driver-typescript": ^2.1.2
+    "@swc/core": ^1.2.196
+    "@swc/jest": ^0.2.21
+    "@types/jest": ^27.5.1
+    "@typescript-eslint/eslint-plugin": ^5.27.0
+    "@typescript-eslint/parser": ^5.27.0
+    babel-plugin-transform-dev: ^2.0.1
+    eslint: ^8.16.0
+    eslint-config-prettier: ^8.5.0
+    eslint-plugin-import: ^2.26.0
+    eslint-plugin-jest: ^26.4.6
+    eslint-plugin-jsx-a11y: ^6.5.1
+    eslint-plugin-react: ^7.30.0
+    eslint-plugin-react-hooks: ^4.5.0
+    eslint-plugin-react-perf: ^3.3.1
+    jest: ^28.1.0
+    jest-environment-jsdom: ^28.1.0
+    prettier: ^2.6.2
+    typescript: ^4.6.4
+  peerDependencies:
+    "@beemo/cli": ">=2.0.0"
+    "@beemo/core": ">=2.0.0"
+  languageName: unknown
+  linkType: soft
 
 "@react-aria/button@npm:^3.5.1":
   version: 3.5.1
