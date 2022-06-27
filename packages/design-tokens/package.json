@@ -1,6 +1,6 @@
 {
-  "name": "@manifest/design-tokens",
-  "version": "1.0.0",
+  "name": "@project44-manifest/design-tokens",
+  "version": "0.0.0",
   "main": "./lib/index.js",
   "module": "./esm/index.js",
   "types": "./dts/index.d.ts",
@@ -10,6 +10,9 @@
     "lib/**/*.{js,map}",
     "src/**/*.{ts,tsx,json}"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:project-44/manifest.git",
