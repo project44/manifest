@@ -1,4 +1,4 @@
-import { theme as designTokens } from '@manifest/design-tokens';
+import { theme as designTokens } from '@project44-manifest/design-tokens';
 import { utils } from './utils';
 
 const {
