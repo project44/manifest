@@ -4,8 +4,8 @@
   <a href="https://github.com/project44/manifest/blob/main/LICENSE">
     <img src="https://img.shields.io/apm/l/atomic-design-ui.svg?style=flat" alt="License">
   </a>
-  <a href="https://github.com/project44/manifest/actions/workflows/ci.yaml">
-    <img src="https://github.com/project44/manifest/actions/workflows/ci.yaml/badge.svg" alt="CI/CD">
+  <a href="https://github.com/project44/manifest/actions/workflows/ci.yml">
+    <img src="https://github.com/project44/manifest/actions/workflows/ci.yml/badge.svg" alt="CI/CD">
   </a>
 </p>
 
