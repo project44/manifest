@@ -1,6 +1,6 @@
 {
-  "name": "@project44-manifest/react",
-  "version": "1.0.0",
+  "name": "@project44-manifest/styles",
+  "version": "0.0.0",
   "author": "project44",
   "license": "MIT",
   "main": "./lib/index.js",
@@ -18,19 +18,12 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:project-44/manifest.git",
-    "directory": "packages/react"
-  },
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
+    "directory": "packages/styles"
   },
   "dependencies": {
-    "@project44-manifest/components": "^0.0.0",
-    "@project44-manifest/styles": "^0.0.0"
-  },
-  "devDependencies": {
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "@project44-manifest/design-tokens": "^1.0.0",
+    "@stitches/react": "^1.2.8",
+    "clsx": "^1.1.1"
   },
   "packemon": {
     "platform": "browser"

@@ -3,10 +3,16 @@
   "files": [],
   "references": [
     {
+      "path": "packages/components"
+    },
+    {
       "path": "packages/design-tokens"
     },
     {
       "path": "packages/react"
+    },
+    {
+      "path": "packages/styles"
     },
     {
       "path": "packages/vessel"
