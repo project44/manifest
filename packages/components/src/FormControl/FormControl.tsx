@@ -93,7 +93,7 @@ const FormControl = React.forwardRef<FormControlElement, FormControlProps>(
             className="manifest-form-control--label"
           >
             {label}
-            {isRequired && <span>*</span>}
+            {isRequired && <span className="manifest-form-control--required-indicator">*</span>}
           </label>
         )}
 

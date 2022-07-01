@@ -26,41 +26,37 @@ Sizes.decorators = [
   ),
 ];
 
-export const EndIcon = Template.bind({});
+export const Icons = Template.bind({});
 
-EndIcon.decorators = [
-  () => <TextField placeholder="Enter name..." endIcon={<Icon icon="search" />} />,
-];
-
-export const StartIcon = Template.bind({});
-
-StartIcon.decorators = [
-  () => <TextField placeholder="Enter name..." startIcon={<Icon icon="search" />} />,
-];
-
-export const FormControl = Template.bind({});
-
-FormControl.decorators = [
+Icons.decorators = [
   () => (
-    <TextField
-      label="Label"
-      helperText="Helper text"
-      placeholder="Search..."
-      startIcon={<Icon icon="search" />}
-    />
+    <Flex css={{ gap: '$small' }} orientation="vertical">
+      <TextField placeholder="Search..." endIcon={<Icon icon="search" />} />
+      <TextField placeholder="Search..." startIcon={<Icon icon="search" />} />
+    </Flex>
   ),
+];
+
+export const Label = Template.bind({});
+
+Label.decorators = [() => <TextField label="Search" placeholder="Search..." />];
+
+export const HelperText = Template.bind({});
+
+HelperText.decorators = [
+  () => <TextField helperText="Please input a search term." placeholder="Search..." />,
 ];
 
 export const Invalid = Template.bind({});
 
-Invalid.decorators = [
-  () => (
-    <TextField
-      label="Label"
-      helperText="Helper text"
-      placeholder="Search..."
-      startIcon={<Icon icon="search" />}
-      validationState="invalid"
-    />
-  ),
+Invalid.decorators = [() => <TextField placeholder="Enter name..." validationState="invalid" />];
+
+export const Controlled = Template.bind({});
+
+Controlled.decorators = [
+  () => {
+    const [value, setValue] = React.useState('Kangaroo');
+
+    return <TextField onChange={setValue} value={value} />;
+  },
 ];

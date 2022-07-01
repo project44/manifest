@@ -101,6 +101,7 @@ const TextField = React.forwardRef<TextFieldElement, TextFieldProps>((props, for
       helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextPropsProp)}
       label={label}
       labelProps={mergeProps(labelProps, labelPropsProp)}
+      validationState={validationState}
     >
       <div className={cx('manifest-text-field', className, classNameProp)} ref={forwardedRef}>
         {startIcon && (

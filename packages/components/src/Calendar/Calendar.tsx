@@ -50,4 +50,4 @@ const Calendar = React.forwardRef<CalendarElement, CalendarProps>((props, forwar
 });
 
 export { Calendar };
-export type { CalendarProps };
+export type { CalendarProps, DateValue };

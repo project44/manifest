@@ -22,6 +22,20 @@ Default.decorators = [
   ),
 ];
 
+export const Sections = Template.bind({});
+
+Sections.decorators = [
+  () => (
+    <ListBox>
+      <ListBoxSection title="Animals">
+        <ListBoxItem key="ardvark">Ardvark</ListBoxItem>
+        <ListBoxItem key="kangaroo">Kangaroo</ListBoxItem>
+        <ListBoxItem key="snake">Snake</ListBoxItem>
+      </ListBoxSection>
+    </ListBox>
+  ),
+];
+
 export const SingleSelection = Template.bind({});
 
 SingleSelection.decorators = [
@@ -44,4 +58,24 @@ MultipleSelection.decorators = [
       <ListBoxItem key="Snake">Snake</ListBoxItem>
     </ListBox>
   ),
+];
+
+export const Controlled = Template.bind({});
+
+Controlled.decorators = [
+  () => {
+    const [selected, setSelected] = React.useState<'all' | Set<React.Key>>(new Set(['Ardvark']));
+
+    return (
+      <ListBox
+        onSelectionChange={selected => setSelected(selected)}
+        selectedKeys={selected}
+        selectionMode="single"
+      >
+        <ListBoxItem key="Ardvark">Ardvark</ListBoxItem>
+        <ListBoxItem key="kangaroo">Kangaroo</ListBoxItem>
+        <ListBoxItem key="snake">Snake</ListBoxItem>
+      </ListBox>
+    );
+  },
 ];

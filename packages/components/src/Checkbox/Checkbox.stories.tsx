@@ -27,5 +27,18 @@ export const Indetermine = Template.bind({});
 Indetermine.args = {
   children: 'Checkbox',
   isIndeterminate: true,
-  isSelected: true,
 };
+
+export const Controlled = Template.bind({});
+
+Controlled.decorators = [
+  () => {
+    const [selected, setSelected] = React.useState(false);
+
+    return (
+      <Checkbox isSelected={selected} onChange={setSelected}>
+        Controlled
+      </Checkbox>
+    );
+  },
+];

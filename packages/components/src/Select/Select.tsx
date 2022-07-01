@@ -68,6 +68,7 @@ const Select = React.forwardRef<SelectElement, SelectProps>((props, forwardedRef
     className: classNameProp,
     css,
     isDisabled,
+    isRequired,
     helperText,
     helperTextProps: helperTextPropsProp = {},
     label,
@@ -133,8 +134,10 @@ const Select = React.forwardRef<SelectElement, SelectProps>((props, forwardedRef
     <FormControl
       helperText={helperText}
       helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextPropsProp)}
+      isRequired={isRequired}
       label={label}
       labelProps={mergeProps(labelProps, labelPropsProp)}
+      validationState={validationState}
     >
       <div className={cx('manifest-select', className, classNameProp)} ref={forwardedRef}>
         {startIcon && (

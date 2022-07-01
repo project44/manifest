@@ -23,6 +23,11 @@ export const useFormControlStyles = css({
     typography: '$subtext',
   },
 
+  '.manifest-form-control--required-indicator': {
+    color: '$text-danger',
+    marginLeft: '$x-small',
+  },
+
   variants: {
     isInvalid: {
       true: {

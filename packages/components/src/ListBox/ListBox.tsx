@@ -41,7 +41,7 @@ const ListBoxItem = Item as (props: ListBoxItemProps) => JSX.Element;
 
 type ListBoxSectionProps = Omit<ListBoxBase.ListBoxSectionProps, 'item'>;
 
-const ListBoxSection = Section as (props: ListBoxBase.ListBoxSectionProps) => JSX.Element;
+const ListBoxSection = Section as (props: ListBoxSectionProps) => JSX.Element;
 
 export { ListBox, ListBoxItem, ListBoxSection };
 export { ListBoxProps, ListBoxItemProps, ListBoxSectionProps };

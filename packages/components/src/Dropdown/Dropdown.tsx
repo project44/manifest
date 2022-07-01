@@ -1,7 +1,6 @@
 import type { AriaMenuProps } from '@react-types/menu';
 import type { FocusableProps } from '@react-types/shared';
 import type { Node } from '@react-types/shared';
-import type { PopoverProps } from '../Popover';
 import type { TreeState } from '@react-stately/tree';
 import * as React from 'react';
 import {
@@ -14,6 +13,7 @@ import {
 import { Item, Section } from '@react-stately/collections';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { PressResponder, useHover, usePress } from '@react-aria/interactions';
+import { Icon } from '../Icon';
 import { Popover } from '../Popover';
 import { Typography } from '../Typography';
 import { useFocusRing } from '@react-aria/focus';
@@ -48,7 +48,7 @@ const useDropdownContext = () => React.useContext(DropdownContext);
  * -----------------------------------------------------------------------------------------------
  */
 
-interface DropdownProps extends PopoverProps {
+interface DropdownProps {
   /**
    * Whether the dropdown closes when a selection is made.
    *
@@ -225,7 +225,6 @@ const _DropdownItem: React.FC<DropdownItemProps> = props => {
     autoFocus,
     className: classNameProp,
     css,
-    endIcon: endIconProp,
     isVirtualized,
     item,
     startIcon: startIconProp,
@@ -257,11 +256,6 @@ const _DropdownItem: React.FC<DropdownItemProps> = props => {
   const { hoverProps, isHovered } = useHover({ isDisabled });
   const { pressProps, isPressed } = usePress({ isDisabled, ref: itemRef });
 
-  const endIcon = React.useMemo(
-    () => endIconProp ?? (item.props.endIcon as React.ReactElement),
-    [endIconProp, item.props.endIcon],
-  );
-
   const startIcon = React.useMemo(
     () => startIconProp ?? (item.props.startIcon as React.ReactElement),
     [startIconProp, item.props.startIcon],
@@ -292,9 +286,9 @@ const _DropdownItem: React.FC<DropdownItemProps> = props => {
         {rendered}
       </Typography>
 
-      {endIcon && (
+      {isSelected && (
         <span className={cx('manifest-dropdown-item--icon', 'manifest-dropdown-item--icon__end')}>
-          {endIcon}
+          <Icon icon="check" />
         </span>
       )}
     </li>

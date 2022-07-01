@@ -21,3 +21,17 @@ Disabled.args = {
   children: 'Switch',
   isDisabled: true,
 };
+
+export const Controlled = Template.bind({});
+
+Controlled.decorators = [
+  () => {
+    const [selected, setSelected] = React.useState(false);
+
+    return (
+      <Switch isSelected={selected} onChange={setSelected}>
+        Controlled
+      </Switch>
+    );
+  },
+];

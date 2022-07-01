@@ -224,7 +224,7 @@ const ListBoxSection: React.FC<ListBoxSectionProps> = props => {
 
   return (
     <>
-      {showSeparator && <Separator css={{ mx: '-$small', my: '$small' }} />}
+      {showSeparator && <Separator className="manifest-listbox-separator" />}
       <div {...itemProps} className={cx('manifest-listbox-section', className, classNameProp)}>
         {item.rendered && (
           <Typography

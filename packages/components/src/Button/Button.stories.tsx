@@ -44,12 +44,8 @@ export const WithIcon = Template.bind({});
 WithIcon.decorators = [
   () => (
     <Flex css={{ gap: '$small' }}>
-      <Button startIcon={<Icon icon="add" />} variant="primary">
-        Primary
-      </Button>
-      <Button endIcon={<Icon icon="expand_more" />} variant="primary">
-        Primary
-      </Button>
+      <Button startIcon={<Icon icon="add" />}>Start Icon</Button>
+      <Button endIcon={<Icon icon="expand_more" />}>EndIcon</Button>
     </Flex>
   ),
 ];

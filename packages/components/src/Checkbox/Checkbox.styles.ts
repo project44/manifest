@@ -85,6 +85,23 @@ export const useCheckboxStyles = css({
       },
     },
   },
+
+  compoundVariants: [
+    {
+      isChecked: true,
+      isHovered: true,
+      css: {
+        $$borderColor: '$colors$primary-default',
+      },
+    },
+    {
+      isIndeterminate: true,
+      isHovered: true,
+      css: {
+        $$borderColor: '$colors$primary-default',
+      },
+    },
+  ],
 });
 
 export type { CSS } from '@project44-manifest/styles';

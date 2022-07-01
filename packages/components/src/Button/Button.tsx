@@ -12,6 +12,7 @@ import { useButton } from '@react-aria/button';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
 
+type Size = 'medium' | 'small';
 type Variant = 'primary' | 'secondary' | 'tertiary' | 'danger' | 'brand';
 
 /**
@@ -22,6 +23,7 @@ type Variant = 'primary' | 'secondary' | 'tertiary' | 'danger' | 'brand';
 
 interface ButtonGroupContext {
   isDisabled?: boolean;
+  size?: Size;
   variant?: Variant;
 }
 
@@ -52,7 +54,7 @@ interface ButtonProps extends ButtonNativeProps, AriaButtonProps {
    *
    * @default 'medium'
    */
-  size?: 'medium' | 'small';
+  size?: Size;
   /**
    * Icon added before the button text.
    */
@@ -76,7 +78,7 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, forwardedRef
     isDisabled = group?.isDisabled,
     endIcon,
     onClick,
-    size = 'medium',
+    size = group?.size ?? 'medium',
     startIcon,
     variant = group?.variant ?? 'primary',
   } = props;
@@ -152,6 +154,12 @@ interface ButtonGroupProps extends ButtonGroupNativeProps {
    */
   isAttached?: boolean;
   /**
+   * The size of the buttons in the group.
+   *
+   * @default 'medium'
+   */
+  size?: Size;
+  /**
    * The group variant
    *
    * @default 'primary'
@@ -167,6 +175,7 @@ const ButtonGroup = React.forwardRef<ButtonGroupElement, ButtonGroupProps>(
       css,
       isDisabled,
       isAttached,
+      size,
       variant,
       ...other
     } = props;
@@ -179,7 +188,7 @@ const ButtonGroup = React.forwardRef<ButtonGroupElement, ButtonGroupProps>(
         className={cx('manifest-button-group', className, classNameProp)}
         ref={forwardedRef}
       >
-        <ButtonGroupContext.Provider value={{ isDisabled, variant }}>
+        <ButtonGroupContext.Provider value={{ isDisabled, size, variant }}>
           {children}
         </ButtonGroupContext.Provider>
       </div>

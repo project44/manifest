@@ -2,7 +2,7 @@ import { css } from '@project44-manifest/styles';
 
 export const useDropdownStyles = css({
   boxSizing: 'border-box',
-  display: 'block',
+  display: 'inline-block',
   listStyleType: 'none',
   margin: 0,
   padding: '$small',
@@ -43,9 +43,14 @@ export const useDropdownItemBoxStyles = css({
     color: '$text-secondary',
     display: 'inline-flex',
     flexShrink: 0,
+
+    '& > .manifest-icon': {
+      fontSize: '1.125rem',
+    },
   },
 
   '.manifest-dropdown-item--icon__end': {
+    color: '$primary-default',
     marginLeft: '$small',
   },
 
@@ -85,9 +90,7 @@ export const useDropdownItemBoxStyles = css({
       },
     },
     isSelected: {
-      true: {
-        $$backgroundColor: '$colors$background-secondary',
-      },
+      true: {},
     },
   },
 });

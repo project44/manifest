@@ -6,6 +6,18 @@ export const useListBoxStyles = css({
   outline: 'none',
   padding: '$small',
   position: 'relative',
+
+  '.manifest-listbox-separator': {
+    alignSelf: 'stretch',
+    backgroundColor: '$border-primary',
+    border: 'none',
+    borderWidth: '$small',
+    height: '1px',
+    mx: '-$small',
+    my: '$small',
+    overflow: 'visible',
+    width: 'auto',
+  },
 });
 
 export const useListItemBoxStyles = css({
@@ -74,9 +86,7 @@ export const useListItemBoxStyles = css({
       },
     },
     isSelected: {
-      true: {
-        $$backgroundColor: '$colors$background-secondary',
-      },
+      true: {},
     },
   },
 });
