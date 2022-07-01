@@ -7,13 +7,13 @@ const ROOT_DIR = path.resolve(__dirname, '../');
 const OUT_PUT_DIR = path.join(ROOT_DIR, 'src/');
 
 StyleDictionary.registerTransformGroup({
-  name: 'manifest/typescript',
-  transforms: ['attribute/cti', 'name/cti/constant', 'size/pxToRem', 'color/css'],
+  name: 'manifest/json',
+  transforms: ['attribute/cti', 'name/cti/kebab', 'size/pxToRem', 'color/css'],
 });
 
 StyleDictionary.registerTransformGroup({
-  name: 'css',
-  transforms: ['attribute/cti', 'name/cti/kebab', 'size/pxToRem', 'color/css'],
+  name: 'manifest/typescript',
+  transforms: ['attribute/cti', 'name/cti/constant', 'size/pxToRem', 'color/css'],
 });
 
 StyleDictionary.registerFormat(themeFormatter);
@@ -25,6 +25,11 @@ StyleDictionary.registerTransform(pxToRemTransformer);
 StyleDictionary.extend({
   source: [path.join(ROOT_DIR, 'tokens/**/*.json')],
   platforms: {
+    json: {
+      buildPath: OUT_PUT_DIR,
+      files: [{ destination: 'tokens.json', format: 'json/flat' }],
+      transformGroup: 'manifest/json',
+    },
     theme: {
       buildPath: OUT_PUT_DIR,
       files: [{ destination: 'theme.ts', format: 'manifest/theme' }],
