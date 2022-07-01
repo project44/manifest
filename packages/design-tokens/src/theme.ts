@@ -132,6 +132,7 @@ export const theme = {
     'primary-default': tokens.COLOR_PRIMARY_DEFAULT,
     'primary-active': tokens.COLOR_PRIMARY_ACTIVE,
     'primary-hover': tokens.COLOR_PRIMARY_HOVER,
+    'text-contrast': tokens.COLOR_TEXT_CONTRAST,
     'text-danger': tokens.COLOR_TEXT_DANGER,
     'text-disabled': tokens.COLOR_TEXT_DISABLED,
     'text-primary': tokens.COLOR_TEXT_PRIMARY,

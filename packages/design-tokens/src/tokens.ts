@@ -129,6 +129,7 @@ export const COLOR_PALETTE_YELLOW_900 = '#90722f';
 export const COLOR_PRIMARY_DEFAULT = '#3142c8';
 export const COLOR_PRIMARY_ACTIVE = '#16158d';
 export const COLOR_PRIMARY_HOVER = '#2e39ad';
+export const COLOR_TEXT_CONTRAST = '#ffffff';
 export const COLOR_TEXT_DANGER = '#b4362f';
 export const COLOR_TEXT_DISABLED = '#a9adb1';
 export const COLOR_TEXT_PRIMARY = '#091521';
