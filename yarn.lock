@@ -3305,20 +3305,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@project44-manifest/design-tokens@^1.0.0, @project44-manifest/design-tokens@workspace:packages/design-tokens":
+"@project44-manifest/components@^0.0.0, @project44-manifest/components@workspace:packages/components":
   version: 0.0.0-use.local
-  resolution: "@project44-manifest/design-tokens@workspace:packages/design-tokens"
-  dependencies:
-    style-dictionary: ^3.7.0
-  languageName: unknown
-  linkType: soft
-
-"@project44-manifest/react@workspace:packages/react":
-  version: 0.0.0-use.local
-  resolution: "@project44-manifest/react@workspace:packages/react"
+  resolution: "@project44-manifest/components@workspace:packages/components"
   dependencies:
     "@internationalized/date": ^3.0.0
-    "@project44-manifest/design-tokens": ^1.0.0
+    "@project44-manifest/styles": ^0.0.0
     "@react-aria/button": ^3.5.1
     "@react-aria/calendar": ^3.0.0
     "@react-aria/checkbox": ^3.4.1
@@ -3349,13 +3341,43 @@ __metadata:
     "@react-stately/toggle": ^3.3.1
     "@react-stately/tooltip": ^3.1.1
     "@react-stately/utils": ^3.5.0
-    "@stitches/react": ^1.2.8
-    clsx: ^1.1.1
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
+  languageName: unknown
+  linkType: soft
+
+"@project44-manifest/design-tokens@^1.0.0, @project44-manifest/design-tokens@workspace:packages/design-tokens":
+  version: 0.0.0-use.local
+  resolution: "@project44-manifest/design-tokens@workspace:packages/design-tokens"
+  dependencies:
+    style-dictionary: ^3.7.0
+  languageName: unknown
+  linkType: soft
+
+"@project44-manifest/react@workspace:packages/react":
+  version: 0.0.0-use.local
+  resolution: "@project44-manifest/react@workspace:packages/react"
+  dependencies:
+    "@project44-manifest/components": ^0.0.0
+    "@project44-manifest/styles": ^0.0.0
+    react: ^18.1.0
+    react-dom: ^18.1.0
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  languageName: unknown
+  linkType: soft
+
+"@project44-manifest/styles@^0.0.0, @project44-manifest/styles@workspace:packages/styles":
+  version: 0.0.0-use.local
+  resolution: "@project44-manifest/styles@workspace:packages/styles"
+  dependencies:
+    "@project44-manifest/design-tokens": ^1.0.0
+    "@stitches/react": ^1.2.8
+    clsx: ^1.1.1
   languageName: unknown
   linkType: soft
 

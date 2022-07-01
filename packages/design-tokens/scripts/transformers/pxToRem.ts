@@ -1,6 +1,6 @@
 import { Named, Transform } from 'style-dictionary';
 
-const categories = new Set(['font-size', 'line-height', 'size', 'space']);
+const categories = new Set(['border-width', 'font-size', 'line-height', 'radius', 'size', 'space']);
 
 export const pxToRemTransformer: Named<Transform> = {
   name: 'size/pxToRem',

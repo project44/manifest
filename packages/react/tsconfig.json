@@ -10,7 +10,10 @@
   "include": ["src/**/*", "../../types/**/*"],
   "references": [
     {
-      "path": "../design-tokens"
+      "path": "../components"
+    },
+    {
+      "path": "../styles"
     }
   ]
 }

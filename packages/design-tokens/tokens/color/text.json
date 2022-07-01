@@ -1,6 +1,7 @@
 {
   "color": {
     "text": {
+      "contrast": { "value": "{color.palette.white.value}" },
       "danger": { "value": "{color.palette.red.600.value}" },
       "disabled": { "value": "{color.palette.grey.400.value}" },
       "primary": { "value": "{color.palette.black.value}" },
