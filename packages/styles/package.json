@@ -1,6 +1,6 @@
 {
   "name": "@project44-manifest/styles",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "project44",
   "license": "MIT",
   "main": "./lib/index.js",
@@ -21,7 +21,7 @@
     "directory": "packages/styles"
   },
   "dependencies": {
-    "@project44-manifest/design-tokens": "^1.0.0",
+    "@project44-manifest/design-tokens": "^1.0.1",
     "@stitches/react": "^1.2.8",
     "clsx": "^1.1.1"
   },

@@ -1,6 +1,6 @@
 {
   "name": "@project44-manifest/react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "project44",
   "license": "MIT",
   "main": "./lib/index.js",
@@ -25,8 +25,8 @@
     "react-dom": ">=16.8.0"
   },
   "dependencies": {
-    "@project44-manifest/components": "^0.0.0",
-    "@project44-manifest/styles": "^0.0.0"
+    "@project44-manifest/components": "^1.0.0",
+    "@project44-manifest/styles": "^1.0.0"
   },
   "devDependencies": {
     "react": "^18.1.0",
