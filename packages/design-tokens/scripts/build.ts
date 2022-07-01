@@ -8,12 +8,12 @@ const OUT_PUT_DIR = path.join(ROOT_DIR, 'src/');
 
 StyleDictionary.registerTransformGroup({
   name: 'manifest/json',
-  transforms: ['attribute/cti', 'name/cti/kebab', 'size/pxToRem', 'color/css'],
+  transforms: ['attribute/cti', 'name/cti/kebab', 'size/pxToRem', 'color/rgb'],
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'manifest/typescript',
-  transforms: ['attribute/cti', 'name/cti/constant', 'size/pxToRem', 'color/css'],
+  transforms: ['attribute/cti', 'name/cti/constant', 'size/pxToRem', 'color/rgb'],
 });
 
 StyleDictionary.registerFormat(themeFormatter);
