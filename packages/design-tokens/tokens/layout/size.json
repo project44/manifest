@@ -3,6 +3,6 @@
     "large": { "value": "1280" },
     "medium": { "value": "1024" },
     "small": { "value": "600" },
-    "x-large": { "value": "1,920" }
+    "x-large": { "value": "1920" }
   }
 }
