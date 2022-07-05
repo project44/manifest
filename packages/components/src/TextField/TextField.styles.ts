@@ -1,4 +1,4 @@
-import { css } from '@project44-manifest/styles';
+import { css, pxToRem } from '@project44-manifest/styles';
 
 export const useTextFieldStyles = css({
   variants: {
@@ -6,7 +6,6 @@ export const useTextFieldStyles = css({
       medium: {
         '.manifest-textfield-base--icon': {
           fontSize: '$x-large',
-          size: '2.5rem',
 
           '> .material-icons': {
             fontSize: '$x-large',
@@ -14,21 +13,20 @@ export const useTextFieldStyles = css({
         },
 
         '.manifest-textfield-base--input': {
-          height: '2.5rem',
+          py: pxToRem(9),
         },
       },
       small: {
         '.manifest-textfield-base--icon': {
-          fontSize: '1.125rem',
-          size: '2.125rem',
+          fontSize: pxToRem(18),
 
           '> .material-icons': {
-            fontSize: '1.125rem',
+            fontSize: pxToRem(18),
           },
         },
 
         '.manifest-textfield-base--input': {
-          height: '2.125rem',
+          py: pxToRem(6),
         },
       },
     },

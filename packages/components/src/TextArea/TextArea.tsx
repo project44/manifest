@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { chain, mergeProps, mergeRefs, useLayoutEffect } from '@react-aria/utils';
-import { cx, useTextAreaStyles } from './TextArea.styles';
 import { TextFieldBase, TextFieldBaseProps } from '../TextFieldBase';
+import { cx } from '@project44-manifest/styles';
 import { useControlledState } from '@react-stately/utils';
 import { useTextField } from '@react-aria/textfield';
 
@@ -34,7 +34,7 @@ interface TextAreaProps extends Omit<TextFieldBaseProps, 'endIcon' | 'startIcon'
 
 const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>((props, forwardedRef) => {
   const {
-    className: classNameProp,
+    className,
     helperTextProps = {},
     inputProps: inputPropsProp = {},
     inputRef,
@@ -64,8 +64,6 @@ const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>((props, forwar
     areaRef,
   );
 
-  const { className } = useTextAreaStyles();
-
   useLayoutEffect(() => {
     if (areaRef.current) {
       handleHeightChange();
@@ -75,7 +73,7 @@ const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>((props, forwar
   return (
     <TextFieldBase
       {...other}
-      className={cx('manifest-textarea', className, classNameProp)}
+      className={cx('manifest-textarea', className)}
       helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextProps)}
       inputProps={mergeProps(inputProps, inputPropsProp)}
       inputRef={

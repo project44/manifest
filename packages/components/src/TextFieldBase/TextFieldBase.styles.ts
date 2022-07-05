@@ -1,4 +1,4 @@
-import { css } from '@project44-manifest/styles';
+import { css, pxToRem } from '@project44-manifest/styles';
 
 export const useTextFieldBaseStyles = css({
   $$backgroundColor: '$colors$background-primary',
@@ -22,7 +22,6 @@ export const useTextFieldBaseStyles = css({
     padding: '$small',
     pointerEvents: 'none',
     position: 'absolute',
-    size: '2.5rem',
     top: 0,
     zIndex: 2,
 
@@ -48,9 +47,8 @@ export const useTextFieldBaseStyles = css({
     color: '$$textColor',
     cursor: 'text',
     margin: 0,
-    minHeight: '2.5rem',
     outline: 0,
-    p: '0 $small',
+    padding: '$small',
     resize: 'none',
     transition: '$color',
     typography: '$subtext',
@@ -65,14 +63,14 @@ export const useTextFieldBaseStyles = css({
     hasEndIcon: {
       true: {
         '.manifest-textfield-base--input': {
-          paddingRight: '2.5rem',
+          paddingRight: pxToRem(40),
         },
       },
     },
     hasStartIcon: {
       true: {
         '.manifest-textfield-base--input': {
-          paddingLeft: '2.5rem',
+          paddingLeft: pxToRem(40),
         },
       },
     },
@@ -92,11 +90,11 @@ export const useTextFieldBaseStyles = css({
     isFocusVisible: {
       true: {
         '.manifest-textfield-base--input': {
-          outline: '$colors$palette-indigo-200 solid 3px',
+          boxShadow: '0 0 0 3px $colors$palette-indigo-200',
         },
       },
       false: {
-        outline: 'none',
+        boxShadow: 'none',
       },
     },
     isHovered: {
