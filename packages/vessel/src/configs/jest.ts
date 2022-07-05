@@ -28,6 +28,9 @@ const config: JestConfig = {
       statements: 80,
     },
   },
+  globals: {
+    [`__DEV__`]: true,
+  },
   setupFilesAfterEnv,
   testEnvironment: 'node',
   testMatch: ['**/{src,test,tests,__tests__}/**/*.spec.{js,jsx,ts,tsx}'],
