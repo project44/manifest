@@ -1,4 +1,4 @@
-export const radiusFull = '3.125rem';
+export const radiusFull = '50%';
 export const radiusSmall = '0.125rem';
 export const borderWidthLarge = '0.1875rem';
 export const borderWidthMedium = '0.125rem';
@@ -172,7 +172,7 @@ export const zIndexTooltip = '10000';
 export const sizeLarge = '80rem';
 export const sizeMedium = '64rem';
 export const sizeSmall = '37.5rem';
-export const sizeXLarge = '0.0625rem';
+export const sizeXLarge = '120rem';
 export const spaceMedium = '1rem';
 export const spaceSmall = '0.5rem';
 export const spaceLarge = '1.5rem';
