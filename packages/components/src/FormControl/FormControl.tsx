@@ -1,23 +1,7 @@
-import type { AriaLabelingProps, DOMProps, Validation } from '@react-types/shared';
+import type { Validation } from '@react-types/shared';
 import * as React from 'react';
 import { CSS, cx, useFormControlStyles } from './FormControl.styles';
-import { mergeProps } from '@react-aria/utils';
 import { Typography } from '../Typography';
-import { useField } from '@react-aria/label';
-
-/**
- * -----------------------------------------------------------------------------------------------
- * FormControl Context
- * -----------------------------------------------------------------------------------------------
- */
-
-interface FormControlContext {
-  fieldProps?: AriaLabelingProps & DOMProps;
-}
-
-const FormControlContext = React.createContext<FormControlContext | null>(null);
-
-const useFormControlContext = () => React.useContext(FormControlContext);
 
 /**
  * -----------------------------------------------------------------------------------------------
@@ -67,19 +51,15 @@ const FormControl = React.forwardRef<FormControlElement, FormControlProps>(
       helperTextProps = {},
       isRequired,
       label,
-      labelProps: labelPropsProp = {},
+      labelProps = {},
       orientation = 'vertical',
       validationState,
       ...other
     } = props;
 
-    const { labelProps, fieldProps, descriptionProps, errorMessageProps } = useField(props);
+    const isInvalid = validationState === 'invalid';
 
-    const { className } = useFormControlStyles({
-      css,
-      isInvalid: validationState === 'invalid',
-      orientation,
-    });
+    const { className } = useFormControlStyles({ css, isInvalid, orientation });
 
     return (
       <div
@@ -88,20 +68,21 @@ const FormControl = React.forwardRef<FormControlElement, FormControlProps>(
         ref={forwardedRef}
       >
         {label && (
-          <label
-            {...mergeProps(labelProps, labelPropsProp)}
-            className="manifest-form-control--label"
-          >
+          <label {...labelProps} className="manifest-form-control--label">
             {label}
-            {isRequired && <span className="manifest-form-control--required-indicator">*</span>}
+            {isRequired && (
+              <span aria-hidden className="manifest-form-control--required-indicator">
+                *
+              </span>
+            )}
           </label>
         )}
 
-        <FormControlContext.Provider value={{ fieldProps }}>{children}</FormControlContext.Provider>
+        {children}
 
         {helperText && (
           <Typography
-            {...mergeProps(descriptionProps, errorMessageProps, helperTextProps)}
+            {...helperTextProps}
             className="manifest-form-control--helper-text"
             variant="caption"
           >
@@ -119,5 +100,5 @@ if (__DEV__) {
 
 FormControl.toString = () => '.manifest-form-control';
 
-export { FormControl, useFormControlContext };
+export { FormControl };
 export type { FormControlProps };

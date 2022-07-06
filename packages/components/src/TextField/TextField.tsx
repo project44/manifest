@@ -1,11 +1,7 @@
-import type { AriaTextFieldProps } from '@react-types/textfield';
-import type { PressEvents } from '@react-types/shared';
 import * as React from 'react';
-import { CSS, cx, useTextFieldStyles } from './TextField.styles';
-import { FormControl } from '../FormControl';
-import { mergeProps } from '@react-aria/utils';
-import { useFocusRing } from '@react-aria/focus';
-import { useHover } from '@react-aria/interactions';
+import { cx, useTextFieldStyles } from './TextField.styles';
+import { TextFieldBase, TextFieldBaseProps } from '../TextFieldBase';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useTextField } from '@react-aria/textfield';
 
 /**
@@ -14,35 +10,17 @@ import { useTextField } from '@react-aria/textfield';
  * -----------------------------------------------------------------------------------------------
  */
 
-type TextFieldAriaProps = AriaTextFieldProps & PressEvents;
 type TextFieldElement = React.ElementRef<'div'>;
-type TextFieldNativeProps = Omit<React.ComponentPropsWithoutRef<'div'>, keyof TextFieldAriaProps>;
 
-interface TextFieldProps extends TextFieldNativeProps, TextFieldAriaProps {
+interface TextFieldProps extends TextFieldBaseProps {
   /**
-   * Theme aware style object.
+   * The default value (uncontrolled).
    */
-  css?: CSS;
+  defaultValue?: string;
   /**
-   * Icon displayed at the end of the text field.
+   * Temporary text that occupies the text input when it is empty.
    */
-  endIcon?: React.ReactNode;
-  /**
-   * Helper text to append to the form control input element.
-   */
-  helperText?: React.ReactNode;
-  /**
-   * Props passed to the helper text.
-   */
-  helperTextProps?: React.HTMLAttributes<HTMLElement>;
-  /**
-   * Label of the input element
-   */
-  label?: React.ReactNode;
-  /**
-   * Props passed to the label.
-   */
-  labelProps?: React.HTMLAttributes<HTMLElement>;
+  placeholder?: string;
   /**
    * The size of the combobox
    *
@@ -50,79 +28,47 @@ interface TextFieldProps extends TextFieldNativeProps, TextFieldAriaProps {
    */
   size?: 'medium' | 'small';
   /**
-   * Icon displayed at the start of the text field.
+   * The current value (controlled).
    */
-  startIcon?: React.ReactNode;
+  value?: string;
+  /**
+   * Handler that is called when the value changes.
+   */
+  onChange?: (value: string) => void;
 }
 
 const TextField = React.forwardRef<TextFieldElement, TextFieldProps>((props, forwardedRef) => {
   const {
-    autoFocus,
     className: classNameProp,
-    css,
-    endIcon,
-    isDisabled,
-    helperText,
-    helperTextProps: helperTextPropsProp = {},
-    label,
+    helperTextProps = {},
+    inputProps: inputPropsProp = {},
+    inputRef,
     labelProps: labelPropsProp = {},
-    validationState,
     size = 'medium',
-    startIcon,
+    ...other
   } = props;
 
-  const inputRef = React.useRef<HTMLInputElement>(null);
-
-  const isInvalid = validationState === 'invalid';
+  const fieldRef = React.useRef<HTMLInputElement>(null);
 
   const { inputProps, descriptionProps, errorMessageProps, labelProps } = useTextField(
     props,
-    inputRef,
+    fieldRef,
   );
 
-  const { hoverProps, isHovered } = useHover({ isDisabled });
-  const { isFocusVisible, isFocused, focusProps } = useFocusRing({ autoFocus, isTextInput: true });
-
-  const { className } = useTextFieldStyles({
-    hasEndIcon: !!endIcon,
-    hasStartIcon: !!startIcon,
-    isDisabled,
-    isFocused,
-    isFocusVisible,
-    isHovered,
-    isInvalid,
-    size,
-    css,
-  });
+  const { className } = useTextFieldStyles({ size });
 
   return (
-    <FormControl
-      helperText={helperText}
-      helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextPropsProp)}
-      label={label}
+    <TextFieldBase
+      {...other}
+      className={cx('manifest-textfield', className, classNameProp)}
+      helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextProps)}
+      inputProps={mergeProps(inputProps, inputPropsProp)}
+      inputRef={
+        mergeRefs(fieldRef, inputRef as typeof fieldRef) as React.RefObject<HTMLInputElement>
+      }
       labelProps={mergeProps(labelProps, labelPropsProp)}
-      validationState={validationState}
-    >
-      <div className={cx('manifest-text-field', className, classNameProp)} ref={forwardedRef}>
-        {startIcon && (
-          <span className={cx('manifest-text-field--icon', 'manifest-text-field--icon__start')}>
-            {startIcon}
-          </span>
-        )}
-
-        <input
-          {...mergeProps(inputProps, focusProps, hoverProps)}
-          className="manifest-text-field--input"
-          ref={inputRef}
-        />
-
-        {endIcon && (
-          <span className={cx('manifest-text-field--icon', 'manifest-text-field--icon__end')}>
-            {endIcon}
-          </span>
-        )}
-      </div>
-    </FormControl>
+      ref={forwardedRef}
+    />
   );
 });
 
