@@ -1,5 +1,11 @@
 # @manifest/design-tokens
 
+## 1.0.2
+
+### Patch Changes
+
+- [#24](https://github.com/project44/manifest/pull/24) [`699da3a`](https://github.com/project44/manifest/commit/699da3a5cbb9eab9b6f89efdc4248169602fb39c) Thanks [@branclar](https://github.com/branclar)! - Fixing size token values
+
 ## 1.0.1
 
 ### Patch Changes

@@ -3310,7 +3310,7 @@ __metadata:
   resolution: "@project44-manifest/components@workspace:packages/components"
   dependencies:
     "@internationalized/date": ^3.0.0
-    "@project44-manifest/styles": ^1.0.0
+    "@project44-manifest/styles": ^1.1.0
     "@react-aria/button": ^3.5.1
     "@react-aria/calendar": ^3.0.0
     "@react-aria/checkbox": ^3.4.1
@@ -3351,7 +3351,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/design-tokens@^1.0.1, @project44-manifest/design-tokens@workspace:packages/design-tokens":
+"@project44-manifest/design-tokens@^1.0.2, @project44-manifest/design-tokens@workspace:packages/design-tokens":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/design-tokens@workspace:packages/design-tokens"
   dependencies:
@@ -3373,11 +3373,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/styles@^1.0.0, @project44-manifest/styles@workspace:packages/styles":
+"@project44-manifest/styles@^1.0.0, @project44-manifest/styles@^1.1.0, @project44-manifest/styles@workspace:packages/styles":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/styles@workspace:packages/styles"
   dependencies:
-    "@project44-manifest/design-tokens": ^1.0.1
+    "@project44-manifest/design-tokens": ^1.0.2
     "@stitches/react": ^1.2.8
     clsx: ^1.1.1
   languageName: unknown
