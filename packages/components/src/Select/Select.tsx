@@ -23,9 +23,12 @@ import { useSelectState } from '@react-stately/select';
 
 type SelectAriaProps<T extends object = object> = AriaSelectProps<T>;
 type SelectElement = React.ElementRef<'div'>;
-type SelectNativeProps = Omit<React.ComponentPropsWithoutRef<'div'>, keyof SelectAriaProps>;
 
-interface SelectProps extends SelectNativeProps, SelectAriaProps {
+interface SelectProps extends SelectAriaProps {
+  /**
+   * Class name attached to the root element.
+   */
+  className?: string;
   /**
    * Theme aware style object.
    */
@@ -70,7 +73,7 @@ const Select = React.forwardRef<SelectElement, SelectProps>((props, forwardedRef
     isDisabled,
     isRequired,
     helperText,
-    helperTextProps: helperTextPropsProp = {},
+    helperTextProps = {},
     label,
     labelProps: labelPropsProp = {},
     name,
@@ -102,12 +105,14 @@ const Select = React.forwardRef<SelectElement, SelectProps>((props, forwardedRef
 
   const isInvalid = validationState === 'invalid';
   const { buttonProps, isPressed } = useButton(triggerProps, triggerRef);
-  const { isFocusVisible, focusProps } = useFocusRing({ autoFocus });
+  const { isFocusVisible, isFocused, focusProps } = useFocusRing({ autoFocus });
   const { hoverProps, isHovered } = useHover({ isDisabled });
 
   const { className } = useSelectStyles({
     hasStartIcon: !!startIcon,
+    isActive: state.isOpen,
     isDisabled,
+    isFocused,
     isFocusVisible,
     isHovered,
     isInvalid,
@@ -133,7 +138,7 @@ const Select = React.forwardRef<SelectElement, SelectProps>((props, forwardedRef
   return (
     <FormControl
       helperText={helperText}
-      helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextPropsProp)}
+      helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextProps)}
       isRequired={isRequired}
       label={label}
       labelProps={mergeProps(labelProps, labelPropsProp)}
@@ -169,24 +174,22 @@ const Select = React.forwardRef<SelectElement, SelectProps>((props, forwardedRef
           <Icon icon="expand_more" />
         </span>
 
-        {state.isOpen && (
-          <Popover
-            {...positionProps}
-            className="manifest-select--popover"
-            css={{ minWidth: popoverWidth, width: popoverWidth }}
-            isOpen={state.isOpen}
-            onClose={state.close}
-            ref={popoverRef}
-          >
-            <LisBoxBase.ListBox
-              {...(menuProps as LisBoxBase.ListBoxProps)}
-              className="manifest-select--list-box"
-              disallowEmptySelection
-              ref={listBoxRef}
-              state={state}
-            />
-          </Popover>
-        )}
+        <Popover
+          {...positionProps}
+          className="manifest-select--popover"
+          css={{ minWidth: popoverWidth, width: popoverWidth }}
+          isOpen={state.isOpen}
+          onClose={state.close}
+          ref={popoverRef}
+        >
+          <LisBoxBase.ListBox
+            {...(menuProps as LisBoxBase.ListBoxProps)}
+            className="manifest-select--list-box"
+            disallowEmptySelection
+            ref={listBoxRef}
+            state={state}
+          />
+        </Popover>
       </div>
     </FormControl>
   );

@@ -1,4 +1,5 @@
 import type { AriaButtonProps } from '@react-types/button';
+import type { DOMProps, PressEvent } from '@react-types/shared';
 import * as React from 'react';
 import {
   CSS,
@@ -40,7 +41,11 @@ export const useButtonGroup = () => React.useContext(ButtonGroupContext);
 type ButtonElement = React.ElementRef<'button'>;
 type ButtonNativeProps = Omit<React.ComponentPropsWithoutRef<'button'>, keyof AriaButtonProps>;
 
-interface ButtonProps extends ButtonNativeProps, AriaButtonProps {
+interface ButtonProps extends DOMProps, AriaButtonProps {
+  /**
+   * Class name attached to the root element.
+   */
+  className?: string;
   /**
    * Theme aware style object.
    */
@@ -65,6 +70,10 @@ interface ButtonProps extends ButtonNativeProps, AriaButtonProps {
    * @default 'primary'
    */
   variant?: Variant;
+  /**
+   * Handler called on a click event.
+   */
+  onClick?(event: PressEvent): void;
 }
 
 const Button = React.forwardRef<ButtonElement, ButtonProps>((props, forwardedRef) => {
@@ -78,15 +87,34 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, forwardedRef
     isDisabled = group?.isDisabled,
     endIcon,
     onClick,
+    onPress,
     size = group?.size ?? 'medium',
     startIcon,
     variant = group?.variant ?? 'primary',
+    ...other
   } = props;
 
   const buttonRef = React.useRef<HTMLButtonElement>(null);
 
+  const handlePress = React.useCallback(
+    (event: PressEvent) => {
+      if (event.pointerType === 'keyboard' || event.pointerType === 'virtual') {
+        onClick?.(event);
+      }
+
+      onPress?.(event);
+    },
+    [onClick, onPress],
+  );
+
   const { buttonProps, isPressed } = useButton(
-    { ...props, elementType: 'button', isDisabled, onPress: onClick } as AriaButtonProps,
+    {
+      ...other,
+      elementType: 'button',
+      isDisabled,
+      onClick,
+      onPress: handlePress,
+    } as AriaButtonProps,
     buttonRef,
   );
   const { isFocusVisible, focusProps } = useFocusRing({ autoFocus });
