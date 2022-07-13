@@ -142,8 +142,6 @@ const ListBoxItem: React.FC<ListBoxItemProps> = props => {
   );
   const { hoverProps, isHovered } = useHover({ isDisabled });
 
-  console.log(isSelected);
-
   const startIcon = React.useMemo(
     () => startIconProp ?? (item.props.startIcon as React.ReactElement),
     [startIconProp, item.props.startIcon],

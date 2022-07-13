@@ -11,6 +11,7 @@ import {
 } from '@react-aria/overlays';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { FocusScope } from '@react-aria/focus';
+import { useDialog } from '@react-aria/dialog';
 import { useOverlayTriggerState } from '@react-stately/overlays';
 
 /**
@@ -83,6 +84,7 @@ const Popover = React.forwardRef<PopoverElement, PopoverProps>((props, forwarded
 
   const popoverRef = React.useRef<HTMLDivElement>(null);
 
+  const { dialogProps } = useDialog({ role: 'dialog' }, popoverRef);
   const { overlayProps } = useOverlay(
     {
       isOpen,
@@ -95,6 +97,7 @@ const Popover = React.forwardRef<PopoverElement, PopoverProps>((props, forwarded
     popoverRef,
   );
   const { modalProps } = useModal({ isDisabled: isNonModal });
+
   const { className } = usePopoverStyles({ css });
 
   if (!isOpen) return null;
@@ -103,7 +106,7 @@ const Popover = React.forwardRef<PopoverElement, PopoverProps>((props, forwarded
     <OverlayContainer>
       <FocusScope restoreFocus>
         <div
-          {...mergeProps(other, overlayProps, modalProps)}
+          {...mergeProps(other, overlayProps, modalProps, dialogProps)}
           className={cx('manifest-popover', className, classNameProp)}
           ref={mergeRefs(popoverRef, forwardedRef)}
         >
