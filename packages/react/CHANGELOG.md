@@ -1,5 +1,11 @@
 # @manifest/react
 
+## 1.1.0
+
+### Minor Changes
+
+- [#28](https://github.com/project44/manifest/pull/28) [`2b8b77a`](https://github.com/project44/manifest/commit/2b8b77a35a6495940f9e066cc56e702b2e0e8e10) Thanks [@branclar](https://github.com/branclar)! - Adding datepicker component
+
 ## 1.0.1
 
 ### Patch Changes
