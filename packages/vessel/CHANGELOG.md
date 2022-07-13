@@ -1,5 +1,11 @@
 # @manifest/vessel
 
+## 1.0.1
+
+### Patch Changes
+
+- [#26](https://github.com/project44/manifest/pull/26) [`464e921`](https://github.com/project44/manifest/commit/464e921e11f96a72c861aff5014d970695552580) Thanks [@branclar](https://github.com/branclar)! - Adding TextArea component
+
 ## 1.0.0
 
 ### Major Changes
