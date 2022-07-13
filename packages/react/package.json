@@ -26,11 +26,7 @@
   },
   "dependencies": {
     "@project44-manifest/components": "^1.0.0",
-    "@project44-manifest/styles": "^1.0.0",
-    "@react-aria/datepicker": "^3.0.0",
-    "@react-stately/datepicker": "^3.0.0",
-    "date-fns": "^2.28.0",
-    "react-day-picker": "^8.0.7"
+    "@project44-manifest/styles": "^1.0.0"
   },
   "devDependencies": {
     "react": "^18.1.0",

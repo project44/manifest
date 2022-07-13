@@ -3315,6 +3315,7 @@ __metadata:
     "@react-aria/calendar": ^3.0.0
     "@react-aria/checkbox": ^3.4.1
     "@react-aria/combobox": ^3.3.1
+    "@react-aria/datepicker": ^3.0.0
     "@react-aria/dialog": ^3.2.1
     "@react-aria/focus": ^3.6.1
     "@react-aria/i18n": ^3.4.1
@@ -3334,6 +3335,7 @@ __metadata:
     "@react-stately/calendar": ^3.0.0
     "@react-stately/collections": ^3.4.1
     "@react-stately/combobox": ^3.1.1
+    "@react-stately/datepicker": ^3.0.0
     "@react-stately/menu": ^3.3.1
     "@react-stately/overlays": ^3.3.1
     "@react-stately/radio": ^3.4.1
@@ -3363,11 +3365,7 @@ __metadata:
   dependencies:
     "@project44-manifest/components": ^1.0.0
     "@project44-manifest/styles": ^1.0.0
-    "@react-aria/datepicker": ^3.0.0
-    "@react-stately/datepicker": ^3.0.0
-    date-fns: ^2.28.0
     react: ^18.1.0
-    react-day-picker: ^8.0.7
     react-dom: ^18.1.0
   peerDependencies:
     react: ">=16.8.0"
@@ -3430,32 +3428,6 @@ __metadata:
     "@beemo/core": ">=2.0.0"
   languageName: unknown
   linkType: soft
-
-"@reach/auto-id@npm:0.16.0":
-  version: 0.16.0
-  resolution: "@reach/auto-id@npm:0.16.0"
-  dependencies:
-    "@reach/utils": 0.16.0
-    tslib: ^2.3.0
-  peerDependencies:
-    react: ^16.8.0 || 17.x
-    react-dom: ^16.8.0 || 17.x
-  checksum: 80211f7db1c0e3b107e2c1d3fe8055e7e41d7399b51ff0da5f0c9df43d90b77aa4a31a896545c699f9629b3fbc3c762ee0518de70faf8112098886c6759d3f15
-  languageName: node
-  linkType: hard
-
-"@reach/utils@npm:0.16.0":
-  version: 0.16.0
-  resolution: "@reach/utils@npm:0.16.0"
-  dependencies:
-    tiny-warning: ^1.0.3
-    tslib: ^2.3.0
-  peerDependencies:
-    react: ^16.8.0 || 17.x
-    react-dom: ^16.8.0 || 17.x
-  checksum: 36bc0eb41a71798eb6186b23de265ba709e51dae5bf214fb8505c66bb3f2e6a41bb2401457350436ba89ca9e3a50f93a04fe7c33d15648ce11e568a85622d770
-  languageName: node
-  linkType: hard
 
 "@react-aria/button@npm:^3.5.1":
   version: 3.5.1
@@ -9889,13 +9861,6 @@ __metadata:
   version: 1.4.0
   resolution: "dataloader@npm:1.4.0"
   checksum: e2c93d43afde68980efc0cd9ff48e9851116e27a9687f863e02b56d46f7e7868cc762cd6dcbaf4197e1ca850a03651510c165c2ae24b8e9843fd894002ad0e20
-  languageName: node
-  linkType: hard
-
-"date-fns@npm:^2.28.0":
-  version: 2.28.0
-  resolution: "date-fns@npm:2.28.0"
-  checksum: a0516b2e4f99b8bffc6cc5193349f185f195398385bdcaf07f17c2c4a24473c99d933eb0018be4142a86a6d46cb0b06be6440ad874f15e795acbedd6fd727a1f
   languageName: node
   linkType: hard
 
@@ -17462,18 +17427,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-day-picker@npm:^8.0.7":
-  version: 8.0.7
-  resolution: "react-day-picker@npm:8.0.7"
-  dependencies:
-    "@reach/auto-id": 0.16.0
-  peerDependencies:
-    date-fns: ^2.28.0
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: b925269c1e9ddf3ed0894eb1845ecbdc62669872d9efd2be7959019ff24a9d74006316bd19c4e69c3d614cb99238fd3fa463c657722d88b922092142d98a5e01
-  languageName: node
-  linkType: hard
-
 "react-devtools-core@npm:^4.19.1":
   version: 4.24.7
   resolution: "react-devtools-core@npm:4.24.7"
@@ -19706,13 +19659,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tiny-warning@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "tiny-warning@npm:1.0.3"
-  checksum: da62c4acac565902f0624b123eed6dd3509bc9a8d30c06e017104bedcf5d35810da8ff72864400ad19c5c7806fc0a8323c68baf3e326af7cb7d969f846100d71
-  languageName: node
-  linkType: hard
-
 "tinycolor2@npm:^1.4.1":
   version: 1.4.2
   resolution: "tinycolor2@npm:1.4.2"
@@ -19943,7 +19889,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.3.0, tslib@npm:^2.4.0":
+"tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.4.0":
   version: 2.4.0
   resolution: "tslib@npm:2.4.0"
   checksum: 8c4aa6a3c5a754bf76aefc38026134180c053b7bd2f81338cb5e5ebf96fefa0f417bff221592bf801077f5bf990562f6264fecbc42cd3309b33872cb6fc3b113
