@@ -3305,7 +3305,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@project44-manifest/components@^1.0.0, @project44-manifest/components@workspace:packages/components":
+"@project44-manifest/components@^1.1.0, @project44-manifest/components@workspace:packages/components":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/components@workspace:packages/components"
   dependencies:
@@ -3363,8 +3363,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react@workspace:packages/react"
   dependencies:
-    "@project44-manifest/components": ^1.0.0
-    "@project44-manifest/styles": ^1.0.0
+    "@project44-manifest/components": ^1.1.0
+    "@project44-manifest/styles": ^1.1.0
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
@@ -3373,7 +3373,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/styles@^1.0.0, @project44-manifest/styles@^1.1.0, @project44-manifest/styles@workspace:packages/styles":
+"@project44-manifest/styles@^1.1.0, @project44-manifest/styles@workspace:packages/styles":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/styles@workspace:packages/styles"
   dependencies:
