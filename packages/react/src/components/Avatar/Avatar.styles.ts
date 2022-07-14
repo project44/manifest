@@ -1,10 +1,6 @@
-import { css } from '@project44-manifest/styles';
+import { css, pxToRem } from '../../styles';
 
 export const useAvatarStyles = css({
-  $$avatarSize: '2.5rem',
-  $$avatarFontSize: '$small',
-  $$avatarLineHeight: '$medium',
-
   alignItems: 'center',
   backgroundColor: '$background-secondary',
   borderRadius: '$full',
@@ -13,24 +9,21 @@ export const useAvatarStyles = css({
   justifyContent: 'center',
   outline: 'none',
   overflow: 'hidden',
-  size: '$$avatarSize',
   verticalAlign: 'middle',
 
-  '.manifest-avatar--fallback': {
+  '.manifest-avatar__fallback': {
     alignItems: 'center',
     color: '$text-secondary',
     display: 'flex',
     fontFamily: '$text',
-    fontSize: '$$avatarFontSize',
     fontWeight: '$semibold',
     letterSpacing: '$medium',
-    lineHeight: '$$avatarLineHeight',
     height: '100%',
     justifyContent: 'center',
     width: '100%',
   },
 
-  '.manifest-avatar--image': {
+  '.manifest-avatar__image': {
     borderRadius: 'inherit',
     boxSizing: 'border-box',
     height: '100%',
@@ -42,14 +35,20 @@ export const useAvatarStyles = css({
   variants: {
     size: {
       medium: {
-        $$avatarSize: '2.5rem',
-        $$avatarFontSize: '$fontSizes$small',
-        $$avatarLineHeight: '$lineHeights$medium',
+        size: pxToRem(40),
+
+        '.manifest-avatar__fallback': {
+          fontSize: '$small',
+          lineHeight: '$medium',
+        },
       },
       small: {
-        $$avatarSize: '1.75rem',
-        $$avatarFontSize: '$fontSizes$x-small',
-        $$avatarLineHeight: '$0.875rem',
+        size: pxToRem(28),
+
+        '.manifest-avatar__fallback': {
+          fontSize: '$x-small',
+          lineHeight: pxToRem(14),
+        },
       },
     },
   },
@@ -58,6 +57,3 @@ export const useAvatarStyles = css({
     size: 'medium',
   },
 });
-
-export type { CSS } from '@project44-manifest/styles';
-export { cx } from '@project44-manifest/styles';
