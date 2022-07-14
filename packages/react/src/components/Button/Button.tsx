@@ -1,4 +1,4 @@
-import type { AriaLabelingProps, DOMProps, FocusableProps, StyleProps } from '../../types';
+import type { DOMProps, StyleProps } from '../../types';
 import type { AriaButtonProps } from '@react-types/button';
 import type { ButtonSize, ButtonVariant } from './types';
 import * as React from 'react';
@@ -12,7 +12,7 @@ import { useStyles } from './Button.styles';
 
 type ButtonElement = React.ElementRef<'button'>;
 
-interface ButtonProps extends AriaLabelingProps, DOMProps, FocusableProps, StyleProps {
+interface ButtonProps extends AriaButtonProps, DOMProps, StyleProps {
   /**
    * The content of the button.
    */

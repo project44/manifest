@@ -1,7 +1,9 @@
 import { css } from '@project44-manifest/styles';
 
 export const useStyles = css({
-  boxSizing: 'border-box',
+  alignItems: 'center',
   display: 'flex',
-  flexDirection: 'column',
+  justifyContent: 'space-between',
+  margin: 0,
+  padding: '$small $medium',
 });

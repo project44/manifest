@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { fireEvent, screen, render } from '@testing-library/react';
 import { axe } from 'jest-axe';
-import { Calendar, CalendarRange } from './Calendar';
+import { Calendar } from './Calendar';
 import { CalendarDate } from '@internationalized/date';
+import { CalendarRange } from './CalendarRange';
 
 describe('@project44-manifest/components - Calendar', () => {
   it('should have no accessibility violations', async () => {

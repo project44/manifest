@@ -1,8 +1,11 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { DateValue } from '@react-types/calendar';
+import type { RangeValue } from '@react-types/shared';
 import * as React from 'react';
-import { Calendar, CalendarRange, DateValue, RangeValue } from './Calendar';
 import { CalendarDate, isWeekend } from '@internationalized/date';
 import { Box } from '../Box';
+import { Calendar } from './Calendar';
+import { CalendarRange } from './CalendarRange';
 import { useLocale } from '@react-aria/i18n';
 
 export default {

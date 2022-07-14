@@ -5,7 +5,12 @@ import { useStyles } from './Box.styles';
 
 type BoxElement = React.ElementRef<'div'>;
 
-interface BoxProps extends DOMProps, StyleProps {}
+interface BoxProps extends DOMProps, StyleProps {
+  /**
+   * The content of the box
+   */
+  children?: React.ReactNode;
+}
 
 const Box = React.forwardRef<BoxElement, BoxProps>((props, forwardedRef) => {
   const { className: classNameProp, css, ...other } = props;

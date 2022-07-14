@@ -1,28 +1,31 @@
 import { css, pxToRem } from '@project44-manifest/styles';
 
 export const useStyles = css({
-  $$backgroundColor: 'transparent',
-  $$background: 'transparent',
-  $$borderColor: 'transparent',
-  $$color: '$colors$text-primary',
-
-  background: '$$background',
-  boxSizing: 'border-box',
-  cursor: 'pointer',
-  display: 'block',
-  height: pxToRem(24),
-  margin: 0,
-  outline: 'none',
-  padding: 0,
+  height: pxToRem(32),
+  textAlign: 'center',
+  padding: '$x-small 0',
   position: 'relative',
-  width: '100%',
+  width: pxToRem(44),
 
-  '.manifest-calendar-day--text': {
+  '.manifest-calendar-cell__button': {
+    background: 'transparent',
+    boxSizing: 'border-box',
+    cursor: 'pointer',
+    display: 'block',
+    height: pxToRem(24),
+    margin: 0,
+    outline: 'none',
+    padding: 0,
+    position: 'relative',
+    width: '100%',
+  },
+
+  '.manifest-calendar--cell__text': {
     alignItems: 'center',
-    backgroundColor: '$$backgroundColor',
-    border: '2px solid $$borderColor',
+    backgroundColor: 'transparent',
+    border: '2px solid transparent',
     borderRadius: '$full',
-    color: '$$color',
+    color: '$text-primary',
     display: 'flex',
     justifyContent: 'center',
     left: pxToRem(10),
@@ -37,20 +40,24 @@ export const useStyles = css({
   variants: {
     isDisabled: {
       true: {
-        $$color: '$colors$text-disabled',
+        '.manifest-calendar-cell__buton': {
+          cursor: 'default',
+          pointerEvents: 'none',
+        },
 
-        cursor: 'default',
-        pointerEvents: 'none',
+        '.manifest-calendar-cell__text': {
+          $$color: '$colors$text-disabled',
+        },
       },
     },
     isFocusVisible: {
       true: {
-        '.manifest-calendar-day--text': {
+        '.manifest-calendar-cell__text': {
           boxShadow: '0 0 0 2px $colors$palette-indigo-200',
         },
       },
       false: {
-        '.manifest-calendar-day--text': {
+        '.manifest-calendar-cell__text': {
           boxShadow: 'none',
         },
       },
@@ -75,24 +82,28 @@ export const useStyles = css({
     },
     isToday: {
       true: {
-        '.manifest-calendar-day--text': {
-          fontWeight: '$semibold',
+        '.manifest-calendar-cell__buton': {
+          '&::after': {
+            content: '""',
+            backgroundColor: '$primary-default',
+            height: 1,
+            left: pxToRem(17),
+            position: 'absolute',
+            top: pxToRem(20),
+            width: 11,
+          },
         },
 
-        '&::after': {
-          content: '""',
-          backgroundColor: '$primary-default',
-          height: 1,
-          left: pxToRem(17),
-          position: 'absolute',
-          top: pxToRem(20),
-          width: 11,
+        '.manifest-calendar-cell__text': {
+          fontWeight: '$semibold',
         },
       },
     },
     isUnavailable: {
       true: {
-        $$color: '$colors$text-disabled',
+        '.manifest-calendar-cell__text': {
+          color: '$text-disabled',
+        },
       },
     },
   },
@@ -102,12 +113,16 @@ export const useStyles = css({
       isSelected: true,
       isRangeSelection: false,
       css: {
-        $$backgroundColor: '$colors$primary-default',
-        $$borderColor: '$colors$palette-indigo-100',
-        $$color: '$colors$palette-white',
+        '.manifest-calendar-cell__buton': {
+          '&::after': {
+            display: 'none',
+          },
+        },
 
-        '&::after': {
-          display: 'none',
+        '.manifest-calendar-cell__text': {
+          backgroundColor: '$primary-default',
+          borderColor: '$palette-indigo-100',
+          color: '$palette-white',
         },
       },
     },
@@ -116,13 +131,18 @@ export const useStyles = css({
       isRangeSelection: true,
       isSelectionStart: true,
       css: {
-        $$backgroundColor: '$colors$primary-default',
-        $$background: 'linear-gradient(to left, $colors$palette-indigo-50 50%, transparent 50%)',
-        $$borderColor: '$colors$palette-indigo-100',
-        $$color: '$colors$text-contrast',
+        '.manifest-calendar-cell__buton': {
+          background: 'linear-gradient(to left, $colors$palette-indigo-50 50%, transparent 50%)',
 
-        '&::after': {
-          display: 'none',
+          '&::after': {
+            display: 'none',
+          },
+        },
+
+        '.manifest-calendar-cell__text': {
+          backgroundColor: '$primary-default',
+          borderColor: '$palette-indigo-100',
+          color: '$text-contrast',
         },
       },
     },
@@ -131,13 +151,18 @@ export const useStyles = css({
       isRangeSelection: true,
       isSelectionEnd: true,
       css: {
-        $$backgroundColor: '$colors$primary-default',
-        $$borderColor: '$colors$palette-indigo-100',
-        $$color: '$colors$palette-white',
-        $$background: 'linear-gradient(to right, $colors$palette-indigo-50 50%, transparent 50%)',
+        '.manifest-calendar-cell__buton': {
+          background: 'linear-gradient(to right, $colors$palette-indigo-50 50%, transparent 50%)',
 
-        '&::after': {
-          display: 'none',
+          '&::after': {
+            display: 'none',
+          },
+        },
+
+        '.manifest-calendar-cell__text': {
+          backgroundColor: '$primary-default',
+          borderColor: '$palette-indigo-100',
+          color: '$palette-white',
         },
       },
     },
@@ -147,13 +172,18 @@ export const useStyles = css({
       isSelectionEnd: true,
       isSelectionStart: true,
       css: {
-        $$backgroundColor: '$colors$primary-default',
-        $$borderColor: '$colors$palette-indigo-100',
-        $$color: '$colors$palette-white',
-        $$background: 'transparent',
+        '.manifest-calendar-cell__buton': {
+          background: 'transparent',
 
-        '&::after': {
-          display: 'none',
+          '&::after': {
+            display: 'none',
+          },
+        },
+
+        '.manifest-calendar-cell__text': {
+          backgroundColor: '$primary-default',
+          borderColor: '$palette-indigo-100',
+          color: '$palette-white',
         },
       },
     },
@@ -163,14 +193,18 @@ export const useStyles = css({
       isSelectionEnd: false,
       isSelectionStart: false,
       css: {
-        $$background: '$colors$palette-indigo-50',
+        '.manifest-calendar-cell__text': {
+          backgroundColor: '$palette-indigo-50',
+        },
       },
     },
     {
       isDisabled: true,
       isRangeSelection: true,
       css: {
-        $$color: '$colors$text-disabled',
+        '.manifest-calendar-cell__text': {
+          color: '$text-disabled',
+        },
       },
     },
   ],
