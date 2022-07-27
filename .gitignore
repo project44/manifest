@@ -15,6 +15,7 @@ esm/
 lib/
 dts/
 node_modules/
+docs/
 
 # Configs
 .eslintignore

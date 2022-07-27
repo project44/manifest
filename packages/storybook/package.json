@@ -1,0 +1,18 @@
+{
+  "name": "@project44-manifest/storybook",
+  "private": true,
+  "scripts": {
+    "build": "build-storybook -c .storybook -o ./docs",
+    "start": "start-storybook -p 6006 --quiet"
+  },
+  "dependencies": {
+    "@project44-manifest/react": "^1.1.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^6.5.9",
+    "@storybook/addon-essentials": "^6.5.9",
+    "@storybook/builder-webpack5": "^6.5.9",
+    "@storybook/manager-webpack5": "^6.5.9",
+    "@storybook/react": "^6.5.9"
+  }
+}
