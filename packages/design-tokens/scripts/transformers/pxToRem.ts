@@ -9,7 +9,8 @@ export const pxToRemTransformer: Named<Transform> = {
   transformer: token => {
     const tokenValue = token.original.value as string;
 
-    if (tokenValue.includes('%') || tokenValue.includes('px')) return tokenValue;
+    if (tokenValue.includes('%') || tokenValue.includes('px') || tokenValue.includes('em'))
+      return tokenValue;
 
     const baseFont = 16;
     const parsedValue = parseFloat(tokenValue);
