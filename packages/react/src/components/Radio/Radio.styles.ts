@@ -85,4 +85,14 @@ export const useStyles = css({
       },
     },
   },
+
+  compoundVariants: [
+    {
+      isChecked: true,
+      isHovered: true,
+      css: {
+        $$borderColor: '$colors$primary-default',
+      },
+    },
+  ],
 });
