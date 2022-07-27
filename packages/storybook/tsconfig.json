@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "emitDeclarationOnly": false,
+    "noEmit": true,
+    "rootDir": "src"
+  },
+  "exclude": ["dts"],
+  "extends": "../../tsconfig.options.json",
+  "include": ["src/**/*", "../../types/**/*"],
+  "references": [
+    {
+      "path": "../react"
+    }
+  ]
+}

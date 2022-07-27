@@ -1,0 +1,19 @@
+{
+  "name": "@project44-manifest/website",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "serve": "docusaurus serve"
+  },
+  "dependencies": {
+    "@docusaurus/core": "^2.0.0-rc.1",
+    "@docusaurus/module-type-aliases": "^2.0.0-rc.1",
+    "@docusaurus/preset-classic": "^2.0.0-rc.1",
+    "docusaurus-plugin-react-docgen-typescript": "^1.0.1"
+  }
+}
