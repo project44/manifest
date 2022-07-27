@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { globalStyles } from '@project44-manifest/styles';
+import { useStyles } from './CssBaseline.styles';
 
 export const CssBaseline = React.memo<React.PropsWithChildren<unknown>>(props => {
   const { children } = props;
 
-  globalStyles();
+  useStyles();
 
   return <>{children}</>;
 });

@@ -1,22 +1,13 @@
+import type { DOMProps, StyleProps } from '../../types';
 import * as React from 'react';
-import { CSS, cx, useSeparatorStyles } from './Separator.styles';
+import { cx } from '../../styles';
 import { mergeProps } from '@react-aria/utils';
 import { useSeparator } from '@react-aria/separator';
-
-/**
- * -----------------------------------------------------------------------------------------------
- * Select
- * -----------------------------------------------------------------------------------------------
- */
+import { useStyles } from './Separator.styles';
 
 type SeparatorElement = React.ElementRef<'span'>;
-type SeparatorNativeProps = React.ComponentPropsWithRef<'span'>;
 
-interface SeparatorProps extends SeparatorNativeProps {
-  /**
-   * Theme aware style object.
-   */
-  css?: CSS;
+interface SeparatorProps extends DOMProps, StyleProps {
   /**
    * The orientation of the separator.
    *
@@ -35,12 +26,17 @@ const Separator = React.forwardRef<SeparatorElement, SeparatorProps>((props, for
     elementType: Comp,
   });
 
-  const { className } = useSeparatorStyles({ css, orientation });
+  const { className } = useStyles({ css, orientation });
+
+  const classes = cx(className, classNameProp, {
+    'manifest-separator': true,
+    [`manifest-separator--${orientation}`]: orientation,
+  });
 
   return (
     <Comp
       {...mergeProps(separatorProps, other)}
-      className={cx('manifest-separator', className, classNameProp)}
+      className={classes}
       // @ts-expect-error: https://github.com/Microsoft/TypeScript/issues/28892
       ref={forwardedRef}
     />
@@ -50,8 +46,6 @@ const Separator = React.forwardRef<SeparatorElement, SeparatorProps>((props, for
 if (__DEV__) {
   Separator.displayName = 'ManifestSeparator';
 }
-
-Separator.toString = () => '.manifest-separator';
 
 export { Separator };
 export type { SeparatorProps };

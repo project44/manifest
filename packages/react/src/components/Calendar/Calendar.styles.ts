@@ -1,4 +1,4 @@
-import { css } from '@project44-manifest/styles';
+import { css } from '../../styles';
 
 export const useStyles = css({
   boxSizing: 'border-box',

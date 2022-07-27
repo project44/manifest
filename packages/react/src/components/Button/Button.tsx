@@ -5,7 +5,7 @@ import * as React from 'react';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { cx } from '../../styles';
 import { useButton } from '@react-aria/button';
-import { useButtonGroup } from './ButtonGroup.context';
+import { useButtonGroup } from '../ButtonGroup';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
 import { useStyles } from './Button.styles';
@@ -91,6 +91,7 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, forwardedRef
   });
 
   const classnames = cx(className, classNameProp, {
+    'manifest-button': true,
     'manifest-button--disabled': isDisabled,
     [`manifest-button--${size}`]: size,
     [`manifest-button--${variant}`]: variant,

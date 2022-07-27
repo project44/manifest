@@ -1,9 +1,6 @@
-import { css } from '@project44-manifest/styles';
+import { css } from '../../styles';
 
-export const useIconStyles = css({
+export const useStyles = css({
   alignSelf: 'center',
   userSelect: 'none',
 });
-
-export type { CSS } from '@project44-manifest/styles';
-export { cx } from '@project44-manifest/styles';

@@ -1,6 +1,6 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
-import { ListBox, ListBoxItem, ListBoxSection } from './ListBox';
+import { ListBox, ListBoxItem, ListBoxSection } from '.';
 
 export default {
   title: 'Components/ListBox',

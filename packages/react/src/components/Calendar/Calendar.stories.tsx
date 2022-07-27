@@ -5,7 +5,7 @@ import * as React from 'react';
 import { CalendarDate, isWeekend } from '@internationalized/date';
 import { Box } from '../Box';
 import { Calendar } from './Calendar';
-import { CalendarRange } from './CalendarRange';
+import { CalendarRange } from '../CalendarRange';
 import { useLocale } from '@react-aria/i18n';
 
 export default {

@@ -1,10 +1,10 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
 import { Button } from './Button';
-import { ButtonGroup } from './ButtonGroup';
+import { ButtonGroup } from '../ButtonGroup';
 import { Flex } from '../Flex';
 import { Icon } from '../Icon';
-import { IconButton } from './IconButton';
+import { IconButton } from '../IconButton';
 
 export default {
   title: 'Components/Button',

@@ -1,28 +1,23 @@
+import type { DOMProps, StyleProps } from '../../types';
 import type { OverlayTriggerProps } from '@react-types/overlays';
 import * as React from 'react';
-import { CSS, cx, useTooltipStyles } from './Tooltip.styles';
+import { cx } from '../../styles';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useTooltip, useTooltipTrigger } from '@react-aria/tooltip';
 import { FocusableProvider } from '@react-aria/focus';
 import { OverlayContainer } from '@react-aria/overlays';
 import { Typography } from '../Typography';
 import { useOverlayPosition } from '@react-aria/overlays';
+import { useStyles } from './Tooltip.styles';
 import { useTooltipTriggerState } from '@react-stately/tooltip';
 
-/**
- * -----------------------------------------------------------------------------------------------
- * Tooltip
- * -----------------------------------------------------------------------------------------------
- */
-
 type TooltipElement = React.ElementRef<'div'>;
-type TooltipNativeProps = Omit<React.ComponentPropsWithRef<'div'>, 'title'>;
 
-interface TooltipProps extends TooltipNativeProps, OverlayTriggerProps {
+interface TooltipProps extends OverlayTriggerProps, DOMProps, StyleProps {
   /**
-   * Theme aware style object.
+   * The element to attach the tooltip to.
    */
-  css?: CSS;
+  children?: React.ReactNode;
   /**
    * Whether the tooltip should be disabled, independent from the trigger.
    */
@@ -71,7 +66,7 @@ const Tooltip = React.forwardRef<TooltipElement, TooltipProps>((props, forwarded
   });
   const { tooltipProps } = useTooltip({ isOpen: state.isOpen }, state);
 
-  const { className } = useTooltipStyles({ css });
+  const { className } = useStyles({ css });
 
   return (
     <FocusableProvider {...triggerProps} ref={triggerRef}>
@@ -80,7 +75,7 @@ const Tooltip = React.forwardRef<TooltipElement, TooltipProps>((props, forwarded
         <OverlayContainer>
           <div
             {...mergeProps(tooltipProps, positionProps, contentProps, other)}
-            className={cx('manifest-tooltip', className, classNameProp)}
+            className={cx(className, classNameProp, 'manifest-tooltip')}
             ref={mergeRefs(overlayRef, forwardedRef)}
           >
             <Typography variant="caption">{title}</Typography>
@@ -94,8 +89,6 @@ const Tooltip = React.forwardRef<TooltipElement, TooltipProps>((props, forwarded
 if (__DEV__) {
   Tooltip.displayName = 'ManifestTooltip';
 }
-
-Tooltip.toString = () => '.manifest-tooltip';
 
 export { Tooltip };
 export type { TooltipProps };

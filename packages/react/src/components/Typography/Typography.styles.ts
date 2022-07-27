@@ -1,6 +1,6 @@
-import { css } from '@project44-manifest/styles';
+import { css } from '../../styles';
 
-export const useTypographyStyles = css({
+export const useStyles = css({
   margin: '0',
 
   variants: {
@@ -27,6 +27,3 @@ export const useTypographyStyles = css({
     variant: 'body',
   },
 });
-
-export type { CSS } from '@project44-manifest/styles';
-export { cx } from '@project44-manifest/styles';

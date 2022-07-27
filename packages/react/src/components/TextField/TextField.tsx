@@ -1,14 +1,9 @@
 import * as React from 'react';
-import { cx, useTextFieldStyles } from './TextField.styles';
-import { TextFieldBase, TextFieldBaseProps } from '../TextFieldBase';
+import { cx } from '../../styles';
+import { TextFieldBase, TextFieldBaseProps } from '../internal/TextFieldBase';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
+import { useStyles } from './TextField.styles';
 import { useTextField } from '@react-aria/textfield';
-
-/**
- * -----------------------------------------------------------------------------------------------
- * TextField
- * -----------------------------------------------------------------------------------------------
- */
 
 type TextFieldElement = React.ElementRef<'div'>;
 
@@ -55,12 +50,17 @@ const TextField = React.forwardRef<TextFieldElement, TextFieldProps>((props, for
     fieldRef,
   );
 
-  const { className } = useTextFieldStyles({ size });
+  const { className } = useStyles({ size });
+
+  const classes = cx(className, classNameProp, {
+    'manifest-textfield': true,
+    [`manifest-textfield--${size}`]: size,
+  });
 
   return (
     <TextFieldBase
       {...other}
-      className={cx('manifest-textfield', className, classNameProp)}
+      className={classes}
       helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextProps)}
       inputProps={mergeProps(inputProps, inputPropsProp)}
       inputRef={
@@ -75,8 +75,6 @@ const TextField = React.forwardRef<TextFieldElement, TextFieldProps>((props, for
 if (__DEV__) {
   TextField.displayName = 'ManifestTextField';
 }
-
-TextField.toString = () => '.manifest-textField';
 
 export { TextField };
 export type { TextFieldProps };

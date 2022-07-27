@@ -20,7 +20,7 @@ export const useStyles = css(
     letterSpacing: '$medium',
     lineHeight: '$small',
     position: 'relative',
-    px: '0.75rem',
+    px: pxToRem(12),
     userSelect: 'none',
     whiteSpace: 'nowrap',
 

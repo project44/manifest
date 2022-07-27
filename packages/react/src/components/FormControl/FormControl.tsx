@@ -1,22 +1,17 @@
+import type { DOMProps, StyleProps } from '../../types';
 import type { Validation } from '@react-types/shared';
 import * as React from 'react';
-import { CSS, cx, useFormControlStyles } from './FormControl.styles';
+import { cx } from '../../styles';
 import { Typography } from '../Typography';
-
-/**
- * -----------------------------------------------------------------------------------------------
- * FormControl
- * -----------------------------------------------------------------------------------------------
- */
+import { useStyles } from './FormControl.styles';
 
 type FormControlElement = React.ElementRef<'div'>;
-type FormControlNativeProps = React.ComponentPropsWithRef<'div'>;
 
-interface FormControlProps extends FormControlNativeProps, Validation {
+interface FormControlProps extends DOMProps, StyleProps, Validation {
   /**
-   * Theme aware style object.
+   * The input within the form control.
    */
-  css?: CSS;
+  children?: React.ReactNode;
   /**
    * Helper text appended to the input element.
    */
@@ -59,19 +54,19 @@ const FormControl = React.forwardRef<FormControlElement, FormControlProps>(
 
     const isInvalid = validationState === 'invalid';
 
-    const { className } = useFormControlStyles({ css, isInvalid, orientation });
+    const { className } = useStyles({ css, isInvalid, orientation });
 
     return (
       <div
         {...other}
-        className={cx('manifest-form-control', className, classNameProp)}
+        className={cx(className, classNameProp, 'manifest-form-control')}
         ref={forwardedRef}
       >
         {label && (
-          <label {...labelProps} className="manifest-form-control--label">
+          <label {...labelProps} className="manifest-form-control__label">
             {label}
             {isRequired && (
-              <span aria-hidden className="manifest-form-control--required-indicator">
+              <span aria-hidden className="manifest-form-control__required-indicator">
                 *
               </span>
             )}
@@ -83,7 +78,7 @@ const FormControl = React.forwardRef<FormControlElement, FormControlProps>(
         {helperText && (
           <Typography
             {...helperTextProps}
-            className="manifest-form-control--helper-text"
+            className="manifest-form-control__helper-text"
             variant="caption"
           >
             {helperText}

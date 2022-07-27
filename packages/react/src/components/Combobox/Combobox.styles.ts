@@ -1,13 +1,13 @@
-import { css } from '@project44-manifest/styles';
+import { css, pxToRem } from '../../styles';
 
-export const useComboboxStyles = css({
+export const useStyles = css({
   $$backgroundColor: '$colors$background-primary',
   $$borderColor: '$colors$palette-grey-500',
   $$iconColor: '$colors$text-tertiary',
   $$textColor: '$colors$text-primary',
 
   display: 'flex',
-  minWidth: '3rem',
+  minWidth: pxToRem(48),
   position: 'relative',
   width: '100%',
 
@@ -41,7 +41,7 @@ export const useComboboxStyles = css({
     margin: 0,
     outline: 0,
     p: '0 $small',
-    paddingRight: '2.5rem',
+    paddingRight: pxToRem(40),
     resize: 'none',
     transition: '$color',
     typography: '$subtext',
@@ -56,7 +56,7 @@ export const useComboboxStyles = css({
     hasStartIcon: {
       true: {
         '.manifest-combobox--input': {
-          paddingLeft: '2.5rem',
+          paddingLeft: pxToRem(40),
         },
       },
     },
@@ -106,7 +106,7 @@ export const useComboboxStyles = css({
       medium: {
         '.manifest-combobox--icon': {
           fontSize: '$x-large',
-          size: '2.5rem',
+          size: pxToRem(40),
 
           '> .material-icons': {
             fontSize: '$x-large',
@@ -114,21 +114,21 @@ export const useComboboxStyles = css({
         },
 
         '.manifest-combobox--input': {
-          height: '2.5rem',
+          height: pxToRem(40),
         },
       },
       small: {
         '.manifest-combobox--icon': {
-          fontSize: '1.125rem',
-          size: '2.125rem',
+          fontSize: pxToRem(18),
+          size: pxToRem(34),
 
           '> .material-icons': {
-            fontSize: '1.125rem',
+            fontSize: pxToRem(18),
           },
         },
 
         '.manifest-combobox--input': {
-          height: '2.125rem',
+          height: pxToRem(34),
         },
       },
     },
@@ -138,6 +138,3 @@ export const useComboboxStyles = css({
     size: 'medium',
   },
 });
-
-export type { CSS } from '@project44-manifest/styles';
-export { cx } from '@project44-manifest/styles';

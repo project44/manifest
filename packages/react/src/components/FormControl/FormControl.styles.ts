@@ -1,6 +1,6 @@
-import { css } from '@project44-manifest/styles';
+import { css } from '../../styles';
 
-export const useFormControlStyles = css({
+export const useStyles = css({
   $$helperTextColor: '$colors$text-tertiary',
 
   border: 0,
@@ -10,12 +10,12 @@ export const useFormControlStyles = css({
   position: 'relative',
   width: '100%',
 
-  '.manifest-form-control--helper-text': {
+  '.manifest-form-control__helper-text': {
     color: '$$helperTextColor',
     marginTop: '$x-small',
   },
 
-  '.manifest-form-control--label': {
+  '.manifest-form-control__label': {
     color: '$text-secondary',
     padding: 0,
     marginBottom: '$x-small',
@@ -23,7 +23,7 @@ export const useFormControlStyles = css({
     typography: '$subtext',
   },
 
-  '.manifest-form-control--required-indicator': {
+  '.manifest-form-control__required-indicator': {
     color: '$text-danger',
     marginLeft: '$x-small',
   },
@@ -48,6 +48,3 @@ export const useFormControlStyles = css({
     orientation: 'horizonal',
   },
 });
-
-export type { CSS } from '@project44-manifest/styles';
-export { cx } from '@project44-manifest/styles';

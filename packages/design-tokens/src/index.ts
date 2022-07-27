@@ -1,4 +1,4 @@
-export const radiusFull = '50%';
+export const radiusFull = '999em';
 export const radiusSmall = '0.125rem';
 export const borderWidthLarge = '0.1875rem';
 export const borderWidthMedium = '0.125rem';

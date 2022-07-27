@@ -1,28 +1,23 @@
+import type { DOMProps, StyleProps } from '../../types';
 import type { AriaCheckboxProps } from '@react-types/checkbox';
 import * as React from 'react';
-import { CSS, cx, useCheckboxStyles } from './Checkbox.styles';
+import { cx } from '../../styles';
 import { Icon } from '../Icon';
 import { mergeProps } from '@react-aria/utils';
 import { Typography } from '../Typography';
 import { useCheckbox } from '@react-aria/checkbox';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
+import { useStyles } from './Checkbox.styles';
 import { useToggleState } from '@react-stately/toggle';
 
-/**
- * -----------------------------------------------------------------------------------------------
- * Checkbox
- * -----------------------------------------------------------------------------------------------
- */
-
 type CheckboxElement = React.ElementRef<'label'>;
-type CheckboxNativeProps = Omit<React.ComponentPropsWithoutRef<'label'>, keyof AriaCheckboxProps>;
 
-interface CheckboxProps extends CheckboxNativeProps, AriaCheckboxProps {
+interface CheckboxProps extends AriaCheckboxProps, DOMProps, StyleProps {
   /**
-   * Theme aware style object.
+   * The label of the checkbox
    */
-  css?: CSS;
+  chidlren?: React.ReactNode;
 }
 
 const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>((props, forwardedRef) => {
@@ -46,7 +41,7 @@ const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>((props, forwar
   const { isFocusVisible, focusProps } = useFocusRing({ autoFocus });
   const { isHovered, hoverProps } = useHover({ isDisabled });
 
-  const { className } = useCheckboxStyles({
+  const { className } = useStyles({
     css,
     isChecked,
     isDisabled,
@@ -55,26 +50,29 @@ const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>((props, forwar
     isIndeterminate,
   });
 
+  const classes = cx(className, classNameProp, {
+    'manifest-checkbox': true,
+    'manifest-checkbox--checked': isChecked,
+    'manifest-checkbox--disabled': isDisabled,
+    'manifest-checkbox--indeterminate': isIndeterminate,
+  });
+
   return (
-    <label
-      {...mergeProps(hoverProps, other)}
-      className={cx('manifest-checkbox', className, classNameProp)}
-      ref={forwardedRef}
-    >
+    <label {...mergeProps(hoverProps, other)} className={classes} ref={forwardedRef}>
       <input
         {...mergeProps(inputProps, focusProps)}
-        className="manifest-checkbox--input"
+        className="manifest-checkbox__input"
         ref={inputRef}
       />
 
-      <div className="manifest-checkbox--control">
-        <span className="manifest-checkbox--indicator">
-          <Icon icon={isIndeterminate ? 'remove' : 'check'} />
+      <div className="manifest-checkbox__control">
+        <span className="manifest-checkbox__indicator">
+          <Icon className="manifest-checkbox__icon" icon={isIndeterminate ? 'remove' : 'check'} />
         </span>
       </div>
 
       {children && (
-        <Typography className="manifest-checkbox--text" variant="subtext">
+        <Typography className="manifest-checkbox__text" variant="subtext">
           {children}
         </Typography>
       )}
@@ -85,8 +83,6 @@ const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>((props, forwar
 if (__DEV__) {
   Checkbox.displayName = 'ManifestCheckbox';
 }
-
-Checkbox.toString = () => '.manifest-checkbox';
 
 export { Checkbox };
 export type { CheckboxProps };

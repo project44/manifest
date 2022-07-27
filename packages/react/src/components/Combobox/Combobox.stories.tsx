@@ -1,6 +1,6 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
-import { Combobox, ComboboxItem, ComboboxSection } from './Combobox';
+import { Combobox, ComboboxItem, ComboboxSection } from '.';
 import { Flex } from '../Flex';
 import { Icon } from '../Icon';
 

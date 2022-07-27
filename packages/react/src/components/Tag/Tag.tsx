@@ -1,23 +1,18 @@
+import type { DOMProps, StyleProps } from '../../types';
 import * as React from 'react';
-import { CSS, cx, useTagStyles } from './Tag.styles';
+import { cx } from '../../styles';
 import { Icon } from '../Icon';
-import { IconButton } from '../Button';
+import { IconButton } from '../IconButton';
 import { Typography } from '../Typography';
-
-/**
- * -----------------------------------------------------------------------------------------------
- * Tag
- * -----------------------------------------------------------------------------------------------
- */
+import { useStyles } from './Tag.styles';
 
 type TagElement = React.ElementRef<'div'>;
-type TagNativeProps = React.ComponentPropsWithRef<'div'>;
 
-interface TagProps extends TagNativeProps {
+interface TagProps extends DOMProps, StyleProps {
   /**
-   * Theme aware style object.
+   * The tag label.
    */
-  css?: CSS;
+  children?: React.ReactNode;
   /**
    * Whether the tag is removeable.
    */
@@ -31,22 +26,22 @@ interface TagProps extends TagNativeProps {
 const Tag = React.forwardRef<TagElement, TagProps>((props, forwardedRef) => {
   const { children, className: classNameProp, css, isRemovable, onRemove, ...other } = props;
 
-  const { className } = useTagStyles({ css, isRemovable });
+  const { className } = useStyles({ css, isRemovable });
 
   return (
-    <div {...other} className={cx('manifest-tag', className, classNameProp)} ref={forwardedRef}>
-      <Typography className="manifest-tag--text" variant="caption">
+    <div {...other} className={cx(className, classNameProp, 'manifest-tag')} ref={forwardedRef}>
+      <Typography className="manifest-tag__text" variant="caption">
         {children}
       </Typography>
       {isRemovable && (
         <IconButton
           aria-label="remove"
-          className="manifest-tag--button"
+          className="manifest-tag__button"
           onClick={onRemove}
           size="small"
           variant="tertiary"
         >
-          <Icon className="manifest-tag--icon" icon="clear" />
+          <Icon className="manifest-tag__icon" icon="clear" />
         </IconButton>
       )}
     </div>
@@ -56,8 +51,6 @@ const Tag = React.forwardRef<TagElement, TagProps>((props, forwardedRef) => {
 if (__DEV__) {
   Tag.displayName = 'ManifestTag';
 }
-
-Tag.toString = () => '.manifest-tag';
 
 export { Tag };
 export type { TagProps };

@@ -1,6 +1,6 @@
-import { css } from '@project44-manifest/styles';
+import { css } from '../../styles';
 
-export const useLinkStyles = css({
+export const useStyles = css({
   alignItems: 'baseline',
   color: '$text-primary',
   display: 'inline-flex',
@@ -12,6 +12,3 @@ export const useLinkStyles = css({
   textDecoration: 'underline',
   width: 'fitContent',
 });
-
-export type { CSS } from '@project44-manifest/styles';
-export { cx } from '@project44-manifest/styles';

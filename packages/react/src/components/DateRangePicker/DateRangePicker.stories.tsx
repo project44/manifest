@@ -1,5 +1,5 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import type { RangeValue } from '../Calendar';
+import type { RangeValue } from '../CalendarRange';
 import * as React from 'react';
 import { CalendarDate, DateValue } from '@internationalized/date';
 import { DateRangePicker } from './DateRangePicker';

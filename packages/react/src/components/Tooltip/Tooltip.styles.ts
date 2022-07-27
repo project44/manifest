@@ -1,6 +1,6 @@
-import { css } from '@project44-manifest/styles';
+import { css } from '../../styles';
 
-export const useTooltipStyles = css({
+export const useStyles = css({
   backgroundColor: '$palette-grey-700',
   borderRadius: '$small',
   boxSizing: 'border-box',
@@ -9,6 +9,3 @@ export const useTooltipStyles = css({
   padding: '$x-small $small',
   position: 'relative',
 });
-
-export type { CSS } from '@project44-manifest/styles';
-export { cx } from '@project44-manifest/styles';

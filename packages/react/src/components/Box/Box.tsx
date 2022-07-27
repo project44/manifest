@@ -17,9 +17,9 @@ const Box = React.forwardRef<BoxElement, BoxProps>((props, forwardedRef) => {
 
   const { className } = useStyles({ css });
 
-  const classes = cx(className, classNameProp, 'manifest-box');
-
-  return <div {...other} className={classes} ref={forwardedRef} />;
+  return (
+    <div {...other} className={cx(className, classNameProp, 'manifest-box')} ref={forwardedRef} />
+  );
 });
 
 if (__DEV__) {

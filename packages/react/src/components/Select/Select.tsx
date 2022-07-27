@@ -1,10 +1,10 @@
+import type { DOMProps, StyleProps } from '../../types';
 import type { AriaSelectProps } from '@react-types/select';
-import * as LisBoxBase from '../ListBoxBase';
 import * as React from 'react';
-import { CSS, cx, useSelectStyles } from './Select.styles';
 import { HiddenSelect, useSelect } from '@react-aria/select';
-import { Item, Section } from '@react-stately/collections';
+import { ListBoxBase, ListBoxBaseProps } from '../internal/ListBoxBase';
 import { mergeProps, useLayoutEffect, useResizeObserver } from '@react-aria/utils';
+import { cx } from '../../styles';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
 import { Popover } from '../Popover';
@@ -14,25 +14,11 @@ import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
 import { useOverlayPosition } from '@react-aria/overlays';
 import { useSelectState } from '@react-stately/select';
+import { useStyles } from './Select.styles';
 
-/**
- * -----------------------------------------------------------------------------------------------
- * Select
- * -----------------------------------------------------------------------------------------------
- */
-
-type SelectAriaProps<T extends object = object> = AriaSelectProps<T>;
 type SelectElement = React.ElementRef<'div'>;
 
-interface SelectProps extends SelectAriaProps {
-  /**
-   * Class name attached to the root element.
-   */
-  className?: string;
-  /**
-   * Theme aware style object.
-   */
-  css?: CSS;
+interface SelectProps extends AriaSelectProps<object>, DOMProps, StyleProps {
   /**
    * Helper text to append to the form control input element.
    */
@@ -108,7 +94,7 @@ const Select = React.forwardRef<SelectElement, SelectProps>((props, forwardedRef
   const { isFocusVisible, isFocused, focusProps } = useFocusRing({ autoFocus });
   const { hoverProps, isHovered } = useHover({ isDisabled });
 
-  const { className } = useSelectStyles({
+  const { className } = useStyles({
     hasStartIcon: !!startIcon,
     isActive: state.isOpen,
     isDisabled,
@@ -120,6 +106,13 @@ const Select = React.forwardRef<SelectElement, SelectProps>((props, forwardedRef
     isPressed,
     size,
     css,
+  });
+
+  const classes = cx(className, classNameProp, {
+    'manifest-select': true,
+    'manifest-select--disabled': isDisabled,
+    'manifest-select--invalid': isInvalid,
+    [`manifest-select--${size}`]: size,
   });
 
   const handlResize = React.useCallback(() => {
@@ -144,9 +137,9 @@ const Select = React.forwardRef<SelectElement, SelectProps>((props, forwardedRef
       labelProps={mergeProps(labelProps, labelPropsProp)}
       validationState={validationState}
     >
-      <div className={cx('manifest-select', className, classNameProp)} ref={forwardedRef}>
+      <div className={classes} ref={forwardedRef}>
         {startIcon && (
-          <span className={cx('manifest-select--icon', 'manifest-select--icon__start')}>
+          <span className={cx('manifest-select--icon', 'manifest-select--icon--start')}>
             {startIcon}
           </span>
         )}
@@ -162,7 +155,7 @@ const Select = React.forwardRef<SelectElement, SelectProps>((props, forwardedRef
 
         <button
           {...mergeProps(buttonProps, focusProps, hoverProps)}
-          className="manifest-select--input"
+          className="manifest-select__input"
           ref={triggerRef}
         >
           <Typography {...valueProps} variant="subtext">
@@ -170,21 +163,21 @@ const Select = React.forwardRef<SelectElement, SelectProps>((props, forwardedRef
           </Typography>
         </button>
 
-        <span className={cx('manifest-select--icon', 'manifest-select--icon__end')}>
+        <span className={cx('manifest-select__icon', 'manifest-select__icon--end')}>
           <Icon icon="expand_more" />
         </span>
 
         <Popover
           {...positionProps}
-          className="manifest-select--popover"
+          className="manifest-select__popover"
           css={{ minWidth: popoverWidth, width: popoverWidth }}
           isOpen={state.isOpen}
           onClose={state.close}
           ref={popoverRef}
         >
-          <LisBoxBase.ListBox
-            {...(menuProps as LisBoxBase.ListBoxProps)}
-            className="manifest-select--list-box"
+          <ListBoxBase
+            {...(menuProps as ListBoxBaseProps)}
+            className="manifest-select__list-box"
             disallowEmptySelection
             ref={listBoxRef}
             state={state}
@@ -199,7 +192,5 @@ if (__DEV__) {
   Select.displayName = 'ManifestSelect';
 }
 
-Select.toString = () => '.manifest-select';
-
-export { Select, Item as SelectItem, Section as SelectSection };
+export { Select };
 export type { SelectProps };

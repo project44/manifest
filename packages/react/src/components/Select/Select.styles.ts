@@ -1,17 +1,17 @@
-import { css } from '@project44-manifest/styles';
+import { css, pxToRem } from '../../styles';
 
-export const useSelectStyles = css({
+export const useStyles = css({
   $$backgroundColor: '$colors$background-primary',
   $$borderColor: '$colors$palette-grey-500',
   $$iconColor: '$colors$text-tertiary',
   $$textColor: '$colors$text-primary',
 
   display: 'flex',
-  minWidth: '3rem',
+  minWidth: pxToRem(48),
   position: 'relative',
   width: '100%',
 
-  '.manifest-select--icon': {
+  '.manifest-select__icon': {
     alignItems: 'center',
     color: '$$iconColor',
     display: 'inline-flex',
@@ -23,15 +23,15 @@ export const useSelectStyles = css({
     zIndex: 2,
   },
 
-  '.manifest-select--icon__end': {
+  '.manifest-select__icon--end': {
     right: 0,
   },
 
-  '.manifest-select--icon__start': {
+  '.manifest-select__icon--start': {
     left: 0,
   },
 
-  '.manifest-select--input': {
+  '.manifest-select__input': {
     appearance: 'none',
     backgroundColor: '$$backgroundColor',
     border: '1px solid $$borderColor',
@@ -42,20 +42,20 @@ export const useSelectStyles = css({
     margin: 0,
     outline: 0,
     padding: '0 $small',
-    paddingRight: '2.5rem',
+    paddingRight: pxToRem(40),
     textAlign: 'start',
     width: '100%',
   },
 
-  '.manifest-select--text': {
+  '.manifest-select__text': {
     color: '$text-tertiary',
   },
 
   variants: {
     hasStartIcon: {
       true: {
-        '.manifest-select--input': {
-          paddingLeft: '2.5rem',
+        '.manifest-select__input': {
+          paddingLeft: pxToRem(40),
         },
       },
     },
@@ -71,7 +71,7 @@ export const useSelectStyles = css({
         $$backgroundColor: '$colors$palette-grey-50',
         $$textColor: '$colors$text-disabled',
 
-        '.manifest-select--input': {
+        '.manifest-select__input': {
           cursor: 'not-allowed',
         },
       },
@@ -85,7 +85,7 @@ export const useSelectStyles = css({
     },
     isFocusVisible: {
       true: {
-        '.manifest-select--input': {
+        '.manifest-select__input': {
           outline: '$colors$palette-indigo-200 solid 3px',
         },
       },
@@ -117,31 +117,31 @@ export const useSelectStyles = css({
     },
     size: {
       medium: {
-        '.manifest-select--icon': {
+        '.manifest-select__icon': {
           fontSize: '$x-large',
-          size: '2.5rem',
+          size: pxToRem(40),
 
           '> .material-icons': {
             fontSize: '$x-large',
           },
         },
 
-        '.manifest-select--input': {
-          height: '2.5rem',
+        '.manifest-select__input': {
+          height: pxToRem(40),
         },
       },
       small: {
-        '.manifest-select--icon': {
-          fontSize: '1.125rem',
-          size: '2.125rem',
+        '.manifest-select__icon': {
+          fontSize: pxToRem(18),
+          size: pxToRem(34),
 
           '> .material-icons': {
-            fontSize: '1.125rem',
+            fontSize: pxToRem(18),
           },
         },
 
-        '.manifest-select--input': {
-          height: '2.125rem',
+        '.manifest-select__input': {
+          height: pxToRem(34),
         },
       },
     },
@@ -151,6 +151,3 @@ export const useSelectStyles = css({
     size: 'medium',
   },
 });
-
-export type { CSS } from '@project44-manifest/styles';
-export { cx } from '@project44-manifest/styles';

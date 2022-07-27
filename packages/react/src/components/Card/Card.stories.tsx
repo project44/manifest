@@ -1,7 +1,11 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
-import { Button, ButtonGroup } from '../Button';
-import { Card, CardBody, CardFooter, CardHeader } from './Card';
+import { Button } from '../Button';
+import { ButtonGroup } from '../ButtonGroup';
+import { Card } from './Card';
+import { CardBody } from '../CardBody';
+import { CardFooter } from '../CardFooter';
+import { CardHeader } from '../CardHeader';
 
 export default {
   title: 'Components/Card',

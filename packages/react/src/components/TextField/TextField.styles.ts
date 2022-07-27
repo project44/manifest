@@ -1,10 +1,10 @@
-import { css, pxToRem } from '@project44-manifest/styles';
+import { css, pxToRem } from '../../styles';
 
-export const useTextFieldStyles = css({
+export const useStyles = css({
   variants: {
     size: {
       medium: {
-        '.manifest-textfield-base--icon': {
+        '.manifest-textfield-base__icon': {
           fontSize: '$x-large',
 
           '> .material-icons': {
@@ -12,12 +12,12 @@ export const useTextFieldStyles = css({
           },
         },
 
-        '.manifest-textfield-base--input': {
+        '.manifest-textfield-base__input': {
           py: pxToRem(9),
         },
       },
       small: {
-        '.manifest-textfield-base--icon': {
+        '.manifest-textfield-base__icon': {
           fontSize: pxToRem(18),
 
           '> .material-icons': {
@@ -25,7 +25,7 @@ export const useTextFieldStyles = css({
           },
         },
 
-        '.manifest-textfield-base--input': {
+        '.manifest-textfield-base__input': {
           py: pxToRem(6),
         },
       },
@@ -36,6 +36,3 @@ export const useTextFieldStyles = css({
     size: 'medium',
   },
 });
-
-export type { CSS } from '@project44-manifest/styles';
-export { cx } from '@project44-manifest/styles';

@@ -1,17 +1,17 @@
-import { css } from '@project44-manifest/styles';
+import { css, pxToRem } from '../../styles';
 
-export const useDatePickerStyles = css({
+export const useStyles = css({
   $$backgroundColor: '$colors$background-primary',
   $$borderColor: '$colors$palette-grey-500',
   $$iconColor: '$colors$text-tertiary',
   $$textColor: '$colors$text-tertiary',
 
   display: 'flex',
-  minWidth: '3rem',
+  minWidth: pxToRem(48),
   position: 'relative',
   width: '100%',
 
-  '.manifest-datepicker--icon': {
+  '.manifest-datepicker__icon': {
     alignItems: 'center',
     color: '$$iconColor',
     display: 'inline-flex',
@@ -23,15 +23,15 @@ export const useDatePickerStyles = css({
     zIndex: 2,
   },
 
-  '.manifest-datepicker--icon__end': {
+  '.manifest-datepicker__icon--end': {
     right: 0,
   },
 
-  '.manifest-datepicker--icon__start': {
+  '.manifest-datepicker__icon--start': {
     left: 0,
   },
 
-  '.manifest-datepicker--input': {
+  '.manifest-datepicker__input': {
     appearance: 'none',
     backgroundColor: '$$backgroundColor',
     border: '1px solid $$borderColor',
@@ -42,20 +42,20 @@ export const useDatePickerStyles = css({
     margin: 0,
     outline: 0,
     padding: '0 $small',
-    paddingRight: '2.5rem',
+    paddingRight: pxToRem(40),
     textAlign: 'start',
     width: '100%',
   },
 
-  '.manifest-datepicker--text': {
+  '.manifest-datepicker__text': {
     color: '$text-tertiary',
   },
 
   variants: {
     hasStartIcon: {
       true: {
-        '.manifest-datepicker--input': {
-          paddingLeft: '2.5rem',
+        '.manifest-datepicker__input': {
+          paddingLeft: pxToRem(40),
         },
       },
     },
@@ -71,7 +71,7 @@ export const useDatePickerStyles = css({
         $$backgroundColor: '$colors$palette-grey-50',
         $$textColor: '$colors$text-disabled',
 
-        '.manifest-datepicker--input': {
+        '.manifest-datepicker__input': {
           cursor: 'not-allowed',
         },
       },
@@ -85,7 +85,7 @@ export const useDatePickerStyles = css({
     },
     isFocusVisible: {
       true: {
-        '.manifest-datepicker--input': {
+        '.manifest-datepicker__input': {
           outline: '$colors$palette-indigo-200 solid 3px',
         },
       },
@@ -112,31 +112,31 @@ export const useDatePickerStyles = css({
     },
     size: {
       medium: {
-        '.manifest-datepicker--icon': {
+        '.manifest-datepicker__icon': {
           fontSize: '$x-large',
-          size: '2.5rem',
+          size: pxToRem(40),
 
           '> .material-icons': {
             fontSize: '$x-large',
           },
         },
 
-        '.manifest-datepicker--input': {
-          height: '2.5rem',
+        '.manifest-datepicker__input': {
+          height: pxToRem(40),
         },
       },
       small: {
-        '.manifest-datepicker--icon': {
-          fontSize: '1.125rem',
-          size: '2.125rem',
+        '.manifest-datepicker__icon': {
+          fontSize: pxToRem(18),
+          size: pxToRem(34),
 
           '> .material-icons': {
-            fontSize: '1.125rem',
+            fontSize: pxToRem(18),
           },
         },
 
-        '.manifest-datepicker--input': {
-          height: '2.125rem',
+        '.manifest-datepicker__input': {
+          height: pxToRem(34),
         },
       },
     },
@@ -146,6 +146,3 @@ export const useDatePickerStyles = css({
     size: 'medium',
   },
 });
-
-export type { CSS } from '@project44-manifest/styles';
-export { cx } from '@project44-manifest/styles';

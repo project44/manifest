@@ -1,8 +1,9 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
-import { Dropdown, DropdownMenu, DropdownItem, DropdownSection } from './Dropdown';
-import { IconButton } from '../Button';
+import { Dropdown, DropdownItem, DropdownSection } from '.';
+import { DropdownMenu } from '../DropdownMenu';
 import { Icon } from '../Icon';
+import { IconButton } from '../IconButton';
 
 export default {
   title: 'Components/Dropdown',

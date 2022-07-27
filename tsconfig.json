@@ -9,9 +9,6 @@
       "path": "packages/react"
     },
     {
-      "path": "packages/styles"
-    },
-    {
       "path": "packages/vessel"
     }
   ]

@@ -1,6 +1,6 @@
-import { css } from '@project44-manifest/styles';
+import { css, pxToRem } from '../../styles';
 
-export const useRadioStyles = css({
+export const useStyles = css({
   $$backgroundColor: '$colors$palette-white',
   $$borderColor: '$colors$palette-grey-500',
 
@@ -11,7 +11,7 @@ export const useRadioStyles = css({
   position: 'relative',
   width: 'auto',
 
-  '.manifest-radio--control': {
+  '.manifest-radio__control': {
     alignItems: 'center',
     backgroundColor: '$$backgroundColor',
     border: '3px solid $$borderColor',
@@ -20,10 +20,10 @@ export const useRadioStyles = css({
     color: '$palette-white',
     display: 'inline-flex',
     justifyContent: 'center',
-    size: '1.125rem',
+    size: pxToRem(18),
   },
 
-  '.manifest-radio--indicator': {
+  '.manifest-radio__indicator': {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -35,11 +35,11 @@ export const useRadioStyles = css({
       borderRadius: '$full',
       content: '""',
       display: 'block',
-      size: '0.625rem',
+      size: pxToRem(10),
     },
   },
 
-  '.manifest-radio--input': {
+  '.manifest-radio__input': {
     cursor: 'pointer',
     height: '100%',
     left: 0,
@@ -51,7 +51,7 @@ export const useRadioStyles = css({
     width: '100%',
   },
 
-  '.manifest-radio--text': {
+  '.manifest-radio__text': {
     marginLeft: '$small',
   },
 
@@ -71,7 +71,7 @@ export const useRadioStyles = css({
     },
     isFocusVisible: {
       true: {
-        '.manifest-radio--control': {
+        '.manifest-radio__control': {
           outline: '$colors$palette-indigo-200 solid 3px',
         },
       },
@@ -86,30 +86,3 @@ export const useRadioStyles = css({
     },
   },
 });
-
-export const useRadioGroupStyles = css({
-  border: 0,
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '$small',
-  margin: 0,
-  padding: 0,
-
-  variants: {
-    orientation: {
-      horizontal: {
-        flexFlow: 'row wrap',
-      },
-      vertical: {
-        flexFlow: 'column wrap',
-      },
-    },
-  },
-
-  defaultVariants: {
-    orientation: 'vertical',
-  },
-});
-
-export type { CSS } from '@project44-manifest/styles';
-export { cx } from '@project44-manifest/styles';

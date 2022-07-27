@@ -1,47 +1,20 @@
-import * as ListBoxBase from '../ListBoxBase';
 import * as React from 'react';
-import { Item, Section } from '@react-stately/collections';
+import { ListBoxBase, ListBoxBaseProps } from '../internal/ListBoxBase';
 import { useListState } from '@react-stately/list';
 
-/**
- * -----------------------------------------------------------------------------------------------
- * ListBox
- * -----------------------------------------------------------------------------------------------
- */
+type ListBoxElement = React.ElementRef<typeof ListBoxBase>;
 
-type ListBoxElement = React.ElementRef<typeof ListBoxBase.ListBox>;
-
-type ListBoxProps = Omit<ListBoxBase.ListBoxProps, 'state'>;
+type ListBoxProps = Omit<ListBoxBaseProps, 'state'>;
 
 const ListBox = React.forwardRef<ListBoxElement, ListBoxProps>((props, forwardedRef) => {
   const state = useListState(props);
 
-  return <ListBoxBase.ListBox {...props} state={state} ref={forwardedRef} />;
+  return <ListBoxBase {...props} state={state} ref={forwardedRef} />;
 });
 
 if (__DEV__) {
   ListBox.displayName = 'ManifestListBox';
 }
 
-/**
- * -----------------------------------------------------------------------------------------------
- * ListBoxItem
- * -----------------------------------------------------------------------------------------------
- */
-
-type ListBoxItemProps = Omit<ListBoxBase.ListBoxItemProps, 'isVirtualized' | 'item' | 'onAction'>;
-
-const ListBoxItem = Item as (props: ListBoxItemProps) => JSX.Element;
-
-/**
- * -----------------------------------------------------------------------------------------------
- * ListBoxItem
- * -----------------------------------------------------------------------------------------------
- */
-
-type ListBoxSectionProps = Omit<ListBoxBase.ListBoxSectionProps, 'item'>;
-
-const ListBoxSection = Section as (props: ListBoxSectionProps) => JSX.Element;
-
-export { ListBox, ListBoxItem, ListBoxSection };
-export { ListBoxProps, ListBoxItemProps, ListBoxSectionProps };
+export { ListBox };
+export { ListBoxProps };

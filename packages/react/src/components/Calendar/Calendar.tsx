@@ -3,8 +3,8 @@ import type { CalendarProps as AriaCalendarProps } from '@react-types/calendar';
 import * as React from 'react';
 import { createCalendar, DateValue } from '@internationalized/date';
 import { cx } from '../../styles';
-import { CalendarHeader } from './CalendarHeader';
-import { CalendarTable } from './CalendarTable';
+import { CalendarHeader } from '../internal/CalendarHeader';
+import { CalendarTable } from '../internal/CalendarTable';
 import { Separator } from '../Separator';
 import { useLocale } from '@react-aria/i18n';
 import { useCalendar } from '@react-aria/calendar';
@@ -31,10 +31,12 @@ const Calendar = React.forwardRef<CalendarElement, CalendarProps>((props, forwar
 
   const { className } = useStyles({ css });
 
-  const classes = cx(className, classNameProp, 'manifest-calendar');
-
   return (
-    <div {...calendarProps} className={classes} ref={forwardedRef}>
+    <div
+      {...calendarProps}
+      className={cx(className, classNameProp, 'manifest-calendar')}
+      ref={forwardedRef}
+    >
       <CalendarHeader
         nextButtonProps={nextButtonProps}
         prevButtonProps={prevButtonProps}

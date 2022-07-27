@@ -1,15 +1,9 @@
 import * as React from 'react';
 import { chain, mergeProps, mergeRefs, useLayoutEffect } from '@react-aria/utils';
-import { TextFieldBase, TextFieldBaseProps } from '../TextFieldBase';
-import { cx } from '@project44-manifest/styles';
+import { TextFieldBase, TextFieldBaseProps } from '../internal/TextFieldBase';
+import { cx } from '../../styles';
 import { useControlledState } from '@react-stately/utils';
 import { useTextField } from '@react-aria/textfield';
-
-/**
- * -----------------------------------------------------------------------------------------------
- * TextArea
- * -----------------------------------------------------------------------------------------------
- */
 
 type TextAreaElement = React.ElementRef<'div'>;
 
@@ -73,7 +67,7 @@ const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>((props, forwar
   return (
     <TextFieldBase
       {...other}
-      className={cx('manifest-textarea', className)}
+      className={cx(className, 'manifest-textarea')}
       helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextProps)}
       inputProps={mergeProps(inputProps, inputPropsProp)}
       inputRef={
@@ -89,8 +83,6 @@ const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>((props, forwar
 if (__DEV__) {
   TextArea.displayName = 'ManifestTextArea';
 }
-
-TextArea.toString = () => '.manifest-textarea';
 
 export { TextArea };
 export type { TextAreaProps };

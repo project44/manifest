@@ -1,6 +1,6 @@
-import { css } from '@project44-manifest/styles';
+import { css, pxToRem } from '../../styles';
 
-export const useSwitchStyles = css({
+export const useStyles = css({
   $$switchBackgroundColor: '$colors$palette-grey-500',
 
   alignItems: 'center',
@@ -10,7 +10,7 @@ export const useSwitchStyles = css({
   position: 'relative',
   width: 'auto',
 
-  '.manifest-switch--control': {
+  '.manifest-switch__control': {
     alignItems: 'center',
     backgroundColor: '$$switchBackgroundColor',
     borderRadius: '$full',
@@ -18,24 +18,24 @@ export const useSwitchStyles = css({
     color: '$palette-white',
     cursor: 'pointer',
     display: 'inline-flex',
-    height: '1.5rem',
+    height: pxToRem(24),
     margin: 0,
     padding: 0,
     position: 'relative',
-    width: '2.75rem',
+    width: pxToRem(44),
   },
 
-  '.manifest-switch--indicator': {
+  '.manifest-switch__indicator': {
     backgroundColor: '$palette-white',
     borderRadius: '$full',
     display: 'block',
-    size: '1.125rem',
+    size: pxToRem(18),
     transform: 'translateX(3px)',
     transition: '$transform',
     willChange: 'transform',
   },
 
-  '.manifest-switch--input': {
+  '.manifest-switch__input': {
     cursor: 'pointer',
     height: '100%',
     left: 0,
@@ -47,7 +47,7 @@ export const useSwitchStyles = css({
     width: '100%',
   },
 
-  '.manifest-switch--text': {
+  '.manifest-switch__text': {
     marginLeft: '$small',
   },
 
@@ -56,7 +56,7 @@ export const useSwitchStyles = css({
       true: {
         $$switchBackgroundColor: '$colors$primary-default',
 
-        '.manifest-switch--indicator': {
+        '.manifest-switch__indicator': {
           transform: 'translateX(23px)',
         },
       },
@@ -70,7 +70,7 @@ export const useSwitchStyles = css({
     },
     isFocusVisible: {
       true: {
-        '.manifest-switch--control': {
+        '.manifest-switch__control': {
           outline: '$colors$palette-indigo-200 solid 3px',
         },
       },
@@ -85,6 +85,3 @@ export const useSwitchStyles = css({
     },
   },
 });
-
-export type { CSS } from '@project44-manifest/styles';
-export { cx } from '@project44-manifest/styles';

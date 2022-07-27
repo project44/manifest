@@ -1,6 +1,6 @@
-import { css } from '@project44-manifest/styles';
+import { css, pxToRem } from '../../styles';
 
-export const useCheckboxStyles = css({
+export const useStyles = css({
   $$backgroundColor: '$colors$background-primary',
   $$borderColor: '$colors$palette-grey-500',
 
@@ -11,16 +11,16 @@ export const useCheckboxStyles = css({
   position: 'relative',
   width: 'auto',
 
-  '.manifest-checkbox--control': {
+  '.manifest-checkbox__control': {
     backgroundColor: '$$backgroundColor',
     border: '2px solid $$borderColor',
     borderRadius: '$small',
     color: '$palette-white',
     cursor: 'pointer',
-    size: '1.125rem',
+    size: pxToRem(18),
   },
 
-  '.manifest-checkbox--indicator': {
+  '.manifest-checkbox__indicator': {
     alignItems: 'center',
     display: 'flex',
     height: '100%',
@@ -28,12 +28,12 @@ export const useCheckboxStyles = css({
     pointerEvents: 'none',
     width: '100%',
 
-    [`& .manifest-icon`]: {
-      fontSize: '1.125rem',
+    '> .manifest-checkbox__icon': {
+      fontSize: pxToRem(18),
     },
   },
 
-  '.manifest-checkbox--input': {
+  '.manifest-checkbox__input': {
     cursor: 'pointer',
     height: '100%',
     left: 0,
@@ -45,7 +45,7 @@ export const useCheckboxStyles = css({
     width: '100%',
   },
 
-  '.manifest-checkbox--text': {
+  '.manifest-checkbox__text': {
     marginLeft: '$small',
   },
 
@@ -65,7 +65,7 @@ export const useCheckboxStyles = css({
     },
     isFocusVisible: {
       true: {
-        '.manifest-checkbox--control': {
+        '.manifest-checkbox__control': {
           outline: '$colors$palette-indigo-200 solid 3px',
         },
       },
@@ -103,6 +103,3 @@ export const useCheckboxStyles = css({
     },
   ],
 });
-
-export type { CSS } from '@project44-manifest/styles';
-export { cx } from '@project44-manifest/styles';

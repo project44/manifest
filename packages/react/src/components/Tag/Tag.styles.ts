@@ -1,6 +1,6 @@
-import { css } from '@project44-manifest/styles';
+import { css, pxToRem } from '../../styles';
 
-export const useTagStyles = css({
+export const useStyles = css({
   alignItems: 'center',
   appearance: 'none',
   background: 'none',
@@ -9,27 +9,28 @@ export const useTagStyles = css({
   boxSizing: 'border-box',
   color: '$text-primary',
   display: 'inline-flex',
-  height: '1.5rem',
+  height: pxToRem(24),
   justifyContent: 'center',
   outline: 0,
-  padding: '0.1875rem $small',
+  px: '$small',
+  py: pxToRem(3),
   textDecoration: 'none',
   verticalAlign: 'middle',
   whiteSpace: 'nowrap',
 
-  '.manifest-tag--button': {
+  '.manifest-tag__button': {
     padding: 0,
     margin: 0,
     marginLeft: '$x-small',
-    size: '1rem',
+    size: pxToRem(16),
   },
 
-  '.manifest-tag--icon': {
+  '.manifest-tag__icon': {
     fontSize: '$medium',
-    size: '1rem',
+    size: pxToRem(16),
   },
 
-  '.manifest-tag--text': {
+  '.manifest-tag__text': {
     color: 'inherit',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
@@ -39,11 +40,8 @@ export const useTagStyles = css({
   variants: {
     isRemovable: {
       true: {
-        paddingRight: '0.375rem',
+        paddingRight: pxToRem(6),
       },
     },
   },
 });
-
-export type { CSS } from '@project44-manifest/styles';
-export { cx } from '@project44-manifest/styles';

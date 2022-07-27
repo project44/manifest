@@ -1,8 +1,9 @@
+import type { DOMProps, StyleProps } from '../../types';
 import type { AriaDateRangePickerProps } from '@react-types/datepicker';
-import type { DOMProps } from '@react-types/shared';
+import type { DateValue } from '../Calendar';
 import * as React from 'react';
-import { CalendarRange, DateValue } from '../Calendar';
-import { CSS, cx, useDatePickerStyles } from '../DatePicker/DatePicker.styles';
+import { CalendarRange } from '../CalendarRange';
+import { cx } from '../../styles';
 import { Popover } from '../Popover';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
@@ -14,24 +15,11 @@ import { useDateRangePickerState } from '@react-stately/datepicker';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
 import { useOverlayPosition } from '@react-aria/overlays';
-
-/**
- * -----------------------------------------------------------------------------------------------
- * DateRangePicker
- * -----------------------------------------------------------------------------------------------
- */
+import { useStyles } from '../DatePicker/DatePicker.styles';
 
 type DateRangePickerElement = React.ElementRef<'div'>;
 
-interface DateRangePickerProps extends AriaDateRangePickerProps<DateValue>, DOMProps {
-  /**
-   * Class name attached to the root element.
-   */
-  className?: string;
-  /**
-   * Theme aware style object.
-   */
-  css?: CSS;
+interface DateRangePickerProps extends AriaDateRangePickerProps<DateValue>, DOMProps, StyleProps {
   /**
    * Helper text to append to the form control input element.
    */
@@ -116,7 +104,7 @@ const DateRangePicker = React.forwardRef<DateRangePickerElement, DateRangePicker
     const { isFocused, isFocusVisible, focusProps } = useFocusRing({ autoFocus });
     const { hoverProps, isHovered } = useHover({ isDisabled });
 
-    const { className } = useDatePickerStyles({
+    const { className } = useStyles({
       hasStartIcon: !!startIcon,
       isActive: state.isOpen,
       isDisabled,
@@ -129,6 +117,13 @@ const DateRangePicker = React.forwardRef<DateRangePickerElement, DateRangePicker
       isReadOnly,
       size,
       css,
+    });
+
+    const classes = cx(className, classNameProp, {
+      'manifest-datepicker': true,
+      'manifest-datepicker--disabled': isDisabled,
+      'manifest-datepicker--invalid': isInvalid,
+      [`manifest-datepicker--${size}`]: size,
     });
 
     const getDisplayValue = () => {
@@ -149,37 +144,33 @@ const DateRangePicker = React.forwardRef<DateRangePickerElement, DateRangePicker
         labelProps={mergeProps(labelProps, labelPropsProp)}
         validationState={validationState}
       >
-        <div
-          {...groupProps}
-          className={cx('manifest-datepicker', className, classNameProp)}
-          ref={forwardedRef}
-        >
+        <div {...groupProps} className={classes} ref={forwardedRef}>
           {startIcon && (
-            <span className={cx('manifest-datepicker--icon', 'manifest-datepicker--icon__start')}>
+            <span className={cx('manifest-datepicker__icon', 'manifest-datepicker__icon--start')}>
               {startIcon}
             </span>
           )}
 
           <button
             {...mergeProps(buttonProps, focusProps, hoverProps)}
-            className="manifest-datepicker--input"
+            className="manifest-datepicker__input"
             ref={triggerRef}
           >
             <Typography variant="subtext">{getDisplayValue()}</Typography>
           </button>
 
-          <span className={cx('manifest-datepicker--icon', 'manifest-datepicker--icon__end')}>
+          <span className={cx('manifest-datepicker__icon', 'manifest-datepicker__icon--end')}>
             <Icon icon="calendar_month" />
           </span>
 
           <Popover
             {...mergeProps(dialogProps, positionProps)}
-            className="manifest-datepicker--popover"
+            className="manifest-datepicker__popover"
             isOpen={state.isOpen}
             onClose={() => state.setOpen(false)}
             ref={popoverRef}
           >
-            <CalendarRange {...calendarProps} />
+            <CalendarRange className="manifest-datepicker__calendar" {...calendarProps} />
           </Popover>
         </div>
       </FormControl>

@@ -1,6 +1,6 @@
-import { css } from '@project44-manifest/styles';
+import { css } from '../../styles';
 
-export const useSeparatorStyles = css({
+export const useStyles = css({
   alignSelf: 'stretch',
   backgroundColor: '$border-primary',
   border: 'none',
@@ -25,6 +25,3 @@ export const useSeparatorStyles = css({
     orientation: 'horizontal',
   },
 });
-
-export type { CSS } from '@project44-manifest/styles';
-export { cx } from '@project44-manifest/styles';

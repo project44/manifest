@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@internationalized/date": "^3.0.0",
-    "@project44-manifest/styles": "^1.1.0",
+    "@project44-manifest/design-tokens": "^1.0.2",
     "@react-aria/button": "^3.5.1",
     "@react-aria/calendar": "^3.0.0",
     "@react-aria/checkbox": "^3.4.1",
@@ -37,6 +37,7 @@
     "@react-aria/i18n": "^3.4.1",
     "@react-aria/interactions": "^3.9.1",
     "@react-aria/label": "^3.3.1",
+    "@react-aria/link": "^3.3.1",
     "@react-aria/listbox": "^3.5.1",
     "@react-aria/menu": "^3.5.1",
     "@react-aria/overlays": "^3.9.1",
@@ -58,7 +59,9 @@
     "@react-stately/select": "^3.2.1",
     "@react-stately/toggle": "^3.3.1",
     "@react-stately/tooltip": "^3.1.1",
-    "@react-stately/utils": "^3.5.0"
+    "@react-stately/utils": "^3.5.0",
+    "@stitches/react": "^1.2.8",
+    "clsx": "^1.1.1"
   },
   "devDependencies": {
     "react": "^18.1.0",

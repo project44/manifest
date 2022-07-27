@@ -1,20 +1,15 @@
+import type { DOMProps, StyleProps } from '../../types';
 import * as React from 'react';
-import { CSS, cx, useTypographyStyles } from './Typography.styles';
-
-/**
- * -----------------------------------------------------------------------------------------------
- * Typography
- * -----------------------------------------------------------------------------------------------
- */
+import { cx } from '../../styles';
+import { useStyles } from './Typography.styles';
 
 type TypographyElement = React.ElementRef<'span'>;
-type TypographyNativeProps = React.ComponentPropsWithRef<'span'>;
 
-interface TypographyProps extends TypographyNativeProps {
+interface TypographyProps extends DOMProps, StyleProps {
   /**
-   * Theme aware style object.
+   * The text content of the typography component.
    */
-  css?: CSS;
+  children?: React.ReactNode;
   /**
    * The display variant of the text.
    *
@@ -36,22 +31,19 @@ interface TypographyProps extends TypographyNativeProps {
 const Typography = React.forwardRef<TypographyElement, TypographyProps>((props, forwardedRef) => {
   const { className: classNameProp, css, variant = 'body', ...other } = props;
 
-  const { className } = useTypographyStyles({ css, variant });
+  const { className } = useStyles({ css, variant });
 
-  return (
-    <span
-      {...other}
-      className={cx('manifest-typography', className, classNameProp)}
-      ref={forwardedRef}
-    />
-  );
+  const classes = cx(className, classNameProp, {
+    'manifest-typography': true,
+    [`manifest-typography--${variant}`]: variant,
+  });
+
+  return <span {...other} className={classes} ref={forwardedRef} />;
 });
 
 if (__DEV__) {
   Typography.displayName = 'ManifestTypography';
 }
-
-Typography.toString = () => '.manifest-typography';
 
 export { Typography };
 export type { TypographyProps };

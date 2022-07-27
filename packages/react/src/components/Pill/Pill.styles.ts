@@ -1,6 +1,6 @@
-import { css } from '@project44-manifest/styles';
+import { css, pxToRem } from '../../styles';
 
-export const usePillStyles = css({
+export const useStyles = css({
   $$backgroundColor: 'tranparent',
 
   alignItems: 'center',
@@ -11,7 +11,7 @@ export const usePillStyles = css({
   padding: '2px',
   position: 'relative',
 
-  '.manifest-pill--icon': {
+  '.manifest-pill__icon': {
     alignItems: 'center',
     borderRadius: '$full',
     color: '$palette-white',
@@ -25,11 +25,11 @@ export const usePillStyles = css({
     },
   },
 
-  '.manifest-pill--text': {
+  '.manifest-pill__text': {
     backgroundColor: '$$backgroundColor',
     borderRadius: '$full',
     paddingLeft: '$x-small',
-    paddingRight: '0.375rem',
+    paddingRight: pxToRem(6),
     width: 'max-content',
   },
 
@@ -38,35 +38,35 @@ export const usePillStyles = css({
       indigo: {
         $$backgroundColor: '$colors$palette-indigo-50',
 
-        '.manifest-pill--text': {
+        '.manifest-pill__text': {
           color: '$palette-indigo-700',
         },
 
-        '.manifest-pill--icon': {
+        '.manifest-pill__icon': {
           backgroundColor: '$palette-indigo-700',
         },
       },
       red: {
         $$backgroundColor: '$colors$palette-red-50',
 
-        '.manifest-pill--text': {
+        '.manifest-pill__text': {
           color: '$palette-red-600',
         },
 
-        '.manifest-pill--icon': {
+        '.manifest-pill__icon': {
           backgroundColor: '$palette-red-600',
         },
       },
     },
     isCollapsible: {
       true: {
-        '.manifest-pill--text': {
+        '.manifest-pill__text': {
           borderBottomLeftRadius: 0,
           borderTopLeftRadius: 0,
           left: 24,
           position: 'absolute',
-          paddingLeft: '0.125rem',
-          py: '0.1875rem',
+          paddingLeft: pxToRem(2),
+          py: pxToRem(3),
         },
       },
     },
@@ -90,6 +90,3 @@ export const usePillStyles = css({
     colorScheme: 'indigo',
   },
 });
-
-export type { CSS } from '@project44-manifest/styles';
-export { cx } from '@project44-manifest/styles';
