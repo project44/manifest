@@ -5553,6 +5553,7 @@ __metadata:
     "@docusaurus/module-type-aliases": ^2.0.0-rc.1
     "@docusaurus/preset-classic": ^2.0.0-rc.1
     docusaurus-plugin-react-docgen-typescript: ^1.0.1
+    prism-react-renderer: ^1.3.5
   languageName: unknown
   linkType: soft
 

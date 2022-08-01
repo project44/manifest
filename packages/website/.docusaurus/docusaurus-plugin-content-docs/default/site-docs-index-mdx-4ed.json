@@ -1,0 +1,21 @@
+{
+  "unversionedId": "about",
+  "id": "about",
+  "title": "About Manifest Design System",
+  "description": "",
+  "source": "@site/docs/index.mdx",
+  "sourceDirName": ".",
+  "slug": "/",
+  "permalink": "/docs/",
+  "draft": false,
+  "editUrl": "https://github.com/project44/manifest/tree/main/packages/website/docs/index.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "about",
+    "title": "About Manifest Design System",
+    "slug": "/",
+    "hide_table_of_contents": true
+  },
+  "sidebar": "docs"
+}

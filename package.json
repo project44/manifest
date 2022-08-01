@@ -18,6 +18,7 @@
     "clean:build": "packemon clean",
     "clean:tokens": "rimraf 'packages/design-tokens/src'",
     "clean:types": "rimraf 'packages/**/*/*.tsbuildinfo'",
+    "docs:start": "yarn workspace @project44-manifest/website run start",
     "format": "beemo prettier",
     "lint": "beemo eslint",
     "pack": "NODE_ENV=production packemon pack --addEngines --declaration --skipPrivate",

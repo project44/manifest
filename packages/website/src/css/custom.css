@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  --ifm-font-color-base: #091521;
+  --ifm-font-family-base: 'Inter', sans-serif;
+  --ifm-font-family-monospace: 'Fira Mono', monospace;
+
+  --ifm-color-primary: #3142C8;
+  --ifm-color-primary-dark: #2E39AD;
+  --ifm-color-primary-darker: #16158D;
+  --ifm-color-primary-darkest: #16158D;
+  --ifm-color-primary-light: #3142C8;
+  --ifm-color-primary-lighter: #3142C8;
+  --ifm-color-primary-lightest: #3142C8;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: var(--ifm-font-weight-bold);
+  line-height: 2.625rem;
+}
