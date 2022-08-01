@@ -1,0 +1,5 @@
+/build
+
+.docusaurus
+
+!babel.config.js
