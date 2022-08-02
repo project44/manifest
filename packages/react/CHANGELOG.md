@@ -1,5 +1,14 @@
 # @manifest/react
 
+## 1.1.1
+
+### Patch Changes
+
+- [#34](https://github.com/project44/manifest/pull/34) [`b159885`](https://github.com/project44/manifest/commit/b1598850c1f74990a32edc1856eccdaee7225807) Thanks [@bclark-p44](https://github.com/bclark-p44)! - Adding align and direction props to dropdown
+
+- Updated dependencies [[`b159885`](https://github.com/project44/manifest/commit/b1598850c1f74990a32edc1856eccdaee7225807)]:
+  - @project44-manifest/design-tokens@1.0.3
+
 ## 1.1.0
 
 ### Minor Changes
