@@ -22,7 +22,7 @@ export const useStyles = css({
     flexShrink: 0,
 
     '& > .manifest-icon': {
-      fontSize: pxToRem(18),
+      fontSize: pxToRem(16),
     },
   },
 

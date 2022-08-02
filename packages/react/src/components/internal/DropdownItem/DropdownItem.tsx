@@ -100,6 +100,7 @@ const DropdownItem: React.FC<DropdownItemProps> = props => {
     'manifest-dropdown-item': true,
     'manifest-dropdown-item--disabled': isDisabled,
     'manifest-dropdown-item--selected': isSelected,
+    'manifest-dropdown-item--selectable': state.selectionManager.selectionMode !== 'none',
   });
 
   return (
@@ -118,11 +119,9 @@ const DropdownItem: React.FC<DropdownItemProps> = props => {
         {rendered}
       </Typography>
 
-      {isSelected && (
-        <span className={cx('manifest-dropdown-item--icon', 'manifest-dropdown-item__icon--end')}>
-          <Icon icon="check" />
-        </span>
-      )}
+      <span className={cx('manifest-dropdown-item__icon', 'manifest-dropdown-item__icon--end')}>
+        <Icon icon="check" />
+      </span>
     </li>
   );
 };
