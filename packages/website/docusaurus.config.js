@@ -19,24 +19,12 @@ const config = {
           editUrl: 'https://github.com/project44/manifest/tree/main/packages/website/',
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./src/css/custom.scss'),
         },
       },
     ],
   ],
-  plugins: [
-    [
-      'docusaurus-plugin-react-docgen-typescript',
-      {
-        src: ['../react/src/**/**.{ts,tsx}'],
-        global: true,
-        parserOptions: {
-          shouldExtractLiteralValuesFromEnum: true,
-          shouldRemoveUndefinedFromOptional: true,
-        },
-      },
-    ],
-  ],
+  plugins: ['docusaurus-plugin-sass'],
   themeConfig: {
     colorMode: {
       defaultMode: 'light',
@@ -50,9 +38,6 @@ const config = {
       },
       hideOnScroll: true,
       items: [
-        // { to: 'docs/', label: 'Docs', position: 'right' },
-        // { to: 'help', label: 'Help', position: 'right' },
-        // { to: 'blog', label: 'Blog', position: 'right' },
         {
           href: 'https://github.com/project44/manifest',
           label: 'GitHub',

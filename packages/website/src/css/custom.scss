@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&family=Inter:wght@400;600;700;800;900&display=swap');
+@import '@project44-manifest/design-tokens/css/styles.css';
+
+:root {
+  --ifm-font-color-base: var(--color-text-primary);
+  --ifm-font-family-base:  var(--font-family-text);
+  --ifm-font-family-monospace: var(--font-family-mono);
+
+  --ifm-color-primary: var(--color-primary-default);
+  --ifm-color-primary-dark: var(--color-primary-hover);
+  --ifm-color-primary-darker: var(--color-primary-active);
+  --ifm-color-primary-darkest: var(--color-primary-active);
+  --ifm-color-primary-light: var(--color-primary-default);
+  --ifm-color-primary-lighter: var(--color-primary-default);
+  --ifm-color-primary-lightest: var(--color-primary-default);
+
+  // Buttons
+  --ifm-button-border-radius: var(--radius-small);
+}

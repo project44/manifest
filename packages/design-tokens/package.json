@@ -4,6 +4,15 @@
   "main": "./lib/index.js",
   "module": "./esm/index.js",
   "types": "./dts/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dts/index.d.ts",
+      "import": "./esm/index.js",
+      "require": "./lib/index.js"
+    },
+    "./json/*": "./lib/json/*",
+    "./css/*": "./lib/css/*"
+  },
   "files": [
     "dts/**/*.d.ts",
     "esm/**/*.{js,map}",
