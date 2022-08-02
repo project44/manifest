@@ -11,24 +11,20 @@ export default {
   subcomponents: { DropdownMenu, DropdownItem, DropdownSection },
 } as ComponentMeta<typeof Dropdown>;
 
-const Template: ComponentStory<typeof Dropdown> = args => <Dropdown {...args} />;
+const Template: ComponentStory<typeof Dropdown> = args => (
+  <Dropdown {...args}>
+    <IconButton variant="primary">
+      <Icon icon="expand_more" />
+    </IconButton>
+    <DropdownMenu>
+      <DropdownItem key="profile">Profile</DropdownItem>
+      <DropdownItem key="search">Search</DropdownItem>
+      <DropdownItem key="logout">Sign out</DropdownItem>
+    </DropdownMenu>
+  </Dropdown>
+);
 
 export const Default = Template.bind({});
-
-Default.decorators = [
-  () => (
-    <Dropdown>
-      <IconButton variant="primary">
-        <Icon icon="expand_more" />
-      </IconButton>
-      <DropdownMenu>
-        <DropdownItem key="profile">Profile</DropdownItem>
-        <DropdownItem key="search">Search</DropdownItem>
-        <DropdownItem key="logout">Sign out</DropdownItem>
-      </DropdownMenu>
-    </Dropdown>
-  ),
-];
 
 export const Sections = Template.bind({});
 

@@ -10,10 +10,20 @@ export const useStyles = css({
   color: '$text-primary',
   cursor: 'default',
   display: 'flex',
-  minHeight: pxToRem(32),
+  height: pxToRem(32),
   outline: 'none',
   padding: '$x-small $small',
   position: 'relative',
+
+  '&.manifest-dropdown-item--selectable': {
+    paddingRight: '$x-large',
+  },
+
+  '&.manifest-dropdown-item--selected': {
+    '.manifest-dropdown-item__icon--end': {
+      display: 'inline-flex',
+    },
+  },
 
   '.manifest-dropdown-item__icon': {
     alignSelf: 'center',
@@ -22,13 +32,16 @@ export const useStyles = css({
     flexShrink: 0,
 
     '& > .manifest-icon': {
-      fontSize: pxToRem(18),
+      fontSize: pxToRem(16),
     },
   },
 
   '.manifest-dropdown-item__icon--end': {
+    display: 'none',
     color: '$primary-default',
-    marginLeft: '$small',
+    right: pxToRem(8),
+    position: 'absolute',
+    top: pxToRem(8),
   },
 
   '.manifest-dropdown-item__icon--start': {
