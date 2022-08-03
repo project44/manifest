@@ -1,6 +1,7 @@
 export * from './components/Avatar';
 export * from './components/Box';
 export * from './components/Button';
+export * from './components/ButtonGroup';
 export * from './components/Calendar';
 export * from './components/CalendarRange';
 export * from './components/Card';
@@ -17,6 +18,7 @@ export * from './components/DropdownMenu';
 export * from './components/Flex';
 export * from './components/FormControl';
 export * from './components/Icon';
+export * from './components/IconButton';
 export * from './components/Link';
 export * from './components/ListBox';
 export * from './components/Pagination';
