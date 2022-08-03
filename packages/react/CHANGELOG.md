@@ -1,5 +1,11 @@
 # @manifest/react
 
+## 1.1.2
+
+### Patch Changes
+
+- [#36](https://github.com/project44/manifest/pull/36) [`5dd35c5`](https://github.com/project44/manifest/commit/5dd35c514996d623cca3d686a51a3672b8fb776b) Thanks [@bclark-p44](https://github.com/bclark-p44)! - Adding ButtonGroup and IconButton exports
+
 ## 1.1.1
 
 ### Patch Changes
