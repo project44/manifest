@@ -9,9 +9,6 @@
       "path": "packages/react"
     },
     {
-      "path": "packages/storybook"
-    },
-    {
       "path": "packages/system"
     },
     {

@@ -1,13 +1,11 @@
 import * as React from 'react';
-import { Hero } from '../components';
 import Layout from '@theme/Layout';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 function Home() {
-  return (
-    <Layout>
-      <Hero />
-    </Layout>
-  );
+  const { siteConfig } = useDocusaurusContext();
+
+  return <Layout></Layout>;
 }
 
 export default Home;

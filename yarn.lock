@@ -5411,7 +5411,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react@^1.1.0, @project44-manifest/react@workspace:packages/react":
+"@project44-manifest/react@workspace:packages/react":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react@workspace:packages/react"
   dependencies:
@@ -5462,19 +5462,6 @@ __metadata:
   peerDependencies:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  languageName: unknown
-  linkType: soft
-
-"@project44-manifest/storybook@workspace:packages/storybook":
-  version: 0.0.0-use.local
-  resolution: "@project44-manifest/storybook@workspace:packages/storybook"
-  dependencies:
-    "@project44-manifest/react": ^1.1.0
-    "@storybook/addon-a11y": ^6.5.9
-    "@storybook/addon-essentials": ^6.5.9
-    "@storybook/builder-webpack5": ^6.5.9
-    "@storybook/manager-webpack5": ^6.5.9
-    "@storybook/react": ^6.5.9
   languageName: unknown
   linkType: soft
 
@@ -19182,6 +19169,11 @@ __metadata:
     "@changesets/cli": ^2.22.0
     "@commitlint/cli": ^17.0.0
     "@commitlint/config-conventional": ^17.0.0
+    "@storybook/addon-a11y": ^6.5.9
+    "@storybook/addon-essentials": ^6.5.9
+    "@storybook/builder-webpack5": ^6.5.9
+    "@storybook/manager-webpack5": ^6.5.9
+    "@storybook/react": ^6.5.9
     "@swc-node/register": ^1.5.1
     "@testing-library/jest-dom": ^5.16.4
     "@testing-library/react": ^13.2.0

@@ -1,5 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&family=Inter:wght@400;600;700;800;900&display=swap');
 @import '@project44-manifest/design-tokens/css/styles.css';
+
+@import '_typography.scss';
+@import '_buttons.scss';
+
+@font-face {
+  font-family: 'Inter', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+}
 
 :root {
   --ifm-font-color-base: var(--color-text-primary);
@@ -14,6 +21,13 @@
   --ifm-color-primary-lighter: var(--color-primary-default);
   --ifm-color-primary-lightest: var(--color-primary-default);
 
+  --ifm-navbar-height: 64px;
+  --doc-sidebar-width: 300px;
+
   // Buttons
   --ifm-button-border-radius: var(--radius-small);
+}
+
+.navbar__logo {
+  height: 40px;
 }

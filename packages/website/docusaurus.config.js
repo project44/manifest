@@ -15,7 +15,9 @@ const config = {
       '@docusaurus/preset-classic',
       {
         docs: {
+          breadcrumbs: false,
           sidebarPath: require.resolve('./sidebars.js'),
+          sidebarCollapsible: false,
           editUrl: 'https://github.com/project44/manifest/tree/main/packages/website/',
         },
         theme: {

@@ -1,0 +1,12 @@
+.button {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-medium);
+  line-height: var(--line-height-small);
+  padding: var(--space-small) 0.75rem;
+
+  &--primary {
+    background: var(--color-brand-gradient);
+    box-shadow: var(--shadow-small);
+  }
+}
