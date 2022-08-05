@@ -3,7 +3,7 @@ import { CssBaseline } from '../CssBaseline';
 import { OverlayProvider } from '@react-aria/overlays';
 import { SSRProvider } from '@react-aria/ssr';
 
-export interface ProviderProps {
+export interface ProviderProps extends React.HTMLAttributes<HTMLElement> {
   /**
    * Content to be wrapped by the provider.
    */
@@ -17,11 +17,11 @@ export interface ProviderProps {
 }
 
 export function Provider(props: ProviderProps) {
-  const { children, disableCSSBaseline = false } = props;
+  const { children, disableCSSBaseline = false, ...other } = props;
 
   return (
     <SSRProvider>
-      <OverlayProvider>
+      <OverlayProvider {...other}>
         {!disableCSSBaseline && <CssBaseline />}
         {children}
       </OverlayProvider>
