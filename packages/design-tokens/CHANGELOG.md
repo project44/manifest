@@ -1,5 +1,11 @@
 # @manifest/design-tokens
 
+## 1.1.0
+
+### Minor Changes
+
+- [#38](https://github.com/project44/manifest/pull/38) [`b1c0b53`](https://github.com/project44/manifest/commit/b1c0b5308e0a3cf290cc5821573d0e5597cc4174) Thanks [@bclark-p44](https://github.com/bclark-p44)! - Adding z-index token for toasts and passing props to the overlay provider
+
 ## 1.0.3
 
 ### Patch Changes
