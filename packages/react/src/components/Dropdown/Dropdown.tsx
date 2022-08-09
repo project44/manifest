@@ -38,7 +38,7 @@ const Dropdown: React.FC<DropdownProps> = props => {
 
   const menuRef = React.useRef<HTMLUListElement>(null);
   const menuTriggerRef = React.useRef<HTMLButtonElement>(null);
-  const overlayRef = React.useRef<HTMLDivElement>(null);
+  const popoverRef = React.useRef<HTMLDivElement>(null);
 
   const [menuTrigger, menu] = React.Children.toArray(children);
 
@@ -64,9 +64,9 @@ const Dropdown: React.FC<DropdownProps> = props => {
     menuTriggerRef,
   );
 
-  const { overlayProps: positionProps } = useOverlayPosition({
+  const { overlayProps: positionProps, placement } = useOverlayPosition({
     targetRef: menuTriggerRef,
-    overlayRef,
+    overlayRef: popoverRef,
     scrollRef: menuRef,
     offset: 4,
     placement: initialPlacement,
@@ -81,12 +81,19 @@ const Dropdown: React.FC<DropdownProps> = props => {
         closeOnSelect,
         menuProps: mergeProps(menuProps, { autoFocus: state.focusStrategy || true }),
         menuRef,
+        onClose: state.close,
       }}
     >
       <PressResponder {...menuTriggerProps} ref={menuTriggerRef} isPressed={state.isOpen}>
         {menuTrigger}
       </PressResponder>
-      <Popover {...positionProps} isOpen={state.isOpen} onClose={state.close} ref={overlayRef}>
+      <Popover
+        isOpen={state.isOpen}
+        onClose={state.close}
+        placement={placement}
+        ref={popoverRef}
+        style={positionProps.style ?? {}}
+      >
         {menu}
       </Popover>
     </DropdownContext.Provider>

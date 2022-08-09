@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import { CSS } from './styles';
 
 // Many of these interfaces are clones of react-aria types.
@@ -13,4 +14,6 @@ export interface StyleProps {
   className?: string;
   /** Theme aware style object. */
   css?: CSS;
+  /** Pure css styles */
+  style?: CSSProperties;
 }

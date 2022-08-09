@@ -1,11 +1,9 @@
-import { DOMProps, StyleProps } from '../../types';
+import type { DOMProps, StyleProps } from '../../types';
+import type { PlacementAxis } from '@react-types/overlays';
 import * as React from 'react';
-import { DismissButton, OverlayContainer, useModal, useOverlay } from '@react-aria/overlays';
-import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { cx } from '../../styles';
-import { FocusScope } from '@react-aria/focus';
-import { useDialog } from '@react-aria/dialog';
-import { useStyles } from './Popover.styles';
+import { OverlayContainer } from '@react-aria/overlays';
+import { PopoverContext } from './Popover.context';
+import { PopoverContent } from '../internal/PopoverContent';
 
 type PopoverElement = React.ElementRef<'div'>;
 
@@ -35,6 +33,12 @@ interface PopoverProps extends DOMProps, StyleProps {
    */
   isNonModal?: boolean;
   /**
+   * The placement of the element with respect to its anchor element.
+   *
+   * @default 'bottom'
+   */
+  placement?: PlacementAxis;
+  /**
    * Whether the popover should close when focus is lost or moves outside it.
    *
    * @default false
@@ -56,52 +60,38 @@ interface PopoverProps extends DOMProps, StyleProps {
 const Popover = React.forwardRef<PopoverElement, PopoverProps>((props, forwardedRef) => {
   const {
     children,
-    className: classNameProp,
-    css,
     isDismissable = true,
     isKeyboardDismissDisabled = false,
     isNonModal,
     isOpen,
     onClose,
+    placement = 'bottom',
     shouldCloseOnBlur = false,
     shouldCloseOnInteractOutside,
     ...other
   } = props;
 
-  const popoverRef = React.useRef<HTMLDivElement>(null);
-
-  const { dialogProps } = useDialog({ role: 'dialog' }, popoverRef);
-  const { overlayProps } = useOverlay(
-    {
-      isOpen,
-      isDismissable: isDismissable && isOpen,
-      isKeyboardDismissDisabled,
-      onClose,
-      shouldCloseOnBlur,
-      shouldCloseOnInteractOutside,
-    },
-    popoverRef,
-  );
-  const { modalProps } = useModal({ isDisabled: isNonModal });
-
-  const { className } = useStyles({ css });
-
-  if (!isOpen) return null;
+  const context = {
+    isDismissable,
+    isKeyboardDismissDisabled,
+    isNonModal,
+    isOpen,
+    onClose,
+    placement,
+    shouldCloseOnBlur,
+    shouldCloseOnInteractOutside,
+  };
 
   return (
-    <OverlayContainer>
-      <FocusScope restoreFocus>
-        <div
-          {...mergeProps(other, overlayProps, modalProps, dialogProps)}
-          className={cx(className, classNameProp, 'manifest-popover')}
-          ref={mergeRefs(popoverRef, forwardedRef)}
-        >
-          <DismissButton onDismiss={onClose} />
-          {children}
-          <DismissButton onDismiss={onClose} />
-        </div>
-      </FocusScope>
-    </OverlayContainer>
+    <PopoverContext.Provider value={context}>
+      {isOpen && (
+        <OverlayContainer>
+          <PopoverContent {...other} ref={forwardedRef}>
+            {children}
+          </PopoverContent>
+        </OverlayContainer>
+      )}
+    </PopoverContext.Provider>
   );
 });
 
