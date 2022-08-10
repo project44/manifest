@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { CssBaseline } from '../CssBaseline';
-import { OverlayProvider } from '@react-aria/overlays';
-import { SSRProvider } from '@react-aria/ssr';
+import { I18nProvider } from '@react-aria/i18n';
+import { ModalProvider } from '@react-aria/overlays';
+import { ProviderWrapper } from '../ProviderWrapper';
 
 export interface ProviderProps extends React.HTMLAttributes<HTMLElement> {
   /**
@@ -14,14 +14,23 @@ export interface ProviderProps extends React.HTMLAttributes<HTMLElement> {
    * @default false;
    */
   disableCSSBaseline?: boolean;
+  /**
+   * The locale for your application as a [BCP 47](https://www.ietf.org/rfc/bcp/bcp47.txt) language code.
+   * Defaults to the browser/OS language setting.
+   *
+   * @default 'en-US'
+   */
+  locale?: string;
 }
 
 export function Provider(props: ProviderProps) {
-  const { children, disableCSSBaseline = false, ...other } = props;
+  const { locale, ...other } = props;
 
   return (
-    <SSRProvider>
-      <OverlayProvider {...other}>{children}</OverlayProvider>
-    </SSRProvider>
+    <I18nProvider locale={locale}>
+      <ModalProvider>
+        <ProviderWrapper {...other} />
+      </ModalProvider>
+    </I18nProvider>
   );
 }
