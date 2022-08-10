@@ -24,6 +24,8 @@ export * from './components/ListBox';
 export * from './components/Pagination';
 export * from './components/Pill';
 export * from './components/Popover';
+export * from './components/PopoverContent';
+export * from './components/PopoverTrigger';
 export * from './components/Portal';
 export * from './components/Provider';
 export * from './components/Radio';
