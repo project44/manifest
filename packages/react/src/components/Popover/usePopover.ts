@@ -68,7 +68,7 @@ interface UsePopoverOptions {
   /**
    * The ref for the element which the overlay positions itself with respect to.
    */
-  triggerRef: React.RefObject<HTMLButtonElement>;
+  triggerRef?: React.RefObject<HTMLButtonElement>;
   /**
    * Type of popover that is opened by the trigger.
    *
