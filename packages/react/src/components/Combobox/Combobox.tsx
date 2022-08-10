@@ -146,7 +146,7 @@ const Combobox = React.forwardRef<ComboboxElement, ComboboxProps>((props, forwar
           <Icon icon="expand_more" />
         </span>
 
-        <Popover
+        {/* <Popover
           className="manifest-combobox--popover"
           css={{ minWidth: popoverWidth, width: popoverWidth }}
           isOpen={state.isOpen}
@@ -162,7 +162,7 @@ const Combobox = React.forwardRef<ComboboxElement, ComboboxProps>((props, forwar
             ref={listBoxRef}
             state={state}
           />
-        </Popover>
+        </Popover> */}
       </div>
     </FormControl>
   );

@@ -153,7 +153,7 @@ const DateRangePicker = React.forwardRef<DateRangePickerElement, DateRangePicker
             <Icon icon="calendar_month" />
           </span>
 
-          <Popover
+          {/* <Popover
             {...dialogProps}
             className="manifest-datepicker__popover"
             isOpen={state.isOpen}
@@ -162,7 +162,7 @@ const DateRangePicker = React.forwardRef<DateRangePickerElement, DateRangePicker
             triggerRef={triggerRef}
           >
             <CalendarRange className="manifest-datepicker__calendar" {...calendarProps} />
-          </Popover>
+          </Popover> */}
         </div>
       </FormControl>
     );

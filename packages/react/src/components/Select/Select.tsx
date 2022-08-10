@@ -155,7 +155,7 @@ const Select = React.forwardRef<SelectElement, SelectProps>((props, forwardedRef
           <Icon icon="expand_more" />
         </span>
 
-        <Popover
+        {/* <Popover
           className="manifest-select__popover"
           css={{ minWidth: popoverWidth, width: popoverWidth }}
           isOpen={state.isOpen}
@@ -170,7 +170,7 @@ const Select = React.forwardRef<SelectElement, SelectProps>((props, forwardedRef
             ref={listBoxRef}
             state={state}
           />
-        </Popover>
+        </Popover> */}
       </div>
     </FormControl>
   );

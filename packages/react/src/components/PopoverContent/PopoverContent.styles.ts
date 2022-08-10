@@ -5,5 +5,4 @@ export const useStyles = css({
   borderRadius: '$small',
   boxShadow: '$medium',
   outline: 0,
-  zIndex: '$popover',
 });

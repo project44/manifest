@@ -3,7 +3,8 @@ import * as React from 'react';
 import { DropdownContext } from './Dropdown.context';
 import { mergeProps } from '@react-aria/utils';
 import { Popover } from '../Popover';
-import { Slot } from '@radix-ui/react-slot';
+import { PopoverContent } from '../PopoverContent';
+import { PopoverTrigger } from '../PopoverTrigger';
 import { useMenuTrigger } from '@react-aria/menu';
 import { useMenuTriggerState } from '@react-stately/menu';
 
@@ -101,9 +102,6 @@ const Dropdown: React.FC<DropdownProps> = props => {
         onClose: state.close,
       }}
     >
-      <Slot {...menuTriggerProps} ref={menuTriggerRef}>
-        {menuTrigger}
-      </Slot>
       <Popover
         isOpen={state.isOpen}
         onClose={state.close}
@@ -111,7 +109,8 @@ const Dropdown: React.FC<DropdownProps> = props => {
         scrollRef={menuRef}
         triggerRef={menuTriggerRef}
       >
-        {menu}
+        <PopoverTrigger {...menuTriggerProps}>{menuTrigger}</PopoverTrigger>
+        <PopoverContent>{menu}</PopoverContent>
       </Popover>
     </DropdownContext.Provider>
   );
