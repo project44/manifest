@@ -45,4 +45,5 @@ export * from './components/Tooltip';
 export * from './components/Typography';
 export * from './components/VisuallyHidden';
 
+export * from './hooks';
 export * from './styles';

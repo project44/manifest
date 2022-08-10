@@ -7,6 +7,7 @@ import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { cx } from '../../styles';
 import { useButton } from '@react-aria/button';
 import { useButtonGroup } from '../ButtonGroup';
+import { useDOMRef } from '../../hooks';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
 import { useStyles } from './Button.styles';
@@ -66,7 +67,7 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, forwardedRef
     ...other
   } = props;
 
-  const buttonRef = React.useRef<HTMLButtonElement>(null);
+  const buttonRef = useDOMRef(forwardedRef);
 
   const handleClick = React.useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -122,7 +123,7 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, forwardedRef
     <button
       {...mergeProps(buttonProps, focusProps, hoverProps)}
       className={classnames}
-      ref={mergeRefs(buttonRef, forwardedRef)}
+      ref={buttonRef}
     >
       {startIcon && (
         <span className={cx('manifest-button__icon', 'manifest-button__icon--start')}>
