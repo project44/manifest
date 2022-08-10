@@ -29,7 +29,7 @@ export function Provider(props: ProviderProps) {
   return (
     <I18nProvider locale={locale}>
       <ModalProvider>
-        <ProviderWrapper {...other} />
+        <ProviderWrapper {...other} style={{ isolation: 'isolate', ...other.style }} />
       </ModalProvider>
     </I18nProvider>
   );

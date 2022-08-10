@@ -20,6 +20,9 @@ interface ProviderWrapperProps extends React.HTMLAttributes<HTMLElement> {
   disableCSSBaseline?: boolean;
 }
 
+/**
+ * @internal
+ */
 const ProviderWrapper = React.forwardRef(
   (props: ProviderWrapperProps, forwardedRef: DOMRef<HTMLDivElement>) => {
     const {
