@@ -17,7 +17,7 @@ const PopoverTrigger = React.forwardRef<PopoverTriggerElement, PopoverTriggerPro
       <Slot
         {...getTriggerProps(
           mergeProps(other, { onPress: () => state.open() }),
-          forwardedRef as React.RefObject<HTMLButtonElement>,
+          forwardedRef as any,
         )}
       >
         {children}

@@ -139,7 +139,7 @@ function usePopover(options: UsePopoverOptions) {
   }, [onClose]);
 
   const getTriggerProps = React.useCallback(
-    (props = {}, forwardedRef: React.RefObject<HTMLButtonElement>) => {
+    (props = {}, forwardedRef: React.ForwardedRef<HTMLButtonElement>) => {
       const completeProps = triggerRefProp?.current
         ? mergeProps(triggerProps, props)
         : mergeProps(props, triggerProps);

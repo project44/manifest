@@ -13,11 +13,7 @@ const DropdownTrigger = React.forwardRef<DropdownTriggerElement, DropdownTrigger
     const { getMenuTriggerProps } = useDropdownContext() as DropdownContext;
 
     return (
-      <PopoverTrigger
-        {...getMenuTriggerProps(other, forwardedRef as React.RefObject<HTMLButtonElement>)}
-      >
-        {children}
-      </PopoverTrigger>
+      <PopoverTrigger {...getMenuTriggerProps(other, forwardedRef)}>{children}</PopoverTrigger>
     );
   },
 );

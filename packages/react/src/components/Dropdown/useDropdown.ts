@@ -58,7 +58,7 @@ function useDropdown(options: UseDropdownOptions) {
     ...popoverProps
   } = options;
 
-  const _triggerRef = React.useRef<HTMLElement>(null);
+  const _triggerRef = React.useRef<HTMLButtonElement>(null);
   const menuRef = React.useRef<HTMLUListElement>(null);
   const popoverRef = React.useRef<HTMLDivElement>(null);
 
@@ -103,7 +103,7 @@ function useDropdown(options: UseDropdownOptions) {
   }, [alignProp, directionProp, placementProp]);
 
   const getMenuTriggerProps = React.useCallback(
-    (props = {}, forwardedRef: React.RefObject<HTMLButtonElement>) => {
+    (props = {}, forwardedRef: React.ForwardedRef<HTMLButtonElement>) => {
       const completeProps = triggerRefProp?.current
         ? mergeProps(menuTriggerProps, props)
         : mergeProps(props, menuTriggerProps);
