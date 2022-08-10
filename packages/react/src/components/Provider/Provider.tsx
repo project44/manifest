@@ -1,9 +1,10 @@
 import * as React from 'react';
+import { CssBaseline } from '../CssBaseline';
 import { I18nProvider } from '@react-aria/i18n';
-import { ModalProvider } from '@react-aria/overlays';
-import { ProviderWrapper } from '../ProviderWrapper';
+import { OverlayProvider } from '@react-aria/overlays';
+import { SSRProvider } from '@react-aria/ssr';
 
-export interface ProviderProps extends React.HTMLAttributes<HTMLElement> {
+interface ProviderProps extends React.HTMLAttributes<HTMLElement> {
   /**
    * Content to be wrapped by the provider.
    */
@@ -23,14 +24,20 @@ export interface ProviderProps extends React.HTMLAttributes<HTMLElement> {
   locale?: string;
 }
 
-export function Provider(props: ProviderProps) {
-  const { locale, ...other } = props;
+function Provider(props: ProviderProps) {
+  const { children, disableCSSBaseline = false, locale, ...other } = props;
 
   return (
-    <I18nProvider locale={locale}>
-      <ModalProvider>
-        <ProviderWrapper {...other} style={{ isolation: 'isolate', ...other.style }} />
-      </ModalProvider>
-    </I18nProvider>
+    <SSRProvider>
+      <I18nProvider locale={locale}>
+        <OverlayProvider {...other}>
+          {!disableCSSBaseline && <CssBaseline />}
+          {children}
+        </OverlayProvider>
+      </I18nProvider>
+    </SSRProvider>
   );
 }
+
+export type { ProviderProps };
+export { Provider };

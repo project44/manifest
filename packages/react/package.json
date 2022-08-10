@@ -27,7 +27,6 @@
   "dependencies": {
     "@internationalized/date": "^3.0.0",
     "@project44-manifest/design-tokens": "^1.1.0",
-    "@radix-ui/react-slot": "^1.0.0",
     "@react-aria/button": "^3.5.1",
     "@react-aria/calendar": "^3.0.0",
     "@react-aria/checkbox": "^3.4.1",
