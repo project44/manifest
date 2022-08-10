@@ -14,4 +14,3 @@ export { DropdownItemProps, DropdownSectionProps };
 
 export * from './Dropdown';
 export * from './Dropdown.context';
-export * from './useDropdown';
