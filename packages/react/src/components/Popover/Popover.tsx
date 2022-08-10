@@ -1,14 +1,14 @@
 import type { DOMProps, StyleProps } from '../../types';
-import type { DOMRef } from '@react-types/shared';
 import type { Placement } from '@react-types/overlays';
 import * as React from 'react';
 import { DismissButton, OverlayContainer, useModal, useOverlay } from '@react-aria/overlays';
 import { cx } from '../../styles';
 import { FocusScope } from '@react-aria/focus';
-import { mergeProps } from '@react-aria/utils';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useDialog } from '@react-aria/dialog';
-import { useDOMRef } from '@react-spectrum/utils';
 import { useStyles } from './Popover.styles';
+
+type PopoverElement = React.ElementRef<'div'>;
 
 interface PopoverProps extends DOMProps, StyleProps {
   /**
@@ -60,7 +60,7 @@ interface PopoverProps extends DOMProps, StyleProps {
   shouldCloseOnInteractOutside?(element: HTMLElement): boolean;
 }
 
-const Popover = React.forwardRef((props: PopoverProps, forwardedRef: DOMRef<HTMLDivElement>) => {
+const Popover = React.forwardRef<PopoverElement, PopoverProps>((props, forwardedRef) => {
   const {
     children,
     className: classNameProp,
@@ -76,7 +76,7 @@ const Popover = React.forwardRef((props: PopoverProps, forwardedRef: DOMRef<HTML
     ...other
   } = props;
 
-  const overlayRef = useDOMRef(forwardedRef);
+  const overlayRef = React.useRef<HTMLDivElement>(null);
 
   const { dialogProps } = useDialog({ role: 'dialog' }, overlayRef);
   const { overlayProps } = useOverlay(
@@ -108,7 +108,7 @@ const Popover = React.forwardRef((props: PopoverProps, forwardedRef: DOMRef<HTML
         <div
           {...mergeProps(overlayProps, modalProps, dialogProps, other)}
           className={classes}
-          ref={overlayRef}
+          ref={mergeRefs(overlayRef, forwardedRef)}
         >
           <DismissButton onDismiss={onClose} />
           {children}

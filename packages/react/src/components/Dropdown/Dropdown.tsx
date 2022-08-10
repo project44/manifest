@@ -1,15 +1,15 @@
-import type { DOMRef, DOMRefValue } from '@react-types/shared';
 import type { MenuTriggerType } from '@react-types/menu';
 import type { Placement } from '@react-types/overlays';
 import * as React from 'react';
-import { useDOMRef, unwrapDOMRef } from '@react-spectrum/utils';
 import { DropdownContext } from './Dropdown.context';
-import { mergeProps } from '@react-aria/utils';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { Popover } from '../Popover';
 import { PressResponder } from '@react-aria/interactions';
 import { useMenuTrigger } from '@react-aria/menu';
 import { useMenuTriggerState } from '@react-stately/menu';
 import { useOverlayPosition } from '@react-aria/overlays';
+
+type DropdownElement = React.ElementRef<'div'>;
 
 interface DropdownProps {
   /**
@@ -74,7 +74,7 @@ interface DropdownProps {
   type?: 'menu' | 'listbox';
 }
 
-const Dropdown = React.forwardRef((props: DropdownProps, forwardedRef: DOMRef<HTMLElement>) => {
+const Dropdown = React.forwardRef<DropdownElement, DropdownProps>((props, forwardedRef) => {
   const {
     align: alignProp,
     children,
@@ -85,11 +85,9 @@ const Dropdown = React.forwardRef((props: DropdownProps, forwardedRef: DOMRef<HT
     shouldFlip = true,
   } = props;
 
-  const domRef = useDOMRef(forwardedRef);
   const triggerRef = React.useRef<HTMLButtonElement>(null);
   const menuRef = React.useRef<HTMLUListElement>(null);
-  const menuTriggerRef = domRef || triggerRef;
-  const overlayRef = React.useRef<DOMRefValue<HTMLDivElement>>(null);
+  const overlayRef = React.useRef<HTMLDivElement>(null);
 
   const [menuTrigger, menu] = React.Children.toArray(children) as [
     React.ReactElement,
@@ -97,11 +95,7 @@ const Dropdown = React.forwardRef((props: DropdownProps, forwardedRef: DOMRef<HT
   ];
 
   const state = useMenuTriggerState(props);
-  const { menuTriggerProps, menuProps } = useMenuTrigger(
-    { trigger: 'press' },
-    state,
-    menuTriggerRef,
-  );
+  const { menuTriggerProps, menuProps } = useMenuTrigger({ trigger: 'press' }, state, triggerRef);
 
   const placement = React.useMemo(() => {
     if (alignProp || directionProp) {
@@ -137,19 +131,24 @@ const Dropdown = React.forwardRef((props: DropdownProps, forwardedRef: DOMRef<HT
     offset,
     isOpen: state.isOpen,
     onClose: state.close,
-    overlayRef: unwrapDOMRef(overlayRef),
+    overlayRef,
     placement,
     scrollRef: menuRef,
     shouldFlip,
-    targetRef: menuTriggerRef,
+    targetRef: triggerRef,
   });
 
   return (
     <>
-      <PressResponder {...menuTriggerProps} ref={menuTriggerRef} isPressed={state.isOpen}>
+      <PressResponder {...menuTriggerProps} ref={triggerRef} isPressed={state.isOpen}>
         {menuTrigger}
       </PressResponder>
-      <Popover {...positionProps} isOpen={state.isOpen} onClose={state.close} ref={overlayRef}>
+      <Popover
+        {...positionProps}
+        isOpen={state.isOpen}
+        onClose={state.close}
+        ref={mergeRefs(overlayRef, forwardedRef)}
+      >
         <DropdownContext.Provider
           value={{
             closeOnSelect,

@@ -75,6 +75,7 @@ const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((props, 
   const state = useDatePickerState(props);
 
   const triggerRef = React.useRef<HTMLButtonElement>(null);
+  const popoverRef = React.useRef<HTMLDivElement>(null);
 
   const {
     groupProps,
@@ -85,6 +86,15 @@ const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((props, 
     descriptionProps,
     errorMessageProps,
   } = useDatePicker(props, state, triggerRef);
+
+  const { overlayProps: positionProps } = useOverlayPosition({
+    targetRef: triggerRef,
+    offset: 4,
+    overlayRef: popoverRef,
+    placement: 'bottom start',
+    shouldFlip: true,
+    isOpen: state.isOpen,
+  });
 
   const isInvalid = validationState === 'invalid';
 
@@ -146,16 +156,15 @@ const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((props, 
           <Icon icon="calendar_month" />
         </span>
 
-        {/* <Popover
-          {...dialogProps}
+        <Popover
+          {...mergeProps(dialogProps, positionProps)}
           className="manifest-datepicker__popover"
           isOpen={state.isOpen}
           onClose={() => state.setOpen(false)}
-          placement="bottom start"
-          triggerRef={triggerRef}
+          ref={popoverRef}
         >
           <Calendar className="manifest-datepicker__calendar" {...calendarProps} />
-        </Popover> */}
+        </Popover>
       </div>
     </FormControl>
   );
