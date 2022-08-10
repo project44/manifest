@@ -21,10 +21,7 @@ export function Provider(props: ProviderProps) {
 
   return (
     <SSRProvider>
-      <OverlayProvider {...other}>
-        {!disableCSSBaseline && <CssBaseline />}
-        {children}
-      </OverlayProvider>
+      <OverlayProvider {...other}>{children}</OverlayProvider>
     </SSRProvider>
   );
 }
