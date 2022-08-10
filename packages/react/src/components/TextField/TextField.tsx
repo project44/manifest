@@ -43,8 +43,6 @@ const TextField = React.forwardRef<TextFieldElement, TextFieldProps>((props, for
     ...other
   } = props;
 
-  console.log(props);
-
   const fieldRef = React.useRef<HTMLInputElement>(null);
 
   const { inputProps, descriptionProps, errorMessageProps, labelProps } = useTextField(

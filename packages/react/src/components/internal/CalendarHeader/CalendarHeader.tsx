@@ -40,8 +40,6 @@ function CalendarHeader(props: CalendarHeaderProps) {
 
   const { className } = useStyles();
 
-  console.log(prevButtonProps);
-
   return (
     <div className={cx(className, 'manifest-calendar-header')}>
       <IconButton
