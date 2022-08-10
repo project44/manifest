@@ -14,12 +14,7 @@ const PopoverTrigger = React.forwardRef<PopoverTriggerElement, PopoverTriggerPro
     const { getTriggerProps, state } = usePopoverContext() as PopoverContext;
 
     return (
-      <Slot
-        {...getTriggerProps(
-          mergeProps(other, { onPress: () => state.open() }),
-          forwardedRef as any,
-        )}
-      >
+      <Slot {...getTriggerProps(mergeProps(other, { onPress: () => state.open() }), forwardedRef)}>
         {children}
       </Slot>
     );
