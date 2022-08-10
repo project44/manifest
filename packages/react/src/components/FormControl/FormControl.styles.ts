@@ -6,9 +6,10 @@ export const useStyles = css({
   border: 0,
   display: 'inline-flex',
   margin: 0,
+  minWidth: 0,
   padding: 0,
   position: 'relative',
-  width: '100%',
+  verticalAlign: 'top',
 
   '.manifest-form-control__helper-text': {
     color: '$$helperTextColor',

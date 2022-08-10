@@ -7,9 +7,10 @@ export const useStyles = css({
   $$textColor: '$colors$text-tertiary',
 
   display: 'flex',
-  minWidth: pxToRem(48),
+  maxWidth: '100%',
+  minWidth: pxToRem(200),
   position: 'relative',
-  width: '100%',
+  width: 'auto',
 
   '.manifest-datepicker__icon': {
     alignItems: 'center',

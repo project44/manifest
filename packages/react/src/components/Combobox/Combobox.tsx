@@ -12,7 +12,6 @@ import { useComboBoxState } from '@react-stately/combobox';
 import { useFilter } from '@react-aria/i18n';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
-import { useOverlayPosition } from '@react-aria/overlays';
 import { useStyles } from './Combobox.styles';
 
 type ComboboxElement = React.ElementRef<'div'>;
@@ -94,16 +93,6 @@ const Combobox = React.forwardRef<ComboboxElement, ComboboxProps>((props, forwar
     within: true,
   });
 
-  const { overlayProps: positionProps } = useOverlayPosition({
-    targetRef: inputRef,
-    overlayRef: popoverRef,
-    scrollRef: listBoxRef,
-    placement: 'bottom',
-    shouldFlip: true,
-    isOpen: state.isOpen,
-    onClose: state.close,
-  });
-
   const { className } = useStyles({
     hasStartIcon: !!startIcon,
     isDisabled,
@@ -158,12 +147,13 @@ const Combobox = React.forwardRef<ComboboxElement, ComboboxProps>((props, forwar
         </span>
 
         <Popover
-          {...positionProps}
           className="manifest-combobox--popover"
           css={{ minWidth: popoverWidth, width: popoverWidth }}
           isOpen={state.isOpen}
           onClose={state.close}
           ref={popoverRef}
+          scrollRef={listBoxRef}
+          triggerRef={inputRef}
         >
           <ListBoxBase
             {...(listBoxProps as ListBoxBaseProps)}

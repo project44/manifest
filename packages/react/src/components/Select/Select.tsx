@@ -12,7 +12,6 @@ import { Typography } from '../Typography';
 import { useButton } from '@react-aria/button';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
-import { useOverlayPosition } from '@react-aria/overlays';
 import { useSelectState } from '@react-stately/select';
 import { useStyles } from './Select.styles';
 
@@ -71,23 +70,12 @@ const Select = React.forwardRef<SelectElement, SelectProps>((props, forwardedRef
 
   const triggerRef = React.useRef<HTMLButtonElement>(null);
   const listBoxRef = React.useRef<HTMLDivElement>(null);
-  const popoverRef = React.useRef<HTMLDivElement>(null);
 
   const [popoverWidth, setPopoverWidth] = React.useState<number>(0);
 
   const state = useSelectState(props);
   const { labelProps, triggerProps, valueProps, menuProps, descriptionProps, errorMessageProps } =
     useSelect(props, state, triggerRef);
-
-  const { overlayProps: positionProps } = useOverlayPosition({
-    targetRef: triggerRef,
-    overlayRef: popoverRef,
-    scrollRef: listBoxRef,
-    placement: 'bottom',
-    shouldFlip: true,
-    isOpen: state.isOpen,
-    onClose: state.close,
-  });
 
   const isInvalid = validationState === 'invalid';
   const { buttonProps, isPressed } = useButton(triggerProps, triggerRef);
@@ -139,7 +127,7 @@ const Select = React.forwardRef<SelectElement, SelectProps>((props, forwardedRef
     >
       <div className={classes} ref={forwardedRef}>
         {startIcon && (
-          <span className={cx('manifest-select--icon', 'manifest-select--icon--start')}>
+          <span className={cx('manifest-select__icon', 'manifest-select__icon--start')}>
             {startIcon}
           </span>
         )}
@@ -168,12 +156,12 @@ const Select = React.forwardRef<SelectElement, SelectProps>((props, forwardedRef
         </span>
 
         <Popover
-          {...positionProps}
           className="manifest-select__popover"
           css={{ minWidth: popoverWidth, width: popoverWidth }}
           isOpen={state.isOpen}
           onClose={state.close}
-          ref={popoverRef}
+          scrollRef={listBoxRef}
+          triggerRef={triggerRef}
         >
           <ListBoxBase
             {...(menuProps as ListBoxBaseProps)}

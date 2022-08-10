@@ -8,10 +8,9 @@ export const useStyles = css({
 
   alignItems: 'center',
   boxSizing: 'border-box',
+  cursor: 'text',
   display: 'inline-flex',
-  justifyContent: 'flex-start',
   position: 'relative',
-  width: 'auto',
 
   '.manifest-textfield-base__icon': {
     alignItems: 'center',
@@ -43,10 +42,11 @@ export const useStyles = css({
     backgroundColor: '$$backgroundColor',
     border: '1px solid $$borderColor',
     borderRadius: '$small',
-    boxSizing: 'border-box',
+    boxSizing: 'content-box',
     color: '$$textColor',
-    cursor: 'text',
+    display: 'block',
     margin: 0,
+    minWidth: 0,
     outline: 0,
     padding: '$small',
     resize: 'none',
@@ -79,7 +79,9 @@ export const useStyles = css({
         $$backgroundColor: '$colors$palette-grey-50',
         $$textColor: '$colors$text-disabled',
 
-        cursor: 'not-allowed',
+        '.manifest-textfield-base__input': {
+          cursor: 'default',
+        },
       },
     },
     isFocused: {

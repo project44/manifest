@@ -1,9 +1,12 @@
 import type { DOMProps, StyleProps } from '../../types';
-import type { PlacementAxis } from '@react-types/overlays';
+import type { Placement } from '@react-types/overlays';
 import * as React from 'react';
-import { OverlayContainer } from '@react-aria/overlays';
-import { PopoverContext } from './Popover.context';
-import { PopoverContent } from '../internal/PopoverContent';
+import { OverlayContainer, useModal, useOverlay, useOverlayPosition } from '@react-aria/overlays';
+import { cx } from '../../styles';
+import { FocusScope } from '@react-aria/focus';
+import { useDialog } from '@react-aria/dialog';
+import { useStyles } from './Popover.styles';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
 
 type PopoverElement = React.ElementRef<'div'>;
 
@@ -33,17 +36,41 @@ interface PopoverProps extends DOMProps, StyleProps {
    */
   isNonModal?: boolean;
   /**
+   * The additional offset applied along the main axis between the element and its
+   * anchor element.
+   *
+   * @default 4
+   */
+  offset?: number;
+  /**
    * The placement of the element with respect to its anchor element.
    *
    * @default 'bottom'
    */
-  placement?: PlacementAxis;
+  placement?: Placement;
+  /**
+   * A ref for the scrollable region within the overlay.
+   *
+   * @default overlayRef
+   */
+  scrollRef?: React.RefObject<HTMLElement>;
   /**
    * Whether the popover should close when focus is lost or moves outside it.
    *
    * @default false
    */
   shouldCloseOnBlur?: boolean;
+  /**
+   * Whether the element should flip its orientation (e.g. top to bottom or left to right) when
+   * there is insufficient room for it to render completely.
+   *
+   * @default true
+   */
+  shouldFlip?: boolean;
+  /**
+   * The ref for the element which the overlay positions itself with respect to.
+   */
+  triggerRef: React.RefObject<HTMLElement>;
   /**
    * Handler that is called when the popover should close.
    */
@@ -60,38 +87,71 @@ interface PopoverProps extends DOMProps, StyleProps {
 const Popover = React.forwardRef<PopoverElement, PopoverProps>((props, forwardedRef) => {
   const {
     children,
+    className: classNameProp,
+    css,
     isDismissable = true,
     isKeyboardDismissDisabled = false,
     isNonModal,
     isOpen,
+    offset = 4,
     onClose,
     placement = 'bottom',
+    scrollRef,
     shouldCloseOnBlur = false,
     shouldCloseOnInteractOutside,
+    shouldFlip = true,
+    triggerRef,
     ...other
   } = props;
 
-  const context = {
-    isDismissable,
-    isKeyboardDismissDisabled,
-    isNonModal,
+  const overlayRef = React.useRef<HTMLDivElement>(null);
+
+  const { overlayProps } = useOverlay(
+    {
+      isOpen,
+      isDismissable: isDismissable && isOpen,
+      isKeyboardDismissDisabled,
+      onClose,
+      shouldCloseOnBlur,
+      shouldCloseOnInteractOutside,
+    },
+    overlayRef,
+  );
+  const { dialogProps } = useDialog({ role: 'dialog' }, overlayRef);
+  const { modalProps } = useModal({ isDisabled: isNonModal });
+  const { overlayProps: positionProps } = useOverlayPosition({
+    targetRef: triggerRef,
+    overlayRef,
+    scrollRef,
+    placement,
+    shouldFlip,
     isOpen,
     onClose,
-    placement,
-    shouldCloseOnBlur,
-    shouldCloseOnInteractOutside,
-  };
+  });
+
+  const { className } = useStyles({ css });
+
+  const classes = cx(className, classNameProp, {
+    'manifest-popover': true,
+    'manifest-popover--open': isOpen,
+    [`manifest-popover--${placement}`]: placement,
+  });
+
+  if (!isOpen) return null;
 
   return (
-    <PopoverContext.Provider value={context}>
-      {isOpen && (
-        <OverlayContainer>
-          <PopoverContent {...other} ref={forwardedRef}>
-            {children}
-          </PopoverContent>
-        </OverlayContainer>
-      )}
-    </PopoverContext.Provider>
+    <OverlayContainer>
+      <FocusScope restoreFocus>
+        <div
+          {...mergeProps(overlayProps, dialogProps, modalProps, positionProps, other)}
+          className={classes}
+          ref={mergeRefs(overlayRef, forwardedRef)}
+          role="presentation"
+        >
+          {children}
+        </div>
+      </FocusScope>
+    </OverlayContainer>
   );
 });
 

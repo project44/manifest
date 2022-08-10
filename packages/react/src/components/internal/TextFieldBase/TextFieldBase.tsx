@@ -87,6 +87,8 @@ const TextFieldBase = React.forwardRef<TextFieldBaseElement, TextFieldBaseProps>
       validationState,
     } = props;
 
+    console.log(isDisabled);
+
     const Comp = multiline ? 'textarea' : 'input';
     const isInvalid = validationState === 'invalid';
 

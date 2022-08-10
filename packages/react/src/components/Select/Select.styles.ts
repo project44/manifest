@@ -6,10 +6,10 @@ export const useStyles = css({
   $$iconColor: '$colors$text-tertiary',
   $$textColor: '$colors$text-primary',
 
-  display: 'flex',
-  minWidth: pxToRem(48),
+  alignItems: 'center',
+  boxSizing: 'border-box',
+  display: 'inline-flex',
   position: 'relative',
-  width: '100%',
 
   '.manifest-select__icon': {
     alignItems: 'center',
@@ -36,19 +36,16 @@ export const useStyles = css({
     backgroundColor: '$$backgroundColor',
     border: '1px solid $$borderColor',
     borderRadius: '$small',
-    boxSizing: 'border-box',
+    boxSizing: 'content-box',
+    display: 'block',
     color: '$$textColor',
-    cursor: 'default',
     margin: 0,
+    minWidth: 0,
     outline: 0,
     padding: '0 $small',
     paddingRight: pxToRem(40),
     textAlign: 'start',
     width: '100%',
-  },
-
-  '.manifest-select__text': {
-    color: '$text-tertiary',
   },
 
   variants: {
@@ -72,7 +69,8 @@ export const useStyles = css({
         $$textColor: '$colors$text-disabled',
 
         '.manifest-select__input': {
-          cursor: 'not-allowed',
+          cursor: 'default',
+          pointerEvents: 'none',
         },
       },
     },
