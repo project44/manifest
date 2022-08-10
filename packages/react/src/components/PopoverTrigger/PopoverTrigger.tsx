@@ -5,9 +5,7 @@ import { Slot } from '@radix-ui/react-slot';
 
 type PopoverTriggerElement = React.ElementRef<'button'>;
 
-interface PopoverTriggerProps {
-  children: React.ReactElement;
-}
+type PopoverTriggerProps = React.PropsWithChildren<unknown>;
 
 const PopoverTrigger = React.forwardRef<PopoverTriggerElement, PopoverTriggerProps>(
   (props, forwardedRef) => {

@@ -1,11 +1,7 @@
 import * as React from 'react';
+import { useDropdown } from './useDropdown';
 
-export interface DropdownContext {
-  closeOnSelect?: boolean;
-  menuProps: React.HTMLAttributes<HTMLUListElement>;
-  menuRef: React.RefObject<HTMLUListElement>;
-  onClose?(): void;
-}
+export type DropdownContext = ReturnType<typeof useDropdown>;
 
 export const DropdownContext = React.createContext<DropdownContext | null>(null);
 
