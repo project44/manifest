@@ -1,9 +1,9 @@
 import type { DOMProps, StyleProps } from '../../types';
 import type { Placement } from '@react-types/overlays';
 import * as React from 'react';
-import { OverlayContainer, useOverlayPosition, useOverlayTrigger } from '@react-aria/overlays';
+import { OverlayContainer, useOverlayPosition } from '@react-aria/overlays';
 import { PopoverContext } from './Popover.context';
-import { PopoverContent } from '../PopoverContent';
+import { PopoverContent } from '../internal/PopoverContent';
 
 interface PopoverProps extends DOMProps, StyleProps {
   /**

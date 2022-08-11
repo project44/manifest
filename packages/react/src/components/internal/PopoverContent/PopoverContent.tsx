@@ -1,9 +1,9 @@
-import type { DOMProps, StyleProps } from '../../types';
+import type { DOMProps, StyleProps } from '../../../types';
 import * as React from 'react';
 import { DismissButton, useModal, useOverlay } from '@react-aria/overlays';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { PopoverContext, usePopoverContext } from '../Popover';
-import { cx } from '../../styles';
+import { PopoverContext, usePopoverContext } from '../../Popover';
+import { cx } from '../../../styles';
 import { FocusScope } from '@react-aria/focus';
 import { Transition, TransitionStatus } from 'react-transition-group';
 import { useDialog } from '@react-aria/dialog';
