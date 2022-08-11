@@ -2,7 +2,6 @@ import { focus, css, pxToRem } from '../../styles';
 
 export const useStyles = css(
   {
-    all: 'unset',
     alignItems: 'center',
     appearance: 'none',
     backgroundColor: 'transparent',

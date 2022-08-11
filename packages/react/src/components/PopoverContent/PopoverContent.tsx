@@ -42,7 +42,6 @@ const PopoverContent = React.forwardRef<PopoverContentElement, PopoverContentPro
       onExited,
       overlayRef,
       overlayProps: contextProps,
-      placement,
       positionProps,
       shouldCloseOnBlur,
       shouldCloseOnInteractOutside,
