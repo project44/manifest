@@ -12,7 +12,6 @@ import { Typography } from '../Typography';
 import { useButton } from '@react-aria/button';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
-import { useOverlayPosition } from '@react-aria/overlays';
 import { useSelectState } from '@react-stately/select';
 import { useStyles } from './Select.styles';
 
@@ -76,20 +75,12 @@ const Select = React.forwardRef<SelectElement, SelectProps>((props, forwardedRef
   const [popoverWidth, setPopoverWidth] = React.useState<number>(0);
 
   const state = useSelectState(props);
+
   const { labelProps, triggerProps, valueProps, menuProps, descriptionProps, errorMessageProps } =
     useSelect(props, state, triggerRef);
 
-  const { overlayProps: positionProps } = useOverlayPosition({
-    targetRef: triggerRef,
-    overlayRef: popoverRef,
-    scrollRef: listBoxRef,
-    placement: 'bottom',
-    shouldFlip: true,
-    isOpen: state.isOpen,
-    onClose: state.close,
-  });
-
   const isInvalid = validationState === 'invalid';
+
   const { buttonProps, isPressed } = useButton(triggerProps, triggerRef);
   const { isFocusVisible, isFocused, focusProps } = useFocusRing({ autoFocus });
   const { hoverProps, isHovered } = useHover({ isDisabled });
@@ -167,13 +158,14 @@ const Select = React.forwardRef<SelectElement, SelectProps>((props, forwardedRef
           <Icon icon="expand_more" />
         </span>
 
-        {/* <Popover
-          {...positionProps}
+        <Popover
           className="manifest-select__popover"
           css={{ minWidth: popoverWidth, width: popoverWidth }}
           isOpen={state.isOpen}
           onClose={state.close}
-          ref={popoverRef}
+          overlayRef={popoverRef}
+          scrollRef={listBoxRef}
+          triggerRef={triggerRef}
         >
           <ListBoxBase
             {...(menuProps as ListBoxBaseProps)}
@@ -182,7 +174,7 @@ const Select = React.forwardRef<SelectElement, SelectProps>((props, forwardedRef
             ref={listBoxRef}
             state={state}
           />
-        </Popover> */}
+        </Popover>
       </div>
     </FormControl>
   );

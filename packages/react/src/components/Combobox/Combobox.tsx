@@ -12,7 +12,6 @@ import { useComboBoxState } from '@react-stately/combobox';
 import { useFilter } from '@react-aria/i18n';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
-import { useOverlayPosition } from '@react-aria/overlays';
 import { useStyles } from './Combobox.styles';
 
 type ComboboxElement = React.ElementRef<'div'>;
@@ -70,12 +69,14 @@ const Combobox = React.forwardRef<ComboboxElement, ComboboxProps>((props, forwar
   const popoverRef = React.useRef<HTMLDivElement>(null);
 
   const { contains } = useFilter({ sensitivity: 'base' });
+
   const state = useComboBoxState({
     ...props,
     defaultFilter: contains,
     allowsEmptyCollection: true,
     menuTrigger: 'focus',
   });
+
   const { inputProps, listBoxProps, labelProps, descriptionProps, errorMessageProps } = useComboBox(
     {
       ...props,
@@ -92,16 +93,6 @@ const Combobox = React.forwardRef<ComboboxElement, ComboboxProps>((props, forwar
     autoFocus,
     isTextInput: true,
     within: true,
-  });
-
-  const { overlayProps: positionProps } = useOverlayPosition({
-    targetRef: inputRef,
-    overlayRef: popoverRef,
-    scrollRef: listBoxRef,
-    placement: 'bottom',
-    shouldFlip: true,
-    isOpen: state.isOpen,
-    onClose: state.close,
   });
 
   const { className } = useStyles({
@@ -157,13 +148,15 @@ const Combobox = React.forwardRef<ComboboxElement, ComboboxProps>((props, forwar
           <Icon icon="expand_more" />
         </span>
 
-        {/* <Popover
-          {...positionProps}
+        <Popover
           className="manifest-combobox--popover"
           css={{ minWidth: popoverWidth, width: popoverWidth }}
           isOpen={state.isOpen}
           onClose={state.close}
-          ref={popoverRef}
+          overlayRef={popoverRef}
+          placement="bottom"
+          scrollRef={listBoxRef}
+          triggerRef={inputRef}
         >
           <ListBoxBase
             {...(listBoxProps as ListBoxBaseProps)}
@@ -172,7 +165,7 @@ const Combobox = React.forwardRef<ComboboxElement, ComboboxProps>((props, forwar
             ref={listBoxRef}
             state={state}
           />
-        </Popover> */}
+        </Popover>
       </div>
     </FormControl>
   );

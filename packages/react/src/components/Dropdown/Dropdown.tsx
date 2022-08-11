@@ -1,15 +1,12 @@
 import type { MenuTriggerType } from '@react-types/menu';
 import type { Placement } from '@react-types/overlays';
 import * as React from 'react';
-import { DropdownContext } from './Dropdown.context';
-import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { Popover, PopoverProps } from '../Popover';
-import { PopoverContent } from '../PopoverContent';
-import { PopoverTrigger } from '../PopoverTrigger';
+import { DropdownContext } from './Dropdown.context';
+import { mergeProps } from '@react-aria/utils';
+import { Slot } from '@radix-ui/react-slot';
 import { useMenuTrigger } from '@react-aria/menu';
 import { useMenuTriggerState } from '@react-stately/menu';
-
-type DropdownElement = React.ElementRef<'div'>;
 
 interface DropdownProps extends Omit<PopoverProps, 'overlayRef' | 'scrollRef' | 'triggerRef'> {
   /**
@@ -54,7 +51,7 @@ interface DropdownProps extends Omit<PopoverProps, 'overlayRef' | 'scrollRef' | 
   type?: 'menu' | 'listbox';
 }
 
-const Dropdown = React.forwardRef<DropdownElement, DropdownProps>((props, forwardedRef) => {
+const Dropdown: React.FC<DropdownProps> = props => {
   const {
     align: alignProp,
     children,
@@ -117,21 +114,23 @@ const Dropdown = React.forwardRef<DropdownElement, DropdownProps>((props, forwar
         onClose: state.close,
       }}
     >
+      <Slot {...menuTriggerProps} ref={triggerRef}>
+        {menuTrigger}
+      </Slot>
       <Popover
         {...other}
         isOpen={state.isOpen}
         onClose={state.close}
         placement={placement}
-        ref={mergeRefs(overlayRef, forwardedRef)}
+        overlayRef={overlayRef}
         triggerRef={triggerRef}
         type={type}
       >
-        <PopoverTrigger {...menuTriggerProps}>{menuTrigger}</PopoverTrigger>
-        <PopoverContent>{menu}</PopoverContent>
+        {menu}
       </Popover>
     </DropdownContext.Provider>
   );
-});
+};
 
 if (__DEV__) {
   Dropdown.displayName = 'ManifestDropdown';

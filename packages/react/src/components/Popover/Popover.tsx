@@ -3,19 +3,13 @@ import type { Placement } from '@react-types/overlays';
 import * as React from 'react';
 import { OverlayContainer, useOverlayPosition, useOverlayTrigger } from '@react-aria/overlays';
 import { PopoverContext } from './Popover.context';
-import { useOverlayTriggerState } from '@react-stately/overlays';
-
-type PopoverElement = React.ElementRef<'div'>;
+import { PopoverContent } from '../PopoverContent';
 
 interface PopoverProps extends DOMProps, StyleProps {
   /**
-   * Whether the overlay is open by default (uncontrolled).
-   */
-  defaultOpen?: boolean;
-  /**
    * The content of the popover.
    */
-  children?: React.ReactNode[];
+  children?: React.ReactNode;
   /**
    * Whether to close the popover when the user interacts outside it.
    *
@@ -44,9 +38,13 @@ interface PopoverProps extends DOMProps, StyleProps {
    */
   offset?: number;
   /**
+   * Props pass to the overlay element.
+   */
+  overlayProps?: React.HTMLAttributes<HTMLDivElement>;
+  /**
    * A ref for the overlay.
    */
-  overlayRef?: React.RefObject<HTMLDivElement>;
+  overlayRef: React.RefObject<HTMLDivElement>;
   /**
    * The placement of the element with respect to its anchor element.
    *
@@ -75,7 +73,7 @@ interface PopoverProps extends DOMProps, StyleProps {
   /**
    * A ref for the trigger element.
    */
-  triggerRef?: React.RefObject<HTMLButtonElement>;
+  triggerRef: React.RefObject<HTMLElement>;
   /**
    * Type of overlay that is opened by the trigger.
    *
@@ -95,10 +93,6 @@ interface PopoverProps extends DOMProps, StyleProps {
    */
   onExited?(): void;
   /**
-   * Handler that is called when the overlay's open state changes.
-   */
-  onOpenChange?: (isOpen: boolean) => void;
-  /**
    * When user interacts with the argument element outside of the overlay ref,
    * return true if onClose should be called.  This gives you a chance to filter
    * out interaction with elements that should not dismiss the overlay.
@@ -107,10 +101,11 @@ interface PopoverProps extends DOMProps, StyleProps {
   shouldCloseOnInteractOutside?(element: HTMLElement): boolean;
 }
 
-const Popover = React.forwardRef<PopoverElement, PopoverProps>((props, forwardedRef) => {
+const Popover: React.FC<PopoverProps> = props => {
   const {
     children,
-    defaultOpen,
+    className,
+    css,
     isDismissable = true,
     isKeyboardDismissDisabled = false,
     isNonModal,
@@ -119,34 +114,21 @@ const Popover = React.forwardRef<PopoverElement, PopoverProps>((props, forwarded
     onClose,
     onEntered,
     onExited,
-    onOpenChange,
-    overlayRef: overlayRefProp,
+    overlayProps,
+    overlayRef,
     placement = 'bottom',
     scrollRef,
     shouldFlip = true,
     shouldCloseOnBlur = false,
     shouldCloseOnInteractOutside,
-    triggerRef: triggerRefProp,
-    type = 'dialog',
+    triggerRef,
   } = props;
 
-  const [trigger, content] = React.Children.toArray(children);
-
-  const _overlayRef = React.useRef<HTMLDivElement>(null);
-  const _triggerRef = React.useRef<HTMLButtonElement>(null);
-
-  const overlayRef = overlayRefProp ?? _overlayRef;
-  const triggerRef = triggerRefProp ?? _triggerRef;
-
-  const state = useOverlayTriggerState({ isOpen, defaultOpen, onOpenChange });
-
-  const [exited, setExited] = React.useState(!state.isOpen);
-
-  const { triggerProps, overlayProps } = useOverlayTrigger({ type }, state, triggerRef);
+  const [exited, setExited] = React.useState(isOpen);
 
   const { overlayProps: positionProps } = useOverlayPosition({
     offset,
-    isOpen: state.isOpen,
+    isOpen,
     overlayRef,
     placement,
     scrollRef,
@@ -155,29 +137,22 @@ const Popover = React.forwardRef<PopoverElement, PopoverProps>((props, forwarded
   });
 
   const handleClose = React.useCallback(() => {
-    state.close();
-
     onClose?.();
-  }, [onClose, state]);
+  }, [onClose]);
 
   const handleEntered = React.useCallback(() => {
     setExited(false);
 
-    if (onEntered) {
-      onEntered();
-    }
+    onEntered?.();
   }, [onEntered]);
 
   const handleExited = React.useCallback(() => {
-    console.log('here');
     setExited(true);
 
-    if (onExited) {
-      onExited();
-    }
+    onExited?.();
   }, [onExited]);
 
-  const mounted = state.isOpen || !exited;
+  const mounted = !!isOpen || !exited;
 
   return (
     <PopoverContext.Provider
@@ -185,7 +160,7 @@ const Popover = React.forwardRef<PopoverElement, PopoverProps>((props, forwarded
         isDismissable,
         isKeyboardDismissDisabled,
         isNonModal,
-        isOpen: state.isOpen,
+        isOpen,
         onClose: handleClose,
         onEntered: handleEntered,
         onExited: handleExited,
@@ -195,16 +170,18 @@ const Popover = React.forwardRef<PopoverElement, PopoverProps>((props, forwarded
         positionProps,
         shouldCloseOnBlur,
         shouldCloseOnInteractOutside,
-        state,
-        triggerProps,
-        triggerRef,
       }}
     >
-      {trigger}
-      {mounted && <OverlayContainer>{content}</OverlayContainer>}
+      {mounted && (
+        <OverlayContainer>
+          <PopoverContent className={className} css={css}>
+            {children}
+          </PopoverContent>
+        </OverlayContainer>
+      )}
     </PopoverContext.Provider>
   );
-});
+};
 
 if (__DEV__) {
   Popover.displayName = 'ManifestPopover';
