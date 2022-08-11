@@ -11,8 +11,7 @@ const PopoverTrigger = React.forwardRef<PopoverTriggerElement, PopoverTriggerPro
   (props, forwardedRef) => {
     const { children, ...other } = props;
 
-    const { hasTriggerRefProp, state, triggerRef, triggerProps } =
-      usePopoverContext() as PopoverContext;
+    const { state, triggerRef, triggerProps } = usePopoverContext() as PopoverContext;
 
     return (
       <Slot

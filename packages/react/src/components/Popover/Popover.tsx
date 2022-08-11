@@ -181,7 +181,6 @@ const Popover = React.forwardRef<PopoverElement, PopoverProps>((props, forwarded
   return (
     <PopoverContext.Provider
       value={{
-        hasTriggerRefProp: !!triggerRefProp?.current,
         isDismissable,
         isKeyboardDismissDisabled,
         isNonModal,

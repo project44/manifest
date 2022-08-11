@@ -64,6 +64,8 @@ const PopoverContent = React.forwardRef<PopoverContentElement, PopoverContentPro
       [`manifest-popover--${placement}`]: placement,
     });
 
+    console.log(positionProps);
+
     return (
       <Transition
         in={isOpen}

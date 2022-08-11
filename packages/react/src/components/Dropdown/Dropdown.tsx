@@ -11,7 +11,7 @@ import { useMenuTriggerState } from '@react-stately/menu';
 
 type DropdownElement = React.ElementRef<'div'>;
 
-interface DropdownProps extends Omit<PopoverProps, 'scrollRef' | 'triggerRef'> {
+interface DropdownProps extends Omit<PopoverProps, 'overlayRef' | 'scrollRef' | 'triggerRef'> {
   /**
    * The contents of the MenuTrigger - a trigger and a Menu.
    */
