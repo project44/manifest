@@ -9,23 +9,17 @@ export default {
   component: TextField,
 } as ComponentMeta<typeof TextField>;
 
-const Template: ComponentStory<typeof TextField> = args => (
-  <Flex css={{ gap: '$small', width: '25ch' }} orientation="vertical">
-    <TextField {...args} />
-  </Flex>
-);
+const Template: ComponentStory<typeof TextField> = args => <TextField {...args} />;
 
 export const Default = Template.bind({});
 
-Default.args = {
-  placeholder: 'Enter name...',
-};
+Default.decorators = [() => <TextField placeholder="Enter name..." />];
 
 export const Sizes = Template.bind({});
 
 Sizes.decorators = [
   () => (
-    <Flex css={{ gap: '$small', width: '25ch' }} orientation="vertical">
+    <Flex css={{ gap: '$small' }} orientation="vertical">
       <TextField placeholder="Enter name..." size="medium" />
       <TextField placeholder="Enter name..." size="small" />
     </Flex>
@@ -36,7 +30,7 @@ export const Icons = Template.bind({});
 
 Icons.decorators = [
   () => (
-    <Flex css={{ gap: '$small', width: '25ch' }} orientation="vertical">
+    <Flex css={{ gap: '$small' }} orientation="vertical">
       <TextField placeholder="Search..." endIcon={<Icon icon="search" />} />
       <TextField placeholder="Search..." startIcon={<Icon icon="search" />} />
     </Flex>
@@ -45,24 +39,17 @@ Icons.decorators = [
 
 export const Label = Template.bind({});
 
-Label.args = {
-  label: 'Search',
-  placeholder: 'Search...',
-};
+Label.decorators = [() => <TextField label="Search" placeholder="Search..." />];
 
 export const HelperText = Template.bind({});
 
-HelperText.args = {
-  helperText: 'Please input a search term.',
-  placeholder: 'Search...',
-};
+HelperText.decorators = [
+  () => <TextField helperText="Please input a search term." placeholder="Search..." />,
+];
 
 export const Invalid = Template.bind({});
 
-Invalid.args = {
-  placeholder: 'Enter name...',
-  validationState: 'invalid',
-};
+Invalid.decorators = [() => <TextField placeholder="Enter name..." validationState="invalid" />];
 
 export const Controlled = Template.bind({});
 
@@ -70,10 +57,6 @@ Controlled.decorators = [
   () => {
     const [value, setValue] = React.useState('Kangaroo');
 
-    return (
-      <Flex css={{ gap: '$small', width: '25ch' }} orientation="vertical">
-        <TextField onChange={setValue} value={value} />
-      </Flex>
-    );
+    return <TextField onChange={setValue} value={value} />;
   },
 ];
