@@ -5,9 +5,19 @@ import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { PopoverContext, usePopoverContext } from '../Popover';
 import { cx } from '../../styles';
 import { FocusScope } from '@react-aria/focus';
-import { Transition } from 'react-transition-group';
+import { Transition, TransitionStatus } from 'react-transition-group';
 import { useDialog } from '@react-aria/dialog';
 import { useStyles } from './PopoverContent.styles';
+
+// TODO: create transition utlites.
+const styles: Partial<Record<TransitionStatus, React.CSSProperties>> = {
+  entering: {
+    opacity: 1,
+  },
+  entered: {
+    opacity: 1,
+  },
+};
 
 type PopoverContentElement = React.ElementRef<'div'>;
 
@@ -61,35 +71,31 @@ const PopoverContent = React.forwardRef<PopoverContentElement, PopoverContentPro
     const classes = cx(className, classNameProp, {
       'manifest-popover': true,
       'manifest-popover--open': isOpen,
-      [`manifest-popover--${placement}`]: placement,
     });
 
-    console.log(positionProps);
-
     return (
-      <Transition
-        in={isOpen}
-        appear
-        onExited={onExited}
-        onEntered={onEntered}
-        timeout={{ enter: 250, exit: 200 }}
-      >
-        {state => (
-          <FocusScope restoreFocus>
+      <FocusScope restoreFocus>
+        <Transition in={isOpen} appear onExited={onExited} onEntered={onEntered} timeout={100}>
+          {state => (
             <div
               {...completeProps}
               {...contextProps}
-              {...positionProps}
               className={classes}
               ref={mergeRefs(overlayRef, forwardedRef)}
+              style={{
+                opacity: 0,
+                visibility: state === 'exited' && !isOpen ? 'hidden' : undefined,
+                ...styles[state],
+                ...positionProps.style,
+              }}
             >
               <DismissButton onDismiss={onClose} />
               {children}
               <DismissButton onDismiss={onClose} />
             </div>
-          </FocusScope>
-        )}
-      </Transition>
+          )}
+        </Transition>
+      </FocusScope>
     );
   },
 );

@@ -169,6 +169,7 @@ const Popover = React.forwardRef<PopoverElement, PopoverProps>((props, forwarded
   }, [onEntered]);
 
   const handleExited = React.useCallback(() => {
+    console.log('here');
     setExited(true);
 
     if (onExited) {
@@ -176,7 +177,7 @@ const Popover = React.forwardRef<PopoverElement, PopoverProps>((props, forwarded
     }
   }, [onExited]);
 
-  const mounted = state.isOpen ?? !exited;
+  const mounted = state.isOpen || !exited;
 
   return (
     <PopoverContext.Provider
