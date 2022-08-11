@@ -3,15 +3,15 @@ import type { Placement } from '@react-types/overlays';
 import * as React from 'react';
 import { DropdownContext } from './Dropdown.context';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { Popover } from '../Popover';
-import { PressResponder } from '@react-aria/interactions';
+import { Popover, PopoverProps } from '../Popover';
+import { PopoverContent } from '../PopoverContent';
+import { PopoverTrigger } from '../PopoverTrigger';
 import { useMenuTrigger } from '@react-aria/menu';
 import { useMenuTriggerState } from '@react-stately/menu';
-import { useOverlayPosition } from '@react-aria/overlays';
 
 type DropdownElement = React.ElementRef<'div'>;
 
-interface DropdownProps {
+interface DropdownProps extends Omit<PopoverProps, 'scrollRef' | 'triggerRef'> {
   /**
    * The contents of the MenuTrigger - a trigger and a Menu.
    */
@@ -41,26 +41,6 @@ interface DropdownProps {
    */
   isDisabled?: boolean;
   /**
-   * The additional offset applied along the main axis between the element and its
-   * anchor element.
-   *
-   * @default 4
-   */
-  offset?: number;
-  /**
-   * The placement of the element with respect to its anchor element.
-   *
-   * @default 'bottom'
-   */
-  placement?: Placement;
-  /**
-   * Whether the element should flip its orientation (e.g. top to bottom or left to right) when
-   * there is insufficient room for it to render completely.
-   *
-   * @default true
-   */
-  shouldFlip?: boolean;
-  /**
    * How the menu is triggered.
    *
    * @default 'press'
@@ -80,9 +60,10 @@ const Dropdown = React.forwardRef<DropdownElement, DropdownProps>((props, forwar
     children,
     closeOnSelect = true,
     direction: directionProp,
-    offset = 4,
     placement: placementProp = 'bottom start',
-    shouldFlip = true,
+    trigger = 'press',
+    type = 'menu',
+    ...other
   } = props;
 
   const triggerRef = React.useRef<HTMLButtonElement>(null);
@@ -95,7 +76,7 @@ const Dropdown = React.forwardRef<DropdownElement, DropdownProps>((props, forwar
   ];
 
   const state = useMenuTriggerState(props);
-  const { menuTriggerProps, menuProps } = useMenuTrigger({ trigger: 'press' }, state, triggerRef);
+  const { menuTriggerProps, menuProps } = useMenuTrigger({ trigger }, state, triggerRef);
 
   const placement = React.useMemo(() => {
     if (alignProp || directionProp) {
@@ -127,40 +108,28 @@ const Dropdown = React.forwardRef<DropdownElement, DropdownProps>((props, forwar
     return initialPlacement;
   }, [alignProp, directionProp, placementProp]);
 
-  const { overlayProps: positionProps } = useOverlayPosition({
-    offset,
-    isOpen: state.isOpen,
-    onClose: state.close,
-    overlayRef,
-    placement,
-    scrollRef: menuRef,
-    shouldFlip,
-    targetRef: triggerRef,
-  });
-
   return (
-    <>
-      <PressResponder {...menuTriggerProps} ref={triggerRef} isPressed={state.isOpen}>
-        {menuTrigger}
-      </PressResponder>
+    <DropdownContext.Provider
+      value={{
+        closeOnSelect,
+        menuProps: mergeProps(menuProps, { autoFocus: state.focusStrategy || true }),
+        menuRef,
+        onClose: state.close,
+      }}
+    >
       <Popover
-        {...positionProps}
+        {...other}
         isOpen={state.isOpen}
         onClose={state.close}
+        placement={placement}
         ref={mergeRefs(overlayRef, forwardedRef)}
+        triggerRef={triggerRef}
+        type={type}
       >
-        <DropdownContext.Provider
-          value={{
-            closeOnSelect,
-            menuProps: mergeProps(menuProps, { autoFocus: state.focusStrategy || true }),
-            menuRef,
-            onClose: state.close,
-          }}
-        >
-          {menu}
-        </DropdownContext.Provider>
+        <PopoverTrigger {...menuTriggerProps}>{menuTrigger}</PopoverTrigger>
+        <PopoverContent>{menu}</PopoverContent>
       </Popover>
-    </>
+    </DropdownContext.Provider>
   );
 });
 
