@@ -1,6 +1,7 @@
+import type { ButtonSize, ButtonVariant } from './types';
 import type { DOMProps, StyleProps } from '../../types';
 import type { AriaButtonProps } from '@react-types/button';
-import type { ButtonSize, ButtonVariant } from './types';
+import type { PressEvent } from '@react-types/shared';
 import * as React from 'react';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { cx } from '../../styles';
@@ -44,7 +45,7 @@ interface ButtonProps extends AriaButtonProps, DOMProps, StyleProps {
   /**
    * Handler called on a click event.
    */
-  onClick?(event: React.MouseEvent<MouseEvent>): void;
+  onClick?(event: React.MouseEvent<HTMLButtonElement>): void;
 }
 
 const Button = React.forwardRef<ButtonElement, ButtonProps>((props, forwardedRef) => {
@@ -58,6 +59,7 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, forwardedRef
     isDisabled = group?.isDisabled,
     endIcon,
     onClick,
+    onPress,
     size = group?.size ?? 'medium',
     startIcon,
     variant = group?.variant ?? 'primary',
@@ -66,12 +68,31 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, forwardedRef
 
   const buttonRef = React.useRef<HTMLButtonElement>(null);
 
+  const handleClick = React.useCallback(
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      onClick?.(event);
+    },
+    [onClick],
+  );
+
+  const handlePress = React.useCallback(
+    (event: PressEvent) => {
+      if (event.pointerType === 'keyboard' || event.pointerType === 'virtual') {
+        onClick?.(event as unknown as React.MouseEvent<HTMLButtonElement>);
+      }
+
+      onPress?.(event);
+    },
+    [onClick, onPress],
+  );
+
   const { buttonProps, isPressed } = useButton(
     {
       ...other,
       elementType: 'button',
       isDisabled,
-      onPress: onClick,
+      onClick: handleClick,
+      onPress: handlePress,
     } as AriaButtonProps,
     buttonRef,
   );

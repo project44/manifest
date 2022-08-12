@@ -13,7 +13,6 @@ import { useDatePicker } from '@react-aria/datepicker';
 import { useDatePickerState } from '@react-stately/datepicker';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
-import { useOverlayPosition } from '@react-aria/overlays';
 import { useStyles } from './DatePicker.styles';
 
 type DatePickerElement = React.ElementRef<'div'>;
@@ -87,15 +86,6 @@ const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((props, 
     errorMessageProps,
   } = useDatePicker(props, state, triggerRef);
 
-  const { overlayProps: positionProps } = useOverlayPosition({
-    targetRef: triggerRef,
-    offset: 4,
-    overlayRef: popoverRef,
-    placement: 'bottom start',
-    shouldFlip: true,
-    isOpen: state.isOpen,
-  });
-
   const isInvalid = validationState === 'invalid';
 
   const { buttonProps, isPressed } = useButton({ ...triggerProps, isDisabled }, triggerRef);
@@ -157,11 +147,13 @@ const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((props, 
         </span>
 
         <Popover
-          {...mergeProps(dialogProps, positionProps)}
           className="manifest-datepicker__popover"
           isOpen={state.isOpen}
           onClose={() => state.setOpen(false)}
-          ref={popoverRef}
+          overlayProps={dialogProps}
+          overlayRef={popoverRef}
+          placement="bottom start"
+          triggerRef={triggerRef}
         >
           <Calendar className="manifest-datepicker__calendar" {...calendarProps} />
         </Popover>

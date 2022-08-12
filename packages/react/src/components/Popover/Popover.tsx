@@ -1,13 +1,9 @@
-import { DOMProps, StyleProps } from '../../types';
+import type { DOMProps, StyleProps } from '../../types';
+import type { Placement } from '@react-types/overlays';
 import * as React from 'react';
-import { DismissButton, OverlayContainer, useModal, useOverlay } from '@react-aria/overlays';
-import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { cx } from '../../styles';
-import { FocusScope } from '@react-aria/focus';
-import { useDialog } from '@react-aria/dialog';
-import { useStyles } from './Popover.styles';
-
-type PopoverElement = React.ElementRef<'div'>;
+import { OverlayContainer, useOverlayPosition } from '@react-aria/overlays';
+import { PopoverContext } from './Popover.context';
+import { PopoverContent } from '../internal/PopoverContent';
 
 interface PopoverProps extends DOMProps, StyleProps {
   /**
@@ -35,15 +31,67 @@ interface PopoverProps extends DOMProps, StyleProps {
    */
   isNonModal?: boolean;
   /**
+   * The additional offset applied along the main axis between the element and its
+   * anchor element.
+   *
+   * @default 4
+   */
+  offset?: number;
+  /**
+   * Props pass to the overlay element.
+   */
+  overlayProps?: React.HTMLAttributes<HTMLDivElement>;
+  /**
+   * A ref for the overlay.
+   */
+  overlayRef: React.RefObject<HTMLDivElement>;
+  /**
+   * The placement of the element with respect to its anchor element.
+   *
+   * @default 'bottom'
+   */
+  placement?: Placement;
+  /**
+   * A ref for the scrollable region within the overlay.
+   *
+   * @default overlayRef
+   */
+  scrollRef?: React.RefObject<HTMLElement>;
+  /**
    * Whether the popover should close when focus is lost or moves outside it.
    *
    * @default false
    */
   shouldCloseOnBlur?: boolean;
   /**
+   * Whether the element should flip its orientation (e.g. top to bottom or left to right) when
+   * there is insufficient room for it to render completely.
+   *
+   * @default true
+   */
+  shouldFlip?: boolean;
+  /**
+   * A ref for the trigger element.
+   */
+  triggerRef: React.RefObject<HTMLElement>;
+  /**
+   * Type of overlay that is opened by the trigger.
+   *
+   * @default 'dialog'
+   */
+  type?: 'dialog' | 'menu' | 'listbox' | 'tree' | 'grid';
+  /**
    * Handler that is called when the popover should close.
    */
   onClose?(): void;
+  /**
+   * Callback fired after the "entered" status is applied.
+   */
+  onEntered?(): void;
+  /**
+   * Callback fired after the "exited" status is applied.
+   */
+  onExited?(): void;
   /**
    * When user interacts with the argument element outside of the overlay ref,
    * return true if onClose should be called.  This gives you a chance to filter
@@ -53,57 +101,87 @@ interface PopoverProps extends DOMProps, StyleProps {
   shouldCloseOnInteractOutside?(element: HTMLElement): boolean;
 }
 
-const Popover = React.forwardRef<PopoverElement, PopoverProps>((props, forwardedRef) => {
+const Popover: React.FC<PopoverProps> = props => {
   const {
     children,
-    className: classNameProp,
+    className,
     css,
     isDismissable = true,
     isKeyboardDismissDisabled = false,
     isNonModal,
     isOpen,
+    offset = 4,
     onClose,
+    onEntered,
+    onExited,
+    overlayProps,
+    overlayRef,
+    placement = 'bottom',
+    scrollRef,
+    shouldFlip = true,
     shouldCloseOnBlur = false,
     shouldCloseOnInteractOutside,
-    ...other
+    triggerRef,
   } = props;
 
-  const popoverRef = React.useRef<HTMLDivElement>(null);
+  const [exited, setExited] = React.useState(isOpen);
 
-  const { dialogProps } = useDialog({ role: 'dialog' }, popoverRef);
-  const { overlayProps } = useOverlay(
-    {
-      isOpen,
-      isDismissable: isDismissable && isOpen,
-      isKeyboardDismissDisabled,
-      onClose,
-      shouldCloseOnBlur,
-      shouldCloseOnInteractOutside,
-    },
-    popoverRef,
-  );
-  const { modalProps } = useModal({ isDisabled: isNonModal });
+  const { overlayProps: positionProps } = useOverlayPosition({
+    offset,
+    isOpen,
+    overlayRef,
+    placement,
+    scrollRef,
+    shouldFlip,
+    targetRef: triggerRef,
+  });
 
-  const { className } = useStyles({ css });
+  const handleClose = React.useCallback(() => {
+    onClose?.();
+  }, [onClose]);
 
-  if (!isOpen) return null;
+  const handleEntered = React.useCallback(() => {
+    setExited(false);
+
+    onEntered?.();
+  }, [onEntered]);
+
+  const handleExited = React.useCallback(() => {
+    setExited(true);
+
+    onExited?.();
+  }, [onExited]);
+
+  const mounted = !!isOpen || !exited;
 
   return (
-    <OverlayContainer>
-      <FocusScope restoreFocus>
-        <div
-          {...mergeProps(other, overlayProps, modalProps, dialogProps)}
-          className={cx(className, classNameProp, 'manifest-popover')}
-          ref={mergeRefs(popoverRef, forwardedRef)}
-        >
-          <DismissButton onDismiss={onClose} />
-          {children}
-          <DismissButton onDismiss={onClose} />
-        </div>
-      </FocusScope>
-    </OverlayContainer>
+    <PopoverContext.Provider
+      value={{
+        isDismissable,
+        isKeyboardDismissDisabled,
+        isNonModal,
+        isOpen,
+        onClose: handleClose,
+        onEntered: handleEntered,
+        onExited: handleExited,
+        overlayProps,
+        overlayRef,
+        placement,
+        positionProps,
+        shouldCloseOnBlur,
+        shouldCloseOnInteractOutside,
+      }}
+    >
+      {mounted && (
+        <OverlayContainer>
+          <PopoverContent className={className} css={css}>
+            {children}
+          </PopoverContent>
+        </OverlayContainer>
+      )}
+    </PopoverContext.Provider>
   );
-});
+};
 
 if (__DEV__) {
   Popover.displayName = 'ManifestPopover';

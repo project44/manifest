@@ -11,6 +11,7 @@ import { Typography } from '../../Typography';
 import { useFocusRing } from '@react-aria/focus';
 import { useMenuItem } from '@react-aria/menu';
 import { useStyles } from './DropdownItem.styles';
+import { DropdownContext, useDropdownContext } from '../../Dropdown';
 
 interface DropdownItemProps<T extends object = object>
   extends DOMProps,
@@ -53,6 +54,7 @@ const DropdownItem: React.FC<DropdownItemProps> = props => {
     css,
     isVirtualized,
     item,
+    onAction,
     startIcon: startIconProp,
     state,
   } = props;
@@ -65,13 +67,18 @@ const DropdownItem: React.FC<DropdownItemProps> = props => {
   const isDisabled = state.disabledKeys.has(key);
   const isSelected = state.selectionManager.isSelected(key);
 
+  const { onClose, closeOnSelect } = useDropdownContext() as DropdownContext;
+
   const { menuItemProps, labelProps } = useMenuItem(
     {
       'aria-label': item['aria-label'],
+      closeOnSelect,
       key,
       isDisabled,
-      isVirtualized,
       isSelected,
+      isVirtualized,
+      onAction,
+      onClose,
     },
     state,
     itemRef,
