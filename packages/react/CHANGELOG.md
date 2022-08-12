@@ -1,5 +1,11 @@
 # @manifest/react
 
+## 1.3.0
+
+### Minor Changes
+
+- [#41](https://github.com/project44/manifest/pull/41) [`517bb40`](https://github.com/project44/manifest/commit/517bb40bb076f459238d69b5baa33cff7874fb4b) Thanks [@bclark-p44](https://github.com/bclark-p44)! - Improving popover positioning
+
 ## 1.2.0
 
 ### Minor Changes
