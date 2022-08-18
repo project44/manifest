@@ -10,7 +10,7 @@ on:
 
 jobs:
   release:
-    name: Release
+    name: release
     runs-on: ubuntu-latest
 
     steps:
@@ -35,7 +35,7 @@ jobs:
           YARN_ENABLE_IMMUTABLE_INSTALLS: false
 
   chromatic:
-    name: Chromatic
+    name: chromatic
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'chore(release): version packages')"
 
