@@ -1,7 +1,8 @@
-import type { DOMProps, StyleProps } from '../../types';
 import type { CalendarProps as AriaCalendarProps } from '@react-types/calendar';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
 import { createCalendar, DateValue } from '@internationalized/date';
+import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { CalendarHeader } from '../internal/CalendarHeader';
 import { CalendarTable } from '../internal/CalendarTable';
@@ -11,12 +12,10 @@ import { useCalendar } from '@react-aria/calendar';
 import { useCalendarState } from '@react-stately/calendar';
 import { useStyles } from './Calendar.styles';
 
-type CalendarElement = React.ElementRef<'div'>;
+export interface CalendarProps extends AriaCalendarProps<DateValue>, StyleProps {}
 
-interface CalendarProps extends AriaCalendarProps<DateValue>, DOMProps, StyleProps {}
-
-const Calendar = React.forwardRef<CalendarElement, CalendarProps>((props, forwardedRef) => {
-  const { className: classNameProp, css, ...other } = props;
+export const Calendar = createComponent<'div', CalendarProps>((props, forwardedRef) => {
+  const { as: Comp = 'div', className: classNameProp, css, ...other } = props;
 
   const { locale } = useLocale();
 
@@ -32,7 +31,7 @@ const Calendar = React.forwardRef<CalendarElement, CalendarProps>((props, forwar
   const { className } = useStyles({ css });
 
   return (
-    <div
+    <Comp
       {...calendarProps}
       className={cx(className, classNameProp, 'manifest-calendar')}
       ref={forwardedRef}
@@ -44,13 +43,6 @@ const Calendar = React.forwardRef<CalendarElement, CalendarProps>((props, forwar
       />
       <Separator />
       <CalendarTable state={state} />
-    </div>
+    </Comp>
   );
 });
-
-if (__DEV__) {
-  Calendar.displayName = 'ManifestCalendar';
-}
-
-export { Calendar };
-export type { CalendarProps };

@@ -4,7 +4,7 @@ import { axe } from 'jest-axe';
 import { CalendarDate } from '@internationalized/date';
 import { CalendarRange } from '../CalendarRange';
 
-describe('@project44-manifest/components - CalendarRange', () => {
+describe('@project44-manifest/react - CalendarRange', () => {
   it('should have no accessibility violations when passed a default range value', async () => {
     const { container } = render(
       <CalendarRange
