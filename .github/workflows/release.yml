@@ -9,94 +9,22 @@ on:
       - main
 
 jobs:
-  prerelease:
-    name: Prerelease
+  release:
+    name: Release
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-
-      - name: Load yarn cache
-        uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Install dependencies
-        if: steps.yarn_cache.outputs.cache-hit != 'true'
-        run: yarn install --immutable
-
-      - name: Run prerelease
-        run: yarn prerelease
-
-      - name: Store build artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: build-artifacts
-          path: |
-            packages/**/esm/**/*
-            packages/**/lib/**/*
-            packages/**/dts/**/*
-
-  version_or_publish:
-    name: Version or publish the packages
-    needs: prerelease
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-
-      - name: Configure NPM
-        run: |
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - run: |
           cat << EOF > "$HOME/.npmrc"
             //registry.npmjs.org/:_authToken=$NPM_TOKEN
           EOF
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-
-      - name: Load yarn cache
-        uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Install dependencies
-        if: steps.yarn_cache.outputs.cache-hit != 'true'
-        run: yarn install --immutable
-
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: build-artifacts
-          path: packages/
-
-      - name: 'Create Pull Request or Publish to npm'
-        uses: changesets/action@v1
+      - run: yarn install --immutable
+      - run: yarn run pack
+      - uses: changesets/action@v1
         with:
           version: yarn version
           publish: yarn release
@@ -108,45 +36,17 @@ jobs:
 
   chromatic:
     name: Chromatic
-    needs: prerelease
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'chore(release): version packages')"
+
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-
-      - name: Load yarn cache
-        uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Install dependencies
-        if: steps.yarn_cache.outputs.cache-hit != 'true'
-        run: yarn install --immutable
-
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: build-artifacts
-          path: packages/
-
-      - name: Run Chromatic
-        uses: chromaui/action@v1
+      - uses: actions/setup-node@v3
+      - run: yarn install --immutable
+      - run: yarn run pack
+      - uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
