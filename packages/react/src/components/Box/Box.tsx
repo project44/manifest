@@ -1,30 +1,17 @@
-import type { DOMProps, StyleProps } from '../../types';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useStyles } from './Box.styles';
 
-type BoxElement = React.ElementRef<'div'>;
+export type BoxProps = StyleProps;
 
-interface BoxProps extends DOMProps, StyleProps {
-  /**
-   * The content of the box
-   */
-  children?: React.ReactNode;
-}
-
-const Box = React.forwardRef<BoxElement, BoxProps>((props, forwardedRef) => {
-  const { className: classNameProp, css, ...other } = props;
+export const Box = createComponent<'div', BoxProps>((props, forwardedRef) => {
+  const { as: Comp = 'div', className: classNameProp, css, ...other } = props;
 
   const { className } = useStyles({ css });
 
   return (
-    <div {...other} className={cx(className, classNameProp, 'manifest-box')} ref={forwardedRef} />
+    <Comp {...other} className={cx(className, classNameProp, 'manifest-box')} ref={forwardedRef} />
   );
 });
-
-if (__DEV__) {
-  Box.displayName = 'ManifestBox';
-}
-
-export { Box };
-export type { BoxProps };
