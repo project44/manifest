@@ -1,4 +1,4 @@
-import type { StyleProps } from '../../types';
+import type { DefinedRange, StyleProps } from '../../types';
 import type { RangeCalendarProps } from '@react-types/calendar';
 import * as React from 'react';
 import { createCalendar, DateValue } from '@internationalized/date';
@@ -13,7 +13,30 @@ import { useRangeCalendar } from '@react-aria/calendar';
 import { useRangeCalendarState } from '@react-stately/calendar';
 import { useStyles } from '../Calendar/Calendar.styles';
 
-export interface CalendarRangeProps extends RangeCalendarProps<DateValue>, StyleProps {}
+export interface CalendarRangeProps extends RangeCalendarProps<DateValue>, StyleProps {
+  /**
+   * Allows to show or hide the calendar of the component
+   *
+   * @default true
+   * @example
+   * <DateRangePicker showCalendar={false} />
+   */
+  showCalendar?: boolean;
+
+  /**
+   * Allows to pass or avoid the ranges to the component
+   *
+   * @default false
+   * @example
+   * <DateRangePicker showRanges={false} />
+   */
+  showRanges?: boolean;
+
+  /**
+   * Brings the list of ranges defined to the component
+   */
+  ranges?: DefinedRange[];
+}
 
 export const CalendarRange = createComponent<'div', CalendarRangeProps>((props, forwardedRef) => {
   const { as: Comp = 'div', className: classNameProp, css, ...other } = props;
@@ -36,6 +59,7 @@ export const CalendarRange = createComponent<'div', CalendarRangeProps>((props, 
   );
 
   const { className } = useStyles({ css });
+  const definedRanges: DefinedRange[] = showRanges && ranges ? ranges : getDefaultRanges();
 
   return (
     <Comp
@@ -52,4 +76,32 @@ export const CalendarRange = createComponent<'div', CalendarRangeProps>((props, 
       <CalendarTable state={state} />
     </Comp>
   );
+
+  /*return (
+    <div
+      {...calendarProps}
+      className={cx(className, classNameProp, 'manifest-range-calendar')}
+      ref={mergeRefs(calendarRef, forwardedRef)}
+    >
+      <CalendarHeader
+        nextButtonProps={nextButtonProps}
+        prevButtonProps={prevButtonProps}
+        state={state}
+      />
+      <Separator />
+      <CalendarTable state={state} />
+      {<CalendarSidebar state={state} ranges={definedRanges} />}
+      {showCalendar && (
+        <div className={cx('manifest-datepicker__calendar')}>
+          <CalendarHeader
+            nextButtonProps={nextButtonProps}
+            prevButtonProps={prevButtonProps}
+            state={state}
+          />
+          <Separator />
+          <CalendarTable state={state} />
+        </div>
+      )}
+    </div>
+  );*/
 });
