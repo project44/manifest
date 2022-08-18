@@ -10,12 +10,6 @@
   "include": ["src/**/*", "../../types/**/*"],
   "references": [
     {
-      "path": "../design-tokens"
-    },
-    {
-      "path": "../system"
-    },
-    {
       "path": "../theme"
     }
   ]

@@ -1,6 +1,6 @@
 import { css, pxToRem } from '../../styles';
 
-export const useAvatarStyles = css({
+export const useStyles = css({
   alignItems: 'center',
   backgroundColor: '$background-secondary',
   borderRadius: '$full',

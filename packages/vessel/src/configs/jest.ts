@@ -34,8 +34,9 @@ const config: JestConfig = {
   setupFilesAfterEnv,
   testEnvironment: 'node',
   testMatch: ['**/{src,test,tests,__tests__}/**/*.spec.{js,jsx,ts,tsx}'],
+  testRunner: 'jest-circus/runner',
   transform: {
-    '^.+\\.(js|jsx|ts|tsx)$': '@swc/jest',
+    '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { rootMode: 'upward' }],
   },
 };
 
