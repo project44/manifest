@@ -26,8 +26,8 @@ jobs:
       - run: yarn run pack
       - uses: changesets/action@v1
         with:
-          version: yarn version
-          publish: yarn release
+          version: yarn run version
+          publish: yarn run release
           commit: 'chore(release): version packages'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

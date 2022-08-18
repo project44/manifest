@@ -17,8 +17,8 @@ jobs:
       - run: yarn install --immutable
       - run: yarn run build
       - run: yarn run type
-      - run: yarn lint
-      - run: yarn test
+      - run: yarn run lint
+      - run: yarn run test
 
   pack:
     name: pack
@@ -30,7 +30,6 @@ jobs:
         with:
           cache: yarn
       - run: yarn install --immutable
-      - run: yarn run setup
-      - run: yarn run pack
+      - run: yarn run build
       - run: yarn run pack
 
