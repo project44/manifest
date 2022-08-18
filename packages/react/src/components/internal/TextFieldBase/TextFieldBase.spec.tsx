@@ -22,8 +22,4 @@ describe('@project44-manifest/components - TextFieldBase', () => {
 
     expect(screen.getByRole('textbox')).toHaveAttribute('rows');
   });
-
-  it('should return a css selector', () => {
-    expect(TextFieldBase.toString()).toBe('.manifest-textfield-base');
-  });
 });

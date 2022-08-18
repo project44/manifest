@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { fireEvent, screen, render } from '@testing-library/react';
+import { fireEvent, screen, render, waitFor } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { CalendarDate } from '@internationalized/date';
 import { DateRangePicker } from './DateRangePicker';
@@ -8,70 +8,21 @@ import userEvent from '@testing-library/user-event';
 
 describe('@project44-manifest/components - Calendar', () => {
   it('should have no accessibility violations', async () => {
-    const { container } = render(
-      <OverlayProvider>
-        <DateRangePicker />
-      </OverlayProvider>,
-    );
+    const { container } = render(<DateRangePicker isOpen />);
 
     const results = await axe(container);
 
     expect(results).toHaveNoViolations();
   });
 
-  it('should have no accessibility violations when passed a default value', async () => {
-    const { container } = render(
-      <OverlayProvider>
-        <DateRangePicker
-          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-        />
-      </OverlayProvider>,
-    );
-
-    const results = await axe(container);
-
-    expect(results).toHaveNoViolations();
-  });
-
-  it('should have no accessibility violations when passed a value', async () => {
-    const { container } = render(
-      <OverlayProvider>
-        <DateRangePicker
-          value={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-        />
-      </OverlayProvider>,
-    );
-
-    const results = await axe(container);
-
-    expect(results).toHaveNoViolations();
-  });
-
-  it('should have no accessibility violations when displaying a start icon', async () => {
-    const { container } = render(
-      <OverlayProvider>
-        <DateRangePicker
-          startIcon={<span>icon</span>}
-          value={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-        />
-      </OverlayProvider>,
-    );
-
-    const results = await axe(container);
-
-    expect(results).toHaveNoViolations();
-  });
-
-  it('should support selecting a date', () => {
+  it('should support selecting a date', async () => {
     const onChange = jest.fn();
 
     render(
-      <OverlayProvider>
-        <DateRangePicker
-          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-          onChange={onChange}
-        />
-      </OverlayProvider>,
+      <DateRangePicker
+        defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+        onChange={onChange}
+      />,
     );
 
     expect(screen.getByText('7 / 2 / 2022 - 7 / 12 / 2022')).toBeVisible();
@@ -93,7 +44,10 @@ describe('@project44-manifest/components - Calendar', () => {
     fireEvent.click(screen.getByLabelText('Sunday, July 3, 2022 selected'));
     fireEvent.click(screen.getByLabelText('Sunday, July 17, 2022'));
 
-    expect(dialog).not.toBeInTheDocument();
+    await waitFor(() => {
+      expect(dialog).not.toBeInTheDocument();
+    });
+
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith({
       start: new CalendarDate(2022, 7, 3),
@@ -101,16 +55,14 @@ describe('@project44-manifest/components - Calendar', () => {
     });
   });
 
-  it('should support being controlled', () => {
+  it('should support being controlled', async () => {
     const onChange = jest.fn();
 
     render(
-      <OverlayProvider>
-        <DateRangePicker
-          value={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-          onChange={onChange}
-        />
-      </OverlayProvider>,
+      <DateRangePicker
+        value={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+        onChange={onChange}
+      />,
     );
 
     expect(screen.getByText('7 / 2 / 2022 - 7 / 12 / 2022')).toBeVisible();
@@ -132,7 +84,10 @@ describe('@project44-manifest/components - Calendar', () => {
     fireEvent.click(screen.getByLabelText('Sunday, July 3, 2022 selected'));
     fireEvent.click(screen.getByLabelText('Sunday, July 17, 2022'));
 
-    expect(dialog).not.toBeInTheDocument();
+    await waitFor(() => {
+      expect(dialog).not.toBeInTheDocument();
+    });
+
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith({
       start: new CalendarDate(2022, 7, 3),
@@ -142,11 +97,9 @@ describe('@project44-manifest/components - Calendar', () => {
 
   it('should close datepicker when outside click is register', async () => {
     render(
-      <OverlayProvider>
-        <DateRangePicker
-          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-        />
-      </OverlayProvider>,
+      <DateRangePicker
+        defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+      />,
     );
 
     fireEvent.click(screen.getByRole('button'));
@@ -157,10 +110,8 @@ describe('@project44-manifest/components - Calendar', () => {
 
     await userEvent.click(document.body);
 
-    expect(dialog).not.toBeInTheDocument();
-  });
-
-  it('should return a css selector', () => {
-    expect(DateRangePicker.toString()).toBe('.manifest-datepicker');
+    await waitFor(() => {
+      expect(dialog).not.toBeInTheDocument();
+    });
   });
 });

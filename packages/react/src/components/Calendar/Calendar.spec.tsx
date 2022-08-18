@@ -4,7 +4,7 @@ import { axe } from 'jest-axe';
 import { Calendar } from './Calendar';
 import { CalendarDate } from '@internationalized/date';
 
-describe('@project44-manifest/components - Calendar', () => {
+describe('@project44-manifest/react - Calendar', () => {
   it('should have no accessibility violations', async () => {
     const { container } = render(<Calendar />);
 
@@ -129,9 +129,5 @@ describe('@project44-manifest/components - Calendar', () => {
 
     expect(selectedDate.textContent).toBe('12');
     expect(onChange).not.toHaveBeenCalled();
-  });
-
-  it('should return a css selector', () => {
-    expect(Calendar.toString()).toBe('.manifest-calendar');
   });
 });

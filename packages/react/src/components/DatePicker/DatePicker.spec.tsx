@@ -1,68 +1,23 @@
 import * as React from 'react';
-import { fireEvent, screen, render } from '@testing-library/react';
+import { fireEvent, screen, render, waitFor } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { CalendarDate } from '@internationalized/date';
 import { DatePicker } from './DatePicker';
-import { OverlayProvider } from '@react-aria/overlays';
 import userEvent from '@testing-library/user-event';
 
-describe('@project44-manifest/components - Calendar', () => {
+describe('@project44-manifest/react - DateRange', () => {
   it('should have no accessibility violations', async () => {
-    const { container } = render(
-      <OverlayProvider>
-        <DatePicker />
-      </OverlayProvider>,
-    );
+    const { container } = render(<DatePicker isOpen />);
 
     const results = await axe(container);
 
     expect(results).toHaveNoViolations();
   });
 
-  it('should have no accessibility violations when passed a default value', async () => {
-    const { container } = render(
-      <OverlayProvider>
-        <DatePicker defaultValue={new CalendarDate(2022, 7, 12)} />
-      </OverlayProvider>,
-    );
-
-    const results = await axe(container);
-
-    expect(results).toHaveNoViolations();
-  });
-
-  it('should have no accessibility violations when passed a value', async () => {
-    const { container } = render(
-      <OverlayProvider>
-        <DatePicker value={new CalendarDate(2022, 7, 12)} />
-      </OverlayProvider>,
-    );
-
-    const results = await axe(container);
-
-    expect(results).toHaveNoViolations();
-  });
-
-  it('should have no accessibility violations when displaying a start icon', async () => {
-    const { container } = render(
-      <OverlayProvider>
-        <DatePicker startIcon={<span>icon</span>} value={new CalendarDate(2022, 7, 12)} />
-      </OverlayProvider>,
-    );
-
-    const results = await axe(container);
-
-    expect(results).toHaveNoViolations();
-  });
-
-  it('should support selecting a date', () => {
+  it('should support selecting a date', async () => {
     const onChange = jest.fn();
 
-    render(
-      <OverlayProvider>
-        <DatePicker defaultValue={new CalendarDate(2022, 7, 12)} onChange={onChange} />
-      </OverlayProvider>,
-    );
+    render(<DatePicker defaultValue={new CalendarDate(2022, 7, 12)} onChange={onChange} />);
 
     expect(screen.getByText('7 / 12 / 2022')).toBeVisible();
 
@@ -78,19 +33,18 @@ describe('@project44-manifest/components - Calendar', () => {
 
     fireEvent.click(screen.getByText('13'));
 
-    expect(dialog).not.toBeInTheDocument();
+    await waitFor(() => {
+      expect(dialog).not.toBeInTheDocument();
+    });
+
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith(new CalendarDate(2022, 7, 13));
   });
 
-  it('should support being controlled', () => {
+  it('should support being controlled', async () => {
     const onChange = jest.fn();
 
-    render(
-      <OverlayProvider>
-        <DatePicker value={new CalendarDate(2022, 7, 12)} onChange={onChange} />
-      </OverlayProvider>,
-    );
+    render(<DatePicker value={new CalendarDate(2022, 7, 12)} onChange={onChange} />);
 
     expect(screen.getByText('7 / 12 / 2022')).toBeVisible();
 
@@ -106,17 +60,16 @@ describe('@project44-manifest/components - Calendar', () => {
 
     fireEvent.click(screen.getByText('13'));
 
-    expect(dialog).not.toBeInTheDocument();
+    await waitFor(() => {
+      expect(dialog).not.toBeInTheDocument();
+    });
+
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith(new CalendarDate(2022, 7, 13));
   });
 
   it('should close datepicker when outside click is register', async () => {
-    render(
-      <OverlayProvider>
-        <DatePicker defaultValue={new CalendarDate(2022, 7, 12)} />
-      </OverlayProvider>,
-    );
+    render(<DatePicker />);
 
     fireEvent.click(screen.getByRole('button'));
 
@@ -126,10 +79,8 @@ describe('@project44-manifest/components - Calendar', () => {
 
     await userEvent.click(document.body);
 
-    expect(dialog).not.toBeInTheDocument();
-  });
-
-  it('should return a css selector', () => {
-    expect(DatePicker.toString()).toBe('.manifest-datepicker');
+    await waitFor(() => {
+      expect(dialog).not.toBeInTheDocument();
+    });
   });
 });

@@ -2,6 +2,7 @@ import type { DOMProps, StyleProps } from '../../types';
 import type { AriaDatePickerProps } from '@react-types/datepicker';
 import * as React from 'react';
 import { Calendar, DateValue } from '../Calendar';
+import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { Popover } from '../Popover';
 import { FormControl } from '../FormControl';
@@ -15,9 +16,7 @@ import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
 import { useStyles } from './DatePicker.styles';
 
-type DatePickerElement = React.ElementRef<'div'>;
-
-interface DatePickerProps extends AriaDatePickerProps<DateValue>, DOMProps, StyleProps {
+export interface DatePickerProps extends AriaDatePickerProps<DateValue>, StyleProps {
   /**
    * Helper text to append to the form control input element.
    */
@@ -53,8 +52,9 @@ interface DatePickerProps extends AriaDatePickerProps<DateValue>, DOMProps, Styl
   startIcon?: React.ReactElement;
 }
 
-const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((props, forwardedRef) => {
+export const DatePicker = createComponent<'div', DatePickerProps>((props, forwardedRef) => {
   const {
+    as: Comp = 'div',
     autoFocus,
     className: classNameProp,
     css,
@@ -72,6 +72,8 @@ const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((props, 
   } = props;
 
   const state = useDatePickerState(props);
+
+  console.log(state);
 
   const triggerRef = React.useRef<HTMLButtonElement>(null);
   const popoverRef = React.useRef<HTMLDivElement>(null);
@@ -127,7 +129,7 @@ const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((props, 
       labelProps={mergeProps(labelProps, labelPropsProp)}
       validationState={validationState}
     >
-      <div {...groupProps} className={classes} ref={forwardedRef}>
+      <Comp {...groupProps} className={classes} ref={forwardedRef}>
         {startIcon && (
           <span className={cx('manifest-datepicker__icon', 'manifest-datepicker__icon--start')}>
             {startIcon}
@@ -157,14 +159,7 @@ const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((props, 
         >
           <Calendar className="manifest-datepicker__calendar" {...calendarProps} />
         </Popover>
-      </div>
+      </Comp>
     </FormControl>
   );
 });
-
-if (__DEV__) {
-  DatePicker.displayName = 'ManifestDatePicker';
-}
-
-export { DatePicker };
-export type { DatePickerProps };
