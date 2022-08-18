@@ -1,9 +1,10 @@
 import type { ButtonSize, ButtonVariant } from './types';
-import type { DOMProps, StyleProps } from '../../types';
 import type { AriaButtonProps } from '@react-types/button';
 import type { PressEvent } from '@react-types/shared';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
+import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useButton } from '@react-aria/button';
 import { useButtonGroup } from '../ButtonGroup';
@@ -11,13 +12,7 @@ import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
 import { useStyles } from './Button.styles';
 
-type ButtonElement = React.ElementRef<'button'>;
-
-interface ButtonProps extends AriaButtonProps, DOMProps, StyleProps {
-  /**
-   * The content of the button.
-   */
-  children?: React.ReactNode;
+export interface ButtonProps extends AriaButtonProps, StyleProps {
   /**
    * Icon added after the button text.
    */
@@ -48,10 +43,11 @@ interface ButtonProps extends AriaButtonProps, DOMProps, StyleProps {
   onClick?(event: React.MouseEvent<HTMLButtonElement>): void;
 }
 
-const Button = React.forwardRef<ButtonElement, ButtonProps>((props, forwardedRef) => {
+export const Button = createComponent<'button', ButtonProps>((props, forwardedRef) => {
   const group = useButtonGroup();
 
   const {
+    as: Comp = 'button',
     autoFocus,
     children,
     className: classNameProp,
@@ -77,13 +73,9 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, forwardedRef
 
   const handlePress = React.useCallback(
     (event: PressEvent) => {
-      if (event.pointerType === 'keyboard' || event.pointerType === 'virtual') {
-        onClick?.(event as unknown as React.MouseEvent<HTMLButtonElement>);
-      }
-
       onPress?.(event);
     },
-    [onClick, onPress],
+    [onPress],
   );
 
   const { buttonProps, isPressed } = useButton(
@@ -119,7 +111,7 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, forwardedRef
   });
 
   return (
-    <button
+    <Comp
       {...mergeProps(buttonProps, focusProps, hoverProps)}
       className={classnames}
       ref={mergeRefs(buttonRef, forwardedRef)}
@@ -133,13 +125,6 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, forwardedRef
       {endIcon && (
         <span className={cx('manifest-button__icon', 'manifest-button__icon--end')}>{endIcon}</span>
       )}
-    </button>
+    </Comp>
   );
 });
-
-if (__DEV__) {
-  Button.displayName = 'ManifestButton';
-}
-
-export { Button };
-export type { ButtonProps };
