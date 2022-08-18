@@ -1,0 +1,33 @@
+{
+  "name": "@project44-manifest/theme",
+  "version": "0.0.0",
+  "author": "project44",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "module": "./esm/index.js",
+  "types": "./dts/index.d.ts",
+  "files": [
+    "dts/**/*.d.ts",
+    "esm/**/*.{js,map}",
+    "lib/**/*.{js,map}",
+    "src/**/*.{ts,tsx,json}"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:project-44/manifest.git",
+    "directory": "packages/theme"
+  },
+  "dependencies": {
+    "@project44-manifest/design-tokens": "^1.1.0",
+    "lodash.merge": "^4.6.2"
+  },
+  "devDependencies": {
+    "@types/lodash.merge": "^4.6.7"
+  },
+  "packemon": {
+    "platform": "browser"
+  }
+}

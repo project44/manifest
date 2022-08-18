@@ -1,11 +1,12 @@
-import type { DOMProps, StyleProps } from '../../types';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
-import { useAvatarStyles } from './Avatar.styles';
+import { useStyles } from './Avatar.styles';
 
-type AvatarElement = React.ElementRef<'div'>;
+export type AvatarSize = 'small' | 'medium';
 
-interface AvatarProps extends DOMProps, StyleProps {
+export interface AvatarProps extends StyleProps {
   /**
    * The alt text passed to the image.
    */
@@ -26,8 +27,9 @@ interface AvatarProps extends DOMProps, StyleProps {
   src?: string;
 }
 
-const Avatar = React.forwardRef<AvatarElement, AvatarProps>((props, forwardedRef) => {
+export const Avatar = createComponent<'span', AvatarProps>((props, forwardedRef) => {
   const {
+    as: Comp = 'span',
     alt,
     className: classNameProp,
     css,
@@ -43,11 +45,12 @@ const Avatar = React.forwardRef<AvatarElement, AvatarProps>((props, forwardedRef
   const handleError = React.useCallback(() => setStatus('error'), []);
   const handleLoad = React.useCallback(() => setStatus('loaded'), []);
 
-  const { className } = useAvatarStyles({ css, size });
+  const { className } = useStyles({ css, size });
 
   const classes = cx(className, classNameProp, {
     'manifest-avatar': true,
     [`manifest-avatar--${size}`]: size,
+    [`manifest-avatar--${status}`]: status,
   });
 
   // Reset status to pending if src changes.
@@ -61,7 +64,7 @@ const Avatar = React.forwardRef<AvatarElement, AvatarProps>((props, forwardedRef
   }, []);
 
   return (
-    <div {...other} className={classes} ref={forwardedRef}>
+    <Comp {...other} className={classes} ref={forwardedRef}>
       {src && mounted && status !== 'error' && (
         <img
           alt={alt}
@@ -74,13 +77,6 @@ const Avatar = React.forwardRef<AvatarElement, AvatarProps>((props, forwardedRef
       {(!src || status === 'error') && (
         <span className="manifest-avatar__fallback">{fallback}</span>
       )}
-    </div>
+    </Comp>
   );
 });
-
-if (__DEV__) {
-  Avatar.displayName = 'ManifestAvatar';
-}
-
-export { Avatar };
-export type { AvatarProps };

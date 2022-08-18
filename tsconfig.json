@@ -9,6 +9,12 @@
       "path": "packages/react"
     },
     {
+      "path": "packages/system"
+    },
+    {
+      "path": "packages/theme"
+    },
+    {
       "path": "packages/vessel"
     }
   ]

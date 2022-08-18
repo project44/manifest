@@ -1,161 +1,14 @@
-import type * as Stitches from '@stitches/react';
 import * as tokens from '@project44-manifest/design-tokens';
 
-export type TypographyVariant =
-  | 'display'
-  | 'heading'
-  | 'title'
-  | 'subtitle'
-  | 'body'
-  | 'body-bold'
-  | 'subtext'
-  | 'subtext-bold'
-  | 'caption'
-  | 'caption-bold';
+export type Theme = typeof baseTheme;
 
-type TypographyVariantToken = `$${TypographyVariant}`;
-
-type TypographyVariants = {
-  [variant in TypographyVariantToken]: Stitches.CSSProperties;
-};
-
-const typographyVariants: TypographyVariants = {
-  $display: {
-    fontFamily: '$text',
-    fontSize: '$xx-large',
-    fontWeight: '$bold',
-    letterSpacing: '$x-small',
-    lineHeight: '$xx-large',
-  },
-  $heading: {
-    fontFamily: '$text',
-    fontSize: '$x-large',
-    fontWeight: '$semibold',
-    letterSpacing: '$small',
-    lineHeight: '$x-large',
-  },
-  $title: {
-    fontFamily: '$text',
-    fontSize: '$large',
-    fontWeight: '$semibold',
-    letterSpacing: '$medium',
-    lineHeight: '$large',
-  },
-  $subtitle: {
-    fontFamily: '$text',
-    fontSize: '$medium',
-    fontWeight: '$bold',
-    letterSpacing: '$medium',
-    lineHeight: '$medium',
-  },
-  $body: {
-    fontFamily: '$text',
-    fontSize: '$medium',
-    fontWeight: '$regular',
-    letterSpacing: '$medium',
-    lineHeight: '$medium',
-  },
-  '$body-bold': {
-    fontFamily: '$text',
-    fontSize: '$medium',
-    fontWeight: '$semibold',
-    letterSpacing: '$medium',
-    lineHeight: '$medium',
-  },
-  $subtext: {
-    fontFamily: '$text',
-    fontSize: '$small',
-    fontWeight: '$regular',
-    letterSpacing: '$medium',
-    lineHeight: '$small',
-  },
-  '$subtext-bold': {
-    fontFamily: '$text',
-    fontSize: '$small',
-    fontWeight: '$semibold',
-    letterSpacing: '$medium',
-    lineHeight: '$small',
-  },
-  $caption: {
-    fontFamily: '$text',
-    fontSize: '$x-small',
-    fontWeight: '$regular',
-    letterSpacing: '$medium',
-    lineHeight: '$x-small',
-  },
-  '$caption-bold': {
-    fontFamily: '$text',
-    fontSize: '$x-small',
-    fontWeight: '$semibold',
-    letterSpacing: '$medium',
-    lineHeight: '$x-small',
-  },
-};
-
-const media = {
-  lg: `(min-width: ${tokens.sizeLarge})`,
-  md: `(min-width: ${tokens.sizeMedium})`,
-  sm: `(min-width: ${tokens.sizeSmall})`,
-  xl: `(min-width: ${tokens.sizeXLarge})`,
-};
-
-const createTransition = (properties: string[]) => {
-  return properties.map(property => `${property} cubic-bezier(0.4, 0, 0.2, 1) 250ms`).join(',');
-};
-
-const transitions = {
-  all: createTransition(['all']),
-  color: createTransition([
-    'color',
-    'background-color',
-    'border-color',
-    'text-decoration-color',
-    'fill',
-    'stroke',
-  ]),
-  default: createTransition([
-    'color',
-    'background-color',
-    'border-color',
-    'text-decoration-color',
-    'fill',
-    'stroke',
-    'opacity',
-    'box-shadow',
-    'transform',
-    'filter',
-    'backdrop-filter',
-  ]),
-  opacity: createTransition(['opacity']),
-  shadow: createTransition(['box-shadow']),
-  transform: createTransition(['transform']),
-};
-
-const theme = {
+export const baseTheme = {
   borderWidths: {
     large: tokens.borderWidthLarge,
     medium: tokens.borderWidthMedium,
     small: tokens.borderWidthSmall,
   },
   colors: {
-    'background-danger': tokens.colorBackgroundDanger,
-    'background-primary': tokens.colorBackgroundPrimary,
-    'background-secondary': tokens.colorBackgroundSecondary,
-    'background-side-nav': tokens.colorBackgroundSideNav,
-    'background-success': tokens.colorBackgroundSuccess,
-    'background-surface': tokens.colorBackgroundSurface,
-    'background-tertiary': tokens.colorBackgroundTertiary,
-    'background-top-nav': tokens.colorBackgroundTopNav,
-    'background-warning': tokens.colorBackgroundWarning,
-    'border-danger': tokens.colorBorderDanger,
-    'border-disabled': tokens.colorBorderDisabled,
-    'border-primary': tokens.colorBorderPrimary,
-    'border-success': tokens.colorBorderSuccess,
-    'border-warning': tokens.colorBorderWarning,
-    'brand-default': tokens.colorBrandDefault,
-    'brand-active': tokens.colorBrandActive,
-    'brand-hover': tokens.colorBrandHover,
-    'brand-gradient': tokens.colorBrandGradient,
     'palette-black': tokens.colorPaletteBlack,
     'palette-white': tokens.colorPaletteWhite,
     'palette-blue-50': tokens.colorPaletteBlue50,
@@ -258,17 +111,6 @@ const theme = {
     'palette-yellow-700': tokens.colorPaletteYellow700,
     'palette-yellow-800': tokens.colorPaletteYellow800,
     'palette-yellow-900': tokens.colorPaletteYellow900,
-    'primary-default': tokens.colorPrimaryDefault,
-    'primary-active': tokens.colorPrimaryActive,
-    'primary-hover': tokens.colorPrimaryHover,
-    'text-contrast': tokens.colorTextContrast,
-    'text-danger': tokens.colorTextDanger,
-    'text-disabled': tokens.colorTextDisabled,
-    'text-primary': tokens.colorTextPrimary,
-    'text-secondary': tokens.colorTextSecondary,
-    'text-success': tokens.colorTextSuccess,
-    'text-tertiary': tokens.colorTextTertiary,
-    'text-warning': tokens.colorTextWarning,
     'data-viz-danger-fill': tokens.colorDataVizDangerFill,
     'data-viz-danger-hover': tokens.colorDataVizDangerHover,
     'data-viz-danger-line': tokens.colorDataVizDangerLine,
@@ -289,6 +131,37 @@ const theme = {
     'data-viz-warning-fill': tokens.colorDataVizWarningFill,
     'data-viz-warning-hover': tokens.colorDataVizWarningHover,
     'data-viz-warning-line': tokens.colorDataVizWarningLine,
+
+    // Adding empty values to preserve theme types.
+    'brand-default': '',
+    'brand-active': '',
+    'brand-hover': '',
+    'brand-gradient': '',
+    'background-danger': '',
+    'background-primary': '',
+    'background-secondary': '',
+    'background-side-nav': '',
+    'background-success': '',
+    'background-surface': '',
+    'background-tertiary': '',
+    'background-top-nav': '',
+    'background-warning': '',
+    'border-danger': '',
+    'border-disabled': '',
+    'border-primary': '',
+    'border-success': '',
+    'border-warning': '',
+    'primary-default': '',
+    'primary-active': '',
+    'primary-hover': '',
+    'text-contrast': '',
+    'text-danger': '',
+    'text-disabled': '',
+    'text-primary': '',
+    'text-secondary': '',
+    'text-success': '',
+    'text-tertiary': '',
+    'text-warning': '',
   },
   fonts: { mono: tokens.fontFamilyMono, text: tokens.fontFamilyText },
   fontSizes: {
@@ -333,7 +206,6 @@ const theme = {
     'x-large': tokens.spaceXLarge,
     'x-small': tokens.spaceXSmall,
   },
-  transitions,
   zIndices: {
     dropdown: tokens.zIndexDropdown,
     modal: tokens.zIndexModal,
@@ -341,46 +213,5 @@ const theme = {
     popover: tokens.zIndexPopover,
     sticky: tokens.zIndexSticky,
     tooltip: tokens.zIndexTooltip,
-  },
-};
-
-export const defaultTheme = {
-  prefix: 'manifest',
-  media,
-  theme,
-  utils: {
-    bgColor: (value: Stitches.PropertyValue<'backgroundColor'>) => ({ backgroundColor: value }),
-    d: (value: Stitches.PropertyValue<'display'>) => ({ display: value }),
-    h: (value: Stitches.PropertyValue<'height'>) => ({ height: value }),
-    m: (value: Stitches.PropertyValue<'margin'>) => ({ margin: value }),
-    maxH: (value: Stitches.PropertyValue<'maxHeight'>) => ({ maxHeight: value }),
-    maxW: (value: Stitches.PropertyValue<'maxWidth'>) => ({ maxWidth: value }),
-    mb: (value: Stitches.PropertyValue<'marginBottom'>) => ({ marginBottom: value }),
-    minH: (value: Stitches.PropertyValue<'minHeight'>) => ({ minHeight: value }),
-    minW: (value: Stitches.PropertyValue<'minWidth'>) => ({ minWidth: value }),
-    ml: (value: Stitches.PropertyValue<'marginLeft'>) => ({ marginLeft: value }),
-    mr: (value: Stitches.PropertyValue<'marginRight'>) => ({ marginRight: value }),
-    mt: (value: Stitches.PropertyValue<'marginTop'>) => ({ marginTop: value }),
-    mx: (value: Stitches.PropertyValue<'marginLeft'>) => ({
-      marginLeft: value,
-      marginRight: value,
-    }),
-    my: (value: Stitches.PropertyValue<'marginTop'>) => ({ marginBottom: value, marginTop: value }),
-    p: (value: Stitches.PropertyValue<'padding'>) => ({ padding: value }),
-    pb: (value: Stitches.PropertyValue<'paddingBottom'>) => ({ paddingBottom: value }),
-    pl: (value: Stitches.PropertyValue<'paddingLeft'>) => ({ paddingLeft: value }),
-    pr: (value: Stitches.PropertyValue<'paddingRight'>) => ({ paddingRight: value }),
-    pt: (value: Stitches.PropertyValue<'paddingTop'>) => ({ paddingTop: value }),
-    px: (value: Stitches.PropertyValue<'paddingLeft'>) => ({
-      paddingLeft: value,
-      paddingRight: value,
-    }),
-    py: (value: Stitches.PropertyValue<'paddingTop'>) => ({
-      paddingBottom: value,
-      paddingTop: value,
-    }),
-    size: (value: Stitches.PropertyValue<'width'>) => ({ height: value, width: value }),
-    typography: (variant: TypographyVariantToken) => typographyVariants[variant],
-    w: (value: Stitches.PropertyValue<'width'>) => ({ width: value }),
   },
 };

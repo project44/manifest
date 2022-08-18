@@ -1,4 +1,4 @@
-import { css } from '../config';
+import { css } from '../styles';
 
 export const focus = css({
   variants: {

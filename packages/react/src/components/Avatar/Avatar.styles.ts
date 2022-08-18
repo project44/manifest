@@ -1,17 +1,5 @@
 import { css, pxToRem } from '../../styles';
 
-const fallback = css({
-  alignItems: 'center',
-  color: '$text-secondary',
-  display: 'flex',
-  fontFamily: '$text',
-  fontWeight: '$semibold',
-  letterSpacing: '$medium',
-  height: '100%',
-  justifyContent: 'center',
-  width: '100%',
-});
-
 export const useStyles = css({
   alignItems: 'center',
   backgroundColor: '$background-secondary',

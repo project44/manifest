@@ -11,12 +11,6 @@
   "references": [
     {
       "path": "../design-tokens"
-    },
-    {
-      "path": "../system"
-    },
-    {
-      "path": "../theme"
     }
   ]
 }
