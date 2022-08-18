@@ -1,0 +1,34 @@
+name: pr
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    paths:
+      - 'packages/design-tokens/**'
+      - 'packages/react/**'
+      - 'packages/theme/**'
+
+jobs:
+  chromatic:
+    name: visual regression tests
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+      - run: yarn install --immutable
+      - run: yarn run pack
+      - uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          buildScriptName: 'build:storybook'
+          autoAcceptChanges: 'main'
+          exitOnceUploaded: true
+        env:
+          STORYBOOK_GITHUB_SHA: ${{ github.event.pull_request.head.sha }}
