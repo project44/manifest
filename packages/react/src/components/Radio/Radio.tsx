@@ -1,26 +1,31 @@
-import { DOMProps, StyleProps } from '../../types';
 import type { AriaRadioProps } from '@react-types/radio';
 import * as React from 'react';
+import { CSS, cx } from '../../styles';
 import { RadioGroupContext, useRadioGroupContext } from '../RadioGroup';
-import { cx } from '../../styles';
+import { useHover, usePress } from '@react-aria/interactions';
+import { createComponent } from '@project44-manifest/system';
 import { mergeProps } from '@react-aria/utils';
 import { Typography } from '../Typography';
 import { useFocusRing } from '@react-aria/focus';
-import { useHover } from '@react-aria/interactions';
 import { useRadio } from '@react-aria/radio';
 import { useStyles } from './Radio.styles';
 
-type RadioElement = React.ElementRef<'label'>;
-
-interface RadioProps extends AriaRadioProps, DOMProps, StyleProps {
+export interface RadioProps extends AriaRadioProps {
   /**
-   * The label of the radio
+   * Theme aware style object.
    */
-  chidlren?: React.ReactNode;
+  css?: CSS;
 }
 
-const Radio = React.forwardRef<RadioElement, RadioProps>((props, forwardedRef) => {
-  const { autoFocus, children, css, className: classNameProp, isDisabled, ...other } = props;
+export const Radio = createComponent<'label', RadioProps>((props, forwardedRef) => {
+  const {
+    as: Comp = 'label',
+    autoFocus,
+    children,
+    css,
+    className: classNameProp,
+    isDisabled,
+  } = props;
 
   const inputRef = React.useRef<HTMLInputElement>(null);
 
@@ -29,6 +34,7 @@ const Radio = React.forwardRef<RadioElement, RadioProps>((props, forwardedRef) =
   const { inputProps } = useRadio(props, state, inputRef);
   const { isFocusVisible, focusProps } = useFocusRing({ autoFocus });
   const { isHovered, hoverProps } = useHover({ isDisabled });
+  const { pressProps } = usePress({ isDisabled: inputProps.disabled });
 
   const { className } = useStyles({
     css,
@@ -45,7 +51,7 @@ const Radio = React.forwardRef<RadioElement, RadioProps>((props, forwardedRef) =
   });
 
   return (
-    <label {...mergeProps(hoverProps, other)} className={classes} ref={forwardedRef}>
+    <Comp {...mergeProps(hoverProps, pressProps)} className={classes} ref={forwardedRef}>
       <input
         {...mergeProps(inputProps, focusProps)}
         className="manifest-radio__input"
@@ -61,13 +67,6 @@ const Radio = React.forwardRef<RadioElement, RadioProps>((props, forwardedRef) =
           {children}
         </Typography>
       )}
-    </label>
+    </Comp>
   );
 });
-
-if (__DEV__) {
-  Radio.displayName = 'ManifestRadio';
-}
-
-export { Radio };
-export type { RadioProps };

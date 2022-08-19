@@ -1,45 +1,47 @@
-import type { DOMProps, StyleProps } from '../../types';
 import type { AriaCheckboxProps } from '@react-types/checkbox';
 import * as React from 'react';
-import { cx } from '../../styles';
+import { useHover, usePress } from '@react-aria/interactions';
+import { createComponent } from '@project44-manifest/system';
+import { CSS, cx } from '../../styles';
 import { Icon } from '../Icon';
 import { mergeProps } from '@react-aria/utils';
 import { Typography } from '../Typography';
 import { useCheckbox } from '@react-aria/checkbox';
 import { useFocusRing } from '@react-aria/focus';
-import { useHover } from '@react-aria/interactions';
 import { useStyles } from './Checkbox.styles';
 import { useToggleState } from '@react-stately/toggle';
 
-type CheckboxElement = React.ElementRef<'label'>;
-
-interface CheckboxProps extends AriaCheckboxProps, DOMProps, StyleProps {
+export interface CheckboxProps extends AriaCheckboxProps {
   /**
-   * The label of the checkbox
+   * Theme aware style object.
    */
-  chidlren?: React.ReactNode;
+  css?: CSS;
 }
 
-const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>((props, forwardedRef) => {
+export const Checkbox = createComponent<'label', CheckboxProps>((props, forwardedRef) => {
   const {
+    as: Comp = 'label',
     autoFocus,
     children,
     className: classNameProp,
     css,
+    defaultSelected,
     isDisabled,
     isIndeterminate,
-    ...other
+    isSelected,
+    onChange,
   } = props;
 
   const inputRef = React.useRef<HTMLInputElement>(null);
 
-  const state = useToggleState(props);
+  const state = useToggleState({ isSelected, defaultSelected, onChange });
 
   const isChecked = state.isSelected;
 
   const { inputProps } = useCheckbox(props, state, inputRef);
   const { isFocusVisible, focusProps } = useFocusRing({ autoFocus });
   const { isHovered, hoverProps } = useHover({ isDisabled });
+  const { pressProps } = usePress({ isDisabled: inputProps.disabled });
 
   const { className } = useStyles({
     css,
@@ -58,7 +60,7 @@ const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>((props, forwar
   });
 
   return (
-    <label {...mergeProps(hoverProps, other)} className={classes} ref={forwardedRef}>
+    <Comp {...mergeProps(hoverProps, pressProps)} className={classes} ref={forwardedRef}>
       <input
         {...mergeProps(inputProps, focusProps)}
         className="manifest-checkbox__input"
@@ -76,13 +78,6 @@ const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>((props, forwar
           {children}
         </Typography>
       )}
-    </label>
+    </Comp>
   );
 });
-
-if (__DEV__) {
-  Checkbox.displayName = 'ManifestCheckbox';
-}
-
-export { Checkbox };
-export type { CheckboxProps };
