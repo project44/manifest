@@ -1,20 +1,18 @@
-import { DOMProps, StyleProps } from '../../types';
 import type { AriaRadioGroupProps } from '@react-types/radio';
 import * as React from 'react';
-import { cx } from '../../styles';
+import { CSS, cx } from '../../styles';
+import { createComponent } from '@project44-manifest/system';
 import { mergeProps } from '@react-aria/utils';
 import { RadioGroupContext } from './RadioGroup.context';
 import { useRadioGroup } from '@react-aria/radio';
 import { useRadioGroupState } from '@react-stately/radio';
 import { useStyles } from './RadioGroup.styles';
 
-type RadioGroupElement = React.ElementRef<'div'>;
-
-interface RadioGroupProps extends AriaRadioGroupProps, DOMProps, StyleProps {
+export interface RadioGroupProps extends AriaRadioGroupProps {
   /**
-   * The radios within the group.
+   * Theme aware style object.
    */
-  children?: React.ReactNode;
+  css?: CSS;
   /**
    * The layout orientation of the radio group.
    *
@@ -23,8 +21,15 @@ interface RadioGroupProps extends AriaRadioGroupProps, DOMProps, StyleProps {
   orientation?: 'horizontal' | 'vertical';
 }
 
-const RadioGroup = React.forwardRef<RadioGroupElement, RadioGroupProps>((props, forwardedRef) => {
-  const { className: classNameProp, children, css, orientation = 'vertical', ...other } = props;
+export const RadioGroup = createComponent<'div', RadioGroupProps>((props, forwardedRef) => {
+  const {
+    as: Comp = 'div',
+    className: classNameProp,
+    children,
+    css,
+    orientation = 'vertical',
+    ...other
+  } = props;
 
   const state = useRadioGroupState(props);
   const { radioGroupProps } = useRadioGroup(props, state);
@@ -37,15 +42,8 @@ const RadioGroup = React.forwardRef<RadioGroupElement, RadioGroupProps>((props, 
   });
 
   return (
-    <div {...mergeProps(radioGroupProps, other)} className={classes} ref={forwardedRef}>
+    <Comp {...mergeProps(radioGroupProps, other)} className={classes} ref={forwardedRef}>
       <RadioGroupContext.Provider value={{ state }}>{children}</RadioGroupContext.Provider>
-    </div>
+    </Comp>
   );
 });
-
-if (__DEV__) {
-  RadioGroup.displayName = 'ManifestRadioGroup';
-}
-
-export { RadioGroup };
-export type { RadioGroupProps };

@@ -1,26 +1,31 @@
-import type { DOMProps, StyleProps } from '../../types';
 import type { AriaSwitchProps } from '@react-types/switch';
 import * as React from 'react';
-import { cx } from '../../styles';
+import { CSS, cx } from '../../styles';
+import { useHover, usePress } from '@react-aria/interactions';
+import { createComponent } from '@project44-manifest/system';
 import { mergeProps } from '@react-aria/utils';
 import { Typography } from '../Typography';
 import { useFocusRing } from '@react-aria/focus';
-import { useHover } from '@react-aria/interactions';
 import { useStyles } from './Switch.styles';
 import { useSwitch } from '@react-aria/switch';
 import { useToggleState } from '@react-stately/toggle';
 
-type SwitchElement = React.ElementRef<'label'>;
-
-interface SwitchProps extends AriaSwitchProps, DOMProps, StyleProps {
+export interface SwitchProps extends AriaSwitchProps {
   /**
-   * The label of the radio
+   * Theme aware style object.
    */
-  chidlren?: React.ReactNode;
+  css?: CSS;
 }
 
-const Switch = React.forwardRef<SwitchElement, SwitchProps>((props, forwardedRef) => {
-  const { autoFocus, children, className: classNameProp, css, isDisabled, ...other } = props;
+export const Switch = createComponent<'label', SwitchProps>((props, forwardedRef) => {
+  const {
+    as: Comp = 'label',
+    autoFocus,
+    children,
+    className: classNameProp,
+    css,
+    isDisabled,
+  } = props;
 
   const inputRef = React.useRef<HTMLInputElement>(null);
 
@@ -28,9 +33,10 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>((props, forwardedRef
 
   const isChecked = state.isSelected;
 
-  const { inputProps } = useSwitch({ ...other, autoFocus, children, isDisabled }, state, inputRef);
+  const { inputProps } = useSwitch(props, state, inputRef);
   const { hoverProps, isHovered } = useHover({ isDisabled });
   const { focusProps, isFocusVisible } = useFocusRing({ autoFocus });
+  const { pressProps } = usePress({ isDisabled: inputProps.disabled });
 
   const { className } = useStyles({
     css,
@@ -47,7 +53,7 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>((props, forwardedRef
   });
 
   return (
-    <label {...mergeProps(hoverProps, other)} className={classes} ref={forwardedRef}>
+    <Comp {...mergeProps(hoverProps, pressProps)} className={classes} ref={forwardedRef}>
       <input
         {...mergeProps(inputProps, focusProps)}
         className="manifest-switch__input"
@@ -63,13 +69,6 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>((props, forwardedRef
           {children}
         </Typography>
       )}
-    </label>
+    </Comp>
   );
 });
-
-if (__DEV__) {
-  Switch.displayName = 'ManifestSwitch';
-}
-
-export { Switch };
-export type { SwitchProps };
