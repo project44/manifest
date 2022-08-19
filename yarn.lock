@@ -3477,8 +3477,8 @@ __metadata:
   dependencies:
     "@internationalized/date": ^3.0.0
     "@project44-manifest/design-tokens": ^1.1.0
-    "@project44-manifest/system": ^0.0.0
-    "@project44-manifest/theme": ^0.0.0
+    "@project44-manifest/system": ^0.1.0
+    "@project44-manifest/theme": ^0.1.0
     "@radix-ui/react-slot": ^1.0.0
     "@react-aria/button": ^3.5.1
     "@react-aria/calendar": ^3.0.0
@@ -3525,7 +3525,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/system@^0.0.0, @project44-manifest/system@workspace:packages/system":
+"@project44-manifest/system@^0.1.0, @project44-manifest/system@workspace:packages/system":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/system@workspace:packages/system"
   dependencies:
@@ -3537,7 +3537,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/theme@^0.0.0, @project44-manifest/theme@workspace:packages/theme":
+"@project44-manifest/theme@^0.1.0, @project44-manifest/theme@workspace:packages/theme":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/theme@workspace:packages/theme"
   dependencies:
