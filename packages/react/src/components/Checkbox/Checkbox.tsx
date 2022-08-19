@@ -25,16 +25,13 @@ export const Checkbox = createComponent<'label', CheckboxProps>((props, forwarde
     children,
     className: classNameProp,
     css,
-    defaultSelected,
     isDisabled,
     isIndeterminate,
-    isSelected,
-    onChange,
   } = props;
 
   const inputRef = React.useRef<HTMLInputElement>(null);
 
-  const state = useToggleState({ isSelected, defaultSelected, onChange });
+  const state = useToggleState(props);
 
   const isChecked = state.isSelected;
 
