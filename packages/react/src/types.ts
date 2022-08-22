@@ -29,3 +29,12 @@ export interface DefinedRange {
   label: string;
   rangeAnchor: RangeAnchor;
 }
+
+export interface DefaultRanges {
+  today: { label: string; key: string };
+  yesterday: { label: string; key: string };
+  thisWeek: { label: string; key: string };
+  lastWeek: { label: string; key: string };
+  thisMonth: { label: string; key: string };
+  lastMonth: { label: string; key: string };
+}

@@ -1,5 +1,6 @@
 import { CalendarDate } from '@internationalized/date';
 import { DefinedRange } from '../../../types';
+import { defaultDateRanges } from '../../../constants';
 import {
   addDays,
   endOfDay,
@@ -11,8 +12,8 @@ import {
   endOfWeek,
 } from 'date-fns';
 
-const defaultDate = new Date();
-const defineds = {
+export const defaultDate = new Date();
+export const defineds = {
   startOfWeek: startOfWeek(defaultDate),
   endOfWeek: endOfWeek(defaultDate),
   startOfLastWeek: startOfWeek(addDays(defaultDate, -7)),
@@ -26,57 +27,58 @@ const defineds = {
   startOfLastMonth: startOfMonth(addMonths(defaultDate, -1)),
   endOfLastMonth: endOfMonth(addMonths(defaultDate, -1)),
 };
-const createCalendarDate = (date: Date) => {
+export const createCalendarDate = (date: Date) => {
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
   const day = date.getDate();
   return new CalendarDate(year, month, day);
 };
 export const getDefaultRanges = (): DefinedRange[] => {
+  const { today, yesterday, thisWeek, lastWeek, thisMonth, lastMonth } = defaultDateRanges;
   return [
     {
-      key: 'today',
-      label: 'Today',
+      key: today.key,
+      label: today.label,
       rangeAnchor: {
         start: createCalendarDate(defineds.startOfToday),
         end: createCalendarDate(defineds.startOfToday),
       },
     },
     {
-      key: 'yesterday',
-      label: 'Yesterday',
+      key: yesterday.key,
+      label: yesterday.label,
       rangeAnchor: {
         start: createCalendarDate(defineds.startOfYesterday),
         end: createCalendarDate(defineds.endOfYesterday),
       },
     },
     {
-      key: 'thisWeek',
-      label: 'This week',
+      key: thisWeek.key,
+      label: thisWeek.label,
       rangeAnchor: {
         start: createCalendarDate(defineds.startOfWeek),
         end: createCalendarDate(defineds.endOfWeek),
       },
     },
     {
-      key: 'lastWeek',
-      label: 'Last week',
+      key: lastWeek.key,
+      label: lastWeek.label,
       rangeAnchor: {
         start: createCalendarDate(defineds.startOfLastWeek),
         end: createCalendarDate(defineds.endOfLastWeek),
       },
     },
     {
-      key: 'thisMonth',
-      label: 'This month',
+      key: thisMonth.key,
+      label: thisMonth.label,
       rangeAnchor: {
         start: createCalendarDate(defineds.startOfMonth),
         end: createCalendarDate(defineds.endOfMonth),
       },
     },
     {
-      key: 'lastMonth',
-      label: 'Last month',
+      key: lastMonth.key,
+      label: lastMonth.label,
       rangeAnchor: {
         start: createCalendarDate(defineds.startOfLastMonth),
         end: createCalendarDate(defineds.endOfLastMonth),

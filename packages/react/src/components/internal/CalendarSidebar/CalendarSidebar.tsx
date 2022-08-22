@@ -5,7 +5,7 @@ import { useStyles } from './CalendarSidebar.styles';
 import { ListBox, ListBoxItem } from '../../ListBox';
 import { DefinedRange } from '../../../types';
 
-interface CalendarHeaderProps {
+interface CalendarSideBarProps {
   /**
    * The calendar state.
    */
@@ -19,7 +19,7 @@ interface CalendarHeaderProps {
   onChange?: () => void;
 }
 
-function CalendarSidebar(props: CalendarHeaderProps) {
+function CalendarSidebar(props: CalendarSideBarProps) {
   const { state, ranges } = props;
   const { className } = useStyles();
 
@@ -51,11 +51,15 @@ function CalendarSidebar(props: CalendarHeaderProps) {
 
   return (
     <div className={cx(className, 'manifest-calendar-sidebar')}>
-      <ListBox>
+      <ListBox aria-label={'listbox'}>
         {ranges.map(item => {
           return (
-            <ListBoxItem key={item.key}>
+            <ListBoxItem aria-label={item.label} key={item.key}>
               <div
+                role="option"
+                aria-selected={false}
+                aria-disabled="false"
+                aria-label={item.key}
                 aria-hidden="true"
                 id={item.key}
                 onMouseEnter={previewChange}

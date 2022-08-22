@@ -5,6 +5,8 @@ import { CalendarDate, DateValue } from '@internationalized/date';
 import { DateRangePicker } from './DateRangePicker';
 import { Flex } from '../Flex';
 import { Icon } from '../Icon';
+import { createCalendarDate } from '../internal/CalendarSidebar/defaultDefinedRanges';
+import { startOfMonth, endOfMonth, addMonths } from 'date-fns';
 
 export default {
   title: 'Components/DateRangePicker',
@@ -70,5 +72,75 @@ Controlled.decorators = [
     });
 
     return <DateRangePicker onChange={setValue} value={value} />;
+  },
+];
+
+export const WithRelativeRanges = Template.bind({});
+
+WithRelativeRanges.decorators = [
+  () => {
+    return <DateRangePicker showRanges={true} />;
+  },
+];
+
+export const OnlyRelativeRanges = Template.bind({});
+
+OnlyRelativeRanges.decorators = [
+  () => {
+    return <DateRangePicker showRanges={true} showCalendar={false} />;
+  },
+];
+
+export const CustomRelativeRanges = Template.bind({});
+
+CustomRelativeRanges.decorators = [
+  () => {
+    const defaultDate = new Date();
+    const defineds = {
+      startOfLastThreeMonths: startOfMonth(addMonths(defaultDate, -3)),
+      endOfLastThreeMonths: endOfMonth(addMonths(defaultDate, -1)),
+      startOfLastSixMonths: startOfMonth(addMonths(defaultDate, -6)),
+      endOfLastSixMonths: endOfMonth(addMonths(defaultDate, -1)),
+      startOfLastYear: startOfMonth(addMonths(defaultDate, -13)),
+      endOfLastYear: endOfMonth(addMonths(defaultDate, -1)),
+      startOfLastTwoYears: startOfMonth(addMonths(defaultDate, -25)),
+      endOfLastTwoYears: endOfMonth(addMonths(defaultDate, -1)),
+    };
+    const customRanges = [
+      {
+        key: 'lastThreeMonths',
+        label: 'Last three months',
+        rangeAnchor: {
+          start: createCalendarDate(defineds.startOfLastThreeMonths),
+          end: createCalendarDate(defineds.endOfLastThreeMonths),
+        },
+      },
+      {
+        key: 'lastSixMonths',
+        label: 'Last six months',
+        rangeAnchor: {
+          start: createCalendarDate(defineds.startOfLastSixMonths),
+          end: createCalendarDate(defineds.endOfLastSixMonths),
+        },
+      },
+      {
+        key: 'lastYear',
+        label: 'Last Year',
+        rangeAnchor: {
+          start: createCalendarDate(defineds.startOfLastYear),
+          end: createCalendarDate(defineds.endOfLastYear),
+        },
+      },
+      {
+        key: 'lastTwoYears',
+        label: 'Last Two Years',
+        rangeAnchor: {
+          start: createCalendarDate(defineds.startOfLastTwoYears),
+          end: createCalendarDate(defineds.endOfLastTwoYears),
+        },
+      },
+    ];
+
+    return <DateRangePicker showRanges={true} ranges={customRanges} />;
   },
 ];
