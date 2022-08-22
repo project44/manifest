@@ -201,8 +201,8 @@ describe('@project44-manifest/components - Calendar', () => {
 
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith({
-      start: new CalendarDate(year, month + 1, day - 1),
-      end: new CalendarDate(year, month + 1, day - 1),
+      start: new CalendarDate(year, month, day - 1),
+      end: new CalendarDate(year, month, day - 1),
     });
   });
 
