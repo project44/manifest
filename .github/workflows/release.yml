@@ -31,7 +31,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Install dependencies
-        run: yarn --frozen-lockfile
+        run: yarn --immutable
 
       - name: Create release Pull Request or publish to NPM
       - uses: changesets/action@v1
@@ -42,6 +42,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
 
   chromatic:
     name: Update chromatic
@@ -60,7 +61,7 @@ jobs:
           node-version: 16.14.x
 
       - name: Install dependencies
-        run: yarn --frozen-lockfile
+        run: yarn --immutable
 
       - name: Build packages
         run: yarn build
