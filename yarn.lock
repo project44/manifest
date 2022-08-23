@@ -9780,7 +9780,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chokidar@npm:^3.4.1, chokidar@npm:^3.4.2, chokidar@npm:^3.5.2, chokidar@npm:^3.5.3":
+"chokidar@npm:^3.4.1, chokidar@npm:^3.4.2, chokidar@npm:^3.5.2":
   version: 3.5.3
   resolution: "chokidar@npm:3.5.3"
   dependencies:
@@ -15982,7 +15982,6 @@ __metadata:
     "@types/react": ^18.0.9
     "@typescript-eslint/eslint-plugin": ^5.34.0
     "@typescript-eslint/parser": ^5.34.0
-    chokidar: ^3.5.3
     chokidar-cli: ^3.0.0
     chromatic: ^6.6.4
     eslint: ^8.22.0
