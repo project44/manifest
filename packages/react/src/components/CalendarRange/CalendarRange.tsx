@@ -14,7 +14,6 @@ import { RangeCalendarStateOptions, useRangeCalendarState } from '@react-stately
 import { useStyles } from '../CalendarRange/CalendarRange.styles';
 import { getDefaultRanges } from '../internal/CalendarSidebar/defaultDefinedRanges';
 import { CalendarSidebar } from '../internal/CalendarSidebar';
-import { ClassValue } from 'clsx';
 
 export interface CalendarRangeProps extends RangeCalendarProps<DateValue>, StyleProps {
   /**
@@ -39,67 +38,60 @@ export interface CalendarRangeProps extends RangeCalendarProps<DateValue>, Style
    * Brings the list of ranges defined to the component
    */
   ranges?: DefinedRange[];
-
-  /**
-   *  As type of element is receiving the component
-   */
-  as?: React.ElementType;
 }
 
-export const CalendarRange = createComponent<'div', CalendarRangeProps>(
-  (props: CalendarRangeProps, forwardedRef: React.ForwardedRef<HTMLDivElement>) => {
-    const {
-      as: Comp = 'div',
-      className: classNameProp,
-      css,
-      showCalendar,
-      showRanges,
-      ranges,
-      ...other
-    } = props;
+export const CalendarRange = createComponent<'div', CalendarRangeProps>((props, forwardedRef) => {
+  const {
+    as: Comp = 'div',
+    className: classNameProp,
+    css,
+    showCalendar,
+    showRanges,
+    ranges,
+    ...other
+  } = props;
 
-    const calendarRef = React.useRef<HTMLDivElement>(null);
+  const calendarRef = React.useRef<HTMLDivElement>(null);
 
-    const { locale } = useLocale();
+  const { locale } = useLocale();
 
-    const state = useRangeCalendarState({
-      ...other,
-      locale,
-      visibleDuration: { months: 1 },
-      createCalendar,
-    } as RangeCalendarStateOptions);
+  const state = useRangeCalendarState({
+    ...other,
+    locale,
+    visibleDuration: { months: 1 },
+    createCalendar,
+  } as RangeCalendarStateOptions);
 
-    const { calendarProps, nextButtonProps, prevButtonProps } = useRangeCalendar(
-      other as RangeCalendarProps<DateValue>,
-      state,
-      calendarRef,
-    );
+  const { calendarProps, nextButtonProps, prevButtonProps } = useRangeCalendar(
+    other as RangeCalendarProps<DateValue>,
+    state,
+    calendarRef,
+  );
 
-    const { className } = useStyles({ css, showCalendar });
-    const definedRanges: DefinedRange[] = showRanges && ranges ? ranges : getDefaultRanges();
+  const { className } = useStyles({ css, showCalendar });
+  const definedRanges: DefinedRange[] = showRanges && ranges ? ranges : getDefaultRanges();
 
-    return (
-      <Comp
-        {...calendarProps}
-        className={cx(className, classNameProp as ClassValue, 'manifest-range-calendar')}
-        ref={mergeRefs(calendarRef, forwardedRef)}
-      >
-        {showRanges && <CalendarSidebar state={state} ranges={definedRanges} />}
-        {showCalendar && (
-          <>
-            <Separator orientation="vertical" />
-            <div className={cx('manifest-datepicker__calendar')}>
-              <CalendarHeader
-                nextButtonProps={nextButtonProps}
-                prevButtonProps={prevButtonProps}
-                state={state}
-              />
-              <Separator />
-              <CalendarTable state={state} />
-            </div>
-          </>
-        )}
-      </Comp>
-    );
-  },
-);
+  return (
+    <Comp
+      {...calendarProps}
+      className={cx(className, classNameProp, 'manifest-range-calendar')}
+      ref={mergeRefs(calendarRef, forwardedRef)}
+    >
+      {showRanges && <CalendarSidebar state={state} ranges={definedRanges} />}
+      {showCalendar && (
+        <>
+          {showRanges && showCalendar && <Separator orientation="vertical" />}
+          <div className={cx('manifest-datepicker__calendar')}>
+            <CalendarHeader
+              nextButtonProps={nextButtonProps}
+              prevButtonProps={prevButtonProps}
+              state={state}
+            />
+            <Separator />
+            <CalendarTable state={state} />
+          </div>
+        </>
+      )}
+    </Comp>
+  );
+});
