@@ -1,7 +1,8 @@
-import type { DOMProps, StyleProps } from '../../types';
 import type { AriaDatePickerProps } from '@react-types/datepicker';
+import type { DateValue } from '@react-types/calendar';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { Calendar, DateValue } from '../Calendar';
+import { Calendar } from '../Calendar';
 import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { Popover } from '../Popover';
@@ -72,8 +73,6 @@ export const DatePicker = createComponent<'div', DatePickerProps>((props, forwar
   } = props;
 
   const state = useDatePickerState(props);
-
-  console.log(state);
 
   const triggerRef = React.useRef<HTMLButtonElement>(null);
   const popoverRef = React.useRef<HTMLDivElement>(null);

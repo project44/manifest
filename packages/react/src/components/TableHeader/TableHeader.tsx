@@ -1,25 +1,12 @@
-import type { DOMProps, StyleProps } from '../../types';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 
-type TableHeaderElement = React.ElementRef<'thead'>;
+export type TableHeaderProps = StyleProps;
 
-interface TableHeaderProps extends DOMProps, StyleProps {
-  /**
-   * The rows within the header.
-   */
-  children?: React.ReactNode;
-}
-
-const TableHeader = React.forwardRef<TableHeaderElement, TableHeaderProps>(
-  ({ className, ...other }, forwardedRef) => (
-    <thead {...other} className={cx(className, 'manifest-table-header')} ref={forwardedRef} />
+export const TableHeader = createComponent<'thead', TableHeaderProps>(
+  ({ as: Comp = 'thead', className, ...other }, forwardedRef) => (
+    <Comp {...other} className={cx(className, 'manifest-table-header')} ref={forwardedRef} />
   ),
 );
-
-if (__DEV__) {
-  TableHeader.displayName = 'ManifestTableHeader';
-}
-
-export { TableHeader };
-export type { TableHeaderProps };

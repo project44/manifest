@@ -1,21 +1,11 @@
 {
   "extends": "./tsconfig.options.json",
-  "files": [],
-  "references": [
-    {
-      "path": "packages/design-tokens"
-    },
-    {
-      "path": "packages/react"
-    },
-    {
-      "path": "packages/system"
-    },
-    {
-      "path": "packages/theme"
-    },
-    {
-      "path": "packages/vessel"
+  "compilerOptions": {
+    "paths": {
+      "@project44-manifest/design-tokens": ["./packages/design-tokens/src"],
+      "@project44-manifest/react": ["./packages/react/src"],
+      "@project44-manifest/system": ["./packages/system/src"],
+      "@project44-manifest/theme": ["./packages/theme/src"]
     }
-  ]
+  }
 }

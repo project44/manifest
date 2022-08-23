@@ -10,7 +10,7 @@ import { useHover } from '@react-aria/interactions';
 import { useLocale } from '@react-aria/i18n';
 import { useStyles } from './CalendarCell.styles';
 
-interface CalendarCellProps {
+export interface CalendarCellProps {
   /**
    * The current month to helpe determine out of range dates.
    */
@@ -28,7 +28,7 @@ interface CalendarCellProps {
 /**
  * @private
  */
-function CalendarCell(props: CalendarCellProps) {
+export function CalendarCell(props: CalendarCellProps) {
   const { currentMonth, date, state } = props;
 
   const ref = React.useRef<HTMLSpanElement>(null);
@@ -97,5 +97,3 @@ function CalendarCell(props: CalendarCellProps) {
     </td>
   );
 }
-
-export { CalendarCell };

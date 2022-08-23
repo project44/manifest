@@ -1,29 +1,41 @@
 {
   "name": "@project44-manifest/design-tokens",
   "version": "1.1.0",
-  "main": "./lib/index.js",
-  "module": "./esm/index.js",
-  "types": "./dts/index.d.ts",
+  "description": "Manifest Design System design tokens",
+  "license": "MIT",
+  "main": "./dist/main.js",
+  "module": "./dist/module.js",
+  "types": "./dist/types.d.ts",
+  "source": "src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/module.js",
+      "require": "./dist/main.js"
+    },
+    "./json/*": "./dist/json/*",
+    "./css/*": "./dist/css/*"
+  },
   "files": [
-    "dts/**/*.d.ts",
-    "esm/**/*.{js,map}",
-    "lib/**/*.{js,map}",
-    "src/**/*.{ts,tsx,json}"
+    "dist",
+    "src"
   ],
   "publishConfig": {
     "access": "public"
   },
+  "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "git@github.com:project-44/manifest.git",
-    "directory": "packages/design-tokens"
+    "url": "git@github.com:project-44/manifest.git"
   },
-  "author": "project44",
-  "license": "MIT",
+  "scripts": {
+    "build": "run-s build:tokens build:package",
+    "build:tokens": "node -r @swc-node/register scripts/build.ts",
+    "build:package": "parcel build",
+    "clean": "rm -rf .turbo dist",
+    "dev": "chokidar \"tokens/**/*.json\" -c \"yarn run build\""
+  },
   "devDependencies": {
     "style-dictionary": "^3.7.0"
-  },
-  "packemon": {
-    "platform": "browser"
   }
 }

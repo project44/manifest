@@ -1,18 +1,17 @@
-import type { DOMProps, StyleProps } from '../../types';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useStyles } from './Icon.styles';
 
-type IconElement = React.ElementRef<'span'>;
-
-interface IconProps extends DOMProps, StyleProps {
+export interface IconProps extends StyleProps {
   /**
    * The material-icons icon name
    */
   icon?: string;
 }
 
-const Icon = React.forwardRef<IconElement, IconProps>((props, forwardedRef) => {
+export const Icon = createComponent<'span', IconProps>((props, forwardedRef) => {
   const { className: classNameProp, css, icon, ...other } = props;
 
   const { className } = useStyles({ css });
@@ -27,10 +26,3 @@ const Icon = React.forwardRef<IconElement, IconProps>((props, forwardedRef) => {
     </span>
   );
 });
-
-if (__DEV__) {
-  Icon.displayName = 'ManifestIcon';
-}
-
-export { Icon };
-export type { IconProps };

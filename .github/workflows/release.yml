@@ -1,4 +1,4 @@
-name: release
+name: Release
 
 on:
   push:
@@ -10,48 +10,71 @@ on:
 
 jobs:
   release:
-    name: release
+    name: Version or publish the packages
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout branch
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.14.x
+
+      - name: Setup NPM register
       - run: |
           cat << EOF > "$HOME/.npmrc"
             //registry.npmjs.org/:_authToken=$NPM_TOKEN
           EOF
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: yarn install --immutable
-      - run: yarn run pack
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Create release Pull Request or publish to NPM
       - uses: changesets/action@v1
         with:
-          version: yarn run version
-          publish: yarn run release
+          version: yarn version
+          publish: yarn release
           commit: 'chore(release): version packages'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false
 
   chromatic:
-    name: chromatic
+    name: Update chromatic
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'chore(release): version packages')"
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout branch
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v3
-      - run: yarn install --immutable
-      - run: yarn run pack
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.14.x
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Build packages
+        run: yarn build
+
+      - name: Build Storybook
+        run: yarn workspace @project44-manifest/react run storybook:build --quiet
+
       - uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          buildScriptName: 'build:storybook'
           autoAcceptChanges: 'main'
+          storybookBuildDir: 'packages/react/docs'
+          exitZeroOnChanges: true
           exitOnceUploaded: true
         env:
           STORYBOOK_GITHUB_SHA: ${{ github.sha }}

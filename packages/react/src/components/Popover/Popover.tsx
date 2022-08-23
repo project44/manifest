@@ -5,7 +5,7 @@ import { OverlayContainer, useOverlayPosition } from '@react-aria/overlays';
 import { PopoverContext } from './Popover.context';
 import { PopoverContent } from '../internal/PopoverContent';
 
-interface PopoverProps extends DOMProps, StyleProps {
+export interface PopoverProps extends DOMProps, StyleProps {
   /**
    * The content of the popover.
    */
@@ -101,7 +101,7 @@ interface PopoverProps extends DOMProps, StyleProps {
   shouldCloseOnInteractOutside?(element: HTMLElement): boolean;
 }
 
-const Popover: React.FC<PopoverProps> = props => {
+export const Popover: React.FC<PopoverProps> = props => {
   const {
     children,
     className,
@@ -182,10 +182,3 @@ const Popover: React.FC<PopoverProps> = props => {
     </PopoverContext.Provider>
   );
 };
-
-if (__DEV__) {
-  Popover.displayName = 'ManifestPopover';
-}
-
-export { Popover };
-export type { PopoverProps };

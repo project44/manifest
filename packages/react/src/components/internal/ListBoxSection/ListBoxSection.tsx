@@ -9,7 +9,7 @@ import { Typography } from '../../Typography';
 import { useListBoxSection } from '@react-aria/listbox';
 import { useStyles } from './ListBoxSection.styles';
 
-interface ListBoxSectionProps<T extends object = object> extends DOMProps, StyleProps {
+export interface ListBoxSectionProps<T extends object = object> extends DOMProps, StyleProps {
   /**
    * The content of the section.
    */
@@ -24,7 +24,7 @@ interface ListBoxSectionProps<T extends object = object> extends DOMProps, Style
   title?: React.ReactNode;
 }
 
-const ListBoxSection: React.FC<ListBoxSectionProps> = props => {
+export const ListBoxSection: React.FC<ListBoxSectionProps> = props => {
   const { className: classNameProp, css, item } = props;
 
   const { state } = useListBoxContext() as ListBoxContext;
@@ -60,10 +60,3 @@ const ListBoxSection: React.FC<ListBoxSectionProps> = props => {
     </>
   );
 };
-
-if (__DEV__) {
-  ListBoxSection.displayName = 'ManifestListBoxSection';
-}
-
-export { ListBoxSection };
-export type { ListBoxSectionProps };

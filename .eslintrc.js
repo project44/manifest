@@ -1,30 +1,13 @@
-import { IGNORE_LIST, ROOT, TSCONFIG_JSON_PATH } from '../constants';
-import { ESLintConfig } from '@beemo/driver-eslint';
-import fs from 'fs';
-import { getRootProjectReferences } from '../utils';
-import path from 'path';
+const path = require('path');
 
-let project: string[] | string = '';
+const packages = require('./package.json').workspaces;
 
-const tsConfigEslintPath = path.join(ROOT, 'tsconfig.eslint.json');
-
-if (fs.existsSync(tsConfigEslintPath)) {
-  project = tsConfigEslintPath;
-}
-
-if (!project) {
-  project =
-    getRootProjectReferences()?.map(ref => path.join(ROOT, ref.path, 'tsconfig.json')) ??
-    TSCONFIG_JSON_PATH;
-}
-
-const config: ESLintConfig = {
+module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2020,
-    project,
-    sourceType: 'module',
+    tsconfigRootDir: __dirname,
+    project: 'tsconfig.eslint.json',
   },
   extends: [
     'eslint:recommended',
@@ -33,27 +16,30 @@ const config: ESLintConfig = {
     'plugin:prettier/recommended',
   ],
   plugins: ['import', '@typescript-eslint'],
-  ignore: [...IGNORE_LIST, '*.min.js', '*.map', '*.snap'],
   env: {
     es6: true,
     browser: true,
     node: true,
   },
   globals: {
-    [`__DEV__`]: 'readonly',
-    [`__PROD__`]: 'readonly',
+    __DEV__: 'readonly',
+    __PROD__: 'readonly',
   },
   rules: {
     'no-param-reassign': 'off',
     'no-use-before-define': 0,
-
     'import/first': 'error',
     'import/prefer-default-export': 'off',
     'import/newline-after-import': 'error',
     'import/no-amd': 'error',
     'import/no-extraneous-dependencies': 'off',
-    'import/order': ['error', { groups: [], 'newlines-between': 'never' }],
-
+    'import/order': [
+      'error',
+      {
+        groups: [],
+        'newlines-between': 'never',
+      },
+    ],
     '@typescript-eslint/ban-ts-comment': 'warn',
     '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
     '@typescript-eslint/explicit-module-boundary-types': 'off',
@@ -135,5 +121,3 @@ const config: ESLintConfig = {
     },
   ],
 };
-
-export default config;

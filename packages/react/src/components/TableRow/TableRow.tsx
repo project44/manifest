@@ -1,17 +1,12 @@
-import type { DOMProps, StyleProps } from '../../types';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
 import { chain } from '@react-aria/utils';
+import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useStyles } from './TableRow.styles';
 import { useTableContext } from '../Table';
 
-type TableRowElement = React.ElementRef<'tr'>;
-
-interface TableRowProps extends DOMProps, StyleProps {
-  /**
-   * The cells within the row.
-   */
-  children?: React.ReactNode;
+export interface TableRowProps extends StyleProps {
   /**
    * Handler called on mouse enter.
    */
@@ -22,8 +17,9 @@ interface TableRowProps extends DOMProps, StyleProps {
   onMouseLeave?(event: React.MouseEvent<HTMLTableRowElement>): void;
 }
 
-const TableRow = React.forwardRef<TableRowElement, TableRowProps>((props, forwardedRef) => {
+export const TableRow = createComponent<'tr', TableRowProps>((props, forwardedRef) => {
   const {
+    as: Comp = 'tr',
     className: classNameProp,
     onMouseEnter: onMouseEnterProp,
     onMouseLeave: onMouseLeaveProp,
@@ -43,7 +39,7 @@ const TableRow = React.forwardRef<TableRowElement, TableRowProps>((props, forwar
   }, [setIsHovered, showHover]);
 
   return (
-    <tr
+    <Comp
       {...other}
       className={cx(className, classNameProp, 'manifestui-table-row')}
       onMouseEnter={chain(handleMouseEnter, onMouseEnter, onMouseEnterProp)}
@@ -52,10 +48,3 @@ const TableRow = React.forwardRef<TableRowElement, TableRowProps>((props, forwar
     />
   );
 });
-
-if (__DEV__) {
-  TableRow.displayName = 'ManifestTableRow';
-}
-
-export { TableRow };
-export type { TableRowProps };

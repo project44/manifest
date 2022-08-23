@@ -8,7 +8,8 @@ import { Slot } from '@radix-ui/react-slot';
 import { useMenuTrigger } from '@react-aria/menu';
 import { useMenuTriggerState } from '@react-stately/menu';
 
-interface DropdownProps extends Omit<PopoverProps, 'overlayRef' | 'scrollRef' | 'triggerRef'> {
+export interface DropdownProps
+  extends Omit<PopoverProps, 'overlayRef' | 'scrollRef' | 'triggerRef'> {
   /**
    * The contents of the MenuTrigger - a trigger and a Menu.
    */
@@ -51,7 +52,7 @@ interface DropdownProps extends Omit<PopoverProps, 'overlayRef' | 'scrollRef' | 
   type?: 'menu' | 'listbox';
 }
 
-const Dropdown: React.FC<DropdownProps> = props => {
+export const Dropdown: React.FC<DropdownProps> = props => {
   const {
     align: alignProp,
     children,
@@ -131,10 +132,3 @@ const Dropdown: React.FC<DropdownProps> = props => {
     </DropdownContext.Provider>
   );
 };
-
-if (__DEV__) {
-  Dropdown.displayName = 'ManifestDropdown';
-}
-
-export { Dropdown };
-export { DropdownProps };

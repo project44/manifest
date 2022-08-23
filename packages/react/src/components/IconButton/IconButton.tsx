@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Button, ButtonProps } from '../Button';
+import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useStyles } from './IconButton.styles';
 
-type IconButtonElement = React.ElementRef<typeof Button>;
-type IconButtonProps = Omit<ButtonProps, 'endIcon' | 'startIcon'>;
+export type IconButtonProps = Omit<ButtonProps, 'endIcon' | 'startIcon'>;
 
-const IconButton = React.forwardRef<IconButtonElement, IconButtonProps>(
+export const IconButton = createComponent<'button', IconButtonProps>(
   (props: IconButtonProps, forwardedRef) => {
     const { className: classNameProp, css, size = 'medium', variant = 'primary', ...other } = props;
 
@@ -23,10 +23,3 @@ const IconButton = React.forwardRef<IconButtonElement, IconButtonProps>(
     );
   },
 );
-
-if (__DEV__) {
-  IconButton.displayName = 'ManifestIconButton';
-}
-
-export { IconButton };
-export type { IconButtonProps };

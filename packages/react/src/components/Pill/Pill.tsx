@@ -1,6 +1,7 @@
-import { DOMProps, StyleProps } from '../../types';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
 import { useTooltip, useTooltipTrigger } from '@react-aria/tooltip';
+import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { mergeProps } from '@react-aria/utils';
 import { Typography } from '../Typography';
@@ -8,9 +9,7 @@ import { useOverlayPosition } from '@react-aria/overlays';
 import { useStyles } from './Pill.styles';
 import { useTooltipTriggerState } from '@react-stately/tooltip';
 
-type PillElement = React.ElementRef<'div'>;
-
-interface PillProps extends DOMProps, StyleProps {
+export interface PillProps extends StyleProps {
   /**
    * The color scheme of the pill
    *
@@ -33,8 +32,9 @@ interface PillProps extends DOMProps, StyleProps {
   label?: React.ReactNode;
 }
 
-const Pill = React.forwardRef<PillElement, PillProps>((props, forwaredRef) => {
+export const Pill = createComponent<'div', PillProps>((props, forwaredRef) => {
   const {
+    as: Comp = 'div',
     className: classNameProp,
     colorScheme = 'indigo',
     css,
@@ -76,7 +76,7 @@ const Pill = React.forwardRef<PillElement, PillProps>((props, forwaredRef) => {
   });
 
   return (
-    <div {...other} className={classes} ref={forwaredRef}>
+    <Comp {...other} className={classes} ref={forwaredRef}>
       {icon && (
         <span {...triggerProps} className="manifest-pill__icon" ref={triggerRef}>
           {icon}
@@ -91,13 +91,6 @@ const Pill = React.forwardRef<PillElement, PillProps>((props, forwaredRef) => {
           {label}
         </Typography>
       )}
-    </div>
+    </Comp>
   );
 });
-
-if (__DEV__) {
-  Pill.displayName = 'Pill';
-}
-
-export { Pill };
-export type { PillProps };

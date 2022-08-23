@@ -1,34 +1,45 @@
-name: pr
+name: Visual Regression Tests
 
 on:
   push:
     branches:
       - main
   pull_request:
-    paths:
-      - 'packages/design-tokens/**'
-      - 'packages/react/**'
-      - 'packages/theme/**'
 
 jobs:
   chromatic:
-    name: visual regression tests
+    name: Visual regression tests
     runs-on: ubuntu-latest
     if: github.event.pull_request.draft == false
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout branch
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v3
-      - run: yarn install --immutable
-      - run: yarn run pack
-      - uses: chromaui/action@v1
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.14.x
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Build packages
+        run: yarn build
+
+      - name: Build Storybook
+        run: yarn workspace @project44-manifest/react run storybook:build --quiet
+
+      - name: Run Chromatic
+        uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          buildScriptName: 'build:storybook'
           autoAcceptChanges: 'main'
+          storybookBuildDir: 'packages/react/docs'
+          exitZeroOnChanges: true
           exitOnceUploaded: true
         env:
-          STORYBOOK_GITHUB_SHA: ${{ github.event.pull_request.head.sha }}
+          STORYBOOK_GITHUB_SHA: ${{ github.sha }}

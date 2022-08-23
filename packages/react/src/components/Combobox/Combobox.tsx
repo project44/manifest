@@ -1,8 +1,9 @@
-import type { DOMProps, StyleProps } from '../../types';
 import type { AriaComboBoxProps } from '@react-types/combobox';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
 import { ListBoxBase, ListBoxBaseProps } from '../internal/ListBoxBase';
 import { mergeProps, useLayoutEffect, useResizeObserver } from '@react-aria/utils';
+import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
@@ -14,9 +15,7 @@ import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
 import { useStyles } from './Combobox.styles';
 
-type ComboboxElement = React.ElementRef<'div'>;
-
-interface ComboboxProps extends AriaComboBoxProps<object>, DOMProps, StyleProps {
+export interface ComboboxProps extends AriaComboBoxProps<object>, StyleProps {
   /**
    * Helper text to append to the form control input element.
    */
@@ -45,8 +44,9 @@ interface ComboboxProps extends AriaComboBoxProps<object>, DOMProps, StyleProps 
   startIcon?: React.ReactElement;
 }
 
-const Combobox = React.forwardRef<ComboboxElement, ComboboxProps>((props, forwardedRef) => {
+export const Combobox = createComponent<'div', ComboboxProps>((props, forwardedRef) => {
   const {
+    as: Comp = 'div',
     autoFocus,
     className: classNameProp,
     css,
@@ -135,7 +135,7 @@ const Combobox = React.forwardRef<ComboboxElement, ComboboxProps>((props, forwar
       labelProps={mergeProps(labelProps, labelPropsProp)}
       validationState={validationState}
     >
-      <div {...mergeProps(hoverProps, focusProps)} className={classes} ref={forwardedRef}>
+      <Comp {...mergeProps(hoverProps, focusProps)} className={classes} ref={forwardedRef}>
         {startIcon && (
           <span className={cx('manifest-combobox--icon', 'manifest-combobox--icon__start')}>
             {startIcon}
@@ -166,14 +166,7 @@ const Combobox = React.forwardRef<ComboboxElement, ComboboxProps>((props, forwar
             state={state}
           />
         </Popover>
-      </div>
+      </Comp>
     </FormControl>
   );
 });
-
-if (__DEV__) {
-  Combobox.displayName = 'ManifestCombobox';
-}
-
-export { Combobox };
-export type { ComboboxProps };

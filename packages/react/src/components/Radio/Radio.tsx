@@ -1,21 +1,17 @@
+import type { StyleProps } from '../../types';
 import type { AriaRadioProps } from '@react-types/radio';
 import * as React from 'react';
-import { CSS, cx } from '../../styles';
 import { RadioGroupContext, useRadioGroupContext } from '../RadioGroup';
 import { useHover, usePress } from '@react-aria/interactions';
 import { createComponent } from '@project44-manifest/system';
+import { cx } from '../../styles';
 import { mergeProps } from '@react-aria/utils';
 import { Typography } from '../Typography';
 import { useFocusRing } from '@react-aria/focus';
 import { useRadio } from '@react-aria/radio';
 import { useStyles } from './Radio.styles';
 
-export interface RadioProps extends AriaRadioProps {
-  /**
-   * Theme aware style object.
-   */
-  css?: CSS;
-}
+export interface RadioProps extends AriaRadioProps, StyleProps {}
 
 export const Radio = createComponent<'label', RadioProps>((props, forwardedRef) => {
   const {

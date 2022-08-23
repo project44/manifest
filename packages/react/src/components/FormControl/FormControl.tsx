@@ -1,17 +1,12 @@
-import type { DOMProps, StyleProps } from '../../types';
+import type { StyleProps } from '../../types';
 import type { Validation } from '@react-types/shared';
 import * as React from 'react';
+import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { Typography } from '../Typography';
 import { useStyles } from './FormControl.styles';
 
-type FormControlElement = React.ElementRef<'div'>;
-
-interface FormControlProps extends DOMProps, StyleProps, Validation {
-  /**
-   * The input within the form control.
-   */
-  children?: React.ReactNode;
+export interface FormControlProps extends StyleProps, Validation {
   /**
    * Helper text appended to the input element.
    */
@@ -36,64 +31,53 @@ interface FormControlProps extends DOMProps, StyleProps, Validation {
   orientation?: 'horizontal' | 'vertical';
 }
 
-const FormControl = React.forwardRef<FormControlElement, FormControlProps>(
-  (props, forwardedRef) => {
-    const {
-      children,
-      className: classNameProp,
-      css,
-      helperText,
-      helperTextProps = {},
-      isRequired,
-      label,
-      labelProps = {},
-      orientation = 'vertical',
-      validationState,
-      ...other
-    } = props;
+export const FormControl = createComponent<'div', FormControlProps>((props, forwardedRef) => {
+  const {
+    children,
+    className: classNameProp,
+    css,
+    helperText,
+    helperTextProps = {},
+    isRequired,
+    label,
+    labelProps = {},
+    orientation = 'vertical',
+    validationState,
+    ...other
+  } = props;
 
-    const isInvalid = validationState === 'invalid';
+  const isInvalid = validationState === 'invalid';
 
-    const { className } = useStyles({ css, isInvalid, orientation });
+  const { className } = useStyles({ css, isInvalid, orientation });
 
-    return (
-      <div
-        {...other}
-        className={cx(className, classNameProp, 'manifest-form-control')}
-        ref={forwardedRef}
-      >
-        {label && (
-          <label {...labelProps} className="manifest-form-control__label">
-            {label}
-            {isRequired && (
-              <span aria-hidden className="manifest-form-control__required-indicator">
-                *
-              </span>
-            )}
-          </label>
-        )}
+  return (
+    <div
+      {...other}
+      className={cx(className, classNameProp, 'manifest-form-control')}
+      ref={forwardedRef}
+    >
+      {label && (
+        <label {...labelProps} className="manifest-form-control__label">
+          {label}
+          {isRequired && (
+            <span aria-hidden className="manifest-form-control__required-indicator">
+              *
+            </span>
+          )}
+        </label>
+      )}
 
-        {children}
+      {children}
 
-        {helperText && (
-          <Typography
-            {...helperTextProps}
-            className="manifest-form-control__helper-text"
-            variant="caption"
-          >
-            {helperText}
-          </Typography>
-        )}
-      </div>
-    );
-  },
-);
-
-if (__DEV__) {
-  FormControl.displayName = 'ManifestFormControl';
-}
-
-FormControl.toString = () => '.manifest-form-control';
-
-export { FormControl };
-export type { FormControlProps };
+      {helperText && (
+        <Typography
+          {...helperTextProps}
+          className="manifest-form-control__helper-text"
+          variant="caption"
+        >
+          {helperText}
+        </Typography>
+      )}
+    </div>
+  );
+});

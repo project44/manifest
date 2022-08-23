@@ -1,8 +1,9 @@
 import type { AriaCheckboxProps } from '@react-types/checkbox';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
 import { useHover, usePress } from '@react-aria/interactions';
 import { createComponent } from '@project44-manifest/system';
-import { CSS, cx } from '../../styles';
+import { cx } from '../../styles';
 import { Icon } from '../Icon';
 import { mergeProps } from '@react-aria/utils';
 import { Typography } from '../Typography';
@@ -11,12 +12,7 @@ import { useFocusRing } from '@react-aria/focus';
 import { useStyles } from './Checkbox.styles';
 import { useToggleState } from '@react-stately/toggle';
 
-export interface CheckboxProps extends AriaCheckboxProps {
-  /**
-   * Theme aware style object.
-   */
-  css?: CSS;
-}
+export interface CheckboxProps extends AriaCheckboxProps, StyleProps {}
 
 export const Checkbox = createComponent<'label', CheckboxProps>((props, forwardedRef) => {
   const {

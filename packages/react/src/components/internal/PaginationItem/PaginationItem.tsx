@@ -2,15 +2,14 @@ import { DOMProps, StyleProps } from '../../../types';
 import type { AriaButtonProps } from '@react-types/button';
 import * as React from 'react';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
+import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../../styles';
 import { useButton } from '@react-aria/button';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
 import { useStyles } from './PaginationItem.styles';
 
-type PaginationItemElement = React.ElementRef<'button'>;
-
-interface PaginationItemProps extends AriaButtonProps, DOMProps, StyleProps {
+export interface PaginationItemProps extends AriaButtonProps, DOMProps, StyleProps {
   /**
    * The content of the item.
    */
@@ -21,9 +20,16 @@ interface PaginationItemProps extends AriaButtonProps, DOMProps, StyleProps {
   isActive?: boolean;
 }
 
-const PaginationItem = React.forwardRef<PaginationItemElement, PaginationItemProps>(
+export const PaginationItem = createComponent<'button', PaginationItemProps>(
   (props, forwardedRef) => {
-    const { autoFocus, children, className: classNameProp, isActive, isDisabled } = props;
+    const {
+      as: Comp = 'button',
+      autoFocus,
+      children,
+      className: classNameProp,
+      isActive,
+      isDisabled,
+    } = props;
 
     const itemRef = React.useRef<HTMLButtonElement>(null);
 
@@ -49,16 +55,13 @@ const PaginationItem = React.forwardRef<PaginationItemElement, PaginationItemPro
     });
 
     return (
-      <button
+      <Comp
         {...mergeProps(buttonProps, focusProps, hoverProps)}
         className={classes}
         ref={mergeRefs(itemRef, forwardedRef)}
       >
         {children}
-      </button>
+      </Comp>
     );
   },
 );
-
-export { PaginationItem };
-export type { PaginationItemProps };

@@ -7,7 +7,7 @@ import { Icon } from '../../Icon';
 import { Typography } from '../../Typography';
 import { useStyles } from './CalendarHeader.styles';
 
-interface CalendarHeaderProps {
+export interface CalendarHeaderProps {
   /**
    * Props passed to the next button
    */
@@ -22,7 +22,7 @@ interface CalendarHeaderProps {
   state: CalendarState | RangeCalendarState;
 }
 
-function CalendarHeader(props: CalendarHeaderProps) {
+export function CalendarHeader(props: CalendarHeaderProps) {
   const { nextButtonProps, prevButtonProps, state } = props;
 
   const { direction } = useLocale();
@@ -64,5 +64,3 @@ function CalendarHeader(props: CalendarHeaderProps) {
     </div>
   );
 }
-
-export { CalendarHeader };

@@ -8,7 +8,7 @@ import { useCalendarGrid } from '@react-aria/calendar';
 import { useLocale } from '@react-aria/i18n';
 import { useStyles } from './CalendarTable.styles';
 
-interface CalendarTableProps {
+export interface CalendarTableProps {
   /**
    * The calendar state.
    */
@@ -18,7 +18,7 @@ interface CalendarTableProps {
 /**
  * @private
  */
-function CalendarTable(props: CalendarTableProps) {
+export function CalendarTable(props: CalendarTableProps) {
   const { state } = props;
 
   const { locale } = useLocale();
@@ -64,5 +64,3 @@ function CalendarTable(props: CalendarTableProps) {
     </div>
   );
 }
-
-export { CalendarTable };

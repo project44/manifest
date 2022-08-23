@@ -1,0 +1,15 @@
+node_modules/
+build/
+cjs/
+coverage/
+dist/
+dts/
+esm/
+lib/
+mjs/
+umd/
+CHANGELOG.md
+package.json
+tsconfig.json
+tsconfig.*.json
+*.d.ts

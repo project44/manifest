@@ -1,24 +1,27 @@
 {
   "name": "@project44-manifest/system",
   "version": "0.1.0",
-  "author": "project44",
+  "description": "Manifest Design System core utilities",
   "license": "MIT",
-  "main": "./lib/index.js",
-  "module": "./esm/index.js",
-  "types": "./dts/index.d.ts",
+  "main": "./dist/main.js",
+  "module": "./dist/module.js",
+  "types": "./dist/types.d.ts",
+  "source": "src/index.ts",
   "files": [
-    "dts/**/*.d.ts",
-    "esm/**/*.{js,map}",
-    "lib/**/*.{js,map}",
-    "src/**/*.{ts,tsx,json}"
+    "dist",
+    "src"
   ],
   "publishConfig": {
     "access": "public"
   },
+  "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "git@github.com:project-44/manifest.git",
-    "directory": "packages/system"
+    "url": "git@github.com:project-44/manifest.git"
+  },
+  "scripts": {
+    "build": "parcel build",
+    "clean": "rm -rf .turbo dist"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
@@ -27,8 +30,5 @@
   "devDependencies": {
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
-  },
-  "packemon": {
-    "platform": "browser"
   }
 }
