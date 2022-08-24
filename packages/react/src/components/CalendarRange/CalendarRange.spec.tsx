@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { CalendarDate, endOfMonth, startOfMonth } from '@internationalized/date';
 import { CalendarRange } from '../CalendarRange';
@@ -109,7 +109,7 @@ describe('@project44-manifest/react - CalendarRange', () => {
   });
 
   it('should render the sidebar with the default relative date ranges', () => {
-    const { container } = render(
+    render(
       <CalendarRange
         value={{
           start: new CalendarDate(2022, 7, 2),
@@ -119,7 +119,7 @@ describe('@project44-manifest/react - CalendarRange', () => {
       />,
     );
 
-    const results = container.querySelector('.manifest-calendar-sidebar');
+    const results = screen.findAllByRole('listbox');
 
     expect(results).toBeDefined();
     expect(results).toContainHTML('Today');
@@ -131,7 +131,7 @@ describe('@project44-manifest/react - CalendarRange', () => {
   });
 
   it('should render the calendar without relative date ranges', () => {
-    const { container } = render(
+    render(
       <CalendarRange
         value={{
           start: new CalendarDate(2022, 7, 2),
@@ -141,16 +141,19 @@ describe('@project44-manifest/react - CalendarRange', () => {
         showRanges={false}
       />,
     );
+    const listBoxcontainer = screen.findAllByRole('listbox');
+    const calendarResults = screen.getByTestId('calendar-date-picker');
 
-    const sideBarResults = container.querySelector('.manifest-calendar-sidebar');
-    const calendarResults = container.querySelector('.manifest-datepicker__calendar');
+    expect(calendarResults).toBeDefined();
 
-    expect(sideBarResults).toBeNull();
+    const sideBarResults = listBoxcontainer;
+
+    expect(Object.keys(sideBarResults)).toHaveLength(0);
     expect(calendarResults).toBeDefined();
   });
 
   it('should render the calendar and sidebar with provided relative date ranges', () => {
-    const { container } = render(
+    render(
       <CalendarRange
         value={{
           start: new CalendarDate(2022, 7, 2),
@@ -162,8 +165,13 @@ describe('@project44-manifest/react - CalendarRange', () => {
       />,
     );
 
-    const sideBarResults = container.querySelector('.manifest-calendar-sidebar');
-    const calendarResults = container.querySelector('.manifest-datepicker__calendar');
+    const listBoxcontainer = screen.getAllByRole('listbox');
+    const calendarResults = screen.getByTestId('calendar-date-picker');
+
+    expect(listBoxcontainer.length).toBeGreaterThanOrEqual(1);
+    expect(calendarResults).toBeDefined();
+
+    const sideBarResults = listBoxcontainer.shift();
 
     expect(sideBarResults).toBeDefined();
     expect(calendarResults).toBeDefined();
@@ -175,7 +183,7 @@ describe('@project44-manifest/react - CalendarRange', () => {
   });
 
   it('should render the calendar and sidebar with provided relative date ranges and not the default ranges', () => {
-    const wrapper = render(
+    render(
       <CalendarRange
         value={{
           start: new CalendarDate(2022, 7, 2),
@@ -187,22 +195,27 @@ describe('@project44-manifest/react - CalendarRange', () => {
       />,
     );
 
-    const sideBarResults = wrapper.container.querySelector('.manifest-calendar-sidebar');
-    const calendarResults = wrapper.container.querySelector('.manifest-datepicker__calendar');
+    const listBoxcontainer = screen.getAllByRole('listbox');
+    const calendarResults = screen.getByTestId('calendar-date-picker');
 
-    expect(sideBarResults).toBeDefined();
+    expect(listBoxcontainer.length).toBeGreaterThanOrEqual(1);
     expect(calendarResults).toBeDefined();
 
-    expect(sideBarResults).toContainHTML(customRanges[0].label);
-    expect(sideBarResults).toContainHTML(customRanges[1].label);
-    expect(sideBarResults).toContainHTML(customRanges[2].label);
-    expect(sideBarResults).toContainHTML(customRanges[3].label);
+    const rangesResults = listBoxcontainer.shift();
 
-    expect(sideBarResults).not.toContainHTML('Today');
-    expect(sideBarResults).not.toContainHTML('Yesterday');
-    expect(sideBarResults).not.toContainHTML('This Week');
-    expect(sideBarResults).not.toContainHTML('Last Week');
-    expect(sideBarResults).not.toContainHTML('This Month');
-    expect(sideBarResults).not.toContainHTML('Last Month');
+    expect(rangesResults).toBeDefined();
+    expect(calendarResults).toBeDefined();
+
+    expect(rangesResults).toContainHTML(customRanges[0].label);
+    expect(rangesResults).toContainHTML(customRanges[1].label);
+    expect(rangesResults).toContainHTML(customRanges[2].label);
+    expect(rangesResults).toContainHTML(customRanges[3].label);
+
+    expect(rangesResults).not.toContainHTML('Today');
+    expect(rangesResults).not.toContainHTML('Yesterday');
+    expect(rangesResults).not.toContainHTML('This Week');
+    expect(rangesResults).not.toContainHTML('Last Week');
+    expect(rangesResults).not.toContainHTML('This Month');
+    expect(rangesResults).not.toContainHTML('Last Month');
   });
 });

@@ -81,7 +81,7 @@ export const CalendarRange = createComponent<'div', CalendarRangeProps>((props, 
       {showCalendar && (
         <>
           {showRanges && showCalendar && <Separator orientation="vertical" />}
-          <div className={cx('manifest-datepicker__calendar')}>
+          <div data-testid="calendar-date-picker" className={cx('manifest-datepicker__calendar')}>
             <CalendarHeader
               nextButtonProps={nextButtonProps}
               prevButtonProps={prevButtonProps}
