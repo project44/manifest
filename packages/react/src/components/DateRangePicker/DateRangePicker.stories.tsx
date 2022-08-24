@@ -5,7 +5,7 @@ import { CalendarDate, DateValue } from '@internationalized/date';
 import { DateRangePicker } from './DateRangePicker';
 import { Flex } from '../Flex';
 import { Icon } from '../Icon';
-import { createCalendarDate } from '../internal/CalendarSidebar/defaultDefinedRanges';
+import { createCalendarDate } from '../internal/CalendarRanges/defaultDefinedRanges';
 import { startOfMonth, endOfMonth, addMonths } from 'date-fns';
 
 export default {
@@ -110,7 +110,7 @@ CustomRelativeRanges.decorators = [
       {
         key: 'lastThreeMonths',
         label: 'Last three months',
-        rangeAnchor: {
+        value: {
           start: createCalendarDate(defineds.startOfLastThreeMonths),
           end: createCalendarDate(defineds.endOfLastThreeMonths),
         },
@@ -118,7 +118,7 @@ CustomRelativeRanges.decorators = [
       {
         key: 'lastSixMonths',
         label: 'Last six months',
-        rangeAnchor: {
+        value: {
           start: createCalendarDate(defineds.startOfLastSixMonths),
           end: createCalendarDate(defineds.endOfLastSixMonths),
         },
@@ -126,7 +126,7 @@ CustomRelativeRanges.decorators = [
       {
         key: 'lastYear',
         label: 'Last Year',
-        rangeAnchor: {
+        value: {
           start: createCalendarDate(defineds.startOfLastYear),
           end: createCalendarDate(defineds.endOfLastYear),
         },
@@ -134,7 +134,7 @@ CustomRelativeRanges.decorators = [
       {
         key: 'lastTwoYears',
         label: 'Last Two Years',
-        rangeAnchor: {
+        value: {
           start: createCalendarDate(defineds.startOfLastTwoYears),
           end: createCalendarDate(defineds.endOfLastTwoYears),
         },

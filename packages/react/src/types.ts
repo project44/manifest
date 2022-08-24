@@ -1,6 +1,7 @@
 import type { CSSProperties } from 'react';
 import { CalendarDate } from '@internationalized/date';
 import { CSS } from './styles';
+import { RangeValue } from './components/CalendarRange';
 
 // Many of these interfaces are clones of react-aria types.
 // Cherry-picking the ones we use most often.
@@ -19,15 +20,10 @@ export interface StyleProps {
   style?: CSSProperties;
 }
 
-export interface RangeAnchor {
-  start: CalendarDate;
-  end: CalendarDate;
-}
-
 export interface DefinedRange {
   key: string;
   label: string;
-  rangeAnchor: RangeAnchor;
+  value: RangeValue<CalendarDate>;
 }
 
 export interface DefaultRanges {

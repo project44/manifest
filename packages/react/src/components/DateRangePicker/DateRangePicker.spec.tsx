@@ -5,7 +5,7 @@ import { CalendarDate } from '@internationalized/date';
 import { DateRangePicker } from './DateRangePicker';
 import userEvent from '@testing-library/user-event';
 import { addMonths, endOfMonth, startOfMonth } from 'date-fns';
-import { createCalendarDate } from '../internal/CalendarSidebar/defaultDefinedRanges';
+import { createCalendarDate } from '../internal/CalendarRanges/defaultDefinedRanges';
 import { DefinedRange } from '../../types';
 
 describe('@project44-manifest/components - Calendar', () => {
@@ -30,7 +30,7 @@ describe('@project44-manifest/components - Calendar', () => {
       {
         key: 'lastThreeMonths',
         label: 'Last three months',
-        rangeAnchor: {
+        value: {
           start: createCalendarDate(defineds.startOfLastThreeMonths),
           end: createCalendarDate(defineds.endOfLastThreeMonths),
         },
@@ -38,7 +38,7 @@ describe('@project44-manifest/components - Calendar', () => {
       {
         key: 'lastSixMonths',
         label: 'Last six months',
-        rangeAnchor: {
+        value: {
           start: createCalendarDate(defineds.startOfLastSixMonths),
           end: createCalendarDate(defineds.endOfLastSixMonths),
         },
@@ -46,7 +46,7 @@ describe('@project44-manifest/components - Calendar', () => {
       {
         key: 'lastYear',
         label: 'Last Year',
-        rangeAnchor: {
+        value: {
           start: createCalendarDate(defineds.startOfLastYear),
           end: createCalendarDate(defineds.endOfLastYear),
         },
@@ -54,7 +54,7 @@ describe('@project44-manifest/components - Calendar', () => {
       {
         key: 'lastTwoYears',
         label: 'Last Two Years',
-        rangeAnchor: {
+        value: {
           start: createCalendarDate(defineds.startOfLastTwoYears),
           end: createCalendarDate(defineds.endOfLastTwoYears),
         },
@@ -235,8 +235,8 @@ describe('@project44-manifest/components - Calendar', () => {
 
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith({
-      start: chosenRange?.rangeAnchor.start,
-      end: chosenRange?.rangeAnchor.end,
+      start: chosenRange?.value.start,
+      end: chosenRange?.value.end,
     });
   });
 });

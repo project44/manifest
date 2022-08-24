@@ -3,13 +3,11 @@ import { render } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { CalendarDate } from '@internationalized/date';
 import { CalendarRange } from '../CalendarRange';
-import { defaultDateRanges } from '../../constants';
-import { DefaultRanges, DefinedRange } from '../../types';
-import { createCalendarDate } from '../internal/CalendarSidebar/defaultDefinedRanges';
+import { DefinedRange } from '../../types';
+import { createCalendarDate } from '../internal/CalendarRanges/defaultDefinedRanges';
 import { addMonths, endOfMonth, startOfMonth } from 'date-fns';
 
 describe('@project44-manifest/react - CalendarRange', () => {
-  let defaultRanges: DefaultRanges;
   let customRanges: DefinedRange[];
   beforeAll(() => {
     // * used for the custom Ranges To start defining the ranges.
@@ -27,12 +25,11 @@ describe('@project44-manifest/react - CalendarRange', () => {
       endOfLastTwoYears: endOfMonth(addMonths(defaultDate, -1)),
     };
 
-    defaultRanges = defaultDateRanges;
     customRanges = [
       {
         key: 'lastThreeMonths',
         label: 'Last three months',
-        rangeAnchor: {
+        value: {
           start: createCalendarDate(defineds.startOfLastThreeMonths),
           end: createCalendarDate(defineds.endOfLastThreeMonths),
         },
@@ -40,7 +37,7 @@ describe('@project44-manifest/react - CalendarRange', () => {
       {
         key: 'lastSixMonths',
         label: 'Last six months',
-        rangeAnchor: {
+        value: {
           start: createCalendarDate(defineds.startOfLastSixMonths),
           end: createCalendarDate(defineds.endOfLastSixMonths),
         },
@@ -48,7 +45,7 @@ describe('@project44-manifest/react - CalendarRange', () => {
       {
         key: 'lastYear',
         label: 'Last Year',
-        rangeAnchor: {
+        value: {
           start: createCalendarDate(defineds.startOfLastYear),
           end: createCalendarDate(defineds.endOfLastYear),
         },
@@ -56,7 +53,7 @@ describe('@project44-manifest/react - CalendarRange', () => {
       {
         key: 'lastTwoYears',
         label: 'Last Two Years',
-        rangeAnchor: {
+        value: {
           start: createCalendarDate(defineds.startOfLastTwoYears),
           end: createCalendarDate(defineds.endOfLastTwoYears),
         },
@@ -112,7 +109,6 @@ describe('@project44-manifest/react - CalendarRange', () => {
   });
 
   it('should render the sidebar with the default relative date ranges', () => {
-    const { today, yesterday, thisWeek, lastWeek, thisMonth, lastMonth } = defaultRanges;
     const { container } = render(
       <CalendarRange
         value={{
@@ -126,12 +122,12 @@ describe('@project44-manifest/react - CalendarRange', () => {
     const results = container.querySelector('.manifest-calendar-sidebar');
 
     expect(results).toBeDefined();
-    expect(results).toContainHTML(today.label);
-    expect(results).toContainHTML(yesterday.label);
-    expect(results).toContainHTML(thisWeek.label);
-    expect(results).toContainHTML(lastWeek.label);
-    expect(results).toContainHTML(thisMonth.label);
-    expect(results).toContainHTML(lastMonth.label);
+    expect(results).toContainHTML('Today');
+    expect(results).toContainHTML('Yesterday');
+    expect(results).toContainHTML('This Week');
+    expect(results).toContainHTML('Last Week');
+    expect(results).toContainHTML('This Month');
+    expect(results).toContainHTML('Last Month');
   });
 
   it('should render the calendar without relative date ranges', () => {
@@ -179,7 +175,6 @@ describe('@project44-manifest/react - CalendarRange', () => {
   });
 
   it('should render the calendar and sidebar with provided relative date ranges and not the default ranges', () => {
-    const { today, yesterday, thisWeek, lastWeek, thisMonth, lastMonth } = defaultRanges;
     const wrapper = render(
       <CalendarRange
         value={{
@@ -203,11 +198,11 @@ describe('@project44-manifest/react - CalendarRange', () => {
     expect(sideBarResults).toContainHTML(customRanges[2].label);
     expect(sideBarResults).toContainHTML(customRanges[3].label);
 
-    expect(sideBarResults).not.toContainHTML(today.label);
-    expect(sideBarResults).not.toContainHTML(yesterday.label);
-    expect(sideBarResults).not.toContainHTML(thisWeek.label);
-    expect(sideBarResults).not.toContainHTML(lastWeek.label);
-    expect(sideBarResults).not.toContainHTML(thisMonth.label);
-    expect(sideBarResults).not.toContainHTML(lastMonth.label);
+    expect(sideBarResults).not.toContainHTML('Today');
+    expect(sideBarResults).not.toContainHTML('Yesterday');
+    expect(sideBarResults).not.toContainHTML('This Week');
+    expect(sideBarResults).not.toContainHTML('Last Week');
+    expect(sideBarResults).not.toContainHTML('This Month');
+    expect(sideBarResults).not.toContainHTML('Last Month');
   });
 });

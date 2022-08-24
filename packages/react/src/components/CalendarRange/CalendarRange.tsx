@@ -12,8 +12,8 @@ import { useLocale } from '@react-aria/i18n';
 import { useRangeCalendar } from '@react-aria/calendar';
 import { RangeCalendarStateOptions, useRangeCalendarState } from '@react-stately/calendar';
 import { useStyles } from '../CalendarRange/CalendarRange.styles';
-import { getDefaultRanges } from '../internal/CalendarSidebar/defaultDefinedRanges';
-import { CalendarSidebar } from '../internal/CalendarSidebar';
+import { getDefaultRanges } from '../internal/CalendarRanges/defaultDefinedRanges';
+import { CalendarRanges } from '../internal/CalendarRanges';
 
 export interface CalendarRangeProps extends RangeCalendarProps<DateValue>, StyleProps {
   /**
@@ -77,7 +77,7 @@ export const CalendarRange = createComponent<'div', CalendarRangeProps>((props, 
       className={cx(className, classNameProp, 'manifest-range-calendar')}
       ref={mergeRefs(calendarRef, forwardedRef)}
     >
-      {showRanges && <CalendarSidebar state={state} ranges={definedRanges} />}
+      {showRanges && <CalendarRanges state={state} ranges={definedRanges} />}
       {showCalendar && (
         <>
           {showRanges && showCalendar && <Separator orientation="vertical" />}
