@@ -1,20 +1,18 @@
 {
   "name": "@project44-manifest/react",
   "version": "1.4.0",
-  "author": "project44",
+  "description": "Manifest Design System react components",
   "license": "MIT",
-  "main": "./lib/index.js",
-  "module": "./esm/index.js",
-  "types": "./dts/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "files": [
-    "dts/**/*.d.ts",
-    "esm/**/*.{js,map}",
-    "lib/**/*.{js,map}",
-    "src/**/*.{ts,tsx,json}"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
   },
+  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "git@github.com:project-44/manifest.git",
@@ -23,6 +21,14 @@
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "clean": "rimraf .turbo dist",
+    "dev": "yarn run storybook",
+    "storybook": "start-storybook -p 6006 --quiet",
+    "storybook:build": "build-storybook -o ./docs",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@internationalized/date": "^3.0.0",
@@ -49,6 +55,7 @@
     "@react-aria/separator": "^3.2.1",
     "@react-aria/ssr": "^3.2.0",
     "@react-aria/switch": "^3.2.1",
+    "@react-aria/textfield": "^3.7.0",
     "@react-aria/tooltip": "^3.2.1",
     "@react-aria/utils": "^3.13.1",
     "@react-aria/visually-hidden": "^3.3.1",
@@ -56,23 +63,28 @@
     "@react-stately/collections": "^3.4.1",
     "@react-stately/combobox": "^3.1.1",
     "@react-stately/datepicker": "^3.0.0",
+    "@react-stately/list": "^3.5.2",
     "@react-stately/menu": "^3.3.1",
     "@react-stately/overlays": "^3.3.1",
     "@react-stately/radio": "^3.4.1",
     "@react-stately/select": "^3.2.1",
     "@react-stately/toggle": "^3.3.1",
     "@react-stately/tooltip": "^3.1.1",
+    "@react-stately/tree": "^3.3.2",
     "@react-stately/utils": "^3.5.0",
     "@stitches/react": "^1.2.8",
     "clsx": "^1.1.1",
     "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "^6.5.10",
+    "@storybook/addon-essentials": "^6.5.10",
+    "@storybook/builder-webpack5": "^6.5.10",
+    "@storybook/manager-webpack5": "^6.5.10",
+    "@storybook/react": "^6.5.10",
     "@types/react-transition-group": "^4.4.5",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
-  },
-  "packemon": {
-    "platform": "browser"
+    "react-dom": "^18.1.0",
+    "webpack": "^5.74.0"
   }
 }

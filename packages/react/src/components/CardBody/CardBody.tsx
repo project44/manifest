@@ -1,34 +1,21 @@
-import type { DOMProps, StyleProps } from '../../types';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useStyles } from './CardBody.styles';
 
-type CardBodyElement = React.ElementRef<'div'>;
+export type CardBodyProps = StyleProps;
 
-interface CardBodyProps extends DOMProps, StyleProps {
-  /**
-   * The content of the card body.
-   */
-  children?: React.ReactNode;
-}
-
-const CardBody = React.forwardRef<CardBodyElement, CardBodyProps>((props, forwardedRef) => {
-  const { className: classNameProp, css, ...other } = props;
+export const CardBody = createComponent<'div', CardBodyProps>((props, forwardedRef) => {
+  const { as: Comp = 'div', className: classNameProp, css, ...other } = props;
 
   const { className } = useStyles({ css });
 
   return (
-    <div
+    <Comp
       {...other}
       className={cx(className, classNameProp, 'manifest-card-body')}
       ref={forwardedRef}
     />
   );
 });
-
-if (__DEV__) {
-  CardBody.displayName = 'ManifestCardBody';
-}
-
-export { CardBody };
-export type { CardBodyProps };

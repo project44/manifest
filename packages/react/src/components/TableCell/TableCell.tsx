@@ -1,18 +1,13 @@
-import type { DOMProps, StyleProps } from '../../types';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
 import { chain, mergeRefs } from '@react-aria/utils';
+import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useStyles } from './TableCell.styles';
 
 type Align = 'center' | 'justify' | 'left' | 'right';
 
-type TableCellElement = React.ElementRef<'td'>;
-
-interface TableCellProps extends DOMProps, StyleProps {
-  /**
-   * The content of the cell.
-   */
-  children?: React.ReactNode;
+export interface TableCellProps extends StyleProps {
   /**
    * Text alignment of the table cell.
    *
@@ -25,8 +20,16 @@ interface TableCellProps extends DOMProps, StyleProps {
   onMouseEnter?(event: React.MouseEvent<HTMLTableCellElement>): void;
 }
 
-const TableCell = React.forwardRef<TableCellElement, TableCellProps>((props, forwardedRef) => {
-  const { align = 'left', className: classNameProp, css, children, onMouseEnter, ...other } = props;
+export const TableCell = createComponent<'td', TableCellProps>((props, forwardedRef) => {
+  const {
+    as: Comp = 'td',
+    align = 'left',
+    className: classNameProp,
+    css,
+    children,
+    onMouseEnter,
+    ...other
+  } = props;
 
   const title = typeof children === 'string' ? children : '';
 
@@ -50,7 +53,7 @@ const TableCell = React.forwardRef<TableCellElement, TableCellProps>((props, for
   }, [cellRef]);
 
   return (
-    <td
+    <Comp
       {...other}
       className={classes}
       onMouseEnter={chain(handleMouseEnter, onMouseEnter)}
@@ -58,13 +61,6 @@ const TableCell = React.forwardRef<TableCellElement, TableCellProps>((props, for
       title={isOverflown ? title : undefined}
     >
       {children}
-    </td>
+    </Comp>
   );
 });
-
-if (__DEV__) {
-  TableCell.displayName = 'ManifestTableCell';
-}
-
-export { TableCell };
-export type { TableCellProps };

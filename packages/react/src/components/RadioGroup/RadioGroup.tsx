@@ -1,18 +1,15 @@
+import type { StyleProps } from '../../types';
 import type { AriaRadioGroupProps } from '@react-types/radio';
 import * as React from 'react';
-import { CSS, cx } from '../../styles';
 import { createComponent } from '@project44-manifest/system';
+import { cx } from '../../styles';
 import { mergeProps } from '@react-aria/utils';
 import { RadioGroupContext } from './RadioGroup.context';
 import { useRadioGroup } from '@react-aria/radio';
 import { useRadioGroupState } from '@react-stately/radio';
 import { useStyles } from './RadioGroup.styles';
 
-export interface RadioGroupProps extends AriaRadioGroupProps {
-  /**
-   * Theme aware style object.
-   */
-  css?: CSS;
+export interface RadioGroupProps extends AriaRadioGroupProps, StyleProps {
   /**
    * The layout orientation of the radio group.
    *

@@ -1,16 +1,4 @@
 {
-  "compilerOptions": {
-    "declarationDir": "dts",
-    "emitDeclarationOnly": true,
-    "outDir": "dts",
-    "rootDir": "src"
-  },
-  "exclude": ["dts"],
-  "extends": "../../tsconfig.options.json",
-  "include": ["src/**/*", "../../types/**/*"],
-  "references": [
-    {
-      "path": "../theme"
-    }
-  ]
+  "extends": "../../tsconfig.json",
+  "include": ["src"]
 }

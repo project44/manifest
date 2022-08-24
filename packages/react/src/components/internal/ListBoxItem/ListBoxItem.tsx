@@ -11,7 +11,10 @@ import { useHover } from '@react-aria/interactions';
 import { useOption } from '@react-aria/listbox';
 import { useStyles } from './ListBoxItem.styles';
 
-interface ListBoxItemProps<T extends object = object> extends DOMProps, StyleProps, FocusableProps {
+export interface ListBoxItemProps<T extends object = object>
+  extends DOMProps,
+    StyleProps,
+    FocusableProps {
   /**
    * The content of the item.
    */
@@ -34,7 +37,7 @@ interface ListBoxItemProps<T extends object = object> extends DOMProps, StylePro
   onAction?(key: React.Key): void;
 }
 
-const ListBoxItem: React.FC<ListBoxItemProps> = props => {
+export const ListBoxItem: React.FC<ListBoxItemProps> = props => {
   const { className: classNameProp, css, isVirtualized, item, startIcon: startIconProp } = props;
 
   const { rendered, key } = item;
@@ -94,10 +97,3 @@ const ListBoxItem: React.FC<ListBoxItemProps> = props => {
     </div>
   );
 };
-
-if (__DEV__) {
-  ListBoxItem.displayName = 'ManifestListBoxItem';
-}
-
-export { ListBoxItem };
-export type { ListBoxItemProps };

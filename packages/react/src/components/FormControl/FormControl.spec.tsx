@@ -4,21 +4,23 @@ import { FormControl, FormControlProps } from './FormControl';
 import { axe } from 'jest-axe';
 import { useField } from '@react-aria/label';
 
-const TestComponent = React.forwardRef((props: FormControlProps, ref: any) => {
-  const { validationState } = props;
-  const { labelProps, fieldProps, descriptionProps, errorMessageProps } = useField(props);
+const TestComponent = React.forwardRef(
+  (props: FormControlProps, ref: React.Ref<HTMLDivElement>) => {
+    const { validationState } = props;
+    const { labelProps, fieldProps, descriptionProps, errorMessageProps } = useField(props);
 
-  return (
-    <FormControl
-      {...props}
-      labelProps={labelProps}
-      helperTextProps={validationState === 'invalid' ? errorMessageProps : descriptionProps}
-      ref={ref}
-    >
-      <input {...fieldProps} />
-    </FormControl>
-  );
-});
+    return (
+      <FormControl
+        {...props}
+        labelProps={labelProps}
+        helperTextProps={validationState === 'invalid' ? errorMessageProps : descriptionProps}
+        ref={ref}
+      >
+        <input {...fieldProps} />
+      </FormControl>
+    );
+  },
+);
 
 describe('@project44-manifest/components - FormControl', () => {
   it('should have no accessibility violations', async () => {
@@ -56,9 +58,5 @@ describe('@project44-manifest/components - FormControl', () => {
     render(<TestComponent label="Label" helperText="Helper text" isRequired />);
 
     expect(screen.getByText('*')).toBeInTheDocument();
-  });
-
-  it('should return a css selector', () => {
-    expect(FormControl.toString()).toBe('.manifest-form-control');
   });
 });

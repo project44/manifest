@@ -1,20 +1,15 @@
-import type { DOMProps, StyleProps } from '../../types';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
 import { TableContext } from './Table.context';
+import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useStyles } from './Table.styles';
 
-type TableElement = React.ElementRef<'table'>;
+export interface TableProps extends StyleProps, TableContext {}
 
-interface TableProps extends DOMProps, StyleProps, TableContext {
-  /**
-   * The content of the table.
-   */
-  children?: React.ReactNode;
-}
-
-const Table = React.forwardRef<TableElement, TableProps>((props, forwardedRef) => {
+export const Table = createComponent<'table', TableProps>((props, forwardedRef) => {
   const {
+    as: Comp = 'table',
     className: classNameProp,
     css,
     showHover = false,
@@ -27,7 +22,7 @@ const Table = React.forwardRef<TableElement, TableProps>((props, forwardedRef) =
 
   return (
     <TableContext.Provider value={{ onMouseEnter, onMouseLeave, showHover }}>
-      <table
+      <Comp
         {...other}
         className={cx(className, classNameProp, 'manifest-table')}
         ref={forwardedRef}
@@ -35,10 +30,3 @@ const Table = React.forwardRef<TableElement, TableProps>((props, forwardedRef) =
     </TableContext.Provider>
   );
 });
-
-if (__DEV__) {
-  Table.displayName = 'ManifestTable';
-}
-
-export { Table };
-export type { TableProps };

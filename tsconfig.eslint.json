@@ -1,4 +1,0 @@
-{
-  "extends": "./tsconfig.options.json",
-  "include": ["packages/**/*"]
-}

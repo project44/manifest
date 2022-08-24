@@ -1,6 +1,7 @@
-import type { DOMProps, StyleProps } from '../../types';
 import type { OverlayTriggerProps } from '@react-types/overlays';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useTooltip, useTooltipTrigger } from '@react-aria/tooltip';
@@ -11,13 +12,7 @@ import { useOverlayPosition } from '@react-aria/overlays';
 import { useStyles } from './Tooltip.styles';
 import { useTooltipTriggerState } from '@react-stately/tooltip';
 
-type TooltipElement = React.ElementRef<'div'>;
-
-interface TooltipProps extends OverlayTriggerProps, DOMProps, StyleProps {
-  /**
-   * The element to attach the tooltip to.
-   */
-  children?: React.ReactNode;
+export interface TooltipProps extends OverlayTriggerProps, StyleProps {
   /**
    * Whether the tooltip should be disabled, independent from the trigger.
    */
@@ -34,8 +29,9 @@ interface TooltipProps extends OverlayTriggerProps, DOMProps, StyleProps {
   title?: React.ReactNode;
 }
 
-const Tooltip = React.forwardRef<TooltipElement, TooltipProps>((props, forwardedRef) => {
+export const Tooltip = createComponent<'div', TooltipProps>((props, forwardedRef) => {
   const {
+    as: Comp = 'div',
     children,
     className: classNameProp,
     css,
@@ -73,22 +69,15 @@ const Tooltip = React.forwardRef<TooltipElement, TooltipProps>((props, forwarded
       {trigger}
       {state.isOpen && (
         <OverlayContainer>
-          <div
+          <Comp
             {...mergeProps(tooltipProps, positionProps, contentProps, other)}
             className={cx(className, classNameProp, 'manifest-tooltip')}
             ref={mergeRefs(overlayRef, forwardedRef)}
           >
             <Typography variant="caption">{title}</Typography>
-          </div>
+          </Comp>
         </OverlayContainer>
       )}
     </FocusableProvider>
   );
 });
-
-if (__DEV__) {
-  Tooltip.displayName = 'ManifestTooltip';
-}
-
-export { Tooltip };
-export type { TooltipProps };

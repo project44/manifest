@@ -1,25 +1,12 @@
-import type { DOMProps, StyleProps } from '../../types';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 
-type TableBodyElement = React.ElementRef<'tbody'>;
+export type TableBodyProps = StyleProps;
 
-interface TableBodyProps extends DOMProps, StyleProps {
-  /**
-   * The rows within the body.
-   */
-  children?: React.ReactNode;
-}
-
-const TableBody = React.forwardRef<TableBodyElement, TableBodyProps>(
-  ({ className, ...other }, forwardedRef) => (
-    <tbody {...other} className={cx(className, 'manifest-table-body')} ref={forwardedRef} />
+export const TableBody = createComponent<'tbody', TableBodyProps>(
+  ({ as: Comp = 'tbody', className, ...other }, forwardedRef) => (
+    <Comp {...other} className={cx(className, 'manifest-table-body')} ref={forwardedRef} />
   ),
 );
-
-if (__DEV__) {
-  TableBody.displayName = 'ManifestTableBody';
-}
-
-export { TableBody };
-export type { TableBodyProps };

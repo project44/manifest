@@ -1,24 +1,26 @@
 {
   "name": "@project44-manifest/theme",
   "version": "0.1.0",
-  "author": "project44",
+  "description": "Manifest Design System themes",
   "license": "MIT",
-  "main": "./lib/index.js",
-  "module": "./esm/index.js",
-  "types": "./dts/index.d.ts",
-  "files": [
-    "dts/**/*.d.ts",
-    "esm/**/*.{js,map}",
-    "lib/**/*.{js,map}",
-    "src/**/*.{ts,tsx,json}"
-  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.mjs",
+  "files": ["dist"],
   "publishConfig": {
     "access": "public"
   },
+  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "git@github.com:project-44/manifest.git",
     "directory": "packages/theme"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "dev": "yarn build -- -- watch",
+    "clean": "rimraf .turbo dist",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@project44-manifest/design-tokens": "^1.1.0",
@@ -26,8 +28,5 @@
   },
   "devDependencies": {
     "@types/lodash.merge": "^4.6.7"
-  },
-  "packemon": {
-    "platform": "browser"
   }
 }

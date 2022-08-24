@@ -11,17 +11,10 @@ yarn-error.log*
 
 # Directories
 coverage/
-esm/
-lib/
-dts/
+dist/
 node_modules/
 
 # Configs
-.eslintignore
-.eslintrc.js
-.prettierignore
-jest.config.js
-prettier.config.js
 *.tsbuildinfo
 
 # MacOS
@@ -32,6 +25,8 @@ prettier.config.js
 .idea
 .npm
 .vscode
+.turbo
+.parcel-cache
 
 # Yarn Folders
 .pnp.*

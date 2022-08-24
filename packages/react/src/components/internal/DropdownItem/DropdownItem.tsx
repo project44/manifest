@@ -13,7 +13,7 @@ import { useMenuItem } from '@react-aria/menu';
 import { useStyles } from './DropdownItem.styles';
 import { DropdownContext, useDropdownContext } from '../../Dropdown';
 
-interface DropdownItemProps<T extends object = object>
+export interface DropdownItemProps<T extends object = object>
   extends DOMProps,
     StyleProps,
     FocusableProps {
@@ -47,7 +47,7 @@ interface DropdownItemProps<T extends object = object>
   onAction?(key: React.Key): void;
 }
 
-const DropdownItem: React.FC<DropdownItemProps> = props => {
+export const DropdownItem: React.FC<DropdownItemProps> = props => {
   const {
     autoFocus,
     className: classNameProp,
@@ -132,10 +132,3 @@ const DropdownItem: React.FC<DropdownItemProps> = props => {
     </li>
   );
 };
-
-if (__DEV__) {
-  DropdownItem.displayName = 'ManifestDropdownItem';
-}
-
-export { DropdownItem };
-export { DropdownItemProps };

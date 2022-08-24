@@ -1,14 +1,13 @@
-import type { DOMProps, StyleProps } from '../../types';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { Icon } from '../Icon';
 import { IconButton } from '../IconButton';
 import { Typography } from '../Typography';
 import { useStyles } from './Tag.styles';
 
-type TagElement = React.ElementRef<'div'>;
-
-interface TagProps extends DOMProps, StyleProps {
+export interface TagProps extends StyleProps {
   /**
    * The tag label.
    */
@@ -23,13 +22,21 @@ interface TagProps extends DOMProps, StyleProps {
   onRemove?(): void;
 }
 
-const Tag = React.forwardRef<TagElement, TagProps>((props, forwardedRef) => {
-  const { children, className: classNameProp, css, isRemovable, onRemove, ...other } = props;
+export const Tag = createComponent<'div', TagProps>((props, forwardedRef) => {
+  const {
+    as: Comp = 'div',
+    children,
+    className: classNameProp,
+    css,
+    isRemovable,
+    onRemove,
+    ...other
+  } = props;
 
   const { className } = useStyles({ css, isRemovable });
 
   return (
-    <div {...other} className={cx(className, classNameProp, 'manifest-tag')} ref={forwardedRef}>
+    <Comp {...other} className={cx(className, classNameProp, 'manifest-tag')} ref={forwardedRef}>
       <Typography className="manifest-tag__text" variant="caption">
         {children}
       </Typography>
@@ -44,13 +51,6 @@ const Tag = React.forwardRef<TagElement, TagProps>((props, forwardedRef) => {
           <Icon className="manifest-tag__icon" icon="clear" />
         </IconButton>
       )}
-    </div>
+    </Comp>
   );
 });
-
-if (__DEV__) {
-  Tag.displayName = 'ManifestTag';
-}
-
-export { Tag };
-export type { TagProps };

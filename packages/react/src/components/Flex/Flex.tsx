@@ -1,11 +1,10 @@
-import type { DOMProps, StyleProps } from '../../types';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useStyles } from './Flex.styles';
 
-type FlexElement = React.ElementRef<'div'>;
-
-interface FlexProps extends DOMProps, StyleProps {
+export interface FlexProps extends StyleProps {
   /**
    * The content of the flex container.
    */
@@ -28,19 +27,21 @@ interface FlexProps extends DOMProps, StyleProps {
   wrap?: boolean;
 }
 
-const Flex = React.forwardRef<FlexElement, FlexProps>((props, forwardedRef) => {
-  const { align, className: classNameProp, css, justify, orientation, wrap, ...other } = props;
+export const Flex = createComponent<'div', FlexProps>((props, forwardedRef) => {
+  const {
+    as: Comp = 'div',
+    align,
+    className: classNameProp,
+    css,
+    justify,
+    orientation,
+    wrap,
+    ...other
+  } = props;
 
   const { className } = useStyles({ align, css, justify, orientation, wrap });
 
   return (
-    <div {...other} className={cx(className, classNameProp, 'manifest-flex')} ref={forwardedRef} />
+    <Comp {...other} className={cx(className, classNameProp, 'manifest-flex')} ref={forwardedRef} />
   );
 });
-
-if (__DEV__) {
-  Flex.displayName = 'ManifestFlex';
-}
-
-export { Flex };
-export type { FlexProps };

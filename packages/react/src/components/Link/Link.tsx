@@ -1,28 +1,19 @@
-import type { DOMProps, StyleProps } from '../../types';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useStyles } from './Link.styles';
 
-type LinkElement = React.ElementRef<'a'>;
-type LinkNativeProps = React.ComponentPropsWithoutRef<'a'>;
+export type LinkProps = StyleProps;
 
-interface LinkProps extends LinkNativeProps, DOMProps, StyleProps {}
-
-const Link = React.forwardRef<LinkElement, LinkProps>((props, forwardedRef) => {
-  const { children, className: classNameProp, css, ...other } = props;
+export const Link = createComponent<'a', LinkProps>((props, forwardedRef) => {
+  const { as: Comp = 'a', children, className: classNameProp, css, ...other } = props;
 
   const { className } = useStyles({ css });
 
   return (
-    <a {...other} className={cx(className, classNameProp, 'manifest-link')} ref={forwardedRef}>
+    <Comp {...other} className={cx(className, classNameProp, 'manifest-link')} ref={forwardedRef}>
       {children}
-    </a>
+    </Comp>
   );
 });
-
-if (__DEV__) {
-  Link.displayName = 'Link';
-}
-
-export { Link };
-export type { LinkProps };

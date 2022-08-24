@@ -1,4 +1,4 @@
-name: ci
+name: CI
 
 on:
   push:
@@ -7,29 +7,30 @@ on:
   pull_request:
 
 jobs:
-  validation:
-    name: validate
+  build:
+    name: Build and Validate
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-      - run: yarn install --immutable
-      - run: yarn run build
-      - run: yarn run type
-      - run: yarn run lint
-      - run: yarn run test
+      - name: Checkout branch
+        uses: actions/checkout@v3
 
-  pack:
-    name: pack
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
-          cache: yarn
-      - run: yarn install --immutable
-      - run: yarn run build
-      - run: yarn run pack
+          node-version: 16.14.x
 
+      - name: Install dependencies
+        run: yarn --immutable
+
+      - name: Build packages
+        run: yarn build
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Type check
+        run: yarn type-check
+
+      - name: Test
+        run: yarn test

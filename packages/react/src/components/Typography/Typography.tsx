@@ -1,15 +1,10 @@
-import type { DOMProps, StyleProps } from '../../types';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useStyles } from './Typography.styles';
 
-type TypographyElement = React.ElementRef<'span'>;
-
-interface TypographyProps extends DOMProps, StyleProps {
-  /**
-   * The text content of the typography component.
-   */
-  children?: React.ReactNode;
+export interface TypographyProps extends StyleProps {
   /**
    * The display variant of the text.
    *
@@ -28,8 +23,8 @@ interface TypographyProps extends DOMProps, StyleProps {
     | 'title';
 }
 
-const Typography = React.forwardRef<TypographyElement, TypographyProps>((props, forwardedRef) => {
-  const { className: classNameProp, css, variant = 'body', ...other } = props;
+export const Typography = createComponent<'span', TypographyProps>((props, forwardedRef) => {
+  const { as: Comp = 'span', className: classNameProp, css, variant = 'body', ...other } = props;
 
   const { className } = useStyles({ css, variant });
 
@@ -38,12 +33,5 @@ const Typography = React.forwardRef<TypographyElement, TypographyProps>((props, 
     [`manifest-typography--${variant}`]: variant,
   });
 
-  return <span {...other} className={classes} ref={forwardedRef} />;
+  return <Comp {...other} className={classes} ref={forwardedRef} />;
 });
-
-if (__DEV__) {
-  Typography.displayName = 'ManifestTypography';
-}
-
-export { Typography };
-export type { TypographyProps };

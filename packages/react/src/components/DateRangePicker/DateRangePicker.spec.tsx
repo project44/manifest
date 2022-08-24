@@ -3,7 +3,6 @@ import { fireEvent, screen, render, waitFor } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { CalendarDate } from '@internationalized/date';
 import { DateRangePicker } from './DateRangePicker';
-import { OverlayProvider } from '@react-aria/overlays';
 import userEvent from '@testing-library/user-event';
 
 describe('@project44-manifest/components - Calendar', () => {

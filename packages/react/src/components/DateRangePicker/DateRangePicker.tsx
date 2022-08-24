@@ -1,8 +1,9 @@
-import type { DOMProps, StyleProps } from '../../types';
 import type { AriaDateRangePickerProps } from '@react-types/datepicker';
-import type { DateValue } from '../Calendar';
+import type { DateValue } from '@react-types/calendar';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
 import { CalendarRange } from '../CalendarRange';
+import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { Popover } from '../Popover';
 import { FormControl } from '../FormControl';
@@ -14,12 +15,9 @@ import { useDateRangePicker } from '@react-aria/datepicker';
 import { useDateRangePickerState } from '@react-stately/datepicker';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
-import { useOverlayPosition } from '@react-aria/overlays';
 import { useStyles } from '../DatePicker/DatePicker.styles';
 
-type DateRangePickerElement = React.ElementRef<'div'>;
-
-interface DateRangePickerProps extends AriaDateRangePickerProps<DateValue>, DOMProps, StyleProps {
+export interface DateRangePickerProps extends AriaDateRangePickerProps<DateValue>, StyleProps {
   /**
    * Helper text to append to the form control input element.
    */
@@ -55,9 +53,10 @@ interface DateRangePickerProps extends AriaDateRangePickerProps<DateValue>, DOMP
   startIcon?: React.ReactElement;
 }
 
-const DateRangePicker = React.forwardRef<DateRangePickerElement, DateRangePickerProps>(
+export const DateRangePicker = createComponent<'div', DateRangePickerProps>(
   (props, forwardedRef) => {
     const {
+      as: Comp = 'div',
       autoFocus,
       className: classNameProp,
       css,
@@ -135,7 +134,7 @@ const DateRangePicker = React.forwardRef<DateRangePickerElement, DateRangePicker
         labelProps={mergeProps(labelProps, labelPropsProp)}
         validationState={validationState}
       >
-        <div {...groupProps} className={classes} ref={forwardedRef}>
+        <Comp {...groupProps} className={classes} ref={forwardedRef}>
           {startIcon && (
             <span className={cx('manifest-datepicker__icon', 'manifest-datepicker__icon--start')}>
               {startIcon}
@@ -165,17 +164,8 @@ const DateRangePicker = React.forwardRef<DateRangePickerElement, DateRangePicker
           >
             <CalendarRange className="manifest-datepicker__calendar" {...calendarProps} />
           </Popover>
-        </div>
+        </Comp>
       </FormControl>
     );
   },
 );
-
-if (__DEV__) {
-  DateRangePicker.displayName = 'ManifestDateRangePicker';
-}
-
-DateRangePicker.toString = () => '.manifest-datepicker';
-
-export { DateRangePicker };
-export type { DateRangePickerProps };

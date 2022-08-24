@@ -1,4 +1,3 @@
-import type * as Stitches from '@stitches/react';
 import { typography, VariantToken } from './typography';
 
 describe('@project44-manifest/react - typography', () => {

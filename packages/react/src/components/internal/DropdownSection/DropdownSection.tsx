@@ -9,7 +9,7 @@ import { useMenuSection } from '@react-aria/menu';
 import { useSeparator } from '@react-aria/separator';
 import { useStyles } from './DropdownSection.styles';
 
-interface DropdownSectionProps<T extends object = object> extends DOMProps, StyleProps {
+export interface DropdownSectionProps<T extends object = object> extends DOMProps, StyleProps {
   /**
    * The items within the section.
    */
@@ -32,7 +32,7 @@ interface DropdownSectionProps<T extends object = object> extends DOMProps, Styl
   onAction?(key: React.Key): void;
 }
 
-const DropdownSection: React.FC<DropdownSectionProps> = props => {
+export const DropdownSection: React.FC<DropdownSectionProps> = props => {
   const { className: classNameProp, css, item, onAction, state } = props;
 
   const { itemProps, headingProps, groupProps } = useMenuSection({
@@ -76,6 +76,3 @@ const DropdownSection: React.FC<DropdownSectionProps> = props => {
     </>
   );
 };
-
-export { DropdownSection };
-export { DropdownSectionProps };

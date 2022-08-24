@@ -1,9 +1,10 @@
-import type { DOMProps, StyleProps } from '../../types';
 import type { AriaSelectProps } from '@react-types/select';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
 import { HiddenSelect, useSelect } from '@react-aria/select';
 import { ListBoxBase, ListBoxBaseProps } from '../internal/ListBoxBase';
 import { mergeProps, useLayoutEffect, useResizeObserver } from '@react-aria/utils';
+import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
@@ -15,9 +16,7 @@ import { useHover } from '@react-aria/interactions';
 import { useSelectState } from '@react-stately/select';
 import { useStyles } from './Select.styles';
 
-type SelectElement = React.ElementRef<'div'>;
-
-interface SelectProps extends AriaSelectProps<object>, DOMProps, StyleProps {
+export interface SelectProps extends AriaSelectProps<object>, StyleProps {
   /**
    * Helper text to append to the form control input element.
    */
@@ -49,8 +48,9 @@ interface SelectProps extends AriaSelectProps<object>, DOMProps, StyleProps {
   startIcon?: React.ReactElement;
 }
 
-const Select = React.forwardRef<SelectElement, SelectProps>((props, forwardedRef) => {
+export const Select = createComponent<'div', SelectProps>((props, forwardedRef) => {
   const {
+    as: Comp = 'div',
     autoComplete,
     autoFocus,
     className: classNameProp,
@@ -128,7 +128,7 @@ const Select = React.forwardRef<SelectElement, SelectProps>((props, forwardedRef
       labelProps={mergeProps(labelProps, labelPropsProp)}
       validationState={validationState}
     >
-      <div className={classes} ref={forwardedRef}>
+      <Comp className={classes} ref={forwardedRef}>
         {startIcon && (
           <span className={cx('manifest-select__icon', 'manifest-select__icon--start')}>
             {startIcon}
@@ -175,14 +175,7 @@ const Select = React.forwardRef<SelectElement, SelectProps>((props, forwardedRef
             state={state}
           />
         </Popover>
-      </div>
+      </Comp>
     </FormControl>
   );
 });
-
-if (__DEV__) {
-  Select.displayName = 'ManifestSelect';
-}
-
-export { Select };
-export type { SelectProps };

@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pack",
+  "buildCommand": "build",
   "node": "16",
   "packages": ["/packages/design-tokens", "/packages/react"],
   "sandboxes": ["/examples/create-react-app", "/examples/create-react-app-typescript"]
