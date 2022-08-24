@@ -22,8 +22,8 @@ jobs:
         with:
           node-version: 16.14.x
 
-      - name: Setup NPM register
-      - run: |
+      - name: Setup NPM registry
+        run: |
           cat << EOF > "$HOME/.npmrc"
             //registry.npmjs.org/:_authToken=$NPM_TOKEN
           EOF
@@ -34,7 +34,7 @@ jobs:
         run: yarn --immutable
 
       - name: Create release Pull Request or publish to NPM
-      - uses: changesets/action@v1
+        uses: changesets/action@v1
         with:
           version: yarn version
           publish: yarn release
