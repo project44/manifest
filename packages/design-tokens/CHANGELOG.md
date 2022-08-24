@@ -1,5 +1,11 @@
 # @manifest/design-tokens
 
+## 1.2.0
+
+### Minor Changes
+
+- [#56](https://github.com/project44/manifest/pull/56) [`80223ec`](https://github.com/project44/manifest/commit/80223ec0e52cdf586ef5aab9ceabf5948b76b739) Thanks [@bclark-p44](https://github.com/bclark-p44)! - Updating build scripts and adding as prop to all components
+
 ## 1.1.0
 
 ### Minor Changes
