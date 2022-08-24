@@ -1,1 +1,1 @@
-export * from './CalendarSidebar';
+export * from './CalendarRanges';

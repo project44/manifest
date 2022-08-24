@@ -1,7 +1,7 @@
 import type { RangeCalendarState } from '@react-stately/calendar';
 import * as React from 'react';
 import { cx } from '../../../styles';
-import { useStyles } from './CalendarSidebar.styles';
+import { useStyles } from './CalendarRanges.styles';
 import { ListBox, ListBoxItem } from '../../ListBox';
 import { DefinedRange } from '../../../types';
 import { Selection } from '@react-types/shared';
