@@ -1,85 +1,88 @@
 import { CalendarDate } from '@internationalized/date';
-import {
-  addDays,
-  endOfDay,
-  startOfDay,
-  startOfMonth,
-  endOfMonth,
-  addMonths,
-  startOfWeek,
-  endOfWeek,
-} from 'date-fns';
+import { startOfMonth, endOfMonth, startOfWeek, endOfWeek } from '@internationalized/date';
 import { DefinedRange } from './CalendarRanges';
 
-export const defaultDate = new Date();
-export const defineds = {
-  startOfWeek: startOfWeek(defaultDate),
-  endOfWeek: endOfWeek(defaultDate),
-  startOfLastWeek: startOfWeek(addDays(defaultDate, -7)),
-  endOfLastWeek: endOfWeek(addDays(defaultDate, -7)),
-  startOfToday: startOfDay(defaultDate),
-  endOfToday: endOfDay(defaultDate),
-  startOfYesterday: startOfDay(addDays(defaultDate, -1)),
-  endOfYesterday: endOfDay(addDays(defaultDate, -1)),
-  startOfMonth: startOfMonth(defaultDate),
-  endOfMonth: endOfMonth(defaultDate),
-  startOfLastMonth: startOfMonth(addMonths(defaultDate, -1)),
-  endOfLastMonth: endOfMonth(addMonths(defaultDate, -1)),
-};
 export const createCalendarDate = (date: Date) => {
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
   const day = date.getDate();
   return new CalendarDate(year, month, day);
 };
+
+export const addDays = (calendarDate: CalendarDate, days: number) => {
+  return calendarDate.set({ day: calendarDate.day + days });
+};
+
+export const addMonths = (calendarDate: CalendarDate, months: number) => {
+  return calendarDate.set({ month: calendarDate.month + months });
+};
+
+const defaultDate = new Date();
+const calendarDate = createCalendarDate(defaultDate);
+
+export const defineds = {
+  startOfToday: calendarDate,
+  endOfToday: calendarDate,
+  startOfYesterday: addDays(calendarDate, -1),
+  endOfYesterday: addDays(calendarDate, -1),
+  startOfWeek: startOfWeek(calendarDate, 'en-US'),
+  endOfWeek: endOfWeek(calendarDate, 'en-US'),
+  startOfLastWeek: startOfWeek(addDays(calendarDate, -7), 'en-US'),
+  endOfLastWeek: endOfWeek(addDays(calendarDate, -7), 'en-US'),
+  startOfMonth: startOfMonth(calendarDate),
+  endOfMonth: endOfMonth(calendarDate),
+  startOfLastMonth: startOfMonth(addMonths(calendarDate, -1)),
+  endOfLastMonth: endOfMonth(addMonths(calendarDate, -1)),
+};
+
 export const getDefaultRanges = (): DefinedRange[] => {
   return [
     {
       key: 'today',
       label: 'Today',
       value: {
-        start: createCalendarDate(defineds.startOfToday),
-        end: createCalendarDate(defineds.startOfToday),
+        start: defineds.startOfToday,
+        end: defineds.startOfToday,
       },
     },
     {
       key: 'yesterday',
       label: 'Yesterday',
       value: {
-        start: createCalendarDate(defineds.startOfYesterday),
-        end: createCalendarDate(defineds.endOfYesterday),
+        start: defineds.startOfYesterday,
+        end: defineds.endOfYesterday,
       },
     },
     {
       key: 'thisWeek',
       label: 'This Week',
       value: {
-        start: createCalendarDate(defineds.startOfWeek),
-        end: createCalendarDate(defineds.endOfWeek),
+        start: defineds.startOfWeek,
+        end: defineds.endOfWeek,
       },
     },
     {
       key: 'lastWeek',
       label: 'Last Week',
       value: {
-        start: createCalendarDate(defineds.startOfLastWeek),
-        end: createCalendarDate(defineds.endOfLastWeek),
+        start: defineds.startOfLastWeek,
+        end: defineds.endOfLastWeek,
       },
     },
     {
       key: 'thisMonth',
       label: 'This Month',
       value: {
-        start: createCalendarDate(defineds.startOfMonth),
-        end: createCalendarDate(defineds.endOfMonth),
+        start: defineds.startOfMonth,
+        end: defineds.endOfMonth,
       },
     },
     {
       key: 'lastMonth',
       label: 'Last Month',
       value: {
-        start: createCalendarDate(defineds.startOfLastMonth),
-        end: createCalendarDate(defineds.endOfLastMonth),
+        start: defineds.startOfLastMonth,
+        end: defineds.endOfLastMonth,
       },
     },
   ];

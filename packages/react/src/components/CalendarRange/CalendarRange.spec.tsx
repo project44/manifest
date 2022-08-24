@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
 import { axe } from 'jest-axe';
-import { CalendarDate } from '@internationalized/date';
+import { CalendarDate, endOfMonth, startOfMonth } from '@internationalized/date';
 import { CalendarRange } from '../CalendarRange';
-import { createCalendarDate } from '../internal/CalendarRanges/defaultDefinedRanges';
-import { addMonths, endOfMonth, startOfMonth } from 'date-fns';
+import { addMonths, createCalendarDate } from '../internal/CalendarRanges/defaultDefinedRanges';
 import { DefinedRange } from '../internal/CalendarRanges';
 
 describe('@project44-manifest/react - CalendarRange', () => {
@@ -12,17 +11,18 @@ describe('@project44-manifest/react - CalendarRange', () => {
   beforeAll(() => {
     // * used for the custom Ranges To start defining the ranges.
     const defaultDate = new Date();
+    const calendarDate = createCalendarDate(defaultDate);
 
     // * used to define the beggining and the end of each defined range.
     const defineds = {
-      startOfLastThreeMonths: startOfMonth(addMonths(defaultDate, -3)),
-      endOfLastThreeMonths: endOfMonth(addMonths(defaultDate, -1)),
-      startOfLastSixMonths: startOfMonth(addMonths(defaultDate, -6)),
-      endOfLastSixMonths: endOfMonth(addMonths(defaultDate, -1)),
-      startOfLastYear: startOfMonth(addMonths(defaultDate, -13)),
-      endOfLastYear: endOfMonth(addMonths(defaultDate, -1)),
-      startOfLastTwoYears: startOfMonth(addMonths(defaultDate, -25)),
-      endOfLastTwoYears: endOfMonth(addMonths(defaultDate, -1)),
+      startOfLastThreeMonths: startOfMonth(addMonths(calendarDate, -3)),
+      endOfLastThreeMonths: endOfMonth(addMonths(calendarDate, -1)),
+      startOfLastSixMonths: startOfMonth(addMonths(calendarDate, -6)),
+      endOfLastSixMonths: endOfMonth(addMonths(calendarDate, -1)),
+      startOfLastYear: startOfMonth(addMonths(calendarDate, -13)),
+      endOfLastYear: endOfMonth(addMonths(calendarDate, -1)),
+      startOfLastTwoYears: startOfMonth(addMonths(calendarDate, -25)),
+      endOfLastTwoYears: endOfMonth(addMonths(calendarDate, -1)),
     };
 
     customRanges = [
@@ -30,32 +30,32 @@ describe('@project44-manifest/react - CalendarRange', () => {
         key: 'lastThreeMonths',
         label: 'Last three months',
         value: {
-          start: createCalendarDate(defineds.startOfLastThreeMonths),
-          end: createCalendarDate(defineds.endOfLastThreeMonths),
+          start: defineds.startOfLastThreeMonths,
+          end: defineds.endOfLastThreeMonths,
         },
       },
       {
         key: 'lastSixMonths',
         label: 'Last six months',
         value: {
-          start: createCalendarDate(defineds.startOfLastSixMonths),
-          end: createCalendarDate(defineds.endOfLastSixMonths),
+          start: defineds.startOfLastSixMonths,
+          end: defineds.endOfLastSixMonths,
         },
       },
       {
         key: 'lastYear',
         label: 'Last Year',
         value: {
-          start: createCalendarDate(defineds.startOfLastYear),
-          end: createCalendarDate(defineds.endOfLastYear),
+          start: defineds.startOfLastYear,
+          end: defineds.endOfLastYear,
         },
       },
       {
         key: 'lastTwoYears',
         label: 'Last Two Years',
         value: {
-          start: createCalendarDate(defineds.startOfLastTwoYears),
-          end: createCalendarDate(defineds.endOfLastTwoYears),
+          start: defineds.startOfLastTwoYears,
+          end: defineds.endOfLastTwoYears,
         },
       },
     ];
