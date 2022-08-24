@@ -1,6 +1,6 @@
 {
   "name": "@project44-manifest/theme",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "description": "Manifest Design System themes",
   "license": "MIT",
   "main": "dist/index.js",
@@ -25,7 +25,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@project44-manifest/design-tokens": "^1.2.0",
+    "@project44-manifest/design-tokens": "^1.1.0",
     "lodash.merge": "^4.6.2"
   },
   "devDependencies": {

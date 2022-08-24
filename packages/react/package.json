@@ -1,6 +1,6 @@
 {
   "name": "@project44-manifest/react",
-  "version": "1.5.0",
+  "version": "1.4.0",
   "description": "Manifest Design System react components",
   "license": "MIT",
   "main": "dist/index.js",
@@ -32,9 +32,9 @@
   },
   "dependencies": {
     "@internationalized/date": "^3.0.0",
-    "@project44-manifest/design-tokens": "^1.2.0",
-    "@project44-manifest/system": "^0.1.1",
-    "@project44-manifest/theme": "^0.1.1",
+    "@project44-manifest/design-tokens": "^1.1.0",
+    "@project44-manifest/system": "^0.1.0",
+    "@project44-manifest/theme": "^0.1.0",
     "@radix-ui/react-slot": "^1.0.0",
     "@react-aria/button": "^3.5.1",
     "@react-aria/calendar": "^3.0.0",
