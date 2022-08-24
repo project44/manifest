@@ -20,7 +20,7 @@
     "test:coverage": "yarn run test --coverage",
     "test:watch": "jest --watch",
     "type-check": "turbo run type-check",
-    "version": "changeset version"
+    "version": "changeset version && yarn"
   },
   "dependencies": {
     "@changesets/changelog-github": "^0.4.4",
