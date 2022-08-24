@@ -3,25 +3,24 @@
   "version": "0.1.0",
   "description": "Manifest Design System themes",
   "license": "MIT",
-  "main": "./dist/main.js",
-  "module": "./dist/module.js",
-  "types": "./dist/types.d.ts",
-  "source": "src/index.ts",
-  "files": [
-    "dist",
-    "src"
-  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.mjs",
+  "files": ["dist"],
   "publishConfig": {
     "access": "public"
   },
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "git@github.com:project-44/manifest.git"
+    "url": "git@github.com:project-44/manifest.git",
+    "directory": "packages/theme"
   },
   "scripts": {
-    "build": "parcel build",
-    "clean": "rm -rf .turbo dist"
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "dev": "yarn build -- -- watch",
+    "clean": "rimraf .turbo dist",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@project44-manifest/design-tokens": "^1.1.0",

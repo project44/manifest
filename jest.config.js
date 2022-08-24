@@ -29,7 +29,11 @@ module.exports = {
   globals: {
     __DEV__: true,
   },
-  setupFilesAfterEnv: ['./jest.setup.js', '@testing-library/jest-dom', 'jest-axe/extend-expect'],
+  setupFilesAfterEnv: [
+    './scripts/jest.setup.js',
+    '@testing-library/jest-dom',
+    'jest-axe/extend-expect',
+  ],
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['<rootDir>/examples'],
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(js|jsx|ts|tsx)?$',

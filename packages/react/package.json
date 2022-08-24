@@ -3,13 +3,11 @@
   "version": "1.4.0",
   "description": "Manifest Design System react components",
   "license": "MIT",
-  "main": "./dist/main.js",
-  "module": "./dist/module.js",
-  "types": "./dist/types.d.ts",
-  "source": "./src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -17,18 +15,20 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "git@github.com:project-44/manifest.git"
+    "url": "git@github.com:project-44/manifest.git",
+    "directory": "packages/react"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
   "scripts": {
-    "build": "parcel build",
-    "clean": "rm -rf .turbo node_modules dist",
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "clean": "rimraf .turbo dist",
     "dev": "yarn run storybook",
     "storybook": "start-storybook -p 6006 --quiet",
-    "storybook:build": "build-storybook -o ./docs"
+    "storybook:build": "build-storybook -o ./docs",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@internationalized/date": "^3.0.0",
@@ -84,6 +84,7 @@
     "@storybook/react": "^6.5.10",
     "@types/react-transition-group": "^4.4.5",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "webpack": "^5.74.0"
   }
 }
