@@ -5,4 +5,4 @@
 '@project44-manifest/theme': patch
 ---
 
-Updating design tokens to include css variables and as prop support for all components
+Updating build scripts and adding as prop to all components
