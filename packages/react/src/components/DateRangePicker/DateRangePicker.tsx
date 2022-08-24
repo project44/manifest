@@ -16,6 +16,7 @@ import { useDateRangePickerState } from '@react-stately/datepicker';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
 import { useStyles } from '../DatePicker/DatePicker.styles';
+import { DefinedRange } from '../internal/CalendarRanges';
 
 export interface DateRangePickerProps extends AriaDateRangePickerProps<DateValue>, StyleProps {
   /**

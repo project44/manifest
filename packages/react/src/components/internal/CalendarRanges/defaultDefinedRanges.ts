@@ -1,5 +1,4 @@
 import { CalendarDate } from '@internationalized/date';
-import { DefinedRange } from '../../../types';
 import {
   addDays,
   endOfDay,
@@ -10,6 +9,7 @@ import {
   startOfWeek,
   endOfWeek,
 } from 'date-fns';
+import { DefinedRange } from './CalendarRanges';
 
 export const defaultDate = new Date();
 export const defineds = {

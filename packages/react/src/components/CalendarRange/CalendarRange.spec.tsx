@@ -3,9 +3,9 @@ import { render } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { CalendarDate } from '@internationalized/date';
 import { CalendarRange } from '../CalendarRange';
-import { DefinedRange } from '../../types';
 import { createCalendarDate } from '../internal/CalendarRanges/defaultDefinedRanges';
 import { addMonths, endOfMonth, startOfMonth } from 'date-fns';
+import { DefinedRange } from '../internal/CalendarRanges';
 
 describe('@project44-manifest/react - CalendarRange', () => {
   let customRanges: DefinedRange[];

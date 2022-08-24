@@ -3,9 +3,15 @@ import * as React from 'react';
 import { cx } from '../../../styles';
 import { useStyles } from './CalendarRanges.styles';
 import { ListBox, ListBoxItem } from '../../ListBox';
-import { DefinedRange } from '../../../types';
 import { Selection } from '@react-types/shared';
+import { RangeValue } from '../../CalendarRange';
+import { CalendarDate } from '@internationalized/date';
 
+interface DefinedRange {
+  key: string;
+  label: string;
+  value: RangeValue<CalendarDate>;
+}
 interface CalendarRangesProps {
   /**
    * The calendar state.
@@ -55,4 +61,4 @@ function CalendarRanges(props: CalendarRangesProps) {
   );
 }
 
-export { CalendarRanges };
+export { CalendarRanges, DefinedRange };

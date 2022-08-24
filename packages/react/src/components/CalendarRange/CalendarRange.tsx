@@ -1,4 +1,4 @@
-import type { DefinedRange, StyleProps } from '../../types';
+import type { StyleProps } from '../../types';
 import type { RangeCalendarProps } from '@react-types/calendar';
 import * as React from 'react';
 import { createCalendar, DateValue } from '@internationalized/date';
@@ -13,7 +13,7 @@ import { useRangeCalendar } from '@react-aria/calendar';
 import { RangeCalendarStateOptions, useRangeCalendarState } from '@react-stately/calendar';
 import { useStyles } from '../CalendarRange/CalendarRange.styles';
 import { getDefaultRanges } from '../internal/CalendarRanges/defaultDefinedRanges';
-import { CalendarRanges } from '../internal/CalendarRanges';
+import { CalendarRanges, DefinedRange } from '../internal/CalendarRanges';
 
 export interface CalendarRangeProps extends RangeCalendarProps<DateValue>, StyleProps {
   /**

@@ -6,7 +6,7 @@ import { DateRangePicker } from './DateRangePicker';
 import userEvent from '@testing-library/user-event';
 import { addMonths, endOfMonth, startOfMonth } from 'date-fns';
 import { createCalendarDate } from '../internal/CalendarRanges/defaultDefinedRanges';
-import { DefinedRange } from '../../types';
+import { DefinedRange } from '../internal/CalendarRanges';
 
 describe('@project44-manifest/components - Calendar', () => {
   let defaultDate: Date;
