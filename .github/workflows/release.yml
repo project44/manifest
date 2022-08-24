@@ -22,16 +22,8 @@ jobs:
         with:
           node-version: 16.14.x
 
-      - name: Setup NPM registry
-        run: |
-          cat << EOF > "$HOME/.npmrc"
-            //registry.npmjs.org/:_authToken=$NPM_TOKEN
-          EOF
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Install dependencies
-        run: yarn --immutable
+        run: yarn install --immutable
 
       - name: Create release Pull Request or publish to NPM
         uses: changesets/action@v1
@@ -42,7 +34,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false
 
   chromatic:
     name: Update chromatic
@@ -61,7 +52,7 @@ jobs:
           node-version: 16.14.x
 
       - name: Install dependencies
-        run: yarn --immutable
+        run: yarn install --immutable
 
       - name: Build packages
         run: yarn build

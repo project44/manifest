@@ -24,7 +24,7 @@ jobs:
           node-version: 16.14.x
 
       - name: Install dependencies
-        run: yarn --immutable
+        run: yarn install --immutable
 
       - name: Build packages
         run: yarn build
