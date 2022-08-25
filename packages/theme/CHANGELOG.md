@@ -1,5 +1,14 @@
 # @project44-manifest/theme
 
+## 0.1.1
+
+### Patch Changes
+
+- [#63](https://github.com/project44/manifest/pull/63) [`158bcab`](https://github.com/project44/manifest/commit/158bcab2655a02adf537ec531506d12975a8d959) Thanks [@bclark-p44](https://github.com/bclark-p44)! - Updating design tokens to include css variables and as prop support for all components
+
+- Updated dependencies [[`158bcab`](https://github.com/project44/manifest/commit/158bcab2655a02adf537ec531506d12975a8d959)]:
+  - @project44-manifest/design-tokens@1.2.0
+
 ## 0.1.0
 
 ### Minor Changes
