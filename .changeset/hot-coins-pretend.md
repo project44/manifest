@@ -1,5 +1,5 @@
 ---
-"@project44-manifest/react": minor
+'@project44-manifest/react': minor
 ---
 
 feat: date range picker adding relative ranges
