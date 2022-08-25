@@ -47,7 +47,7 @@ function CalendarRanges(props: CalendarRangesProps) {
   };
 
   return (
-    <div className={cx(className, 'manifest-calendar-sidebar')}>
+    <div className={cx(className, 'manifest-calendar-ranges')}>
       <ListBox onSelectionChange={handleRangeChange} selectionMode="single" aria-label={'listbox'}>
         {ranges.map(item => {
           return (
