@@ -15,41 +15,29 @@ interface DefinedRange {
 }
 interface CalendarRangesProps {
   /**
-   * The calendar state.
-   */
-  state: RangeCalendarState;
-
-  /**
    *  The ranges provided
    */
   ranges?: DefinedRange[];
 
-  onChange?: () => void;
+  /**
+   * function to hable the change on Ranges
+   */
+  onRangeChange?: (key: Selection, ranges: DefinedRange[]) => void;
 }
 
 function CalendarRanges(props: CalendarRangesProps) {
-  const { state, ranges = getDefaultRanges() } = props;
+  const { onRangeChange, ranges = getDefaultRanges() } = props;
   const { className } = useStyles();
-
-  const findRangeByKey = (key: React.Key): DefinedRange | undefined => {
-    return ranges.find(item => item.key === key.toString());
-  };
-
-  const handleRangeChange = (key: Selection): void => {
-    const [first] = key;
-    const selectedRange = findRangeByKey(first);
-    if (selectedRange) {
-      const { value } = selectedRange;
-      state.setValue({
-        start: value.start,
-        end: value.end,
-      });
+  const selectionChange = (key: Selection) => {
+    if (onRangeChange) {
+      onRangeChange(key, ranges);
     }
+    return;
   };
 
   return (
     <div className={cx(className, 'manifest-calendar-ranges')}>
-      <ListBox onSelectionChange={handleRangeChange} selectionMode="single" aria-label={'listbox'}>
+      <ListBox onSelectionChange={selectionChange} selectionMode="single" aria-label={'listbox'}>
         {ranges.map(item => {
           return (
             <ListBoxItem aria-label={item.label} key={item.key}>

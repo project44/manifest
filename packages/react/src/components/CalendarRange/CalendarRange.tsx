@@ -1,7 +1,7 @@
 import type { StyleProps } from '../../types';
 import type { RangeCalendarProps } from '@react-types/calendar';
 import * as React from 'react';
-import { createCalendar, DateValue } from '@internationalized/date';
+import { CalendarDate, createCalendar, DateValue } from '@internationalized/date';
 import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { mergeRefs } from '@react-aria/utils';
@@ -14,6 +14,8 @@ import { RangeCalendarStateOptions, useRangeCalendarState } from '@react-stately
 import { useStyles } from '../CalendarRange/CalendarRange.styles';
 import { getDefaultRanges } from '../internal/CalendarRanges/defaultDefinedRanges';
 import { CalendarRanges, DefinedRange } from '../internal/CalendarRanges';
+import { RangeValue } from '.';
+import { Selection } from '@react-types/shared';
 
 export interface CalendarRangeProps extends RangeCalendarProps<DateValue>, StyleProps {
   /**
@@ -62,6 +64,25 @@ export const CalendarRange = createComponent<'div', CalendarRangeProps>((props, 
     createCalendar,
   } as RangeCalendarStateOptions);
 
+  const findRangeByKey = (
+    key: React.Key,
+    definedRanges: DefinedRange[],
+  ): DefinedRange | undefined => {
+    return definedRanges.find(item => item.key === key.toString());
+  };
+
+  const handleRangeChange = (key: Selection, definedRanges: DefinedRange[]): void => {
+    const [first] = key;
+    const selectedRange = findRangeByKey(first, definedRanges);
+    if (selectedRange) {
+      const { value } = selectedRange;
+      state.setValue({
+        start: value.start,
+        end: value.end,
+      });
+    }
+  };
+
   const { calendarProps, nextButtonProps, prevButtonProps } = useRangeCalendar(
     other as RangeCalendarProps<DateValue>,
     state,
@@ -76,7 +97,7 @@ export const CalendarRange = createComponent<'div', CalendarRangeProps>((props, 
       className={cx(className, classNameProp, 'manifest-range-calendar')}
       ref={mergeRefs(calendarRef, forwardedRef)}
     >
-      {showRanges && <CalendarRanges state={state} ranges={ranges} />}
+      {showRanges && <CalendarRanges onRangeChange={handleRangeChange} ranges={ranges} />}
       {showCalendar && (
         <>
           {showRanges && showCalendar && <Separator orientation="vertical" />}
