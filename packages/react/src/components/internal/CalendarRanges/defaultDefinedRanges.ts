@@ -10,11 +10,26 @@ export const createCalendarDate = (date: Date) => {
 };
 
 export const addDays = (calendarDate: CalendarDate, days: number) => {
+  const { day, month, year } = calendarDate;
+  const date = new Date(year, month, day);
+  date.setDate(date.getDate() + days);
+  return calendarDate.set({
+    day: date.getDate(),
+    month: date.getMonth(),
+    year: date.getFullYear(),
+  });
   return calendarDate.set({ day: calendarDate.day + days });
 };
 
 export const addMonths = (calendarDate: CalendarDate, months: number) => {
-  return calendarDate.set({ month: calendarDate.month + months });
+  const { day, month, year } = calendarDate;
+  const date = new Date(year, month, day);
+  date.setMonth(date.getMonth() + months);
+  return calendarDate.set({
+    day: date.getDate(),
+    month: date.getMonth(),
+    year: date.getFullYear(),
+  });
 };
 
 const defaultDate = new Date();
