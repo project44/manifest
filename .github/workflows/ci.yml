@@ -37,8 +37,8 @@ jobs:
         if: steps.yarn_cache.outputs.cache-hit != 'true'
         run: yarn install --immutable
 
-      - name: Buld packages
-        run: yarn build
+      - name: Build packages
+        run: yarn run pack
 
       - name: Store build artifacts
         uses: actions/upload-artifact@v2
@@ -84,7 +84,7 @@ jobs:
           path: packages/
 
       - name: Run typescript
-        run: yarn type-check
+        run: yarn run type
 
   format:
     name: Format code
@@ -123,10 +123,10 @@ jobs:
           path: packages/
 
       - name: Run prettier
-        run: yarn format
+        run: yarn run format
 
   lint:
-    name: Lint repository
+    name: Lint code
     needs: build
     runs-on: ubuntu-latest
 
@@ -202,15 +202,13 @@ jobs:
           name: build-artifacts
           path: packages/
 
-      - name: Build Storybook
-        run: yarn workspace @project44-manifest/react run storybook:build --quiet
-
       - name: Run Chromatic
         uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
           autoAcceptChanges: 'main'
+          buildScriptName: 'build:storybook'
           storybookBuildDir: 'packages/react/docs'
           exitZeroOnChanges: true
           exitOnceUploaded: true

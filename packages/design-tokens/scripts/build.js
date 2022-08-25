@@ -38,7 +38,7 @@ StyleDictionary.extend({
   source: [path.join(ROOT_DIR, 'tokens/**/*.json')],
   platforms: {
     css: {
-      buildPath: path.join(ROOT_DIR, 'dist/'),
+      buildPath: path.join(ROOT_DIR, 'lib/'),
       files: [{ destination: 'css/styles.css', format: 'css/variables' }],
       options: {
         showFileHeader: false,
@@ -54,7 +54,7 @@ StyleDictionary.extend({
       transformGroup: 'javascript',
     },
     json: {
-      buildPath: path.join(ROOT_DIR, 'dist/'),
+      buildPath: path.join(ROOT_DIR, 'lib/'),
       files: [{ destination: 'json/tokens.json', format: 'json/flat' }],
       options: {
         showFileHeader: false,

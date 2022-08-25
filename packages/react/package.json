@@ -3,17 +3,18 @@
   "version": "1.4.0",
   "description": "Manifest Design System react components",
   "license": "MIT",
-  "main": "dist/main.js",
-  "module": "dist/module.js",
-  "source": "src/index.ts",
-  "types": "dist/types.d.ts",
+  "main": "./lib/index.js",
+  "module": "./esm/index.js",
+  "types": "./dts/index.d.ts",
   "files": [
-    "dist"
+    "dts/**/*.d.ts",
+    "esm/**/*.{js,map}",
+    "lib/**/*.{js,map}",
+    "src/**/*.{ts,tsx,json}"
   ],
   "publishConfig": {
     "access": "public"
   },
-  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "git@github.com:project-44/manifest.git",
@@ -22,14 +23,6 @@
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
-  },
-  "scripts": {
-    "build": "parcel build",
-    "clean": "rimraf .turbo dist",
-    "dev": "yarn run storybook",
-    "storybook": "start-storybook -p 6006 --quiet",
-    "storybook:build": "build-storybook -o ./docs",
-    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@babel/runtime": "^7.18.9",
@@ -79,14 +72,11 @@
     "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^6.5.10",
-    "@storybook/addon-essentials": "^6.5.10",
-    "@storybook/builder-webpack5": "^6.5.10",
-    "@storybook/manager-webpack5": "^6.5.10",
-    "@storybook/react": "^6.5.10",
     "@types/react-transition-group": "^4.4.5",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "webpack": "^5.74.0"
+    "react-dom": "^18.1.0"
+  },
+  "packemon": {
+    "platform": "browser"
   }
 }

@@ -7,20 +7,30 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "turbo run build",
+    "build": "run-s build:packages build:tokens type",
+    "build:packages": "packemon build --addEngines",
+    "build:storybook": "build-storybook -c .storybook -o ./docs",
+    "build:tokens": "node packages/design-tokens/scripts/build.js",
     "changeset": "changeset",
     "chromatic": "chromatic",
-    "clean": "turbo run clean && rimraf node_modules",
-    "dev": "turbo run dev",
+    "clean": "yarn run clean:build && yarn run clean:types && yarn run clean:tokens",
+    "clean:build": "packemon clean",
+    "clean:tokens": "rimraf 'packages/design-tokens/src'",
+    "clean:types": "rimraf 'packages/**/*/*.tsbuildinfo'",
+    "dev": "run-s dev:build dev:storybook",
+    "dev:build": "yarn run build",
+    "dev:storybook": "start-storybook -p 6006 --quiet",
     "format": "prettier --write .",
     "lint": "eslint --cache --color --fix --ext .ts,.tsx ./packages/*/{src,test}",
+    "pack": "NODE_ENV=production packemon pack --addEngines --declaration",
     "prepare": "husky install",
-    "release": "turbo run build && changeset publish",
-    "test": "jest",
+    "prerelease": "yarn run pack && yarn lint",
+    "release": "yarn changeset publish",
+    "test": "jest --colors --logHeapUsage",
     "test:coverage": "yarn run test --coverage",
     "test:watch": "jest --watch",
-    "type-check": "turbo run type-check",
-    "version": "changeset version"
+    "type": "tsc --build",
+    "version": "yarn changeset version && yarn install --mode=update-lockfile"
   },
   "dependencies": {
     "@babel/core": "^7.18.13",
@@ -30,9 +40,11 @@
     "@changesets/cli": "^2.22.0",
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^17.0.0",
-    "@parcel/babel-plugin-transform-runtime": "^2.7.0",
-    "@parcel/packager-ts": "^2.7.0",
-    "@parcel/transformer-typescript-types": "^2.7.0",
+    "@storybook/addon-a11y": "^6.5.10",
+    "@storybook/addon-essentials": "^6.5.10",
+    "@storybook/builder-webpack5": "^6.5.10",
+    "@storybook/manager-webpack5": "^6.5.10",
+    "@storybook/react": "^6.5.10",
     "@swc/jest": "^0.2.22",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
@@ -60,16 +72,17 @@
     "lint-staged": "^12.4.2",
     "lodash": "^4.17.21",
     "npm-run-all": "^4.1.5",
-    "parcel": "^2.7.0",
+    "packemon": "^2.3.7",
     "prettier": "^2.7.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "rimraf": "^3.0.2",
-    "turbo": "^1.4.3",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "webpack": "^5.74.0"
   },
   "engines": {
-    "node": "16.x"
+    "node": ">=14.19.0",
+    "npm": ">=6.13.0"
   },
   "packageManager": "yarn@3.2.0"
 }
