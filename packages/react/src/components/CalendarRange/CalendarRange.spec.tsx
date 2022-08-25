@@ -92,7 +92,7 @@ describe('@project44-manifest/react - CalendarRange', () => {
   });
 
   it('should render the sidebar for the relative dates', () => {
-    const { container } = render(
+    render(
       <CalendarRange
         value={{
           start: new CalendarDate(2022, 7, 2),
@@ -103,7 +103,11 @@ describe('@project44-manifest/react - CalendarRange', () => {
       />,
     );
 
-    const results = container.querySelector('.manifest-calendar-sidebar');
+    const listBoxcontainer = screen.getAllByRole('listbox');
+
+    expect(listBoxcontainer.length).toBeGreaterThanOrEqual(1);
+
+    const results = listBoxcontainer.shift();
 
     expect(results).toBeDefined();
   });
@@ -119,7 +123,11 @@ describe('@project44-manifest/react - CalendarRange', () => {
       />,
     );
 
-    const results = screen.findAllByRole('listbox');
+    const listBoxcontainer = screen.getAllByRole('listbox');
+
+    expect(listBoxcontainer.length).toBeGreaterThanOrEqual(1);
+
+    const results = listBoxcontainer.shift();
 
     expect(results).toBeDefined();
     expect(results).toContainHTML('Today');
