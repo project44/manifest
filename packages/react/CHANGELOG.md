@@ -1,5 +1,15 @@
 # @manifest/react
 
+## 1.5.0
+
+### Minor Changes
+
+- [#51](https://github.com/project44/manifest/pull/51) [`218f201`](https://github.com/project44/manifest/commit/218f201455a30967632827cdca0bab42dd2fcf9b) Thanks [@cristianrengifop44](https://github.com/cristianrengifop44)! - feat: date range picker adding relative ranges
+
+  - Adding prop showCalendar
+  - Adding prop showRanges
+  - Adding prop ranges
+
 ## 1.4.0
 
 ### Minor Changes
