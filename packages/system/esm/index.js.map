@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sources":["../src/system.tsx"],"sourcesContent":null,"names":["createComponent","component","React","forwardRef"],"mappings":";;;;;;AAGA;AACA;AACA;AACA;AACA;;AACO,SAASA,eAAT,CAGLC,SAHK,EAGiE;AACtE,EAAA,oBAAOC,KAAK,CAACC,UAAN,CAAiBF,SAAjB,CAAP,CAAA;AACD;;;;"}
