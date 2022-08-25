@@ -45,9 +45,7 @@ jobs:
         with:
           name: build-artifacts
           path: |
-            packages/**/esm/**/*
-            packages/**/lib/**/*
-            packages/**/dts/**/*
+            packages/**/dist/**/*
 
   type_check:
     name: Type check
