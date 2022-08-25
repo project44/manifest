@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "description": "Manifest Design System themes",
   "license": "MIT",
+  "author": "project44",
+  "keywords": ["manifest", "design", "system"],
   "main": "./lib/index.js",
   "module": "./esm/index.js",
   "types": "./dts/index.d.ts",

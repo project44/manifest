@@ -3,6 +3,8 @@
   "version": "1.4.0",
   "description": "Manifest Design System react components",
   "license": "MIT",
+  "author": "project44",
+  "keywords": ["manifest", "design", "system", "react", "components", "component library"],
   "main": "./lib/index.js",
   "module": "./esm/index.js",
   "types": "./dts/index.d.ts",
