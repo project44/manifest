@@ -14,7 +14,7 @@ export interface PopoverContext {
   onClose?(): void;
   onEntered?(): void;
   onExited?(): void;
-  shouldCloseOnInteractOutside?(element: HTMLElement): boolean;
+  shouldCloseOnInteractOutside?(element: Element): boolean;
 }
 
 export const PopoverContext = React.createContext<PopoverContext | null>(null);

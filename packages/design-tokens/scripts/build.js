@@ -1,5 +1,5 @@
-import path from 'path';
-import StyleDictionary from 'style-dictionary';
+const path = require('path');
+const StyleDictionary = require('style-dictionary');
 
 const CATEGORIES = new Set(['border-width', 'font-size', 'line-height', 'radius', 'size', 'space']);
 const ROOT_DIR = path.resolve(__dirname, '../');
@@ -7,9 +7,9 @@ const ROOT_DIR = path.resolve(__dirname, '../');
 StyleDictionary.registerTransform({
   name: 'size/pxToRem',
   type: 'value',
-  matcher: token => CATEGORIES.has(token.attributes?.category as string),
+  matcher: token => CATEGORIES.has(token.attributes.category),
   transformer: token => {
-    const tokenValue = token.original.value as string;
+    const tokenValue = token.original.value;
 
     if (tokenValue.includes('%') || tokenValue.includes('px') || tokenValue.includes('em')) {
       return tokenValue;
@@ -38,7 +38,7 @@ StyleDictionary.extend({
   source: [path.join(ROOT_DIR, 'tokens/**/*.json')],
   platforms: {
     css: {
-      buildPath: path.join(ROOT_DIR, 'dist/'),
+      buildPath: path.join(ROOT_DIR, 'lib/'),
       files: [{ destination: 'css/styles.css', format: 'css/variables' }],
       options: {
         showFileHeader: false,
@@ -54,7 +54,7 @@ StyleDictionary.extend({
       transformGroup: 'javascript',
     },
     json: {
-      buildPath: path.join(ROOT_DIR, 'dist/'),
+      buildPath: path.join(ROOT_DIR, 'lib/'),
       files: [{ destination: 'json/tokens.json', format: 'json/flat' }],
       options: {
         showFileHeader: false,

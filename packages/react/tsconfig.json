@@ -1,4 +1,22 @@
 {
-  "extends": "../../tsconfig.json",
-  "include": ["src"]
+  "extends": "../../tsconfig.options.json",
+  "compilerOptions": {
+    "declarationDir": "dts",
+    "emitDeclarationOnly": true,
+    "outDir": "dts",
+    "rootDir": "src"
+  },
+  "exclude": ["dts"],
+  "include": ["src/**/*"],
+  "references": [
+    {
+      "path": "../design-tokens"
+    },
+    {
+      "path": "../system"
+    },
+    {
+      "path": "../theme"
+    }
+  ]
 }

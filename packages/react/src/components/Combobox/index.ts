@@ -1,5 +1,6 @@
 import { Item, Section } from '@react-stately/collections';
 
-export { Item as ComboboxItem, Section as ComboboxSection };
+export const ComboboxItem = Item;
+export const ComboboxSection = Section;
 
 export * from './Combobox';
