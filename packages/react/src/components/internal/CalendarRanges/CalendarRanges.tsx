@@ -6,6 +6,7 @@ import { ListBox, ListBoxItem } from '../../ListBox';
 import { Selection } from '@react-types/shared';
 import { RangeValue } from '../../CalendarRange';
 import { CalendarDate } from '@internationalized/date';
+import { getDefaultRanges } from './defaultDefinedRanges';
 
 interface DefinedRange {
   key: string;
@@ -21,13 +22,13 @@ interface CalendarRangesProps {
   /**
    *  The ranges provided
    */
-  ranges: DefinedRange[];
+  ranges?: DefinedRange[];
 
   onChange?: () => void;
 }
 
 function CalendarRanges(props: CalendarRangesProps) {
-  const { state, ranges } = props;
+  const { state, ranges = getDefaultRanges() } = props;
   const { className } = useStyles();
 
   const findRangeByKey = (key: React.Key): DefinedRange | undefined => {
@@ -61,4 +62,5 @@ function CalendarRanges(props: CalendarRangesProps) {
   );
 }
 
-export { CalendarRanges, DefinedRange };
+export { CalendarRanges };
+export type { DefinedRange };

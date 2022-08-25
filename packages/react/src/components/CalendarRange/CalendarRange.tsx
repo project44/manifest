@@ -69,7 +69,6 @@ export const CalendarRange = createComponent<'div', CalendarRangeProps>((props, 
   );
 
   const { className } = useStyles({ css, showCalendar });
-  const definedRanges: DefinedRange[] = showRanges && ranges ? ranges : getDefaultRanges();
 
   return (
     <Comp
@@ -77,7 +76,7 @@ export const CalendarRange = createComponent<'div', CalendarRangeProps>((props, 
       className={cx(className, classNameProp, 'manifest-range-calendar')}
       ref={mergeRefs(calendarRef, forwardedRef)}
     >
-      {showRanges && <CalendarRanges state={state} ranges={definedRanges} />}
+      {showRanges && <CalendarRanges state={state} ranges={showRanges ? ranges : undefined} />}
       {showCalendar && (
         <>
           {showRanges && showCalendar && <Separator orientation="vertical" />}
