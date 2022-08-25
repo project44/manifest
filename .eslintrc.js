@@ -1,13 +1,9 @@
-const path = require('path');
-
-const packages = require('./package.json').workspaces;
-
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   parserOptions: {
     tsconfigRootDir: __dirname,
-    project: 'tsconfig.json',
+    project: 'tsconfig.eslint.json',
   },
   extends: [
     'eslint:recommended',

@@ -3,9 +3,10 @@
   "version": "1.4.0",
   "description": "Manifest Design System react components",
   "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "source": "src/index.ts",
+  "main": "dist/main.js",
+  "module": "dist/module.js",
+  "types": "dist/types.d.ts",
   "files": [
     "dist"
   ],
@@ -23,7 +24,7 @@
     "react-dom": ">=16.8.0"
   },
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "build": "parcel build",
     "clean": "rimraf .turbo dist",
     "dev": "yarn run storybook",
     "storybook": "start-storybook -p 6006 --quiet",

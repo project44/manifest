@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "description": "Manifest Design System themes",
   "license": "MIT",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "module": "dist/index.mjs",
+  "source": "src/index.ts",
+  "main": "dist/main.js",
+  "module": "dist/module.js",
+  "types": "dist/types.d.ts",
   "files": [
     "dist"
   ],
@@ -19,8 +20,8 @@
     "directory": "packages/theme"
   },
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
-    "dev": "yarn build -- -- watch",
+    "build": "parcel build",
+    "dev": "parcel watch",
     "clean": "rimraf .turbo dist",
     "type-check": "tsc --noEmit"
   },
