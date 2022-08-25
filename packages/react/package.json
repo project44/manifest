@@ -3,9 +3,9 @@
   "version": "1.4.0",
   "description": "Manifest Design System react components",
   "license": "MIT",
-  "source": "src/index.ts",
   "main": "dist/main.js",
   "module": "dist/module.js",
+  "source": "src/index.ts",
   "types": "dist/types.d.ts",
   "files": [
     "dist"
@@ -32,6 +32,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@babel/runtime": "^7.18.9",
     "@internationalized/date": "^3.0.0",
     "@project44-manifest/design-tokens": "^1.1.0",
     "@project44-manifest/system": "^0.1.0",

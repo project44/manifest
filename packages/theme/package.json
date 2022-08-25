@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "description": "Manifest Design System themes",
   "license": "MIT",
-  "source": "src/index.ts",
   "main": "dist/main.js",
   "module": "dist/module.js",
+  "source": "src/index.ts",
   "types": "dist/types.d.ts",
   "files": [
     "dist"
