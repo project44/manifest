@@ -1,10 +1,11 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import type { RangeValue } from '../CalendarRange';
 import * as React from 'react';
-import { CalendarDate, DateValue } from '@internationalized/date';
+import { CalendarDate, DateValue, endOfMonth, startOfMonth } from '@internationalized/date';
 import { DateRangePicker } from './DateRangePicker';
 import { Flex } from '../Flex';
 import { Icon } from '../Icon';
+import { addMonths, createCalendarDate } from '../internal/CalendarRanges/defaultDefinedRanges';
 
 export default {
   title: 'Components/DateRangePicker',
@@ -70,5 +71,76 @@ Controlled.decorators = [
     });
 
     return <DateRangePicker onChange={setValue} value={value} />;
+  },
+];
+
+export const WithRelativeRanges = Template.bind({});
+
+WithRelativeRanges.decorators = [
+  () => {
+    return <DateRangePicker showRanges={true} />;
+  },
+];
+
+export const OnlyRelativeRanges = Template.bind({});
+
+OnlyRelativeRanges.decorators = [
+  () => {
+    return <DateRangePicker showRanges={true} showCalendar={false} />;
+  },
+];
+
+export const CustomRelativeRanges = Template.bind({});
+
+CustomRelativeRanges.decorators = [
+  () => {
+    const defaultDate = new Date();
+    const calendarDate = createCalendarDate(defaultDate);
+    const defineds = {
+      startOfLastThreeMonths: startOfMonth(addMonths(calendarDate, -3)),
+      endOfLastThreeMonths: endOfMonth(addMonths(calendarDate, -1)),
+      startOfLastSixMonths: startOfMonth(addMonths(calendarDate, -6)),
+      endOfLastSixMonths: endOfMonth(addMonths(calendarDate, -1)),
+      startOfLastYear: startOfMonth(addMonths(calendarDate, -13)),
+      endOfLastYear: endOfMonth(addMonths(calendarDate, -1)),
+      startOfLastTwoYears: startOfMonth(addMonths(calendarDate, -25)),
+      endOfLastTwoYears: endOfMonth(addMonths(calendarDate, -1)),
+    };
+    const customRanges = [
+      {
+        key: 'lastThreeMonths',
+        label: 'Last three months',
+        value: {
+          start: defineds.startOfLastThreeMonths,
+          end: defineds.endOfLastThreeMonths,
+        },
+      },
+      {
+        key: 'lastSixMonths',
+        label: 'Last six months',
+        value: {
+          start: defineds.startOfLastSixMonths,
+          end: defineds.endOfLastSixMonths,
+        },
+      },
+      {
+        key: 'lastYear',
+        label: 'Last Year',
+        value: {
+          start: defineds.startOfLastYear,
+          end: defineds.endOfLastYear,
+        },
+      },
+      {
+        key: 'lastTwoYears',
+        label: 'Last Two Years',
+        value: {
+          start: defineds.startOfLastTwoYears,
+          end: defineds.endOfLastTwoYears,
+        },
+      },
+    ];
+
+    return <DateRangePicker showRanges={true} ranges={customRanges} />;
   },
 ];

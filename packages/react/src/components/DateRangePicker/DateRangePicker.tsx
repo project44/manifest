@@ -1,6 +1,6 @@
+import type { DOMProps, StyleProps } from '../../types';
 import type { AriaDateRangePickerProps } from '@react-types/datepicker';
 import type { DateValue } from '@react-types/calendar';
-import type { StyleProps } from '../../types';
 import * as React from 'react';
 import { CalendarRange } from '../CalendarRange';
 import { createComponent } from '@project44-manifest/system';
@@ -16,6 +16,7 @@ import { useDateRangePickerState } from '@react-stately/datepicker';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
 import { useStyles } from '../DatePicker/DatePicker.styles';
+import { DefinedRange } from '../internal/CalendarRanges';
 
 export interface DateRangePickerProps extends AriaDateRangePickerProps<DateValue>, StyleProps {
   /**
@@ -51,6 +52,29 @@ export interface DateRangePickerProps extends AriaDateRangePickerProps<DateValue
    * <Combobox startIcon={<Icon />} />
    */
   startIcon?: React.ReactElement;
+
+  /**
+   * Allows to show or hide the calendar of the component
+   *
+   * @default true
+   * @example
+   * <DateRangePicker showCalendar={false} />
+   */
+  showCalendar?: boolean;
+
+  /**
+   * Allows to pass or avoid the ranges to the component and shoen them instead of the predefined ones
+   *
+   * @default false
+   * @example
+   * <DateRangePicker showRanges={false} />
+   */
+  showRanges?: boolean;
+
+  /**
+   * Brings the list of ranges defined to the component
+   */
+  ranges?: DefinedRange[];
 }
 
 export const DateRangePicker = createComponent<'div', DateRangePickerProps>(
@@ -65,6 +89,9 @@ export const DateRangePicker = createComponent<'div', DateRangePickerProps>(
       isDisabled,
       isReadOnly,
       isRequired,
+      ranges,
+      showCalendar = true,
+      showRanges = false,
       label,
       labelProps: labelPropsProp = {},
       placeholder,
@@ -87,7 +114,6 @@ export const DateRangePicker = createComponent<'div', DateRangePickerProps>(
       descriptionProps,
       errorMessageProps,
     } = useDateRangePicker(props, state, triggerRef);
-
     const isInvalid = validationState === 'invalid';
 
     const { buttonProps, isPressed } = useButton({ ...triggerProps, isDisabled }, triggerRef);
@@ -162,7 +188,13 @@ export const DateRangePicker = createComponent<'div', DateRangePickerProps>(
             placement="bottom start"
             triggerRef={triggerRef}
           >
-            <CalendarRange className="manifest-datepicker__calendar" {...calendarProps} />
+            <CalendarRange
+              className="manifest-datepicker__calendar"
+              {...calendarProps}
+              showCalendar={showCalendar}
+              showRanges={showRanges}
+              ranges={ranges}
+            />
           </Popover>
         </Comp>
       </FormControl>

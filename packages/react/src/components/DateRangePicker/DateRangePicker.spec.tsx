@@ -1,11 +1,66 @@
 import * as React from 'react';
 import { fireEvent, screen, render, waitFor } from '@testing-library/react';
 import { axe } from 'jest-axe';
-import { CalendarDate } from '@internationalized/date';
+import { CalendarDate, endOfMonth, startOfMonth } from '@internationalized/date';
 import { DateRangePicker } from './DateRangePicker';
 import userEvent from '@testing-library/user-event';
+import { addMonths, createCalendarDate } from '../internal/CalendarRanges/defaultDefinedRanges';
+import { DefinedRange } from '../internal/CalendarRanges';
 
 describe('@project44-manifest/components - Calendar', () => {
+  let defaultDate: Date;
+  let customRanges: DefinedRange[];
+  beforeAll(() => {
+    // * used for the custom Ranges To start defining the ranges.
+    defaultDate = new Date();
+    const calendarDate = createCalendarDate(defaultDate);
+    const defineds = {
+      startOfLastThreeMonths: startOfMonth(addMonths(calendarDate, -3)),
+      endOfLastThreeMonths: endOfMonth(addMonths(calendarDate, -1)),
+      startOfLastSixMonths: startOfMonth(addMonths(calendarDate, -6)),
+      endOfLastSixMonths: endOfMonth(addMonths(calendarDate, -1)),
+      startOfLastYear: startOfMonth(addMonths(calendarDate, -13)),
+      endOfLastYear: endOfMonth(addMonths(calendarDate, -1)),
+      startOfLastTwoYears: startOfMonth(addMonths(calendarDate, -25)),
+      endOfLastTwoYears: endOfMonth(addMonths(calendarDate, -1)),
+    };
+
+    customRanges = [
+      {
+        key: 'lastThreeMonths',
+        label: 'Last three months',
+        value: {
+          start: defineds.startOfLastThreeMonths,
+          end: defineds.endOfLastThreeMonths,
+        },
+      },
+      {
+        key: 'lastSixMonths',
+        label: 'Last six months',
+        value: {
+          start: defineds.startOfLastSixMonths,
+          end: defineds.endOfLastSixMonths,
+        },
+      },
+      {
+        key: 'lastYear',
+        label: 'Last Year',
+        value: {
+          start: defineds.startOfLastYear,
+          end: defineds.endOfLastYear,
+        },
+      },
+      {
+        key: 'lastTwoYears',
+        label: 'Last Two Years',
+        value: {
+          start: defineds.startOfLastTwoYears,
+          end: defineds.endOfLastTwoYears,
+        },
+      },
+    ];
+  });
+
   it('should have no accessibility violations', async () => {
     const { container } = render(<DateRangePicker isOpen />);
 
@@ -111,6 +166,76 @@ describe('@project44-manifest/components - Calendar', () => {
 
     await waitFor(() => {
       expect(dialog).not.toBeInTheDocument();
+    });
+  });
+
+  it('should support selecting a relative date', async () => {
+    const onChange = jest.fn();
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth() + 1;
+    const day = currentDate.getDate();
+    render(
+      <DateRangePicker
+        defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+        onChange={onChange}
+        showRanges={true}
+        showCalendar={true}
+      />,
+    );
+
+    expect(screen.getByText('7 / 2 / 2022 - 7 / 12 / 2022')).toBeVisible();
+
+    fireEvent.click(screen.getByRole('button'));
+
+    const dialog = screen.getByRole('dialog');
+
+    expect(dialog).toBeInTheDocument();
+
+    fireEvent.click(await screen.findByText('Yesterday'));
+
+    await waitFor(() => {
+      expect(dialog).not.toBeInTheDocument();
+    });
+
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith({
+      start: new CalendarDate(year, month, day - 1),
+      end: new CalendarDate(year, month, day - 1),
+    });
+  });
+
+  it('should support selecting a custom relative date', async () => {
+    const onChange = jest.fn();
+    const chosenRange = customRanges[customRanges.length - 1];
+
+    render(
+      <DateRangePicker
+        defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+        onChange={onChange}
+        showRanges={true}
+        ranges={customRanges}
+      />,
+    );
+
+    expect(screen.getByText('7 / 2 / 2022 - 7 / 12 / 2022')).toBeVisible();
+
+    fireEvent.click(screen.getByRole('button'));
+
+    const dialog = screen.getByRole('dialog');
+
+    expect(dialog).toBeInTheDocument();
+
+    fireEvent.click(await screen.findByText('Last Two Years'));
+
+    await waitFor(() => {
+      expect(dialog).not.toBeInTheDocument();
+    });
+
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith({
+      start: chosenRange?.value.start,
+      end: chosenRange?.value.end,
     });
   });
 });
