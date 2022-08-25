@@ -2968,7 +2968,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react@workspace:packages/react"
   dependencies:
-    "@babel/runtime": ^7.18.9
     "@internationalized/date": ^3.0.0
     "@project44-manifest/design-tokens": ^1.1.0
     "@project44-manifest/system": ^0.1.0
