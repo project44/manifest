@@ -18,7 +18,6 @@ export const addDays = (calendarDate: CalendarDate, days: number) => {
     month: date.getMonth(),
     year: date.getFullYear(),
   });
-  return calendarDate.set({ day: calendarDate.day + days });
 };
 
 export const addMonths = (calendarDate: CalendarDate, months: number) => {
