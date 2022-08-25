@@ -7,7 +7,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "run-s build:packages build:tokens type",
+    "build": "run-s build:tokens build:packages type",
     "build:packages": "packemon build --addEngines",
     "build:storybook": "build-storybook -c .storybook -o ./docs",
     "build:tokens": "node packages/design-tokens/scripts/build.js",

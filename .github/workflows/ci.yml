@@ -211,7 +211,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           autoAcceptChanges: 'main'
           buildScriptName: 'build:storybook'
-          storybookBuildDir: 'packages/react/docs'
           exitZeroOnChanges: true
           exitOnceUploaded: true
         env:
