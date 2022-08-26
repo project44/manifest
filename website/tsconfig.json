@@ -1,0 +1,16 @@
+{
+  "extends": "../tsconfig.options.json",
+  "compilerOptions": {
+    "emitDeclarationOnly": false,
+    "incremental": true,
+    "jsx": "preserve",
+    "noEmit": true,
+  },
+  "include": ["next-env.d.ts", "pages", "src"],
+  "exclude": ["node_modules"],
+  "references": [
+    {
+      "path": "../packages/react"
+    }
+  ]
+}
