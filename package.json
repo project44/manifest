@@ -4,10 +4,12 @@
   "private": true,
   "license": "MIT",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "website"
   ],
   "scripts": {
     "build": "run-s build:tokens build:packages type",
+    "build:docs": "yarn workspace website build",
     "build:packages": "packemon build --addEngines",
     "build:storybook": "build-storybook -c .storybook -o ./docs",
     "build:tokens": "node packages/design-tokens/scripts/build.js",
@@ -19,6 +21,7 @@
     "clean:types": "rimraf 'packages/**/*/*.tsbuildinfo'",
     "dev": "run-s dev:build dev:storybook",
     "dev:build": "yarn run build",
+    "dev:docs": "yarn workspace website dev",
     "dev:storybook": "start-storybook -p 6006 --quiet",
     "format": "prettier --write .",
     "lint": "eslint --cache --color --fix --ext .ts,.tsx ./packages/*/{src,test}",

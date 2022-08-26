@@ -16,6 +16,8 @@ node_modules/
 esm/
 lib/
 dts/
+.next/
+build/
 
 # Configs
 *.tsbuildinfo
