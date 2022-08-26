@@ -1,5 +1,11 @@
 # @manifest/react
 
+## 1.5.1
+
+### Patch Changes
+
+- [#69](https://github.com/project44/manifest/pull/69) [`3855530`](https://github.com/project44/manifest/commit/3855530c77f35b61eaaed0dee078c454e6770643) Thanks [@bclark-p44](https://github.com/bclark-p44)! - Adding exports for DropdownItem and DropdownSection
+
 ## 1.5.0
 
 ### Minor Changes
