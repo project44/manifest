@@ -11,7 +11,7 @@ export const useStyles = css({
   position: 'relative',
   width: '100%',
 
-  '.manifest-combobox--icon': {
+  '.manifest-combobox__icon': {
     alignItems: 'center',
     color: '$$iconColor',
     display: 'inline-flex',
@@ -22,15 +22,15 @@ export const useStyles = css({
     zIndex: 2,
   },
 
-  '.manifest-combobox--icon__end': {
+  '.manifest-combobox__icon--end': {
     right: 0,
   },
 
-  '.manifest-combobox--icon__start': {
+  '.manifest-combobox__icon--start': {
     left: 0,
   },
 
-  '.manifest-combobox--input': {
+  '.manifest-combobox__input': {
     appearance: 'none',
     backgroundColor: '$$backgroundColor',
     border: '1px solid $$borderColor',
@@ -55,7 +55,7 @@ export const useStyles = css({
   variants: {
     hasStartIcon: {
       true: {
-        '.manifest-combobox--input': {
+        '.manifest-combobox__input': {
           paddingLeft: pxToRem(40),
         },
       },
@@ -65,7 +65,7 @@ export const useStyles = css({
         $$backgroundColor: '$colors$palette-grey-50',
         $$textColor: '$colors$text-disabled',
 
-        '.manifest-combobox--input': {
+        '.manifest-combobox__input': {
           cursor: 'not-allowed',
         },
       },
@@ -77,7 +77,7 @@ export const useStyles = css({
     },
     isFocusVisible: {
       true: {
-        '.manifest-combobox--input': {
+        '.manifest-combobox__input': {
           outline: '$colors$palette-indigo-200 solid 3px',
         },
       },
@@ -104,7 +104,7 @@ export const useStyles = css({
     },
     size: {
       medium: {
-        '.manifest-combobox--icon': {
+        '.manifest-combobox__icon': {
           fontSize: '$x-large',
           size: pxToRem(40),
 
@@ -113,12 +113,12 @@ export const useStyles = css({
           },
         },
 
-        '.manifest-combobox--input': {
+        '.manifest-combobox__input': {
           height: pxToRem(40),
         },
       },
       small: {
-        '.manifest-combobox--icon': {
+        '.manifest-combobox__icon': {
           fontSize: pxToRem(18),
           size: pxToRem(34),
 
@@ -127,7 +127,7 @@ export const useStyles = css({
           },
         },
 
-        '.manifest-combobox--input': {
+        '.manifest-combobox__input': {
           height: pxToRem(34),
         },
       },

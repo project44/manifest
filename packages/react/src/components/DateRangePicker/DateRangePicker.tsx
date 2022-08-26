@@ -179,23 +179,25 @@ export const DateRangePicker = createComponent<'div', DateRangePickerProps>(
             <Icon icon="calendar_month" />
           </span>
 
-          <Popover
-            className="manifest-datepicker__popover"
-            isOpen={state.isOpen}
-            onClose={() => state.setOpen(false)}
-            overlayProps={dialogProps}
-            overlayRef={popoverRef}
-            placement="bottom start"
-            triggerRef={triggerRef}
-          >
-            <CalendarRange
-              className="manifest-datepicker__calendar"
-              {...calendarProps}
-              showCalendar={showCalendar}
-              showRanges={showRanges}
-              ranges={ranges}
-            />
-          </Popover>
+          {state.isOpen && (
+            <Popover
+              {...dialogProps}
+              className="manifest-datepicker__popover"
+              isOpen={state.isOpen}
+              onClose={() => state.setOpen(false)}
+              placement="bottom start"
+              ref={popoverRef}
+              targetRef={triggerRef}
+            >
+              <CalendarRange
+                className="manifest-datepicker__calendar"
+                {...calendarProps}
+                showCalendar={showCalendar}
+                showRanges={showRanges}
+                ranges={ranges}
+              />
+            </Popover>
+          )}
         </Comp>
       </FormControl>
     );

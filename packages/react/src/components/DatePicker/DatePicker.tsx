@@ -147,17 +147,18 @@ export const DatePicker = createComponent<'div', DatePickerProps>((props, forwar
           <Icon icon="calendar_month" />
         </span>
 
-        <Popover
-          className="manifest-datepicker__popover"
-          isOpen={state.isOpen}
-          onClose={() => state.setOpen(false)}
-          overlayProps={dialogProps}
-          overlayRef={popoverRef}
-          placement="bottom start"
-          triggerRef={triggerRef}
-        >
-          <Calendar className="manifest-datepicker__calendar" {...calendarProps} />
-        </Popover>
+        {state.isOpen && (
+          <Popover
+            {...dialogProps}
+            className="manifest-datepicker__popover"
+            onClose={() => state.setOpen(false)}
+            ref={popoverRef}
+            placement="bottom start"
+            targetRef={triggerRef}
+          >
+            <Calendar className="manifest-datepicker__calendar" {...calendarProps} />
+          </Popover>
+        )}
       </Comp>
     </FormControl>
   );

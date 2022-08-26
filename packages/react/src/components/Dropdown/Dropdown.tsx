@@ -8,8 +8,7 @@ import { Slot } from '@radix-ui/react-slot';
 import { useMenuTrigger } from '@react-aria/menu';
 import { useMenuTriggerState } from '@react-stately/menu';
 
-export interface DropdownProps
-  extends Omit<PopoverProps, 'overlayRef' | 'scrollRef' | 'triggerRef'> {
+export interface DropdownProps extends Omit<PopoverProps, 'scrollRef' | 'targetRef'> {
   /**
    * The contents of the MenuTrigger - a trigger and a Menu.
    */
@@ -118,17 +117,18 @@ export const Dropdown: React.FC<DropdownProps> = props => {
       <Slot {...menuTriggerProps} ref={triggerRef}>
         {menuTrigger}
       </Slot>
-      <Popover
-        {...other}
-        isOpen={state.isOpen}
-        onClose={state.close}
-        placement={placement}
-        overlayRef={overlayRef}
-        triggerRef={triggerRef}
-        type={type}
-      >
-        {menu}
-      </Popover>
+      {state.isOpen && (
+        <Popover
+          {...other}
+          onClose={state.close}
+          placement={placement}
+          ref={overlayRef}
+          targetRef={triggerRef}
+          type={type}
+        >
+          {menu}
+        </Popover>
+      )}
     </DropdownContext.Provider>
   );
 };

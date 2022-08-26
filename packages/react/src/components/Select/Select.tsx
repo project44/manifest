@@ -158,23 +158,24 @@ export const Select = createComponent<'div', SelectProps>((props, forwardedRef) 
           <Icon icon="expand_more" />
         </span>
 
-        <Popover
-          className="manifest-select__popover"
-          css={{ minWidth: popoverWidth, width: popoverWidth }}
-          isOpen={state.isOpen}
-          onClose={state.close}
-          overlayRef={popoverRef}
-          scrollRef={listBoxRef}
-          triggerRef={triggerRef}
-        >
-          <ListBoxBase
-            {...(menuProps as ListBoxBaseProps)}
-            className="manifest-select__list-box"
-            disallowEmptySelection
-            ref={listBoxRef}
-            state={state}
-          />
-        </Popover>
+        {state.isOpen && (
+          <Popover
+            className="manifest-select__popover"
+            css={{ minWidth: popoverWidth, width: popoverWidth }}
+            onClose={state.close}
+            ref={popoverRef}
+            scrollRef={listBoxRef}
+            targetRef={triggerRef}
+          >
+            <ListBoxBase
+              {...(menuProps as ListBoxBaseProps)}
+              className="manifest-select__list-box"
+              disallowEmptySelection
+              ref={listBoxRef}
+              state={state}
+            />
+          </Popover>
+        )}
       </Comp>
     </FormControl>
   );
