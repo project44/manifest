@@ -48,8 +48,14 @@ export type { DateRangePickerProps } from './components/DateRangePicker';
 export { Dropdown } from './components/Dropdown';
 export type { DropdownProps } from './components/Dropdown';
 
+export { DropdownItem } from './components/Dropdown';
+export type { DropdownItemProps } from './components/Dropdown';
+
 export { DropdownMenu } from './components/DropdownMenu';
 export type { DropdownMenuProps } from './components/DropdownMenu';
+
+export { DropdownSection } from './components/Dropdown';
+export type { DropdownSectionProps } from './components/Dropdown';
 
 export { Flex } from './components/Flex';
 export type { FlexProps } from './components/Flex';
