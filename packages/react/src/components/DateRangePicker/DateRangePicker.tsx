@@ -1,20 +1,23 @@
-import type { DOMProps, StyleProps } from '../../types';
 import type { AriaDateRangePickerProps } from '@react-types/datepicker';
 import type { DateValue } from '@react-types/calendar';
+import type { Placement } from '@react-types/overlays';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { CalendarRange } from '../CalendarRange';
 import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
+import { Overlay } from '../Overlay';
 import { Popover } from '../Popover';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
-import { mergeProps } from '@react-aria/utils';
 import { Typography } from '../Typography';
 import { useButton } from '@react-aria/button';
 import { useDateRangePicker } from '@react-aria/datepicker';
 import { useDateRangePickerState } from '@react-stately/datepicker';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
+import { useOverlayPosition } from '@react-aria/overlays';
 import { useStyles } from '../DatePicker/DatePicker.styles';
 import { DefinedRange } from '../internal/CalendarRanges';
 
@@ -36,9 +39,29 @@ export interface DateRangePickerProps extends AriaDateRangePickerProps<DateValue
    */
   labelProps?: React.HTMLAttributes<HTMLElement>;
   /**
+   * The additional offset applied along the main axis between the element and its
+   * anchor element.
+   *
+   * @default 4
+   */
+  offset?: number;
+  /**
+   * The placement of the element with respect to its anchor element.
+   *
+   * @default 'bottom'
+   */
+  placement?: Placement;
+  /**
    * Temporary text that occupies the text input when it is empty.
    */
   placeholder?: string;
+  /**
+   * Whether the element should flip its orientation (e.g. top to bottom or left to right) when
+   * there is insufficient room for it to render completely.
+   *
+   * @default true
+   */
+  shouldFlip?: boolean;
   /**
    * The size of the combobox
    *
@@ -94,7 +117,10 @@ export const DateRangePicker = createComponent<'div', DateRangePickerProps>(
       showRanges = false,
       label,
       labelProps: labelPropsProp = {},
+      offset = 4,
       placeholder,
+      placement = 'bottom start',
+      shouldFlip = true,
       size,
       startIcon,
       validationState,
@@ -102,6 +128,7 @@ export const DateRangePicker = createComponent<'div', DateRangePickerProps>(
 
     const state = useDateRangePickerState(props);
 
+    const containerRef = React.useRef<HTMLDivElement>(null);
     const triggerRef = React.useRef<HTMLButtonElement>(null);
     const popoverRef = React.useRef<HTMLDivElement>(null);
 
@@ -114,6 +141,17 @@ export const DateRangePicker = createComponent<'div', DateRangePickerProps>(
       descriptionProps,
       errorMessageProps,
     } = useDateRangePicker(props, state, triggerRef);
+
+    const { overlayProps } = useOverlayPosition({
+      isOpen: state.isOpen,
+      offset,
+      onClose: () => state.setOpen(false),
+      overlayRef: popoverRef,
+      placement,
+      shouldFlip,
+      targetRef: containerRef,
+    });
+
     const isInvalid = validationState === 'invalid';
 
     const { buttonProps, isPressed } = useButton({ ...triggerProps, isDisabled }, triggerRef);
@@ -160,7 +198,7 @@ export const DateRangePicker = createComponent<'div', DateRangePickerProps>(
         labelProps={mergeProps(labelProps, labelPropsProp)}
         validationState={validationState}
       >
-        <Comp {...groupProps} className={classes} ref={forwardedRef}>
+        <Comp {...groupProps} className={classes} ref={mergeRefs(containerRef, forwardedRef)}>
           {startIcon && (
             <span className={cx('manifest-datepicker__icon', 'manifest-datepicker__icon--start')}>
               {startIcon}
@@ -179,23 +217,23 @@ export const DateRangePicker = createComponent<'div', DateRangePickerProps>(
             <Icon icon="calendar_month" />
           </span>
 
-          <Popover
-            className="manifest-datepicker__popover"
-            isOpen={state.isOpen}
-            onClose={() => state.setOpen(false)}
-            overlayProps={dialogProps}
-            overlayRef={popoverRef}
-            placement="bottom start"
-            triggerRef={triggerRef}
-          >
-            <CalendarRange
-              className="manifest-datepicker__calendar"
-              {...calendarProps}
-              showCalendar={showCalendar}
-              showRanges={showRanges}
-              ranges={ranges}
-            />
-          </Popover>
+          <Overlay isOpen={state.isOpen}>
+            <Popover
+              {...mergeProps(dialogProps, overlayProps)}
+              className="manifest-datepicker__popover"
+              isOpen={state.isOpen}
+              onClose={() => state.setOpen(false)}
+              ref={popoverRef}
+            >
+              <CalendarRange
+                className="manifest-datepicker__calendar"
+                {...calendarProps}
+                showCalendar={showCalendar}
+                showRanges={showRanges}
+                ranges={ranges}
+              />
+            </Popover>
+          </Overlay>
         </Comp>
       </FormControl>
     );

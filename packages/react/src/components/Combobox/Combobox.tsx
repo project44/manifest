@@ -1,18 +1,22 @@
 import type { AriaComboBoxProps } from '@react-types/combobox';
+import type { Placement } from '@react-types/overlays';
 import type { StyleProps } from '../../types';
 import * as React from 'react';
 import { ListBoxBase, ListBoxBaseProps } from '../internal/ListBoxBase';
-import { mergeProps, useLayoutEffect, useResizeObserver } from '@react-aria/utils';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
+import { Overlay } from '../Overlay';
 import { Popover } from '../Popover';
+import { useButton } from '@react-aria/button';
 import { useComboBox } from '@react-aria/combobox';
 import { useComboBoxState } from '@react-stately/combobox';
 import { useFilter } from '@react-aria/i18n';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
+import { useOverlayPosition } from '@react-aria/overlays';
 import { useStyles } from './Combobox.styles';
 
 export interface ComboboxProps extends AriaComboBoxProps<object>, StyleProps {
@@ -32,6 +36,26 @@ export interface ComboboxProps extends AriaComboBoxProps<object>, StyleProps {
    * Props passed to the label.
    */
   labelProps?: React.HTMLAttributes<HTMLElement>;
+  /**
+   * The additional offset applied along the main axis between the element and its
+   * anchor element.
+   *
+   * @default 4
+   */
+  offset?: number;
+  /**
+   * The placement of the element with respect to its anchor element.
+   *
+   * @default 'bottom'
+   */
+  placement?: Placement;
+  /**
+   * Whether the element should flip its orientation (e.g. top to bottom or left to right) when
+   * there is insufficient room for it to render completely.
+   *
+   * @default true
+   */
+  shouldFlip?: boolean;
   /**
    * The size of the combobox
    *
@@ -55,6 +79,9 @@ export const Combobox = createComponent<'div', ComboboxProps>((props, forwardedR
     helperTextProps: helperTextPropsProp = {},
     label,
     labelProps: labelPropsProp = {},
+    offset = 4,
+    placement = 'bottom',
+    shouldFlip = true,
     validationState,
     size = 'medium',
     startIcon,
@@ -62,8 +89,8 @@ export const Combobox = createComponent<'div', ComboboxProps>((props, forwardedR
 
   const isInvalid = validationState === 'invalid';
 
-  const [popoverWidth, setPopoverWidth] = React.useState<number>(0);
-
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const buttonRef = React.useRef<HTMLButtonElement>(null);
   const inputRef = React.useRef<HTMLInputElement>(null);
   const listBoxRef = React.useRef<HTMLDivElement>(null);
   const popoverRef = React.useRef<HTMLDivElement>(null);
@@ -73,21 +100,38 @@ export const Combobox = createComponent<'div', ComboboxProps>((props, forwardedR
   const state = useComboBoxState({
     ...props,
     defaultFilter: contains,
-    allowsEmptyCollection: true,
-    menuTrigger: 'focus',
   });
 
-  const { inputProps, listBoxProps, labelProps, descriptionProps, errorMessageProps } = useComboBox(
+  const {
+    buttonProps: triggerProps,
+    inputProps,
+    listBoxProps,
+    labelProps,
+    descriptionProps,
+    errorMessageProps,
+  } = useComboBox(
     {
       ...props,
+      buttonRef,
       inputRef,
       listBoxRef,
-      menuTrigger: 'focus',
       popoverRef,
     },
     state,
   );
 
+  const { overlayProps } = useOverlayPosition({
+    isOpen: state.isOpen,
+    offset,
+    onClose: state.close,
+    overlayRef: popoverRef,
+    placement,
+    shouldFlip,
+    scrollRef: listBoxRef,
+    targetRef: containerRef,
+  });
+
+  const { buttonProps } = useButton(triggerProps, buttonRef);
   const { hoverProps, isHovered } = useHover({ isDisabled });
   const { isFocusVisible, isFocused, focusProps } = useFocusRing({
     autoFocus,
@@ -114,18 +158,7 @@ export const Combobox = createComponent<'div', ComboboxProps>((props, forwardedR
     [`manifest-combobox--${size}`]: size,
   });
 
-  const handlResize = React.useCallback(() => {
-    if (inputRef.current) {
-      setPopoverWidth(inputRef.current.offsetWidth);
-    }
-  }, [inputRef, setPopoverWidth]);
-
-  useResizeObserver({
-    ref: inputRef,
-    onResize: handlResize,
-  });
-
-  useLayoutEffect(handlResize, [state.selectedKey, handlResize]);
+  const containerDimensions = containerRef.current?.getBoundingClientRect();
 
   return (
     <FormControl
@@ -135,37 +168,37 @@ export const Combobox = createComponent<'div', ComboboxProps>((props, forwardedR
       labelProps={mergeProps(labelProps, labelPropsProp)}
       validationState={validationState}
     >
-      <Comp {...mergeProps(hoverProps, focusProps)} className={classes} ref={forwardedRef}>
-        {startIcon && (
-          <span className={cx('manifest-combobox--icon', 'manifest-combobox--icon__start')}>
-            {startIcon}
-          </span>
-        )}
+      <Comp
+        {...mergeProps(hoverProps, focusProps)}
+        className={classes}
+        ref={mergeRefs(containerRef, forwardedRef)}
+      >
+        {startIcon && <span className="manifest-combobox__icon">{startIcon}</span>}
 
-        <input {...inputProps} className="manifest-combobox--input" ref={inputRef} />
+        <input {...inputProps} className="manifest-combobox__input" ref={inputRef} />
 
-        <span className={cx('manifest-combobox--icon', 'manifest-combobox--icon__end')}>
+        <button {...buttonProps} className="manifest-combobox__button" ref={buttonRef}>
           <Icon icon="expand_more" />
-        </span>
+        </button>
 
-        <Popover
-          className="manifest-combobox--popover"
-          css={{ minWidth: popoverWidth, width: popoverWidth }}
-          isOpen={state.isOpen}
-          onClose={state.close}
-          overlayRef={popoverRef}
-          placement="bottom"
-          scrollRef={listBoxRef}
-          triggerRef={inputRef}
-        >
-          <ListBoxBase
-            {...(listBoxProps as ListBoxBaseProps)}
-            className="manifest-combobox--list-box"
-            disallowEmptySelection
-            ref={listBoxRef}
-            state={state}
-          />
-        </Popover>
+        <Overlay isOpen={state.isOpen && !isDisabled}>
+          <Popover
+            {...overlayProps}
+            className="manifest-combobox__popover"
+            css={{ left: containerDimensions?.left, width: containerDimensions?.width }}
+            isOpen={state.isOpen}
+            onClose={state.close}
+            ref={popoverRef}
+          >
+            <ListBoxBase
+              {...(listBoxProps as ListBoxBaseProps)}
+              className="manifest-combobox__list-box"
+              disallowEmptySelection
+              ref={listBoxRef}
+              state={state}
+            />
+          </Popover>
+        </Overlay>
       </Comp>
     </FormControl>
   );

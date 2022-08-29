@@ -6,14 +6,18 @@ import { DateRangePicker } from './DateRangePicker';
 import userEvent from '@testing-library/user-event';
 import { addMonths, createCalendarDate } from '../internal/CalendarRanges/defaultDefinedRanges';
 import { DefinedRange } from '../internal/CalendarRanges';
+import { Provider } from '../Provider';
 
-describe('@project44-manifest/components - Calendar', () => {
+describe('@project44-manifest/components - DateRangePicker', () => {
   let defaultDate: Date;
   let customRanges: DefinedRange[];
+
   beforeAll(() => {
     // * used for the custom Ranges To start defining the ranges.
     defaultDate = new Date();
+
     const calendarDate = createCalendarDate(defaultDate);
+
     const defineds = {
       startOfLastThreeMonths: startOfMonth(addMonths(calendarDate, -3)),
       endOfLastThreeMonths: endOfMonth(addMonths(calendarDate, -1)),
@@ -62,7 +66,11 @@ describe('@project44-manifest/components - Calendar', () => {
   });
 
   it('should have no accessibility violations', async () => {
-    const { container } = render(<DateRangePicker isOpen />);
+    const { container } = render(
+      <Provider>
+        <DateRangePicker aria-label="Calendar" isOpen />
+      </Provider>,
+    );
 
     const results = await axe(container);
 
@@ -73,17 +81,20 @@ describe('@project44-manifest/components - Calendar', () => {
     const onChange = jest.fn();
 
     render(
-      <DateRangePicker
-        defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-        onChange={onChange}
-      />,
+      <Provider>
+        <DateRangePicker
+          aria-label="Calendar"
+          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+          onChange={onChange}
+        />
+      </Provider>,
     );
 
     expect(screen.getByText('7 / 2 / 2022 - 7 / 12 / 2022')).toBeVisible();
 
     fireEvent.click(screen.getByRole('button'));
 
-    const dialog = screen.getByRole('dialog');
+    const dialog = screen.getByRole('presentation');
 
     expect(dialog).toBeInTheDocument();
 
@@ -113,17 +124,20 @@ describe('@project44-manifest/components - Calendar', () => {
     const onChange = jest.fn();
 
     render(
-      <DateRangePicker
-        value={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-        onChange={onChange}
-      />,
+      <Provider>
+        <DateRangePicker
+          aria-label="Calendar"
+          value={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+          onChange={onChange}
+        />
+      </Provider>,
     );
 
     expect(screen.getByText('7 / 2 / 2022 - 7 / 12 / 2022')).toBeVisible();
 
     fireEvent.click(screen.getByRole('button'));
 
-    const dialog = screen.getByRole('dialog');
+    const dialog = screen.getByRole('presentation');
 
     expect(dialog).toBeInTheDocument();
 
@@ -151,14 +165,17 @@ describe('@project44-manifest/components - Calendar', () => {
 
   it('should close datepicker when outside click is register', async () => {
     render(
-      <DateRangePicker
-        defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-      />,
+      <Provider>
+        <DateRangePicker
+          aria-label="Calendar"
+          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+        />
+      </Provider>,
     );
 
     fireEvent.click(screen.getByRole('button'));
 
-    const dialog = screen.getByRole('dialog');
+    const dialog = screen.getByRole('presentation');
 
     expect(dialog).toBeInTheDocument();
 
@@ -175,20 +192,24 @@ describe('@project44-manifest/components - Calendar', () => {
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth() + 1;
     const day = currentDate.getDate();
+
     render(
-      <DateRangePicker
-        defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-        onChange={onChange}
-        showRanges={true}
-        showCalendar={true}
-      />,
+      <Provider>
+        <DateRangePicker
+          aria-label="Calendar"
+          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+          onChange={onChange}
+          showRanges={true}
+          showCalendar={true}
+        />
+      </Provider>,
     );
 
     expect(screen.getByText('7 / 2 / 2022 - 7 / 12 / 2022')).toBeVisible();
 
     fireEvent.click(screen.getByRole('button'));
 
-    const dialog = screen.getByRole('dialog');
+    const dialog = screen.getByRole('presentation');
 
     expect(dialog).toBeInTheDocument();
 
@@ -210,19 +231,22 @@ describe('@project44-manifest/components - Calendar', () => {
     const chosenRange = customRanges[customRanges.length - 1];
 
     render(
-      <DateRangePicker
-        defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-        onChange={onChange}
-        showRanges={true}
-        ranges={customRanges}
-      />,
+      <Provider>
+        <DateRangePicker
+          aria-label="Calendar"
+          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+          onChange={onChange}
+          showRanges={true}
+          ranges={customRanges}
+        />
+      </Provider>,
     );
 
     expect(screen.getByText('7 / 2 / 2022 - 7 / 12 / 2022')).toBeVisible();
 
     fireEvent.click(screen.getByRole('button'));
 
-    const dialog = screen.getByRole('dialog');
+    const dialog = screen.getByRole('presentation');
 
     expect(dialog).toBeInTheDocument();
 

@@ -1,10 +1,10 @@
-import type { DOMProps, StyleProps } from '../../../types';
+import type { DOMProps, StyleProps } from '../../types';
 import type { Node } from '@react-types/shared';
 import type { TreeState } from '@react-stately/tree';
 import * as React from 'react';
-import { cx } from '../../../styles';
-import { DropdownItem } from '../DropdownItem';
-import { Typography } from '../../Typography';
+import { cx } from '../../styles';
+import { _DropdownItem } from '../DropdownItem';
+import { Typography } from '../Typography';
 import { useMenuSection } from '@react-aria/menu';
 import { useSeparator } from '@react-aria/separator';
 import { useStyles } from './DropdownSection.styles';
@@ -60,17 +60,9 @@ export const DropdownSection: React.FC<DropdownSectionProps> = props => {
           </Typography>
         )}
         <ul {...groupProps} className="manifest-dropdown-section__group">
-          {[...item.childNodes].map(node => {
-            let item = (
-              <DropdownItem key={node.key} item={node} state={state} onAction={onAction} />
-            );
-
-            if (node.wrapper) {
-              item = node.wrapper(item);
-            }
-
-            return item;
-          })}
+          {[...item.childNodes].map(node => (
+            <_DropdownItem key={node.key} item={node} state={state} onAction={onAction} />
+          ))}
         </ul>
       </li>
     </>

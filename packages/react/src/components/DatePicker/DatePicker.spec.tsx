@@ -3,11 +3,16 @@ import { fireEvent, screen, render, waitFor } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { CalendarDate } from '@internationalized/date';
 import { DatePicker } from './DatePicker';
+import { Provider } from '../Provider';
 import userEvent from '@testing-library/user-event';
 
-describe('@project44-manifest/react - DateRange', () => {
+describe('@project44-manifest/react - DatePicker', () => {
   it('should have no accessibility violations', async () => {
-    const { container } = render(<DatePicker isOpen />);
+    const { container } = render(
+      <Provider>
+        <DatePicker aria-label="Calendar" isOpen />
+      </Provider>,
+    );
 
     const results = await axe(container);
 
@@ -17,13 +22,21 @@ describe('@project44-manifest/react - DateRange', () => {
   it('should support selecting a date', async () => {
     const onChange = jest.fn();
 
-    render(<DatePicker defaultValue={new CalendarDate(2022, 7, 12)} onChange={onChange} />);
+    render(
+      <Provider>
+        <DatePicker
+          aria-label="Calendar"
+          defaultValue={new CalendarDate(2022, 7, 12)}
+          onChange={onChange}
+        />
+      </Provider>,
+    );
 
     expect(screen.getByText('7 / 12 / 2022')).toBeVisible();
 
     fireEvent.click(screen.getByRole('button'));
 
-    const dialog = screen.getByRole('dialog');
+    const dialog = screen.getByRole('presentation');
 
     expect(dialog).toBeInTheDocument();
 
@@ -44,13 +57,21 @@ describe('@project44-manifest/react - DateRange', () => {
   it('should support being controlled', async () => {
     const onChange = jest.fn();
 
-    render(<DatePicker value={new CalendarDate(2022, 7, 12)} onChange={onChange} />);
+    render(
+      <Provider>
+        <DatePicker
+          aria-label="Calendar"
+          value={new CalendarDate(2022, 7, 12)}
+          onChange={onChange}
+        />
+      </Provider>,
+    );
 
     expect(screen.getByText('7 / 12 / 2022')).toBeVisible();
 
     fireEvent.click(screen.getByRole('button'));
 
-    const dialog = screen.getByRole('dialog');
+    const dialog = screen.getByRole('presentation');
 
     expect(dialog).toBeInTheDocument();
 
@@ -69,11 +90,15 @@ describe('@project44-manifest/react - DateRange', () => {
   });
 
   it('should close datepicker when outside click is register', async () => {
-    render(<DatePicker />);
+    render(
+      <Provider>
+        <DatePicker aria-label="Calendar" />
+      </Provider>,
+    );
 
     fireEvent.click(screen.getByRole('button'));
 
-    const dialog = screen.getByRole('dialog');
+    const dialog = screen.getByRole('presentation');
 
     expect(dialog).toBeInTheDocument();
 

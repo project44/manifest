@@ -1,6 +1,8 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
-import { Select, SelectItem, SelectSection } from '.';
+import { Select } from './Select';
+import { SelectItem } from '../SelectItem';
+import { SelectSection } from '../SelectSection';
 import { Flex } from '../Flex';
 import { Icon } from '../Icon';
 

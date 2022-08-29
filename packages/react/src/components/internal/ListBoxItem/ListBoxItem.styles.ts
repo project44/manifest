@@ -67,7 +67,9 @@ export const useStyles = css({
       },
     },
     isSelected: {
-      true: {},
+      true: {
+        $$backgroundColor: '$colors$background-secondary',
+      },
     },
   },
 });
