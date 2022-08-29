@@ -10,7 +10,7 @@ describe('@project44-manifest/react - DatePicker', () => {
   it('should have no accessibility violations', async () => {
     const { container } = render(
       <Provider>
-        <DatePicker isOpen />
+        <DatePicker aria-label="Calendar" isOpen />
       </Provider>,
     );
 
@@ -24,7 +24,11 @@ describe('@project44-manifest/react - DatePicker', () => {
 
     render(
       <Provider>
-        <DatePicker defaultValue={new CalendarDate(2022, 7, 12)} onChange={onChange} />
+        <DatePicker
+          aria-label="Calendar"
+          defaultValue={new CalendarDate(2022, 7, 12)}
+          onChange={onChange}
+        />
       </Provider>,
     );
 
@@ -32,7 +36,7 @@ describe('@project44-manifest/react - DatePicker', () => {
 
     fireEvent.click(screen.getByRole('button'));
 
-    const dialog = screen.getByRole('dialog');
+    const dialog = screen.getByRole('presentation');
 
     expect(dialog).toBeInTheDocument();
 
@@ -55,7 +59,11 @@ describe('@project44-manifest/react - DatePicker', () => {
 
     render(
       <Provider>
-        <DatePicker value={new CalendarDate(2022, 7, 12)} onChange={onChange} />
+        <DatePicker
+          aria-label="Calendar"
+          value={new CalendarDate(2022, 7, 12)}
+          onChange={onChange}
+        />
       </Provider>,
     );
 
@@ -63,7 +71,7 @@ describe('@project44-manifest/react - DatePicker', () => {
 
     fireEvent.click(screen.getByRole('button'));
 
-    const dialog = screen.getByRole('dialog');
+    const dialog = screen.getByRole('presentation');
 
     expect(dialog).toBeInTheDocument();
 
@@ -84,13 +92,13 @@ describe('@project44-manifest/react - DatePicker', () => {
   it('should close datepicker when outside click is register', async () => {
     render(
       <Provider>
-        <DatePicker />
+        <DatePicker aria-label="Calendar" />
       </Provider>,
     );
 
     fireEvent.click(screen.getByRole('button'));
 
-    const dialog = screen.getByRole('dialog');
+    const dialog = screen.getByRole('presentation');
 
     expect(dialog).toBeInTheDocument();
 

@@ -5,7 +5,6 @@ import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { FocusScope } from '@react-aria/focus';
-import { useDialog } from '@react-aria/dialog';
 import { useStyles } from './Popover.styles';
 
 export interface PopoverProps extends StyleProps {
@@ -72,13 +71,6 @@ export const Popover = createComponent<'div', PopoverProps>((props, forwardedRef
 
   const { modalProps } = useModal({ isDisabled: true });
 
-  const { dialogProps } = useDialog(
-    {
-      role: 'dialog',
-    },
-    popoverRef,
-  );
-
   const { className } = useStyles({ css });
 
   const classes = cx(className, classNameProp, {
@@ -89,9 +81,10 @@ export const Popover = createComponent<'div', PopoverProps>((props, forwardedRef
   return (
     <FocusScope restoreFocus>
       <Comp
-        {...mergeProps(overlayProps, modalProps, dialogProps, other)}
+        {...mergeProps(overlayProps, modalProps, other)}
         className={classes}
         ref={mergeRefs(popoverRef, forwardedRef)}
+        role="presentation"
       >
         <DismissButton onDismiss={onClose} />
         {children}

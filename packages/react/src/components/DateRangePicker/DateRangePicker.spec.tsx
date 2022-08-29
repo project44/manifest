@@ -68,7 +68,7 @@ describe('@project44-manifest/components - DateRangePicker', () => {
   it('should have no accessibility violations', async () => {
     const { container } = render(
       <Provider>
-        <DateRangePicker isOpen />
+        <DateRangePicker aria-label="Calendar" isOpen />
       </Provider>,
     );
 
@@ -83,6 +83,7 @@ describe('@project44-manifest/components - DateRangePicker', () => {
     render(
       <Provider>
         <DateRangePicker
+          aria-label="Calendar"
           defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
           onChange={onChange}
         />
@@ -93,7 +94,7 @@ describe('@project44-manifest/components - DateRangePicker', () => {
 
     fireEvent.click(screen.getByRole('button'));
 
-    const dialog = screen.getByRole('dialog');
+    const dialog = screen.getByRole('presentation');
 
     expect(dialog).toBeInTheDocument();
 
@@ -125,6 +126,7 @@ describe('@project44-manifest/components - DateRangePicker', () => {
     render(
       <Provider>
         <DateRangePicker
+          aria-label="Calendar"
           value={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
           onChange={onChange}
         />
@@ -135,7 +137,7 @@ describe('@project44-manifest/components - DateRangePicker', () => {
 
     fireEvent.click(screen.getByRole('button'));
 
-    const dialog = screen.getByRole('dialog');
+    const dialog = screen.getByRole('presentation');
 
     expect(dialog).toBeInTheDocument();
 
@@ -165,6 +167,7 @@ describe('@project44-manifest/components - DateRangePicker', () => {
     render(
       <Provider>
         <DateRangePicker
+          aria-label="Calendar"
           defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
         />
       </Provider>,
@@ -172,7 +175,7 @@ describe('@project44-manifest/components - DateRangePicker', () => {
 
     fireEvent.click(screen.getByRole('button'));
 
-    const dialog = screen.getByRole('dialog');
+    const dialog = screen.getByRole('presentation');
 
     expect(dialog).toBeInTheDocument();
 
@@ -193,6 +196,7 @@ describe('@project44-manifest/components - DateRangePicker', () => {
     render(
       <Provider>
         <DateRangePicker
+          aria-label="Calendar"
           defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
           onChange={onChange}
           showRanges={true}
@@ -205,7 +209,7 @@ describe('@project44-manifest/components - DateRangePicker', () => {
 
     fireEvent.click(screen.getByRole('button'));
 
-    const dialog = screen.getByRole('dialog');
+    const dialog = screen.getByRole('presentation');
 
     expect(dialog).toBeInTheDocument();
 
@@ -229,6 +233,7 @@ describe('@project44-manifest/components - DateRangePicker', () => {
     render(
       <Provider>
         <DateRangePicker
+          aria-label="Calendar"
           defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
           onChange={onChange}
           showRanges={true}
@@ -241,7 +246,7 @@ describe('@project44-manifest/components - DateRangePicker', () => {
 
     fireEvent.click(screen.getByRole('button'));
 
-    const dialog = screen.getByRole('dialog');
+    const dialog = screen.getByRole('presentation');
 
     expect(dialog).toBeInTheDocument();
 

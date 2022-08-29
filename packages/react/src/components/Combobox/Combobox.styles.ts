@@ -26,6 +26,7 @@ export const useStyles = css({
   '.manifest-combobox__button': {
     appearance: 'none',
     alignItems: 'center',
+    background: 'none',
     border: 0,
     borderLeft: '1px solid $$borderColor',
     color: '$$iconColor',
