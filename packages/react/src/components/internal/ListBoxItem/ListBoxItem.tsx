@@ -5,7 +5,6 @@ import * as React from 'react';
 import { ListBoxContext, useListBoxContext } from '../ListBoxContext';
 import { cx } from '../../../styles';
 import { mergeProps } from '@react-aria/utils';
-import { Icon } from '../../Icon';
 import { Typography } from '../../Typography';
 import { useHover } from '@react-aria/interactions';
 import { useOption } from '@react-aria/listbox';
@@ -88,12 +87,6 @@ export const ListBoxItem: React.FC<ListBoxItemProps> = props => {
       <Typography {...labelProps} className="manifest-listbox-item__text" variant="subtext">
         {rendered}
       </Typography>
-
-      {isSelected && (
-        <span className={cx('manifest-listbox-item__icon', 'manifest-listbox-item__icon--end')}>
-          <Icon icon="check" />
-        </span>
-      )}
     </div>
   );
 };

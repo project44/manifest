@@ -5,8 +5,8 @@ import { DropdownContext, useDropdownContext } from '../Dropdown/Dropdown.contex
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
-import { DropdownItem } from '../internal/DropdownItem';
-import { DropdownSection } from '../internal/DropdownSection';
+import { _DropdownItem } from '../DropdownItem';
+import { _DropdownSection } from '../DropdownSection';
 import { useMenu } from '@react-aria/menu';
 import { useStyles } from './DropdownMenu.styles';
 import { useTreeState } from '@react-stately/tree';
@@ -34,7 +34,7 @@ export const DropdownMenu = createComponent<'ul', DropdownMenuProps>((props, for
       {[...state.collection].map(item => {
         if (item.type === 'section') {
           return (
-            <DropdownSection
+            <_DropdownSection
               key={item.key}
               item={item}
               state={state}
@@ -43,20 +43,14 @@ export const DropdownMenu = createComponent<'ul', DropdownMenuProps>((props, for
           );
         }
 
-        let menuItem = (
-          <DropdownItem
+        return (
+          <_DropdownItem
             key={item.key}
             item={item}
             state={state}
             onAction={completeProps.onAction}
           />
         );
-
-        if (item.wrapper) {
-          menuItem = item.wrapper(menuItem);
-        }
-
-        return menuItem;
       })}
     </Comp>
   );

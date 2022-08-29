@@ -1,18 +1,21 @@
 import type { AriaSelectProps } from '@react-types/select';
+import type { Placement } from '@react-types/overlays';
 import type { StyleProps } from '../../types';
 import * as React from 'react';
 import { HiddenSelect, useSelect } from '@react-aria/select';
 import { ListBoxBase, ListBoxBaseProps } from '../internal/ListBoxBase';
-import { mergeProps, useLayoutEffect, useResizeObserver } from '@react-aria/utils';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
+import { Overlay } from '../Overlay';
 import { Popover } from '../Popover';
 import { Typography } from '../Typography';
 import { useButton } from '@react-aria/button';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
+import { useOverlayPosition } from '@react-aria/overlays';
 import { useSelectState } from '@react-stately/select';
 import { useStyles } from './Select.styles';
 
@@ -33,6 +36,26 @@ export interface SelectProps extends AriaSelectProps<object>, StyleProps {
    * Props passed to the label.
    */
   labelProps?: React.HTMLAttributes<HTMLElement>;
+  /**
+   * The additional offset applied along the main axis between the element and its
+   * anchor element.
+   *
+   * @default 4
+   */
+  offset?: number;
+  /**
+   * The placement of the element with respect to its anchor element.
+   *
+   * @default 'bottom'
+   */
+  placement?: Placement;
+  /**
+   * Whether the element should flip its orientation (e.g. top to bottom or left to right) when
+   * there is insufficient room for it to render completely.
+   *
+   * @default true
+   */
+  shouldFlip?: boolean;
   /**
    * The size of the combobox
    *
@@ -62,22 +85,35 @@ export const Select = createComponent<'div', SelectProps>((props, forwardedRef) 
     label,
     labelProps: labelPropsProp = {},
     name,
+    offset = 4,
     placeholder,
+    placement = 'bottom start',
+    shouldFlip = true,
     validationState,
     size = 'medium',
     startIcon,
   } = props;
 
+  const containerRef = React.useRef<HTMLDivElement>(null);
   const triggerRef = React.useRef<HTMLButtonElement>(null);
   const listBoxRef = React.useRef<HTMLDivElement>(null);
   const popoverRef = React.useRef<HTMLDivElement>(null);
-
-  const [popoverWidth, setPopoverWidth] = React.useState<number>(0);
 
   const state = useSelectState(props);
 
   const { labelProps, triggerProps, valueProps, menuProps, descriptionProps, errorMessageProps } =
     useSelect(props, state, triggerRef);
+
+  const { overlayProps } = useOverlayPosition({
+    isOpen: state.isOpen,
+    offset,
+    onClose: state.close,
+    overlayRef: popoverRef,
+    placement,
+    shouldFlip,
+    scrollRef: listBoxRef,
+    targetRef: containerRef,
+  });
 
   const isInvalid = validationState === 'invalid';
 
@@ -106,18 +142,7 @@ export const Select = createComponent<'div', SelectProps>((props, forwardedRef) 
     [`manifest-select--${size}`]: size,
   });
 
-  const handlResize = React.useCallback(() => {
-    if (triggerRef.current) {
-      setPopoverWidth(triggerRef.current.offsetWidth);
-    }
-  }, [triggerRef, setPopoverWidth]);
-
-  useResizeObserver({
-    ref: triggerRef,
-    onResize: handlResize,
-  });
-
-  useLayoutEffect(handlResize, [state.selectedKey, handlResize]);
+  const containerDimensions = containerRef.current?.getBoundingClientRect();
 
   return (
     <FormControl
@@ -128,7 +153,7 @@ export const Select = createComponent<'div', SelectProps>((props, forwardedRef) 
       labelProps={mergeProps(labelProps, labelPropsProp)}
       validationState={validationState}
     >
-      <Comp className={classes} ref={forwardedRef}>
+      <Comp className={classes} ref={mergeRefs(containerRef, forwardedRef)}>
         {startIcon && (
           <span className={cx('manifest-select__icon', 'manifest-select__icon--start')}>
             {startIcon}
@@ -158,23 +183,24 @@ export const Select = createComponent<'div', SelectProps>((props, forwardedRef) 
           <Icon icon="expand_more" />
         </span>
 
-        <Popover
-          className="manifest-select__popover"
-          css={{ minWidth: popoverWidth, width: popoverWidth }}
-          isOpen={state.isOpen}
-          onClose={state.close}
-          overlayRef={popoverRef}
-          scrollRef={listBoxRef}
-          triggerRef={triggerRef}
-        >
-          <ListBoxBase
-            {...(menuProps as ListBoxBaseProps)}
-            className="manifest-select__list-box"
-            disallowEmptySelection
-            ref={listBoxRef}
-            state={state}
-          />
-        </Popover>
+        <Overlay isOpen={state.isOpen && !isDisabled}>
+          <Popover
+            {...overlayProps}
+            className="manifest-combobox__popover"
+            css={{ left: containerDimensions?.left, width: containerDimensions?.width }}
+            isOpen={state.isOpen}
+            onClose={state.close}
+            ref={popoverRef}
+          >
+            <ListBoxBase
+              {...(menuProps as ListBoxBaseProps)}
+              className="manifest-select__list-box"
+              disallowEmptySelection
+              ref={listBoxRef}
+              state={state}
+            />
+          </Popover>
+        </Overlay>
       </Comp>
     </FormControl>
   );

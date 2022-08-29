@@ -34,8 +34,8 @@ export type { CheckboxProps } from './components/Checkbox';
 export { Combobox } from './components/Combobox';
 export type { ComboboxProps } from './components/Combobox';
 
-export { ComboboxItem } from './components/Combobox';
-export { ComboboxSection } from './components/Combobox';
+export { ComboboxItem } from './components/ComboboxItem';
+export { ComboboxSection } from './components/ComboboxSection';
 
 export { CssBaseline } from './components/CssBaseline';
 
@@ -48,14 +48,14 @@ export type { DateRangePickerProps } from './components/DateRangePicker';
 export { Dropdown } from './components/Dropdown';
 export type { DropdownProps } from './components/Dropdown';
 
-export { DropdownItem } from './components/Dropdown';
-export type { DropdownItemProps } from './components/Dropdown';
+export { DropdownItem } from './components/DropdownItem';
+export type { DropdownItemProps } from './components/DropdownItem';
 
 export { DropdownMenu } from './components/DropdownMenu';
 export type { DropdownMenuProps } from './components/DropdownMenu';
 
-export { DropdownSection } from './components/Dropdown';
-export type { DropdownSectionProps } from './components/Dropdown';
+export { DropdownSection } from './components/DropdownSection';
+export type { DropdownSectionProps } from './components/DropdownSection';
 
 export { Flex } from './components/Flex';
 export type { FlexProps } from './components/Flex';
@@ -105,8 +105,8 @@ export type { RadioGroupProps } from './components/RadioGroup';
 export { Select } from './components/Select';
 export type { SelectProps } from './components/Select';
 
-export { SelectItem } from './components/Select';
-export { SelectSection } from './components/Select';
+export { SelectItem } from './components/SelectItem';
+export { SelectSection } from './components/SelectSection';
 
 export { Separator } from './components/Separator';
 export type { SeparatorProps } from './components/Separator';
