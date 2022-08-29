@@ -3071,7 +3071,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react@^1.5.1, @project44-manifest/react@workspace:packages/react":
+"@project44-manifest/react@^2.0.0, @project44-manifest/react@workspace:packages/react":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react@workspace:packages/react"
   dependencies:
@@ -20300,7 +20300,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "website@workspace:website"
   dependencies:
-    "@project44-manifest/react": ^1.5.1
+    "@project44-manifest/react": ^2.0.0
     "@types/node": 18.7.13
     "@types/react": 18.0.17
     "@types/react-dom": 18.0.6

@@ -1,5 +1,11 @@
 # @manifest/react
 
+## 2.0.0
+
+### Major Changes
+
+- [#74](https://github.com/project44/manifest/pull/74) [`ccac8ac`](https://github.com/project44/manifest/commit/ccac8acbcde80a6c2a5b0da44ac8663ff0314e7e) Thanks [@bclark-p44](https://github.com/bclark-p44)! - Updating overlay based elements to use simplifid popover logic
+
 ## 1.5.1
 
 ### Patch Changes
