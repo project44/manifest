@@ -37,6 +37,9 @@ export type { ComboboxProps } from './components/Combobox';
 export { ComboboxItem } from './components/ComboboxItem';
 export { ComboboxSection } from './components/ComboboxSection';
 
+export { Container } from './components/Container';
+export type { ContainerProps } from './components/Container';
+
 export { CssBaseline } from './components/CssBaseline';
 
 export { DatePicker } from './components/DatePicker';
@@ -62,6 +65,12 @@ export type { FlexProps } from './components/Flex';
 
 export { FormControl } from './components/FormControl';
 export type { FormControlProps } from './components/FormControl';
+
+export { Grid } from './components/Grid';
+export type { GridProps } from './components/Grid';
+
+export { GridItem } from './components/GridItem';
+export type { GridItemProps } from './components/GridItem';
 
 export { Icon } from './components/Icon';
 export type { IconProps } from './components/Icon';
@@ -110,6 +119,9 @@ export { SelectSection } from './components/SelectSection';
 
 export { Separator } from './components/Separator';
 export type { SeparatorProps } from './components/Separator';
+
+export { Stack } from './components/Stack';
+export type { StackProps } from './components/Stack';
 
 export { Switch } from './components/Switch';
 export type { SwitchProps } from './components/Switch';
