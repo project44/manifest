@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../contentlayer.config.ts"],
-  "sourcesContent": ["import { defineDocumentType, makeSource } from 'contentlayer/source-files';\n\nconst Component = defineDocumentType(() => ({\n  name: 'Component',\n  filePathPattern: 'components/**/*.mdx',\n  contentType: 'mdx',\n  fields: {\n    title: { type: 'string' },\n    description: { type: 'string' },\n    category: { type: 'string' },\n    id: { type: 'string' },\n  },\n  computedFields: {\n    slug: {\n      type: 'string',\n      resolve: doc => `/${doc._raw.flattenedPath}`,\n    },\n    frontMatter: {\n      type: 'json',\n      resolve: doc => ({\n        title: doc.title,\n        description: doc.description,\n        slug: `/${doc._raw.flattenedPath}`,\n      }),\n    },\n  },\n}));\n\nconst contentLayerConfig = makeSource({\n  contentDirPath: 'content',\n  documentTypes: [Component],\n});\n\nexport default contentLayerConfig;\n"],
-  "mappings": ";AAAA,SAAS,oBAAoB,kBAAkB;AAE/C,IAAM,YAAY,mBAAmB,OAAO;AAAA,EAC1C,MAAM;AAAA,EACN,iBAAiB;AAAA,EACjB,aAAa;AAAA,EACb,QAAQ;AAAA,IACN,OAAO,EAAE,MAAM,SAAS;AAAA,IACxB,aAAa,EAAE,MAAM,SAAS;AAAA,IAC9B,UAAU,EAAE,MAAM,SAAS;AAAA,IAC3B,IAAI,EAAE,MAAM,SAAS;AAAA,EACvB;AAAA,EACA,gBAAgB;AAAA,IACd,MAAM;AAAA,MACJ,MAAM;AAAA,MACN,SAAS,SAAO,IAAI,IAAI,KAAK;AAAA,IAC/B;AAAA,IACA,aAAa;AAAA,MACX,MAAM;AAAA,MACN,SAAS,UAAQ;AAAA,QACf,OAAO,IAAI;AAAA,QACX,aAAa,IAAI;AAAA,QACjB,MAAM,IAAI,IAAI,KAAK;AAAA,MACrB;AAAA,IACF;AAAA,EACF;AACF,EAAE;AAEF,IAAM,qBAAqB,WAAW;AAAA,EACpC,gBAAgB;AAAA,EAChB,eAAe,CAAC,SAAS;AAC3B,CAAC;AAED,IAAO,8BAAQ;",
-  "names": []
-}
