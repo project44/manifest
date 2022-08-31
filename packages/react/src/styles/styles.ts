@@ -10,9 +10,9 @@ export const { styled, config, globalCss, getCssText, keyframes, theme, css } = 
   prefix: 'manifest',
   media: {
     lg: `(min-width: ${lightTheme.sizes.large})`,
-    md: `(min-width: ${lightTheme.sizes.medium}})`,
-    sm: `(min-width: ${lightTheme.sizes.small}})`,
-    xl: `(min-width: ${lightTheme.sizes['x-large']}})`,
+    md: `(min-width: ${lightTheme.sizes.medium})`,
+    sm: `(min-width: ${lightTheme.sizes.small})`,
+    xl: `(min-width: ${lightTheme.sizes['x-large']})`,
   },
   theme: lightTheme,
   utils: {
