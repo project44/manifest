@@ -3,8 +3,19 @@ import { css } from '../../styles';
 export const useStyles = css({
   boxSizing: 'border-box',
   display: 'block',
-  maxW: '60ch',
   mx: 'auto',
   px: '$medium',
-  width: '100%',
+
+  '@sm': {
+    maxWidth: '$small',
+  },
+  '@md': {
+    maxWidth: '$medium',
+  },
+  '@lg': {
+    maxWidth: '$large',
+  },
+  '@xl': {
+    maxWidth: '$x-large',
+  },
 });
