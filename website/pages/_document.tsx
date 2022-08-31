@@ -6,7 +6,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="icon" href="/favicon.png" />
+          <link rel="icon" href="/images/favicon.png" />
           <link href="https://fonts.gstatic.com" rel="preconnect" crossOrigin="anonymous" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
