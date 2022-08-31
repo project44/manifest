@@ -1,5 +1,15 @@
 # @manifest/react
 
+## 2.1.0
+
+### Minor Changes
+
+- [#76](https://github.com/project44/manifest/pull/76) [`00908d8`](https://github.com/project44/manifest/commit/00908d82d580a337be7290e2035c98d8ca0b71e8) Thanks [@bclark-p44](https://github.com/bclark-p44)! - Adding layout components
+
+### Patch Changes
+
+- [#79](https://github.com/project44/manifest/pull/79) [`117ce3d`](https://github.com/project44/manifest/commit/117ce3d775e0f41877e1da3a056647c7a48e8a90) Thanks [@bclark-p44](https://github.com/bclark-p44)! - Fixing container max width values
+
 ## 2.0.0
 
 ### Major Changes
