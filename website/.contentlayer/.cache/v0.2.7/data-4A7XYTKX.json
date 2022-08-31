@@ -1,0 +1,32 @@
+{
+  "cacheItemsMap": {
+    "components/avatar.mdx": {
+      "document": {
+        "title": "Avatar",
+        "description": "A visual representation of a user or entity.",
+        "category": "data-display",
+        "body": {
+          "raw": "",
+          "code": "var Component=(()=>{var x=Object.create;var o=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),g=(t,e)=>{for(var n in e)o(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of f(e))!l.call(t,a)&&a!==n&&o(t,a,{get:()=>e[a],enumerable:!(s=d(e,a))||s.enumerable});return t};var j=(t,e,n)=>(n=t!=null?x(p(t)):{},i(e||!t||!t.__esModule?o(n,\"default\",{value:t,enumerable:!0}):n,t)),y=t=>i(o({},\"__esModule\",{value:!0}),t);var u=_((F,c)=>{c.exports=_jsx_runtime});var C={};g(C,{default:()=>A,frontmatter:()=>M});var r=j(u()),M={title:\"Avatar\",description:\"A visual representation of a user or entity.\",category:\"data-display\"};function m(t){return(0,r.jsx)(r.Fragment,{})}function v(t={}){let{wrapper:e}=t.components||{};return e?(0,r.jsx)(e,Object.assign({},t,{children:(0,r.jsx)(m,t)})):m(t)}var A=v;return y(C);})();\n;return Component;"
+        },
+        "_id": "components/avatar.mdx",
+        "_raw": {
+          "sourceFilePath": "components/avatar.mdx",
+          "sourceFileName": "avatar.mdx",
+          "sourceFileDir": "components",
+          "contentType": "mdx",
+          "flattenedPath": "components/avatar"
+        },
+        "type": "Component",
+        "pathName": [
+          {
+            "pathName": "avatar"
+          }
+        ]
+      },
+      "documentHash": "1661898294121",
+      "hasWarnings": false,
+      "documentTypeName": "Component"
+    }
+  }
+}

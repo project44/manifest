@@ -1,0 +1,59 @@
+{
+  "cacheItemsMap": {
+    "components/avatar/api.mdx": {
+      "document": {
+        "scope": "guidelines",
+        "body": {
+          "raw": "",
+          "code": ""
+        },
+        "_id": "components/avatar/api.mdx",
+        "_raw": {
+          "sourceFilePath": "components/avatar/api.mdx",
+          "sourceFileName": "api.mdx",
+          "sourceFileDir": "components/avatar",
+          "contentType": "mdx",
+          "flattenedPath": "components/avatar/api"
+        },
+        "type": "Component",
+        "slug": "/components/avatar/api",
+        "frontMatter": {
+          "slug": "/components/avatar/api"
+        }
+      },
+      "documentHash": "1661894673068",
+      "hasWarnings": false,
+      "documentTypeName": "Component"
+    },
+    "components/avatar/guidelines.mdx": {
+      "document": {
+        "title": "Avatar",
+        "description": "A visual representation of a user or entity.",
+        "id": "avatar",
+        "scope": "guidelines",
+        "body": {
+          "raw": "\n## Usage\n\n``jsx\n\n<Avatar />\n\n``jsx\n",
+          "code": "var Component=(()=>{var p=Object.create;var a=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)a(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of u(e))!l.call(t,o)&&o!==n&&a(t,o,{get:()=>e[o],enumerable:!(s=x(e,o))||s.enumerable});return t};var h=(t,e,n)=>(n=t!=null?p(f(t)):{},i(e||!t||!t.__esModule?a(n,\"default\",{value:t,enumerable:!0}):n,t)),b=t=>i(a({},\"__esModule\",{value:!0}),t);var d=_((D,c)=>{c.exports=_jsx_runtime});var A={};j(A,{default:()=>y,frontmatter:()=>g});var r=h(d()),g={id:\"avatar\",category:\"data-display\",title:\"Avatar\",description:\"A visual representation of a user or entity.\"};function m(t){let e=Object.assign({h2:\"h2\",p:\"p\"},t.components),{Avatar:n}=e;return n||w(\"Avatar\",!0,\"12:1-12:11\"),(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(e.h2,{children:\"Usage\"}),`\n`,(0,r.jsx)(e.p,{children:\"``jsx\"}),`\n`,(0,r.jsx)(n,{}),`\n`,(0,r.jsx)(e.p,{children:\"``jsx\"})]})}function v(t={}){let{wrapper:e}=t.components||{};return e?(0,r.jsx)(e,Object.assign({},t,{children:(0,r.jsx)(m,t)})):m(t)}var y=v;function w(t,e,n){throw new Error(\"Expected \"+(e?\"component\":\"object\")+\" `\"+t+\"` to be defined: you likely forgot to import, pass, or provide it.\"+(n?\"\\nIt\\u2019s referenced in your code at `\"+n+\"` in `/Users/brandonclark/Development/manifest/website/content/components/avatar/_mdx_bundler_entry_point-971ac3a6-457d-4851-a10b-e69d64aaa3de.mdx`\":\"\"))}return b(A);})();\n;return Component;"
+        },
+        "_id": "components/avatar/guidelines.mdx",
+        "_raw": {
+          "sourceFilePath": "components/avatar/guidelines.mdx",
+          "sourceFileName": "guidelines.mdx",
+          "sourceFileDir": "components/avatar",
+          "contentType": "mdx",
+          "flattenedPath": "components/avatar/guidelines"
+        },
+        "type": "Component",
+        "slug": "/components/avatar/guidelines",
+        "frontMatter": {
+          "title": "Avatar",
+          "description": "A visual representation of a user or entity.",
+          "slug": "/components/avatar/guidelines"
+        }
+      },
+      "documentHash": "1661894993889",
+      "hasWarnings": true,
+      "documentTypeName": "Component"
+    }
+  }
+}
