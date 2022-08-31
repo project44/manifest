@@ -14,7 +14,7 @@ export interface AsProp<T extends React.ElementType> {
  * Component interface with support for `as` prop.
  */
 export interface Component<Props extends object = Record<string, never>> {
-  <T extends React.ElementType>(props: ComponentProps<T, Omit<Props, 'css'>>): JSX.Element;
+  <T extends React.ElementType>(props: ComponentProps<T, Props>): JSX.Element;
 
   displayName?: string;
   id?: string;
