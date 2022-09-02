@@ -29,6 +29,7 @@
     "prepare": "husky install",
     "prerelease": "yarn run pack && yarn lint",
     "release": "yarn changeset publish",
+    "start:docs": "yarn workspace website start",
     "test": "jest --colors --logHeapUsage",
     "test:coverage": "yarn run test --coverage",
     "test:watch": "jest --watch",

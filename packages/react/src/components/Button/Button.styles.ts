@@ -90,7 +90,7 @@ export const useStyles = css(
           height: pxToRem(40),
           py: '$small',
 
-          [`.manifest-button__icon > .material-icons`]: {
+          [`> .material-icons`]: {
             fontSize: '$x-large',
           },
         },
@@ -98,7 +98,7 @@ export const useStyles = css(
           height: pxToRem(32),
           py: pxToRem(6),
 
-          [`.manifest-button__icon > .material-icons`]: {
+          [`> .material-icons`]: {
             fontSize: pxToRem(18),
           },
         },

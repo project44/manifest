@@ -1,4 +1,4 @@
-import { css } from '../../styles';
+import { css, pxToRem } from '../../styles';
 
 export const useStyles = css({
   justifyContent: 'center',
@@ -6,10 +6,10 @@ export const useStyles = css({
   variants: {
     size: {
       medium: {
-        padding: '$small',
+        px: '$small',
       },
       small: {
-        padding: '$x-small',
+        px: pxToRem(7),
       },
     },
   },

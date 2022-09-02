@@ -1,31 +1,45 @@
-import { defineDocumentType, makeSource } from 'contentlayer/source-files';
+import {
+  ComputedFields,
+  defineDocumentType,
+  FieldDefs,
+  makeSource,
+} from 'contentlayer/source-files';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
+import toc from 'markdown-toc';
 
-const Component = defineDocumentType(() => ({
-  name: 'Component',
-  filePathPattern: 'components/**/*.mdx',
+const fields: FieldDefs = {
+  title: { type: 'string' },
+  description: { type: 'string' },
+};
+
+const computedFields: ComputedFields = {
+  slug: {
+    type: 'string',
+    resolve: doc => `/${doc._raw.flattenedPath}`,
+  },
+  meta: {
+    type: 'json',
+    resolve: doc => ({
+      title: doc.title,
+      description: doc.description,
+      slug: `/${doc._raw.flattenedPath}`,
+      toc: toc(doc.body.raw, { maxdepth: 3 }).json.filter(t => t.lvl !== 1),
+    }),
+  },
+};
+
+const Doc = defineDocumentType(() => ({
+  name: 'Doc',
+  filePathPattern: `docs/**/*.mdx`,
   contentType: 'mdx',
-  fields: {
-    title: { description: 'The title of the component', type: 'string', required: true },
-    description: { description: 'A brief component description', type: 'string', required: true },
-    category: {
-      description: 'The category grouping for the component',
-      type: 'string',
-      required: true,
-    },
-  },
-  computedFields: {
-    slug: {
-      type: 'string',
-      resolve: doc => doc._raw.sourceFileName.replace(/\.mdx$/, ''),
-    },
-  },
+  fields,
+  computedFields,
 }));
 
 const contentLayerConfig = makeSource({
   contentDirPath: 'content',
-  documentTypes: [Component],
+  documentTypes: [Doc],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [rehypeSlug],

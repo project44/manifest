@@ -1,14 +1,21 @@
 {
   "extends": "../tsconfig.options.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "emitDeclarationOnly": false,
     "incremental": true,
     "jsx": "preserve",
     "noEmit": true,
+    "paths": {
+      "contentlayer/generated": ["./.contentlayer/generated"]
+    },
   },
-  "include": ["next-env.d.ts", "pages", "src"],
+  "include": ["next-env.d.ts", "src", "sidebar.config.ts", ".contentlayer/generated"],
   "exclude": ["node_modules"],
   "references": [
+    {
+      "path": "../packages/design-tokens"
+    },
     {
       "path": "../packages/react"
     }
