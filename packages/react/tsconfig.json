@@ -1,4 +1,18 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["src/**/*"]
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "declarationDir": "dts",
+    "emitDeclarationOnly": true,
+    "noEmit": false,
+    "outDir": "dts",
+    "rootDir": "src"
+  },
+  "exclude": ["src/**/*.spec.ts*", "src/**/*.stories.ts*"],
+  "include": ["src/**/*"],
+  "references": [
+    { "path": "../system" },
+    { "path": "../theme" }
+  ]
 }
