@@ -67,7 +67,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = props => {
   const isDisabled = state.disabledKeys.has(key);
   const isSelected = state.selectionManager.isSelected(key);
 
-  const { onClose, closeOnSelect } = useDropdownContext() as DropdownContext;
+  const { onClose, closeOnSelect } = useDropdownContext();
 
   const { menuItemProps, labelProps } = useMenuItem(
     {

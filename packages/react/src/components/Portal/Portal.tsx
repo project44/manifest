@@ -18,5 +18,5 @@ export const Portal: React.FC<React.PropsWithChildren<PortalProps>> = props => {
     setContainer(containerRef ? containerRef.current : document.body);
   }, [containerRef]);
 
-  return container ? ReactDom.createPortal(children, container) : container;
+  return <>{container ? ReactDom.createPortal(children, container) : container}</>;
 };

@@ -38,13 +38,11 @@
     "directory": "packages/design-tokens"
   },
   "scripts": {
-    "dev": "chokidar \"tokens/**/*.json\" -c \"yarn build\"",
-    "tokens": "node scripts/build.js"
+    "build": "node scripts/build.js",
+    "clean": "rm -rf .turbo node_modules lib esm dts",
+    "dev": "chokidar \"tokens/**/*.json\" -c \"yarn build\""
   },
   "devDependencies": {
     "style-dictionary": "^3.7.0"
-  },
-  "packemon": {
-    "platform": "browser"
   }
 }

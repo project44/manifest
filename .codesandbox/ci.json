@@ -1,4 +1,5 @@
 {
+  "buildCommand": "build",
   "node": "16",
   "packages": ["/packages/design-tokens", "/packages/react", "/packages/system", "/packages/theme"],
   "sandboxes": ["/examples/create-react-app", "/examples/create-react-app-typescript"]

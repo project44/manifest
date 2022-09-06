@@ -40,7 +40,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Build packages
-        run: yarn run pack
+        run: yarn build:packages
 
       - name: Store build artifacts
         uses: actions/upload-artifact@v2
@@ -106,56 +106,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           YARN_ENABLE_IMMUTABLE_INSTALLS: false
-
-  chromatic:
-    name: Update chromatic
-    needs: prerelease
-    runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, 'chore(release): version packages')"
-
-    steps:
-      - name: Checkout branch
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-
-      - name: Load yarn cache
-        uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Install dependencies
-        if: steps.yarn_cache.outputs.cache-hit != 'true'
-        run: yarn install --immutable
-
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: build-artifacts
-          path: packages/
-
-      - name: Build packages
-        run: yarn run pack
-
-      - uses: chromaui/action@v1
-        with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-          buildScriptName: 'build:storybook'
-          autoAcceptChanges: 'main'
-          exitOnceUploaded: true
-        env:
-          STORYBOOK_GITHUB_SHA: ${{ github.sha }}
