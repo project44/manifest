@@ -40,7 +40,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Build packages
-        run: yarn build:packages
+        run: yarn build
 
       - name: Store build artifacts
         uses: actions/upload-artifact@v2
