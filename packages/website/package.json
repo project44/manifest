@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "clean": "rm -rf .turbo node_modules .next *.tsbuildinfo",
+    "clean": "rm -rf .turbo node_modules .next",
     "dev": "next dev",
     "start": "next start"
   },

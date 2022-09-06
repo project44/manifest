@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "declarationDir": "dts",
+    "emitDeclarationOnly": true,
+    "noEmit": false,
+    "outDir": "dts",
+    "rootDir": "src"
+  },
+  "exclude": ["src/**/*.spec.ts*"],
+  "include": ["src/**/*"]
+}

@@ -1,0 +1,51 @@
+---
+title: Avatar
+description: A visual representation of a user or entity.
+---
+
+## Examples
+
+### Basic Avatar
+
+Images can be rendered within avatars by passing in a `src` prop.
+
+```jsx
+<Avatar src="https://i.pravatar.cc/200" />
+```
+
+### Fallback
+
+Avatars that either do not include a `src` prop or have an error loading an image will render the `fallback` prop instead.
+
+> Make sure that the `fallback` prop consists of two letters representing the entity represented in the avatar.
+
+```jsx
+<Avatar fallback="MD" />
+```
+
+### Sizes
+
+You can choose between two default sizes of the avatar using the `size` prop.
+
+```jsx
+<Stack gap="md" orientation="horizontal">
+  <Avatar size="small" src="https://i.pravatar.cc/200" />
+  <Avatar size="medium" src="https://i.pravatar.cc/200" />
+</Stack>
+```
+
+## API
+
+### Import
+
+```js
+import { Avatar } from '@project44-manifest/react';
+```
+
+### Props
+
+| Prop      | Type              | Description                                                                         | Default  |
+| --------- | ----------------- | ----------------------------------------------------------------------------------- | -------- |
+| fallback? | `string`          | Used to render a string if the `src` prop is not provided or image cannot be found. |          |
+| size?     | `medium \| small` | The size of the component.                                                          | `medium` |
+| src?      | `string`          | The `src` attribute for the avatar image element.                                   |          |

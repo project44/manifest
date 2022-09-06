@@ -25,8 +25,9 @@
   "scripts": {
     "build": "run-s build:types build:js",
     "build:js": "rollup -c",
-    "build:types": "tsc -b",
-    "clean": "rm -rf .turbo node_modules lib esm dts *.tsbuildinfo"
+    "build:types": "tsc -b tsconfig.build.json",
+    "clean": "rm -rf .turbo node_modules lib esm dts *.tsbuildinfo",
+    "type-check": "tsc -p tsconfig.json"
   },
   "repository": {
     "type": "git",

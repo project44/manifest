@@ -18,7 +18,6 @@ lib/
 dts/
 .next/
 build/
-docs/
 .contentlayer
 .vercel
 .turbo

@@ -22,7 +22,6 @@ describe('@project44-manifest/react - Portal', () => {
       const ref = React.useRef<HTMLDivElement>(null);
 
       if (ref.current === null) {
-        // @ts-expect-error: current reassignment is fine.
         ref.current = container;
       }
 

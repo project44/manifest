@@ -33,9 +33,10 @@
     "build": "run-s build:types build:js",
     "build:js": "rollup -c",
     "build:storybook": "build-storybook -c .storybook -o ./docs",
-    "build:types": "tsc -b",
+    "build:types": "tsc -b tsconfig.build.json",
     "clean": "rm -rf .turbo node_modules lib esm dts *.tsbuildinfo",
-    "dev": "start-storybook -p 6006 --quiet"
+    "dev": "start-storybook -p 6006 --quiet",
+    "type-check": "tsc -p tsconfig.json"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

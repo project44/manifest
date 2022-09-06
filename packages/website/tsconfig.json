@@ -2,18 +2,21 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "emitDeclarationOnly": false,
-    "incremental": true,
-    "jsx": "preserve",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "noEmit": true,
-    "paths": {
-      "contentlayer/generated": ["./.contentlayer/generated"]
-    },
     "skipLibCheck": true,
-    "strict": true,
-    "target": "esnext"
+    "paths": {
+      "contentlayer/generated": [
+        "./.contentlayer/generated"
+      ]
+    },
+    "strict": false
   },
-  "include": ["next-env.d.ts", "src", "sidebar.config.ts", ".contentlayer/generated"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "src",
+    "sidebar.config.ts",
+    ".contentlayer/generated"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

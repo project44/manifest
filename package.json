@@ -24,6 +24,7 @@
     "test": "jest --colors --logHeapUsage",
     "test:coverage": "yarn run test --coverage",
     "test:watch": "jest --watch",
+    "type-check": "turbo run type-check",
     "version": "yarn changeset version && yarn install --mode=update-lockfile"
   },
   "dependencies": {
