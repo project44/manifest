@@ -1,0 +1,29 @@
+{
+  "baseBranch": "origin/main",
+  "pipeline": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [".next/**",
+        "dts/**",
+        "esm/**",
+        "lib/**"
+      ]
+    },
+    "start": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "dev": {
+      "cache": false
+    },
+    "clean": {
+      "cache": false
+    },
+    "type-check": {
+      "cache": false,
+      "dependsOn": ["^type-check"]
+    }
+  }
+}

@@ -1,12 +1,12 @@
 {
-  "name": "website",
-  "version": "0.1.1",
+  "name": "@project44-manifest/website",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "clean": "rm -rf .turbo node_modules .next *.tsbuildinfo",
+    "dev": "next dev",
+    "start": "next start"
   },
   "dependencies": {
     "@project44-manifest/design-tokens": "^1.1.0",
@@ -22,5 +22,9 @@
     "react-live": "^2.4.1",
     "rehype-slug": "^5.0.1",
     "remark-gfm": "^3.0.1"
+  },
+  "devDependencies": {
+    "eslint-config-next": "^12.2.5",
+    "next-sitemap": "^3.1.21"
   }
 }

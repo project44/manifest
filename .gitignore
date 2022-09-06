@@ -18,7 +18,13 @@ lib/
 dts/
 .next/
 build/
+docs/
 .contentlayer
+.vercel
+.turbo
+
+# ignore sitemap
+apps/**/sitemap.xml
 
 # Configs
 *.tsbuildinfo

@@ -36,7 +36,7 @@ const MDXComponents = {
   p: (props: React.DetailsHTMLAttributes<unknown>) => (
     <Typography as="p" css={{ marginBottom: '$large' }} variant="body" {...props} />
   ),
-  pre: props => {
+  pre: (props: any) => {
     if (typeof props.children === 'string') return <Box as="pre" {...props} />;
 
     return <CodeBlock {...props} />;

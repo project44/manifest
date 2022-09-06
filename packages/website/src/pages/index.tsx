@@ -7,15 +7,12 @@ import {
   CardHeader,
   Grid,
   GridItem,
-  Icon,
-  IconButton,
   pxToRem,
   Stack,
   Typography,
 } from '@project44-manifest/react';
 import ActionCard from '../components/ActionCard';
 import Container from '../components/Container';
-import Nekker from '../components/Nekker';
 import NextImage from 'next/image';
 import { useRouter } from 'next/router';
 

@@ -25,11 +25,6 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransformGroup({
-  name: 'css',
-  transforms: ['attribute/cti', 'name/cti/kebab', 'size/pxToRem', 'color/rgb'],
-});
-
-StyleDictionary.registerTransformGroup({
   name: 'javascript',
   transforms: ['attribute/cti', 'name/cti/camel', 'size/pxToRem', 'color/rgb'],
 });
@@ -37,29 +32,29 @@ StyleDictionary.registerTransformGroup({
 StyleDictionary.extend({
   source: [path.join(ROOT_DIR, 'tokens/**/*.json')],
   platforms: {
-    css: {
+    cjs: {
       buildPath: path.join(ROOT_DIR, 'lib/'),
-      files: [{ destination: 'css/styles.css', format: 'css/variables' }],
-      options: {
-        showFileHeader: false,
-      },
-      transformGroup: 'css',
-    },
-    javascript: {
-      buildPath: path.join(ROOT_DIR, 'src/'),
-      files: [{ destination: 'index.ts', format: 'javascript/es6' }],
+      files: [{ destination: 'index.js', format: 'javascript/module-flat' }],
       options: {
         showFileHeader: false,
       },
       transformGroup: 'javascript',
     },
-    json: {
-      buildPath: path.join(ROOT_DIR, 'lib/'),
-      files: [{ destination: 'json/tokens.json', format: 'json/flat' }],
+    esm: {
+      buildPath: path.join(ROOT_DIR, 'esm/'),
+      files: [{ destination: 'index.js', format: 'javascript/es6' }],
       options: {
         showFileHeader: false,
       },
-      transformGroup: 'css',
+      transformGroup: 'javascript',
+    },
+    ts: {
+      buildPath: path.join(ROOT_DIR, 'dts/'),
+      files: [{ destination: 'index.d.ts', format: 'typescript/es6-declarations' }],
+      options: {
+        showFileHeader: false,
+      },
+      transformGroup: 'javascript',
     },
   },
 }).buildAllPlatforms();
