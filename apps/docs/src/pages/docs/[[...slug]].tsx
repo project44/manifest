@@ -1,43 +1,49 @@
-import type { TOCItem } from '../../../types';
+import type { TOCItem } from '../../types';
 import type { Doc } from 'contentlayer/generated';
 import * as React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import sidebar, { SidebarItem } from 'sidebar.config';
 import { allDocs } from 'contentlayer/generated';
-import DocLayout from '../../../layouts/Doc';
-import MDXComponents from '../../../components/MDXComponents';
+import DocsLayout from '../../layouts/Docs';
+import MDXComponents from '../../components/MDXComponents';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
 interface ComponentPageProps {
   doc: Doc;
+  sidebarItems?: SidebarItem[];
   toc?: TOCItem[];
 }
 
 export default function ComponentPage(props: ComponentPageProps) {
-  const { doc, toc } = props;
+  const { doc, sidebarItems, toc } = props;
 
   const Doc = useMDXComponent(doc.body.code as string);
 
   return (
-    <DocLayout description={doc.meta.description} title={doc.meta.title} toc={toc}>
+    <DocsLayout
+      description={doc.meta.description}
+      sidebarItems={sidebarItems}
+      title={doc.meta.title}
+      toc={toc}
+    >
       <Doc components={MDXComponents} />
-    </DocLayout>
+    </DocsLayout>
   );
 }
 
 export const getStaticPaths: GetStaticPaths = () => {
-  const paths = allDocs
-    .filter(doc => doc.slug.startsWith('/docs/components') as boolean)
-    .map(doc => doc.slug as string);
+  const paths = allDocs.map(doc => doc.slug as string);
 
   return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps = ctx => {
-  const slug = ['components', ctx?.params.slug].join('/');
+  const slug = Array.isArray(ctx?.params.slug) ? ctx?.params.slug.join('/') : ctx?.params.slug;
   const doc = allDocs.find(doc => doc.slug.endsWith(slug) as boolean) as Doc;
+  const sidebarItems = sidebar;
   const toc = doc?.meta?.toc;
 
   return {
-    props: { doc, toc },
+    props: { doc, sidebarItems, toc },
   };
 };

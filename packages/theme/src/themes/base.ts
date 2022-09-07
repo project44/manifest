@@ -198,6 +198,7 @@ export const baseTheme = {
     medium: tokens.sizeMedium,
     small: tokens.sizeSmall,
     'x-large': tokens.sizeXLarge,
+    'x-small': tokens.sizeXSmall,
   },
   space: {
     medium: tokens.spaceMedium,
