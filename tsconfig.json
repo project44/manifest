@@ -1,29 +1,16 @@
 {
-  "compilerOptions": {
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true,
-    "incremental": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noEmit": true,
-    "resolveJsonModule": true,
-    "target": "esnext",
-    "paths": {
-      "@project44-manifest/react": ["packages/react/src"],
-      "@project44-manifest/react/*": ["packages/react/src/*"],
-      "@project44-manifest/system": ["packages/system/src"],
-      "@project44-manifest/system/*": ["packages/system/src/*"],
-      "@project44-manifest/theme": ["packages/theme/src"],
-      "@project44-manifest/theme/*": ["packages/theme/src/*"]
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "./tsconfig.options.json",
+  "files": [],
+  "references": [
+    {
+      "path": "packages/react"
+    },
+    {
+      "path": "packages/system"
+    },
+    {
+      "path": "packages/theme"
     }
-  },
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  ]
 }

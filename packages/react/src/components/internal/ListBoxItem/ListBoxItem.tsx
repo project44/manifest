@@ -43,7 +43,7 @@ export const ListBoxItem: React.FC<ListBoxItemProps> = props => {
 
   const itemRef = React.useRef<HTMLDivElement>(null);
 
-  const { state } = useListBoxContext();
+  const { state } = useListBoxContext() as ListBoxContext;
 
   const { optionProps, labelProps, isFocused, isDisabled, isPressed, isSelected } = useOption(
     {

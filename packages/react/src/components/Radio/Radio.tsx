@@ -25,7 +25,7 @@ export const Radio = createComponent<'label', RadioProps>((props, forwardedRef) 
 
   const inputRef = React.useRef<HTMLInputElement>(null);
 
-  const { state } = useRadioGroupContext();
+  const { state } = useRadioGroupContext() as RadioGroupContext;
 
   const { inputProps } = useRadio(props, state, inputRef);
   const { isFocusVisible, focusProps } = useFocusRing({ autoFocus });

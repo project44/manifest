@@ -43,7 +43,8 @@ export const TextArea = React.forwardRef<typeof TextFieldBase, TextAreaProps>(
     });
 
     const handleHeightChange = React.useCallback(() => {
-      const input = areaRef.current;
+      const input = areaRef.current!;
+
       const prevAlignment = input.style.alignSelf;
 
       input.style.alignSelf = 'start';

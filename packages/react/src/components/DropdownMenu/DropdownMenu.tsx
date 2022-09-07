@@ -16,7 +16,7 @@ export interface DropdownMenuProps extends AriaMenuProps<object>, StyleProps {}
 export const DropdownMenu = createComponent<'ul', DropdownMenuProps>((props, forwardedRef) => {
   const { as: Comp = 'ul', className: classNameProp, css, ...other } = props;
 
-  const { menuRef, menuProps: contextProps } = useDropdownContext();
+  const { menuRef, menuProps: contextProps } = useDropdownContext() as DropdownContext;
 
   const completeProps = { ...mergeProps(contextProps, other) };
 

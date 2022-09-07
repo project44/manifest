@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.options.json",
+  "include": ["packages/**/*"],
+  "exclude": ["**/lib/**/*", "**/esm/**/*", "**/dts/**/*", "**/node_modules/**/*"]
+}

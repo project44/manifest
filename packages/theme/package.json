@@ -27,10 +27,7 @@
     "directory": "packages/theme"
   },
   "scripts": {
-    "build": "run-s build:types build:js",
-    "build:js": "rollup -c",
-    "build:types": "tsc -b",
-    "clean": "rm -rf .turbo node_modules lib esm dts *.tsbuildinfo"
+    "clean": "rm -rf .turbo node_modules *.tsbuildinfo"
   },
   "dependencies": {
     "@project44-manifest/design-tokens": "^1.1.0",
@@ -38,5 +35,8 @@
   },
   "devDependencies": {
     "@types/lodash.merge": "^4.6.7"
+  },
+  "packemon": {
+    "platform": "browser"
   }
 }

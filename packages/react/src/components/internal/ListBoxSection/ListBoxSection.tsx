@@ -27,7 +27,7 @@ export interface ListBoxSectionProps<T extends object = object> extends DOMProps
 export const ListBoxSection: React.FC<ListBoxSectionProps> = props => {
   const { className: classNameProp, css, item } = props;
 
-  const { state } = useListBoxContext();
+  const { state } = useListBoxContext() as ListBoxContext;
 
   const { itemProps, headingProps, groupProps } = useListBoxSection({
     'aria-label': item['aria-label'],

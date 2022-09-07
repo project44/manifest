@@ -1,8 +1,10 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.options.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "skipLibCheck": true,
+    "emitDeclarationOnly": false,
+    "incremental": true,
+    "noEmit": true,
     "paths": {
       "contentlayer/generated": [
         "./.contentlayer/generated"
