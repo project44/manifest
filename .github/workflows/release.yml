@@ -10,7 +10,6 @@ on:
 
 jobs:
   prerelease:
-    name: Prerelease
     runs-on: ubuntu-latest
 
     steps:
@@ -39,7 +38,7 @@ jobs:
         if: steps.yarn_cache.outputs.cache-hit != 'true'
         run: yarn install --immutable
 
-      - name: Build packages
+      - name: Build
         run: yarn build
 
       - name: Store build artifacts
@@ -52,7 +51,6 @@ jobs:
             packages/**/dts/**/*
 
   release:
-    name: Version or publish the packages
     needs: prerelease
     runs-on: ubuntu-latest
 
