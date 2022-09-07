@@ -30,11 +30,7 @@
     "directory": "packages/react"
   },
   "scripts": {
-    "build": "run-s build:types build:js",
-    "build:js": "rollup -c",
-    "build:storybook": "build-storybook -c .storybook -o ./docs",
-    "build:types": "tsc -b",
-    "clean": "rm -rf .turbo node_modules lib esm dts *.tsbuildinfo",
+    "build": "build-storybook -c .storybook -o ./docs",
     "dev": "start-storybook -p 6006 --quiet"
   },
   "peerDependencies": {
@@ -97,5 +93,8 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "webpack": "^5.74.0"
+  },
+  "packemon": {
+    "platform": "browser"
   }
 }

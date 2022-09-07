@@ -3,6 +3,7 @@ import type { FocusableProps } from '@react-types/shared';
 import type { Node } from '@react-types/shared';
 import type { TreeState } from '@react-stately/tree';
 import * as React from 'react';
+import { DropdownContext, useDropdownContext } from '../Dropdown';
 import { useHover, usePress } from '@react-aria/interactions';
 import { cx } from '../../styles';
 import { Icon } from '../Icon';
@@ -11,7 +12,6 @@ import { Typography } from '../Typography';
 import { useFocusRing } from '@react-aria/focus';
 import { useMenuItem } from '@react-aria/menu';
 import { useStyles } from './DropdownItem.styles';
-import { DropdownContext, useDropdownContext } from '../Dropdown';
 
 export interface DropdownItemProps<T extends object = object>
   extends DOMProps,
@@ -67,7 +67,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = props => {
   const isDisabled = state.disabledKeys.has(key);
   const isSelected = state.selectionManager.isSelected(key);
 
-  const { onClose, closeOnSelect } = useDropdownContext();
+  const { onClose, closeOnSelect } = useDropdownContext() as DropdownContext;
 
   const { menuItemProps, labelProps } = useMenuItem(
     {
