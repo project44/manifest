@@ -13,6 +13,7 @@ export const { styled, config, globalCss, getCssText, keyframes, theme, css } = 
     md: `(min-width: ${lightTheme.sizes.medium})`,
     sm: `(min-width: ${lightTheme.sizes.small})`,
     xl: `(min-width: ${lightTheme.sizes['x-large']})`,
+    xs: `(min-width: ${lightTheme.sizes['x-small']})`,
   },
   theme: lightTheme,
   utils: {

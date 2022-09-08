@@ -21,12 +21,12 @@ const Template: ComponentStory<typeof Stack> = args => (
 export const Default = Template.bind({});
 
 Default.args = {
-  gap: 'sm',
+  gap: 'small',
 };
 
 export const Horizontal = Template.bind({});
 
 Horizontal.args = {
   orientation: 'horizontal',
-  gap: 'sm',
+  gap: 'small',
 };

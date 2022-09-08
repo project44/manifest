@@ -5,17 +5,44 @@ export const useStyles = css({
   display: 'block',
   mx: 'auto',
   px: '$medium',
+  width: '100%',
 
-  '@sm': {
-    maxWidth: '$small',
-  },
-  '@md': {
-    maxWidth: '$medium',
-  },
-  '@lg': {
-    maxWidth: '$large',
-  },
-  '@xl': {
-    maxWidth: '$x-large',
+  variants: {
+    fixed: {
+      true: {
+        '@sm': {
+          maxWidth: '$small',
+        },
+        '@md': {
+          maxWidth: '$medium',
+        },
+        '@lg': {
+          maxWidth: '$large',
+        },
+        '@xl': {
+          maxWidth: '$x-large',
+        },
+        '@xs': {
+          maxWidth: '$x-small',
+        },
+      },
+    },
+    maxWidth: {
+      small: {
+        maxWidth: '$small',
+      },
+      medium: {
+        maxWidth: '$medium',
+      },
+      large: {
+        maxWidth: '$large',
+      },
+      'x-large': {
+        maxWidth: '$x-large',
+      },
+      'x-small': {
+        maxWidth: '$x-small',
+      },
+    },
   },
 });

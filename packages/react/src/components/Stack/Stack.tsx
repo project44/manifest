@@ -8,7 +8,7 @@ export interface StackProps extends StyleProps {
   /**
    * The gap between elements in the stack.
    */
-  gap?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  gap?: 'x-small' | 'small' | 'medium' | 'large' | 'x-large';
   /**
    * The layout orientation  of the stack.
    *

@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { Box, Stack } from '@project44-manifest/react';
-import Container from '../components/Container';
+import { Box, Container, pxToRem, Stack } from '@project44-manifest/react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -12,12 +11,11 @@ function Header() {
         borderBottom: '1px solid $border-primary',
         position: 'sticky',
         top: 0,
-        width: '100%',
         zIndex: '$sticky',
       }}
     >
       <Container
-        css={{ alignItems: 'center', display: 'flex', height: '$$headerHeight', gap: '$medium' }}
+        css={{ alignItems: 'center', display: 'flex', minHeight: pxToRem(72), gap: '$medium' }}
       >
         <Link href="/">
           <Stack

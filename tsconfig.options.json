@@ -10,7 +10,7 @@
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "lib": ["esnext", "dom"],
     "module": "esnext",
     "moduleResolution": "node",
@@ -23,6 +23,6 @@
     "sourceMap": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "esnext"
+    "target": "es2022"
   }
 }

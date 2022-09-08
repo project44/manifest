@@ -2,3 +2,195 @@
 title: Button
 description: Clickable elements that communicate actions that users can take.
 ---
+
+## Examples
+
+### Primary Button
+
+Primary buttons are used to indicate the highest priority action a user can perform.
+
+```jsx
+<Stack gap="medium" orientation="horizontal">
+  <Button>Button</Button>
+  <Button isDisabled>Button</Button>
+</Stack>
+```
+
+### Secondary Button
+
+Secondary buttons are second in priority to primary buttons and are used for important actions that aren't the primary action.
+
+```jsx
+<Stack gap="medium" orientation="horizontal">
+  <Button variant="secondary">Button</Button>
+  <Button isDisabled variant="secondary">
+    Button
+  </Button>
+</Stack>
+```
+
+### Tertiary Button
+
+Tertiary buttons are the lowest priority actions and should be used for less commonly used actions.
+
+```jsx
+<Stack gap="medium" orientation="horizontal">
+  <Button variant="tertiary">Button</Button>
+  <Button isDisabled variant="tertiary">
+    Button
+  </Button>
+</Stack>
+```
+
+### Destructive Button
+
+Destructive buttons are used to indicate an action that is destructive and cannot be undone.
+
+```jsx
+<Stack gap="medium" orientation="horizontal">
+  <Button variant="danger">Button</Button>
+  <Button isDisabled variant="danger">
+    Button
+  </Button>
+</Stack>
+```
+
+### Sizes
+
+The size of a Button can be adjusted using the `size` prop.
+
+```jsx
+<Stack gap="medium">
+  <Stack css={{ alignItems: 'center' }} gap="medium" orientation="horizontal">
+    <Button size="small">Button</Button>
+    <Button size="medium">Button</Button>
+  </Stack>
+
+  <Stack css={{ alignItems: 'center' }} gap="medium" orientation="horizontal">
+    <Button size="small" variant="secondary">
+      Button
+    </Button>
+    <Button size="medium" variant="secondary">
+      Button
+    </Button>
+  </Stack>
+
+  <Stack css={{ alignItems: 'center' }} gap="medium" orientation="horizontal">
+    <Button size="small" variant="tertiary">
+      Button
+    </Button>
+    <Button size="medium" variant="tertiary">
+      Button
+    </Button>
+  </Stack>
+</Stack>
+```
+
+### Buttons with icons
+
+Buttons can be embelished with icons rendered before or after the button label.
+
+```jsx
+<Stack gap="medium" orientation="horizontal">
+  <Button startIcon={<Icon icon="delete" />}>Button</Button>
+  <Button endIcon={<Icon icon="send" />}>Button</Button>
+</Stack>
+```
+
+### Icon Button
+
+IconButtons share the same functionality as a Button but renders only a single icon.
+
+```jsx
+<Stack gap="medium" orientation="horizontal">
+  <IconButton variant="primary">
+    <Icon icon="add" />
+  </IconButton>
+  <IconButton variant="secondary">
+    <Icon icon="add" />
+  </IconButton>
+  <IconButton variant="tertiary">
+    <Icon icon="add" />
+  </IconButton>
+  <IconButton variant="danger">
+    <Icon icon="add" />
+  </IconButton>
+</Stack>
+```
+
+### Icon Button sizes
+
+IconButtons share the same functionality as a Button but renders only a single icon.
+
+```jsx
+<Stack gap="medium">
+  <Stack css={{ alignItems: 'center' }} gap="medium" orientation="horizontal">
+    <IconButton size="small">
+      <Icon icon="add" />
+    </IconButton>
+    <IconButton size="medium">
+      <Icon icon="add" />
+    </IconButton>
+  </Stack>
+  <Stack css={{ alignItems: 'center' }} gap="medium" orientation="horizontal">
+    <IconButton size="small" variant="secondary">
+      <Icon icon="add" />
+    </IconButton>
+    <IconButton size="medium" variant="secondary">
+      <Icon icon="add" />
+    </IconButton>
+  </Stack>
+  <Stack css={{ alignItems: 'center' }} gap="medium" orientation="horizontal">
+    <IconButton size="small" variant="tertiary">
+      <Icon icon="add" />
+    </IconButton>
+    <IconButton size="medium" variant="tertiary">
+      <Icon icon="add" />
+    </IconButton>
+  </Stack>
+</Stack>
+```
+
+### Button Groups
+
+Buttons can be grouped together, allowing you to control spacing, size and variants on grouped buttons.
+
+```jsx
+<ButtonGroup variant="secondary">
+  <Button>Button</Button>
+  <Button>Button</Button>
+</ButtonGroup>
+```
+
+### Attached Button Groups
+
+Buttons within a `ButtonGroup` can be attached.
+
+```jsx
+<ButtonGroup isAttached>
+  <Button>Button</Button>
+  <Button>Button</Button>
+</ButtonGroup>
+```
+
+## API
+
+### Import
+
+```js
+import { Button } from '@project44-manifest/react';
+```
+
+### Props
+
+Props of the native element are also available.
+
+| Prop       | Type                                                            | Description                                    | Default     |
+| ---------- | --------------------------------------------------------------- | ---------------------------------------------- | ----------- |
+| as?        | `string`                                                        | The HTML tag to be rendered.                   | `button`    |
+| children?  | `React.ReactNode`                                               | The content of the component.                  |             |
+| css?       | `CSS`                                                           | Theme aware style object.                      |             |
+| endIcon?   | `React.ReactNode`                                               | The icon element rendered after the children.  |             |
+| size?      | `"medium" \| "small"`                                           | The size of the component.                     | `"medium"`  |
+| startIcon? | `React.ReactNode`                                               | The icon element rendered before the children. |             |
+| variant?   | `"primary" \| "secondary" \| "tertiary" \| "danger" \| "brand"` | The display variant of the button.             | `"primary"` |

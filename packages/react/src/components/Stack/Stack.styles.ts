@@ -16,19 +16,19 @@ export const useStyles = css({
       },
     },
     gap: {
-      lg: {
+      large: {
         gap: '$large',
       },
-      md: {
+      medium: {
         gap: '$medium',
       },
-      sm: {
+      small: {
         gap: '$small',
       },
-      xl: {
+      'x-large': {
         gap: '$x-large',
       },
-      xs: {
+      'x-small': {
         gap: '$x-small',
       },
     },

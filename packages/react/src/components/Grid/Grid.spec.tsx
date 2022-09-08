@@ -21,7 +21,7 @@ describe('@project44-manifest/react - Grid', () => {
 
   it('should render with column and row rules', () => {
     render(
-      <Grid columns="repeat(5, 1fr)" gap="sm">
+      <Grid columns="repeat(5, 1fr)" gap="small">
         <GridItem column={2}>Item</GridItem>
         <GridItem row={2}>Item</GridItem>
       </Grid>,

@@ -4,6 +4,7 @@
     "baseUrl": ".",
     "emitDeclarationOnly": false,
     "incremental": true,
+    "jsx": "preserve",
     "noEmit": true,
     "paths": {
       "contentlayer/generated": [
