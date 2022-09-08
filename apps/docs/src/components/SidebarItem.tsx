@@ -1,13 +1,10 @@
-import type { SidebarItem as SidebarItemType } from '../../sidebar.config';
+import type { SidebarItem as SidebarItemType } from '../types';
 import * as React from 'react';
 import { Box, Link, pxToRem, Stack, styled, Typography } from '@project44-manifest/react';
 import NextLink from 'next/link';
 
-interface SidebarItemProps {
+interface SidebarItemProps extends SidebarItemType {
   currentPath: string;
-  href: string;
-  items: SidebarItemType[];
-  title: string;
 }
 
 const StyledLink = styled(Link, {
@@ -45,21 +42,21 @@ const StyledLink = styled(Link, {
 });
 
 function SidebarItem(props: SidebarItemProps) {
-  const { currentPath, href, items, title } = props;
+  const { currentPath, items, slug, title } = props;
 
   const isCategory = !!items;
 
   if (isCategory) {
     return (
-      <Box as="li" key={href}>
+      <Box as="li" key={slug}>
         <Typography css={{ display: 'inline-block', py: pxToRem(9) }} variant="bodyBold">
           {title}
         </Typography>
         <Stack as="ul" css={{ listStyleType: 'none', margin: 0, padding: 0 }}>
           {items?.map(item => (
-            <Box as="li" key={item.href}>
-              <NextLink href={item.href} key={item.href} passHref>
-                <StyledLink isActive={currentPath === item.href}>{item.title}</StyledLink>
+            <Box as="li" key={item.slug}>
+              <NextLink href={item.slug} key={item.slug} passHref>
+                <StyledLink isActive={currentPath === item.slug}>{item.title}</StyledLink>
               </NextLink>
             </Box>
           ))}
@@ -69,9 +66,9 @@ function SidebarItem(props: SidebarItemProps) {
   }
 
   return (
-    <Box as="li" key={href}>
-      <NextLink href={href} key={href} passHref>
-        <StyledLink isActive={currentPath === href}>{title}</StyledLink>
+    <Box as="li" key={slug}>
+      <NextLink href={slug} key={slug} passHref>
+        <StyledLink isActive={currentPath === slug}>{title}</StyledLink>
       </NextLink>
     </Box>
   );

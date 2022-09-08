@@ -1,5 +1,4 @@
-import type { SidebarItem } from 'sidebar.config';
-import type { TOCItem } from '../types';
+import type { TOC as TOCType } from '../types';
 import * as React from 'react';
 import { Box, Container, pxToRem, Typography } from '@project44-manifest/react';
 import isEmpty from 'lodash/isEmpty';
@@ -10,19 +9,18 @@ import TOC from './TOC';
 interface DocsLayoutProps {
   children: React.ReactNode;
   description?: string;
-  sidebarItems?: SidebarItem[];
   title?: string;
-  toc?: TOCItem[];
+  toc?: TOCType[];
 }
 
 function DocsLayout(props: DocsLayoutProps) {
-  const { children, description, sidebarItems = [], title, toc = [] } = props;
+  const { children, description, title, toc = [] } = props;
 
   return (
     <>
       <Header />
       <Container as="main" css={{ display: 'flex' }}>
-        {!isEmpty(sidebarItems) && <Sidebar items={sidebarItems} />}
+        <Sidebar />
 
         <Box as="article" css={{ flex: '1 1', py: pxToRem(64), px: pxToRem(80), width: '100%' }}>
           {title && (

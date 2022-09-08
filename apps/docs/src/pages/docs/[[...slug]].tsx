@@ -1,31 +1,24 @@
-import type { TOCItem } from '../../types';
 import type { Doc } from 'contentlayer/generated';
+import type { TOC } from '../../types';
 import * as React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import sidebar, { SidebarItem } from 'sidebar.config';
 import { allDocs } from 'contentlayer/generated';
 import DocsLayout from '../../layouts/Docs';
 import MDXComponents from '../../components/MDXComponents';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
-interface ComponentPageProps {
+interface DocsProps {
   doc: Doc;
-  sidebarItems?: SidebarItem[];
-  toc?: TOCItem[];
+  toc?: TOC[];
 }
 
-export default function ComponentPage(props: ComponentPageProps) {
-  const { doc, sidebarItems, toc } = props;
+export default function Docs(props: DocsProps) {
+  const { doc, toc } = props;
 
   const Doc = useMDXComponent(doc.body.code as string);
 
   return (
-    <DocsLayout
-      description={doc.meta.description}
-      sidebarItems={sidebarItems}
-      title={doc.meta.title}
-      toc={toc}
-    >
+    <DocsLayout description={doc.meta.description} title={doc.meta.title} toc={toc}>
       <Doc components={MDXComponents} />
     </DocsLayout>
   );
@@ -40,10 +33,9 @@ export const getStaticPaths: GetStaticPaths = () => {
 export const getStaticProps: GetStaticProps = ctx => {
   const slug = Array.isArray(ctx?.params.slug) ? ctx?.params.slug.join('/') : ctx?.params.slug;
   const doc = allDocs.find(doc => doc.slug.endsWith(slug) as boolean) as Doc;
-  const sidebarItems = sidebar;
   const toc = doc?.meta?.toc;
 
   return {
-    props: { doc, sidebarItems, toc },
+    props: { doc, toc },
   };
 };

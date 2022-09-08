@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { getCssText } from '@project44-manifest/react';
 
 class MyDocument extends Document {
   override render(): JSX.Element {
@@ -18,6 +19,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
           <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+          <style id="stitches" dangerouslySetInnerHTML={{ __html: getCssText() }} />
         </Head>
         <body>
           <Main />
