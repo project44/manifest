@@ -4,7 +4,7 @@ import ActionCard from './ActionCard';
 
 function ComponentGrid() {
   return (
-    <Grid columns="repeat(3, 1fr)" css={{ py: pxToRem(64) }} gap="lg">
+    <Grid columns="repeat(3, 1fr)" css={{ py: pxToRem(64) }} gap="large">
       <GridItem>
         <ActionCard
           href="/docs/components/avatar"
