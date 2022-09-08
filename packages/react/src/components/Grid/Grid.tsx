@@ -9,7 +9,7 @@ export interface GridProps extends StyleProps {
   /**
    * The gap between columns
    */
-  columnGap?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  columnGap?: 'x-small' | 'small' | 'medium' | 'large' | 'x-large';
   /**
    * Shorthand for the gridTemplateColumns css property.
    *
@@ -23,11 +23,11 @@ export interface GridProps extends StyleProps {
   /**
    * The gap between rows and columns.
    */
-  gap?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  gap?: 'x-small' | 'small' | 'medium' | 'large' | 'x-large';
   /**
    * The gap between rows
    */
-  rowGap?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  rowGap?: 'x-small' | 'small' | 'medium' | 'large' | 'x-large';
   /**
    * Shorthand for the gridTemplateRows css property.
    *

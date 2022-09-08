@@ -12,7 +12,7 @@ function Toolbar(props: ToolbarProps) {
   const { code, isExpanded, onExpandedChange } = props;
 
   return (
-    <Stack css={{ justifyContent: 'flex-end' }} gap="sm" orientation="horizontal">
+    <Stack css={{ justifyContent: 'flex-end' }} gap="small" orientation="horizontal">
       <Tooltip title={isExpanded ? 'Hide Code' : 'Show Code'}>
         <IconButton onClick={onExpandedChange} size="small" variant="tertiary">
           <Icon icon={isExpanded ? 'unfold_less' : 'unfold_more'} />

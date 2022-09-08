@@ -6,53 +6,53 @@ export const useStyles = css({
 
   variants: {
     columnGap: {
-      lg: {
+      large: {
         columnGap: '$large',
       },
-      md: {
+      medium: {
         columnGap: '$medium',
       },
-      sm: {
+      small: {
         columnGap: '$small',
       },
-      xl: {
+      'x-large': {
         columnGap: '$x-large',
       },
-      xs: {
+      'x-small': {
         columnGap: '$x-small',
       },
     },
     gap: {
-      lg: {
+      large: {
         gap: '$large',
       },
-      md: {
+      medium: {
         gap: '$medium',
       },
-      sm: {
+      small: {
         gap: '$small',
       },
-      xl: {
+      'x-large': {
         gap: '$x-large',
       },
-      xs: {
+      'x-small': {
         gap: '$x-small',
       },
     },
     rowGap: {
-      lg: {
+      large: {
         rowGap: '$large',
       },
-      md: {
+      medium: {
         rowGap: '$medium',
       },
-      sm: {
+      small: {
         rowGap: '$small',
       },
-      xl: {
+      'x-large': {
         rowGap: '$x-large',
       },
-      xs: {
+      'x-small': {
         rowGap: '$x-small',
       },
     },
