@@ -23,14 +23,14 @@ function Features() {
             <GridItem>
               <ActionCard
                 description="Find all the design decisions that power the system."
-                href="/doc/foundations"
+                href="/docs/foundations"
                 src="/images/thumbnails/typography.png"
                 title="Foundations"
               />
             </GridItem>
             <GridItem>
               <ActionCard
-                description="Find all the design decisions that power the system."
+                description="Find all the components that comprise the system."
                 href="/docs/components"
                 src="/images/thumbnails/dropdown.png"
                 title="Components"
@@ -38,10 +38,10 @@ function Features() {
             </GridItem>
             <GridItem>
               <ActionCard
-                description="Find all the design decisions that power the system."
+                description="Find all the design design patterns that evolve the system."
                 href="/docs/patterns"
                 src="/images/thumbnails/table.png"
-                title="Components"
+                title="Patterns"
               />
             </GridItem>
           </Grid>

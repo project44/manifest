@@ -1,10 +1,10 @@
-import type { TOCItem as TOCItemType } from '../types';
+import type { TOC as TOCType } from '../types';
 import * as React from 'react';
 import { Box, pxToRem, Stack } from '@project44-manifest/react';
 import TOCItem from '../components/TOCItem';
 
 interface TOCProps {
-  items?: TOCItemType[];
+  items?: TOCType[];
 }
 
 function TOC(props: TOCProps) {

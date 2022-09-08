@@ -1,16 +1,10 @@
-import type { SidebarItem as SidebarItemType } from '../../sidebar.config';
 import * as React from 'react';
 import { Box, pxToRem, Stack } from '@project44-manifest/react';
+import items from 'sidebar.config';
 import SidebarItem from '../components/SidebarItem';
 import { useRouter } from 'next/router';
 
-interface SidebarProps {
-  items: SidebarItemType[];
-}
-
-function Sidebar(props: SidebarProps) {
-  const { items } = props;
-
+function Sidebar() {
   const router = useRouter();
 
   return (
@@ -33,8 +27,8 @@ function Sidebar(props: SidebarProps) {
         {items.map(item => (
           <SidebarItem
             currentPath={router.asPath}
-            href={item.href}
-            key={item.href}
+            slug={item.slug}
+            key={item.slug}
             items={item.items ?? null}
             title={item.title}
           />

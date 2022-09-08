@@ -3,12 +3,16 @@ import * as Manifest from '@project44-manifest/react';
 import Anchor from './Anchor';
 import BlockQuote from './BlockQuote';
 import CodeBlock from './CodeBlock';
+import Colors from './Colors';
+import ColorSwatch from './ColorSwatch';
 import InlineCode from './InlineCode';
 import Heading from './Heading';
 import Image from './Image';
 
 const MDXComponents = {
   ...Manifest,
+  Colors,
+  ColorSwatch,
   a: Anchor,
   blockquote: BlockQuote,
   code: InlineCode,

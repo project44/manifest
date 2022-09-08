@@ -26,7 +26,7 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
   name: 'javascript',
-  transforms: ['attribute/cti', 'name/cti/camel', 'size/pxToRem', 'color/rgb'],
+  transforms: ['attribute/cti', 'name/cti/camel', 'size/pxToRem', 'color/hex'],
 });
 
 StyleDictionary.extend({
