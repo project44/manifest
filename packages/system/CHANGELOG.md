@@ -1,5 +1,11 @@
 # @project44-manifest/system
 
+## 0.1.2
+
+### Patch Changes
+
+- [#83](https://github.com/project44/manifest/pull/83) [`73c0c31`](https://github.com/project44/manifest/commit/73c0c3115e8c65183f118546422f3c53dc314aaa) Thanks [@bclark-p44](https://github.com/bclark-p44)! - Fixing icon button styles
+
 ## 0.1.1
 
 ### Patch Changes
