@@ -7,10 +7,11 @@ import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { CalendarRange } from '../CalendarRange';
 import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
-import { Overlay } from '../Overlay';
-import { Popover } from '../Popover';
+import { DefinedRange } from '../internal/CalendarRanges';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
+import { Overlay } from '../Overlay';
+import { Popover } from '../Popover';
 import { Typography } from '../Typography';
 import { useButton } from '@react-aria/button';
 import { useDateRangePicker } from '@react-aria/datepicker';
@@ -19,7 +20,6 @@ import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
 import { useOverlayPosition } from '@react-aria/overlays';
 import { useStyles } from '../DatePicker/DatePicker.styles';
-import { DefinedRange } from '../internal/CalendarRanges';
 
 export interface DateRangePickerProps extends AriaDateRangePickerProps<DateValue>, StyleProps {
   /**
@@ -191,6 +191,7 @@ export const DateRangePicker = createComponent<'div', DateRangePickerProps>(
 
     return (
       <FormControl
+        className={classes}
         helperText={helperText}
         helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextProps)}
         isRequired={isRequired}
@@ -198,7 +199,11 @@ export const DateRangePicker = createComponent<'div', DateRangePickerProps>(
         labelProps={mergeProps(labelProps, labelPropsProp)}
         validationState={validationState}
       >
-        <Comp {...groupProps} className={classes} ref={mergeRefs(containerRef, forwardedRef)}>
+        <Comp
+          {...groupProps}
+          className="manifest-datepicker__wrapper"
+          ref={mergeRefs(containerRef, forwardedRef)}
+        >
           {startIcon && (
             <span className={cx('manifest-datepicker__icon', 'manifest-datepicker__icon--start')}>
               {startIcon}

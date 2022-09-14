@@ -158,6 +158,7 @@ export const DatePicker = createComponent<'div', DatePickerProps>((props, forwar
 
   return (
     <FormControl
+      className={classes}
       helperText={helperText}
       helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextProps)}
       isRequired={isRequired}
@@ -165,7 +166,11 @@ export const DatePicker = createComponent<'div', DatePickerProps>((props, forwar
       labelProps={mergeProps(labelProps, labelPropsProp)}
       validationState={validationState}
     >
-      <Comp {...groupProps} className={classes} ref={mergeRefs(containerRef, forwardedRef)}>
+      <Comp
+        {...groupProps}
+        className="manifest-datepicker__wrapper"
+        ref={mergeRefs(containerRef, forwardedRef)}
+      >
         {startIcon && (
           <span className={cx('manifest-datepicker__icon', 'manifest-datepicker__icon--start')}>
             {startIcon}

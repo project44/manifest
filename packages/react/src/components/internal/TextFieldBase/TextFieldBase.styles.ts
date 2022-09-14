@@ -6,12 +6,14 @@ export const useStyles = css({
   $$iconColor: '$colors$text-tertiary',
   $$textColor: '$colors$text-primary',
 
-  alignItems: 'center',
-  boxSizing: 'border-box',
-  display: 'inline-flex',
-  justifyContent: 'flex-start',
-  position: 'relative',
-  width: 'auto',
+  '.manifest-textfield-base__wrapper': {
+    alignItems: 'center',
+    boxSizing: 'border-box',
+    display: 'inline-flex',
+    justifyContent: 'flex-start',
+    position: 'relative',
+    width: 'auto',
+  },
 
   '.manifest-textfield-base__icon': {
     alignItems: 'center',

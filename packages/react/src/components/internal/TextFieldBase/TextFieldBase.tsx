@@ -116,6 +116,7 @@ export const TextFieldBase = createComponent<'div', TextFieldBaseProps>((props, 
 
   return (
     <FormControl
+      className={classes}
       helperText={helperText}
       helperTextProps={helperTextProps}
       isRequired={isRequired}
@@ -123,7 +124,7 @@ export const TextFieldBase = createComponent<'div', TextFieldBaseProps>((props, 
       labelProps={labelProps}
       validationState={validationState}
     >
-      <div className={classes} ref={forwardedRef}>
+      <div className="manifest-textfield-base__wrapper" ref={forwardedRef}>
         {startIcon && (
           <span
             className={cx('manifest-textfield-base__icon', 'manifest-textfield-base__icon--start')}

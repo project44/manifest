@@ -146,6 +146,7 @@ export const Select = createComponent<'div', SelectProps>((props, forwardedRef) 
 
   return (
     <FormControl
+      className={classes}
       helperText={helperText}
       helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextProps)}
       isRequired={isRequired}
@@ -153,7 +154,7 @@ export const Select = createComponent<'div', SelectProps>((props, forwardedRef) 
       labelProps={mergeProps(labelProps, labelPropsProp)}
       validationState={validationState}
     >
-      <Comp className={classes} ref={mergeRefs(containerRef, forwardedRef)}>
+      <Comp className="manifest-select__wrapper" ref={mergeRefs(containerRef, forwardedRef)}>
         {startIcon && (
           <span className={cx('manifest-select__icon', 'manifest-select__icon--start')}>
             {startIcon}

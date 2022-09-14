@@ -162,6 +162,7 @@ export const Combobox = createComponent<'div', ComboboxProps>((props, forwardedR
 
   return (
     <FormControl
+      className={classes}
       helperText={helperText}
       helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextPropsProp)}
       label={label}
@@ -170,7 +171,7 @@ export const Combobox = createComponent<'div', ComboboxProps>((props, forwardedR
     >
       <Comp
         {...mergeProps(hoverProps, focusProps)}
-        className={classes}
+        className="manifest-combobox__wrapper"
         ref={mergeRefs(containerRef, forwardedRef)}
       >
         {startIcon && <span className="manifest-combobox__icon">{startIcon}</span>}
