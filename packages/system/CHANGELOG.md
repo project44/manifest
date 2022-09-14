@@ -1,5 +1,11 @@
 # @project44-manifest/system
 
+## 0.1.3
+
+### Patch Changes
+
+- [#92](https://github.com/project44/manifest/pull/92) [`7565106`](https://github.com/project44/manifest/commit/7565106cecece39317e4a66780b03aa01f9f70f7) Thanks [@bclark-p44](https://github.com/bclark-p44)! - Updating component type to be less ambiguous
+
 ## 0.1.2
 
 ### Patch Changes
