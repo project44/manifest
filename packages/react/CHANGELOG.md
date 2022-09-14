@@ -1,5 +1,20 @@
 # @manifest/react
 
+## 2.2.0
+
+### Minor Changes
+
+- [#89](https://github.com/project44/manifest/pull/89) [`83b1b27`](https://github.com/project44/manifest/commit/83b1b279da06b975258aaecc2f928f8bbc0f1081) Thanks [@bclark-p44](https://github.com/bclark-p44)! - Adding maxHeight prop to combobox and select
+
+### Patch Changes
+
+- [#91](https://github.com/project44/manifest/pull/91) [`711d715`](https://github.com/project44/manifest/commit/711d715570a8392e0c58639f3d189a7c65876206) Thanks [@bclark-p44](https://github.com/bclark-p44)! - Fixing css and classname overrides for input elements
+
+* [#92](https://github.com/project44/manifest/pull/92) [`7565106`](https://github.com/project44/manifest/commit/7565106cecece39317e4a66780b03aa01f9f70f7) Thanks [@bclark-p44](https://github.com/bclark-p44)! - Updating component type to be less ambiguous
+
+* Updated dependencies [[`7565106`](https://github.com/project44/manifest/commit/7565106cecece39317e4a66780b03aa01f9f70f7)]:
+  - @project44-manifest/system@0.1.3
+
 ## 2.1.1
 
 ### Patch Changes
