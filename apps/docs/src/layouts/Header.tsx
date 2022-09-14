@@ -6,11 +6,13 @@ import Link from 'next/link';
 function Header() {
   return (
     <Box
+      as="header"
       css={{
         backgroundColor: '$background-surface',
         borderBottom: '1px solid $border-primary',
-        position: 'sticky',
+        position: 'fixed',
         top: 0,
+        width: '100%',
         zIndex: '$sticky',
       }}
     >

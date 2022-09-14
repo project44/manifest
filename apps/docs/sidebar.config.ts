@@ -13,14 +13,14 @@ export const sidebar: SidebarItem[] = [
   },
   {
     collapsible: true,
-    slug: '/docs/foundations',
-    title: 'Foundations',
+    slug: '/docs/tokens',
+    title: 'Tokens',
     items: [
-      { title: 'Colors', slug: '/docs/foundations/colors' },
-      { title: 'Radius', slug: '/docs/foundations/radius' },
-      { title: 'Shadows', slug: '/docs/foundations/shadows' },
-      { title: 'Spacing', slug: '/docs/foundations/spacing' },
-      { title: 'Typography', slug: '/docs/foundations/typography' },
+      { title: 'Colors', slug: '/docs/tokens/colors' },
+      { title: 'Radius', slug: '/docs/tokens/radius' },
+      { title: 'Shadows', slug: '/docs/tokens/shadows' },
+      { title: 'Spacing', slug: '/docs/tokens/spacing' },
+      { title: 'Typography', slug: '/docs/tokens/typography' },
     ],
   },
   {

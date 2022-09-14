@@ -23,9 +23,9 @@ function Features() {
             <GridItem>
               <ActionCard
                 description="Find all the design decisions that power the system."
-                href="/docs/foundations"
+                href="/docs/tokens"
                 src="/images/thumbnails/typography.png"
-                title="Foundations"
+                title="Tokens"
               />
             </GridItem>
             <GridItem>

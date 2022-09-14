@@ -4,7 +4,7 @@ import { Box } from '@project44-manifest/react';
 import Container from './components/Container';
 import Highlight from './components/Highlight';
 import dynamic from 'next/dynamic';
-import theme from 'prism-react-renderer/themes/github';
+import theme from 'prism-react-renderer/themes/nightOwl';
 import { useStyles } from './CodeBlock.styles';
 
 interface CodeBlockProps {

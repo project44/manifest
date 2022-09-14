@@ -5,15 +5,15 @@ import DocsLayout from '../../../layouts/Docs';
 import Thumbnails from '../../../components/Thumbnails';
 import { GetStaticProps } from 'next';
 
-interface FoundationsProps {
+interface TokensProps {
   items: DocMeta[];
 }
 
-export default function Foundations(props: FoundationsProps) {
+export default function Tokens(props: TokensProps) {
   const { items } = props;
 
   return (
-    <DocsLayout title="Foundations">
+    <DocsLayout title="Tokens">
       <Thumbnails items={items} />
     </DocsLayout>
   );
@@ -21,7 +21,7 @@ export default function Foundations(props: FoundationsProps) {
 
 export const getStaticProps: GetStaticProps = () => {
   const items = allDocs
-    .filter(doc => doc.slug.startsWith('/docs/foundations') as boolean)
+    .filter(doc => doc.slug.startsWith('/docs/tokens') as boolean)
     .map(doc => doc.meta as DocMeta);
 
   return {

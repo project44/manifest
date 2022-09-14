@@ -4,7 +4,7 @@ export const useStyles = css({
   boxSizing: 'border-box',
   display: 'block',
   mx: 'auto',
-  px: '$medium',
+  px: '$large',
   width: '100%',
 
   variants: {

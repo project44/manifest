@@ -1,22 +1,31 @@
 import * as React from 'react';
 import * as tokens from '@project44-manifest/design-tokens';
 import { Grid, GridItem } from '@project44-manifest/react';
-import { getColorName, getCategoryColors } from 'src/utils/colors';
 import ColorSwatch from './ColorSwatch';
 
 interface ColorsProps {
   category?: string;
 }
 
+const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
+
 function Colors(props: ColorsProps) {
   const { category } = props;
 
-  const colors = getCategoryColors(tokens as unknown as string[], category);
+  const colors = Object.keys(tokens)
+    .filter(token => {
+      if (token.includes(category)) {
+        return token;
+      }
+
+      return null;
+    })
+    .sort(collator.compare);
 
   return (
-    <Grid css={{ py: '$large' }} columns="repeat(2, 1fr)" gap="large">
+    <Grid css={{ py: '$large' }} columns="repeat(3, 1fr)" gap="large">
       {colors.map(token => {
-        const name = getColorName(token, category);
+        const name = token.replace(category, '');
         const hex = tokens[token];
 
         return (
