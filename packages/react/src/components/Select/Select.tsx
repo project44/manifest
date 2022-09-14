@@ -37,6 +37,11 @@ export interface SelectProps extends AriaSelectProps<object>, StyleProps {
    */
   labelProps?: React.HTMLAttributes<HTMLElement>;
   /**
+   * The maxHeight specified for the overlay element.
+   * By default, it will take all space up to the current viewport height.
+   */
+  maxHeight?: number;
+  /**
    * The additional offset applied along the main axis between the element and its
    * anchor element.
    *
@@ -85,6 +90,7 @@ export const Select = createComponent<'div', SelectProps>((props, forwardedRef) 
     label,
     labelProps: labelPropsProp = {},
     name,
+    maxHeight,
     offset = 4,
     placeholder,
     placement = 'bottom start',
@@ -106,6 +112,7 @@ export const Select = createComponent<'div', SelectProps>((props, forwardedRef) 
 
   const { overlayProps } = useOverlayPosition({
     isOpen: state.isOpen,
+    maxHeight,
     offset,
     onClose: state.close,
     overlayRef: popoverRef,

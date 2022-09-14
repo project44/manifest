@@ -37,6 +37,11 @@ export interface ComboboxProps extends AriaComboBoxProps<object>, StyleProps {
    */
   labelProps?: React.HTMLAttributes<HTMLElement>;
   /**
+   * The maxHeight specified for the overlay element.
+   * By default, it will take all space up to the current viewport height.
+   */
+  maxHeight?: number;
+  /**
    * The additional offset applied along the main axis between the element and its
    * anchor element.
    *
@@ -79,6 +84,7 @@ export const Combobox = createComponent<'div', ComboboxProps>((props, forwardedR
     helperTextProps: helperTextPropsProp = {},
     label,
     labelProps: labelPropsProp = {},
+    maxHeight,
     offset = 4,
     placement = 'bottom',
     shouldFlip = true,
@@ -122,6 +128,7 @@ export const Combobox = createComponent<'div', ComboboxProps>((props, forwardedR
 
   const { overlayProps } = useOverlayPosition({
     isOpen: state.isOpen,
+    maxHeight,
     offset,
     onClose: state.close,
     overlayRef: popoverRef,
