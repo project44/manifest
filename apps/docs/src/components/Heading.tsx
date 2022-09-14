@@ -1,13 +1,12 @@
 import * as React from 'react';
-import { pxToRem, Typography } from '@project44-manifest/react';
+import { pxToRem, Typography, TypographyProps } from '@project44-manifest/react';
+import { As } from '@project44-manifest/system';
 
-type HeadingProps = React.ComponentPropsWithoutRef<typeof Typography>;
-
-function Heading(props: HeadingProps) {
+function Heading<T extends As = 'span'>(props: TypographyProps<T>) {
   const { children, ...other } = props;
 
   return (
-    <Typography as="h2" css={{ marginBottom: '$small', marginTop: pxToRem(48) }} {...other}>
+    <Typography css={{ marginBottom: '$small', marginTop: pxToRem(48) }} {...other}>
       {children}
     </Typography>
   );
