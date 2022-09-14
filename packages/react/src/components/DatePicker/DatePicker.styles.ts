@@ -6,10 +6,12 @@ export const useStyles = css({
   $$iconColor: '$colors$text-tertiary',
   $$textColor: '$colors$text-tertiary',
 
-  display: 'flex',
-  minWidth: pxToRem(48),
-  position: 'relative',
-  width: '100%',
+  '.manifest-datepicker__wrapper': {
+    display: 'flex',
+    minWidth: pxToRem(48),
+    position: 'relative',
+    width: '100%',
+  },
 
   '.manifest-datepicker__icon': {
     alignItems: 'center',
