@@ -1,23 +1,22 @@
-import type { DOMProps, StyleProps } from '../../../types';
 import type { FocusableProps } from '@react-types/shared';
 import type { Node } from '@react-types/shared';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { ListBoxContext, useListBoxContext } from '../ListBoxContext';
-import { cx } from '../../../styles';
-import { mergeProps } from '@react-aria/utils';
-import { Typography } from '../../Typography';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
+import { cx } from '../../styles';
+import { Typography } from '../Typography';
 import { useHover } from '@react-aria/interactions';
 import { useOption } from '@react-aria/listbox';
 import { useStyles } from './ListBoxItem.styles';
 
-export interface ListBoxItemProps<T extends object = object>
-  extends DOMProps,
+export type ListBoxItemElement = 'div';
+
+export interface ListBoxItemOptions<T extends As = ListBoxItemElement>
+  extends Options<T>,
     StyleProps,
     FocusableProps {
-  /**
-   * The content of the item.
-   */
-  children?: React.ReactNode;
   /**
    * Whether the item is virtualized.
    */
@@ -25,7 +24,7 @@ export interface ListBoxItemProps<T extends object = object>
   /**
    * Item object in the collection.
    */
-  item: Node<T>;
+  item: Node<object>;
   /**
    * Icon added before the item text.
    */
@@ -36,8 +35,17 @@ export interface ListBoxItemProps<T extends object = object>
   onAction?(key: React.Key): void;
 }
 
-export const ListBoxItem: React.FC<ListBoxItemProps> = props => {
-  const { className: classNameProp, css, isVirtualized, item, startIcon: startIconProp } = props;
+export type ListBoxItemProps<T extends As = ListBoxItemElement> = Props<ListBoxItemOptions<T>>;
+
+export const ListBoxItem = createComponent<ListBoxItemOptions>((props, forwardedRef) => {
+  const {
+    as: Comp = 'div',
+    className: classNameProp,
+    css,
+    isVirtualized,
+    item,
+    startIcon: startIconProp,
+  } = props;
 
   const { rendered, key } = item;
 
@@ -77,7 +85,11 @@ export const ListBoxItem: React.FC<ListBoxItemProps> = props => {
   });
 
   return (
-    <div {...mergeProps(optionProps, hoverProps)} className={classes} ref={itemRef}>
+    <Comp
+      {...mergeProps(optionProps, hoverProps)}
+      className={classes}
+      ref={mergeRefs(itemRef, forwardedRef)}
+    >
       {startIcon && (
         <span className={cx('manifest-listbox-item__icon', 'manifest-listbox-item__icon--start')}>
           {startIcon}
@@ -87,6 +99,6 @@ export const ListBoxItem: React.FC<ListBoxItemProps> = props => {
       <Typography {...labelProps} className="manifest-listbox-item__text" variant="subtext">
         {rendered}
       </Typography>
-    </div>
+    </Comp>
   );
-};
+});

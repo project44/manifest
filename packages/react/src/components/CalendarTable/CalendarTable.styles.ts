@@ -1,4 +1,4 @@
-import { css, pxToRem } from '../../../styles';
+import { css, pxToRem } from '../../styles';
 
 export const useStyles = css({
   padding: '$small',

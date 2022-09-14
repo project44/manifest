@@ -1,4 +1,4 @@
-import type { Component, ComponentProps } from './types';
+import type { Component, Options, Props } from './types';
 import * as React from 'react';
 
 /**
@@ -6,9 +6,8 @@ import * as React from 'react';
  *
  * Inspired by ariakit and chakra-ui.
  */
-export function createComponent<
-  T extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>,
-  P extends object,
->(component: React.ForwardRefRenderFunction<any, ComponentProps<T, P>>) {
-  return React.forwardRef(component) as unknown as Component<P>;
+export function createComponent<O extends Options>(
+  component: React.ForwardRefRenderFunction<any, Props<O>>,
+) {
+  return React.forwardRef(component) as unknown as Component<O>;
 }

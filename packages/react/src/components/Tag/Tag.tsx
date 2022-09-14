@@ -1,17 +1,15 @@
 import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { createComponent } from '@project44-manifest/system';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { Icon } from '../Icon';
 import { IconButton } from '../IconButton';
 import { Typography } from '../Typography';
 import { useStyles } from './Tag.styles';
 
-export interface TagProps extends StyleProps {
-  /**
-   * The tag label.
-   */
-  children?: React.ReactNode;
+export type TagElement = 'div';
+
+export interface TagOptions<T extends As = TagElement> extends Options<T>, StyleProps {
   /**
    * Whether the tag is removeable.
    */
@@ -22,7 +20,9 @@ export interface TagProps extends StyleProps {
   onRemove?(): void;
 }
 
-export const Tag = createComponent<'div', TagProps>((props, forwardedRef) => {
+export type TagProps<T extends As = TagElement> = Props<TagOptions<T>>;
+
+export const Tag = createComponent<TagOptions>((props, forwardedRef) => {
   const {
     as: Comp = 'div',
     children,

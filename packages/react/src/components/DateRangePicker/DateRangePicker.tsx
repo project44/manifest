@@ -3,11 +3,11 @@ import type { DateValue } from '@react-types/calendar';
 import type { Placement } from '@react-types/overlays';
 import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { CalendarRange } from '../CalendarRange';
-import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
-import { DefinedRange } from '../internal/CalendarRanges';
+import { DefinedRange } from '../CalendarRanges';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
 import { Overlay } from '../Overlay';
@@ -21,7 +21,12 @@ import { useHover } from '@react-aria/interactions';
 import { useOverlayPosition } from '@react-aria/overlays';
 import { useStyles } from '../DatePicker/DatePicker.styles';
 
-export interface DateRangePickerProps extends AriaDateRangePickerProps<DateValue>, StyleProps {
+export type DateRangePickerElement = 'div';
+
+export interface DateRangePickerOptions<T extends As = DateRangePickerElement>
+  extends Options<T>,
+    AriaDateRangePickerProps<DateValue>,
+    StyleProps {
   /**
    * Helper text to append to the form control input element.
    */
@@ -100,147 +105,149 @@ export interface DateRangePickerProps extends AriaDateRangePickerProps<DateValue
   ranges?: DefinedRange[];
 }
 
-export const DateRangePicker = createComponent<'div', DateRangePickerProps>(
-  (props, forwardedRef) => {
-    const {
-      as: Comp = 'div',
-      autoFocus,
-      className: classNameProp,
-      css,
-      helperText,
-      helperTextProps = {},
-      isDisabled,
-      isReadOnly,
-      isRequired,
-      ranges,
-      showCalendar = true,
-      showRanges = false,
-      label,
-      labelProps: labelPropsProp = {},
-      offset = 4,
-      placeholder,
-      placement = 'bottom start',
-      shouldFlip = true,
-      size,
-      startIcon,
-      validationState,
-    } = props;
+export type DateRangePickerProps<T extends As = DateRangePickerElement> = Props<
+  DateRangePickerOptions<T>
+>;
 
-    const state = useDateRangePickerState(props);
+export const DateRangePicker = createComponent<DateRangePickerOptions>((props, forwardedRef) => {
+  const {
+    as: Comp = 'div',
+    autoFocus,
+    className: classNameProp,
+    css,
+    helperText,
+    helperTextProps = {},
+    isDisabled,
+    isReadOnly,
+    isRequired,
+    ranges,
+    showCalendar = true,
+    showRanges = false,
+    label,
+    labelProps: labelPropsProp = {},
+    offset = 4,
+    placeholder,
+    placement = 'bottom start',
+    shouldFlip = true,
+    size,
+    startIcon,
+    validationState,
+  } = props;
 
-    const containerRef = React.useRef<HTMLDivElement>(null);
-    const triggerRef = React.useRef<HTMLButtonElement>(null);
-    const popoverRef = React.useRef<HTMLDivElement>(null);
+  const state = useDateRangePickerState(props);
 
-    const {
-      groupProps,
-      labelProps,
-      buttonProps: triggerProps,
-      dialogProps,
-      calendarProps,
-      descriptionProps,
-      errorMessageProps,
-    } = useDateRangePicker(props, state, triggerRef);
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const triggerRef = React.useRef<HTMLButtonElement>(null);
+  const popoverRef = React.useRef<HTMLDivElement>(null);
 
-    const { overlayProps } = useOverlayPosition({
-      isOpen: state.isOpen,
-      offset,
-      onClose: () => state.setOpen(false),
-      overlayRef: popoverRef,
-      placement,
-      shouldFlip,
-      targetRef: containerRef,
-    });
+  const {
+    groupProps,
+    labelProps,
+    buttonProps: triggerProps,
+    dialogProps,
+    calendarProps,
+    descriptionProps,
+    errorMessageProps,
+  } = useDateRangePicker(props, state, triggerRef);
 
-    const isInvalid = validationState === 'invalid';
+  const { overlayProps } = useOverlayPosition({
+    isOpen: state.isOpen,
+    offset,
+    onClose: () => state.setOpen(false),
+    overlayRef: popoverRef,
+    placement,
+    shouldFlip,
+    targetRef: containerRef,
+  });
 
-    const { buttonProps, isPressed } = useButton({ ...triggerProps, isDisabled }, triggerRef);
-    const { isFocused, isFocusVisible, focusProps } = useFocusRing({ autoFocus });
-    const { hoverProps, isHovered } = useHover({ isDisabled });
+  const isInvalid = validationState === 'invalid';
 
-    const { className } = useStyles({
-      hasStartIcon: !!startIcon,
-      isActive: state.isOpen,
-      isDisabled,
-      isFocused,
-      isFocusVisible,
-      isHovered,
-      isInvalid,
-      isPlaceholder: !state.value,
-      isPressed,
-      isReadOnly,
-      size,
-      css,
-    });
+  const { buttonProps, isPressed } = useButton({ ...triggerProps, isDisabled }, triggerRef);
+  const { isFocused, isFocusVisible, focusProps } = useFocusRing({ autoFocus });
+  const { hoverProps, isHovered } = useHover({ isDisabled });
 
-    const classes = cx(className, classNameProp, {
-      'manifest-datepicker': true,
-      'manifest-datepicker--disabled': isDisabled,
-      'manifest-datepicker--invalid': isInvalid,
-      [`manifest-datepicker--${size}`]: size,
-    });
+  const { className } = useStyles({
+    hasStartIcon: !!startIcon,
+    isActive: state.isOpen,
+    isDisabled,
+    isFocused,
+    isFocusVisible,
+    isHovered,
+    isInvalid,
+    isPlaceholder: !state.value,
+    isPressed,
+    isReadOnly,
+    size,
+    css,
+  });
 
-    const getDisplayValue = () => {
-      const { start, end } = state.value;
+  const classes = cx(className, classNameProp, {
+    'manifest-datepicker': true,
+    'manifest-datepicker--disabled': isDisabled,
+    'manifest-datepicker--invalid': isInvalid,
+    [`manifest-datepicker--${size}`]: size,
+  });
 
-      const fromDate = start ? `${start.month} / ${start.day} / ${start.year}` : undefined;
-      const toDate = end ? `${end.month} / ${end.day} / ${end.year}` : undefined;
+  const getDisplayValue = () => {
+    const { start, end } = state.value;
 
-      return fromDate && toDate ? `${fromDate} - ${toDate}` : placeholder;
-    };
+    const fromDate = start ? `${start.month} / ${start.day} / ${start.year}` : undefined;
+    const toDate = end ? `${end.month} / ${end.day} / ${end.year}` : undefined;
 
-    return (
-      <FormControl
-        className={classes}
-        helperText={helperText}
-        helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextProps)}
-        isRequired={isRequired}
-        label={label}
-        labelProps={mergeProps(labelProps, labelPropsProp)}
-        validationState={validationState}
+    return fromDate && toDate ? `${fromDate} - ${toDate}` : placeholder;
+  };
+
+  return (
+    <FormControl
+      className={classes}
+      helperText={helperText}
+      helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextProps)}
+      isRequired={isRequired}
+      label={label}
+      labelProps={mergeProps(labelProps, labelPropsProp)}
+      validationState={validationState}
+    >
+      <Comp
+        {...groupProps}
+        className="manifest-datepicker__wrapper"
+        ref={mergeRefs(containerRef, forwardedRef)}
       >
-        <Comp
-          {...groupProps}
-          className="manifest-datepicker__wrapper"
-          ref={mergeRefs(containerRef, forwardedRef)}
-        >
-          {startIcon && (
-            <span className={cx('manifest-datepicker__icon', 'manifest-datepicker__icon--start')}>
-              {startIcon}
-            </span>
-          )}
-
-          <button
-            {...mergeProps(buttonProps, focusProps, hoverProps)}
-            className="manifest-datepicker__input"
-            ref={triggerRef}
-          >
-            <Typography variant="subtext">{getDisplayValue()}</Typography>
-          </button>
-
-          <span className={cx('manifest-datepicker__icon', 'manifest-datepicker__icon--end')}>
-            <Icon icon="calendar_month" />
+        {startIcon && (
+          <span className={cx('manifest-datepicker__icon', 'manifest-datepicker__icon--start')}>
+            {startIcon}
           </span>
+        )}
 
-          <Overlay isOpen={state.isOpen}>
-            <Popover
-              {...mergeProps(dialogProps, overlayProps)}
-              className="manifest-datepicker__popover"
-              isOpen={state.isOpen}
-              onClose={() => state.setOpen(false)}
-              ref={popoverRef}
-            >
-              <CalendarRange
-                className="manifest-datepicker__calendar"
-                {...calendarProps}
-                showCalendar={showCalendar}
-                showRanges={showRanges}
-                ranges={ranges}
-              />
-            </Popover>
-          </Overlay>
-        </Comp>
-      </FormControl>
-    );
-  },
-);
+        <button
+          {...mergeProps(buttonProps, focusProps, hoverProps)}
+          className="manifest-datepicker__input"
+          ref={triggerRef}
+        >
+          <Typography variant="subtext">{getDisplayValue()}</Typography>
+        </button>
+
+        <span className={cx('manifest-datepicker__icon', 'manifest-datepicker__icon--end')}>
+          <Icon icon="calendar_month" />
+        </span>
+
+        <Overlay isOpen={state.isOpen}>
+          <Popover
+            {...mergeProps(dialogProps, overlayProps)}
+            className="manifest-datepicker__popover"
+            isOpen={state.isOpen}
+            onClose={() => state.setOpen(false)}
+            ref={popoverRef}
+          >
+            <CalendarRange
+              className="manifest-datepicker__calendar"
+              {...calendarProps}
+              showCalendar={showCalendar}
+              showRanges={showRanges}
+              ranges={ranges}
+            />
+          </Popover>
+        </Overlay>
+      </Comp>
+    </FormControl>
+  );
+});

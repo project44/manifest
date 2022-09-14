@@ -1,27 +1,29 @@
 import type { CalendarState, RangeCalendarState } from '@react-stately/calendar';
+import type { AriaButtonProps } from '@react-types/button';
 import * as React from 'react';
-import { IconButton, IconButtonProps } from '../../IconButton';
 import { useDateFormatter, useLocale } from '@react-aria/i18n';
-import { cx } from '../../../styles';
-import { Icon } from '../../Icon';
-import { Typography } from '../../Typography';
+import { cx } from '../../styles';
+import { Icon } from '../Icon';
+import { IconButton } from '../IconButton';
+import { Typography } from '../Typography';
 import { useStyles } from './CalendarHeader.styles';
 
 export interface CalendarHeaderProps {
   /**
    * Props passed to the next button
    */
-  nextButtonProps: IconButtonProps;
+  nextButtonProps: AriaButtonProps;
   /**
    * Props passed to the previous button.
    */
-  prevButtonProps: IconButtonProps;
+  prevButtonProps: AriaButtonProps;
   /**
    * The calendar state.
    */
   state: CalendarState | RangeCalendarState;
 }
 
+/* @private */
 export function CalendarHeader(props: CalendarHeaderProps) {
   const { nextButtonProps, prevButtonProps, state } = props;
 

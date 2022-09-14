@@ -1,12 +1,17 @@
 import type { StyleProps } from '../../types';
 import type { Validation } from '@react-types/shared';
 import * as React from 'react';
-import { createComponent } from '@project44-manifest/system';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { Typography } from '../Typography';
 import { useStyles } from './FormControl.styles';
 
-export interface FormControlProps extends StyleProps, Validation {
+export type FormControlElement = 'div';
+
+export interface FormControlOptions<T extends As = FormControlElement>
+  extends Options<T>,
+    StyleProps,
+    Validation {
   /**
    * Helper text appended to the input element.
    */
@@ -31,7 +36,9 @@ export interface FormControlProps extends StyleProps, Validation {
   orientation?: 'horizontal' | 'vertical';
 }
 
-export const FormControl = createComponent<'div', FormControlProps>((props, forwardedRef) => {
+export type FormControlProps<T extends As = FormControlElement> = Props<FormControlOptions<T>>;
+
+export const FormControl = createComponent<FormControlOptions>((props, forwardedRef) => {
   const {
     children,
     className: classNameProp,

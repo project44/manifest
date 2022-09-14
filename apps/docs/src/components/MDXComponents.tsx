@@ -20,7 +20,9 @@ const MDXComponents = {
   h1: (props: React.DetailsHTMLAttributes<unknown>) => (
     <Manifest.Typography as="h1" variant="display" {...props} />
   ),
-  h2: (props: React.DetailsHTMLAttributes<unknown>) => <Heading variant="heading" {...props} />,
+  h2: (props: React.DetailsHTMLAttributes<unknown>) => (
+    <Heading as="h2" variant="heading" {...props} />
+  ),
   h3: (props: React.DetailsHTMLAttributes<unknown>) => (
     <Heading as="h3" variant="title" {...props} />
   ),

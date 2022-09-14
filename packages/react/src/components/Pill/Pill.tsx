@@ -1,7 +1,7 @@
 import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { useTooltip, useTooltipTrigger } from '@react-aria/tooltip';
-import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { mergeProps } from '@react-aria/utils';
 import { Typography } from '../Typography';
@@ -9,7 +9,9 @@ import { useOverlayPosition } from '@react-aria/overlays';
 import { useStyles } from './Pill.styles';
 import { useTooltipTriggerState } from '@react-stately/tooltip';
 
-export interface PillProps extends StyleProps {
+export type PillElement = 'div';
+
+export interface PillOptions<T extends As = PillElement> extends Options<T>, StyleProps {
   /**
    * The color scheme of the pill
    *
@@ -32,7 +34,9 @@ export interface PillProps extends StyleProps {
   label?: React.ReactNode;
 }
 
-export const Pill = createComponent<'div', PillProps>((props, forwaredRef) => {
+export type PillProps<T extends As = PillElement> = Props<PillOptions<T>>;
+
+export const Pill = createComponent<PillOptions>((props, forwaredRef) => {
   const {
     as: Comp = 'div',
     className: classNameProp,

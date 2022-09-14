@@ -1,11 +1,13 @@
 import * as React from 'react';
+import { As, createComponent, Props } from '@project44-manifest/system';
 import { chain, mergeProps, mergeRefs, useLayoutEffect } from '@react-aria/utils';
-import { TextFieldBase, TextFieldBaseProps } from '../internal/TextFieldBase';
+import { TextFieldBase, TextFieldBaseElement, TextFieldBaseOptions } from '../TextFieldBase';
 import { cx } from '../../styles';
 import { useControlledState } from '@react-stately/utils';
 import { useTextField } from '@react-aria/textfield';
 
-export interface TextAreaProps extends Omit<TextFieldBaseProps, 'endIcon' | 'startIcon'> {
+export interface TextAreaOptions<T extends As = TextFieldBaseElement>
+  extends Omit<TextFieldBaseOptions<T>, 'endIcon' | 'startIcon'> {
   /**
    * The default value (uncontrolled).
    */
@@ -24,59 +26,59 @@ export interface TextAreaProps extends Omit<TextFieldBaseProps, 'endIcon' | 'sta
   onChange?: (value: string) => void;
 }
 
-export const TextArea = React.forwardRef<typeof TextFieldBase, TextAreaProps>(
-  (props, forwardedRef) => {
-    const {
-      className,
-      helperTextProps = {},
-      inputProps: inputPropsProp = {},
-      inputRef,
-      labelProps: labelPropsProp = {},
-      onChange,
-      ...other
-    } = props;
+export type TextAreaProps<T extends As = TextFieldBaseElement> = Props<TextAreaOptions<T>>;
 
-    const areaRef = React.useRef<HTMLTextAreaElement>(null);
+export const TextArea = createComponent<TextAreaOptions>((props, forwardedRef) => {
+  const {
+    className,
+    helperTextProps = {},
+    inputProps: inputPropsProp = {},
+    inputRef,
+    labelProps: labelPropsProp = {},
+    onChange,
+    ...other
+  } = props;
 
-    const [inputValue, setInputValue] = useControlledState(props.value, props.defaultValue, () => {
-      //noop
-    });
+  const areaRef = React.useRef<HTMLTextAreaElement>(null);
 
-    const handleHeightChange = React.useCallback(() => {
-      const input = areaRef.current!;
+  const [inputValue, setInputValue] = useControlledState(props.value, props.defaultValue, () => {
+    //noop
+  });
 
-      const prevAlignment = input.style.alignSelf;
+  const handleHeightChange = React.useCallback(() => {
+    const input = areaRef.current!;
 
-      input.style.alignSelf = 'start';
-      input.style.height = 'auto';
-      input.style.height = `${input.scrollHeight}px`;
-      input.style.alignSelf = prevAlignment;
-    }, [areaRef]);
+    const prevAlignment = input.style.alignSelf;
 
-    const { inputProps, descriptionProps, errorMessageProps, labelProps } = useTextField(
-      { ...props, inputElementType: 'textarea', onChange: chain(onChange, setInputValue) },
-      areaRef,
-    );
+    input.style.alignSelf = 'start';
+    input.style.height = 'auto';
+    input.style.height = `${input.scrollHeight}px`;
+    input.style.alignSelf = prevAlignment;
+  }, [areaRef]);
 
-    useLayoutEffect(() => {
-      if (areaRef.current) {
-        handleHeightChange();
+  const { inputProps, descriptionProps, errorMessageProps, labelProps } = useTextField(
+    { ...props, inputElementType: 'textarea', onChange: chain(onChange, setInputValue) },
+    areaRef,
+  );
+
+  useLayoutEffect(() => {
+    if (areaRef.current) {
+      handleHeightChange();
+    }
+  }, [handleHeightChange, inputValue, areaRef]);
+
+  return (
+    <TextFieldBase
+      {...other}
+      className={cx(className, 'manifest-textarea')}
+      helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextProps)}
+      inputProps={mergeProps(inputProps, inputPropsProp)}
+      inputRef={
+        mergeRefs(areaRef, inputRef as typeof areaRef) as React.RefObject<HTMLTextAreaElement>
       }
-    }, [handleHeightChange, inputValue, areaRef]);
-
-    return (
-      <TextFieldBase
-        {...other}
-        className={cx(className, 'manifest-textarea')}
-        helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextProps)}
-        inputProps={mergeProps(inputProps, inputPropsProp)}
-        inputRef={
-          mergeRefs(areaRef, inputRef as typeof areaRef) as React.RefObject<HTMLTextAreaElement>
-        }
-        labelProps={mergeProps(labelProps, labelPropsProp)}
-        multiline
-        ref={forwardedRef}
-      />
-    );
-  },
-);
+      labelProps={mergeProps(labelProps, labelPropsProp)}
+      multiline
+      ref={forwardedRef}
+    />
+  );
+});

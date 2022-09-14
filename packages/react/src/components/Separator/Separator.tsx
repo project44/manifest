@@ -1,12 +1,14 @@
 import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { createComponent } from '@project44-manifest/system';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { mergeProps } from '@react-aria/utils';
 import { useSeparator } from '@react-aria/separator';
 import { useStyles } from './Separator.styles';
 
-export interface SeparatorProps extends StyleProps {
+export type SeparatorElement = 'div';
+
+export interface SeparatorOptions<T extends As = SeparatorElement> extends Options<T>, StyleProps {
   /**
    * The orientation of the separator.
    *
@@ -15,7 +17,9 @@ export interface SeparatorProps extends StyleProps {
   orientation?: 'horizontal' | 'vertical';
 }
 
-export const Separator = createComponent<'div', SeparatorProps>((props, forwardedRef) => {
+export type SeparatorProps<T extends As = SeparatorElement> = Props<SeparatorOptions<T>>;
+
+export const Separator = createComponent<SeparatorOptions>((props, forwardedRef) => {
   const { className: classNameProp, css, orientation = 'horizontal', ...other } = props;
 
   const Comp = orientation === 'vertical' ? 'div' : 'hr';

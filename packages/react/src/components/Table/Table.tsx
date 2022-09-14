@@ -1,13 +1,15 @@
 import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { TableContext } from './Table.context';
-import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useStyles } from './Table.styles';
 
-export interface TableProps extends StyleProps, TableContext {}
+export type TableElement = 'table';
+export type TableOptions<T extends As = TableElement> = Options<T> & StyleProps & TableContext;
+export type TableProps<T extends As = TableElement> = Props<TableOptions<T>>;
 
-export const Table = createComponent<'table', TableProps>((props, forwardedRef) => {
+export const Table = createComponent<TableOptions>((props, forwardedRef) => {
   const {
     as: Comp = 'table',
     className: classNameProp,

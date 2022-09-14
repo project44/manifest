@@ -51,7 +51,7 @@ export const Span = Template.bind({});
 
 Span.decorators = [
   () => (
-    <Grid columns="repeat(5, 1fr)" css={{ height: '200px' }} gap="small" row="repeat(2, 1fr)">
+    <Grid columns="repeat(5, 1fr)" css={{ height: '200px' }} gap="small" rows="repeat(2, 1fr)">
       <GridItem column={1} row={2} css={{ backgroundColor: '$background-secondary' }} />
       <GridItem column={2} css={{ backgroundColor: '$background-secondary' }} />
       <GridItem column={2} css={{ backgroundColor: '$background-secondary' }} />

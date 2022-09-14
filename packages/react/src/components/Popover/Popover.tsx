@@ -1,13 +1,15 @@
 import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { DismissButton, useModal, useOverlay } from '@react-aria/overlays';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { FocusScope } from '@react-aria/focus';
 import { useStyles } from './Popover.styles';
 
-export interface PopoverProps extends StyleProps {
+export type PopoverElement = 'div';
+
+export interface PopoverOptions<T extends As = PopoverElement> extends Options<T>, StyleProps {
   /**
    * Whether to close the popover when the user interacts outside it.
    *
@@ -43,7 +45,9 @@ export interface PopoverProps extends StyleProps {
   shouldCloseOnInteractOutside?(element: Element): boolean;
 }
 
-export const Popover = createComponent<'div', PopoverProps>((props, forwardedRef) => {
+export type PopoverProps<T extends As = PopoverElement> = Props<PopoverOptions<T>>;
+
+export const Popover = createComponent<PopoverOptions>((props, forwardedRef) => {
   const {
     as: Comp = 'div',
     children,

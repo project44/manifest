@@ -3,9 +3,9 @@ import type { DateValue } from '@react-types/calendar';
 import type { Placement } from '@react-types/overlays';
 import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { Calendar } from '../Calendar';
-import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { Overlay } from '../Overlay';
 import { Popover } from '../Popover';
@@ -20,7 +20,12 @@ import { useHover } from '@react-aria/interactions';
 import { useOverlayPosition } from '@react-aria/overlays';
 import { useStyles } from './DatePicker.styles';
 
-export interface DatePickerProps extends AriaDatePickerProps<DateValue>, StyleProps {
+export type DatePickerElement = 'div';
+
+export interface DatePickerOptions<T extends As = DatePickerElement>
+  extends Options<T>,
+    AriaDatePickerProps<DateValue>,
+    StyleProps {
   /**
    * Helper text to append to the form control input element.
    */
@@ -76,7 +81,9 @@ export interface DatePickerProps extends AriaDatePickerProps<DateValue>, StylePr
   startIcon?: React.ReactElement;
 }
 
-export const DatePicker = createComponent<'div', DatePickerProps>((props, forwardedRef) => {
+export type DatePickerProps<T extends As = DatePickerElement> = Props<DatePickerOptions<T>>;
+
+export const DatePicker = createComponent<DatePickerOptions>((props, forwardedRef) => {
   const {
     as: Comp = 'div',
     autoFocus,

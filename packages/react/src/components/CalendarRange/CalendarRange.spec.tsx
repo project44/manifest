@@ -3,8 +3,8 @@ import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { CalendarDate, endOfMonth, startOfMonth } from '@internationalized/date';
 import { CalendarRange } from '../CalendarRange';
-import { addMonths, createCalendarDate } from '../internal/CalendarRanges/defaultDefinedRanges';
-import { DefinedRange } from '../internal/CalendarRanges';
+import { addMonths, createCalendarDate } from '../CalendarRanges/defaultDefinedRanges';
+import { DefinedRange } from '../CalendarRanges';
 
 describe('@project44-manifest/react - CalendarRange', () => {
   let customRanges: DefinedRange[];

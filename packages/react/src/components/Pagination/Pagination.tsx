@@ -1,22 +1,19 @@
 import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { createComponent } from '@project44-manifest/system';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { Icon } from '../Icon';
-import { PaginationItem } from '../internal/PaginationItem';
+import { PaginationItem } from '../PaginationItem';
 import { Typography } from '../Typography';
 import { useControlledState } from '@react-stately/utils';
 import { useStyles } from './Pagination.styles';
 
 type PageType = number | 'dots' | 'next' | 'previous';
+type PaginationElement = 'div';
 
-const range = (start: number, end: number) => {
-  const length = end - start + 1;
-
-  return Array.from({ length }, (_, i) => start + i);
-};
-
-export interface PaginationProps extends StyleProps {
+export interface PaginationOptions<T extends As = PaginationElement>
+  extends Options<T>,
+    StyleProps {
   /**
    * The outer visible boundaries of the pagination list.
    *
@@ -61,7 +58,15 @@ export interface PaginationProps extends StyleProps {
   onChange?(page: number): void;
 }
 
-export const Pagination = createComponent<'div', PaginationProps>((props, forwardedRef) => {
+export type PaginationProps<T extends As = PaginationElement> = Props<PaginationOptions<T>>;
+
+const range = (start: number, end: number) => {
+  const length = end - start + 1;
+
+  return Array.from({ length }, (_, i) => start + i);
+};
+
+export const Pagination = createComponent<PaginationOptions>((props, forwardedRef) => {
   const {
     as: Comp = 'div',
     boundaries = 1,

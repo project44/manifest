@@ -2,7 +2,7 @@ import type { CalendarState, RangeCalendarState } from '@react-stately/calendar'
 import type { CalendarDate } from '@internationalized/date';
 import * as React from 'react';
 import { getDayOfWeek, isSameDay, isSameMonth, isToday } from '@internationalized/date';
-import { cx } from '../../../styles';
+import { cx } from '../../styles';
 import { mergeProps } from '@react-aria/utils';
 import { useCalendarCell } from '@react-aria/calendar';
 import { useFocusRing } from '@react-aria/focus';
@@ -25,9 +25,7 @@ export interface CalendarCellProps {
   state: CalendarState | RangeCalendarState;
 }
 
-/**
- * @private
- */
+/** @private */
 export function CalendarCell(props: CalendarCellProps) {
   const { currentMonth, date, state } = props;
 

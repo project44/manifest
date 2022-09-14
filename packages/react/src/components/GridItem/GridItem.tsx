@@ -1,11 +1,13 @@
 import type * as CSS from 'csstype';
 import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { createComponent } from '@project44-manifest/system';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useStyles } from './GridItem.styles';
 
-export interface GridItemProps extends StyleProps {
+export type GridItemElement = 'div';
+
+export interface GridItemOptions<T extends As = GridItemElement> extends Options<T>, StyleProps {
   /**
    * Shorthand for the gridArea css property.
    */
@@ -40,7 +42,9 @@ export interface GridItemProps extends StyleProps {
   rowStart?: CSS.Property.GridRowStart;
 }
 
-export const GridItem = createComponent<'div', GridItemProps>((props, forwardedRef) => {
+export type GridItemProps<T extends As = GridItemElement> = Props<GridItemOptions<T>>;
+
+export const GridItem = createComponent<GridItemOptions>((props, forwardedRef) => {
   const {
     area,
     as: Comp = 'div',

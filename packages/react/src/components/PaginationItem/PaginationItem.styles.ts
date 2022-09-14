@@ -1,4 +1,4 @@
-import { focus, css, pxToRem } from '../../../styles';
+import { focus, css, pxToRem } from '../../styles';
 
 export const useStyles = css(
   {
