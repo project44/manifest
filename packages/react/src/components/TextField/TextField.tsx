@@ -1,11 +1,13 @@
 import * as React from 'react';
-import { cx } from '../../styles';
-import { TextFieldBase, TextFieldBaseProps } from '../internal/TextFieldBase';
+import { As, createComponent, Props } from '@project44-manifest/system';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
+import { TextFieldBase, TextFieldBaseElement, TextFieldBaseOptions } from '../TextFieldBase';
+import { cx } from '../../styles';
 import { useStyles } from './TextField.styles';
 import { useTextField } from '@react-aria/textfield';
 
-export interface TextFieldProps extends TextFieldBaseProps {
+export interface TextFieldOptions<T extends As = TextFieldBaseElement>
+  extends TextFieldBaseOptions<T> {
   /**
    * The default value (uncontrolled).
    */
@@ -30,44 +32,45 @@ export interface TextFieldProps extends TextFieldBaseProps {
   onChange?: (value: string) => void;
 }
 
-export const TextField = React.forwardRef<typeof TextFieldBase, TextFieldProps>(
-  (props, forwardedRef) => {
-    const {
-      className: classNameProp,
-      helperTextProps = {},
-      inputProps: inputPropsProp = {},
-      inputRef,
-      labelProps: labelPropsProp = {},
-      size = 'medium',
-      ...other
-    } = props;
+export type TextFieldProps<T extends As = TextFieldBaseElement> = Props<TextFieldOptions<T>>;
 
-    const fieldRef = React.useRef<HTMLInputElement>(null);
+export const TextField = createComponent<TextFieldOptions>((props, forwardedRef) => {
+  const {
+    className: classNameProp,
+    helperTextProps = {},
+    inputProps: inputPropsProp = {},
+    inputRef,
+    labelProps: labelPropsProp = {},
+    onChange,
+    size = 'medium',
+    ...other
+  } = props;
 
-    const { inputProps, descriptionProps, errorMessageProps, labelProps } = useTextField(
-      props,
-      fieldRef,
-    );
+  const fieldRef = React.useRef<HTMLInputElement>(null);
 
-    const { className } = useStyles({ size });
+  const { inputProps, descriptionProps, errorMessageProps, labelProps } = useTextField(
+    { ...props, inputElementType: 'input', onChange },
+    fieldRef,
+  );
 
-    const classes = cx(className, classNameProp, {
-      'manifest-textfield': true,
-      [`manifest-textfield--${size}`]: size,
-    });
+  const { className } = useStyles({ size });
 
-    return (
-      <TextFieldBase
-        {...other}
-        className={classes}
-        helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextProps)}
-        inputProps={mergeProps(inputProps, inputPropsProp)}
-        inputRef={
-          mergeRefs(fieldRef, inputRef as typeof fieldRef) as React.RefObject<HTMLInputElement>
-        }
-        labelProps={mergeProps(labelProps, labelPropsProp)}
-        ref={forwardedRef}
-      />
-    );
-  },
-);
+  const classes = cx(className, classNameProp, {
+    'manifest-textfield': true,
+    [`manifest-textfield--${size}`]: size,
+  });
+
+  return (
+    <TextFieldBase
+      {...other}
+      className={classes}
+      helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextProps)}
+      inputProps={mergeProps(inputProps, inputPropsProp)}
+      inputRef={
+        mergeRefs(fieldRef, inputRef as typeof fieldRef) as React.RefObject<HTMLInputElement>
+      }
+      labelProps={mergeProps(labelProps, labelPropsProp)}
+      ref={forwardedRef}
+    />
+  );
+});

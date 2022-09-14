@@ -1,12 +1,14 @@
 import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { createComponent } from '@project44-manifest/system';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useStyles } from './CardHeader.styles';
 
-export type CardHeaderProps = StyleProps;
+export type CardHeaderElement = 'div';
+export type CardHeaderOptions<T extends As = CardHeaderElement> = Options<T> & StyleProps;
+export type CardHeaderProps<T extends As = CardHeaderElement> = Props<CardHeaderOptions<T>>;
 
-export const CardHeader = createComponent<'div', CardHeaderProps>((props, forwardedRef) => {
+export const CardHeader = createComponent<CardHeaderOptions>((props, forwardedRef) => {
   const { as: Comp = 'div', className: classNameProp, css, ...other } = props;
 
   const { className } = useStyles({ css });

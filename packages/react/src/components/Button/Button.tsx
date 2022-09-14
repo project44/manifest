@@ -3,8 +3,8 @@ import type { AriaButtonProps } from '@react-types/button';
 import type { PressEvent } from '@react-types/shared';
 import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useButton } from '@react-aria/button';
 import { useButtonGroup } from '../ButtonGroup';
@@ -12,7 +12,12 @@ import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
 import { useStyles } from './Button.styles';
 
-export interface ButtonProps extends AriaButtonProps, StyleProps {
+export type ButtonElement = 'div';
+
+export interface ButtonOptions<T extends As = ButtonElement>
+  extends Options<T>,
+    AriaButtonProps,
+    StyleProps {
   /**
    * Icon added after the button text.
    */
@@ -43,7 +48,9 @@ export interface ButtonProps extends AriaButtonProps, StyleProps {
   onClick?(event: React.MouseEvent<HTMLButtonElement>): void;
 }
 
-export const Button = createComponent<'button', ButtonProps>((props, forwardedRef) => {
+export type ButtonProps<T extends As = ButtonElement> = Props<ButtonOptions<T>>;
+
+export const Button = createComponent<ButtonOptions>((props, forwardedRef) => {
   const group = useButtonGroup();
 
   const {

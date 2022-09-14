@@ -4,8 +4,8 @@ import { axe } from 'jest-axe';
 import { CalendarDate, endOfMonth, startOfMonth } from '@internationalized/date';
 import { DateRangePicker } from './DateRangePicker';
 import userEvent from '@testing-library/user-event';
-import { addMonths, createCalendarDate } from '../internal/CalendarRanges/defaultDefinedRanges';
-import { DefinedRange } from '../internal/CalendarRanges';
+import { addMonths, createCalendarDate } from '../CalendarRanges/defaultDefinedRanges';
+import { DefinedRange } from '../CalendarRanges';
 import { Provider } from '../Provider';
 
 describe('@project44-manifest/components - DateRangePicker', () => {

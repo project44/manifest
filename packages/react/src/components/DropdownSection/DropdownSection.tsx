@@ -1,7 +1,8 @@
-import type { DOMProps, StyleProps } from '../../types';
 import type { Node } from '@react-types/shared';
+import type { StyleProps } from '../../types';
 import type { TreeState } from '@react-stately/tree';
 import * as React from 'react';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { _DropdownItem } from '../DropdownItem';
 import { Typography } from '../Typography';
@@ -9,7 +10,11 @@ import { useMenuSection } from '@react-aria/menu';
 import { useSeparator } from '@react-aria/separator';
 import { useStyles } from './DropdownSection.styles';
 
-export interface DropdownSectionProps<T extends object = object> extends DOMProps, StyleProps {
+export type DropdownSectionElement = 'li';
+
+export interface DropdownSectionOptions<T extends As = DropdownSectionElement>
+  extends Options<T>,
+    StyleProps {
   /**
    * The items within the section.
    */
@@ -17,11 +22,11 @@ export interface DropdownSectionProps<T extends object = object> extends DOMProp
   /**
    * Item object in the collection.
    */
-  item: Node<T>;
+  item: Node<object>;
   /**
    * Tree state of the collection.
    */
-  state: TreeState<T>;
+  state: TreeState<object>;
   /**
    * The section label.
    */
@@ -32,8 +37,12 @@ export interface DropdownSectionProps<T extends object = object> extends DOMProp
   onAction?(key: React.Key): void;
 }
 
-export const DropdownSection: React.FC<DropdownSectionProps> = props => {
-  const { className: classNameProp, css, item, onAction, state } = props;
+export type DropdownSectionProps<T extends As = DropdownSectionElement> = Props<
+  DropdownSectionOptions<T>
+>;
+
+export const DropdownSection = createComponent<DropdownSectionOptions>((props, forwardedRef) => {
+  const { as: Comp = 'li', className: classNameProp, css, item, onAction, state } = props;
 
   const { itemProps, headingProps, groupProps } = useMenuSection({
     heading: item.rendered,
@@ -49,7 +58,11 @@ export const DropdownSection: React.FC<DropdownSectionProps> = props => {
   return (
     <>
       {showSeparator && <li {...separatorProps} className="manifest-dropdown-separator" />}
-      <li {...itemProps} className={cx(className, classNameProp, 'manifest-dropdown-section')}>
+      <Comp
+        {...itemProps}
+        className={cx(className, classNameProp, 'manifest-dropdown-section')}
+        ref={forwardedRef}
+      >
         {item.rendered && (
           <Typography
             {...headingProps}
@@ -64,7 +77,7 @@ export const DropdownSection: React.FC<DropdownSectionProps> = props => {
             <_DropdownItem key={node.key} item={node} state={state} onAction={onAction} />
           ))}
         </ul>
-      </li>
+      </Comp>
     </>
   );
-};
+});

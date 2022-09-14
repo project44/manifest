@@ -1,26 +1,25 @@
-import type { DOMProps, StyleProps } from '../../types';
 import type { FocusableProps } from '@react-types/shared';
 import type { Node } from '@react-types/shared';
+import type { StyleProps } from '../../types';
 import type { TreeState } from '@react-stately/tree';
 import * as React from 'react';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { DropdownContext, useDropdownContext } from '../Dropdown';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useHover, usePress } from '@react-aria/interactions';
 import { cx } from '../../styles';
 import { Icon } from '../Icon';
-import { mergeProps } from '@react-aria/utils';
 import { Typography } from '../Typography';
 import { useFocusRing } from '@react-aria/focus';
 import { useMenuItem } from '@react-aria/menu';
 import { useStyles } from './DropdownItem.styles';
 
-export interface DropdownItemProps<T extends object = object>
-  extends DOMProps,
-    StyleProps,
-    FocusableProps {
-  /**
-   * The content of the item.
-   */
-  children?: React.ReactNode;
+export type DropdownItemElement = 'li';
+
+export interface DropdownItemOptions<T extends As = DropdownItemElement>
+  extends Options<T>,
+    FocusableProps,
+    StyleProps {
   /**
    * Icon added after the button text.
    */
@@ -32,7 +31,7 @@ export interface DropdownItemProps<T extends object = object>
   /**
    * Item object in the collection.
    */
-  item: Node<T>;
+  item: Node<object>;
   /**
    * Icon added before the button text.
    */
@@ -40,15 +39,18 @@ export interface DropdownItemProps<T extends object = object>
   /**
    * Collection state.
    */
-  state: TreeState<T>;
+  state: TreeState<object>;
   /**
    * Callback executed on item select.
    */
   onAction?(key: React.Key): void;
 }
 
-export const DropdownItem: React.FC<DropdownItemProps> = props => {
+export type DropdownItemProps<T extends As = DropdownItemElement> = Props<DropdownItemOptions<T>>;
+
+export const DropdownItem = createComponent<DropdownItemOptions>((props, forwardedRef) => {
   const {
+    as: Comp = 'li',
     autoFocus,
     className: classNameProp,
     css,
@@ -111,10 +113,10 @@ export const DropdownItem: React.FC<DropdownItemProps> = props => {
   });
 
   return (
-    <li
+    <Comp
       {...mergeProps(menuItemProps, pressProps, focusProps, hoverProps)}
       className={classes}
-      ref={itemRef}
+      ref={mergeRefs(itemRef, forwardedRef)}
     >
       {startIcon && (
         <span className={cx('manifest-dropdown-item__icon', 'manifest-dropdown-item__icon--start')}>
@@ -129,6 +131,6 @@ export const DropdownItem: React.FC<DropdownItemProps> = props => {
       <span className={cx('manifest-dropdown-item__icon', 'manifest-dropdown-item__icon--end')}>
         <Icon icon="check" />
       </span>
-    </li>
+    </Comp>
   );
-};
+});

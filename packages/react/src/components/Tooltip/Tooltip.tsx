@@ -1,10 +1,10 @@
 import type { OverlayTriggerProps } from '@react-types/overlays';
 import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { createComponent } from '@project44-manifest/system';
-import { cx } from '../../styles';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useTooltip, useTooltipTrigger } from '@react-aria/tooltip';
+import { cx } from '../../styles';
 import { FocusableProvider } from '@react-aria/focus';
 import { OverlayContainer } from '@react-aria/overlays';
 import { Typography } from '../Typography';
@@ -12,7 +12,12 @@ import { useOverlayPosition } from '@react-aria/overlays';
 import { useStyles } from './Tooltip.styles';
 import { useTooltipTriggerState } from '@react-stately/tooltip';
 
-export interface TooltipProps extends OverlayTriggerProps, StyleProps {
+export type TooltipElement = 'div';
+
+export interface TooltipOptions<T extends As = TooltipElement>
+  extends Options<T>,
+    OverlayTriggerProps,
+    StyleProps {
   /**
    * Whether the tooltip should be disabled, independent from the trigger.
    */
@@ -29,7 +34,9 @@ export interface TooltipProps extends OverlayTriggerProps, StyleProps {
   title?: React.ReactNode;
 }
 
-export const Tooltip = createComponent<'div', TooltipProps>((props, forwardedRef) => {
+export type TooltipProps<T extends As = TooltipElement> = Props<TooltipOptions<T>>;
+
+export const Tooltip = createComponent<TooltipOptions>((props, forwardedRef) => {
   const {
     as: Comp = 'div',
     children,

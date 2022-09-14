@@ -1,10 +1,12 @@
 import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { createComponent } from '@project44-manifest/system';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useStyles } from './Container.styles';
 
-export interface ContainerProps extends StyleProps {
+export type ContainerElement = 'div';
+
+export interface ContainerOptions<T extends As = ContainerElement> extends Options<T>, StyleProps {
   /**
    * Whether the container should adjust its max-width based on the current screen size.
    *
@@ -19,7 +21,9 @@ export interface ContainerProps extends StyleProps {
   maxWidth?: 'x-small' | 'small' | 'medium' | 'large' | 'x-large';
 }
 
-export const Container = createComponent<'div', ContainerProps>((props, forwardedRef) => {
+export type ContainerProps<T extends As = ContainerElement> = Props<ContainerOptions<T>>;
+
+export const Container = createComponent<ContainerOptions>((props, forwardedRef) => {
   const {
     as: Comp = 'div',
     className: classNameProp,

@@ -1,10 +1,10 @@
-import { css } from '../../../styles';
+import { css } from '../../styles';
 
 export const useStyles = css({
   alignItems: 'center',
   display: 'flex',
-  justifyContent: 'space-evenly',
+  justifyContent: 'space-between',
   margin: 0,
   padding: '$small $medium',
-  flexDirection: 'column',
+  flexDirection: 'row',
 });

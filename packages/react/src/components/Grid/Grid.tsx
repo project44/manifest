@@ -1,11 +1,13 @@
 import type * as CSS from 'csstype';
 import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { createComponent } from '@project44-manifest/system';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useStyles } from './Grid.styles';
 
-export interface GridProps extends StyleProps {
+export type GridElement = 'div';
+
+export interface GridOptions<T extends As = GridElement> extends Options<T>, StyleProps {
   /**
    * The gap between columns
    */
@@ -36,7 +38,9 @@ export interface GridProps extends StyleProps {
   rows?: number | CSS.Property.GridTemplateRows;
 }
 
-export const Grid = createComponent<'div', GridProps>((props, forwardedRef) => {
+export type GridProps<T extends As = GridElement> = Props<GridOptions<T>>;
+
+export const Grid = createComponent<GridOptions>((props, forwardedRef) => {
   const {
     as: Comp = 'div',
     className: classNameProp,

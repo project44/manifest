@@ -2,9 +2,9 @@ import type { AriaComboBoxProps } from '@react-types/combobox';
 import type { Placement } from '@react-types/overlays';
 import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { ListBoxBase, ListBoxBaseProps } from '../internal/ListBoxBase';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
+import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
@@ -19,7 +19,12 @@ import { useHover } from '@react-aria/interactions';
 import { useOverlayPosition } from '@react-aria/overlays';
 import { useStyles } from './Combobox.styles';
 
-export interface ComboboxProps extends AriaComboBoxProps<object>, StyleProps {
+export type ComboboxElement = 'div';
+
+export interface ComboboxOptions<T extends As = ComboboxElement>
+  extends Options<T>,
+    AriaComboBoxProps<object>,
+    StyleProps {
   /**
    * Helper text to append to the form control input element.
    */
@@ -73,7 +78,9 @@ export interface ComboboxProps extends AriaComboBoxProps<object>, StyleProps {
   startIcon?: React.ReactElement;
 }
 
-export const Combobox = createComponent<'div', ComboboxProps>((props, forwardedRef) => {
+export type ComboboxProps<T extends As = ComboboxElement> = Props<ComboboxOptions<T>>;
+
+export const Combobox = createComponent<ComboboxOptions>((props, forwardedRef) => {
   const {
     as: Comp = 'div',
     autoFocus,

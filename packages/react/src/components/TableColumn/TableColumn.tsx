@@ -1,13 +1,16 @@
 import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { createComponent } from '@project44-manifest/system';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { Icon } from '../Icon';
 import { useStyles } from './TableColumn.styles';
 
 type Align = 'center' | 'justify' | 'left' | 'right';
+type TableColumnElement = 'th';
 
-export interface TableColumnProps extends StyleProps {
+export interface TableColumnOptions<T extends As = TableColumnElement>
+  extends Options<T>,
+    StyleProps {
   /**
    * Text alignment of the table column.
    *
@@ -38,7 +41,9 @@ export interface TableColumnProps extends StyleProps {
   onClick?(event: React.MouseEvent<HTMLTableCellElement>): void;
 }
 
-export const TableColumn = createComponent<'th', TableColumnProps>((props, forwardedRef) => {
+export type TableColumnProps<T extends As = TableColumnElement> = Props<TableColumnOptions<T>>;
+
+export const TableColumn = createComponent<TableColumnOptions>((props, forwardedRef) => {
   const {
     as: Comp = 'th',
     align,

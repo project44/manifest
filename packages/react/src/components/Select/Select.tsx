@@ -2,10 +2,10 @@ import type { AriaSelectProps } from '@react-types/select';
 import type { Placement } from '@react-types/overlays';
 import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { HiddenSelect, useSelect } from '@react-aria/select';
-import { ListBoxBase, ListBoxBaseProps } from '../internal/ListBoxBase';
+import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
@@ -19,7 +19,12 @@ import { useOverlayPosition } from '@react-aria/overlays';
 import { useSelectState } from '@react-stately/select';
 import { useStyles } from './Select.styles';
 
-export interface SelectProps extends AriaSelectProps<object>, StyleProps {
+export type SelectElement = 'label';
+
+export interface SelectOptions<T extends As = SelectElement>
+  extends Options<T>,
+    AriaSelectProps<object>,
+    StyleProps {
   /**
    * Helper text to append to the form control input element.
    */
@@ -76,7 +81,9 @@ export interface SelectProps extends AriaSelectProps<object>, StyleProps {
   startIcon?: React.ReactElement;
 }
 
-export const Select = createComponent<'div', SelectProps>((props, forwardedRef) => {
+export type SelectProps<T extends As = SelectElement> = Props<SelectOptions<T>>;
+
+export const Select = createComponent<SelectOptions>((props, forwardedRef) => {
   const {
     as: Comp = 'div',
     autoComplete,

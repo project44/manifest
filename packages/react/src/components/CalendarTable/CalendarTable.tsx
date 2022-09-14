@@ -2,8 +2,8 @@ import type { CalendarState, RangeCalendarState } from '@react-stately/calendar'
 import * as React from 'react';
 import { endOfMonth, getWeeksInMonth } from '@internationalized/date';
 import { CalendarCell } from '../CalendarCell';
-import { cx } from '../../../styles';
-import { Typography } from '../../Typography';
+import { cx } from '../../styles';
+import { Typography } from '../Typography';
 import { useCalendarGrid } from '@react-aria/calendar';
 import { useLocale } from '@react-aria/i18n';
 import { useStyles } from './CalendarTable.styles';
@@ -15,9 +15,7 @@ export interface CalendarTableProps {
   state: CalendarState | RangeCalendarState;
 }
 
-/**
- * @private
- */
+/** @private */
 export function CalendarTable(props: CalendarTableProps) {
   const { state } = props;
 

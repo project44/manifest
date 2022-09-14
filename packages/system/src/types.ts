@@ -1,20 +1,21 @@
 import * as React from 'react';
 
+// Borrowed and extended from ariakit
+// https://github.com/ariakit/ariakit/blob/main/packages/ariakit-react-utils/src/types.ts
+
 /**
- * Overridable element prop.
+ * The `as` prop.
  */
-export interface AsProp<T extends React.ElementType> {
-  /**
-   * The element used for the root node.
-   */
-  as?: T;
-}
+export type As<P = any> = React.ElementType<P>;
 
 /**
  * Component interface with support for `as` prop.
  */
-export interface Component<Props extends object = Record<string, never>> {
-  <T extends React.ElementType>(props: ComponentProps<T, Props>): JSX.Element;
+export interface Component<O extends Options> {
+  <T extends As>(
+    props: Omit<O, 'as'> & Omit<HTMLProps<Options<T>>, keyof O> & Required<Options<T>>,
+  ): JSX.Element | null;
+  (props: Props<O>): JSX.Element | null;
 
   displayName?: string;
   id?: string;
@@ -22,23 +23,22 @@ export interface Component<Props extends object = Record<string, never>> {
 }
 
 /**
- * Props inferred from a dom element and merged with custom props.
+ * Props inferred from the as prop.
  */
-export type ComponentProps<
-  T extends React.ElementType,
-  P extends object = Record<string, never>,
-> = MergeProps<T, P & AsProp<T>>;
+export type HTMLProps<O extends Options> = {
+  children?: React.ReactNode;
+  [index: `data-${string}`]: unknown;
+} & Omit<React.ComponentPropsWithRef<NonNullable<O['as']>>, keyof O | 'children'>;
 
 /**
- * Merge props from and element and user defined props.
+ * Options with the `as` and `css` options.
  */
-export type MergeProps<T extends React.ElementType, P extends object = Record<string, never>> = P &
-  Omit<PropsOf<T>, keyof P>;
+export interface Options<T extends As = any> {
+  /**  */
+  as?: T;
+}
 
 /**
- * Utility type for getting props type of React component.
- *
- * https://github.com/emotion-js/emotion/blob/main/packages/react/types/helper.d.ts
+ * Options & HTMLProps
  */
-export type PropsOf<C extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>> =
-  JSX.LibraryManagedAttributes<C, React.ComponentProps<C>>;
+export type Props<O extends Options> = O & HTMLProps<O>;

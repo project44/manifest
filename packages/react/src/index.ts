@@ -84,11 +84,11 @@ export type { LinkProps } from './components/Link';
 export { ListBox } from './components/ListBox';
 export type { ListBoxProps } from './components/ListBox';
 
-export { ListBoxItem } from './components/ListBox';
-export type { ListBoxItemProps } from './components/ListBox';
+export { ListBoxItem } from './components/ListBoxItem';
+export type { ListBoxItemProps } from './components/ListBoxItem';
 
-export { ListBoxSection } from './components/ListBox';
-export type { ListBoxSectionProps } from './components/ListBox';
+export { ListBoxSection } from './components/ListBoxSection';
+export type { ListBoxSectionProps } from './components/ListBoxSection';
 
 export { Pagination } from './components/Pagination';
 export type { PaginationProps } from './components/Pagination';

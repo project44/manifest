@@ -1,10 +1,12 @@
 import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { createComponent } from '@project44-manifest/system';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useStyles } from './Stack.styles';
 
-export interface StackProps extends StyleProps {
+export type StackElement = 'div';
+
+export interface StackOptions<T extends As = StackElement> extends Options<T>, StyleProps {
   /**
    * The gap between elements in the stack.
    */
@@ -17,7 +19,9 @@ export interface StackProps extends StyleProps {
   orientation?: 'horizontal' | 'vertical';
 }
 
-export const Stack = createComponent<'div', StackProps>((props, forwardedRef) => {
+export type StackProps<T extends As = StackElement> = Props<StackOptions<T>>;
+
+export const Stack = createComponent<StackOptions>((props, forwardedRef) => {
   const {
     as: Comp = 'div',
     className: classNameProp,

@@ -1,15 +1,20 @@
 import type { FocusableProps, ValidationState } from '@react-types/shared';
-import type { StyleProps } from '../../../types';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { createComponent } from '@project44-manifest/system';
-import { cx } from '../../../styles';
-import { FormControl } from '../../FormControl';
+import { cx } from '../../styles';
+import { FormControl } from '../FormControl';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
 import { useStyles } from './TextFieldBase.styles';
 
-export interface TextFieldBaseProps extends StyleProps, FocusableProps {
+export type TextFieldBaseElement = 'div';
+
+export interface TextFieldBaseOptions<T extends As = TextFieldBaseElement>
+  extends Options<T>,
+    FocusableProps,
+    StyleProps {
   /**
    * Icon displayed at the end of the text field.
    */
@@ -66,7 +71,11 @@ export interface TextFieldBaseProps extends StyleProps, FocusableProps {
   validationState?: ValidationState;
 }
 
-export const TextFieldBase = createComponent<'div', TextFieldBaseProps>((props, forwardedRef) => {
+export type TextFieldBaseProps<T extends As = TextFieldBaseElement> = Props<
+  TextFieldBaseOptions<T>
+>;
+
+export const TextFieldBase = createComponent<TextFieldBaseOptions>((props, forwardedRef) => {
   const {
     as,
     autoFocus,

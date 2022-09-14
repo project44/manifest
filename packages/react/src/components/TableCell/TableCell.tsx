@@ -1,13 +1,14 @@
 import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { chain, mergeRefs } from '@react-aria/utils';
-import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useStyles } from './TableCell.styles';
 
 type Align = 'center' | 'justify' | 'left' | 'right';
+type TableCellElement = 'td';
 
-export interface TableCellProps extends StyleProps {
+export interface TableCellOptions<T extends As = TableCellElement> extends Options<T>, StyleProps {
   /**
    * Text alignment of the table cell.
    *
@@ -20,7 +21,9 @@ export interface TableCellProps extends StyleProps {
   onMouseEnter?(event: React.MouseEvent<HTMLTableCellElement>): void;
 }
 
-export const TableCell = createComponent<'td', TableCellProps>((props, forwardedRef) => {
+export type TableCellProps<T extends As = TableCellElement> = Props<TableCellOptions<T>>;
+
+export const TableCell = createComponent<TableCellOptions>((props, forwardedRef) => {
   const {
     as: Comp = 'td',
     align = 'left',

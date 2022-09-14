@@ -5,7 +5,7 @@ import { CalendarDate, DateValue, endOfMonth, startOfMonth } from '@internationa
 import { DateRangePicker } from './DateRangePicker';
 import { Flex } from '../Flex';
 import { Icon } from '../Icon';
-import { addMonths, createCalendarDate } from '../internal/CalendarRanges/defaultDefinedRanges';
+import { addMonths, createCalendarDate } from '../CalendarRanges/defaultDefinedRanges';
 
 export default {
   title: 'Components/DateRangePicker',

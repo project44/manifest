@@ -1,12 +1,14 @@
 import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { createComponent } from '@project44-manifest/system';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useStyles } from './Box.styles';
 
-export type BoxProps = StyleProps;
+export type BoxElement = 'div';
+export type BoxOptions<T extends As = BoxElement> = Options<T> & StyleProps;
+export type BoxProps<T extends As = BoxElement> = Props<BoxOptions<T>>;
 
-export const Box = createComponent<'div', BoxProps>((props, forwardedRef) => {
+export const Box = createComponent<BoxOptions>((props, forwardedRef) => {
   const { as: Comp = 'div', className: classNameProp, css, ...other } = props;
 
   const { className } = useStyles({ css });

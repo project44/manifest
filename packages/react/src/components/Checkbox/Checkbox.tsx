@@ -1,8 +1,8 @@
 import type { AriaCheckboxProps } from '@react-types/checkbox';
 import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { useHover, usePress } from '@react-aria/interactions';
-import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { Icon } from '../Icon';
 import { mergeProps } from '@react-aria/utils';
@@ -12,9 +12,13 @@ import { useFocusRing } from '@react-aria/focus';
 import { useStyles } from './Checkbox.styles';
 import { useToggleState } from '@react-stately/toggle';
 
-export interface CheckboxProps extends AriaCheckboxProps, StyleProps {}
+export type CheckboxElement = 'label';
+export type CheckboxOptions<T extends As = CheckboxElement> = Options<T> &
+  AriaCheckboxProps &
+  StyleProps;
+export type CheckboxProps<T extends As = CheckboxElement> = Props<CheckboxOptions<T>>;
 
-export const Checkbox = createComponent<'label', CheckboxProps>((props, forwardedRef) => {
+export const Checkbox = createComponent<CheckboxOptions>((props, forwardedRef) => {
   const {
     as: Comp = 'label',
     autoFocus,

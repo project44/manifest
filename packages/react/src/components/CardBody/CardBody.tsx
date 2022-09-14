@@ -1,12 +1,14 @@
 import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { createComponent } from '@project44-manifest/system';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useStyles } from './CardBody.styles';
 
-export type CardBodyProps = StyleProps;
+export type CardBodyElement = 'div';
+export type CardBodyOptions<T extends As = CardBodyElement> = Options<T> & StyleProps;
+export type CardBodyProps<T extends As = CardBodyElement> = Props<CardBodyOptions<T>>;
 
-export const CardBody = createComponent<'div', CardBodyProps>((props, forwardedRef) => {
+export const CardBody = createComponent<CardBodyOptions>((props, forwardedRef) => {
   const { as: Comp = 'div', className: classNameProp, css, ...other } = props;
 
   const { className } = useStyles({ css });

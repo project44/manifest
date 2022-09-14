@@ -1,14 +1,12 @@
 import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { createComponent } from '@project44-manifest/system';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useStyles } from './Flex.styles';
 
-export interface FlexProps extends StyleProps {
-  /**
-   * The content of the flex container.
-   */
-  children?: React.ReactNode;
+export type FlexElement = 'div';
+
+export interface FlexOptions<T extends As = FlexElement> extends Options<T>, StyleProps {
   /**
    * The aligment of the container's children.
    */
@@ -27,7 +25,9 @@ export interface FlexProps extends StyleProps {
   wrap?: boolean;
 }
 
-export const Flex = createComponent<'div', FlexProps>((props, forwardedRef) => {
+export type FlexProps<T extends As = FlexElement> = Props<FlexOptions<T>>;
+
+export const Flex = createComponent<FlexOptions>((props, forwardedRef) => {
   const {
     as: Comp = 'div',
     align,

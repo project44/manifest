@@ -1,16 +1,15 @@
 import type { ButtonSize, ButtonVariant } from '../Button';
 import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { ButtonGroupContext } from './ButtonGroup.context';
-import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useStyles } from './ButtonGroup.styles';
 
-export interface ButtonGroupProps extends StyleProps {
-  /**
-   * The buttons within the group.
-   */
-  children?: React.ReactNode;
+export type ButtonGroupElement = 'div';
+export interface ButtonGroupOptions<T extends As = ButtonGroupElement>
+  extends Options<T>,
+    StyleProps {
   /**
    * Whether the buttons in the button group are all disabled.
    *
@@ -35,7 +34,9 @@ export interface ButtonGroupProps extends StyleProps {
   variant?: ButtonVariant;
 }
 
-export const ButtonGroup = createComponent<'div', ButtonGroupProps>((props, forwardedRef) => {
+export type ButtonGroupProps<T extends As = ButtonGroupElement> = Props<ButtonGroupOptions<T>>;
+
+export const ButtonGroup = createComponent<ButtonGroupOptions>((props, forwardedRef) => {
   const {
     as: Comp = 'div',
     children,

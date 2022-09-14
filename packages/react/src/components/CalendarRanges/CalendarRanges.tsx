@@ -1,19 +1,20 @@
-import type { RangeCalendarState } from '@react-stately/calendar';
 import * as React from 'react';
-import { cx } from '../../../styles';
-import { useStyles } from './CalendarRanges.styles';
-import { ListBox, ListBoxItem } from '../../ListBox';
-import { Selection } from '@react-types/shared';
-import { RangeValue } from '../../CalendarRange';
 import { CalendarDate } from '@internationalized/date';
+import { cx } from '../../styles';
 import { getDefaultRanges } from './defaultDefinedRanges';
+import { ListBox } from '../ListBox';
+import { ListBoxItem } from '../ListBoxItem';
+import { RangeValue } from '../CalendarRange';
+import { Selection } from '@react-types/shared';
+import { useStyles } from './CalendarRanges.styles';
 
-interface DefinedRange {
+export interface DefinedRange {
   key: string;
   label: string;
   value: RangeValue<CalendarDate>;
 }
-interface CalendarRangesProps {
+
+export interface CalendarRangesProps {
   /**
    *  The ranges provided
    */
@@ -25,7 +26,8 @@ interface CalendarRangesProps {
   onRangeChange?: (key: Selection, ranges: DefinedRange[]) => void;
 }
 
-function CalendarRanges(props: CalendarRangesProps) {
+/* @private */
+export function CalendarRanges(props: CalendarRangesProps) {
   const { onRangeChange, ranges = getDefaultRanges() } = props;
   const { className } = useStyles();
   const selectionChange = (key: Selection) => {
@@ -49,6 +51,3 @@ function CalendarRanges(props: CalendarRangesProps) {
     </div>
   );
 }
-
-export { CalendarRanges };
-export type { DefinedRange };

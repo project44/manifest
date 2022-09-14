@@ -1,12 +1,13 @@
 import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { createComponent } from '@project44-manifest/system';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useStyles } from './Avatar.styles';
 
+export type AvatarElement = 'span';
 export type AvatarSize = 'small' | 'medium';
 
-export interface AvatarProps extends StyleProps {
+export interface AvatarOptions<T extends As = AvatarElement> extends Options<T>, StyleProps {
   /**
    * The alt text passed to the image.
    */
@@ -27,7 +28,9 @@ export interface AvatarProps extends StyleProps {
   src?: string;
 }
 
-export const Avatar = createComponent<'span', AvatarProps>((props, forwardedRef) => {
+export type AvatarProps<T extends As = AvatarElement> = Props<AvatarOptions<T>>;
+
+export const Avatar = createComponent<AvatarOptions>((props, forwardedRef) => {
   const {
     as: Comp = 'span',
     alt,

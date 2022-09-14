@@ -1,10 +1,14 @@
 import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { createComponent } from '@project44-manifest/system';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useStyles } from './Typography.styles';
 
-export interface TypographyProps extends StyleProps {
+export type TypographyElement = 'span';
+
+export interface TypographyOptions<T extends As = TypographyElement>
+  extends Options<T>,
+    StyleProps {
   /**
    * The display variant of the text.
    *
@@ -23,7 +27,9 @@ export interface TypographyProps extends StyleProps {
     | 'title';
 }
 
-export const Typography = createComponent<'span', TypographyProps>((props, forwardedRef) => {
+export type TypographyProps<T extends As = TypographyElement> = Props<TypographyOptions<T>>;
+
+export const Typography = createComponent<TypographyOptions>((props, forwardedRef) => {
   const { as: Comp = 'span', className: classNameProp, css, variant = 'body', ...other } = props;
 
   const { className } = useStyles({ css, variant });

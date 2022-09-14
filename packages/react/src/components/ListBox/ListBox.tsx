@@ -1,13 +1,16 @@
 import * as React from 'react';
-import { ListBoxBase, ListBoxBaseProps } from '../internal/ListBoxBase';
+import { As, createComponent, Props } from '@project44-manifest/system';
+import { ListBoxBase, ListBoxBaseElement, ListBoxBaseOptions } from '../ListBoxBase';
 import { useListState } from '@react-stately/list';
 
-export type ListBoxProps = Omit<ListBoxBaseProps, 'state'>;
+export type ListBoxOptions<T extends As = ListBoxBaseElement> = Omit<
+  ListBoxBaseOptions<T>,
+  'state'
+>;
+export type ListBoxProps<T extends As = ListBoxBaseElement> = Props<ListBoxOptions<T>>;
 
-export const ListBox = React.forwardRef<React.ElementRef<typeof ListBoxBase>, ListBoxProps>(
-  (props, forwardedRef) => {
-    const state = useListState(props);
+export const ListBox = createComponent<ListBoxOptions>((props, forwardedRef) => {
+  const state = useListState(props);
 
-    return <ListBoxBase {...props} state={state} ref={forwardedRef} />;
-  },
-);
+  return <ListBoxBase {...props} state={state} ref={forwardedRef} />;
+});

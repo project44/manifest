@@ -1,23 +1,26 @@
-import type { StyleProps } from '../../types';
 import type { RangeCalendarProps } from '@react-types/calendar';
+import type { Selection } from '@react-types/shared';
+import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { CalendarDate, createCalendar, DateValue } from '@internationalized/date';
-import { createComponent } from '@project44-manifest/system';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
+import { CalendarRanges, DefinedRange } from '../CalendarRanges';
+import { createCalendar, DateValue } from '@internationalized/date';
+import { RangeCalendarStateOptions, useRangeCalendarState } from '@react-stately/calendar';
 import { cx } from '../../styles';
+import { CalendarHeader } from '../CalendarHeader';
+import { CalendarTable } from '../CalendarTable';
 import { mergeRefs } from '@react-aria/utils';
-import { CalendarHeader } from '../internal/CalendarHeader';
-import { CalendarTable } from '../internal/CalendarTable';
 import { Separator } from '../Separator';
 import { useLocale } from '@react-aria/i18n';
 import { useRangeCalendar } from '@react-aria/calendar';
-import { RangeCalendarStateOptions, useRangeCalendarState } from '@react-stately/calendar';
 import { useStyles } from '../CalendarRange/CalendarRange.styles';
-import { getDefaultRanges } from '../internal/CalendarRanges/defaultDefinedRanges';
-import { CalendarRanges, DefinedRange } from '../internal/CalendarRanges';
-import { RangeValue } from '.';
-import { Selection } from '@react-types/shared';
 
-export interface CalendarRangeProps extends RangeCalendarProps<DateValue>, StyleProps {
+export type CalendarElement = 'div';
+
+export interface CalendarRangeOptions<T extends As = CalendarElement>
+  extends Options<T>,
+    RangeCalendarProps<DateValue>,
+    StyleProps {
   /**
    * Allows to show or hide the calendar of the component
    *
@@ -42,7 +45,9 @@ export interface CalendarRangeProps extends RangeCalendarProps<DateValue>, Style
   ranges?: DefinedRange[];
 }
 
-export const CalendarRange = createComponent<'div', CalendarRangeProps>((props, forwardedRef) => {
+export type CalendarRangeProps<T extends As = CalendarElement> = Props<CalendarRangeOptions<T>>;
+
+export const CalendarRange = createComponent<CalendarRangeOptions>((props, forwardedRef) => {
   const {
     as: Comp = 'div',
     className: classNameProp,

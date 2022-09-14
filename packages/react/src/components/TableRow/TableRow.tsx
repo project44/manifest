@@ -1,12 +1,14 @@
 import type { StyleProps } from '../../types';
 import * as React from 'react';
+import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { chain } from '@react-aria/utils';
-import { createComponent } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { useStyles } from './TableRow.styles';
 import { useTableContext } from '../Table';
 
-export interface TableRowProps extends StyleProps {
+type TableRowElement = 'tr';
+
+export interface TableRowOptions<T extends As = TableRowElement> extends Options<T>, StyleProps {
   /**
    * Handler called on mouse enter.
    */
@@ -17,7 +19,9 @@ export interface TableRowProps extends StyleProps {
   onMouseLeave?(event: React.MouseEvent<HTMLTableRowElement>): void;
 }
 
-export const TableRow = createComponent<'tr', TableRowProps>((props, forwardedRef) => {
+export type TableRowProps<T extends As = TableRowElement> = Props<TableRowOptions<T>>;
+
+export const TableRow = createComponent<TableRowOptions>((props, forwardedRef) => {
   const {
     as: Comp = 'tr',
     className: classNameProp,
