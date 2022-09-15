@@ -6,7 +6,7 @@ function Heading<T extends As = 'span'>(props: TypographyProps<T>) {
   const { children, ...other } = props;
 
   return (
-    <Typography css={{ marginBottom: '$small', marginTop: pxToRem(48) }} {...other}>
+    <Typography css={{ marginBottom: '$small' }} {...other}>
       {children}
     </Typography>
   );

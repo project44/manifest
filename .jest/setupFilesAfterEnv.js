@@ -1,3 +1,9 @@
+const { toHaveNoViolations } = require('jest-axe');
+
+require('@testing-library/jest-dom');
+
+expect.extend(toHaveNoViolations);
+
 global.DOMRect = {
   fromRect: () => ({ bottom: 0, height: 0, left: 0, right: 0, top: 0, width: 0 }),
 };

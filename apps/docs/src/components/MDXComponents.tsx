@@ -8,6 +8,7 @@ import ColorSwatch from './ColorSwatch';
 import InlineCode from './InlineCode';
 import Heading from './Heading';
 import Image from './Image';
+import PropsTable from './PropsTable';
 
 const MDXComponents = {
   ...Manifest,
@@ -38,6 +39,7 @@ const MDXComponents = {
 
     return <CodeBlock {...props} />;
   },
+  PropsTable,
   table: Manifest.Table,
   tbody: Manifest.TableBody,
   thead: Manifest.TableHeader,

@@ -9,13 +9,14 @@ import Toolbar from './Toolbar';
 
 interface LiveProps {
   code: string;
+  showToolbar?: boolean;
   theme?: PrismTheme;
 }
 
 const scope = { ...Manifest };
 
 function Live(props: LiveProps) {
-  const { code, theme } = props;
+  const { code, showToolbar, theme } = props;
 
   const [isExpanded, setIsExpanded] = React.useState(false);
 
@@ -25,11 +26,13 @@ function Live(props: LiveProps) {
         <Preview />
         {isExpanded && <Editor />}
       </Container>
-      <Toolbar
-        code={code}
-        isExpanded={isExpanded}
-        onExpandedChange={() => setIsExpanded(!isExpanded)}
-      />
+      {showToolbar && (
+        <Toolbar
+          code={code}
+          isExpanded={isExpanded}
+          onExpandedChange={() => setIsExpanded(!isExpanded)}
+        />
+      )}
     </LiveProvider>
   );
 }

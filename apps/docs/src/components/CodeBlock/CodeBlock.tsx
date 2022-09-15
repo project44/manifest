@@ -4,19 +4,25 @@ import { Box } from '@project44-manifest/react';
 import Container from './components/Container';
 import Highlight from './components/Highlight';
 import dynamic from 'next/dynamic';
-import theme from 'prism-react-renderer/themes/nightOwl';
+import theme from 'prism-react-renderer/themes/dracula';
 import { useStyles } from './CodeBlock.styles';
 
 interface CodeBlockProps {
   children: any;
   className?: string;
   live?: boolean;
+  showToolbar?: boolean;
 }
 
 const Live = dynamic(() => import('./components/Live'));
 
 function CodeBlock(props: CodeBlockProps) {
-  const { children, className: classNameProp, live = true } = props.children.props;
+  const {
+    children,
+    className: classNameProp,
+    live = true,
+    showToolbar = true,
+  } = props.children.props;
 
   const language = classNameProp?.replace(/language-/, '') as Language;
   const code = children.trim();
@@ -24,7 +30,7 @@ function CodeBlock(props: CodeBlockProps) {
   useStyles();
 
   if (language === 'jsx' && live) {
-    return <Live code={code} theme={theme} />;
+    return <Live code={code} showToolbar={showToolbar} theme={theme} />;
   }
 
   return (

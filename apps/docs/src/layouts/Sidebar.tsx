@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Box, pxToRem, Stack } from '@project44-manifest/react';
-import items from 'sidebar.config';
+import items from '../data/sidebar';
 import SidebarItem from '../components/SidebarItem';
 import { useRouter } from 'next/router';
 
