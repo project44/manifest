@@ -12,7 +12,7 @@ interface TOCItemProps {
 const StyledLink = styled(Link, {
   color: '$text-primary',
   display: 'flex',
-  paddingRight: '$small',
+  px: '$large',
   textDecoration: 'none',
 
   '&::before': {
@@ -21,9 +21,9 @@ const StyledLink = styled(Link, {
     content: '',
     display: 'block',
     height: pxToRem(24),
-    left: 0,
+    left: `-${pxToRem(1)}`,
     position: 'absolute',
-    width: 3,
+    width: pxToRem(3),
   },
 
   variants: {
@@ -41,7 +41,7 @@ const StyledLink = styled(Link, {
     },
     isNested: {
       true: {
-        paddingLeft: '$medium',
+        paddingLeft: '$x-large',
         typography: '$subtext',
       },
       false: {

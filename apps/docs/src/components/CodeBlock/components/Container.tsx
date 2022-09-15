@@ -9,7 +9,7 @@ const Container: React.FC<BoxProps & React.ComponentPropsWithRef<typeof Box>> = 
     <Box
       {...other}
       css={{
-        backgroundColor: '$background-secondary',
+        backgroundColor: '$palette-grey-800',
         border: '1px solid $border-primary',
         borderRadius: '$small',
         padding: '$medium',
@@ -17,7 +17,7 @@ const Container: React.FC<BoxProps & React.ComponentPropsWithRef<typeof Box>> = 
         overflow: 'hidden',
 
         pre: {
-          backgroundColor: '$background-secondary !important',
+          backgroundColor: '$palette-grey-800 !important',
         },
 
         ...css,

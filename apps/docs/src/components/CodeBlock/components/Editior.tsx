@@ -7,7 +7,6 @@ const Editor: React.FC<React.ComponentPropsWithRef<'div'>> = props => {
     <Box
       {...props}
       css={{
-        borderTop: '1px solid $border-primary',
         fontFamily: '$mono',
         fontSize: '$small',
         padding: pxToRem(14),

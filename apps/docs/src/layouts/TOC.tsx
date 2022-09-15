@@ -38,32 +38,37 @@ function TOC(props: TOCProps) {
   }, [items]);
 
   return (
-    <Box
-      as="nav"
-      css={{
-        alignSelf: 'flex-start',
-        borderLeft: '1px solid $border-primary',
-        height: `calc(100vh - ${pxToRem(72)})`,
-        position: 'sticky',
-        overflow: 'auto',
-        overscrollBehavior: 'contain',
-        pl: '$x-large',
-        py: pxToRem(64),
-        top: pxToRem(64),
-        width: pxToRem(238),
-      }}
-    >
-      <Stack as="ul" css={{ listStyleType: 'none', margin: 0, padding: 0 }}>
-        {items.map(item => (
-          <TOCItem
-            content={item.content}
-            currentHeading={currentHeading}
-            key={item.slug}
-            level={item.lvl}
-            slug={item.slug}
-          />
-        ))}
-      </Stack>
+    <Box as="nav">
+      <Box
+        css={{
+          height: `calc(100vh - ${pxToRem(72)})`,
+          order: 2,
+          py: '$medium',
+          position: 'sticky',
+          top: pxToRem(72),
+          width: pxToRem(240),
+        }}
+      >
+        <Stack
+          as="ul"
+          css={{
+            borderLeft: '1px solid $border-primary',
+            listStyleType: 'none',
+            margin: 0,
+            padding: 0,
+          }}
+        >
+          {items.map(item => (
+            <TOCItem
+              content={item.content}
+              currentHeading={currentHeading}
+              key={item.slug}
+              level={item.lvl}
+              slug={item.slug}
+            />
+          ))}
+        </Stack>
+      </Box>
     </Box>
   );
 }
