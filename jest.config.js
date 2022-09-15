@@ -1,7 +1,7 @@
 module.exports = {
   collectCoverageFrom: [
     '**/{src,__tests__}/**/*.{js,jsx,ts,tsx}',
-    '!packages/**/src/**/*.{spec,stories,styles}.{ts,tsx}',
+    '!**/src/**/*.{spec,stories,styles}.{ts,tsx}',
   ],
   coverageDirectory: './coverage',
   coveragePathIgnorePatterns: [
@@ -15,6 +15,7 @@ module.exports = {
     'lib/',
     'mjs/',
     'umd/',
+    '<rootDir>/apps',
     '<rootDir>/examples',
   ],
   coverageReporters: ['text-summary', 'html'],
@@ -26,16 +27,9 @@ module.exports = {
       statements: 80,
     },
   },
-  globals: {
-    __DEV__: true,
-  },
-  setupFilesAfterEnv: [
-    './scripts/jest.setup.js',
-    '@testing-library/jest-dom',
-    'jest-axe/extend-expect',
-  ],
+  setupFilesAfterEnv: ['<rootDir>/.jest/setupFilesAfterEnv.js'],
   testEnvironment: 'jsdom',
-  testPathIgnorePatterns: ['<rootDir>/examples'],
+  testPathIgnorePatterns: ['<rootDir>/apps', '<rootDir>/examples'],
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(js|jsx|ts|tsx)?$',
   transform: {
     '^.+\\.(js|jsx|ts|tsx)?$': '@swc/jest',

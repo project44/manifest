@@ -3,15 +3,11 @@ title: Box
 description: A polymorphic component used for access theme aware styling.
 ---
 
-## Examples
-
-### CSS Prop
-
-All Manifest Design System components include a css prop, which allows for theme aware styles.
-
 ```jsx
 <Box css={{ backgroundColor: '$palette-indigo-500', size: 300 }} />
 ```
+
+## Examples
 
 ### As prop
 
@@ -43,10 +39,6 @@ import { Box } from '@project44-manifest/react';
 
 ### Props
 
-Props of the native element are also available.
+All native element props are also available.
 
-| Prop      | Type              | Description                   | Default  |
-| --------- | ----------------- | ----------------------------- | -------- |
-| as?       | `string`          | The HTML tag to be rendered.  | `button` |
-| children? | `React.ReactNode` | The content of the component. |          |
-| css?      | `CSS`             | Theme aware style object.     |          |
+<PropsTable of="Box" />

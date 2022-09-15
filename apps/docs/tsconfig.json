@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.options.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "composite": true,
     "emitDeclarationOnly": false,
     "incremental": true,
     "jsx": "preserve",
@@ -14,9 +15,9 @@
     "strict": false
   },
   "include": [
-    "next-env.d.ts",
     "src",
-    "sidebar.config.ts",
+    "**/*.json",
+    "next-env.d.ts",
     ".contentlayer/generated"
   ],
   "exclude": [

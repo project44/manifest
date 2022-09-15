@@ -24,10 +24,10 @@ function DocsLayout(props: DocsLayoutProps) {
       <Header />
       <Container as="main" css={{ display: 'flex' }} maxWidth="large">
         <Sidebar />
-        <Stack css={{ flexGrow: 1, my: '$$headerHeight' }} orientation="vertical">
+        <Stack css={{ flexGrow: 1, pt: '$$headerHeight' }} orientation="vertical">
           <Meta description={description} title={title} />
           <Stack orientation="horizontal">
-            <Box css={{ px: '$large', width: '100%' }}>{children}</Box>
+            <Box css={{ pb: '$$headerHeight', px: '$large', width: '100%' }}>{children}</Box>
             {!isEmpty(toc) && <TOC items={toc} />}
           </Stack>
         </Stack>
