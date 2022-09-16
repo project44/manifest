@@ -1,0 +1,81 @@
+---
+title: Grid
+description: A polymorphic component used quickly creating css grid layouts.
+---
+
+```tsx
+<Grid columns="repeat(5, 1fr)" gap="small">
+  <GridItem css={{ backgroundColor: '$background-secondary' }} />
+  <GridItem css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }} />
+  <GridItem css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }} />
+  <GridItem css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }} />
+  <GridItem css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }} />
+</Grid>
+```
+
+## Examples
+
+### Rows
+
+The grid can be set to use row templates.
+
+```jsx
+<Grid gap="small" rows="repeat(5, 1fr)">
+  <GridItem css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }} />
+  <GridItem css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }} />
+  <GridItem css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }} />
+  <GridItem css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }} />
+  <GridItem css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }} />
+</Grid>
+```
+
+### Spanning
+
+Grid items can span multiple columns or rows.
+
+```jsx
+<Grid columns="repeat(5, 1fr)" css={{ height: '200px' }} gap="small" rows="repeat(2, 1fr)">
+  <GridItem column={1} row={2} css={{ backgroundColor: '$background-secondary' }} />
+  <GridItem column={2} css={{ backgroundColor: '$background-secondary' }} />
+  <GridItem column={2} css={{ backgroundColor: '$background-secondary' }} />
+  <GridItem column={4} css={{ backgroundColor: '$background-secondary' }} />
+</Grid>
+```
+
+### Position
+
+Set the `columnStart` or `columnEnd` prop on an item to render the item at a certain position.
+
+```jsx
+<Grid columns="repeat(5, 1fr)" gap="small">
+  <GridItem
+    column={2}
+    css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }}
+  />
+  <GridItem
+    columnStart={4}
+    columnEnd={6}
+    css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }}
+  />
+</Grid>
+```
+
+## API
+
+### Import
+
+```js
+import { Grid, GridItem } from '@project44-manifest/react';
+```
+
+### Grid Props
+
+All native element props are also available.
+
+<PropsTable of="Grid" />
+
+### GridItem Props
+
+All native element props are also available.
+
+<PropsTable of="GridItem" />

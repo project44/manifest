@@ -35,7 +35,10 @@ export interface ListBoxItemOptions<T extends As = ListBoxItemElement>
   onAction?(key: React.Key): void;
 }
 
-export type ListBoxItemProps<T extends As = ListBoxItemElement> = Props<ListBoxItemOptions<T>>;
+export type ListBoxItemProps<T extends As = ListBoxItemElement> = Omit<
+  Props<ListBoxItemOptions<T>>,
+  'item' | 'isVirtualized'
+>;
 
 export const ListBoxItem = createComponent<ListBoxItemOptions>((props, forwardedRef) => {
   const {

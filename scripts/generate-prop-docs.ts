@@ -29,6 +29,11 @@ async function main() {
 
   const { parse } = withCustomConfig(path.resolve(ROOT_DIR, 'tsconfig.json'), {
     shouldExtractLiteralValuesFromEnum: true,
+    propFilter: prop => {
+      const isReactProp = prop.parent?.fileName.includes('node_module/react') ?? false;
+
+      return !isReactProp;
+    },
   });
 
   const _docs = parse(files);

@@ -3857,6 +3857,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@project44-manifest/docs@workspace:apps/docs"
   dependencies:
+    "@internationalized/date": ^3.0.1
     "@project44-manifest/design-tokens": ^1.1.0
     "@project44-manifest/react": ^2.0.0
     contentlayer: ^0.2.7
@@ -3912,6 +3913,7 @@ __metadata:
     "@react-stately/calendar": ^3.0.0
     "@react-stately/collections": ^3.4.1
     "@react-stately/combobox": ^3.1.1
+    "@react-stately/data": ^3.6.1
     "@react-stately/datepicker": ^3.0.0
     "@react-stately/list": ^3.5.2
     "@react-stately/menu": ^3.3.1
@@ -4589,6 +4591,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-stately/data@npm:^3.6.1":
+  version: 3.6.1
+  resolution: "@react-stately/data@npm:3.6.1"
+  dependencies:
+    "@babel/runtime": ^7.6.2
+    "@react-types/shared": ^3.14.1
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+  checksum: 79c9eae2ff674453010ed9b37fc23de687fe9dd5413c2931cadd2b7d85bcd567ed45078c0234d1c5117677321ad3eaf34952af6113546033643a7e78dde23242
+  languageName: node
+  linkType: hard
+
 "@react-stately/datepicker@npm:^3.0.0, @react-stately/datepicker@npm:^3.0.1":
   version: 3.0.1
   resolution: "@react-stately/datepicker@npm:3.0.1"
@@ -4942,6 +4956,15 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
   checksum: e5aa5c52ce112dd74ff2c4cb9311aaa65a404d6bd94df6293f8ffc38c58626ae2186094a1d96c09e846ff0be004c09fc24f0be26f6ccf5263ae711f44723c7bb
+  languageName: node
+  linkType: hard
+
+"@react-types/shared@npm:^3.14.1":
+  version: 3.14.1
+  resolution: "@react-types/shared@npm:3.14.1"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+  checksum: 117fe230f5a26b7fcaf535c1cfb7c4d42416b0f49d0e0b3436fef2a5851234967908c4e884fc5f2a99a04bee2543543348346a04e1f3f45aaa14c42b6f08491a
   languageName: node
   linkType: hard
 

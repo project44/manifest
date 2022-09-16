@@ -61,29 +61,38 @@ Brand buttons are used for project44 specific marketing moments and should be us
 </IconButton>
 ```
 
-### Sizes
+### Small
 
-The size of a Button can be adjusted. The default size is used for most use cases while small is used for tables.
+Small icon buttons are used when vertical spacing is limited.
 
 ```jsx
-<Stack css={{ alignItems: 'center' }} gap="medium" orientation="horizontal">
-  <IconButton size="medium">
+<IconButton size="small">
+  <Icon icon="add" />
+</IconButton>
+```
+
+### Disabled State
+
+Set the `isDisabled` prop to prevent a user from pressing a button.
+
+```jsx
+<Stack gap="medium" orientation="horizontal">
+  <IconButton isDisabled>
     <Icon icon="add" />
   </IconButton>
-  <IconButton size="small">
+  <IconButton isDisabled variant="secondary">
+    <Icon icon="add" />
+  </IconButton>
+  <IconButton isDisabled variant="tertiary">
+    <Icon icon="add" />
+  </IconButton>
+  <IconButton isDisabled variant="danger">
+    <Icon icon="add" />
+  </IconButton>
+  <IconButton isDisabled variant="brand">
     <Icon icon="add" />
   </IconButton>
 </Stack>
-```
-
-### Disabled
-
-Buttons can be disabled to prevent users from taking action.
-
-```jsx
-<IconButton isDisabled>
-  <Icon icon="add" />
-</IconButton>
 ```
 
 ## API

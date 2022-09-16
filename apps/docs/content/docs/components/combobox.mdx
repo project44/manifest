@@ -1,0 +1,328 @@
+---
+title: Combobox
+description: An autocomplete input that allows a user to filter a list of selectable options.
+---
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <Combobox aria-label="status">
+    <ComboboxItem key="in_transit">In Transit</ComboboxItem>
+    <ComboboxItem key="completed">Completed</ComboboxItem>
+    <ComboboxItem key="at_stop">At Stop</ComboboxItem>
+    <ComboboxItem key="scheduled">Scheduled</ComboboxItem>
+    <ComboboxItem key="received">Received</ComboboxItem>
+    <ComboboxItem key="cancelled">Cancelled</ComboboxItem>
+    <ComboboxItem key="fulfilled">Fulfilled</ComboboxItem>
+    <ComboboxItem key="rejected">Rejected</ComboboxItem>
+  </Combobox>
+</Box>
+```
+
+## Examples
+
+The comboBox follows the [Collection Components](https://react-spectrum.adobe.com/react-stately/collections.html) API, accepting both static and dynamic collections.
+
+### Label
+
+Attach a label to the combobox using the `label` prop.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <Combobox label="Status">
+    <ComboboxItem key="in_transit">In Transit</ComboboxItem>
+    <ComboboxItem key="completed">Completed</ComboboxItem>
+    <ComboboxItem key="at_stop">At Stop</ComboboxItem>
+    <ComboboxItem key="scheduled">Scheduled</ComboboxItem>
+    <ComboboxItem key="received">Received</ComboboxItem>
+    <ComboboxItem key="cancelled">Cancelled</ComboboxItem>
+    <ComboboxItem key="fulfilled">Fulfilled</ComboboxItem>
+    <ComboboxItem key="rejected">Rejected</ComboboxItem>
+  </Combobox>
+</Box>
+```
+
+### HelperText
+
+Add additional context as well as display error messages with the `helperText` prop.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <Combobox label="Status" helperText="Please select a status">
+    <ComboboxItem key="in_transit">In Transit</ComboboxItem>
+    <ComboboxItem key="completed">Completed</ComboboxItem>
+    <ComboboxItem key="at_stop">At Stop</ComboboxItem>
+    <ComboboxItem key="scheduled">Scheduled</ComboboxItem>
+    <ComboboxItem key="received">Received</ComboboxItem>
+    <ComboboxItem key="cancelled">Cancelled</ComboboxItem>
+    <ComboboxItem key="fulfilled">Fulfilled</ComboboxItem>
+    <ComboboxItem key="rejected">Rejected</ComboboxItem>
+  </Combobox>
+</Box>
+```
+
+### Small
+
+A small combobox is used when vertical spacing is limited.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <Combobox aria-label="status" size="small">
+    <ComboboxItem key="in_transit">In Transit</ComboboxItem>
+    <ComboboxItem key="completed">Completed</ComboboxItem>
+    <ComboboxItem key="at_stop">At Stop</ComboboxItem>
+    <ComboboxItem key="scheduled">Scheduled</ComboboxItem>
+    <ComboboxItem key="received">Received</ComboboxItem>
+    <ComboboxItem key="cancelled">Cancelled</ComboboxItem>
+    <ComboboxItem key="fulfilled">Fulfilled</ComboboxItem>
+    <ComboboxItem key="rejected">Rejected</ComboboxItem>
+  </Combobox>
+</Box>
+```
+
+### Start Icon
+
+Include an icon before the input text.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <Combobox aria-label="status" startIcon={<Icon icon="search" />}>
+    <ComboboxItem key="in_transit">In Transit</ComboboxItem>
+    <ComboboxItem key="completed">Completed</ComboboxItem>
+    <ComboboxItem key="at_stop">At Stop</ComboboxItem>
+    <ComboboxItem key="scheduled">Scheduled</ComboboxItem>
+    <ComboboxItem key="received">Received</ComboboxItem>
+    <ComboboxItem key="cancelled">Cancelled</ComboboxItem>
+    <ComboboxItem key="fulfilled">Fulfilled</ComboboxItem>
+    <ComboboxItem key="rejected">Rejected</ComboboxItem>
+  </Combobox>
+</Box>
+```
+
+### Sections
+
+Group items within a combobox using a section.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <Combobox aria-label="status" startIcon={<Icon icon="search" />}>
+    <ComboboxItem key="in_transit">In Transit</ComboboxItem>
+    <ComboboxItem key="completed">Completed</ComboboxItem>
+    <ComboboxItem key="at_stop">At Stop</ComboboxItem>
+    <ComboboxItem key="scheduled">Scheduled</ComboboxItem>
+    <ComboboxItem key="received">Received</ComboboxItem>
+    <ComboboxItem key="fulfilled">Fulfilled</ComboboxItem>
+
+    <ComboboxSection key="exceptions" title="Exceptions">
+      <ComboboxItem key="rejected">Rejected</ComboboxItem>
+      <ComboboxItem key="cancelled">Cancelled</ComboboxItem>
+    </ComboboxSection>
+  </Combobox>
+</Box>
+```
+
+### Item Icon
+
+Include an icon before the item label on each item.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <Combobox aria-label="status">
+    <ComboboxItem startIcon={<Icon icon="local_shipping" />} key="in_transit">
+      In Transit
+    </ComboboxItem>
+    <ComboboxItem startIcon={<Icon icon="check_circle" />} key="completed">
+      Completed
+    </ComboboxItem>
+    <ComboboxItem startIcon={<Icon icon="location_on" />} key="at_stop">
+      At Stop
+    </ComboboxItem>
+    <ComboboxItem startIcon={<Icon icon="content_paste" />} key="scheduled">
+      Scheduled
+    </ComboboxItem>
+    <ComboboxItem startIcon={<Icon icon="assignment_returned" />} key="received">
+      Received
+    </ComboboxItem>
+    <ComboboxItem startIcon={<Icon icon="close" />} key="cancelled">
+      Cancelled
+    </ComboboxItem>
+    <ComboboxItem startIcon={<Icon icon="done_all" />} key="fulfilled">
+      Fulfilled
+    </ComboboxItem>
+    <ComboboxItem startIcon={<Icon icon="undo" />} key="rejected">
+      Rejected
+    </ComboboxItem>
+  </Combobox>
+</Box>
+```
+
+### Dynamic
+
+Create items from an external data source.
+
+```jsx
+function DynamicExample() {
+  const data = [
+    { id: 1, name: 'In Transit' },
+    { id: 2, name: 'Completed' },
+    { id: 3, name: 'At Stop' },
+    { id: 4, name: 'Scheduled' },
+    { id: 5, name: 'Received' },
+    { id: 6, name: 'Cancelled' },
+    { id: 7, name: 'Fulfilled' },
+    { id: 8, name: 'Rejected' },
+  ];
+
+  return (
+    <Box css={{ maxWidth: '25ch' }}>
+      <Combobox aria-label="status" defaultItems={data}>
+        {item => <ComboboxItem>{item.name}</ComboboxItem>}
+      </Combobox>
+    </Box>
+  );
+}
+```
+
+### Controlled
+
+A combobox's state can be fully controlled including both the text input and item selection.
+
+```jsx
+function ControlledExample() {
+  const data = [
+    { id: 1, name: 'In Transit' },
+    { id: 2, name: 'Completed' },
+    { id: 3, name: 'At Stop' },
+    { id: 4, name: 'Scheduled' },
+    { id: 5, name: 'Received' },
+    { id: 6, name: 'Cancelled' },
+    { id: 7, name: 'Fulfilled' },
+    { id: 8, name: 'Rejected' },
+  ];
+
+  const list = useTreeData({ initialItems: data });
+
+  const [state, dispatch] = React.useReducer(
+    (state, action) => {
+      switch (action.type) {
+        case 'INPUT_CHANGE':
+          return {
+            inputValue: action.payload,
+            selectedId: action.payload === '' ? null : state.selectedId,
+          };
+        case 'SELECTION_CHANGE':
+          return {
+            inputValue: action.payload ? list.getItem(action.payload).value.name : '',
+            selectedKey: action.payload,
+          };
+        default:
+          throw new Error();
+      }
+    },
+    { inputValue: '', selectedKey: null },
+  );
+
+  return (
+    <Box css={{ maxWidth: '25ch' }}>
+      <Combobox
+        aria-label="status"
+        defaultItems={list.items}
+        inputValue={state.inputValue}
+        onInputChange={value => dispatch({ type: 'INPUT_CHANGE', payload: value })}
+        onSelectionChange={key => dispatch({ type: 'SELECTION_CHANGE', payload: key })}
+        selectedKey={state.selectedKey}
+      >
+        {item => <ComboboxItem>{item.value.name}</ComboboxItem>}
+      </Combobox>
+    </Box>
+  );
+}
+```
+
+### Disabled State
+
+Set the `isDisabled` prop to prevent a user from interacting with the combobox.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <Combobox aria-label="status" isDisabled>
+    <ComboboxItem key="in_transit">In Transit</ComboboxItem>
+    <ComboboxItem key="completed">Completed</ComboboxItem>
+    <ComboboxItem key="at_stop">At Stop</ComboboxItem>
+    <ComboboxItem key="scheduled">Scheduled</ComboboxItem>
+    <ComboboxItem key="received">Received</ComboboxItem>
+    <ComboboxItem key="cancelled">Cancelled</ComboboxItem>
+    <ComboboxItem key="fulfilled">Fulfilled</ComboboxItem>
+    <ComboboxItem key="rejected">Rejected</ComboboxItem>
+  </Combobox>
+</Box>
+```
+
+### Disabled items
+
+Set the `disabledKeys` prop to disable certain items in the combobox list.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <Combobox aria-label="status" disabledKeys={['completed', 'fulfilled']}>
+    <ComboboxItem key="in_transit">In Transit</ComboboxItem>
+    <ComboboxItem key="completed">Completed</ComboboxItem>
+    <ComboboxItem key="at_stop">At Stop</ComboboxItem>
+    <ComboboxItem key="scheduled">Scheduled</ComboboxItem>
+    <ComboboxItem key="received">Received</ComboboxItem>
+    <ComboboxItem key="cancelled">Cancelled</ComboboxItem>
+    <ComboboxItem key="fulfilled">Fulfilled</ComboboxItem>
+    <ComboboxItem key="rejected">Rejected</ComboboxItem>
+  </Combobox>
+</Box>
+```
+
+### Invalid State
+
+Set the `validationState` prop to `invalid` to render the combobox in an invalid state.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <Combobox aria-label="status" helperText="A selection is required" validationState="invalid">
+    <ComboboxItem key="in_transit">In Transit</ComboboxItem>
+    <ComboboxItem key="completed">Completed</ComboboxItem>
+    <ComboboxItem key="at_stop">At Stop</ComboboxItem>
+    <ComboboxItem key="scheduled">Scheduled</ComboboxItem>
+    <ComboboxItem key="received">Received</ComboboxItem>
+    <ComboboxItem key="cancelled">Cancelled</ComboboxItem>
+    <ComboboxItem key="fulfilled">Fulfilled</ComboboxItem>
+    <ComboboxItem key="rejected">Rejected</ComboboxItem>
+  </Combobox>
+</Box>
+```
+
+## Accessibility
+
+### Labeling
+
+If a visible label isn't specified, an aria-label must be provided to the combobox for accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be provided using the id of the labeling element instead.
+
+## API
+
+### Import
+
+```js
+import { Combobox, ComboboxItem, ComboboxSection } from '@project44-manifest/react';
+```
+
+### Combobox Props
+
+Props of the native element are also available.
+
+<PropsTable of="Combobox" />
+
+### ComboboxItem Props
+
+Props of the native element are also available.
+
+<PropsTable of="ComboboxItem" />
+
+### ComboboxSection Props
+
+Props of the native element are also available.
+
+<PropsTable of="ComboboxSection" />

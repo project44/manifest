@@ -29,7 +29,7 @@ function CodeBlock(props: CodeBlockProps) {
 
   useStyles();
 
-  if (language === 'jsx' && live) {
+  if ((language === 'jsx' || language === 'tsx') && live) {
     return <Live code={code} showToolbar={showToolbar} theme={theme} />;
   }
 

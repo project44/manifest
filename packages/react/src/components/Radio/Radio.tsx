@@ -37,7 +37,7 @@ export const Radio = createComponent<RadioOptions>((props, forwardedRef) => {
   const { className } = useStyles({
     css,
     isChecked: inputProps.checked,
-    isDisabled,
+    isDisabled: inputProps.disabled,
     isFocusVisible,
     isHovered,
   });
@@ -45,7 +45,7 @@ export const Radio = createComponent<RadioOptions>((props, forwardedRef) => {
   const classes = cx(className, classNameProp, {
     'manifest-radio': true,
     'manifest-radio--checked': inputProps.checked,
-    'manifest-radio--disabled': isDisabled,
+    'manifest-radio--disabled': inputProps.disabled,
   });
 
   return (

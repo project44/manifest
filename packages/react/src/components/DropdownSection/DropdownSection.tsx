@@ -37,8 +37,9 @@ export interface DropdownSectionOptions<T extends As = DropdownSectionElement>
   onAction?(key: React.Key): void;
 }
 
-export type DropdownSectionProps<T extends As = DropdownSectionElement> = Props<
-  DropdownSectionOptions<T>
+export type DropdownSectionProps<T extends As = DropdownSectionElement> = Omit<
+  Props<DropdownSectionOptions<T>>,
+  'item' | 'state'
 >;
 
 export const DropdownSection = createComponent<DropdownSectionOptions>((props, forwardedRef) => {

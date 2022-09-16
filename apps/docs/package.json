@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@internationalized/date": "^3.0.1",
     "@project44-manifest/design-tokens": "^1.1.0",
     "@project44-manifest/react": "^2.0.0",
     "contentlayer": "^0.2.7",

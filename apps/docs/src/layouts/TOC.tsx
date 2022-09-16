@@ -34,24 +34,27 @@ function TOC(props: TOCProps) {
     });
 
     return () => observer.current?.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items]);
 
   return (
-    <Box as="nav">
+    <Box
+      as="nav"
+      css={{
+        height: `calc(100vh - ${pxToRem(104)})`,
+        position: 'fixed',
+        right: 0,
+        top: pxToRem(104),
+      }}
+    >
       <Box
         css={{
-          height: `calc(100vh - ${pxToRem(72)})`,
-          order: 2,
-          position: 'sticky',
-          top: pxToRem(88),
+          borderLeft: '1px solid $border-primary',
           width: pxToRem(240),
         }}
       >
         <Stack
           as="ul"
           css={{
-            borderLeft: '1px solid $border-primary',
             listStyleType: 'none',
             margin: 0,
             padding: 0,

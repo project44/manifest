@@ -49,34 +49,50 @@ Brand buttons are used for project44 specific marketing moments and should be us
 <Button variant="brand">Brand Button</Button>
 ```
 
-### Sizes
+### Small
 
-The size of a Button can be adjusted. The default size is used for most use cases while small is used for tables.
+Small buttons are used when vertical spacing is limited.
 
 ```jsx
-<Stack css={{ alignItems: 'center' }} gap="medium" orientation="horizontal">
-  <Button size="medium">Button</Button>
-  <Button size="small">Button</Button>
-</Stack>
+<Button size="small">Button</Button>
 ```
 
-### Icons
+### Start Icon
 
-Buttons can be embelished with icons rendered before or after the button label.
+Include an icon before the button label.
+
+```jsx
+<Button startIcon={<Icon icon="delete" />}>Button</Button>
+```
+
+### End Icon
+
+Include an icon after the button label.
+
+```jsx
+<Button endIcon={<Icon icon="send" />}>Button</Button>
+```
+
+### Disabled State
+
+Set the `isDisabled` prop to prevent a user from pressing a button.
 
 ```jsx
 <Stack gap="medium" orientation="horizontal">
-  <Button startIcon={<Icon icon="delete" />}>Button</Button>
-  <Button endIcon={<Icon icon="send" />}>Button</Button>
+  <Button isDisabled>Primary</Button>
+  <Button isDisabled variant="secondary">
+    Secondary
+  </Button>
+  <Button isDisabled variant="tertiary">
+    Tertiary
+  </Button>
+  <Button isDisabled variant="danger">
+    Danger
+  </Button>
+  <Button isDisabled variant="brand">
+    Brand
+  </Button>
 </Stack>
-```
-
-### Disabled
-
-Buttons can be disabled to prevent users from taking action.
-
-```jsx
-<Button isDisabled>Disabled</Button>
 ```
 
 ## API

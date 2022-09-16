@@ -9,11 +9,14 @@ import InlineCode from './InlineCode';
 import Heading from './Heading';
 import Image from './Image';
 import PropsTable from './PropsTable';
+import TypeScale from './TypeScale';
 
 const MDXComponents = {
   ...Manifest,
   Colors,
   ColorSwatch,
+  PropsTable,
+  TypeScale,
   a: Anchor,
   blockquote: BlockQuote,
   code: InlineCode,
@@ -39,7 +42,6 @@ const MDXComponents = {
 
     return <CodeBlock {...props} />;
   },
-  PropsTable,
   table: Manifest.Table,
   tbody: Manifest.TableBody,
   thead: Manifest.TableHeader,

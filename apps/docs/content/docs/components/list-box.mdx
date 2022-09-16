@@ -1,0 +1,147 @@
+---
+title: List Box
+description: A list of options that can allow selection of one or more.
+---
+
+```jsx
+<ListBox aria-label="admin">
+  <ListBoxItem key="profile">Profile</ListBoxItem>
+  <ListBoxItem key="account">Account</ListBoxItem>
+</ListBox>
+```
+
+## Examples
+
+### Start Icon
+
+Include an icon before the input text.
+
+```jsx
+<ListBox aria-label="admin">
+  <ListBoxItem startIcon={<Icon icon="person" />} key="profile">
+    Profile
+  </ListBoxItem>
+  <ListBoxItem startIcon={<Icon icon="account_balance" />} key="account">
+    Account
+  </ListBoxItem>
+</ListBox>
+```
+
+### Sections
+
+Group items within a dropdown using a section.
+
+```jsx
+<ListBox aria-label="admin">
+  <ListBoxItem startIcon={<Icon icon="person" />} key="profile">
+    Profile
+  </ListBoxItem>
+  <ListBoxItem startIcon={<Icon icon="account_balance" />} key="account">
+    Account
+  </ListBoxItem>
+  <ListBoxSection aria-label="admin" key="admin">
+    <ListBoxItem startIcon={<Icon icon="edit" />} key="edit">
+      Edit
+    </ListBoxItem>
+    <ListBoxItem startIcon={<Icon icon="logout" />} key="sign_out">
+      Sign Out
+    </ListBoxItem>
+  </ListBoxSection>
+</ListBox>
+```
+
+### Dynamic
+
+Create items from an external data source.
+
+```jsx
+function DynamicExample() {
+  const data = [
+    { id: 1, name: 'Profile' },
+    { id: 2, name: 'Account' },
+  ];
+
+  return (
+    <ListBox aria-label="admin" items={data}>
+      {item => <ListBoxItem>{item.name}</ListBoxItem>}
+    </ListBox>
+  );
+}
+```
+
+### Selection
+
+By default the dropdown has no selection mode, this can be set using the `selectionMode` prop.
+
+```jsx
+function ControlledExample() {
+  const [selected, setSelected] = React.useState(new Set(['profile']));
+
+  return (
+    <ListBox
+      aria-label="admin"
+      onSelectionChange={setSelected}
+      selectedKeys={selected}
+      selectionMode="single"
+    >
+      <ListBoxItem key="profile">Profile</ListBoxItem>
+      <ListBoxItem key="account">Account</ListBoxItem>
+    </ListBox>
+  );
+}
+```
+
+To select multiple items, set the `selectionMode` to `multiple`.
+
+```jsx
+function ControlledExample() {
+  const [selected, setSelected] = React.useState(new Set(['profile', 'Account']));
+
+  return (
+    <ListBox
+      aria-label="admin"
+      onSelectionChange={setSelected}
+      selectedKeys={selected}
+      selectionMode="multiple"
+    >
+      <ListBoxItem key="profile">Profile</ListBoxItem>
+      <ListBoxItem key="account">Account</ListBoxItem>
+    </ListBox>
+  );
+}
+```
+
+### Disabled items
+
+Set the `disabledKeys` prop to disable certain items in the dropdown list.
+
+```jsx
+<ListBox aria-label="admin" disabledKeys={['account']}>
+  <ListBoxItem key="profile">Profile</ListBoxItem>
+  <ListBoxItem key="account">Account</ListBoxItem>
+</ListBox>
+```
+
+## Accessibility
+
+The list box should be labeled using the aria-label prop. If the ListBox is labeled by a separate element, an aria-labelledby prop must be provided using the id of the labeling element instead.
+
+## API
+
+### Import
+
+```js
+import { ListBox, ListBoxItem, ListBoxSection } from '@project44-manifest/react';
+```
+
+### ListBox Props
+
+<PropsTable of="ListBox" />
+
+### ListBoxItem Props
+
+<PropsTable of="ListBoxItem" />
+
+### ListBoxSection Props
+
+<PropsTable of="ListBoxSection" />

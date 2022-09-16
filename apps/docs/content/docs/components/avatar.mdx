@@ -19,21 +19,14 @@ Avatars that either do not include a `src` prop or have an error loading an imag
 <Avatar fallback="MD" />
 ```
 
-### Sizes
+### Small
 
-You can choose between two default sizes of the avatar using the `size` prop.
+A small avatar can be used when vertical space is limited.
 
 ```jsx
-<Stack gap="medium">
-  <Stack css={{ alignItems: 'center' }} gap="medium" orientation="horizontal">
-    <Avatar size="small" src="https://i.pravatar.cc/200" />
-    <Avatar size="medium" src="https://i.pravatar.cc/200" />
-  </Stack>
-
-  <Stack css={{ alignItems: 'center' }} gap="medium" orientation="horizontal">
-    <Avatar size="small" fallback="MD" />
-    <Avatar size="medium" fallback="MD" />
-  </Stack>
+<Stack gap="medium" orientation="horizontal">
+  <Avatar size="small" src="https://i.pravatar.cc/200" />
+  <Avatar size="small" fallback="MD" />
 </Stack>
 ```
 

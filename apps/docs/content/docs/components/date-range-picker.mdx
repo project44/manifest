@@ -1,0 +1,144 @@
+---
+title: Date Range Picker
+description: Choose a date range from a visual calendar.
+---
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <DateRangePicker aria-label="date range picker" />
+</Box>
+```
+
+## Examples
+
+### Label
+
+Attach a label to the datepicker using the `label` prop.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <DateRangePicker label="Estimated Delivery Date" />
+</Box>
+```
+
+### HelperText
+
+Add additional context as well as display error messages with the `helperText` prop.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <DateRangePicker label="Estimated Delivery Date" helperText="Please select a delivery date." />
+</Box>
+```
+
+### Small
+
+A small datepicker is used when vertical spacing is limited.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <DateRangePicker aria-label="delivery date" size="small" />
+</Box>
+```
+
+### Start Icon
+
+Include an icon before the input text.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <DateRangePicker aria-label="delivery date" startIcon={<Icon icon="search" />} />
+</Box>
+```
+
+### Relative Ranges
+
+Set the `showRanges` prop to display a pre-set list of relative date ranges.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <DateRangePicker aria-label="delivery date" showRanges />
+</Box>
+```
+
+### Controlled
+
+A datepickers's state can be controlled by a parent React component by setting the `value` prop and passing a handler to the `onChange` prop.
+
+> Date values are provided using objects in the [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date) package. This library handles correct international date manipulation across calendars, time zones, and other localization concerns.
+
+```jsx
+function ControlledExample() {
+  const [value, setValue] = React.useState({
+    start: new CalendarDate(2022, 7, 2),
+    end: new CalendarDate(2022, 7, 12),
+  });
+
+  return (
+    <Box css={{ maxWidth: '25ch' }}>
+      <DateRangePicker aria-label="delivery date" onChange={setValue} value={value} />
+    </Box>
+  );
+}
+```
+
+### Unavailable Dates
+
+Set the `isDateUnavailable` handler prop to make certain dates unavailable for selection.
+
+```jsx
+function UnavailableExample() {
+  const { locale } = useLocale();
+  const isDateUnavailable = date => isWeekend(date, locale);
+
+  return (
+    <Box css={{ maxWidth: '25ch' }}>
+      <DateRangePicker aria-label="delivery date" isDateUnavailable={isDateUnavailable} />
+    </Box>
+  );
+}
+```
+
+### Disabled State
+
+Set the `isDisabled` prop to prevent a user from interacting with the datepicker.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <DateRangePicker aria-label="delivery date" isDisabled />
+</Box>
+```
+
+### Invalid State
+
+Set the `validationState` prop to `invalid` to render the datepicker in an invalid state.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <DateRangePicker
+    aria-label="delivery date"
+    helperText="A selection is required"
+    validationState="invalid"
+  />
+</Box>
+```
+
+## Accessibility
+
+### Labeling
+
+If a visible label isn't specified, an aria-label must be provided to the datepicker for accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be provided using the id of the labeling element instead.
+
+## API
+
+### Import
+
+```js
+import { DateRangePicker } from '@project44-manifest/react';
+```
+
+### Props
+
+Props of the native element are also available.
+
+<PropsTable of="DateRangePicker" />

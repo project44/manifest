@@ -4,7 +4,7 @@ description: An input which allows users to select one or more options from a li
 ---
 
 ```jsx
-<Checkbox />
+<Checkbox aria-label="checkbox" />
 ```
 
 ## Examples
@@ -19,7 +19,7 @@ Pass in a `string` as a child to render a label for the checkbox.
 
 ### Controlled
 
-A checkbox's state can be controled by a parent React component by setting the `isSelected` prop and passing a handler to the `onChange` prop.
+A checkbox's state can be controlled by a parent React component by setting the `isSelected` prop and passing a handler to the `onChange` prop.
 
 ```jsx
 function ControlledExample() {
@@ -29,16 +29,8 @@ function ControlledExample() {
     setSelected(isSelected);
   };
 
-  return <Checkbox isSelected={selected} onChange={handleChange} />;
+  return <Checkbox aria-label="checkbox" isSelected={selected} onChange={handleChange} />;
 }
-```
-
-### Disabled
-
-Set the `isDisabled` prop to prevent a user from selecting a checkbox.
-
-```jsx
-<Checkbox isDisabled>Disabled</Checkbox>
 ```
 
 ### Indeterminate
@@ -82,6 +74,20 @@ function IndeterminateExample() {
   );
 }
 ```
+
+### Disabled State
+
+Set the `isDisabled` prop to prevent a user from selecting a checkbox.
+
+```jsx
+<Checkbox isDisabled>Disabled</Checkbox>
+```
+
+## Accessibility
+
+### Labeling
+
+If a visible label isn't specified, an aria-label must be provided to the checkbox for accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be provided using the id of the labeling element instead.
 
 ## API
 

@@ -46,7 +46,10 @@ export interface DropdownItemOptions<T extends As = DropdownItemElement>
   onAction?(key: React.Key): void;
 }
 
-export type DropdownItemProps<T extends As = DropdownItemElement> = Props<DropdownItemOptions<T>>;
+export type DropdownItemProps<T extends As = DropdownItemElement> = Omit<
+  Props<DropdownItemOptions<T>>,
+  'item' | 'isVirtualized' | 'state'
+>;
 
 export const DropdownItem = createComponent<DropdownItemOptions>((props, forwardedRef) => {
   const {
@@ -127,10 +130,6 @@ export const DropdownItem = createComponent<DropdownItemOptions>((props, forward
       <Typography {...labelProps} className="manifest-dropdown-item__text" variant="subtext">
         {rendered}
       </Typography>
-
-      <span className={cx('manifest-dropdown-item__icon', 'manifest-dropdown-item__icon--end')}>
-        <Icon icon="check" />
-      </span>
     </Comp>
   );
 });
