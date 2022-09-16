@@ -22,7 +22,7 @@ function DocsLayout(props: DocsLayoutProps) {
     <Box css={{ $$headerHeight: pxToRem(72), $$sideNavWidth: pxToRem(280) }}>
       <Head description={description} title={title} />
       <Header />
-      <Container as="main" css={{ display: 'flex' }} maxWidth="large">
+      <Container as="main" css={{ display: 'flex' }} maxWidth="medium">
         <Sidebar />
         <Stack css={{ flexGrow: 1, pt: '$$headerHeight' }} orientation="vertical">
           <Meta description={description} title={title} />

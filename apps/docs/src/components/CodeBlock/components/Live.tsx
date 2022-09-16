@@ -22,7 +22,7 @@ function Live(props: LiveProps) {
 
   return (
     <LiveProvider code={code} scope={scope} theme={theme}>
-      <Container css={{ mb: '$x-small', p: 0 }}>
+      <Container css={{ p: 0 }}>
         <Preview />
         {isExpanded && <Editor />}
       </Container>

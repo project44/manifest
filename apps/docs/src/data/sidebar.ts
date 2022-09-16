@@ -31,6 +31,10 @@ export const sidebar: SidebarItem[] = [
       { title: 'Avatar', slug: '/docs/components/avatar' },
       { title: 'Box', slug: '/docs/components/box' },
       { title: 'Button', slug: '/docs/components/button' },
+      { title: 'Card', slug: '/docs/components/card' },
+      { title: 'Checkbox', slug: '/docs/components/checkbox' },
+      { title: 'Button Group', slug: '/docs/components/button-group' },
+      { title: 'Icon Button', slug: '/docs/components/icon-button' },
     ],
   },
 ];

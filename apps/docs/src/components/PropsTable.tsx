@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { props as componentDocs, PropDoc } from '../data/props';
-import { Flex, Stack, Typography } from '@project44-manifest/react';
+import { Flex, Separator, Stack, Typography } from '@project44-manifest/react';
 import InlineCode from './InlineCode';
 
 interface PropsTableProp {
@@ -17,9 +17,10 @@ function PropsTable(props: PropsTableProp) {
   }, [of]);
 
   return (
-    <Stack>
+    <Stack css={{ pb: '$x-large' }}>
       {propDocs.map(doc => (
-        <Stack css={{ py: '$medium' }} key={`${of}_${doc.name}`}>
+        <Stack key={`${of}_${doc.name}`}>
+          <Separator css={{ my: '$medium' }} />
           <Flex align="center" justify="between">
             <Stack gap="small" orientation="horizontal">
               <Typography variant="subtitle">

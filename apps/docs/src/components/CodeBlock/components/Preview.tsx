@@ -8,7 +8,6 @@ const Preview: React.FC<React.ComponentPropsWithRef<'div'>> = props => (
     css={{
       backgroundColor: '$background-primary',
       fontFamily: '$text',
-      justifyContent: 'center',
       overflow: 'scroll',
       padding: pxToRem(12),
     }}

@@ -32,7 +32,7 @@ const MDXComponents = {
   ),
   hr: (props: React.DetailsHTMLAttributes<unknown>) => <Manifest.Separator {...props} />,
   p: (props: React.DetailsHTMLAttributes<unknown>) => (
-    <Manifest.Typography as="p" css={{ marginBottom: '$large' }} variant="body" {...props} />
+    <Manifest.Typography as="p" css={{ marginBottom: '$medium' }} variant="body" {...props} />
   ),
   pre: (props: any) => {
     if (typeof props.children === 'string') return <Manifest.Box as="pre" {...props} />;

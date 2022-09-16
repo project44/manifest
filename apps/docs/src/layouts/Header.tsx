@@ -18,6 +18,7 @@ function Header() {
     >
       <Container
         css={{ alignItems: 'center', display: 'flex', minHeight: pxToRem(72), gap: '$medium' }}
+        maxWidth="medium"
       >
         <Link href="/">
           <Stack

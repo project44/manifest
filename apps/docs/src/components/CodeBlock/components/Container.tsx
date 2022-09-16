@@ -13,7 +13,6 @@ const Container: React.FC<BoxProps & React.ComponentPropsWithRef<typeof Box>> = 
         border: '1px solid $border-primary',
         borderRadius: '$small',
         padding: '$medium',
-        my: '$large',
         overflow: 'hidden',
 
         pre: {

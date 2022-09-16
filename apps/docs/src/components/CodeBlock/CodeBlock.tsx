@@ -35,7 +35,7 @@ function CodeBlock(props: CodeBlockProps) {
 
   return (
     <Box css={{ position: 'relative', zIndex: 0 }}>
-      <Container css={{ px: 0, overflow: 'hidden' }}>
+      <Container css={{ mb: '$large', px: 0, overflow: 'hidden' }}>
         <Highlight code={code} language={language} theme={theme} />
       </Container>
     </Box>

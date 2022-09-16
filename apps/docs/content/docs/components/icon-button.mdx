@@ -1,10 +1,12 @@
 ---
-title: Button
+title: IconButton
 description: Clickable elements that communicate actions that users can take.
 ---
 
 ```jsx
-<Button>Button</Button>
+<IconButton>
+  <Icon icon="add" />
+</IconButton>
 ```
 
 ## Examples
@@ -14,7 +16,9 @@ description: Clickable elements that communicate actions that users can take.
 Primary buttons are used to indicate the highest priority action a user can perform.
 
 ```jsx
-<Button variant="primary">Primary Button</Button>
+<IconButton variant="primary">
+  <Icon icon="add" />
+</IconButton>
 ```
 
 ### Secondary
@@ -22,7 +26,9 @@ Primary buttons are used to indicate the highest priority action a user can perf
 Secondary buttons are second in priority to primary buttons and are used for important actions that aren't the primary action.
 
 ```jsx
-<Button variant="secondary">Secondary Button</Button>
+<IconButton variant="secondary">
+  <Icon icon="add" />
+</IconButton>
 ```
 
 ### Tertiary
@@ -30,7 +36,9 @@ Secondary buttons are second in priority to primary buttons and are used for imp
 Tertiary buttons are the lowest priority actions and should be used for less commonly used actions.
 
 ```jsx
-<Button variant="tertiary">Tertiary Button</Button>
+<IconButton variant="tertiary">
+  <Icon icon="add" />
+</IconButton>
 ```
 
 ### Destructive
@@ -38,7 +46,9 @@ Tertiary buttons are the lowest priority actions and should be used for less com
 Destructive buttons are used to indicate an action that is destructive and cannot be undone.
 
 ```jsx
-<Button variant="danger">Danger Button</Button>
+<IconButton variant="danger">
+  <Icon icon="add" />
+</IconButton>
 ```
 
 ### Brand
@@ -46,7 +56,9 @@ Destructive buttons are used to indicate an action that is destructive and canno
 Brand buttons are used for project44 specific marketing moments and should be use sparingly.
 
 ```jsx
-<Button variant="brand">Brand Button</Button>
+<IconButton variant="brand">
+  <Icon icon="add" />
+</IconButton>
 ```
 
 ### Sizes
@@ -55,19 +67,12 @@ The size of a Button can be adjusted. The default size is used for most use case
 
 ```jsx
 <Stack css={{ alignItems: 'center' }} gap="medium" orientation="horizontal">
-  <Button size="medium">Button</Button>
-  <Button size="small">Button</Button>
-</Stack>
-```
-
-### Icons
-
-Buttons can be embelished with icons rendered before or after the button label.
-
-```jsx
-<Stack gap="medium" orientation="horizontal">
-  <Button startIcon={<Icon icon="delete" />}>Button</Button>
-  <Button endIcon={<Icon icon="send" />}>Button</Button>
+  <IconButton size="medium">
+    <Icon icon="add" />
+  </IconButton>
+  <IconButton size="small">
+    <Icon icon="add" />
+  </IconButton>
 </Stack>
 ```
 
@@ -76,7 +81,9 @@ Buttons can be embelished with icons rendered before or after the button label.
 Buttons can be disabled to prevent users from taking action.
 
 ```jsx
-<Button isDisabled>Disabled</Button>
+<IconButton isDisabled>
+  <Icon icon="add" />
+</IconButton>
 ```
 
 ## API

@@ -1,0 +1,98 @@
+---
+title: Checkbox
+description: An input which allows users to select one or more options from a list of options.
+---
+
+```jsx
+<Checkbox />
+```
+
+## Examples
+
+### Label
+
+Pass in a `string` as a child to render a label for the checkbox.
+
+```jsx
+<Checkbox>Label</Checkbox>
+```
+
+### Controlled
+
+A checkbox's state can be controled by a parent React component by setting the `isSelected` prop and passing a handler to the `onChange` prop.
+
+```jsx
+function ControlledExample() {
+  const [selected, setSelected] = React.useState(false);
+
+  const handleChange = isSelected => {
+    setSelected(isSelected);
+  };
+
+  return <Checkbox isSelected={selected} onChange={handleChange} />;
+}
+```
+
+### Disabled
+
+Set the `isDisabled` prop to prevent a user from selecting a checkbox.
+
+```jsx
+<Checkbox isDisabled>Disabled</Checkbox>
+```
+
+### Indeterminate
+
+Set the `isIndeterminate` prop to render the checkbox in an indeterminate state.
+
+```jsx
+function IndeterminateExample() {
+  const [selected, setSelected] = React.useState([false, false]);
+
+  const handleParentChange = isSelected => {
+    setSelected([isSelected, isSelected]);
+  };
+
+  const handleFirstChange = isSelected => {
+    setSelected([isSelected, selected[1]]);
+  };
+
+  const handleSecondChange = isSelected => {
+    setSelected([selected[0], isSelected]);
+  };
+
+  return (
+    <Stack gap="small">
+      <Checkbox
+        isIndeterminate={selected[0] !== selected[1]}
+        isSelected={selected[0] && selected[1]}
+        onChange={handleParentChange}
+      >
+        Parent Checkbox
+      </Checkbox>
+      <Stack css={{ paddingLeft: '$small' }} gap="small">
+        <Checkbox isSelected={selected[0]} onChange={handleFirstChange}>
+          Child Checkbox 1
+        </Checkbox>
+        <Checkbox isSelected={selected[1]} onChange={handleSecondChange}>
+          Child Checkbox 2
+        </Checkbox>
+      </Stack>
+    </Stack>
+  );
+}
+```
+
+## API
+
+### Import
+
+```js
+import { Checkboc } from '@project44-manifest/react';
+```
+
+### Props
+
+All native element props are also available.
+
+<PropsTable of="Checkbox" />

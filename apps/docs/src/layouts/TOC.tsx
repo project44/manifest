@@ -43,9 +43,8 @@ function TOC(props: TOCProps) {
         css={{
           height: `calc(100vh - ${pxToRem(72)})`,
           order: 2,
-          py: '$medium',
           position: 'sticky',
-          top: pxToRem(72),
+          top: pxToRem(88),
           width: pxToRem(240),
         }}
       >
