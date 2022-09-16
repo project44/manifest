@@ -29,14 +29,14 @@ const variants: Variants = {
   $heading: {
     fontFamily: '$text',
     fontSize: '$x-large',
-    fontWeight: '$semibold',
+    fontWeight: '$bold',
     letterSpacing: '$small',
     lineHeight: '$x-large',
   },
   $title: {
     fontFamily: '$text',
     fontSize: '$large',
-    fontWeight: '$semibold',
+    fontWeight: '$bold',
     letterSpacing: '$medium',
     lineHeight: '$large',
   },

@@ -45,6 +45,6 @@ export const useStyles = css({
   },
 
   defaultVariants: {
-    orientation: 'horizonal',
+    orientation: 'horizontal',
   },
 });
