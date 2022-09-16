@@ -54,9 +54,9 @@ describe('@project44-manifest/components - FormControl', () => {
     expect(screen.getByRole('textbox')).toHaveAttribute('aria-describedby', helpText.id);
   });
 
-  it('should render required state', () => {
-    render(<TestComponent label="Label" helperText="Helper text" isRequired />);
+  it('should render optional', () => {
+    render(<TestComponent label="Label" helperText="Helper text" isRequired={false} />);
 
-    expect(screen.getByText('*')).toBeInTheDocument();
+    expect(screen.getByText('(optional)')).toBeInTheDocument();
   });
 });
