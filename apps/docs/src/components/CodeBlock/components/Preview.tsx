@@ -4,7 +4,6 @@ import { LiveError, LivePreview } from 'react-live';
 
 const StyledPreview = styled(LivePreview, {
   fontFamily: '$text',
-  overflowX: 'auto',
   width: '100%',
 });
 
