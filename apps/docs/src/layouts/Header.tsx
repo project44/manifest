@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Container, pxToRem, Stack } from '@project44-manifest/react';
+import { Box, pxToRem, Stack } from '@project44-manifest/react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -16,8 +16,14 @@ function Header() {
         zIndex: '$sticky',
       }}
     >
-      <Container
-        css={{ alignItems: 'center', display: 'flex', minHeight: pxToRem(72), gap: '$medium' }}
+      <Box
+        css={{
+          alignItems: 'center',
+          display: 'flex',
+          px: '$large',
+          minHeight: pxToRem(72),
+          gap: '$medium',
+        }}
       >
         <Link href="/">
           <Stack
@@ -35,7 +41,7 @@ function Header() {
             Manifest Design System
           </Stack>
         </Link>
-      </Container>
+      </Box>
     </Box>
   );
 }

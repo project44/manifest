@@ -35,7 +35,10 @@ export { Combobox } from './components/Combobox';
 export type { ComboboxProps } from './components/Combobox';
 
 export { ComboboxItem } from './components/ComboboxItem';
+export type { ComboboxItemProps } from './components/ComboboxItem';
+
 export { ComboboxSection } from './components/ComboboxSection';
+export type { ComboboxSectionProps } from './components/ComboboxSection';
 
 export { Container } from './components/Container';
 export type { ContainerProps } from './components/Container';
@@ -93,6 +96,9 @@ export type { ListBoxSectionProps } from './components/ListBoxSection';
 export { Pagination } from './components/Pagination';
 export type { PaginationProps } from './components/Pagination';
 
+export { Overlay } from './components/Overlay';
+export type { OverlayProps } from './components/Overlay';
+
 export { Pill } from './components/Pill';
 export type { PillProps } from './components/Pill';
 
@@ -115,7 +121,10 @@ export { Select } from './components/Select';
 export type { SelectProps } from './components/Select';
 
 export { SelectItem } from './components/SelectItem';
+export type { SelectItemProps } from './components/SelectItem';
+
 export { SelectSection } from './components/SelectSection';
+export type { SelectSectionProps } from './components/SelectSection';
 
 export { Separator } from './components/Separator';
 export type { SeparatorProps } from './components/Separator';
@@ -166,3 +175,6 @@ export { VisuallyHidden } from './components/VisuallyHidden';
 export type { VisuallyHiddenProps } from './components/VisuallyHidden';
 
 export * from './styles';
+
+export { useOverlayPosition } from '@react-aria/overlays';
+export { useTreeData } from '@react-stately/data';

@@ -4,6 +4,7 @@ import { chain, mergeProps, mergeRefs, useLayoutEffect } from '@react-aria/utils
 import { TextFieldBase, TextFieldBaseElement, TextFieldBaseOptions } from '../TextFieldBase';
 import { cx } from '../../styles';
 import { useControlledState } from '@react-stately/utils';
+import { useStyles } from './TextArea.styles';
 import { useTextField } from '@react-aria/textfield';
 
 export interface TextAreaOptions<T extends As = TextFieldBaseElement>
@@ -30,7 +31,7 @@ export type TextAreaProps<T extends As = TextFieldBaseElement> = Props<TextAreaO
 
 export const TextArea = createComponent<TextAreaOptions>((props, forwardedRef) => {
   const {
-    className,
+    className: classNameProp,
     helperTextProps = {},
     inputProps: inputPropsProp = {},
     inputRef,
@@ -61,6 +62,12 @@ export const TextArea = createComponent<TextAreaOptions>((props, forwardedRef) =
     areaRef,
   );
 
+  const { className } = useStyles();
+
+  const classes = cx(className, classNameProp, {
+    'manifest-textarea': true,
+  });
+
   useLayoutEffect(() => {
     if (areaRef.current) {
       handleHeightChange();
@@ -70,7 +77,7 @@ export const TextArea = createComponent<TextAreaOptions>((props, forwardedRef) =
   return (
     <TextFieldBase
       {...other}
-      className={cx(className, 'manifest-textarea')}
+      className={classes}
       helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextProps)}
       inputProps={mergeProps(inputProps, inputPropsProp)}
       inputRef={

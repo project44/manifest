@@ -21,6 +21,12 @@ export interface FormControlOptions<T extends As = FormControlElement>
    */
   helperTextProps?: React.HTMLAttributes<HTMLElement>;
   /**
+   * Whether user input is required on the input before form submission.
+   *
+   * @default true
+   */
+  isRequired?: boolean;
+  /**
    * The label for the form control input element.
    */
   label?: React.ReactNode;
@@ -45,7 +51,7 @@ export const FormControl = createComponent<FormControlOptions>((props, forwarded
     css,
     helperText,
     helperTextProps = {},
-    isRequired,
+    isRequired = true,
     label,
     labelProps = {},
     orientation = 'vertical',
@@ -64,23 +70,28 @@ export const FormControl = createComponent<FormControlOptions>((props, forwarded
       ref={forwardedRef}
     >
       {label && (
-        <label {...labelProps} className="manifest-form-control__label">
+        <Typography
+          as="label"
+          variant="subtextBold"
+          className="manifest-form-control__label"
+          {...labelProps}
+        >
           {label}
-          {isRequired && (
+          {!isRequired && (
             <span aria-hidden className="manifest-form-control__required-indicator">
-              *
+              (optional)
             </span>
           )}
-        </label>
+        </Typography>
       )}
 
       {children}
 
       {helperText && (
         <Typography
-          {...helperTextProps}
           className="manifest-form-control__helper-text"
           variant="caption"
+          {...helperTextProps}
         >
           {helperText}
         </Typography>

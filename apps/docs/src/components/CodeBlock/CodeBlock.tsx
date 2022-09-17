@@ -29,13 +29,13 @@ function CodeBlock(props: CodeBlockProps) {
 
   useStyles();
 
-  if (language === 'jsx' && live) {
+  if ((language === 'jsx' || language === 'tsx') && live) {
     return <Live code={code} showToolbar={showToolbar} theme={theme} />;
   }
 
   return (
     <Box css={{ position: 'relative', zIndex: 0 }}>
-      <Container css={{ px: 0, overflow: 'hidden' }}>
+      <Container css={{ mb: '$large', px: 0, overflow: 'hidden' }}>
         <Highlight code={code} language={language} theme={theme} />
       </Container>
     </Box>

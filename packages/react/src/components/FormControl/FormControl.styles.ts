@@ -1,7 +1,7 @@
 import { css } from '../../styles';
 
 export const useStyles = css({
-  $$helperTextColor: '$colors$text-tertiary',
+  $$helperTextColor: '$colors$text-secondary',
 
   border: 0,
   display: 'inline-flex',
@@ -20,11 +20,10 @@ export const useStyles = css({
     padding: 0,
     marginBottom: '$x-small',
     position: 'relative',
-    typography: '$subtext',
   },
 
   '.manifest-form-control__required-indicator': {
-    color: '$text-danger',
+    color: '$text-tertiary',
     marginLeft: '$x-small',
   },
 

@@ -10,7 +10,7 @@ function Meta(props: MetaProps) {
   const { description, title } = props;
 
   return (
-    <Box css={{ px: '$large', py: '$x-large' }}>
+    <Box css={{ py: '$x-large' }}>
       {title && (
         <Typography
           as="h1"

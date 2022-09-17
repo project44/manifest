@@ -10,9 +10,22 @@ export const useStyles = css({
       end: { alignItems: 'flex-end' },
       start: { alignItems: 'flex-start' },
     },
-    orientation: {
-      horizontal: { flexDirection: 'row' },
-      vertical: { flexDirection: 'column' },
+    gap: {
+      large: {
+        gap: '$large',
+      },
+      medium: {
+        gap: '$medium',
+      },
+      small: {
+        gap: '$small',
+      },
+      'x-large': {
+        gap: '$x-large',
+      },
+      'x-small': {
+        gap: '$x-small',
+      },
     },
     justify: {
       around: { justifyContent: 'space-around' },
@@ -20,6 +33,10 @@ export const useStyles = css({
       center: { justifyContent: 'center' },
       end: { justifyContent: 'flex-end' },
       start: { justifyContent: 'flex-start' },
+    },
+    orientation: {
+      horizontal: { flexDirection: 'row' },
+      vertical: { flexDirection: 'column' },
     },
     wrap: {
       false: {},

@@ -25,8 +25,9 @@ export interface ListBoxSectionOptions<T extends As = ListBoxSectionElement>
   title?: React.ReactNode;
 }
 
-export type ListBoxSectionProps<T extends As = ListBoxSectionElement> = Props<
-  ListBoxSectionOptions<T>
+export type ListBoxSectionProps<T extends As = ListBoxSectionElement> = Omit<
+  Props<ListBoxSectionOptions<T>>,
+  'item'
 >;
 
 export const ListBoxSection = createComponent<ListBoxSectionOptions>((props, forwardedRef) => {

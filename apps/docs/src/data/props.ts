@@ -13,6 +13,25 @@ export interface ComponentDoc {
 
 export const props: ComponentDoc[] = [
   {
+    displayName: 'Box',
+    props: [
+      {
+        defaultValue: '',
+        description: 'The DOM tag or react component to use for the element.',
+        name: 'as',
+        required: false,
+        type: 'As<any>',
+      },
+      {
+        defaultValue: '',
+        description: 'Theme aware style object.',
+        name: 'css',
+        required: false,
+        type: 'CSS ',
+      },
+    ],
+  },
+  {
     displayName: 'Avatar',
     props: [
       {
@@ -56,25 +75,6 @@ export const props: ComponentDoc[] = [
         name: 'src',
         required: false,
         type: 'string ',
-      },
-    ],
-  },
-  {
-    displayName: 'Box',
-    props: [
-      {
-        defaultValue: '',
-        description: 'The DOM tag or react component to use for the element.',
-        name: 'as',
-        required: false,
-        type: 'As<any>',
-      },
-      {
-        defaultValue: '',
-        description: 'Theme aware style object.',
-        name: 'css',
-        required: false,
-        type: 'CSS ',
       },
     ],
   },
@@ -505,32 +505,6 @@ export const props: ComponentDoc[] = [
     ],
   },
   {
-    displayName: 'CalendarCell',
-    props: [
-      {
-        defaultValue: '',
-        description: 'The current month to helpe determine out of range dates.',
-        name: 'currentMonth',
-        required: true,
-        type: 'CalendarDate',
-      },
-      {
-        defaultValue: '',
-        description: 'The date that this cell represents.',
-        name: 'date',
-        required: true,
-        type: 'CalendarDate',
-      },
-      {
-        defaultValue: '',
-        description: 'The calendar state.',
-        name: 'state',
-        required: true,
-        type: 'CalendarState | RangeCalendarState',
-      },
-    ],
-  },
-  {
     displayName: 'CalendarHeader',
     props: [
       {
@@ -546,6 +520,32 @@ export const props: ComponentDoc[] = [
         name: 'prevButtonProps',
         required: true,
         type: 'AriaButtonProps<"button">',
+      },
+      {
+        defaultValue: '',
+        description: 'The calendar state.',
+        name: 'state',
+        required: true,
+        type: 'CalendarState | RangeCalendarState',
+      },
+    ],
+  },
+  {
+    displayName: 'CalendarCell',
+    props: [
+      {
+        defaultValue: '',
+        description: 'The current month to helpe determine out of range dates.',
+        name: 'currentMonth',
+        required: true,
+        type: 'CalendarDate',
+      },
+      {
+        defaultValue: '',
+        description: 'The date that this cell represents.',
+        name: 'date',
+        required: true,
+        type: 'CalendarDate',
       },
       {
         defaultValue: '',
@@ -757,25 +757,6 @@ export const props: ComponentDoc[] = [
     ],
   },
   {
-    displayName: 'CardBody',
-    props: [
-      {
-        defaultValue: '',
-        description: 'The DOM tag or react component to use for the element.',
-        name: 'as',
-        required: false,
-        type: 'As<any>',
-      },
-      {
-        defaultValue: '',
-        description: 'Theme aware style object.',
-        name: 'css',
-        required: false,
-        type: 'CSS ',
-      },
-    ],
-  },
-  {
     displayName: 'CardFooter',
     props: [
       {
@@ -796,6 +777,25 @@ export const props: ComponentDoc[] = [
   },
   {
     displayName: 'CardHeader',
+    props: [
+      {
+        defaultValue: '',
+        description: 'The DOM tag or react component to use for the element.',
+        name: 'as',
+        required: false,
+        type: 'As<any>',
+      },
+      {
+        defaultValue: '',
+        description: 'Theme aware style object.',
+        name: 'css',
+        required: false,
+        type: 'CSS ',
+      },
+    ],
+  },
+  {
+    displayName: 'CardBody',
     props: [
       {
         defaultValue: '',
@@ -1317,6 +1317,100 @@ export const props: ComponentDoc[] = [
     ],
   },
   {
+    displayName: 'ComboboxItem',
+    props: [
+      {
+        defaultValue: '',
+        description: 'The DOM tag or react component to use for the element.',
+        name: 'as',
+        required: false,
+        type: '"div" ',
+      },
+      {
+        defaultValue: '',
+        description: 'Whether the element should receive focus on render.',
+        name: 'autoFocus',
+        required: false,
+        type: 'boolean ',
+      },
+      {
+        defaultValue: '',
+        description: 'Theme aware style object.',
+        name: 'css',
+        required: false,
+        type: 'CSS ',
+      },
+      {
+        defaultValue: '',
+        description: 'Handler that is called when the element loses focus.',
+        name: 'onBlur',
+        required: false,
+        type: '((e: FocusEvent<Element, Element>) => void) ',
+      },
+      {
+        defaultValue: '',
+        description: 'Handler that is called when the element receives focus.',
+        name: 'onFocus',
+        required: false,
+        type: '((e: FocusEvent<Element, Element>) => void) ',
+      },
+      {
+        defaultValue: '',
+        description: "Handler that is called when the element's focus status changes.",
+        name: 'onFocusChange',
+        required: false,
+        type: '((isFocused: boolean) => void) ',
+      },
+      {
+        defaultValue: '',
+        description: 'Handler that is called when a key is pressed.',
+        name: 'onKeyDown',
+        required: false,
+        type: '((e: KeyboardEvent) => void) ',
+      },
+      {
+        defaultValue: '',
+        description: 'Handler that is called when a key is released.',
+        name: 'onKeyUp',
+        required: false,
+        type: '((e: KeyboardEvent) => void) ',
+      },
+      {
+        defaultValue: '',
+        description: 'Icon added before the item text.',
+        name: 'startIcon',
+        required: false,
+        type: 'ReactElement<any, string | JSXElementConstructor<any>> ',
+      },
+    ],
+  },
+  {
+    displayName: 'ComboboxSection',
+    props: [
+      {
+        defaultValue: '',
+        description: 'The DOM tag or react component to use for the element.',
+        name: 'as',
+        required: false,
+        type: '"div" ',
+      },
+      {
+        defaultValue: '',
+        description: 'Theme aware style object.',
+        name: 'css',
+        required: false,
+        type: 'CSS ',
+      },
+      {
+        defaultValue: '',
+        description: 'The section label.',
+        name: 'title',
+        required: false,
+        type: 'ReactNode',
+      },
+    ],
+  },
+  {
     displayName: 'Container',
     props: [
       {
@@ -1346,7 +1440,7 @@ export const props: ComponentDoc[] = [
         description: 'The max-width of the container.',
         name: 'maxWidth',
         required: false,
-        type: '"small" | "medium" | "x-large" | "x-small" | "large" ',
+        type: '"small" | "x-large" | "x-small" | "large" | "medium" ',
       },
     ],
   },
@@ -2002,6 +2096,83 @@ export const props: ComponentDoc[] = [
     ],
   },
   {
+    displayName: 'Dropdown',
+    props: [
+      {
+        defaultValue: '',
+        description: 'The contents of the MenuTrigger - a trigger and a Menu.',
+        name: 'children',
+        required: true,
+        type: 'ReactNode[]',
+      },
+      {
+        defaultValue: 'true',
+        description: 'Whether the dropdown closes when a selection is made.',
+        name: 'closeOnSelect',
+        required: false,
+        type: 'boolean ',
+      },
+      {
+        defaultValue: '',
+        description: 'Whether the overlay is open by default (uncontrolled).',
+        name: 'defaultOpen',
+        required: false,
+        type: 'boolean ',
+      },
+      {
+        defaultValue: 'false',
+        description: 'Whether menu trigger is disabled.',
+        name: 'isDisabled',
+        required: false,
+        type: 'boolean ',
+      },
+      {
+        defaultValue: '',
+        description: 'Whether the overlay is open by default (controlled).',
+        name: 'isOpen',
+        required: false,
+        type: 'boolean ',
+      },
+      {
+        defaultValue: '4',
+        description:
+          'The additional offset applied along the main axis between the element and its\nanchor element.',
+        name: 'offset',
+        required: false,
+        type: 'number ',
+      },
+      {
+        defaultValue: "'bottom'",
+        description: 'The placement of the element with respect to its anchor element.',
+        name: 'placement',
+        required: false,
+        type: 'Placement ',
+      },
+      {
+        defaultValue: 'true',
+        description:
+          'Whether the element should flip its orientation (e.g. top to bottom or left to right) when\nthere is insufficient room for it to render completely.',
+        name: 'shouldFlip',
+        required: false,
+        type: 'boolean ',
+      },
+      {
+        defaultValue: "'press'",
+        description: 'How the menu is triggered.',
+        name: 'trigger',
+        required: false,
+        type: 'MenuTriggerType ',
+      },
+      {
+        defaultValue: "'menu'",
+        description: 'The type of menu that the menu trigger opens.',
+        name: 'type',
+        required: false,
+        type: '"menu" | "listbox" ',
+      },
+    ],
+  },
+  {
     displayName: 'DropdownItem',
     props: [
       {
@@ -2101,83 +2272,6 @@ export const props: ComponentDoc[] = [
         name: 'state',
         required: true,
         type: 'TreeState<object>',
-      },
-    ],
-  },
-  {
-    displayName: 'Dropdown',
-    props: [
-      {
-        defaultValue: '',
-        description: 'The contents of the MenuTrigger - a trigger and a Menu.',
-        name: 'children',
-        required: true,
-        type: 'ReactNode[]',
-      },
-      {
-        defaultValue: 'true',
-        description: 'Whether the dropdown closes when a selection is made.',
-        name: 'closeOnSelect',
-        required: false,
-        type: 'boolean ',
-      },
-      {
-        defaultValue: '',
-        description: 'Whether the overlay is open by default (uncontrolled).',
-        name: 'defaultOpen',
-        required: false,
-        type: 'boolean ',
-      },
-      {
-        defaultValue: 'false',
-        description: 'Whether menu trigger is disabled.',
-        name: 'isDisabled',
-        required: false,
-        type: 'boolean ',
-      },
-      {
-        defaultValue: '',
-        description: 'Whether the overlay is open by default (controlled).',
-        name: 'isOpen',
-        required: false,
-        type: 'boolean ',
-      },
-      {
-        defaultValue: '4',
-        description:
-          'The additional offset applied along the main axis between the element and its\nanchor element.',
-        name: 'offset',
-        required: false,
-        type: 'number ',
-      },
-      {
-        defaultValue: "'bottom'",
-        description: 'The placement of the element with respect to its anchor element.',
-        name: 'placement',
-        required: false,
-        type: 'Placement ',
-      },
-      {
-        defaultValue: 'true',
-        description:
-          'Whether the element should flip its orientation (e.g. top to bottom or left to right) when\nthere is insufficient room for it to render completely.',
-        name: 'shouldFlip',
-        required: false,
-        type: 'boolean ',
-      },
-      {
-        defaultValue: "'press'",
-        description: 'How the menu is triggered.',
-        name: 'trigger',
-        required: false,
-        type: 'MenuTriggerType ',
-      },
-      {
-        defaultValue: "'menu'",
-        description: 'The type of menu that the menu trigger opens.',
-        name: 'type',
-        required: false,
-        type: '"menu" | "listbox" ',
       },
     ],
   },
@@ -2381,7 +2475,7 @@ export const props: ComponentDoc[] = [
     props: [
       {
         defaultValue: '',
-        description: "The aligment of the container's children.",
+        description: "The alignment of the container's children.",
         name: 'align',
         required: false,
         type: '"end" | "baseline" | "start" | "center" ',
@@ -2402,7 +2496,14 @@ export const props: ComponentDoc[] = [
       },
       {
         defaultValue: '',
-        description: "The justifcation of the container's children.",
+        description: 'The gap between rows and columns.',
+        name: 'gap',
+        required: false,
+        type: '"small" | "x-large" | "x-small" | "large" | "medium" ',
+      },
+      {
+        defaultValue: '',
+        description: "The justification of the container's children.",
         name: 'justify',
         required: false,
         type: '"end" | "start" | "center" | "around" | "between" ',
@@ -2420,6 +2521,67 @@ export const props: ComponentDoc[] = [
         name: 'wrap',
         required: false,
         type: 'boolean ',
+      },
+    ],
+  },
+  {
+    displayName: 'Grid',
+    props: [
+      {
+        defaultValue: '',
+        description: 'The DOM tag or react component to use for the element.',
+        name: 'as',
+        required: false,
+        type: 'As<any>',
+      },
+      {
+        defaultValue: '',
+        description: 'The gap between columns',
+        name: 'columnGap',
+        required: false,
+        type: '"small" | "x-large" | "x-small" | "large" | "medium" ',
+      },
+      {
+        defaultValue: "'auto'",
+        description: 'Shorthand for the gridTemplateColumns css property.',
+        name: 'columns',
+        required: false,
+        type: 'number | "inherit" | "none" | (string & {}) | "auto" | "initial" | "revert" | "unset" | "max-content" | "min-content" | "subgrid" | "-moz-initial" | "revert-layer" ',
+      },
+      {
+        defaultValue: '',
+        description: 'Theme aware style object.',
+        name: 'css',
+        required: false,
+        type: 'CSS ',
+      },
+      {
+        defaultValue: '',
+        description: 'Shorthand for the gridAutoFlow css property.',
+        name: 'flow',
+        required: false,
+        type: 'GridAutoFlow ',
+      },
+      {
+        defaultValue: '',
+        description: 'The gap between rows and columns.',
+        name: 'gap',
+        required: false,
+        type: '"small" | "x-large" | "x-small" | "large" | "medium" ',
+      },
+      {
+        defaultValue: '',
+        description: 'The gap between rows',
+        name: 'rowGap',
+        required: false,
+        type: '"small" | "x-large" | "x-small" | "large" | "medium" ',
+      },
+      {
+        defaultValue: "'auto'",
+        description: 'Shorthand for the gridTemplateRows css property.',
+        name: 'rows',
+        required: false,
+        type: 'number | "inherit" | "none" | (string & {}) | "auto" | "initial" | "revert" | "unset" | "max-content" | "min-content" | "subgrid" | "-moz-initial" | "revert-layer" ',
       },
     ],
   },
@@ -2455,9 +2617,8 @@ export const props: ComponentDoc[] = [
         type: 'HTMLAttributes<HTMLElement> ',
       },
       {
-        defaultValue: '',
-        description:
-          'Whether user input is required on the input before form submission.\nOften paired with the `necessityIndicator` prop to add a visual indicator to the input.',
+        defaultValue: 'true',
+        description: 'Whether user input is required on the input before form submission.',
         name: 'isRequired',
         required: false,
         type: 'boolean ',
@@ -2489,67 +2650,6 @@ export const props: ComponentDoc[] = [
         name: 'validationState',
         required: false,
         type: 'ValidationState ',
-      },
-    ],
-  },
-  {
-    displayName: 'Grid',
-    props: [
-      {
-        defaultValue: '',
-        description: 'The DOM tag or react component to use for the element.',
-        name: 'as',
-        required: false,
-        type: 'As<any>',
-      },
-      {
-        defaultValue: '',
-        description: 'The gap between columns',
-        name: 'columnGap',
-        required: false,
-        type: '"small" | "medium" | "x-large" | "x-small" | "large" ',
-      },
-      {
-        defaultValue: "'auto'",
-        description: 'Shorthand for the gridTemplateColumns css property.',
-        name: 'columns',
-        required: false,
-        type: 'number | "inherit" | "none" | (string & {}) | "auto" | "initial" | "revert" | "unset" | "max-content" | "min-content" | "subgrid" | "-moz-initial" | "revert-layer" ',
-      },
-      {
-        defaultValue: '',
-        description: 'Theme aware style object.',
-        name: 'css',
-        required: false,
-        type: 'CSS ',
-      },
-      {
-        defaultValue: '',
-        description: 'Shorthand for the gridAutoFlow css property.',
-        name: 'flow',
-        required: false,
-        type: 'GridAutoFlow ',
-      },
-      {
-        defaultValue: '',
-        description: 'The gap between rows and columns.',
-        name: 'gap',
-        required: false,
-        type: '"small" | "medium" | "x-large" | "x-small" | "large" ',
-      },
-      {
-        defaultValue: '',
-        description: 'The gap between rows',
-        name: 'rowGap',
-        required: false,
-        type: '"small" | "medium" | "x-large" | "x-small" | "large" ',
-      },
-      {
-        defaultValue: "'auto'",
-        description: 'Shorthand for the gridTemplateRows css property.',
-        name: 'rows',
-        required: false,
-        type: 'number | "inherit" | "none" | (string & {}) | "auto" | "initial" | "revert" | "unset" | "max-content" | "min-content" | "subgrid" | "-moz-initial" | "revert-layer" ',
       },
     ],
   },
@@ -2901,25 +3001,6 @@ export const props: ComponentDoc[] = [
     ],
   },
   {
-    displayName: 'Link',
-    props: [
-      {
-        defaultValue: '',
-        description: 'The DOM tag or react component to use for the element.',
-        name: 'as',
-        required: false,
-        type: 'As<any>',
-      },
-      {
-        defaultValue: '',
-        description: 'Theme aware style object.',
-        name: 'css',
-        required: false,
-        type: 'CSS ',
-      },
-    ],
-  },
-  {
     displayName: 'ListBox',
     props: [
       {
@@ -3064,6 +3145,25 @@ export const props: ComponentDoc[] = [
         name: 'shouldFocusWrap',
         required: false,
         type: 'boolean ',
+      },
+    ],
+  },
+  {
+    displayName: 'Link',
+    props: [
+      {
+        defaultValue: '',
+        description: 'The DOM tag or react component to use for the element.',
+        name: 'as',
+        required: false,
+        type: 'As<any>',
+      },
+      {
+        defaultValue: '',
+        description: 'Theme aware style object.',
+        name: 'css',
+        required: false,
+        type: 'CSS ',
       },
     ],
   },
@@ -3341,81 +3441,6 @@ export const props: ComponentDoc[] = [
         name: 'title',
         required: false,
         type: 'ReactNode',
-      },
-    ],
-  },
-  {
-    displayName: 'Pagination',
-    props: [
-      {
-        defaultValue: '',
-        description: 'The DOM tag or react component to use for the element.',
-        name: 'as',
-        required: false,
-        type: 'As<any>',
-      },
-      {
-        defaultValue: '1',
-        description: 'The outer visible boundaries of the pagination list.',
-        name: 'boundaries',
-        required: false,
-        type: 'number ',
-      },
-      {
-        defaultValue: '',
-        description: 'Theme aware style object.',
-        name: 'css',
-        required: false,
-        type: 'CSS ',
-      },
-      {
-        defaultValue: '1',
-        description: 'The default page number (uncontrolled).',
-        name: 'defaultPage',
-        required: false,
-        type: 'number ',
-      },
-      {
-        defaultValue: '',
-        description: 'Callback executed on page change.',
-        name: 'onChange',
-        required: false,
-        type: '((page: number) => void) ',
-      },
-      {
-        defaultValue: '',
-        description: 'The current page (controlled).',
-        name: 'page',
-        required: false,
-        type: 'number ',
-      },
-      {
-        defaultValue: '10',
-        description: 'The number of rows rendered per page.',
-        name: 'rowsPerPage',
-        required: false,
-        type: 'number ',
-      },
-      {
-        defaultValue: 'true',
-        description: 'Whether to show page numbers buttons.',
-        name: 'showPageNumbers',
-        required: false,
-        type: 'boolean ',
-      },
-      {
-        defaultValue: '1',
-        description: 'The number of pages to display before and after the current selected page.',
-        name: 'siblings',
-        required: false,
-        type: 'number ',
-      },
-      {
-        defaultValue: '',
-        description: 'The total number of rows in the table.',
-        name: 'totalRowCount',
-        required: false,
-        type: 'number ',
       },
     ],
   },
@@ -3721,6 +3746,81 @@ export const props: ComponentDoc[] = [
         name: 'label',
         required: false,
         type: 'ReactNode',
+      },
+    ],
+  },
+  {
+    displayName: 'Pagination',
+    props: [
+      {
+        defaultValue: '',
+        description: 'The DOM tag or react component to use for the element.',
+        name: 'as',
+        required: false,
+        type: 'As<any>',
+      },
+      {
+        defaultValue: '1',
+        description: 'The outer visible boundaries of the pagination list.',
+        name: 'boundaries',
+        required: false,
+        type: 'number ',
+      },
+      {
+        defaultValue: '',
+        description: 'Theme aware style object.',
+        name: 'css',
+        required: false,
+        type: 'CSS ',
+      },
+      {
+        defaultValue: '1',
+        description: 'The default page number (uncontrolled).',
+        name: 'defaultPage',
+        required: false,
+        type: 'number ',
+      },
+      {
+        defaultValue: '',
+        description: 'Callback executed on page change.',
+        name: 'onChange',
+        required: false,
+        type: '((page: number) => void) ',
+      },
+      {
+        defaultValue: '',
+        description: 'The current page (controlled).',
+        name: 'page',
+        required: false,
+        type: 'number ',
+      },
+      {
+        defaultValue: '10',
+        description: 'The number of rows rendered per page.',
+        name: 'rowsPerPage',
+        required: false,
+        type: 'number ',
+      },
+      {
+        defaultValue: 'true',
+        description: 'Whether to show page numbers buttons.',
+        name: 'showPageNumbers',
+        required: false,
+        type: 'boolean ',
+      },
+      {
+        defaultValue: '1',
+        description: 'The number of pages to display before and after the current selected page.',
+        name: 'siblings',
+        required: false,
+        type: 'number ',
+      },
+      {
+        defaultValue: '',
+        description: 'The total number of rows in the table.',
+        name: 'totalRowCount',
+        required: false,
+        type: 'number ',
       },
     ],
   },
@@ -6016,6 +6116,100 @@ export const props: ComponentDoc[] = [
     ],
   },
   {
+    displayName: 'SelectItem',
+    props: [
+      {
+        defaultValue: '',
+        description: 'The DOM tag or react component to use for the element.',
+        name: 'as',
+        required: false,
+        type: '"div" ',
+      },
+      {
+        defaultValue: '',
+        description: 'Whether the element should receive focus on render.',
+        name: 'autoFocus',
+        required: false,
+        type: 'boolean ',
+      },
+      {
+        defaultValue: '',
+        description: 'Theme aware style object.',
+        name: 'css',
+        required: false,
+        type: 'CSS ',
+      },
+      {
+        defaultValue: '',
+        description: 'Handler that is called when the element loses focus.',
+        name: 'onBlur',
+        required: false,
+        type: '((e: FocusEvent<Element, Element>) => void) ',
+      },
+      {
+        defaultValue: '',
+        description: 'Handler that is called when the element receives focus.',
+        name: 'onFocus',
+        required: false,
+        type: '((e: FocusEvent<Element, Element>) => void) ',
+      },
+      {
+        defaultValue: '',
+        description: "Handler that is called when the element's focus status changes.",
+        name: 'onFocusChange',
+        required: false,
+        type: '((isFocused: boolean) => void) ',
+      },
+      {
+        defaultValue: '',
+        description: 'Handler that is called when a key is pressed.',
+        name: 'onKeyDown',
+        required: false,
+        type: '((e: KeyboardEvent) => void) ',
+      },
+      {
+        defaultValue: '',
+        description: 'Handler that is called when a key is released.',
+        name: 'onKeyUp',
+        required: false,
+        type: '((e: KeyboardEvent) => void) ',
+      },
+      {
+        defaultValue: '',
+        description: 'Icon added before the item text.',
+        name: 'startIcon',
+        required: false,
+        type: 'ReactElement<any, string | JSXElementConstructor<any>> ',
+      },
+    ],
+  },
+  {
+    displayName: 'SelectSection',
+    props: [
+      {
+        defaultValue: '',
+        description: 'The DOM tag or react component to use for the element.',
+        name: 'as',
+        required: false,
+        type: '"div" ',
+      },
+      {
+        defaultValue: '',
+        description: 'Theme aware style object.',
+        name: 'css',
+        required: false,
+        type: 'CSS ',
+      },
+      {
+        defaultValue: '',
+        description: 'The section label.',
+        name: 'title',
+        required: false,
+        type: 'ReactNode',
+      },
+    ],
+  },
+  {
     displayName: 'Separator',
     props: [
       {
@@ -6063,7 +6257,7 @@ export const props: ComponentDoc[] = [
         description: 'The gap between elements in the stack.',
         name: 'gap',
         required: false,
-        type: '"small" | "medium" | "x-large" | "x-small" | "large" ',
+        type: '"small" | "x-large" | "x-small" | "large" | "medium" ',
       },
       {
         defaultValue: "'vertical'",

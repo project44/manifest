@@ -1,6 +1,12 @@
 import * as React from 'react';
-import { Flex, pxToRem } from '@project44-manifest/react';
+import { Flex, pxToRem, styled } from '@project44-manifest/react';
 import { LiveError, LivePreview } from 'react-live';
+
+const StyledPreview = styled(LivePreview, {
+  fontFamily: '$text',
+  overflowX: 'auto',
+  width: '100%',
+});
 
 const Preview: React.FC<React.ComponentPropsWithRef<'div'>> = props => (
   <Flex
@@ -8,12 +14,11 @@ const Preview: React.FC<React.ComponentPropsWithRef<'div'>> = props => (
     css={{
       backgroundColor: '$background-primary',
       fontFamily: '$text',
-      justifyContent: 'center',
       overflow: 'scroll',
       padding: pxToRem(12),
     }}
   >
-    <LivePreview />
+    <StyledPreview />
     <LiveError />
   </Flex>
 );

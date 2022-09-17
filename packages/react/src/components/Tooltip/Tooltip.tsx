@@ -19,6 +19,12 @@ export interface TooltipOptions<T extends As = TooltipElement>
     OverlayTriggerProps,
     StyleProps {
   /**
+   * The delay time for the tooltip to show up.
+   *
+   * @default 1000
+   */
+  delay?: number;
+  /**
    * Whether the tooltip should be disabled, independent from the trigger.
    */
   isDisabled?: boolean;
@@ -42,6 +48,7 @@ export const Tooltip = createComponent<TooltipOptions>((props, forwardedRef) => 
     children,
     className: classNameProp,
     css,
+    delay = 1000,
     isDisabled,
     placement = 'top',
     title,
@@ -53,7 +60,7 @@ export const Tooltip = createComponent<TooltipOptions>((props, forwardedRef) => 
   const overlayRef = React.useRef<HTMLDivElement>(null);
   const triggerRef = React.useRef<HTMLButtonElement>(null);
 
-  const state = useTooltipTriggerState({ ...props, delay: 1000 });
+  const state = useTooltipTriggerState({ ...props, delay });
 
   const { triggerProps, tooltipProps: contentProps } = useTooltipTrigger(
     { isDisabled },

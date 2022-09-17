@@ -9,11 +9,14 @@ import InlineCode from './InlineCode';
 import Heading from './Heading';
 import Image from './Image';
 import PropsTable from './PropsTable';
+import TypeScale from './TypeScale';
 
 const MDXComponents = {
   ...Manifest,
   Colors,
   ColorSwatch,
+  PropsTable,
+  TypeScale,
   a: Anchor,
   blockquote: BlockQuote,
   code: InlineCode,
@@ -32,14 +35,13 @@ const MDXComponents = {
   ),
   hr: (props: React.DetailsHTMLAttributes<unknown>) => <Manifest.Separator {...props} />,
   p: (props: React.DetailsHTMLAttributes<unknown>) => (
-    <Manifest.Typography as="p" css={{ marginBottom: '$large' }} variant="body" {...props} />
+    <Manifest.Typography as="p" css={{ marginBottom: '$medium' }} variant="body" {...props} />
   ),
   pre: (props: any) => {
     if (typeof props.children === 'string') return <Manifest.Box as="pre" {...props} />;
 
     return <CodeBlock {...props} />;
   },
-  PropsTable,
   table: Manifest.Table,
   tbody: Manifest.TableBody,
   thead: Manifest.TableHeader,

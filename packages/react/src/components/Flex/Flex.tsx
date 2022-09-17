@@ -8,13 +8,17 @@ export type FlexElement = 'div';
 
 export interface FlexOptions<T extends As = FlexElement> extends Options<T>, StyleProps {
   /**
-   * The aligment of the container's children.
+   * The alignment of the container's children.
    */
   align?: 'baseline' | 'center' | 'end' | 'start';
   /**
-   * The justifcation of the container's children.
+   * The justification of the container's children.
    */
   justify?: 'around' | 'between' | 'center' | 'end' | 'start';
+  /**
+   * The gap between rows and columns.
+   */
+  gap?: 'x-small' | 'small' | 'medium' | 'large' | 'x-large';
   /**
    * The orientation of the container's children.
    */
@@ -32,6 +36,7 @@ export const Flex = createComponent<FlexOptions>((props, forwardedRef) => {
     as: Comp = 'div',
     align,
     className: classNameProp,
+    gap,
     css,
     justify,
     orientation,
@@ -39,7 +44,7 @@ export const Flex = createComponent<FlexOptions>((props, forwardedRef) => {
     ...other
   } = props;
 
-  const { className } = useStyles({ align, css, justify, orientation, wrap });
+  const { className } = useStyles({ align, css, justify, gap, orientation, wrap });
 
   return (
     <Comp {...other} className={cx(className, classNameProp, 'manifest-flex')} ref={forwardedRef} />

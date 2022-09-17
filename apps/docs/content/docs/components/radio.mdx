@@ -1,0 +1,102 @@
+---
+title: Radio
+description: An input which allows users to select one or more options from a list of options.
+---
+
+```jsx
+<RadioGroup aria-label="account type">
+  <Radio value="shipper">Shipper</Radio>
+  <Radio value="carrier">Carrier</Radio>
+</RadioGroup>
+```
+
+## Examples
+
+### Orientation
+
+Set the `orientation` prop to adjust the layout of the radio options.
+
+```jsx
+<RadioGroup aria-label="account type" orientation="horizontal">
+  <Radio value="shipper">Shipper</Radio>
+  <Radio value="carrier">Carrier</Radio>
+</RadioGroup>
+```
+
+### Controlled
+
+A radio group's state can be controlled by a parent React component by setting the `value` prop and passing a handler to the `onChange` prop.
+
+```jsx
+function ControlledExample() {
+  const [selected, setSelected] = React.useState('shipper');
+
+  return (
+    <RadioGroup aria-label="account type" onChange={setSelected} value={selected}>
+      <Radio value="shipper">Shipper</Radio>
+      <Radio value="carrier">Carrier</Radio>
+    </RadioGroup>
+  );
+}
+```
+
+### Disabled State
+
+Set the `isDisabled` prop to prevent a user from selecting a radio option.
+
+```jsx
+<RadioGroup aria-label="account type" isDisabled>
+  <Radio value="shipper">Shipper</Radio>
+  <Radio value="carrier">Carrier</Radio>
+</RadioGroup>
+```
+
+### Disabled items
+
+Set the `isDisabled` prop on an option to prevent a user from selecting that option.
+
+```jsx
+<RadioGroup aria-label="account type">
+  <Radio value="shipper">Shipper</Radio>
+  <Radio isDisabled value="carrier">
+    Carrier
+  </Radio>
+</RadioGroup>
+```
+
+### Readonly
+
+Set the `isReadOnly` prop to render the radio items in a readonly mode.
+
+```jsx
+<RadioGroup aria-label="account type" isReadOnly>
+  <Radio value="shipper">Shipper</Radio>
+  <Radio value="carrier">Carrier</Radio>
+</RadioGroup>
+```
+
+## Accessibility
+
+If a visible label isn't specified for a radio group, an aria-label must be provided for accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be provided using the id of the labeling element instead.
+
+Radio elements should always have a visible label.
+
+## API
+
+### Import
+
+```js
+import { Radio, RadioGroup } from '@project44-manifest/react';
+```
+
+### RadioGroup Props
+
+All native element props are also available.
+
+<PropsTable of="RadioGroup" />
+
+### Radio Props
+
+All native element props are also available.
+
+<PropsTable of="Radio" />

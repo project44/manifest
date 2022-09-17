@@ -1,0 +1,58 @@
+---
+title: Popover
+description: Used to display some content on top of another.
+---
+
+> The popover component is an internal utility component and requires additional components and hooks to function properly.
+
+```jsx
+function PopoverExample() {
+  const overlayRef = React.useRef(null);
+  const targetRef = React.useRef(null);
+
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const { overlayProps } = useOverlayPosition({
+    isOpen,
+    onClose: () => setIsOpen(false),
+    overlayRef,
+    targetRef,
+  });
+
+  return (
+    <>
+      <Button onPress={() => setIsOpen(true)} ref={targetRef}>
+        Open Popover
+      </Button>
+      <Overlay isOpen={isOpen}>
+        <Popover
+          {...overlayProps}
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+          ref={overlayRef}
+        >
+          <Box css={{ maxWidth: 300, padding: '$medium' }}>
+            <Typography>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </Typography>
+          </Box>
+        </Popover>
+      </Overlay>
+    </>
+  );
+}
+```
+
+## API
+
+### Import
+
+```js
+import { Popover } from '@project44-manifest/react';
+```
+
+All native element props are also available.
+
+<PropsTable of="Popover" />

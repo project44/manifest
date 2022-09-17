@@ -1,6 +1,6 @@
 import type { TOC as TOCType } from '../types';
 import * as React from 'react';
-import { Box, Container, pxToRem, Stack } from '@project44-manifest/react';
+import { Box, Container, Flex, pxToRem, Stack } from '@project44-manifest/react';
 import isEmpty from 'lodash/isEmpty';
 import Header from './Header';
 import Sidebar from './Sidebar';
@@ -19,19 +19,29 @@ function DocsLayout(props: DocsLayoutProps) {
   const { children, description, title, toc = [] } = props;
 
   return (
-    <Box css={{ $$headerHeight: pxToRem(72), $$sideNavWidth: pxToRem(280) }}>
+    <Box
+      css={{ $$headerHeight: pxToRem(72), $$sideNavWidth: pxToRem(280), $$tocWidth: pxToRem(240) }}
+    >
       <Head description={description} title={title} />
       <Header />
-      <Container as="main" css={{ display: 'flex' }} maxWidth="large">
-        <Sidebar />
-        <Stack css={{ flexGrow: 1, pt: '$$headerHeight' }} orientation="vertical">
-          <Meta description={description} title={title} />
-          <Stack orientation="horizontal">
-            <Box css={{ pb: '$$headerHeight', px: '$large', width: '100%' }}>{children}</Box>
-            {!isEmpty(toc) && <TOC items={toc} />}
+      <Sidebar />
+      <Flex
+        as="main"
+        css={{
+          px: '$large',
+          marginLeft: '$$sideNavWidth',
+          marginRight: '$$tocWidth',
+          minHeight: '100vh',
+        }}
+      >
+        <Container css={{ display: 'flex', px: 0 }} maxWidth="small">
+          <Stack css={{ flexGrow: 1, pt: '$$headerHeight' }} orientation="vertical">
+            <Meta description={description} title={title} />
+            <Box css={{ pb: '$$headerHeight', width: '100%' }}>{children}</Box>
           </Stack>
-        </Stack>
-      </Container>
+        </Container>
+      </Flex>
+      {!isEmpty(toc) && <TOC items={toc} />}
     </Box>
   );
 }
