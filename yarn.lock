@@ -3859,7 +3859,7 @@ __metadata:
   dependencies:
     "@internationalized/date": ^3.0.1
     "@project44-manifest/design-tokens": ^1.1.0
-    "@project44-manifest/react": ^2.0.0
+    "@project44-manifest/react": ^2.3.0
     contentlayer: ^0.2.7
     copy-to-clipboard: ^3.3.2
     eslint-config-next: ^12.2.5
@@ -3878,7 +3878,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react@^2.0.0, @project44-manifest/react@workspace:packages/react":
+"@project44-manifest/react@^2.3.0, @project44-manifest/react@workspace:packages/react":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react@workspace:packages/react"
   dependencies:
