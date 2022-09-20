@@ -1,4 +1,5 @@
 import type { FocusableProps } from '@react-types/shared';
+import type { ItemProps } from '@react-types/shared';
 import type { Node } from '@react-types/shared';
 import type { StyleProps } from '../../types';
 import * as React from 'react';
@@ -29,17 +30,12 @@ export interface ListBoxItemOptions<T extends As = ListBoxItemElement>
    * Icon added before the item text.
    */
   startIcon?: React.ReactElement;
-  /**
-   * Callback executed on item select.
-   */
-  onAction?(key: React.Key): void;
 }
 
-export type ListBoxItemProps<T extends As = ListBoxItemElement> = Omit<
-  Props<ListBoxItemOptions<T>>,
-  'item' | 'isVirtualized'
->;
+export type ListBoxItemProps<T extends As = ListBoxItemElement> = ItemProps<object> &
+  Omit<Props<ListBoxItemOptions<T>>, 'isVirtualized' | 'item'>;
 
+/** @private */
 export const ListBoxItem = createComponent<ListBoxItemOptions>((props, forwardedRef) => {
   const {
     as: Comp = 'div',

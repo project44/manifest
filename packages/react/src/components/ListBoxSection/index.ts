@@ -5,9 +5,7 @@ import {
 } from './ListBoxSection';
 import { Section } from '@react-stately/collections';
 
-export const ListBoxSection = Section as (
-  props: Omit<ListBoxSectionProps, 'isVirtualized' | 'item' | 'onAction'>,
-) => JSX.Element;
+export const ListBoxSection = Section as (props: Omit<ListBoxSectionProps, 'item'>) => JSX.Element;
 
 export type { ListBoxSectionProps, ListBoxSectionOptions };
 export { _ListBoxSection };
