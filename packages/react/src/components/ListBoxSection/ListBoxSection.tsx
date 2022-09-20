@@ -1,4 +1,5 @@
 import type { Node } from '@react-types/shared';
+import type { SectionProps } from '@react-types/shared';
 import type { StyleProps } from '../../types';
 import * as React from 'react';
 import { As, createComponent, Props, Options } from '@project44-manifest/system';
@@ -19,17 +20,12 @@ export interface ListBoxSectionOptions<T extends As = ListBoxSectionElement>
    * Item object in the collection.
    */
   item: Node<object>;
-  /**
-   * The section label.
-   */
-  title?: React.ReactNode;
 }
 
-export type ListBoxSectionProps<T extends As = ListBoxSectionElement> = Omit<
-  Props<ListBoxSectionOptions<T>>,
-  'item'
->;
+export type ListBoxSectionProps<T extends As = ListBoxSectionElement> = SectionProps<object> &
+  Omit<Props<ListBoxSectionOptions<T>>, 'item'>;
 
+/** @private */
 export const ListBoxSection = createComponent<ListBoxSectionOptions>((props, forwardedRef) => {
   const { as: Comp = 'div', className: classNameProp, css, item } = props;
 

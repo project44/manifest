@@ -1,4 +1,5 @@
 import type { FocusableProps } from '@react-types/shared';
+import type { ItemProps } from '@react-types/shared';
 import type { Node } from '@react-types/shared';
 import type { StyleProps } from '../../types';
 import type { TreeState } from '@react-stately/tree';
@@ -8,7 +9,6 @@ import { DropdownContext, useDropdownContext } from '../Dropdown';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useHover, usePress } from '@react-aria/interactions';
 import { cx } from '../../styles';
-import { Icon } from '../Icon';
 import { Typography } from '../Typography';
 import { useFocusRing } from '@react-aria/focus';
 import { useMenuItem } from '@react-aria/menu';
@@ -46,11 +46,10 @@ export interface DropdownItemOptions<T extends As = DropdownItemElement>
   onAction?(key: React.Key): void;
 }
 
-export type DropdownItemProps<T extends As = DropdownItemElement> = Omit<
-  Props<DropdownItemOptions<T>>,
-  'item' | 'isVirtualized' | 'state'
->;
+export type DropdownItemProps<T extends As = DropdownItemElement> = ItemProps<object> &
+  Omit<Props<DropdownItemOptions<T>>, 'item' | 'isVirtualized' | 'state'>;
 
+/** @private */
 export const DropdownItem = createComponent<DropdownItemOptions>((props, forwardedRef) => {
   const {
     as: Comp = 'li',
