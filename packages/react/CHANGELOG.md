@@ -1,5 +1,11 @@
 # @manifest/react
 
+## 2.3.1
+
+### Patch Changes
+
+- [#99](https://github.com/project44/manifest/pull/99) [`04cf515`](https://github.com/project44/manifest/commit/04cf51505c4a38db0de156cf3213ca16e8e1ffa9) Thanks [@bclark-p44](https://github.com/bclark-p44)! - Fixing section and item collection types
+
 ## 2.3.0
 
 ### Minor Changes
