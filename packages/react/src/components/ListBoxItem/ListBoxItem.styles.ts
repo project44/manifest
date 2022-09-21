@@ -20,19 +20,15 @@ export const useStyles = css({
     color: '$text-secondary',
     display: 'inline-flex',
     flexShrink: 0,
-
-    '& > .manifest-icon': {
-      fontSize: pxToRem(16),
-    },
   },
 
   '.manifest-listbox-item__icon--end': {
     color: '$primary-default',
-    marginLeft: '$small',
+    marginLeft: pxToRem(12),
   },
 
   '.manifest-listbox-item__icon--start': {
-    marginRight: '$small',
+    marginRight: pxToRem(12),
   },
 
   '.manifest-listbox-item__text': {
@@ -67,9 +63,22 @@ export const useStyles = css({
       },
     },
     isSelected: {
-      true: {
+      true: {},
+    },
+    selectionMode: {
+      none: {},
+      multiple: {},
+      single: {},
+    },
+  },
+
+  compoundVariants: [
+    {
+      selectionMode: 'single',
+      isSelected: true,
+      css: {
         $$backgroundColor: '$colors$background-secondary',
       },
     },
-  },
+  ],
 });

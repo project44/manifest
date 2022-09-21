@@ -1,6 +1,6 @@
+import type { Node, SelectionMode } from '@react-types/shared';
 import type { FocusableProps } from '@react-types/shared';
 import type { ItemProps } from '@react-types/shared';
-import type { Node } from '@react-types/shared';
 import type { StyleProps } from '../../types';
 import * as React from 'react';
 import { As, createComponent, Props, Options } from '@project44-manifest/system';
@@ -11,6 +11,7 @@ import { Typography } from '../Typography';
 import { useHover } from '@react-aria/interactions';
 import { useOption } from '@react-aria/listbox';
 import { useStyles } from './ListBoxItem.styles';
+import { Checkbox } from '../Checkbox';
 
 export type ListBoxItemElement = 'div';
 
@@ -27,13 +28,17 @@ export interface ListBoxItemOptions<T extends As = ListBoxItemElement>
    */
   item: Node<object>;
   /**
+   * The type of selection that is allowed in the collection.
+   */
+  selectionMode?: SelectionMode;
+  /**
    * Icon added before the item text.
    */
   startIcon?: React.ReactElement;
 }
 
 export type ListBoxItemProps<T extends As = ListBoxItemElement> = ItemProps<object> &
-  Omit<Props<ListBoxItemOptions<T>>, 'isVirtualized' | 'item'>;
+  Omit<Props<ListBoxItemOptions<T>>, 'isVirtualized' | 'item' | 'selectionMode'>;
 
 /** @private */
 export const ListBoxItem = createComponent<ListBoxItemOptions>((props, forwardedRef) => {
@@ -43,6 +48,7 @@ export const ListBoxItem = createComponent<ListBoxItemOptions>((props, forwarded
     css,
     isVirtualized,
     item,
+    selectionMode,
     startIcon: startIconProp,
   } = props;
 
@@ -63,10 +69,13 @@ export const ListBoxItem = createComponent<ListBoxItemOptions>((props, forwarded
   );
   const { hoverProps, isHovered } = useHover({ isDisabled });
 
-  const startIcon = React.useMemo(
-    () => startIconProp ?? (item.props.startIcon as React.ReactElement),
-    [startIconProp, item.props.startIcon],
-  );
+  const startIcon = React.useMemo(() => {
+    if (selectionMode === 'multiple') {
+      return <Checkbox aria-labelledby={labelProps.id} isReadOnly isSelected={isSelected} />;
+    } else {
+      return startIconProp ?? (item.props.startIcon as React.ReactElement);
+    }
+  }, [labelProps, isSelected, selectionMode, startIconProp, item.props.startIcon]);
 
   const { className } = useStyles({
     css,
@@ -75,6 +84,7 @@ export const ListBoxItem = createComponent<ListBoxItemOptions>((props, forwarded
     isHovered,
     isPressed,
     isSelected,
+    selectionMode,
   });
 
   const classes = cx(className, classNameProp, {

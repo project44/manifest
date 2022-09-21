@@ -6,14 +6,14 @@ export const useStyles = css({
   $$iconColor: '$colors$text-tertiary',
   $$textColor: '$colors$text-primary',
 
-  '.manifest-select__wrapper': {
+  '.manifest-multi-select__wrapper': {
     display: 'flex',
     minWidth: pxToRem(48),
     position: 'relative',
     width: '100%',
   },
 
-  '.manifest-select__icon': {
+  '.manifest-multi-select__icon': {
     alignItems: 'center',
     color: '$$iconColor',
     display: 'inline-flex',
@@ -21,19 +21,18 @@ export const useStyles = css({
     padding: '$small',
     pointerEvents: 'none',
     position: 'absolute',
-    top: 0,
     zIndex: 2,
   },
 
-  '.manifest-select__icon--end': {
+  '.manifest-multi-select__icon--end': {
     right: 0,
   },
 
-  '.manifest-select__icon--start': {
+  '.manifest-multi-select__icon--start': {
     left: 0,
   },
 
-  '.manifest-select__input': {
+  '.manifest-multi-select__input': {
     appearance: 'none',
     backgroundColor: '$$backgroundColor',
     border: '1px solid $$borderColor',
@@ -49,14 +48,14 @@ export const useStyles = css({
     width: '100%',
   },
 
-  '.manifest-select__text': {
+  '.manifest-multi-select__text': {
     color: '$text-tertiary',
   },
 
   variants: {
     hasStartIcon: {
       true: {
-        '.manifest-select__input': {
+        '.manifest-multi-select__input': {
           paddingLeft: pxToRem(40),
         },
       },
@@ -73,7 +72,7 @@ export const useStyles = css({
         $$backgroundColor: '$colors$palette-grey-50',
         $$textColor: '$colors$text-disabled',
 
-        '.manifest-select__input': {
+        '.manifest-multi-select__input': {
           cursor: 'not-allowed',
         },
       },
@@ -87,7 +86,7 @@ export const useStyles = css({
     },
     isFocusVisible: {
       true: {
-        '.manifest-select__input': {
+        '.manifest-multi-select__input': {
           outline: '$colors$palette-indigo-200 solid 3px',
         },
       },
@@ -119,31 +118,33 @@ export const useStyles = css({
     },
     size: {
       medium: {
-        '.manifest-select__icon': {
+        '.manifest-multi-select__icon': {
           fontSize: '$x-large',
           size: pxToRem(40),
+          top: `calc(50% - ${pxToRem(20)})`,
 
           '> .manifest-icon': {
             fontSize: '$x-large',
           },
         },
 
-        '.manifest-select__input': {
-          height: pxToRem(40),
+        '.manifest-multi-select__input': {
+          minHeight: pxToRem(40),
         },
       },
       small: {
-        '.manifest-select__icon': {
+        '.manifest-multi-select__icon': {
           fontSize: pxToRem(18),
           size: pxToRem(34),
+          top: `calc(50% - ${pxToRem(17)})`,
 
           '> .manifest-icon': {
             fontSize: pxToRem(18),
           },
         },
 
-        '.manifest-select__input': {
-          height: pxToRem(34),
+        '.manifest-multi-select__input': {
+          minHeight: pxToRem(34),
         },
       },
     },

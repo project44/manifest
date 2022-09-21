@@ -31,6 +31,7 @@ export const ListBoxBase = createComponent<ListBoxBaseOptions>((props, forwarded
   const listboxRef = React.useRef<HTMLDivElement>(null);
 
   const { listBoxProps } = useListBox(other, state, listboxRef);
+  const { selectionMode } = state.selectionManager;
 
   const { className } = useStyles({ css });
 
@@ -46,7 +47,7 @@ export const ListBoxBase = createComponent<ListBoxBaseOptions>((props, forwarded
             return <_ListBoxSection key={item.key} item={item} />;
           }
 
-          return <_ListBoxItem key={item.key} item={item} />;
+          return <_ListBoxItem key={item.key} item={item} selectionMode={selectionMode} />;
         })}
       </Comp>
     </ListBoxContext.Provider>

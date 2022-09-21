@@ -18,15 +18,11 @@ export const useStyles = css({
   verticalAlign: 'middle',
   whiteSpace: 'nowrap',
 
-  '.manifest-tag__button': {
-    padding: 0,
-    margin: 0,
-    marginLeft: '$x-small',
-    size: pxToRem(16),
-  },
-
   '.manifest-tag__icon': {
     fontSize: '$medium',
+    margin: 0,
+    marginLeft: '$x-small',
+    padding: 0,
     size: pxToRem(16),
   },
 
