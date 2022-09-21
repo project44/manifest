@@ -93,6 +93,9 @@ export type { ListBoxItemProps } from './components/ListBoxItem';
 export { ListBoxSection } from './components/ListBoxSection';
 export type { ListBoxSectionProps } from './components/ListBoxSection';
 
+export { MultiSelect } from './components/MultiSelect';
+export type { MultiSelectProps } from './components/MultiSelect';
+
 export { Pagination } from './components/Pagination';
 export type { PaginationProps } from './components/Pagination';
 
