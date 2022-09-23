@@ -1,4 +1,4 @@
-import type { AriaMultiSelectProps } from '../../types';
+import type { AriaMultiComboboxProps } from '../../types';
 import type { Placement } from '@react-types/overlays';
 import type { StyleProps } from '../../types';
 import * as React from 'react';
@@ -7,26 +7,25 @@ import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { cx } from '../../styles';
 import { FormControl } from '../FormControl';
-import { HiddenMultiSelect } from '../HiddenMultiSelect';
 import { Icon } from '../Icon';
 import { Overlay } from '../Overlay';
 import { Popover } from '../Popover';
 import { Stack } from '../Stack';
 import { Tag } from '../Tag';
-import { Typography } from '../Typography';
 import { useButton } from '@react-aria/button';
+import { useFilter } from '@react-aria/i18n';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
-import { useMultiSelect } from '../../hooks';
-import { useMultiSelectState } from '../../state';
+import { useMultiCombobox } from '../../hooks';
+import { useMultiComboboxState } from '../../state';
 import { useOverlayPosition } from '@react-aria/overlays';
-import { useStyles } from './MultiSelect.styles';
+import { useStyles } from './MultiCombobox.styles';
 
-export type MultiSelectElement = 'label';
+export type MultiComboboxElement = 'div';
 
-export interface MultiSelectOptions<T extends As = MultiSelectElement>
+export interface MultiComboboxOptions<T extends As = MultiComboboxElement>
   extends Options<T>,
-    AriaMultiSelectProps<object>,
+    AriaMultiComboboxProps<object>,
     StyleProps {
   /**
    * Helper text to append to the form control input element.
@@ -70,48 +69,73 @@ export interface MultiSelectOptions<T extends As = MultiSelectElement>
    */
   shouldFlip?: boolean;
   /**
-   * Icon displayed at the start of the text field.
+   * The size of the combobox
    *
-   * @example
-   * <Combobox startIcon={<Icon />} />
+   * @default 'medium'
+   */
+  size?: 'medium' | 'small';
+  /**
+   * Icon displayed at the start of the combobox.
    */
   startIcon?: React.ReactElement;
 }
 
-export type MultiSelectProps<T extends As = MultiSelectElement> = Props<MultiSelectOptions<T>>;
+export type MultiComboboxProps<T extends As = MultiComboboxElement> = Props<
+  MultiComboboxOptions<T>
+>;
 
-export const MultiSelect = createComponent<MultiSelectOptions>((props, forwardedRef) => {
+export const MultiCombobox = createComponent<MultiComboboxOptions>((props, forwardedRef) => {
   const {
     as: Comp = 'div',
-    autoComplete,
     autoFocus,
     className: classNameProp,
     css,
     isDisabled,
-    isRequired,
     helperText,
-    helperTextProps = {},
+    helperTextProps: helperTextPropsProp = {},
     label,
     labelProps: labelPropsProp = {},
-    name,
     maxHeight,
     offset = 4,
-    placeholder,
-    placement = 'bottom start',
+    placement = 'bottom',
     shouldFlip = true,
     validationState,
+    size = 'medium',
     startIcon,
   } = props;
 
+  const isInvalid = validationState === 'invalid';
+
   const containerRef = React.useRef<HTMLDivElement>(null);
-  const triggerRef = React.useRef<HTMLButtonElement>(null);
+  const buttonRef = React.useRef<HTMLButtonElement>(null);
+  const inputRef = React.useRef<HTMLInputElement>(null);
   const listBoxRef = React.useRef<HTMLDivElement>(null);
   const popoverRef = React.useRef<HTMLDivElement>(null);
 
-  const state = useMultiSelectState(props);
+  const { contains } = useFilter({ sensitivity: 'base' });
 
-  const { labelProps, triggerProps, valueProps, menuProps, descriptionProps, errorMessageProps } =
-    useMultiSelect(props, state, triggerRef);
+  const state = useMultiComboboxState({
+    ...props,
+    defaultFilter: contains,
+  });
+
+  const {
+    buttonProps: triggerProps,
+    inputProps,
+    listBoxProps,
+    labelProps,
+    descriptionProps,
+    errorMessageProps,
+  } = useMultiCombobox(
+    {
+      ...props,
+      buttonRef,
+      inputRef,
+      listBoxRef,
+      popoverRef,
+    },
+    state,
+  );
 
   const { overlayProps } = useOverlayPosition({
     isOpen: state.isOpen,
@@ -125,29 +149,30 @@ export const MultiSelect = createComponent<MultiSelectOptions>((props, forwarded
     targetRef: containerRef,
   });
 
-  const isInvalid = validationState === 'invalid';
-
-  const { buttonProps, isPressed } = useButton(triggerProps, triggerRef);
-  const { isFocusVisible, isFocused, focusProps } = useFocusRing({ autoFocus });
+  const { buttonProps } = useButton(triggerProps, buttonRef);
   const { hoverProps, isHovered } = useHover({ isDisabled });
+  const { isFocusVisible, isFocused, focusProps } = useFocusRing({
+    autoFocus,
+    within: true,
+  });
 
   const { className } = useStyles({
     hasStartIcon: !!startIcon,
-    isActive: state.isOpen,
     isDisabled,
     isFocused,
     isFocusVisible,
     isHovered,
     isInvalid,
     isPlaceholder: !state.selectedItems,
-    isPressed,
+    size,
     css,
   });
 
   const classes = cx(className, classNameProp, {
-    'manifest-multi-select': true,
-    'manifest-multi-select--disabled': isDisabled,
-    'manifest-multi-select--invalid': isInvalid,
+    'manifest-combobox': true,
+    'manifest-combobox--disabled': isDisabled,
+    'manifest-combobox--invalid': isInvalid,
+    [`manifest-combobox--${size}`]: size,
   });
 
   const containerDimensions = containerRef.current?.getBoundingClientRect();
@@ -156,68 +181,48 @@ export const MultiSelect = createComponent<MultiSelectOptions>((props, forwarded
     <FormControl
       className={classes}
       helperText={helperText}
-      helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextProps)}
-      isRequired={isRequired}
+      helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextPropsProp)}
       label={label}
       labelProps={mergeProps(labelProps, labelPropsProp)}
       validationState={validationState}
     >
-      <Comp className="manifest-multi-select__wrapper" ref={mergeRefs(containerRef, forwardedRef)}>
-        {startIcon && (
-          <span className={cx('manifest-multi-select__icon', 'manifest-multi-select__icon--start')}>
-            {startIcon}
-          </span>
-        )}
+      <Comp
+        {...mergeProps(hoverProps, focusProps)}
+        className="manifest-multi-combobox__wrapper"
+        ref={mergeRefs(containerRef, forwardedRef)}
+      >
+        {startIcon && <span className="manifest-multi-combobox__icon">{startIcon}</span>}
 
-        <HiddenMultiSelect
-          autoComplete={autoComplete}
-          isDisabled={isDisabled}
-          state={state}
-          triggerRef={triggerRef}
-          label={label}
-          name={name}
-        />
+        <Stack css={{ flexWrap: 'wrap' }} gap="x-small" orientation="horizontal">
+          {state.selectedItems?.map(item => (
+            <Tag
+              key={item.key}
+              onRemove={() => state.selectionManager.toggleSelection(item.key)}
+              isRemovable
+            >
+              {item.textValue}
+            </Tag>
+          ))}
+        </Stack>
 
-        <button
-          {...mergeProps(buttonProps, focusProps, hoverProps, { autoFocus })}
-          className="manifest-multi-select__input"
-          ref={triggerRef}
-        >
-          {state.selectedItems.length ? (
-            <Stack css={{ flexWrap: 'wrap' }} gap="x-small" orientation="horizontal">
-              {state.selectedItems?.map(item => (
-                <Tag
-                  key={item.key}
-                  onRemove={() => state.selectionManager.toggleSelection(item.key)}
-                  isRemovable
-                >
-                  {item.textValue}
-                </Tag>
-              ))}
-            </Stack>
-          ) : (
-            <Typography {...valueProps} variant="subtext">
-              {placeholder}
-            </Typography>
-          )}
-        </button>
+        <input {...inputProps} className="manifest-multi-combobox__input" ref={inputRef} />
 
-        <span className={cx('manifest-multi-select__icon', 'manifest-multi-select__icon--end')}>
+        <button {...buttonProps} className="manifest-multi-combobox__button" ref={buttonRef}>
           <Icon icon="expand_more" />
-        </span>
+        </button>
 
         <Overlay isOpen={state.isOpen && !isDisabled}>
           <Popover
             {...overlayProps}
-            className="manifest-combobox__popover"
+            className="manifest-multi-combobox__popover"
             css={{ left: containerDimensions?.left, width: containerDimensions?.width }}
             isOpen={state.isOpen}
             onClose={state.close}
             ref={popoverRef}
           >
             <ListBoxBase
-              {...(menuProps as ListBoxBaseProps)}
-              className="manifest-multi-select__list-box"
+              {...(listBoxProps as ListBoxBaseProps)}
+              className="manifest-multi-combobox__list-box"
               disallowEmptySelection
               ref={listBoxRef}
               state={state}

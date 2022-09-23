@@ -3,6 +3,11 @@ import type { Selection } from '@react-types/shared';
 import { useListState } from '@react-stately/list';
 import { useControlledState } from '@react-stately/utils';
 
+/**
+ * Pulled directly from the following library and augmented for our needs:
+ *
+ * https://github.com/so99ynoodles/headless-react/blob/main/packages/shared/src/hooks/useMultiSelectListState.tsx
+ */
 export function useMultiSelectListState<T extends object>(
   props: MultiSelectListProps<T>,
 ): MultiSelectListState<T> {

@@ -5,6 +5,7 @@ import type {
   DOMProps,
   FocusableDOMProps,
   FocusableProps,
+  FocusStrategy,
   HelpTextProps,
   InputBase,
   LabelableProps,
@@ -14,12 +15,21 @@ import type {
   TextInputBase,
   Validation,
 } from '@react-types/shared';
+import type { Key, RefObject } from 'react';
 import type { AriaHiddenSelectProps } from '@react-aria/select';
 import type { ListState } from '@react-stately/list';
+import type { MenuTriggerAction } from '@react-types/combobox';
 import type { MenuTriggerState } from '@react-stately/menu';
 import type { MultipleSelectionStateProps } from '@react-stately/selection';
-import type { RefObject } from 'react';
 import type { CSS } from './styles';
+
+export interface AriaMultiComboboxProps<T>
+  extends MultiComboboxProps<T>,
+    DOMProps,
+    AriaLabelingProps {
+  /** Whether keyboard navigation is circular. */
+  shouldFocusWrap?: boolean;
+}
 
 export interface AriaMultiSelectProps<T>
   extends MultiSelectProps<T>,
@@ -42,6 +52,60 @@ export interface HiddenMultiSelectProps<T> extends AriaHiddenSelectProps {
 
   /** A ref to the trigger element. */
   triggerRef: RefObject<HTMLElement>;
+}
+
+export interface MultiComboboxState<T> extends MultiSelectState<T> {
+  /** The current value of the combo box input. */
+  inputValue: string;
+  /** Selects the currently focused item and updates the input value. */
+  commit(): void;
+  /** Opens the menu. */
+  open(focusStrategy?: FocusStrategy | null, trigger?: MenuTriggerAction | null): void;
+  /** Resets the input value to the previously selected item's text if any and closes the menu.  */
+  revert(): void;
+  /** Sets the value of the combo box input. */
+  setInputValue(value: string): void;
+  /** Toggles the menu. */
+  toggle(focusStrategy?: FocusStrategy | null, trigger?: MenuTriggerAction | null): void;
+}
+
+export interface MultiComboboxProps<T>
+  extends CollectionBase<T>,
+    InputBase,
+    TextInputBase,
+    Validation,
+    FocusableProps,
+    LabelableProps,
+    HelpTextProps,
+    Omit<MultipleSelection, 'disallowEmptySelection'> {
+  /** Whether the ComboBox allows a non-item matching input value to be set. */
+  allowsCustomValue?: boolean;
+  /** The list of ComboBox items (uncontrolled). */
+  defaultItems?: Iterable<T>;
+  /** Sets the default open state of the menu. */
+  defaultOpen?: boolean;
+  /** The default value of the ComboBox input (uncontrolled). */
+  defaultInputValue?: string;
+  /** The value of the ComboBox input (controlled). */
+  inputValue?: string;
+  /** Sets the open state of the menu. */
+  isOpen?: boolean;
+  /** The list of ComboBox items (controlled). */
+  items?: Iterable<T>;
+  /**
+   * The interaction required to display the ComboBox menu.
+   *
+   * @default 'input'
+   */
+  menuTrigger?: MenuTriggerAction;
+  /**
+   * The name of the input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname).
+   */
+  name?: string;
+  /** Handler that is called when the ComboBox input value changes. */
+  onInputChange?: (value: string) => void;
+  /** Method that is called when the open state of the menu changes. Returns the new open state and the action that caused the opening of the menu. */
+  onOpenChange?: (isOpen: boolean, menuTrigger?: MenuTriggerAction) => void;
 }
 
 export interface MultiSelectProps<T>

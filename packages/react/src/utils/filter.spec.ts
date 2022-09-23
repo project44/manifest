@@ -1,0 +1,1 @@
+import { filterCollection } from './filter';

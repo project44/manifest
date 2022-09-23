@@ -3,6 +3,11 @@ import * as React from 'react';
 import { useMenuTriggerState } from '@react-stately/menu';
 import { useMultiSelectListState } from './useMultiSelectListState';
 
+/**
+ * Pulled directly from the following library and augmented for our needs:
+ *
+ * https://github.com/so99ynoodles/headless-react/blob/main/packages/select/src/hooks/useMultiSelectState.tsx
+ */
 export function useMultiSelectState<T extends object>(
   props: MultiSelectProps<T>,
 ): MultiSelectState<T> {
