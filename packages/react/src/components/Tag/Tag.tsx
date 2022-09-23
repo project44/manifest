@@ -41,15 +41,7 @@ export const Tag = createComponent<TagOptions>((props, forwardedRef) => {
         {children}
       </Typography>
       {isRemovable && (
-        <IconButton
-          aria-label="remove"
-          className="manifest-tag__button"
-          onClick={onRemove}
-          size="small"
-          variant="tertiary"
-        >
-          <Icon className="manifest-tag__icon" icon="clear" />
-        </IconButton>
+        <Icon aria-label="remove" className="manifest-tag__icon" onClick={onRemove} icon="clear" />
       )}
     </Comp>
   );

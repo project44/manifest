@@ -30,10 +30,6 @@ export const useStyles = css({
     color: '$text-secondary',
     display: 'inline-flex',
     flexShrink: 0,
-
-    '& > .manifest-icon': {
-      fontSize: pxToRem(16),
-    },
   },
 
   '.manifest-dropdown-item__icon--end': {
