@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 2.4.0
+
+### Minor Changes
+
+- [#103](https://github.com/project44/manifest/pull/103) [`9a734e2`](https://github.com/project44/manifest/commit/9a734e2b45dbdb3ddfa7560f83603c17a3b34ebc) Thanks [@bclark-p44](https://github.com/bclark-p44)! - Adding MultiCombobox component
+
+* [#101](https://github.com/project44/manifest/pull/101) [`8f3cdee`](https://github.com/project44/manifest/commit/8f3cdee06a5407e1f4ecb18aa371173e6a09ded8) Thanks [@bclark-p44](https://github.com/bclark-p44)! - [MultiSelect] adding new multiselect component
+
 ## 2.3.1
 
 ### Patch Changes
