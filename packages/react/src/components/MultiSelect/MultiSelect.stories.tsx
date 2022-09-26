@@ -3,7 +3,6 @@ import * as React from 'react';
 import { MultiSelect } from './MultiSelect';
 import { SelectItem } from '../SelectItem';
 import { SelectSection } from '../SelectSection';
-import { Flex } from '../Flex';
 import { Icon } from '../Icon';
 
 export default {
@@ -25,25 +24,6 @@ Default.decorators = [
       <SelectItem key="planned">Planned Time</SelectItem>
       <SelectItem key="actual">Actual Time</SelectItem>
     </MultiSelect>
-  ),
-];
-
-export const Sizes = Template.bind({});
-
-Sizes.decorators = [
-  () => (
-    <Flex css={{ gap: '$small' }} orientation="vertical">
-      <MultiSelect size="medium">
-        <SelectItem key="Ardvark">Ardvark</SelectItem>
-        <SelectItem key="Kangaroo">Kangaroo</SelectItem>
-        <SelectItem key="Snake">Snake</SelectItem>
-      </MultiSelect>
-      <MultiSelect size="small">
-        <SelectItem key="Ardvark">Ardvark</SelectItem>
-        <SelectItem key="Kangaroo">Kangaroo</SelectItem>
-        <SelectItem key="Snake">Snake</SelectItem>
-      </MultiSelect>
-    </Flex>
   ),
 ];
 

@@ -1,4 +1,4 @@
-import type { AriaMultiSelectProps, MultiSelectState } from '../../types';
+import type { AriaMultiSelectProps, MultiSelectState } from '../types';
 import type { KeyboardDelegate } from '@react-types/shared';
 import type { SelectAria } from '@react-aria/select';
 import * as React from 'react';
