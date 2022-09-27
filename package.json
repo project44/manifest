@@ -17,7 +17,7 @@
     "build:types": "tsc -b",
     "dev": "run-s build dev:storybook",
     "dev:all": "run-p dev:storybook dev:website",
-    "dev:docs": "run-s build yarn workspace @project44-manifest/docs dev",
+    "dev:docs": "yarn workspace @project44-manifest/docs dev",
     "dev:packemon": "packemon watch",
     "dev:storybook": "yarn workspace @project44-manifest/storybook dev",
     "changeset": "changeset",
