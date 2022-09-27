@@ -29,10 +29,6 @@
     "url": "git@github.com:project-44/manifest.git",
     "directory": "packages/react"
   },
-  "scripts": {
-    "build": "build-storybook -c .storybook -o ./docs",
-    "dev": "start-storybook -p 6006 --quiet"
-  },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
@@ -85,15 +81,9 @@
     "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^6.5.10",
-    "@storybook/addon-essentials": "^6.5.10",
-    "@storybook/builder-webpack5": "^6.5.10",
-    "@storybook/manager-webpack5": "^6.5.10",
-    "@storybook/react": "^6.5.10",
     "@types/react-transition-group": "^4.4.5",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "webpack": "^5.74.0"
+    "react-dom": "^18.1.0"
   },
   "packemon": {
     "platform": "browser"
