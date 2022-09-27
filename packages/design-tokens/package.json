@@ -28,12 +28,7 @@
     "url": "git@github.com:project-44/manifest.git",
     "directory": "packages/design-tokens"
   },
-  "scripts": {
-    "build": "node scripts/build.js",
-    "clean": "rm -rf .turbo node_modules lib esm dts",
-    "dev": "chokidar \"tokens/**/*.json\" -c \"yarn build\""
-  },
-  "devDependencies": {
-    "style-dictionary": "^3.7.0"
+  "packemon": {
+    "platform": "browser"
   }
 }
