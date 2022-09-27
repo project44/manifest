@@ -1,9 +1,0 @@
-{
-  "color": {
-    "primary": {
-      "default": { "value": "{color.palette.indigo.500.value}" },
-      "active": { "value": "{color.palette.indigo.900.value}" },
-      "hover": { "value": "{color.palette.indigo.700.value}" }
-    }
-  }
-}

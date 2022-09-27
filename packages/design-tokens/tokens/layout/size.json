@@ -1,9 +1,0 @@
-{
-  "size": {
-    "large": { "value": "1400" },
-    "medium": { "value": "1280" },
-    "small": { "value": "960" },
-    "x-large": { "value": "1920" },
-    "x-small": { "value": "650" }
-  }
-}
