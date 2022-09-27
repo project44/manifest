@@ -16437,6 +16437,7 @@ __metadata:
     npm-run-all: ^4.1.5
     packemon: ^2.4.0
     prettier: ^2.7.1
+    prettier-config-moon: ^1.0.1
     react: ^18.1.0
     react-dom: ^18.1.0
     rimraf: ^3.0.2
@@ -19299,6 +19300,13 @@ __metadata:
   version: 1.1.2
   resolution: "prelude-ls@npm:1.1.2"
   checksum: c4867c87488e4a0c233e158e4d0d5565b609b105d75e4c05dc760840475f06b731332eb93cc8c9cecb840aa8ec323ca3c9a56ad7820ad2e63f0261dadcb154e4
+  languageName: node
+  linkType: hard
+
+"prettier-config-moon@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "prettier-config-moon@npm:1.0.1"
+  checksum: 4db88472dd8378b0d1b5b34f526f7de8c58aad69d30bf5a7dca1d504b197fcb9fd18492520d7d008cd22a2c98d5230efa63fc4e43451f041d6280a25ade97cc0
   languageName: node
   linkType: hard
 

@@ -5,13 +5,13 @@ import Hero from '../components/Hero';
 import Value from '../components/Value';
 
 function Home() {
-  return (
-    <DefaultLayout>
-      <Hero />
-      <Features />
-      <Value />
-    </DefaultLayout>
-  );
+	return (
+		<DefaultLayout>
+			<Hero />
+			<Features />
+			<Value />
+		</DefaultLayout>
+	);
 }
 
 export default Home;

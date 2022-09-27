@@ -13,49 +13,49 @@ import { useTreeState } from '@react-stately/tree';
 
 export type DropdownMenuElement = 'ul';
 export type DropdownMenuOptions<T extends As = DropdownMenuElement> = Options<T> &
-  AriaMenuProps<object> &
-  StyleProps;
+	AriaMenuProps<object> &
+	StyleProps;
 export type DropdownMenuProps<T extends As = DropdownMenuElement> = Props<DropdownMenuOptions<T>>;
 
 export const DropdownMenu = createComponent<DropdownMenuOptions>((props, forwardedRef) => {
-  const { as: Comp = 'ul', className: classNameProp, css, ...other } = props;
+	const { as: Comp = 'ul', className: classNameProp, css, ...other } = props;
 
-  const { menuRef, menuProps: contextProps } = useDropdownContext() as DropdownContext;
+	const { menuRef, menuProps: contextProps } = useDropdownContext() as DropdownContext;
 
-  const completeProps = { ...mergeProps(contextProps, other) };
+	const completeProps = { ...mergeProps(contextProps, other) };
 
-  const state = useTreeState(completeProps);
-  const { menuProps } = useMenu(completeProps, state, menuRef);
+	const state = useTreeState(completeProps);
+	const { menuProps } = useMenu(completeProps, state, menuRef);
 
-  const { className } = useStyles({ css });
+	const { className } = useStyles({ css });
 
-  return (
-    <Comp
-      {...menuProps}
-      className={cx(className, classNameProp, 'manifest-dropdown')}
-      ref={mergeRefs(menuRef, forwardedRef)}
-    >
-      {[...state.collection].map(item => {
-        if (item.type === 'section') {
-          return (
-            <_DropdownSection
-              key={item.key}
-              item={item}
-              state={state}
-              onAction={completeProps.onAction}
-            />
-          );
-        }
+	return (
+		<Comp
+			{...menuProps}
+			className={cx(className, classNameProp, 'manifest-dropdown')}
+			ref={mergeRefs(menuRef, forwardedRef)}
+		>
+			{[...state.collection].map((item) => {
+				if (item.type === 'section') {
+					return (
+						<_DropdownSection
+							key={item.key}
+							item={item}
+							state={state}
+							onAction={completeProps.onAction}
+						/>
+					);
+				}
 
-        return (
-          <_DropdownItem
-            key={item.key}
-            item={item}
-            state={state}
-            onAction={completeProps.onAction}
-          />
-        );
-      })}
-    </Comp>
-  );
+				return (
+					<_DropdownItem
+						key={item.key}
+						item={item}
+						state={state}
+						onAction={completeProps.onAction}
+					/>
+				);
+			})}
+		</Comp>
+	);
 });

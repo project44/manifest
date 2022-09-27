@@ -63,7 +63,7 @@ function DynamicExample() {
 
   return (
     <ListBox aria-label="admin" items={data}>
-      {item => <ListBoxItem>{item.name}</ListBoxItem>}
+      {(item) => <ListBoxItem>{item.name}</ListBoxItem>}
     </ListBox>
   );
 }
@@ -124,7 +124,8 @@ Set the `disabledKeys` prop to disable certain items in the dropdown list.
 
 ## Accessibility
 
-The list box should be labeled using the aria-label prop. If the ListBox is labeled by a separate element, an aria-labelledby prop must be provided using the id of the labeling element instead.
+The list box should be labeled using the aria-label prop. If the ListBox is labeled by a separate
+element, an aria-labelledby prop must be provided using the id of the labeling element instead.
 
 ## API
 

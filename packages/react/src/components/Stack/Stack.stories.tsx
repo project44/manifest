@@ -4,29 +4,29 @@ import { Box } from '../Box';
 import { Stack } from './Stack';
 
 export default {
-  title: 'Components/Stack',
-  component: Stack,
+	title: 'Components/Stack',
+	component: Stack,
 } as ComponentMeta<typeof Stack>;
 
-const Template: ComponentStory<typeof Stack> = args => (
-  <Stack {...args}>
-    <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-    <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-    <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-    <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-    <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-  </Stack>
+const Template: ComponentStory<typeof Stack> = (args) => (
+	<Stack {...args}>
+		<Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+		<Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+		<Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+		<Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+		<Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+	</Stack>
 );
 
 export const Default = Template.bind({});
 
 Default.args = {
-  gap: 'small',
+	gap: 'small',
 };
 
 export const Horizontal = Template.bind({});
 
 Horizontal.args = {
-  orientation: 'horizontal',
-  gap: 'small',
+	orientation: 'horizontal',
+	gap: 'small',
 };

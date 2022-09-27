@@ -17,7 +17,8 @@
 yarn add @project44-manifest/react
 ```
 
-Check out our [documentation](https://zeroheight.com/27d9b4710/v/latest/p/93d303-developers) for installation instructions and setup.
+Check out our [documentation](https://zeroheight.com/27d9b4710/v/latest/p/93d303-developers) for
+installation instructions and setup.
 
 ### Packages
 
@@ -60,7 +61,8 @@ For full documentation visit our [design system website](https://p44design.syste
 
 ## 🙌 Contributing
 
-Contributions are always welcome!! Please review our [Contribution Guide](/.github/CONTRIBUTING.md) to get started.
+Contributions are always welcome!! Please review our [Contribution Guide](/.github/CONTRIBUTING.md)
+to get started.
 
 ## License
 

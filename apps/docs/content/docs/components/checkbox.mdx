@@ -19,13 +19,14 @@ Pass in a `string` as a child to render a label for the checkbox.
 
 ### Controlled
 
-A checkbox's state can be controlled by a parent React component by setting the `isSelected` prop and passing a handler to the `onChange` prop.
+A checkbox's state can be controlled by a parent React component by setting the `isSelected` prop
+and passing a handler to the `onChange` prop.
 
 ```jsx
 function ControlledExample() {
   const [selected, setSelected] = React.useState(false);
 
-  const handleChange = isSelected => {
+  const handleChange = (isSelected) => {
     setSelected(isSelected);
   };
 
@@ -41,15 +42,15 @@ Set the `isIndeterminate` prop to render the checkbox in an indeterminate state.
 function IndeterminateExample() {
   const [selected, setSelected] = React.useState([false, false]);
 
-  const handleParentChange = isSelected => {
+  const handleParentChange = (isSelected) => {
     setSelected([isSelected, isSelected]);
   };
 
-  const handleFirstChange = isSelected => {
+  const handleFirstChange = (isSelected) => {
     setSelected([isSelected, selected[1]]);
   };
 
-  const handleSecondChange = isSelected => {
+  const handleSecondChange = (isSelected) => {
     setSelected([selected[0], isSelected]);
   };
 
@@ -87,7 +88,9 @@ Set the `isDisabled` prop to prevent a user from selecting a checkbox.
 
 ### Labeling
 
-If a visible label isn't specified, an aria-label must be provided to the checkbox for accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be provided using the id of the labeling element instead.
+If a visible label isn't specified, an aria-label must be provided to the checkbox for
+accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be
+provided using the id of the labeling element instead.
 
 ## API
 

@@ -7,7 +7,7 @@ import * as React from 'react';
  * Inspired by ariakit and chakra-ui.
  */
 export function createComponent<O extends Options>(
-  component: React.ForwardRefRenderFunction<any, Props<O>>,
+	component: React.ForwardRefRenderFunction<any, Props<O>>,
 ) {
-  return React.forwardRef(component) as unknown as Component<O>;
+	return React.forwardRef(component) as unknown as Component<O>;
 }

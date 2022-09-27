@@ -19,13 +19,14 @@ Pass in a `string` as a child to render a label for the switch.
 
 ### Controlled
 
-A switch's state can be controlled by a parent React component by setting the `isSelected` prop and passing a handler to the `onChange` prop.
+A switch's state can be controlled by a parent React component by setting the `isSelected` prop and
+passing a handler to the `onChange` prop.
 
 ```jsx
 function ControlledExample() {
   const [selected, setSelected] = React.useState(false);
 
-  const handleChange = isSelected => {
+  const handleChange = (isSelected) => {
     setSelected(isSelected);
   };
 
@@ -45,7 +46,9 @@ Set the `isDisabled` prop to prevent a user from selecting a switch.
 
 ### Labeling
 
-If a visible label isn't specified, an aria-label must be provided to the switch for accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be provided using the id of the labeling element instead.
+If a visible label isn't specified, an aria-label must be provided to the switch for accessibility.
+If the field is labeled by a separate element, an aria-labelledby prop must be provided using the id
+of the labeling element instead.
 
 ## API
 

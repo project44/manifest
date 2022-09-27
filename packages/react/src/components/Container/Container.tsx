@@ -7,39 +7,39 @@ import { useStyles } from './Container.styles';
 export type ContainerElement = 'div';
 
 export interface ContainerOptions<T extends As = ContainerElement> extends Options<T>, StyleProps {
-  /**
-   * Whether the container should adjust its max-width based on the current screen size.
-   *
-   * @default true
-   */
-  fixed?: boolean;
-  /**
-   * The max-width of the container.
-   *
-   * @default 'large'
-   */
-  maxWidth?: 'x-small' | 'small' | 'medium' | 'large' | 'x-large';
+	/**
+	 * Whether the container should adjust its max-width based on the current screen size.
+	 *
+	 * @default true
+	 */
+	fixed?: boolean;
+	/**
+	 * The max-width of the container.
+	 *
+	 * @default 'large'
+	 */
+	maxWidth?: 'x-small' | 'small' | 'medium' | 'large' | 'x-large';
 }
 
 export type ContainerProps<T extends As = ContainerElement> = Props<ContainerOptions<T>>;
 
 export const Container = createComponent<ContainerOptions>((props, forwardedRef) => {
-  const {
-    as: Comp = 'div',
-    className: classNameProp,
-    css,
-    fixed,
-    maxWidth = 'large',
-    ...other
-  } = props;
+	const {
+		as: Comp = 'div',
+		className: classNameProp,
+		css,
+		fixed,
+		maxWidth = 'large',
+		...other
+	} = props;
 
-  const { className } = useStyles({ css, fixed, maxWidth });
+	const { className } = useStyles({ css, fixed, maxWidth });
 
-  return (
-    <Comp
-      {...other}
-      className={cx(className, classNameProp, 'manifest-container')}
-      ref={forwardedRef}
-    />
-  );
+	return (
+		<Comp
+			{...other}
+			className={cx(className, classNameProp, 'manifest-container')}
+			ref={forwardedRef}
+		/>
+	);
 });

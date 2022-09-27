@@ -14,39 +14,39 @@ import { useStyles } from './Calendar.styles';
 
 export type CalendarElement = 'div';
 export type CalendarOptions<T extends As = CalendarElement> = Options<T> &
-  AriaCalendarProps<DateValue> &
-  StyleProps;
+	AriaCalendarProps<DateValue> &
+	StyleProps;
 export type CalendarProps<T extends As = CalendarElement> = Props<CalendarOptions<T>>;
 
 export const Calendar = createComponent<CalendarOptions>((props, forwardedRef) => {
-  const { as: Comp = 'div', className: classNameProp, css, ...other } = props;
+	const { as: Comp = 'div', className: classNameProp, css, ...other } = props;
 
-  const { locale } = useLocale();
+	const { locale } = useLocale();
 
-  const state = useCalendarState({
-    ...other,
-    locale,
-    visibleDuration: { months: 1 },
-    createCalendar,
-  });
+	const state = useCalendarState({
+		...other,
+		locale,
+		visibleDuration: { months: 1 },
+		createCalendar,
+	});
 
-  const { calendarProps, nextButtonProps, prevButtonProps } = useCalendar(other, state);
+	const { calendarProps, nextButtonProps, prevButtonProps } = useCalendar(other, state);
 
-  const { className } = useStyles({ css });
+	const { className } = useStyles({ css });
 
-  return (
-    <Comp
-      {...calendarProps}
-      className={cx(className, classNameProp, 'manifest-calendar')}
-      ref={forwardedRef}
-    >
-      <CalendarHeader
-        nextButtonProps={nextButtonProps}
-        prevButtonProps={prevButtonProps}
-        state={state}
-      />
-      <Separator />
-      <CalendarTable state={state} />
-    </Comp>
-  );
+	return (
+		<Comp
+			{...calendarProps}
+			className={cx(className, classNameProp, 'manifest-calendar')}
+			ref={forwardedRef}
+		>
+			<CalendarHeader
+				nextButtonProps={nextButtonProps}
+				prevButtonProps={prevButtonProps}
+				state={state}
+			/>
+			<Separator />
+			<CalendarTable state={state} />
+		</Comp>
+	);
 });

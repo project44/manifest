@@ -8,578 +8,578 @@ import { SelectSection } from '../SelectSection';
 import userEvent from '@testing-library/user-event';
 
 describe('@project44-manifest/react - MultiCombobox', () => {
-  describe('render', () => {
-    it('should have no accessibility violations', async () => {
-      const { container } = render(
-        <Provider>
-          <MultiCombobox label="Select" isOpen startIcon={<>icon</>}>
-            <SelectItem key="ardvark">Ardvark</SelectItem>
-            <SelectItem key="kangaroo">Kangaroo</SelectItem>
-            <SelectItem key="snake">Snake</SelectItem>
-            <SelectSection title="Section">
-              <SelectItem key="dog">Dog</SelectItem>
-            </SelectSection>
-          </MultiCombobox>
-        </Provider>,
-      );
-
-      const results = await axe(container);
-
-      expect(results).toHaveNoViolations();
-    });
-
-    it('should render correctly', () => {
-      render(
-        <Provider>
-          <MultiCombobox label="Select">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
-            <SelectItem key="kangaroo">Kangaroo</SelectItem>
-            <SelectItem key="snake">Snake</SelectItem>
-          </MultiCombobox>
-        </Provider>,
-      );
-
-      const combobox = screen.getByRole('combobox');
-
-      expect(combobox).toBeVisible();
-
-      act(() => {
-        combobox.focus();
-
-        fireEvent.change(combobox, { target: { value: 'Kan' } });
-      });
-
-      const listbox = screen.getByRole('listbox');
-      const items = within(listbox).getAllByRole('option');
-
-      expect(listbox).toBeVisible();
-      expect(items).toHaveLength(1);
-      expect(combobox).not.toHaveAttribute('aria-activedescendant');
-    });
-  });
-
-  describe('open', () => {
-    it('should show all items', function () {
-      const onOpenChange = jest.fn();
-
-      render(
-        <Provider>
-          <MultiCombobox defaultInputValue="hsdjhnkjfd" label="Select" onOpenChange={onOpenChange}>
-            <SelectItem key="ardvark">Ardvark</SelectItem>
-            <SelectItem key="kangaroo">Kangaroo</SelectItem>
-            <SelectItem key="snake">Snake</SelectItem>
-          </MultiCombobox>
-        </Provider>,
-      );
-
-      const trigger = screen.getByRole('button');
-      const combobox = screen.getByRole('combobox');
-
-      expect(screen.queryByRole('listbox')).toBeNull();
-
-      act(() => {
-        combobox.focus();
-      });
-
-      fireEvent.click(trigger);
-
-      expect(onOpenChange).toHaveBeenCalledWith(true, 'manual');
-
-      const listbox = screen.getByRole('listbox');
-
-      expect(listbox).toBeVisible();
-    });
-
-    it('should open on focus', () => {
-      render(
-        <Provider>
-          <MultiCombobox label="Select" menuTrigger="focus">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
-            <SelectItem key="kangaroo">Kangaroo</SelectItem>
-            <SelectItem key="snake">Snake</SelectItem>
-          </MultiCombobox>
-        </Provider>,
-      );
-
-      const combobox = screen.getByRole('combobox');
-
-      act(() => {
-        combobox.focus();
-      });
-
-      const listbox = screen.getByRole('listbox');
-
-      expect(listbox).toBeVisible();
-    });
+	describe('render', () => {
+		it('should have no accessibility violations', async () => {
+			const { container } = render(
+				<Provider>
+					<MultiCombobox label="Select" isOpen startIcon={<>icon</>}>
+						<SelectItem key="ardvark">Ardvark</SelectItem>
+						<SelectItem key="kangaroo">Kangaroo</SelectItem>
+						<SelectItem key="snake">Snake</SelectItem>
+						<SelectSection title="Section">
+							<SelectItem key="dog">Dog</SelectItem>
+						</SelectSection>
+					</MultiCombobox>
+				</Provider>,
+			);
+
+			const results = await axe(container);
+
+			expect(results).toHaveNoViolations();
+		});
+
+		it('should render correctly', () => {
+			render(
+				<Provider>
+					<MultiCombobox label="Select">
+						<SelectItem key="ardvark">Ardvark</SelectItem>
+						<SelectItem key="kangaroo">Kangaroo</SelectItem>
+						<SelectItem key="snake">Snake</SelectItem>
+					</MultiCombobox>
+				</Provider>,
+			);
+
+			const combobox = screen.getByRole('combobox');
+
+			expect(combobox).toBeVisible();
+
+			act(() => {
+				combobox.focus();
+
+				fireEvent.change(combobox, { target: { value: 'Kan' } });
+			});
+
+			const listbox = screen.getByRole('listbox');
+			const items = within(listbox).getAllByRole('option');
+
+			expect(listbox).toBeVisible();
+			expect(items).toHaveLength(1);
+			expect(combobox).not.toHaveAttribute('aria-activedescendant');
+		});
+	});
+
+	describe('open', () => {
+		it('should show all items', function () {
+			const onOpenChange = jest.fn();
+
+			render(
+				<Provider>
+					<MultiCombobox defaultInputValue="hsdjhnkjfd" label="Select" onOpenChange={onOpenChange}>
+						<SelectItem key="ardvark">Ardvark</SelectItem>
+						<SelectItem key="kangaroo">Kangaroo</SelectItem>
+						<SelectItem key="snake">Snake</SelectItem>
+					</MultiCombobox>
+				</Provider>,
+			);
+
+			const trigger = screen.getByRole('button');
+			const combobox = screen.getByRole('combobox');
+
+			expect(screen.queryByRole('listbox')).toBeNull();
+
+			act(() => {
+				combobox.focus();
+			});
+
+			fireEvent.click(trigger);
+
+			expect(onOpenChange).toHaveBeenCalledWith(true, 'manual');
+
+			const listbox = screen.getByRole('listbox');
+
+			expect(listbox).toBeVisible();
+		});
+
+		it('should open on focus', () => {
+			render(
+				<Provider>
+					<MultiCombobox label="Select" menuTrigger="focus">
+						<SelectItem key="ardvark">Ardvark</SelectItem>
+						<SelectItem key="kangaroo">Kangaroo</SelectItem>
+						<SelectItem key="snake">Snake</SelectItem>
+					</MultiCombobox>
+				</Provider>,
+			);
+
+			const combobox = screen.getByRole('combobox');
+
+			act(() => {
+				combobox.focus();
+			});
+
+			const listbox = screen.getByRole('listbox');
+
+			expect(listbox).toBeVisible();
+		});
 
-    it('should open via ArrowDown key down', () => {
-      render(
-        <Provider>
-          <MultiCombobox label="Select">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
-            <SelectItem key="kangaroo">Kangaroo</SelectItem>
-            <SelectItem key="snake">Snake</SelectItem>
-          </MultiCombobox>
-        </Provider>,
-      );
-
-      const combobox = screen.getByRole('combobox');
+		it('should open via ArrowDown key down', () => {
+			render(
+				<Provider>
+					<MultiCombobox label="Select">
+						<SelectItem key="ardvark">Ardvark</SelectItem>
+						<SelectItem key="kangaroo">Kangaroo</SelectItem>
+						<SelectItem key="snake">Snake</SelectItem>
+					</MultiCombobox>
+				</Provider>,
+			);
+
+			const combobox = screen.getByRole('combobox');
 
-      act(() => {
-        combobox.focus();
-      });
+			act(() => {
+				combobox.focus();
+			});
 
-      fireEvent.keyDown(combobox, { key: 'ArrowDown' });
+			fireEvent.keyDown(combobox, { key: 'ArrowDown' });
 
-      const listbox = screen.getByRole('listbox');
+			const listbox = screen.getByRole('listbox');
 
-      expect(listbox).toBeVisible();
-    });
+			expect(listbox).toBeVisible();
+		});
 
-    it('should open via ArrowUp key down', () => {
-      render(
-        <Provider>
-          <MultiCombobox label="Select">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
-            <SelectItem key="kangaroo">Kangaroo</SelectItem>
-            <SelectItem key="snake">Snake</SelectItem>
-          </MultiCombobox>
-        </Provider>,
-      );
+		it('should open via ArrowUp key down', () => {
+			render(
+				<Provider>
+					<MultiCombobox label="Select">
+						<SelectItem key="ardvark">Ardvark</SelectItem>
+						<SelectItem key="kangaroo">Kangaroo</SelectItem>
+						<SelectItem key="snake">Snake</SelectItem>
+					</MultiCombobox>
+				</Provider>,
+			);
 
-      const combobox = screen.getByRole('combobox');
+			const combobox = screen.getByRole('combobox');
 
-      act(() => {
-        combobox.focus();
-      });
+			act(() => {
+				combobox.focus();
+			});
 
-      fireEvent.keyDown(combobox, { key: 'ArrowUp' });
+			fireEvent.keyDown(combobox, { key: 'ArrowUp' });
 
-      const listbox = screen.getByRole('listbox');
+			const listbox = screen.getByRole('listbox');
 
-      expect(listbox).toBeVisible();
-    });
+			expect(listbox).toBeVisible();
+		});
 
-    it('should open via arrow button click', () => {
-      render(
-        <Provider>
-          <MultiCombobox label="Select">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
-            <SelectItem key="kangaroo">Kangaroo</SelectItem>
-            <SelectItem key="snake">Snake</SelectItem>
-          </MultiCombobox>
-        </Provider>,
-      );
+		it('should open via arrow button click', () => {
+			render(
+				<Provider>
+					<MultiCombobox label="Select">
+						<SelectItem key="ardvark">Ardvark</SelectItem>
+						<SelectItem key="kangaroo">Kangaroo</SelectItem>
+						<SelectItem key="snake">Snake</SelectItem>
+					</MultiCombobox>
+				</Provider>,
+			);
 
-      const trigger = screen.getByRole('button');
+			const trigger = screen.getByRole('button');
 
-      expect(trigger).toHaveAttribute('aria-haspopup', 'listbox');
+			expect(trigger).toHaveAttribute('aria-haspopup', 'listbox');
 
-      fireEvent.click(trigger);
+			fireEvent.click(trigger);
 
-      const listbox = screen.getByRole('listbox');
+			const listbox = screen.getByRole('listbox');
 
-      expect(listbox).toBeVisible();
-    });
+			expect(listbox).toBeVisible();
+		});
 
-    it('should open list on user input', async () => {
-      render(
-        <Provider>
-          <MultiCombobox label="Select">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
-            <SelectItem key="kangaroo">Kangaroo</SelectItem>
-            <SelectItem key="snake">Snake</SelectItem>
-          </MultiCombobox>
-        </Provider>,
-      );
+		it('should open list on user input', async () => {
+			render(
+				<Provider>
+					<MultiCombobox label="Select">
+						<SelectItem key="ardvark">Ardvark</SelectItem>
+						<SelectItem key="kangaroo">Kangaroo</SelectItem>
+						<SelectItem key="snake">Snake</SelectItem>
+					</MultiCombobox>
+				</Provider>,
+			);
 
-      const combobox = screen.getByRole('combobox');
+			const combobox = screen.getByRole('combobox');
 
-      act(() => {
-        combobox.focus();
-      });
+			act(() => {
+				combobox.focus();
+			});
 
-      await userEvent.type(combobox, 'a');
+			await userEvent.type(combobox, 'a');
 
-      const listbox = screen.getByRole('listbox');
+			const listbox = screen.getByRole('listbox');
 
-      expect(listbox).toBeVisible();
-    });
-  });
+			expect(listbox).toBeVisible();
+		});
+	});
 
-  describe('close', () => {
-    it('should close when clicked outside', async () => {
-      render(
-        <Provider>
-          <MultiCombobox label="Select">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
-            <SelectItem key="kangaroo">Kangaroo</SelectItem>
-            <SelectItem key="snake">Snake</SelectItem>
-          </MultiCombobox>
-        </Provider>,
-      );
+	describe('close', () => {
+		it('should close when clicked outside', async () => {
+			render(
+				<Provider>
+					<MultiCombobox label="Select">
+						<SelectItem key="ardvark">Ardvark</SelectItem>
+						<SelectItem key="kangaroo">Kangaroo</SelectItem>
+						<SelectItem key="snake">Snake</SelectItem>
+					</MultiCombobox>
+				</Provider>,
+			);
 
-      const trigger = screen.getByRole('button');
+			const trigger = screen.getByRole('button');
 
-      expect(trigger).toHaveAttribute('aria-haspopup', 'listbox');
-
-      fireEvent.click(trigger);
+			expect(trigger).toHaveAttribute('aria-haspopup', 'listbox');
+
+			fireEvent.click(trigger);
 
-      const listbox = screen.getByRole('listbox');
+			const listbox = screen.getByRole('listbox');
 
-      expect(trigger).toHaveAttribute('aria-expanded', 'true');
-      expect(trigger).toHaveAttribute('aria-controls', listbox.id);
+			expect(trigger).toHaveAttribute('aria-expanded', 'true');
+			expect(trigger).toHaveAttribute('aria-controls', listbox.id);
 
-      await userEvent.click(document.body);
+			await userEvent.click(document.body);
 
-      await waitFor(() => {
-        expect(listbox).not.toBeInTheDocument();
-      });
+			await waitFor(() => {
+				expect(listbox).not.toBeInTheDocument();
+			});
 
-      expect(trigger).toHaveAttribute('aria-expanded', 'false');
-      expect(trigger).not.toHaveAttribute('aria-controls');
-    });
+			expect(trigger).toHaveAttribute('aria-expanded', 'false');
+			expect(trigger).not.toHaveAttribute('aria-controls');
+		});
 
-    it('should close on Escape key down', async () => {
-      render(
-        <Provider>
-          <MultiCombobox label="Select">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
-            <SelectItem key="kangaroo">Kangaroo</SelectItem>
-            <SelectItem key="snake">Snake</SelectItem>
-          </MultiCombobox>
-        </Provider>,
-      );
+		it('should close on Escape key down', async () => {
+			render(
+				<Provider>
+					<MultiCombobox label="Select">
+						<SelectItem key="ardvark">Ardvark</SelectItem>
+						<SelectItem key="kangaroo">Kangaroo</SelectItem>
+						<SelectItem key="snake">Snake</SelectItem>
+					</MultiCombobox>
+				</Provider>,
+			);
 
-      const trigger = screen.getByRole('button');
+			const trigger = screen.getByRole('button');
 
-      expect(trigger).toHaveAttribute('aria-haspopup', 'listbox');
+			expect(trigger).toHaveAttribute('aria-haspopup', 'listbox');
 
-      fireEvent.click(trigger);
+			fireEvent.click(trigger);
 
-      const listbox = screen.getByRole('listbox');
+			const listbox = screen.getByRole('listbox');
 
-      expect(trigger).toHaveAttribute('aria-expanded', 'true');
-      expect(trigger).toHaveAttribute('aria-controls', listbox.id);
+			expect(trigger).toHaveAttribute('aria-expanded', 'true');
+			expect(trigger).toHaveAttribute('aria-controls', listbox.id);
 
-      fireEvent.keyDown(listbox, { key: 'Escape' });
+			fireEvent.keyDown(listbox, { key: 'Escape' });
 
-      await waitFor(() => {
-        expect(listbox).not.toBeInTheDocument();
-      });
+			await waitFor(() => {
+				expect(listbox).not.toBeInTheDocument();
+			});
 
-      expect(trigger).toHaveAttribute('aria-expanded', 'false');
-      expect(trigger).not.toHaveAttribute('aria-controls');
-    });
+			expect(trigger).toHaveAttribute('aria-expanded', 'false');
+			expect(trigger).not.toHaveAttribute('aria-controls');
+		});
 
-    it('should close and commit custom value', async () => {
-      const onOpenChange = jest.fn();
-      const onSelectionChange = jest.fn();
+		it('should close and commit custom value', async () => {
+			const onOpenChange = jest.fn();
+			const onSelectionChange = jest.fn();
 
-      render(
-        <Provider>
-          <MultiCombobox
-            label="Test"
-            allowsCustomValue
-            selectedKeys={['ardvark']}
-            onOpenChange={onOpenChange}
-            onSelectionChange={onSelectionChange}
-          >
-            <SelectItem key="ardvark">Ardvark</SelectItem>
-            <SelectItem key="kangaroo">Kangaroo</SelectItem>
-            <SelectItem key="snake">Snake</SelectItem>
-          </MultiCombobox>
-        </Provider>,
-      );
-
-      const combobox = screen.getByRole('combobox');
-
-      expect(onSelectionChange).not.toHaveBeenCalled();
+			render(
+				<Provider>
+					<MultiCombobox
+						label="Test"
+						allowsCustomValue
+						selectedKeys={['ardvark']}
+						onOpenChange={onOpenChange}
+						onSelectionChange={onSelectionChange}
+					>
+						<SelectItem key="ardvark">Ardvark</SelectItem>
+						<SelectItem key="kangaroo">Kangaroo</SelectItem>
+						<SelectItem key="snake">Snake</SelectItem>
+					</MultiCombobox>
+				</Provider>,
+			);
+
+			const combobox = screen.getByRole('combobox');
+
+			expect(onSelectionChange).not.toHaveBeenCalled();
 
-      await userEvent.click(combobox);
+			await userEvent.click(combobox);
 
-      act(() => {
-        fireEvent.change(combobox, { target: { value: 'Kan' } });
+			act(() => {
+				fireEvent.change(combobox, { target: { value: 'Kan' } });
 
-        combobox.blur();
-      });
+				combobox.blur();
+			});
 
-      expect(onOpenChange).toHaveBeenLastCalledWith(false, undefined);
-      expect(onSelectionChange).toHaveBeenCalledTimes(1);
+			expect(onOpenChange).toHaveBeenLastCalledWith(false, undefined);
+			expect(onSelectionChange).toHaveBeenCalledTimes(1);
 
-      expect(screen.queryByRole('listbox')).toBeNull();
-    });
-  });
+			expect(screen.queryByRole('listbox')).toBeNull();
+		});
+	});
 
-  describe('value', () => {
-    it('should reset the input value on escape key down', async () => {
-      render(
-        <Provider>
-          <MultiCombobox label="Select">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
-            <SelectItem key="kangaroo">Kangaroo</SelectItem>
-            <SelectItem key="snake">Snake</SelectItem>
-          </MultiCombobox>
-        </Provider>,
-      );
+	describe('value', () => {
+		it('should reset the input value on escape key down', async () => {
+			render(
+				<Provider>
+					<MultiCombobox label="Select">
+						<SelectItem key="ardvark">Ardvark</SelectItem>
+						<SelectItem key="kangaroo">Kangaroo</SelectItem>
+						<SelectItem key="snake">Snake</SelectItem>
+					</MultiCombobox>
+				</Provider>,
+			);
 
-      const combobox = screen.getByRole('combobox');
+			const combobox = screen.getByRole('combobox');
 
-      act(() => {
-        combobox.focus();
+			act(() => {
+				combobox.focus();
 
-        fireEvent.change(combobox, { target: { value: 'Kan' } });
-      });
+				fireEvent.change(combobox, { target: { value: 'Kan' } });
+			});
 
-      const listbox = screen.getByRole('listbox');
+			const listbox = screen.getByRole('listbox');
 
-      expect(listbox).toBeVisible();
+			expect(listbox).toBeVisible();
 
-      fireEvent.keyDown(combobox, { key: 'Escape' });
-      fireEvent.keyUp(combobox, { key: 'Escape' });
+			fireEvent.keyDown(combobox, { key: 'Escape' });
+			fireEvent.keyUp(combobox, { key: 'Escape' });
 
-      await waitFor(() => {
-        expect(screen.queryByRole('listbox')).toBeNull();
-      });
-    });
+			await waitFor(() => {
+				expect(screen.queryByRole('listbox')).toBeNull();
+			});
+		});
 
-    it('should reset the input value on escape key down and custom value', async () => {
-      render(
-        <Provider>
-          <MultiCombobox label="Select" allowsCustomValue selectedKeys={['ardvark']}>
-            <SelectItem key="ardvark">Ardvark</SelectItem>
-            <SelectItem key="kangaroo">Kangaroo</SelectItem>
-            <SelectItem key="snake">Snake</SelectItem>
-          </MultiCombobox>
-        </Provider>,
-      );
+		it('should reset the input value on escape key down and custom value', async () => {
+			render(
+				<Provider>
+					<MultiCombobox label="Select" allowsCustomValue selectedKeys={['ardvark']}>
+						<SelectItem key="ardvark">Ardvark</SelectItem>
+						<SelectItem key="kangaroo">Kangaroo</SelectItem>
+						<SelectItem key="snake">Snake</SelectItem>
+					</MultiCombobox>
+				</Provider>,
+			);
 
-      const combobox = screen.getByRole('combobox');
+			const combobox = screen.getByRole('combobox');
 
-      act(() => {
-        combobox.focus();
+			act(() => {
+				combobox.focus();
 
-        fireEvent.change(combobox, { target: { value: 'Kan' } });
-      });
+				fireEvent.change(combobox, { target: { value: 'Kan' } });
+			});
 
-      const listbox = screen.getByRole('listbox');
+			const listbox = screen.getByRole('listbox');
 
-      expect(listbox).toBeVisible();
+			expect(listbox).toBeVisible();
 
-      fireEvent.keyDown(combobox, { key: 'Escape' });
-      fireEvent.keyUp(combobox, { key: 'Escape' });
+			fireEvent.keyDown(combobox, { key: 'Escape' });
+			fireEvent.keyUp(combobox, { key: 'Escape' });
 
-      await waitFor(() => {
-        expect(screen.queryByRole('listbox')).toBeNull();
-      });
-    });
-  });
+			await waitFor(() => {
+				expect(screen.queryByRole('listbox')).toBeNull();
+			});
+		});
+	});
 
-  describe('selection', () => {
-    it('should support item selection via mouse down', () => {
-      const onSelectionChange = jest.fn();
+	describe('selection', () => {
+		it('should support item selection via mouse down', () => {
+			const onSelectionChange = jest.fn();
 
-      render(
-        <Provider>
-          <MultiCombobox
-            disabledKeys={['snake']}
-            label="Select"
-            onSelectionChange={onSelectionChange}
-          >
-            <SelectItem key="ardvark">Ardvark</SelectItem>
-            <SelectItem key="kangaroo">Kangaroo</SelectItem>
-            <SelectItem key="snake">Snake</SelectItem>
-          </MultiCombobox>
-        </Provider>,
-      );
+			render(
+				<Provider>
+					<MultiCombobox
+						disabledKeys={['snake']}
+						label="Select"
+						onSelectionChange={onSelectionChange}
+					>
+						<SelectItem key="ardvark">Ardvark</SelectItem>
+						<SelectItem key="kangaroo">Kangaroo</SelectItem>
+						<SelectItem key="snake">Snake</SelectItem>
+					</MultiCombobox>
+				</Provider>,
+			);
 
-      const trigger = screen.getByRole('button');
+			const trigger = screen.getByRole('button');
 
-      fireEvent.click(trigger);
+			fireEvent.click(trigger);
 
-      const listbox = screen.getByRole('listbox');
-      const items = within(listbox).getAllByRole('option');
+			const listbox = screen.getByRole('listbox');
+			const items = within(listbox).getAllByRole('option');
 
-      fireEvent.click(items[1]);
+			fireEvent.click(items[1]);
 
-      expect(onSelectionChange).toHaveBeenCalled();
+			expect(onSelectionChange).toHaveBeenCalled();
 
-      fireEvent.click(items[2]);
+			fireEvent.click(items[2]);
 
-      expect(onSelectionChange).toHaveBeenCalledTimes(2);
-    });
+			expect(onSelectionChange).toHaveBeenCalledTimes(2);
+		});
 
-    it('should support item selection via Space key down', () => {
-      const onSelectionChange = jest.fn();
+		it('should support item selection via Space key down', () => {
+			const onSelectionChange = jest.fn();
 
-      render(
-        <Provider>
-          <MultiCombobox label="Select" onSelectionChange={onSelectionChange}>
-            <SelectItem key="ardvark">Ardvark</SelectItem>
-            <SelectItem key="kangaroo">Kangaroo</SelectItem>
-            <SelectItem key="snake">Snake</SelectItem>
-          </MultiCombobox>
-        </Provider>,
-      );
+			render(
+				<Provider>
+					<MultiCombobox label="Select" onSelectionChange={onSelectionChange}>
+						<SelectItem key="ardvark">Ardvark</SelectItem>
+						<SelectItem key="kangaroo">Kangaroo</SelectItem>
+						<SelectItem key="snake">Snake</SelectItem>
+					</MultiCombobox>
+				</Provider>,
+			);
 
-      const trigger = screen.getByRole('button');
-      const combobox = screen.getByRole('combobox');
+			const trigger = screen.getByRole('button');
+			const combobox = screen.getByRole('combobox');
 
-      fireEvent.click(trigger);
+			fireEvent.click(trigger);
 
-      const listbox = screen.getByRole('listbox');
-      const items = within(listbox).getAllByRole('option');
+			const listbox = screen.getByRole('listbox');
+			const items = within(listbox).getAllByRole('option');
 
-      fireEvent.keyDown(listbox, { key: 'ArrowDown' });
-      fireEvent.keyUp(listbox, { key: 'ArrowDown' });
+			fireEvent.keyDown(listbox, { key: 'ArrowDown' });
+			fireEvent.keyUp(listbox, { key: 'ArrowDown' });
 
-      expect(combobox).toHaveAttribute('aria-activedescendant', items[1].id);
+			expect(combobox).toHaveAttribute('aria-activedescendant', items[1].id);
 
-      fireEvent.keyDown(items[2], { key: ' ' });
+			fireEvent.keyDown(items[2], { key: ' ' });
 
-      expect(onSelectionChange).toHaveBeenCalled();
-    });
+			expect(onSelectionChange).toHaveBeenCalled();
+		});
 
-    it('should support item selection via Enter key down', () => {
-      const onSelectionChange = jest.fn();
+		it('should support item selection via Enter key down', () => {
+			const onSelectionChange = jest.fn();
 
-      render(
-        <Provider>
-          <MultiCombobox label="Select" onSelectionChange={onSelectionChange}>
-            <SelectItem key="ardvark">Ardvark</SelectItem>
-            <SelectItem key="kangaroo">Kangaroo</SelectItem>
-            <SelectItem key="snake">Snake</SelectItem>
-          </MultiCombobox>
-        </Provider>,
-      );
+			render(
+				<Provider>
+					<MultiCombobox label="Select" onSelectionChange={onSelectionChange}>
+						<SelectItem key="ardvark">Ardvark</SelectItem>
+						<SelectItem key="kangaroo">Kangaroo</SelectItem>
+						<SelectItem key="snake">Snake</SelectItem>
+					</MultiCombobox>
+				</Provider>,
+			);
 
-      const trigger = screen.getByRole('button');
-      const combobox = screen.getByRole('combobox');
+			const trigger = screen.getByRole('button');
+			const combobox = screen.getByRole('combobox');
 
-      fireEvent.click(trigger);
-
-      const listbox = screen.getByRole('listbox');
-      const items = within(listbox).getAllByRole('option');
+			fireEvent.click(trigger);
+
+			const listbox = screen.getByRole('listbox');
+			const items = within(listbox).getAllByRole('option');
 
-      fireEvent.keyDown(listbox, { key: 'ArrowDown' });
-      fireEvent.keyUp(listbox, { key: 'ArrowDown' });
-
-      expect(combobox).toHaveAttribute('aria-activedescendant', items[1].id);
-
-      fireEvent.keyDown(items[2], { key: 'Enter' });
-
-      expect(onSelectionChange).toHaveBeenCalled();
-    });
-
-    it('should reset input value if selecting an already selected value', () => {
-      const onInputChange = jest.fn();
-
-      render(
-        <Provider>
-          <MultiCombobox
-            label="Select"
-            defaultSelectedKeys={['ardvark']}
-            onInputChange={onInputChange}
-          >
-            <SelectItem key="ardvark">Ardvark</SelectItem>
-            <SelectItem key="kangaroo">Kangaroo</SelectItem>
-            <SelectItem key="snake">Snake</SelectItem>
-          </MultiCombobox>
-        </Provider>,
-      );
-
-      const combobox: HTMLInputElement = screen.getByRole('combobox');
-
-      expect(screen.getByText('Ardvark')).toBeVisible();
-
-      act(() => {
-        combobox.focus();
-        fireEvent.change(combobox, { target: { value: 'Ka' } });
-      });
-
-      expect(onInputChange).toHaveBeenCalledTimes(1);
-      expect(onInputChange).toHaveBeenLastCalledWith('Ka');
-      expect(combobox.value).toBe('Ka');
-
-      const listbox = screen.getByRole('listbox');
-      const items = within(listbox).getAllByRole('option');
-
-      expect(items).toHaveLength(1);
-    });
-
-    it('closes menu and resets selected key if allowsCustomValue=true and no item is focused', function () {
-      const onKeyDown = jest.fn();
-      const onOpenChange = jest.fn();
-      const onSelectionChange = jest.fn();
-
-      render(
-        <Provider>
-          <MultiCombobox
-            allowsCustomValue
-            label="Select"
-            selectedKeys={['ardvark']}
-            onKeyDown={onKeyDown}
-            onOpenChange={onOpenChange}
-            onSelectionChange={onSelectionChange}
-          >
-            <SelectItem key="ardvark">Ardvark</SelectItem>
-            <SelectItem key="kangaroo">Kangaroo</SelectItem>
-            <SelectItem key="snake">Snake</SelectItem>
-          </MultiCombobox>
-        </Provider>,
-      );
-
-      const combobox = screen.getByRole('combobox');
-
-      act(() => {
-        combobox.focus();
-        fireEvent.change(combobox, { target: { value: 'Ka' } });
-      });
-
-      expect(document.activeElement).toBe(combobox);
-      expect(combobox).not.toHaveAttribute('aria-activedescendant');
-
-      act(() => {
-        fireEvent.keyDown(combobox, { key: 'Enter', code: 13, charCode: 13 });
-        fireEvent.keyUp(combobox, { key: 'Enter', code: 13, charCode: 13 });
-      });
-
-      expect(onKeyDown).toHaveBeenCalledTimes(1);
-      expect(onSelectionChange).toHaveBeenCalledTimes(1);
-
-      expect(onOpenChange).toHaveBeenCalledTimes(2);
-      expect(onOpenChange).toHaveBeenLastCalledWith(false, undefined);
-    });
-  });
-
-  describe('focus', () => {
-    it('should support autoFocus', () => {
-      const onBlur = jest.fn();
-      const onFocus = jest.fn();
-      const onFocusChange = jest.fn();
-
-      const focusProps = {
-        autoFocus: true,
-        onBlur,
-        onFocus,
-        onFocusChange,
-      };
-
-      render(
-        <Provider>
-          <MultiCombobox label="Select" {...focusProps}>
-            <SelectItem key="ardvark">Ardvark</SelectItem>
-            <SelectItem key="kangaroo">Kangaroo</SelectItem>
-            <SelectItem key="snake">Snake</SelectItem>
-          </MultiCombobox>
-        </Provider>,
-      );
-
-      const combobox = screen.getByRole('combobox');
-
-      expect(document.activeElement).toBe(combobox);
-      expect(onFocus).toHaveBeenCalled();
-      expect(onFocusChange).toHaveBeenCalledWith(true);
-    });
-  });
+			fireEvent.keyDown(listbox, { key: 'ArrowDown' });
+			fireEvent.keyUp(listbox, { key: 'ArrowDown' });
+
+			expect(combobox).toHaveAttribute('aria-activedescendant', items[1].id);
+
+			fireEvent.keyDown(items[2], { key: 'Enter' });
+
+			expect(onSelectionChange).toHaveBeenCalled();
+		});
+
+		it('should reset input value if selecting an already selected value', () => {
+			const onInputChange = jest.fn();
+
+			render(
+				<Provider>
+					<MultiCombobox
+						label="Select"
+						defaultSelectedKeys={['ardvark']}
+						onInputChange={onInputChange}
+					>
+						<SelectItem key="ardvark">Ardvark</SelectItem>
+						<SelectItem key="kangaroo">Kangaroo</SelectItem>
+						<SelectItem key="snake">Snake</SelectItem>
+					</MultiCombobox>
+				</Provider>,
+			);
+
+			const combobox: HTMLInputElement = screen.getByRole('combobox');
+
+			expect(screen.getByText('Ardvark')).toBeVisible();
+
+			act(() => {
+				combobox.focus();
+				fireEvent.change(combobox, { target: { value: 'Ka' } });
+			});
+
+			expect(onInputChange).toHaveBeenCalledTimes(1);
+			expect(onInputChange).toHaveBeenLastCalledWith('Ka');
+			expect(combobox.value).toBe('Ka');
+
+			const listbox = screen.getByRole('listbox');
+			const items = within(listbox).getAllByRole('option');
+
+			expect(items).toHaveLength(1);
+		});
+
+		it('closes menu and resets selected key if allowsCustomValue=true and no item is focused', function () {
+			const onKeyDown = jest.fn();
+			const onOpenChange = jest.fn();
+			const onSelectionChange = jest.fn();
+
+			render(
+				<Provider>
+					<MultiCombobox
+						allowsCustomValue
+						label="Select"
+						selectedKeys={['ardvark']}
+						onKeyDown={onKeyDown}
+						onOpenChange={onOpenChange}
+						onSelectionChange={onSelectionChange}
+					>
+						<SelectItem key="ardvark">Ardvark</SelectItem>
+						<SelectItem key="kangaroo">Kangaroo</SelectItem>
+						<SelectItem key="snake">Snake</SelectItem>
+					</MultiCombobox>
+				</Provider>,
+			);
+
+			const combobox = screen.getByRole('combobox');
+
+			act(() => {
+				combobox.focus();
+				fireEvent.change(combobox, { target: { value: 'Ka' } });
+			});
+
+			expect(document.activeElement).toBe(combobox);
+			expect(combobox).not.toHaveAttribute('aria-activedescendant');
+
+			act(() => {
+				fireEvent.keyDown(combobox, { key: 'Enter', code: 13, charCode: 13 });
+				fireEvent.keyUp(combobox, { key: 'Enter', code: 13, charCode: 13 });
+			});
+
+			expect(onKeyDown).toHaveBeenCalledTimes(1);
+			expect(onSelectionChange).toHaveBeenCalledTimes(1);
+
+			expect(onOpenChange).toHaveBeenCalledTimes(2);
+			expect(onOpenChange).toHaveBeenLastCalledWith(false, undefined);
+		});
+	});
+
+	describe('focus', () => {
+		it('should support autoFocus', () => {
+			const onBlur = jest.fn();
+			const onFocus = jest.fn();
+			const onFocusChange = jest.fn();
+
+			const focusProps = {
+				autoFocus: true,
+				onBlur,
+				onFocus,
+				onFocusChange,
+			};
+
+			render(
+				<Provider>
+					<MultiCombobox label="Select" {...focusProps}>
+						<SelectItem key="ardvark">Ardvark</SelectItem>
+						<SelectItem key="kangaroo">Kangaroo</SelectItem>
+						<SelectItem key="snake">Snake</SelectItem>
+					</MultiCombobox>
+				</Provider>,
+			);
+
+			const combobox = screen.getByRole('combobox');
+
+			expect(document.activeElement).toBe(combobox);
+			expect(onFocus).toHaveBeenCalled();
+			expect(onFocusChange).toHaveBeenCalledWith(true);
+		});
+	});
 });

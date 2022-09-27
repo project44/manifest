@@ -2,11 +2,11 @@
  * Box Shadow
  * -------------------------------------------- */
 export const shadowLarge =
-  '0px -1px 2px rgba(61, 58, 180, 0.1), 0px 6px 14px rgba(61, 58, 180, 0.15)';
+	'0px -1px 2px rgba(61, 58, 180, 0.1), 0px 6px 14px rgba(61, 58, 180, 0.15)';
 export const shadowMedium =
-  '0px -1px 2px rgba(61, 58, 180, 0.1), 0px 4px 5px rgba(61, 58, 180, 0.15)';
+	'0px -1px 2px rgba(61, 58, 180, 0.1), 0px 4px 5px rgba(61, 58, 180, 0.15)';
 export const shadowSmall =
-  '0px -1px 2px rgba(61, 58, 180, 0.1), 0px 1px 2px rgba(61, 58, 180, 0.4)';
+	'0px -1px 2px rgba(61, 58, 180, 0.1), 0px 1px 2px rgba(61, 58, 180, 0.4)';
 
 /** --------------------------------------------
  * Z Index

@@ -7,22 +7,22 @@ import { useVisuallyHidden } from '@react-aria/visually-hidden';
 export type VisuallyHiddenElement = 'div';
 
 export interface VisuallyHiddenOptions<T extends As = VisuallyHiddenElement>
-  extends Options<T>,
-    StyleProps {
-  /**
-   * Whether the element should become visible on focus, for example skip links.
-   */
-  isFocusable?: boolean;
+	extends Options<T>,
+		StyleProps {
+	/**
+	 * Whether the element should become visible on focus, for example skip links.
+	 */
+	isFocusable?: boolean;
 }
 
 export type VisuallyHiddenProps<T extends As = VisuallyHiddenElement> = Props<
-  VisuallyHiddenOptions<T>
+	VisuallyHiddenOptions<T>
 >;
 
 export const VisuallyHidden = createComponent<VisuallyHiddenOptions>((props, forwardedRef) => {
-  const { as: Comp = 'div', isFocusable, ...other } = props;
+	const { as: Comp = 'div', isFocusable, ...other } = props;
 
-  const { visuallyHiddenProps } = useVisuallyHidden(props);
+	const { visuallyHiddenProps } = useVisuallyHidden(props);
 
-  return <Comp {...mergeProps(visuallyHiddenProps, other)} ref={forwardedRef} />;
+	return <Comp {...mergeProps(visuallyHiddenProps, other)} ref={forwardedRef} />;
 });

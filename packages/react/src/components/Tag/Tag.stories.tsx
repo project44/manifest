@@ -3,21 +3,21 @@ import * as React from 'react';
 import { Tag } from './Tag';
 
 export default {
-  title: 'Components/Tag',
-  component: Tag,
+	title: 'Components/Tag',
+	component: Tag,
 } as ComponentMeta<typeof Tag>;
 
-const Template: ComponentStory<typeof Tag> = args => <Tag {...args} />;
+const Template: ComponentStory<typeof Tag> = (args) => <Tag {...args} />;
 
 export const Default = Template.bind({});
 
 Default.args = {
-  children: 'Tag',
+	children: 'Tag',
 };
 
 export const Removeable = Template.bind({});
 
 Removeable.args = {
-  children: 'Tag',
-  isRemovable: true,
+	children: 'Tag',
+	isRemovable: true,
 };

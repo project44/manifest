@@ -81,7 +81,7 @@ function DynamicExample() {
       <IconButton variant="primary">
         <Icon icon="expand_more" />
       </IconButton>
-      <DropdownMenu items={data}>{item => <DropdownItem>{item.name}</DropdownItem>}</DropdownMenu>
+      <DropdownMenu items={data}>{(item) => <DropdownItem>{item.name}</DropdownItem>}</DropdownMenu>
     </Dropdown>
   );
 }

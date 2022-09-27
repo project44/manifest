@@ -9,11 +9,11 @@ export type CardOptions<T extends As = CardElement> = Options<T> & StyleProps;
 export type CardProps<T extends As = CardElement> = Props<CardOptions<T>>;
 
 export const Card = createComponent<CardOptions>((props, forwardedRef) => {
-  const { as: Comp = 'div', className: classNameProp, css, ...other } = props;
+	const { as: Comp = 'div', className: classNameProp, css, ...other } = props;
 
-  const { className } = useStyles({ css });
+	const { className } = useStyles({ css });
 
-  return (
-    <Comp {...other} className={cx(className, classNameProp, 'manifest-card')} ref={forwardedRef} />
-  );
+	return (
+		<Comp {...other} className={cx(className, classNameProp, 'manifest-card')} ref={forwardedRef} />
+	);
 });

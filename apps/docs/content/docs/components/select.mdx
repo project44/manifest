@@ -20,7 +20,9 @@ description: Choose a single option from a collapsible list of options.
 
 ## Examples
 
-The select follows the [Collection Components](https://react-spectrum.adobe.com/react-stately/collections.html) API, accepting both static and dynamic collections.
+The select follows the
+[Collection Components](https://react-spectrum.adobe.com/react-stately/collections.html) API,
+accepting both static and dynamic collections.
 
 ### Label
 
@@ -175,7 +177,7 @@ function DynamicExample() {
   return (
     <Box css={{ maxWidth: '25ch' }}>
       <Select aria-label="status" items={data}>
-        {item => <SelectItem>{item.name}</SelectItem>}
+        {(item) => <SelectItem>{item.name}</SelectItem>}
       </Select>
     </Box>
   );
@@ -268,7 +270,9 @@ Set the `validationState` prop to `invalid` to render the select in an invalid s
 
 ### Labeling
 
-If a visible label isn't specified, an aria-label must be provided to the select for accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be provided using the id of the labeling element instead.
+If a visible label isn't specified, an aria-label must be provided to the select for accessibility.
+If the field is labeled by a separate element, an aria-labelledby prop must be provided using the id
+of the labeling element instead.
 
 ## API
 

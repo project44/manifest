@@ -16,57 +16,57 @@ export type SwitchOptions<T extends As = SwitchElement> = Options<T> & AriaSwitc
 export type SwitchProps<T extends As = SwitchElement> = Props<SwitchOptions<T>>;
 
 export const Switch = createComponent<SwitchOptions>((props, forwardedRef) => {
-  const {
-    as: Comp = 'label',
-    autoFocus,
-    children,
-    className: classNameProp,
-    css,
-    isDisabled,
-  } = props;
+	const {
+		as: Comp = 'label',
+		autoFocus,
+		children,
+		className: classNameProp,
+		css,
+		isDisabled,
+	} = props;
 
-  const inputRef = React.useRef<HTMLInputElement>(null);
+	const inputRef = React.useRef<HTMLInputElement>(null);
 
-  const state = useToggleState(props);
+	const state = useToggleState(props);
 
-  const isChecked = state.isSelected;
+	const isChecked = state.isSelected;
 
-  const { inputProps } = useSwitch(props, state, inputRef);
-  const { hoverProps, isHovered } = useHover({ isDisabled });
-  const { focusProps, isFocusVisible } = useFocusRing({ autoFocus });
-  const { pressProps } = usePress({ isDisabled: inputProps.disabled });
+	const { inputProps } = useSwitch(props, state, inputRef);
+	const { hoverProps, isHovered } = useHover({ isDisabled });
+	const { focusProps, isFocusVisible } = useFocusRing({ autoFocus });
+	const { pressProps } = usePress({ isDisabled: inputProps.disabled });
 
-  const { className } = useStyles({
-    css,
-    isChecked,
-    isDisabled,
-    isFocusVisible,
-    isHovered,
-  });
+	const { className } = useStyles({
+		css,
+		isChecked,
+		isDisabled,
+		isFocusVisible,
+		isHovered,
+	});
 
-  const classes = cx(className, classNameProp, {
-    'manifest-switch': true,
-    'manifest-switch--checked': isChecked,
-    'manifest-switch--disabled': isDisabled,
-  });
+	const classes = cx(className, classNameProp, {
+		'manifest-switch': true,
+		'manifest-switch--checked': isChecked,
+		'manifest-switch--disabled': isDisabled,
+	});
 
-  return (
-    <Comp {...mergeProps(hoverProps, pressProps)} className={classes} ref={forwardedRef}>
-      <input
-        {...mergeProps(inputProps, focusProps)}
-        className="manifest-switch__input"
-        ref={inputRef}
-      />
+	return (
+		<Comp {...mergeProps(hoverProps, pressProps)} className={classes} ref={forwardedRef}>
+			<input
+				{...mergeProps(inputProps, focusProps)}
+				className="manifest-switch__input"
+				ref={inputRef}
+			/>
 
-      <div className="manifest-switch__control">
-        <span className="manifest-switch__indicator" />
-      </div>
+			<div className="manifest-switch__control">
+				<span className="manifest-switch__indicator" />
+			</div>
 
-      {children && (
-        <Typography className="manifest-switch__text" variant="subtext">
-          {children}
-        </Typography>
-      )}
-    </Comp>
-  );
+			{children && (
+				<Typography className="manifest-switch__text" variant="subtext">
+					{children}
+				</Typography>
+			)}
+		</Comp>
+	);
 });

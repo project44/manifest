@@ -134,7 +134,7 @@ function SortExample() {
   const [sortDirection, setSortDirection] = React.useState('asc');
   const [sortedColumn, setSortedColumn] = React.useState('name');
 
-  const handleSort = column => {
+  const handleSort = (column) => {
     const isAsc = sortedColumn === column && sortDirection === 'asc';
 
     setSortDirection(isAsc ? 'desc' : 'asc');

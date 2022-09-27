@@ -6,25 +6,25 @@ import Thumbnails from '../../../components/Thumbnails';
 import { GetStaticProps } from 'next';
 
 interface ComponentsProps {
-  items: DocMeta[];
+	items: DocMeta[];
 }
 
 export default function Components(props: ComponentsProps) {
-  const { items } = props;
+	const { items } = props;
 
-  return (
-    <DocsLayout title="Components">
-      <Thumbnails items={items} />
-    </DocsLayout>
-  );
+	return (
+		<DocsLayout title="Components">
+			<Thumbnails items={items} />
+		</DocsLayout>
+	);
 }
 
 export const getStaticProps: GetStaticProps = () => {
-  const items = allDocs
-    .filter(doc => doc.slug.startsWith('/docs/components') as boolean)
-    .map(doc => doc.meta as DocMeta);
+	const items = allDocs
+		.filter((doc) => doc.slug.startsWith('/docs/components') as boolean)
+		.map((doc) => doc.meta as DocMeta);
 
-  return {
-    props: { items },
-  };
+	return {
+		props: { items },
+	};
 };

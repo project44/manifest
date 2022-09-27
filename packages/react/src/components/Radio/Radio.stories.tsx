@@ -4,48 +4,48 @@ import { Radio } from './Radio';
 import { RadioGroup } from '../RadioGroup';
 
 export default {
-  title: 'Components/Radio',
-  component: RadioGroup,
-  subcomponents: { Radio },
+	title: 'Components/Radio',
+	component: RadioGroup,
+	subcomponents: { Radio },
 } as ComponentMeta<typeof RadioGroup>;
 
-const Template: ComponentStory<typeof RadioGroup> = args => <RadioGroup {...args} />;
+const Template: ComponentStory<typeof RadioGroup> = (args) => <RadioGroup {...args} />;
 
 export const Default = Template.bind({});
 
 Default.decorators = [
-  () => (
-    <RadioGroup>
-      <Radio value="cats">Cats</Radio>
-      <Radio value="dogs">Dogs</Radio>
-    </RadioGroup>
-  ),
+	() => (
+		<RadioGroup>
+			<Radio value="cats">Cats</Radio>
+			<Radio value="dogs">Dogs</Radio>
+		</RadioGroup>
+	),
 ];
 
 export const Disabled = Template.bind({});
 
 Disabled.decorators = [
-  () => (
-    <RadioGroup>
-      <Radio value="cats">Cats</Radio>
-      <Radio isDisabled value="dogs">
-        Dogs
-      </Radio>
-    </RadioGroup>
-  ),
+	() => (
+		<RadioGroup>
+			<Radio value="cats">Cats</Radio>
+			<Radio isDisabled value="dogs">
+				Dogs
+			</Radio>
+		</RadioGroup>
+	),
 ];
 
 export const Controlled = Template.bind({});
 
 Controlled.decorators = [
-  () => {
-    const [selected, setSelected] = React.useState('dogs');
+	() => {
+		const [selected, setSelected] = React.useState('dogs');
 
-    return (
-      <RadioGroup value={selected} onChange={setSelected}>
-        <Radio value="cats">Cats</Radio>
-        <Radio value="dogs">Dogs</Radio>
-      </RadioGroup>
-    );
-  },
+		return (
+			<RadioGroup value={selected} onChange={setSelected}>
+				<Radio value="cats">Cats</Radio>
+				<Radio value="dogs">Dogs</Radio>
+			</RadioGroup>
+		);
+	},
 ];
