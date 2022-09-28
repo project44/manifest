@@ -1,5 +1,5 @@
 import type { StyleProps } from '../../types';
-import * as React from 'react';
+import { useMemo, Fragment } from 'react';
 import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { Icon } from '../Icon';
@@ -88,7 +88,7 @@ export const Pagination = createComponent<PaginationOptions>((props, forwardedRe
 
 	const pageCount = Math.ceil(totalRowCount / rowsPerPage);
 
-	const pages = React.useMemo((): PageType[] => {
+	const pages = useMemo((): PageType[] => {
 		const startRange = range(1, Math.min(boundaries, pageCount));
 		const endRange = range(Math.max(pageCount - boundaries + 1, boundaries + 1), pageCount);
 
@@ -147,7 +147,7 @@ export const Pagination = createComponent<PaginationOptions>((props, forwardedRe
 
 			{showPageNumbers &&
 				pages.map((item, index) => (
-					<React.Fragment key={`${item}_${index}`}>
+					<Fragment key={`${item}_${index}`}>
 						{item === 'dots' && (
 							<div aria-hidden className="manifest-pagination__ellipsis">
 								<Typography variant="subtextBold">...</Typography>
@@ -163,7 +163,7 @@ export const Pagination = createComponent<PaginationOptions>((props, forwardedRe
 								<Typography variant="subtextBold">{item.toString()}</Typography>
 							</PaginationItem>
 						)}
-					</React.Fragment>
+					</Fragment>
 				))}
 
 			<PaginationItem

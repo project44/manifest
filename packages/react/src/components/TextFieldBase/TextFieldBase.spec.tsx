@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { screen, render } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { TextFieldBase } from './TextFieldBase';

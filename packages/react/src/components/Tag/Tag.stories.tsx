@@ -1,5 +1,4 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import * as React from 'react';
 import { Tag } from './Tag';
 
 export default {

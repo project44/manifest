@@ -1,5 +1,4 @@
 import type { StyleProps } from '../../types';
-import * as React from 'react';
 import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { mergeProps } from '@react-aria/utils';
 import { useVisuallyHidden } from '@react-aria/visually-hidden';

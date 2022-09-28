@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { As, createComponent, Props } from '@project44-manifest/system';
 import { Button, ButtonElement, ButtonOptions } from '../Button';
 import { cx } from '../../styles';

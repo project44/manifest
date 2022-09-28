@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { act, fireEvent, screen, render, within } from '@testing-library/react';
 import { Combobox } from './Combobox';
 import { ComboboxItem } from '../ComboboxItem';

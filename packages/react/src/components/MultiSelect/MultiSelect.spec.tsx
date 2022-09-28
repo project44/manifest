@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { act, fireEvent, screen, render, within, waitFor } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { Provider } from '../Provider';

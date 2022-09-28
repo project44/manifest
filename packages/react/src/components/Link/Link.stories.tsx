@@ -1,5 +1,4 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import * as React from 'react';
 import { Link } from './Link';
 import { Typography } from '../Typography';
 

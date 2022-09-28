@@ -6,13 +6,15 @@
     "emitDeclarationOnly": false,
     "incremental": true,
     "jsx": "preserve",
+    "lib": ["dom"],
     "noEmit": true,
     "paths": {
       "contentlayer/generated": [
         "./.contentlayer/generated"
       ]
     },
-    "strict": false
+    "strict": false,
+    "resolveJsonModule": true
   },
   "include": [
     "src",

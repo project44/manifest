@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Flex, Stack, pxToRem, Typography } from '@project44-manifest/react';
+import { Box, Stack, pxToRem, Typography } from '@project44-manifest/react';
 
 interface ColorSwatchProps {
 	hex: string;

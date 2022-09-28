@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { CalendarDate } from '@internationalized/date';
 import { cx } from '../../styles';
 import { getDefaultRanges } from './defaultDefinedRanges';

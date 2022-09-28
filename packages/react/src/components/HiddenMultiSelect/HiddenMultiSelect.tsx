@@ -1,5 +1,4 @@
 import type { HiddenMultiSelectProps } from '../../types';
-import * as React from 'react';
 import { useHiddenMultiSelect } from './useHiddenMultiSelect';
 
 export function HiddenMultiSelect<T>(props: HiddenMultiSelectProps<T>) {

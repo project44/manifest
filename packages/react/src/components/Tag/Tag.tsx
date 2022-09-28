@@ -1,9 +1,7 @@
 import type { StyleProps } from '../../types';
-import * as React from 'react';
 import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '../../styles';
 import { Icon } from '../Icon';
-import { IconButton } from '../IconButton';
 import { Typography } from '../Typography';
 import { useStyles } from './Tag.styles';
 
