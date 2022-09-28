@@ -20,7 +20,9 @@ description: An autocomplete input that allows a user to filter a list of select
 
 ## Examples
 
-The comboBox follows the [Collection Components](https://react-spectrum.adobe.com/react-stately/collections.html) API, accepting both static and dynamic collections.
+The comboBox follows the
+[Collection Components](https://react-spectrum.adobe.com/react-stately/collections.html) API,
+accepting both static and dynamic collections.
 
 ### Label
 
@@ -175,7 +177,7 @@ function DynamicExample() {
   return (
     <Box css={{ maxWidth: '25ch' }}>
       <Combobox aria-label="status" defaultItems={data}>
-        {item => <ComboboxItem>{item.name}</ComboboxItem>}
+        {(item) => <ComboboxItem>{item.name}</ComboboxItem>}
       </Combobox>
     </Box>
   );
@@ -227,11 +229,11 @@ function ControlledExample() {
         aria-label="status"
         defaultItems={list.items}
         inputValue={state.inputValue}
-        onInputChange={value => dispatch({ type: 'INPUT_CHANGE', payload: value })}
-        onSelectionChange={key => dispatch({ type: 'SELECTION_CHANGE', payload: key })}
+        onInputChange={(value) => dispatch({ type: 'INPUT_CHANGE', payload: value })}
+        onSelectionChange={(key) => dispatch({ type: 'SELECTION_CHANGE', payload: key })}
         selectedKey={state.selectedKey}
       >
-        {item => <ComboboxItem>{item.value.name}</ComboboxItem>}
+        {(item) => <ComboboxItem>{item.value.name}</ComboboxItem>}
       </Combobox>
     </Box>
   );
@@ -299,7 +301,9 @@ Set the `validationState` prop to `invalid` to render the combobox in an invalid
 
 ### Labeling
 
-If a visible label isn't specified, an aria-label must be provided to the combobox for accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be provided using the id of the labeling element instead.
+If a visible label isn't specified, an aria-label must be provided to the combobox for
+accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be
+provided using the id of the labeling element instead.
 
 ## API
 

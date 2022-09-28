@@ -7,19 +7,19 @@ export type CSS = StitchesCSS<typeof config>;
 export type Theme = typeof theme;
 
 export const { styled, config, globalCss, getCssText, keyframes, theme, css } = createStitches({
-  prefix: 'manifest',
-  media: {
-    lg: `(min-width: ${lightTheme.sizes.large})`,
-    md: `(min-width: ${lightTheme.sizes.medium})`,
-    sm: `(min-width: ${lightTheme.sizes.small})`,
-    xl: `(min-width: ${lightTheme.sizes['x-large']})`,
-    xs: `(min-width: ${lightTheme.sizes['x-small']})`,
-  },
-  theme: lightTheme,
-  utils: {
-    ...color,
-    ...layout,
-    ...space,
-    ...typography,
-  },
+	prefix: 'manifest',
+	media: {
+		lg: `(min-width: ${lightTheme.sizes.large})`,
+		md: `(min-width: ${lightTheme.sizes.medium})`,
+		sm: `(min-width: ${lightTheme.sizes.small})`,
+		xl: `(min-width: ${lightTheme.sizes['x-large']})`,
+		xs: `(min-width: ${lightTheme.sizes['x-small']})`,
+	},
+	theme: lightTheme,
+	utils: {
+		...color,
+		...layout,
+		...space,
+		...typography,
+	},
 });

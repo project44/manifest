@@ -73,6 +73,7 @@
     "npm-run-all": "^4.1.5",
     "packemon": "^2.4.0",
     "prettier": "^2.7.1",
+    "prettier-config-moon": "^1.0.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "rimraf": "^3.0.2",

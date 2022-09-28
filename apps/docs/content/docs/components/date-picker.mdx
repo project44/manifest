@@ -53,9 +53,13 @@ Include an icon before the input text.
 
 ### Controlled
 
-A datepickers's state can be controlled by a parent React component by setting the `value` prop and passing a handler to the `onChange` prop.
+A datepickers's state can be controlled by a parent React component by setting the `value` prop and
+passing a handler to the `onChange` prop.
 
-> Date values are provided using objects in the [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date) package. This library handles correct international date manipulation across calendars, time zones, and other localization concerns.
+> Date values are provided using objects in the
+> [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date) package. This
+> library handles correct international date manipulation across calendars, time zones, and other
+> localization concerns.
 
 ```jsx
 function ControlledExample() {
@@ -76,7 +80,7 @@ Set the `isDateUnavailable` handler prop to make certain dates unavailable for s
 ```jsx
 function UnavailableExample() {
   const { locale } = useLocale();
-  const isDateUnavailable = date => isWeekend(date, locale);
+  const isDateUnavailable = (date) => isWeekend(date, locale);
 
   return (
     <Box css={{ maxWidth: '25ch' }}>
@@ -114,7 +118,9 @@ Set the `validationState` prop to `invalid` to render the datepicker in an inval
 
 ### Labeling
 
-If a visible label isn't specified, an aria-label must be provided to the datepicker for accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be provided using the id of the labeling element instead.
+If a visible label isn't specified, an aria-label must be provided to the datepicker for
+accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be
+provided using the id of the labeling element instead.
 
 ## API
 

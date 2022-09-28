@@ -3,7 +3,7 @@
  * -------------------------------------------- */
 export const fontFamilyMono = '"Fira Mono", Courier, monospace';
 export const fontFamilyText =
-  '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif';
+	'"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif';
 
 /** --------------------------------------------
  * Font Size

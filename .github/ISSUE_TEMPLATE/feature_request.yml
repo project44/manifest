@@ -25,8 +25,10 @@ body:
       label: Code of Conduct
       description: Please confirm the following
       options:
-        - label: I agree to the [Code of
+        - label:
+            I agree to the [Code of
             Conduct](https://github.com/project44/manifest/blob/main/.github/CODE_OF_CONDUCT.md).
           required: true
-        - label: I have reviewed the [current issues](https://github.com/project44/manifest/issues)
-            for duplicate tickets.
+        - label:
+            I have reviewed the [current issues](https://github.com/project44/manifest/issues) for
+            duplicate tickets.

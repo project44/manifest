@@ -10,25 +10,25 @@ export type TableOptions<T extends As = TableElement> = Options<T> & StyleProps 
 export type TableProps<T extends As = TableElement> = Props<TableOptions<T>>;
 
 export const Table = createComponent<TableOptions>((props, forwardedRef) => {
-  const {
-    as: Comp = 'table',
-    className: classNameProp,
-    css,
-    showHover = false,
-    onMouseEnter,
-    onMouseLeave,
-    ...other
-  } = props;
+	const {
+		as: Comp = 'table',
+		className: classNameProp,
+		css,
+		showHover = false,
+		onMouseEnter,
+		onMouseLeave,
+		...other
+	} = props;
 
-  const { className } = useStyles({ css });
+	const { className } = useStyles({ css });
 
-  return (
-    <TableContext.Provider value={{ onMouseEnter, onMouseLeave, showHover }}>
-      <Comp
-        {...other}
-        className={cx(className, classNameProp, 'manifest-table')}
-        ref={forwardedRef}
-      />
-    </TableContext.Provider>
-  );
+	return (
+		<TableContext.Provider value={{ onMouseEnter, onMouseLeave, showHover }}>
+			<Comp
+				{...other}
+				className={cx(className, classNameProp, 'manifest-table')}
+				ref={forwardedRef}
+			/>
+		</TableContext.Provider>
+	);
 });

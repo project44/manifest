@@ -8,7 +8,7 @@ export type TableBodyOptions<T extends As = TableBodyElement> = Options<T> & Sty
 export type TableBodyProps<T extends As = TableBodyElement> = Props<TableBodyOptions<T>>;
 
 export const TableBody = createComponent<TableBodyOptions>(
-  ({ as: Comp = 'tbody', className, ...other }, forwardedRef) => (
-    <Comp {...other} className={cx(className, 'manifest-table-body')} ref={forwardedRef} />
-  ),
+	({ as: Comp = 'tbody', className, ...other }, forwardedRef) => (
+		<Comp {...other} className={cx(className, 'manifest-table-body')} ref={forwardedRef} />
+	),
 );

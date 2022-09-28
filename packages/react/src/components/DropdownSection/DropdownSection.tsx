@@ -14,67 +14,67 @@ import { useStyles } from './DropdownSection.styles';
 export type DropdownSectionElement = 'li';
 
 export interface DropdownSectionOptions<T extends As = DropdownSectionElement>
-  extends Options<T>,
-    StyleProps {
-  /**
-   * Item object in the collection.
-   */
-  item: Node<object>;
-  /**
-   * Tree state of the collection.
-   */
-  state: TreeState<object>;
-  /**
-   * The section label.
-   */
-  title?: React.ReactNode;
-  /**
-   * Callback executed on item select.
-   */
-  onAction?(key: React.Key): void;
+	extends Options<T>,
+		StyleProps {
+	/**
+	 * Item object in the collection.
+	 */
+	item: Node<object>;
+	/**
+	 * Tree state of the collection.
+	 */
+	state: TreeState<object>;
+	/**
+	 * The section label.
+	 */
+	title?: React.ReactNode;
+	/**
+	 * Callback executed on item select.
+	 */
+	onAction?(key: React.Key): void;
 }
 
 export type DropdownSectionProps<T extends As = DropdownSectionElement> = SectionProps<object> &
-  Omit<Props<DropdownSectionOptions<T>>, 'item' | 'state'>;
+	Omit<Props<DropdownSectionOptions<T>>, 'item' | 'state'>;
 
 /** @private */
 export const DropdownSection = createComponent<DropdownSectionOptions>((props, forwardedRef) => {
-  const { as: Comp = 'li', className: classNameProp, css, item, onAction, state } = props;
+	const { as: Comp = 'li', className: classNameProp, css, item, onAction, state } = props;
 
-  const { itemProps, headingProps, groupProps } = useMenuSection({
-    heading: item.rendered,
-    'aria-label': item['aria-label'],
-  });
+	const { itemProps, headingProps, groupProps } = useMenuSection({
+		heading: item.rendered,
+		'aria-label': item['aria-label'],
+	});
 
-  const { separatorProps } = useSeparator({ elementType: 'li' });
+	const { separatorProps } = useSeparator({ elementType: 'li' });
 
-  const showSeparator = item.key !== state.collection.getFirstKey();
+	const showSeparator = item.key !== state.collection.getFirstKey();
 
-  const { className } = useStyles({ css });
+	const { className } = useStyles({ css });
 
-  return (
-    <>
-      {showSeparator && <li {...separatorProps} className="manifest-dropdown-separator" />}
-      <Comp
-        {...itemProps}
-        className={cx(className, classNameProp, 'manifest-dropdown-section')}
-        ref={forwardedRef}
-      >
-        {item.rendered && (
-          <Typography
-            {...headingProps}
-            className="manifest-dropdown-section__label"
-            variant="caption"
-          >
-            {item.rendered}
-          </Typography>
-        )}
-        <ul {...groupProps} className="manifest-dropdown-section__group">
-          {[...item.childNodes].map(node => (
-            <_DropdownItem key={node.key} item={node} state={state} onAction={onAction} />
-          ))}
-        </ul>
-      </Comp>
-    </>
-  );
+	return (
+		<>
+			{showSeparator && <li {...separatorProps} className="manifest-dropdown-separator" />}
+			<Comp
+				{...itemProps}
+				className={cx(className, classNameProp, 'manifest-dropdown-section')}
+				ref={forwardedRef}
+			>
+				{item.rendered && (
+					<Typography
+						{...headingProps}
+						className="manifest-dropdown-section__label"
+						variant="caption"
+					>
+						{item.rendered}
+					</Typography>
+				)}
+				<ul {...groupProps} className="manifest-dropdown-section__group">
+					{[...item.childNodes].map((node) => (
+						<_DropdownItem key={node.key} item={node} state={state} onAction={onAction} />
+					))}
+				</ul>
+			</Comp>
+		</>
+	);
 });

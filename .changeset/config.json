@@ -1,6 +1,11 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@2.0.0/schema.json",
-  "changelog": ["@changesets/changelog-github", { "repo": "project44/manifest" }],
+  "changelog": [
+    "@changesets/changelog-github",
+    {
+      "repo": "project44/manifest"
+    }
+  ],
   "commit": false,
   "fixed": [],
   "linked": [],

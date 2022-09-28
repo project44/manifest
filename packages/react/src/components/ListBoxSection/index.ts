@@ -1,7 +1,7 @@
 import {
-  ListBoxSection as _ListBoxSection,
-  ListBoxSectionProps,
-  ListBoxSectionOptions,
+	ListBoxSection as _ListBoxSection,
+	ListBoxSectionProps,
+	ListBoxSectionOptions,
 } from './ListBoxSection';
 import { Section } from '@react-stately/collections';
 

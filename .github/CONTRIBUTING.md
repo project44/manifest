@@ -15,11 +15,13 @@ Manifest Design System packages follow [semantic versioning](https://semver.org/
 
 ## Pull Requests
 
-If this is your first pull request into an open source project, please take a moment and watch this free video series:
+If this is your first pull request into an open source project, please take a moment and watch this
+free video series:
 
 [How to Contribute to an Open Source Project on GitHub](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)
 
-Before working on an issue or feature please review any tickets, pr's, and discussions to be certain that no one is actively working on the same issue or feature.
+Before working on an issue or feature please review any tickets, pr's, and discussions to be certain
+that no one is actively working on the same issue or feature.
 
 ### Making a Pull Request
 
@@ -44,7 +46,8 @@ easily searchable.
 
 ## Development
 
-Before you begin development, please make sure that you have [Node](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/) setup on your machine.
+Before you begin development, please make sure that you have [Node](https://nodejs.org/en/) and
+[Yarn](https://yarnpkg.com/) setup on your machine.
 
 1. Install dependencies
 
@@ -66,14 +69,17 @@ yarn dev
 
 ## Testing
 
-We use [jest](https://jestjs.io/) as our test runner along with [react testing library](https://testing-library.com/docs/react-testing-library/intro/) for our react code base.
-Please be sure to add or update unit tests for any code changes. Run `yarn test` to run jest.
+We use [jest](https://jestjs.io/) as our test runner along with
+[react testing library](https://testing-library.com/docs/react-testing-library/intro/) for our react
+code base. Please be sure to add or update unit tests for any code changes. Run `yarn test` to run
+jest.
 
 It is also recommended to verify you changes by running the local development server.
 
 ## Code Formatting
 
-For code formatting we use [Prettier](https://prettier.io/), run `yarn format` to automatically format your code.
+For code formatting we use [Prettier](https://prettier.io/), run `yarn format` to automatically
+format your code.
 
 ## Linting
 
@@ -81,11 +87,13 @@ Code linting is controlled by [ESLint](https://eslint.org/) and can be run with 
 
 ## Type Checking
 
-Our codebase is written in [Typescript](https://www.typescriptlang.org/) and can be check by running `yarn type-check`.
+Our codebase is written in [Typescript](https://www.typescriptlang.org/) and can be check by running
+`yarn type-check`.
 
 ## Releasing
 
-Releases are controlled automatically via [changesets](https://github.com/changesets/changesets) in our github workflows.
+Releases are controlled automatically via [changesets](https://github.com/changesets/changesets) in
+our github workflows.
 
 ## License
 

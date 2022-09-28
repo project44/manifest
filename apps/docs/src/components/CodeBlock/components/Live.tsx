@@ -10,33 +10,33 @@ import Preview from './Preview';
 import Toolbar from './Toolbar';
 
 interface LiveProps {
-  code: string;
-  showToolbar?: boolean;
-  theme?: PrismTheme;
+	code: string;
+	showToolbar?: boolean;
+	theme?: PrismTheme;
 }
 
 const scope = { ...Manifest, ...InternationalizeDate, ...I18n };
 
 function Live(props: LiveProps) {
-  const { code, showToolbar, theme } = props;
+	const { code, showToolbar, theme } = props;
 
-  const [isExpanded, setIsExpanded] = React.useState(false);
+	const [isExpanded, setIsExpanded] = React.useState(false);
 
-  return (
-    <LiveProvider code={code} scope={scope} theme={theme}>
-      <Container css={{ p: 0 }}>
-        <Preview />
-        {isExpanded && <Editor />}
-      </Container>
-      {showToolbar && (
-        <Toolbar
-          code={code}
-          isExpanded={isExpanded}
-          onExpandedChange={() => setIsExpanded(!isExpanded)}
-        />
-      )}
-    </LiveProvider>
-  );
+	return (
+		<LiveProvider code={code} scope={scope} theme={theme}>
+			<Container css={{ p: 0 }}>
+				<Preview />
+				{isExpanded && <Editor />}
+			</Container>
+			{showToolbar && (
+				<Toolbar
+					code={code}
+					isExpanded={isExpanded}
+					onExpandedChange={() => setIsExpanded(!isExpanded)}
+				/>
+			)}
+		</LiveProvider>
+	);
 }
 
 export default Live;

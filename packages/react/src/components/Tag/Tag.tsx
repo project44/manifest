@@ -10,39 +10,39 @@ import { useStyles } from './Tag.styles';
 export type TagElement = 'div';
 
 export interface TagOptions<T extends As = TagElement> extends Options<T>, StyleProps {
-  /**
-   * Whether the tag is removeable.
-   */
-  isRemovable?: boolean;
-  /**
-   * Handler called on tag removable.
-   */
-  onRemove?(): void;
+	/**
+	 * Whether the tag is removeable.
+	 */
+	isRemovable?: boolean;
+	/**
+	 * Handler called on tag removable.
+	 */
+	onRemove?(): void;
 }
 
 export type TagProps<T extends As = TagElement> = Props<TagOptions<T>>;
 
 export const Tag = createComponent<TagOptions>((props, forwardedRef) => {
-  const {
-    as: Comp = 'div',
-    children,
-    className: classNameProp,
-    css,
-    isRemovable,
-    onRemove,
-    ...other
-  } = props;
+	const {
+		as: Comp = 'div',
+		children,
+		className: classNameProp,
+		css,
+		isRemovable,
+		onRemove,
+		...other
+	} = props;
 
-  const { className } = useStyles({ css, isRemovable });
+	const { className } = useStyles({ css, isRemovable });
 
-  return (
-    <Comp {...other} className={cx(className, classNameProp, 'manifest-tag')} ref={forwardedRef}>
-      <Typography className="manifest-tag__text" variant="caption">
-        {children}
-      </Typography>
-      {isRemovable && (
-        <Icon aria-label="remove" className="manifest-tag__icon" onClick={onRemove} icon="clear" />
-      )}
-    </Comp>
-  );
+	return (
+		<Comp {...other} className={cx(className, classNameProp, 'manifest-tag')} ref={forwardedRef}>
+			<Typography className="manifest-tag__text" variant="caption">
+				{children}
+			</Typography>
+			{isRemovable && (
+				<Icon aria-label="remove" className="manifest-tag__icon" onClick={onRemove} icon="clear" />
+			)}
+		</Comp>
+	);
 });
