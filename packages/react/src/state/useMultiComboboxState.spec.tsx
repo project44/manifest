@@ -1,5 +1,4 @@
 import type { MultiComboboxProps } from '../types';
-import * as React from 'react';
 import { Item } from '@react-stately/collections';
 import { renderHook } from '@testing-library/react-hooks';
 import { useMultiComboboxState } from './useMultiComboboxState';

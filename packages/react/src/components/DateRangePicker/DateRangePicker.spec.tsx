@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { fireEvent, screen, render, waitFor } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { CalendarDate, endOfMonth, startOfMonth } from '@internationalized/date';

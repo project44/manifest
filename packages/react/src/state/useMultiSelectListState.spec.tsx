@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Item } from '@react-stately/collections';
 import { renderHook } from '@testing-library/react-hooks';
 import { useMultiSelectListState } from './useMultiSelectListState';

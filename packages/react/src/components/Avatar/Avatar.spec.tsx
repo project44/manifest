@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { screen, fireEvent, render } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { Avatar } from './Avatar';

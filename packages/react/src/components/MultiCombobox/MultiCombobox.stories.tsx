@@ -1,10 +1,7 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import * as React from 'react';
 import { MultiCombobox } from './MultiCombobox';
 import { SelectItem } from '../SelectItem';
 import { SelectSection } from '../SelectSection';
-import { Flex } from '../Flex';
-import { Icon } from '../Icon';
 
 export default {
 	title: 'Components/MultiCombobox',

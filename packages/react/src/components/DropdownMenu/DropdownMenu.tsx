@@ -1,6 +1,5 @@
 import type { AriaMenuProps } from '@react-types/menu';
 import type { StyleProps } from '../../types';
-import * as React from 'react';
 import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { DropdownContext, useDropdownContext } from '../Dropdown/Dropdown.context';
 import { mergeProps, mergeRefs } from '@react-aria/utils';

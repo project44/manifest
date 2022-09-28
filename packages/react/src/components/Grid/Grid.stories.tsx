@@ -1,5 +1,4 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import * as React from 'react';
 import { Grid } from './Grid';
 import { GridItem } from '../GridItem';
 

@@ -1,5 +1,5 @@
 import type { ButtonSize, ButtonVariant } from '../Button';
-import * as React from 'react';
+import { createContext, useContext } from 'react';
 
 export interface ButtonGroupContext {
 	isDisabled?: boolean;
@@ -7,6 +7,6 @@ export interface ButtonGroupContext {
 	variant?: ButtonVariant;
 }
 
-export const ButtonGroupContext = React.createContext<ButtonGroupContext>({});
+export const ButtonGroupContext = createContext<ButtonGroupContext>({});
 
-export const useButtonGroup = () => React.useContext(ButtonGroupContext);
+export const useButtonGroup = () => useContext(ButtonGroupContext);

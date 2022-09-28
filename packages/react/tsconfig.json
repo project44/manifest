@@ -2,6 +2,8 @@
   "extends": "../../tsconfig.options.json",
   "compilerOptions": {
     "declarationDir": "dts",
+    "jsx": "react-jsx",
+    "lib": ["dom"],
     "outDir": "dts",
     "rootDir": "src"
   },

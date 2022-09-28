@@ -1,7 +1,7 @@
-import * as React from 'react';
+import { memo } from 'react';
 import { useStyles } from './CssBaseline.styles';
 
-export const CssBaseline = React.memo<React.PropsWithChildren<unknown>>((props) => {
+export const CssBaseline = memo<React.PropsWithChildren<unknown>>((props) => {
 	const { children } = props;
 
 	useStyles();

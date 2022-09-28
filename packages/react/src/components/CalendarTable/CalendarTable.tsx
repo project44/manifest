@@ -1,5 +1,4 @@
 import type { CalendarState, RangeCalendarState } from '@react-stately/calendar';
-import * as React from 'react';
 import { endOfMonth, getWeeksInMonth } from '@internationalized/date';
 import { CalendarCell } from '../CalendarCell';
 import { cx } from '../../styles';

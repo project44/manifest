@@ -15,7 +15,7 @@ import type {
 	TextInputBase,
 	Validation,
 } from '@react-types/shared';
-import type { Key, RefObject } from 'react';
+import type { RefObject } from 'react';
 import type { AriaHiddenSelectProps } from '@react-aria/select';
 import type { ListState } from '@react-stately/list';
 import type { MenuTriggerAction } from '@react-types/combobox';

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { As, createComponent, Props } from '@project44-manifest/system';
 import { ListBoxBase, ListBoxBaseElement, ListBoxBaseOptions } from '../ListBoxBase';
 import { useListState } from '@react-stately/list';

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { fireEvent, screen, render } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { Calendar } from './Calendar';

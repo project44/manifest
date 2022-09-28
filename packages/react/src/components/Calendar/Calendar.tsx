@@ -1,6 +1,5 @@
 import type { CalendarProps as AriaCalendarProps } from '@react-types/calendar';
 import type { StyleProps } from '../../types';
-import * as React from 'react';
 import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { createCalendar, DateValue } from '@internationalized/date';
 import { cx } from '../../styles';

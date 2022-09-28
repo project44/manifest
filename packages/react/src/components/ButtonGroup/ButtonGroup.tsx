@@ -1,6 +1,5 @@
 import type { ButtonSize, ButtonVariant } from '../Button';
 import type { StyleProps } from '../../types';
-import * as React from 'react';
 import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { ButtonGroupContext } from './ButtonGroup.context';
 import { cx } from '../../styles';

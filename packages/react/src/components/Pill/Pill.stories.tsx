@@ -1,5 +1,4 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import * as React from 'react';
 import { Pill } from './Pill';
 import { Flex } from '../Flex';
 import { Icon } from '../Icon';
