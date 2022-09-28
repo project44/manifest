@@ -1,0 +1,26 @@
+type: 'application'
+
+workspace:
+  inheritedTasks:
+    exclude: ['buildPackage']
+
+fileGroups:
+  next:
+    - 'pages/**/*'
+    - 'public/**/*'
+    - 'src/**/*'
+    - 'next-env.d.ts'
+    - 'next.config.*'
+
+tasks:
+  build:
+    command: 'build-storybook'
+    args:
+      - '-c'
+      - '.storybook'
+      - '-o'
+      - './build'
+    deps:
+      - '^:build'
+    inputs:
+      - '@group(next)'

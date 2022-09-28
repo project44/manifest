@@ -6,7 +6,9 @@
     "emitDeclarationOnly": false,
     "incremental": true,
     "jsx": "preserve",
-    "lib": ["dom"],
+    "lib": [
+      "dom"
+    ],
     "noEmit": true,
     "paths": {
       "contentlayer/generated": [
@@ -24,5 +26,13 @@
   ],
   "exclude": [
     "node_modules"
+  ],
+  "references": [
+    {
+      "path": "../../packages/design-tokens"
+    },
+    {
+      "path": "../../packages/react"
+    }
   ]
 }

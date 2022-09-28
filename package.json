@@ -5,29 +5,23 @@
   "license": "MIT",
   "workspaces": [
     "apps/*",
-    "packages/*",
-    "tooling/*"
+    "packages/*"
   ],
   "scripts": {
-    "build": "run-s build:packemon build:types",
-    "build:docs": "run-s build build:next",
-    "build:packemon": "packemon build --addEngines",
-    "build:next": "yarn workspace @project44-manifest/docs build",
-    "build:storybook": "yarn workspace @project44-manifest/storybook build",
-    "build:types": "tsc -b",
-    "dev": "run-s build dev:storybook",
-    "dev:all": "run-p dev:storybook dev:website",
-    "dev:docs": "yarn workspace @project44-manifest/docs dev",
-    "dev:packemon": "packemon watch",
-    "dev:storybook": "yarn workspace @project44-manifest/storybook dev",
     "changeset": "changeset",
     "chromatic": "chromatic",
     "clean": "run-s clean:packemon clean:types",
     "clean:packemon": "packemon clean",
     "clean:types": "rimraf 'packages/**/*/*.tsbuildinfo'",
+    "dev": "run-s build dev:storybook",
+    "dev:all": "run-p dev:storybook dev:website",
+    "dev:docs": "yarn workspace @project44-manifest/docs dev",
+    "dev:packemon": "packemon watch",
+    "dev:storybook": "yarn workspace @project44-manifest/storybook dev",
     "format": "prettier --write .",
     "generate:prop-docs": "ts-node --skipProject ./scripts/generate-prop-docs.ts",
     "lint": "eslint --cache --color --fix --ext .ts,.tsx ./packages/*/{src,test}",
+    "moon": "$(yarn bin moon)",
     "prepare": "husky install",
     "release": "yarn changeset publish",
     "test": "jest --colors --logHeapUsage",
@@ -40,6 +34,7 @@
     "@changesets/cli": "^2.22.0",
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^17.0.0",
+    "@moonrepo/cli": "^0.15.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/react-hooks": "^8.0.1",
@@ -82,5 +77,8 @@
     "typescript": "^4.7.4",
     "yargs": "^17.5.1"
   },
-  "packageManager": "yarn@3.2.0"
+  "packageManager": "yarn@3.2.0",
+  "engines": {
+    "node": "16.16.0"
+  }
 }

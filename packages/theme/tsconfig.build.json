@@ -2,14 +2,9 @@
   "extends": "../../tsconfig.options.json",
   "compilerOptions": {
     "outDir": "dts",
-    "rootDir": "."
+    "rootDir": "src"
   },
-  "exclude": [
-    "dts"
-  ],
-  "include": [
-    "**/*"
-  ],
+  "include": ["src/**/*"],
   "references": [
     {
       "path": "../design-tokens"

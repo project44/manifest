@@ -1,0 +1,27 @@
+$schema: 'https://moonrepo.dev/schemas/workspace.json'
+
+projects:
+  - 'apps/*'
+  - 'packages/*'
+
+node:
+  version: '16.16.0'
+  packageManager: 'yarn'
+  yarn:
+    version: '3.2.0'
+  addEnginesConstraint: true
+  dedupeOnLockfileChange: true
+  inferTasksFromScripts: false
+  syncProjectWorkspaceDependencies: true
+
+# Configures how moon integrates with TypeScript.
+typescript:
+  createMissingConfig: true
+  projectConfigFileName: 'tsconfig.json'
+  rootConfigFileName: 'tsconfig.json'
+  rootOptionsConfigFileName: 'tsconfig.options.json'
+  syncProjectReferences: true
+
+vcs:
+  manager: 'git'
+  defaultBranch: 'main'

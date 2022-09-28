@@ -45,3 +45,8 @@ apps/**/sitemap.xml
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+# Moon
+.moon/cache
+
+# Moon
+.moon/cache

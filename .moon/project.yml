@@ -1,0 +1,42 @@
+$schema: 'https://moonrepo.dev/schemas/global-project.json'
+
+fileGroups:
+  configs:
+    - '*.{js,json}'
+  sources:
+    - 'src/**/*'
+    - 'types/**/*'
+  tests:
+    - '**/src/**/*.spec.*'
+    - '**/src/*.stories.*'
+    - 'stories/**/*.stories.*'
+    - 'tests/**/*.test.*'
+    - '**/__tests__/**/*'
+  assets:
+    - 'assets/**/*'
+    - 'images/**/*'
+    - 'static/**/*'
+    - '**/*.{scss,css}'
+    - '**/*.{md,mdx}'
+
+tasks:
+  buildPackage:
+    command:
+      - 'packemon'
+      - 'pack'
+      - '--addEngines'
+      - '--addExports'
+      - '--declaration'
+      - '--declarationConfig'
+      - 'tsconfig.build.json'
+    deps:
+      - '^:build'
+    inputs:
+      - '@globs(sources)'
+      - 'package.json'
+      - 'tsconfig.build.json'
+      - '/tsconfig.options.json'
+    outputs:
+      - 'dts'
+    env:
+      NODE_ENV: 'production'

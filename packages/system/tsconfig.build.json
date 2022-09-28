@@ -4,9 +4,8 @@
     "jsx": "react-jsx",
     "lib": ["dom"],
     "outDir": "dts",
-    "rootDir": "."
+    "rootDir": "src"
   },
-  "exclude": ["dts"],
-  "include": ["**/*"],
+  "include": ["src/**/*"],
   "references": []
 }

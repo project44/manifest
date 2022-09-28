@@ -26,9 +26,6 @@
     "url": "git@github.com:project-44/manifest.git",
     "directory": "packages/theme"
   },
-  "scripts": {
-    "clean": "rm -rf .turbo node_modules *.tsbuildinfo"
-  },
   "dependencies": {
     "@project44-manifest/design-tokens": "^1.1.0",
     "lodash.merge": "^4.6.2"
@@ -37,6 +34,22 @@
     "@types/lodash.merge": "^4.6.7"
   },
   "packemon": {
+    "formats": [
+      "esm",
+      "lib"
+    ],
     "platform": "browser"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dts/index.d.ts",
+      "browser": {
+        "module": "./esm/index.js",
+        "import": "./esm/index.js",
+        "default": "./lib/index.js"
+      },
+      "default": "./lib/index.js"
+    }
   }
 }

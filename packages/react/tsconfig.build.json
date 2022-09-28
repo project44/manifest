@@ -2,22 +2,12 @@
   "extends": "../../tsconfig.options.json",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "lib": [
-      "dom"
-    ],
+    "lib": ["dom"],
     "outDir": "dts",
-    "rootDir": "."
+    "rootDir": "src"
   },
-  "exclude": [
-    "dts"
-  ],
-  "include": [
-    "**/*"
-  ],
+  "include": ["src/**/*"],
   "references": [
-    {
-      "path": "../design-tokens"
-    },
     {
       "path": "../system"
     },
