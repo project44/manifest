@@ -1,6 +1,5 @@
-const { toHaveNoViolations } = require('jest-axe');
-
-require('@testing-library/jest-dom');
+import '@testing-library/jest-dom';
+import { toHaveNoViolations } from 'jest-axe';
 
 expect.extend(toHaveNoViolations);
 
@@ -12,9 +11,11 @@ global.ResizeObserver = class ResizeObserver {
 	constructor(cb) {
 		this.cb = cb;
 	}
+
 	observe() {
 		this.cb([{ borderBoxSize: { blockSize: 0, inlineSize: 0 } }]);
 	}
+
 	unobserve() {}
 };
 
