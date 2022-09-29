@@ -16,6 +16,10 @@ fileGroups:
     - 'static/**/*'
     - '**/*.{scss,css}'
     - '**/*.{md,mdx}'
+  storybook:
+    - '.storybook/**/*'
+    - 'src/**/*'
+    - 'stories/**/*.stories.*'
 
 tasks:
   buildPackage:

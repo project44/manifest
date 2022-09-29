@@ -4,14 +4,6 @@ workspace:
   inheritedTasks:
     exclude: ['buildPackage']
 
-fileGroups:
-  next:
-    - 'pages/**/*'
-    - 'public/**/*'
-    - 'src/**/*'
-    - 'next-env.d.ts'
-    - 'next.config.*'
-
 tasks:
   build:
     command: 'build-storybook'
@@ -23,7 +15,7 @@ tasks:
     deps:
       - '^:build'
     inputs:
-      - '@group(next)'
+      - '@group(storybook)'
 
   start:
     command: 'start-storybook'
