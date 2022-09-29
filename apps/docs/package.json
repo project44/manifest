@@ -2,6 +2,11 @@
   "name": "@project44-manifest/docs",
   "version": "1.0.0",
   "private": true,
+  "scripts": {
+    "build": "next build",
+    "clean": "rm -rf .turbo node_modules .next *.tsbuildinfo",
+    "generate:prop-docs": "ts-node --skipProject ./scripts/generate-prop-docs.ts"
+  },
   "dependencies": {
     "@internationalized/date": "^3.0.1",
     "@project44-manifest/design-tokens": "^1.1.0",

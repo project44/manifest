@@ -38,6 +38,11 @@
     "url": "git@github.com:project-44/manifest.git",
     "directory": "packages/theme"
   },
+  "scripts": {
+    "build": "packemon build --addEngines --addExports --declaration --declarationConfig tsconfig.build.json",
+    "clean": "packemon clean && rm -rf .turbo node_modules *.tsbuildinfo",
+    "typecheck": "tsc -b"
+  },
   "dependencies": {
     "@project44-manifest/design-tokens": "^1.1.0",
     "lodash.merge": "^4.6.2"

@@ -32,6 +32,11 @@
       "default": "./lib/index.js"
     }
   },
+  "scripts": {
+    "build": "packemon build --addEngines --addExports --declaration --declarationConfig tsconfig.build.json",
+    "clean": "packemon clean && rm -rf .turbo node_modules *.tsbuildinfo",
+    "typecheck": "tsc -b"
+  },
   "publishConfig": {
     "access": "public"
   },

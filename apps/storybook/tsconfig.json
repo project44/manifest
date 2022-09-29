@@ -3,5 +3,9 @@
   "include": [
     "**/*"
   ],
-  "references": []
+  "references": [
+    {
+      "path": "../../packages/react"
+    }
+  ]
 }

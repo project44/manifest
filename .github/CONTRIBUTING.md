@@ -20,7 +20,6 @@ installed:
 
 - [Node.js](https://nodejs.org/en/download/)
 - [Yarn](https://yarnpkg.com/en/docs/install)
-- [moonrepo](https://moonrepo.dev/)
 
 ## Pull Requests
 
@@ -35,13 +34,13 @@ that no one is actively working on the same issue or feature.
 1. Fork and clone the repository
 2. Create a new branch off of main
 3. Install dependencies by running `yarn` in the project root
-4. Build the code with `moon run :build`
+4. Build the code with `yarn build`
 5. Write your code
-6. Start storybook dev environment `moon run storybook:dev`
-7. Ensure code is tested and tests pass with `moon run <changed_package>:test`
-8. Ensure your code passes formatting rules with `moon run <changed_package>:format`
-9. Lint your code with `moon run <changed_package>:lint`
-10. Check your typescript types with `moon run <changed_package>:typecheck`
+6. Start storybook dev environment `yarn dev`
+7. Ensure code is tested and tests pass with `yarn test`
+8. Ensure your code passes formatting rules with `yarn format`
+9. Lint your code with `yarn lint`
+10. Check your typescript types with `yarn typecheck`
 11. Generate a changeset with `yarn changeset`
 12. Profit
 
@@ -65,38 +64,37 @@ yarn install
 2. Build packages
 
 ```sh
-moon run :build
+yarn build
 ```
 
 3. Start development server
 
 ```sh
-moon run storybook:dev
+yarn dev
 ```
 
 ## Testing
 
 We use [jest](https://jestjs.io/) as our test runner along with
 [react testing library](https://testing-library.com/docs/react-testing-library/intro/) for our react
-code base. Please be sure to add or update unit tests for any code changes. Run
-`moon run <changed_package>:test` to run jest.
+code base. Please be sure to add or update unit tests for any code changes. Run `yarn run test` to
+run jest.
 
 It is also recommended to verify you changes by running the local development server.
 
 ## Code Formatting
 
-For code formatting we use [Prettier](https://prettier.io/), run `moon run <changed_package>:format`
-to automatically format your code.
+For code formatting we use [Prettier](https://prettier.io/), run `yarn run format` to automatically
+format your code.
 
 ## Linting
 
-Code linting is controlled by [ESLint](https://eslint.org/) and can be run with
-`moon run <changed_package>:lint`.
+Code linting is controlled by [ESLint](https://eslint.org/) and can be run with `yarn run lint`.
 
 ## Type Checking
 
 Our codebase is written in [Typescript](https://www.typescriptlang.org/) and can be check by running
-`moon run <changed_package>:typecheck`.
+`yarn run typecheck`.
 
 ## Releasing
 

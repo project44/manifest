@@ -18,14 +18,12 @@ interface ComponentDoc {
 	props: PropDoc[];
 }
 
-const ROOT_DIR = path.join(__dirname, '..');
+const ROOT_DIR = path.join(__dirname, '../../..');
 const SRC_DIR = path.join(ROOT_DIR, 'packages', 'react', 'src');
 const OUT_DIR = path.join(ROOT_DIR, 'apps', 'docs', 'src');
 
 async function main() {
-	const files = await glob(path.join(SRC_DIR, '**/*.tsx'), {
-		ignore: [path.join(SRC_DIR, '**/*.{context,spec,stories}.tsx')],
-	});
+	const files = await glob(path.join(SRC_DIR, '**/*.tsx'));
 
 	const { parse } = withCustomConfig(path.resolve(ROOT_DIR, 'tsconfig.json'), {
 		shouldExtractLiteralValuesFromEnum: true,

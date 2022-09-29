@@ -39,7 +39,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Build
-        run: yarn moon :build
+        run: yarn build:packages
 
       - name: Store build artifacts
         uses: actions/upload-artifact@v2
