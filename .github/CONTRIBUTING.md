@@ -13,12 +13,19 @@ community members to help maintain that culture. Please review our
 
 Manifest Design System packages follow [semantic versioning](https://semver.org/).
 
+## Prerequisites
+
+Before contributing to Manifest Design System, you should make sure to have the following tools
+installed:
+
+- [Node.js](https://nodejs.org/en/download/)
+- [Yarn](https://yarnpkg.com/en/docs/install)
+- [moonrepo](https://moonrepo.dev/)
+
 ## Pull Requests
 
-If this is your first pull request into an open source project, please take a moment and watch this
-free video series:
-
-[How to Contribute to an Open Source Project on GitHub](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)
+**Working on your first Pull Request?** You can learn how from this _free_ series
+[How to Contribute to an Open Source Project on GitHub](https://kcd.im/pull-request)
 
 Before working on an issue or feature please review any tickets, pr's, and discussions to be certain
 that no one is actively working on the same issue or feature.
@@ -28,13 +35,13 @@ that no one is actively working on the same issue or feature.
 1. Fork and clone the repository
 2. Create a new branch off of main
 3. Install dependencies by running `yarn` in the project root
-4. Build the code with `yarn build`
+4. Build the code with `moon run :build`
 5. Write your code
-6. Test your code locally with `yarn dev`
-7. Ensure code is tested and tests pass with `yarn test`
-8. Format your code with `yarn format`
-9. Lint your code with `yarn lint`
-10. Check your typescript types with `yarn type-check`
+6. Start storybook dev environment `moon run storybook:start`
+7. Ensure code is tested and tests pass with `moon run <changed_package>:test`
+8. Ensure your code passes formatting rules with `moon run <changed_package>:format`
+9. Lint your code with `moon run <changed_package>:lint`
+10. Check your typescript types with `moon run <changed_package>:typecheck`
 11. Generate a changeset with `yarn changeset`
 12. Profit
 
@@ -58,37 +65,38 @@ yarn install
 2. Build packages
 
 ```sh
-yarn build
+moon run :build
 ```
 
 3. Start development server
 
 ```sh
-yarn dev
+moon run storybook:start
 ```
 
 ## Testing
 
 We use [jest](https://jestjs.io/) as our test runner along with
 [react testing library](https://testing-library.com/docs/react-testing-library/intro/) for our react
-code base. Please be sure to add or update unit tests for any code changes. Run `yarn test` to run
-jest.
+code base. Please be sure to add or update unit tests for any code changes. Run
+`moon run <changed_package>:test` to run jest.
 
 It is also recommended to verify you changes by running the local development server.
 
 ## Code Formatting
 
-For code formatting we use [Prettier](https://prettier.io/), run `yarn format` to automatically
-format your code.
+For code formatting we use [Prettier](https://prettier.io/), run `moon run <changed_package>:format`
+to automatically format your code.
 
 ## Linting
 
-Code linting is controlled by [ESLint](https://eslint.org/) and can be run with `yarn lint`.
+Code linting is controlled by [ESLint](https://eslint.org/) and can be run with
+`moon run <changed_package>:lint`.
 
 ## Type Checking
 
 Our codebase is written in [Typescript](https://www.typescriptlang.org/) and can be check by running
-`yarn type-check`.
+`moon run <changed_package>:typecheck`.
 
 ## Releasing
 

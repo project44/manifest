@@ -24,3 +24,10 @@ tasks:
       - '^:build'
     inputs:
       - '@group(next)'
+
+  start:
+    command: 'start-storybook'
+    args:
+      - '-p'
+      - '6006'
+      - '--quiet'

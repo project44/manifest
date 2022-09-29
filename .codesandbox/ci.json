@@ -1,5 +1,5 @@
 {
-  "buildCommand": "build",
+  "buildCommand": "yarn moon :build",
   "node": "16",
   "packages": [
     "/packages/design-tokens",

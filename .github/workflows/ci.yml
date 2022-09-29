@@ -7,7 +7,7 @@ on:
 
 jobs:
   ci:
-    name: 'CI'
+    name: build and validate
     runs-on: 'ubuntu-latest'
     steps:
       - run: 'yarn moon ci'
