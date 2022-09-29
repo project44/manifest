@@ -20,6 +20,23 @@
     "lib/**/*.{js,map}",
     "src/**/*.{ts,tsx,json}"
   ],
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dts/index.d.ts",
+      "browser": {
+        "module": "./esm/index.js",
+        "import": "./esm/index.js",
+        "default": "./lib/index.js"
+      },
+      "default": "./lib/index.js"
+    }
+  },
+  "scripts": {
+    "build": "packemon build --addEngines --addExports --declaration --declarationConfig tsconfig.build.json",
+    "clean": "packemon clean && rm -rf .turbo node_modules *.tsbuildinfo",
+    "typecheck": "tsc -b"
+  },
   "publishConfig": {
     "access": "public"
   },

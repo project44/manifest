@@ -1,3 +1,6 @@
+.cache/
+.contentlayer/
+.next/
 node_modules/
 build/
 cjs/
@@ -8,8 +11,9 @@ esm/
 lib/
 mjs/
 umd/
-CHANGELOG.md
-package.json
-tsconfig.json
-tsconfig.*.json
 *.d.ts
+*.d.cts
+*.d.mts
+*.min.js
+*.map
+*.snap

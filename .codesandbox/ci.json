@@ -1,5 +1,5 @@
 {
-  "buildCommand": "build",
+  "buildCommand": "build:packages",
   "node": "16",
   "packages": [
     "/packages/design-tokens",

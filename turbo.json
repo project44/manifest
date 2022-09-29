@@ -1,0 +1,34 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "baseBranch": "origin/main",
+  "pipeline": {
+    "build": {
+      "outputs": [
+        ".cache/**",
+        ".contentlayer/**",
+        ".next/**",
+        "dts/**",
+        "esm/**",
+        "lib/**"
+      ],
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "clean": {
+      "cache": false
+    },
+    "dev": {
+      "cache": false
+    },
+    "test": {
+      "outputs": [],
+      "dependsOn": []
+    },
+    "typecheck": {
+      "outputs": [
+        "dts/**"
+      ]
+    }
+  }
+}

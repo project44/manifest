@@ -19,22 +19,37 @@
     "lib/**/*.{js,map}",
     "src/**/*.{ts,tsx,json}"
   ],
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dts/index.d.ts",
+      "browser": {
+        "module": "./esm/index.js",
+        "import": "./esm/index.js",
+        "default": "./lib/index.js"
+      },
+      "default": "./lib/index.js"
+    }
+  },
   "publishConfig": {
     "access": "public"
-  },
-  "scripts": {
-    "clean": "rm -rf .turbo node_modules *.tsbuildinfo"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:project-44/manifest.git",
     "directory": "packages/system"
   },
+  "scripts": {
+    "build": "packemon build --addEngines --addExports --declaration --declarationConfig tsconfig.build.json",
+    "clean": "packemon clean && rm -rf .turbo node_modules *.tsbuildinfo",
+    "typecheck": "tsc -b"
+  },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
+    "@testing-library/react": "^13.4.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },

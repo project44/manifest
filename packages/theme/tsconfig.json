@@ -1,14 +1,18 @@
 {
-  "extends": "../../tsconfig",
+  "extends": "../../tsconfig.options.json",
   "compilerOptions": {
-    "composite": true,
-    "declaration": true,
-    "declarationDir": "dts",
-    "emitDeclarationOnly": true,
-    "noEmit": false,
     "outDir": "dts",
-    "rootDir": "src"
+    "rootDir": "."
   },
-  "exclude": ["src/**/*.spec.ts*"],
-  "include": ["src/**/*"]
+  "exclude": [
+    "dts"
+  ],
+  "include": [
+    "**/*"
+  ],
+  "references": [
+    {
+      "path": "../design-tokens"
+    }
+  ]
 }

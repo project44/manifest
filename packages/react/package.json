@@ -21,6 +21,18 @@
     "lib/**/*.{js,map}",
     "src/**/*.{ts,tsx,json}"
   ],
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dts/index.d.ts",
+      "browser": {
+        "module": "./esm/index.js",
+        "import": "./esm/index.js",
+        "default": "./lib/index.js"
+      },
+      "default": "./lib/index.js"
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -28,6 +40,11 @@
     "type": "git",
     "url": "git@github.com:project-44/manifest.git",
     "directory": "packages/react"
+  },
+  "scripts": {
+    "build": "packemon build --addEngines --addExports --declaration --declarationConfig tsconfig.build.json",
+    "clean": "packemon clean && rm -rf .turbo node_modules *.tsbuildinfo",
+    "typecheck": "tsc -b"
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0",
@@ -81,7 +98,11 @@
     "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@testing-library/user-event": "^14.4.3",
     "@types/react-transition-group": "^4.4.5",
+    "jest-axe": "^6.0.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },

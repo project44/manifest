@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "dev": "next dev",
-    "start": "next start"
+    "clean": "rm -rf .turbo node_modules .next *.tsbuildinfo",
+    "generate:prop-docs": "ts-node --skipProject ./scripts/generate-prop-docs.ts"
   },
   "dependencies": {
     "@internationalized/date": "^3.0.1",
