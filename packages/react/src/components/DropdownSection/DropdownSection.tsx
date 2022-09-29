@@ -4,7 +4,7 @@ import type { StyleProps } from '../../types';
 import type { TreeState } from '@react-stately/tree';
 import * as React from 'react';
 import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { cx } from '../../styles';
+import { cx } from '@project44-manifest/react-styles';
 import { _DropdownItem } from '../DropdownItem';
 import { Typography } from '../Typography';
 import { useMenuSection } from '@react-aria/menu';

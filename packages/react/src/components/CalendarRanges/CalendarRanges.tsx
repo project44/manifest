@@ -1,5 +1,5 @@
 import { CalendarDate } from '@internationalized/date';
-import { cx } from '../../styles';
+import { cx } from '@project44-manifest/react-styles';
 import { getDefaultRanges } from './defaultDefinedRanges';
 import { ListBox } from '../ListBox';
 import { ListBoxItem } from '../ListBoxItem';

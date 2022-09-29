@@ -3,7 +3,7 @@ import type { ListState } from '@react-stately/list';
 import type { StyleProps } from '../../types';
 import * as React from 'react';
 import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { cx } from '../../styles';
+import { cx } from '@project44-manifest/react-styles';
 import { ListBoxContext } from '../ListBoxContext';
 import { _ListBoxItem } from '../ListBoxItem';
 import { _ListBoxSection } from '../ListBoxSection';

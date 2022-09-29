@@ -2,7 +2,7 @@ import type { CalendarProps as AriaCalendarProps } from '@react-types/calendar';
 import type { StyleProps } from '../../types';
 import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { createCalendar, DateValue } from '@internationalized/date';
-import { cx } from '../../styles';
+import { cx } from '@project44-manifest/react-styles';
 import { CalendarHeader } from '../CalendarHeader';
 import { CalendarTable } from '../CalendarTable';
 import { Separator } from '../Separator';

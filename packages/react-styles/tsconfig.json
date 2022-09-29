@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.options.json",
+  "compilerOptions": {
+    "outDir": "dts",
+    "rootDir": "."
+  },
+  "exclude": [
+    "dts"
+  ],
+  "include": [
+    "**/*"
+  ],
+  "references": [
+    {
+      "path": "../theme"
+    }
+  ]
+}

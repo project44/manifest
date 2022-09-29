@@ -2,7 +2,7 @@ import * as React from 'react';
 import { As, createComponent, Props } from '@project44-manifest/system';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { TextFieldBase, TextFieldBaseElement, TextFieldBaseOptions } from '../TextFieldBase';
-import { cx } from '../../styles';
+import { cx } from '@project44-manifest/react-styles';
 import { useStyles } from './TextField.styles';
 import { useTextField } from '@react-aria/textfield';
 

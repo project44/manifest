@@ -6,7 +6,7 @@ import { As, createComponent, Props, Options } from '@project44-manifest/system'
 import { CalendarRanges, DefinedRange } from '../CalendarRanges';
 import { createCalendar, DateValue } from '@internationalized/date';
 import { RangeCalendarStateOptions, useRangeCalendarState } from '@react-stately/calendar';
-import { cx } from '../../styles';
+import { cx } from '@project44-manifest/react-styles';
 import { CalendarHeader } from '../CalendarHeader';
 import { CalendarTable } from '../CalendarTable';
 import { mergeRefs } from '@react-aria/utils';

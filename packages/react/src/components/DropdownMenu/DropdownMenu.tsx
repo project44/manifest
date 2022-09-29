@@ -3,7 +3,7 @@ import type { StyleProps } from '../../types';
 import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { DropdownContext, useDropdownContext } from '../Dropdown/Dropdown.context';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { cx } from '../../styles';
+import { cx } from '@project44-manifest/react-styles';
 import { _DropdownItem } from '../DropdownItem';
 import { _DropdownSection } from '../DropdownSection';
 import { useMenu } from '@react-aria/menu';

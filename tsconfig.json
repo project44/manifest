@@ -16,6 +16,9 @@
       "path": "packages/react"
     },
     {
+      "path": "packages/react-styles"
+    },
+    {
       "path": "packages/system"
     },
     {

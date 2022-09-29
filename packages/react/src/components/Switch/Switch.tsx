@@ -3,7 +3,7 @@ import type { StyleProps } from '../../types';
 import * as React from 'react';
 import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { useHover, usePress } from '@react-aria/interactions';
-import { cx } from '../../styles';
+import { cx } from '@project44-manifest/react-styles';
 import { mergeProps } from '@react-aria/utils';
 import { Typography } from '../Typography';
 import { useFocusRing } from '@react-aria/focus';

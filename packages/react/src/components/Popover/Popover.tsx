@@ -3,7 +3,7 @@ import * as React from 'react';
 import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { DismissButton, useModal, useOverlay } from '@react-aria/overlays';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { cx } from '../../styles';
+import { cx } from '@project44-manifest/react-styles';
 import { FocusScope } from '@react-aria/focus';
 import { useStyles } from './Popover.styles';
 

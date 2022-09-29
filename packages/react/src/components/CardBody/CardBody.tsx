@@ -1,6 +1,6 @@
 import type { StyleProps } from '../../types';
 import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { cx } from '../../styles';
+import { cx } from '@project44-manifest/react-styles';
 import { useStyles } from './CardBody.styles';
 
 export type CardBodyElement = 'div';

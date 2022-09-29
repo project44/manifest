@@ -6,7 +6,7 @@ import { As, createComponent, Props, Options } from '@project44-manifest/system'
 import { HiddenSelect, useSelect } from '@react-aria/select';
 import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { cx } from '../../styles';
+import { cx } from '@project44-manifest/react-styles';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
 import { Overlay } from '../Overlay';

@@ -1,7 +1,7 @@
 import type { AriaRadioGroupProps } from '@react-types/radio';
 import type { StyleProps } from '../../types';
 import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { cx } from '../../styles';
+import { cx } from '@project44-manifest/react-styles';
 import { mergeProps } from '@react-aria/utils';
 import { RadioGroupContext } from './RadioGroup.context';
 import { useRadioGroup } from '@react-aria/radio';

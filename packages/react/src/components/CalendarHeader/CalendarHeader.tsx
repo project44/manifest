@@ -1,7 +1,7 @@
 import type { CalendarState, RangeCalendarState } from '@react-stately/calendar';
 import type { AriaButtonProps } from '@react-types/button';
 import { useDateFormatter, useLocale } from '@react-aria/i18n';
-import { cx } from '../../styles';
+import { cx } from '@project44-manifest/react-styles';
 import { Icon } from '../Icon';
 import { IconButton } from '../IconButton';
 import { Typography } from '../Typography';
