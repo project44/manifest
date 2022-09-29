@@ -28,7 +28,7 @@ export type PropsWithAs<P, T extends As> = P & { as?: T };
  *  isActive?: boolean;
  * }
  *
- * export interface ComponentProps extends PolymorphicPropsWithRef<ComponentOptions, ComponentElement> {}
+ * export interface ComponentProps extends PolymorphicPropsWithRef<ComponentElement, ComponentOptions> {}
  * ```
  *
  */
@@ -36,6 +36,18 @@ export type PolymorphicPropsWithRef<T extends As, P = {}> = ExtendableProps<
 	React.ComponentPropsWithRef<T>,
 	PropsWithAs<P, T>
 >;
+
+/**
+ * Ref of the polymorphic `as` element.
+ *
+ * @example
+ * ```tsx
+ * import { PolymorphicRef } from '@project44-manifest/react-types';
+ *
+ * export type ComponentRef = PolymorphicRef<'div'>;
+ *
+ */
+export type PolymorphicRef<T extends As> = React.ComponentPropsWithRef<T>['ref'];
 
 /**
  * A component with support for the polymorphic `as` prop and ref.
@@ -50,9 +62,9 @@ export type PolymorphicPropsWithRef<T extends As, P = {}> = ExtendableProps<
  *  isActive?: boolean;
  * }
  *
- * export interface ComponentProps extends PolymorphicPropsWithRef<ComponentOptions, ComponentElement> {}
+ * export interface ComponentProps extends PolymorphicPropsWithRef<ComponentElement, ComponentOptions> {}
  *
- * export const Component = React.forwardRef((props, ref) => { ... }) as PolymorphicComponent<ComponentElement, ComponentOptions>;
+ * export const Component = React.forwardRef((props: ComponentProps, ref: PolymorphicRef<ComponentElement>) => { ... }) as PolymorphicComponent<ComponentElement, ComponentOptions>;
  * ```
  *
  */

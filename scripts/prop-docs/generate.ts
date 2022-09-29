@@ -1,13 +1,13 @@
-import fs from 'fs-extra';
-import glob from 'fast-glob';
-import path from 'path';
-import prettier from 'prettier';
+import path from 'node:path';
 import { withCustomConfig } from 'react-docgen-typescript';
+import glob from 'fast-glob';
+import fs from 'fs-extra';
+import prettier from 'prettier';
 import yargs from 'yargs';
 
 interface PropDoc {
 	description: string;
-	defaultValue: any;
+	defaultValue: string;
 	name: string;
 	required: boolean;
 	type: string;
@@ -18,7 +18,8 @@ interface ComponentDoc {
 	props: PropDoc[];
 }
 
-const ROOT_DIR = path.join(__dirname, '../../..');
+// eslint-disable-next-line unicorn/prefer-module
+const ROOT_DIR = path.join(__dirname, '../..');
 const SRC_DIR = path.join(ROOT_DIR, 'packages', 'react', 'src');
 const OUT_DIR = path.join(ROOT_DIR, 'apps', 'docs', 'src');
 
@@ -34,44 +35,35 @@ async function main() {
 		},
 	});
 
-	const _docs = parse(files);
-	const docs = _docs.reduce<ComponentDoc[]>((acc, doc) => {
-		if (!Object.keys(doc.props || {}).length) {
+	const docs = parse(files).reduce<ComponentDoc[]>((acc, doc) => {
+		if (Object.keys(doc.props || {}).length === 0) {
 			return acc;
 		}
 
-		const { displayName, props: _props } = doc;
+		let newAcc = [...acc];
 
-		const props = Object.keys(_props)
+		const { displayName, props } = doc;
+
+		const formattedProps = Object.keys(props)
 			.sort()
 			.map((prop) => {
-				const {
-					defaultValue: _defaultValue,
-					description,
-					name,
-					required,
-					type: _type,
-				} = _props[prop];
-
-				const defaultValue = _defaultValue?.value ?? '';
-				const type = (_type.name === 'enum' ? _type.raw ?? '' : _type.name).replace(
-					'| undefined',
-					'',
-				);
+				// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+				const { defaultValue, description, name, required, type } = props[prop];
 
 				return {
-					defaultValue,
+					// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+					defaultValue: defaultValue?.value ?? '',
 					description:
 						name === 'as' ? 'The DOM tag or react component to use for the element.' : description,
 					name,
 					required,
-					type,
+					type: (type.name === 'enum' ? type.raw ?? '' : type.name).replace('| undefined', ''),
 				};
 			});
 
-		acc = [...acc, { displayName, props }];
+		newAcc = [...newAcc, { displayName, props: formattedProps }];
 
-		return acc;
+		return newAcc;
 	}, []);
 
 	const types = `

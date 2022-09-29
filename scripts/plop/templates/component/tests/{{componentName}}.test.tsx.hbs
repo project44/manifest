@@ -1,0 +1,12 @@
+import { accessibility, render } from '@project44-manifest/test-utils';
+import { {{componentName}} } from '../src';
+
+describe('@project44-manifest/react-{{componentName}} - {{componentName}}', () => {
+  accessibility(<{{componentName}} />);
+
+  it('should render correctly', () => {
+    render(<{{componentName}} />);
+
+    expect(true).toBeTruthy();
+  });
+});

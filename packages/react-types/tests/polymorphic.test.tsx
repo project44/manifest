@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render } from '@project44-manifest/test-utils';
-import { PolymorphicComponent, PolymorphicPropsWithRef } from '../src';
+import { PolymorphicComponent, PolymorphicPropsWithRef, PolymorphicRef } from '../src';
 
 type ButtonElement = 'button';
 
@@ -9,29 +9,30 @@ interface ButtonOptions {
 	isActive?: boolean;
 }
 
-// Not using this directly, but want to construct the types for compile testing.
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface ButtonProps extends PolymorphicPropsWithRef<ButtonElement, ButtonOptions> {}
 
-const Button = React.forwardRef((props, forwardedRef) => {
-	const { as: Comp = 'button', ...other } = props;
+const Button = React.forwardRef(
+	(props: ButtonProps, forwardedRef: PolymorphicRef<ButtonElement>) => {
+		const { as: Comp = 'button', ...other } = props;
 
-	return <Comp {...other} ref={forwardedRef} />;
-}) as PolymorphicComponent<ButtonElement, ButtonOptions>;
+		return <Comp {...other} ref={forwardedRef} />;
+	},
+) as PolymorphicComponent<ButtonElement, ButtonOptions>;
 
 interface ExtendedButtonOptions extends Omit<ButtonOptions, 'isActive'> {
 	isExtended?: boolean;
 }
 
-// Not using this directly, but want to construct the types for compile testing.
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-type ExtendedButtonButtonProps = PolymorphicPropsWithRef<ButtonElement, ExtendedButtonOptions>;
+interface ExtendedButtonButtonProps
+	extends PolymorphicPropsWithRef<ButtonElement, ExtendedButtonOptions> {}
 
-const ExtendedButton = React.forwardRef((props, forwardedRef) => {
-	const { isExtended, ...extendedButtonProps } = props;
+const ExtendedButton = React.forwardRef(
+	(props: ExtendedButtonButtonProps, forwardedRef: PolymorphicRef<ButtonElement>) => {
+		const { isExtended, ...extendedButtonProps } = props;
 
-	return <Button {...extendedButtonProps} ref={forwardedRef} />;
-}) as PolymorphicComponent<ButtonElement, ExtendedButtonOptions>;
+		return <Button {...extendedButtonProps} ref={forwardedRef} />;
+	},
+) as PolymorphicComponent<ButtonElement, ExtendedButtonOptions>;
 
 type LinkProps = React.ComponentProps<'a'> & {
 	isPrimary?: boolean;
@@ -40,6 +41,7 @@ type LinkProps = React.ComponentProps<'a'> & {
 
 const Link = React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
 	const { children, isPrimary, ...linkProps } = props;
+
 	return (
 		<a ref={ref} className={isPrimary ? 'primary' : undefined} {...linkProps}>
 			{children}
