@@ -19,6 +19,18 @@
     "lib/**/*.{js,map}",
     "src/**/*.{ts,tsx,json}"
   ],
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dts/index.d.ts",
+      "browser": {
+        "module": "./esm/index.js",
+        "import": "./esm/index.js",
+        "default": "./lib/index.js"
+      },
+      "default": "./lib/index.js"
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -36,22 +48,6 @@
     "react-dom": "^18.1.0"
   },
   "packemon": {
-    "formats": [
-      "esm",
-      "lib"
-    ],
     "platform": "browser"
-  },
-  "exports": {
-    "./package.json": "./package.json",
-    ".": {
-      "types": "./dts/index.d.ts",
-      "browser": {
-        "module": "./esm/index.js",
-        "import": "./esm/index.js",
-        "default": "./lib/index.js"
-      },
-      "default": "./lib/index.js"
-    }
   }
 }

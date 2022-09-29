@@ -20,21 +20,6 @@
     "lib/**/*.{js,map}",
     "src/**/*.{ts,tsx,json}"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:project-44/manifest.git",
-    "directory": "packages/design-tokens"
-  },
-  "packemon": {
-    "formats": [
-      "esm",
-      "lib"
-    ],
-    "platform": "browser"
-  },
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -46,5 +31,16 @@
       },
       "default": "./lib/index.js"
     }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:project-44/manifest.git",
+    "directory": "packages/design-tokens"
+  },
+  "packemon": {
+    "platform": "browser"
   }
 }

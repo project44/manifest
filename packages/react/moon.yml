@@ -8,3 +8,7 @@ tasks:
     outputs:
       - 'esm'
       - 'lib'
+
+  test:
+    args:
+      - '--env=jsdom'

@@ -4,7 +4,11 @@
     "outDir": "dts",
     "rootDir": "."
   },
-  "exclude": ["dts"],
-  "include": ["**/*"],
+  "exclude": [
+    "dts"
+  ],
+  "include": [
+    "**/*"
+  ],
   "references": []
 }

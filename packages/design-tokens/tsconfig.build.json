@@ -4,6 +4,8 @@
     "outDir": "dts",
     "rootDir": "src"
   },
-  "include": ["src/**/*"],
+  "include": [
+    "src/**/*"
+  ],
   "references": []
 }
