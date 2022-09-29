@@ -1,12 +1,13 @@
 {
   "extends": "./tsconfig.options.json",
+  "compilerOptions": {
+    "emitDeclarationOnly": false,
+    "noEmit": true
+  },
   "include": [
-    "packages/**/*"
-  ],
-  "exclude": [
-    "**/lib/**/*",
-    "**/esm/**/*",
-    "**/dts/**/*",
-    "**/node_modules/**/*"
+    "apps/*/src/**/*",
+    "packages/*/src/**/*",
+    "packages/*/stories/**/*",
+    "packages/*/tests/**/*"
   ]
 }
