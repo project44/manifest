@@ -17,9 +17,10 @@ tasks:
     inputs:
       - '@group(storybook)'
 
-  start:
+  dev:
     command: 'start-storybook'
     args:
       - '-p'
       - '6006'
       - '--quiet'
+    local: true

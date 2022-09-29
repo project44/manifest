@@ -37,7 +37,7 @@ that no one is actively working on the same issue or feature.
 3. Install dependencies by running `yarn` in the project root
 4. Build the code with `moon run :build`
 5. Write your code
-6. Start storybook dev environment `moon run storybook:start`
+6. Start storybook dev environment `moon run storybook:dev`
 7. Ensure code is tested and tests pass with `moon run <changed_package>:test`
 8. Ensure your code passes formatting rules with `moon run <changed_package>:format`
 9. Lint your code with `moon run <changed_package>:lint`
@@ -71,7 +71,7 @@ moon run :build
 3. Start development server
 
 ```sh
-moon run storybook:start
+moon run storybook:dev
 ```
 
 ## Testing

@@ -19,3 +19,17 @@ tasks:
       - '^:build'
     inputs:
       - '@group(next)'
+
+  dev:
+    command: 'next dev'
+    deps:
+      - '^:build'
+    inputs:
+      - '@group(next)'
+    local: true
+
+  start:
+    command: 'next start'
+    inputs:
+      - '@group(next)'
+    local: true
