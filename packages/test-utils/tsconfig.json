@@ -6,14 +6,13 @@
       "dom"
     ],
     "outDir": "dts",
-    "rootDir": "src"
+    "rootDir": "."
   },
-  "include": [
-    "src/**/*"
+  "exclude": [
+    "dts"
   ],
-  "references": [
-    {
-      "path": "../test-utils"
-    }
-  ]
+  "include": [
+    "**/*"
+  ],
+  "references": []
 }

@@ -1,33 +1,26 @@
-import { fireEvent, screen, render, waitFor } from '@testing-library/react';
-import { axe } from 'jest-axe';
+import {
+	accessibility,
+	fireEvent,
+	screen,
+	render,
+	waitFor,
+	userEvent,
+} from '@project44-manifest/test-utils';
 import { CalendarDate } from '@internationalized/date';
-import { DatePicker, Provider } from '../src';
-import userEvent from '@testing-library/user-event';
+import { DatePicker } from '../src';
 
 describe('@project44-manifest/react - DatePicker', () => {
-	it('should have no accessibility violations', async () => {
-		const { container } = render(
-			<Provider>
-				<DatePicker aria-label="Calendar" isOpen />
-			</Provider>,
-		);
-
-		const results = await axe(container);
-
-		expect(results).toHaveNoViolations();
-	});
+	accessibility(<DatePicker aria-label="Calendar" isOpen />);
 
 	it('should support selecting a date', async () => {
 		const onChange = jest.fn();
 
 		render(
-			<Provider>
-				<DatePicker
-					aria-label="Calendar"
-					defaultValue={new CalendarDate(2022, 7, 12)}
-					onChange={onChange}
-				/>
-			</Provider>,
+			<DatePicker
+				aria-label="Calendar"
+				defaultValue={new CalendarDate(2022, 7, 12)}
+				onChange={onChange}
+			/>,
 		);
 
 		expect(screen.getByText('7 / 12 / 2022')).toBeVisible();
@@ -56,13 +49,11 @@ describe('@project44-manifest/react - DatePicker', () => {
 		const onChange = jest.fn();
 
 		render(
-			<Provider>
-				<DatePicker
-					aria-label="Calendar"
-					value={new CalendarDate(2022, 7, 12)}
-					onChange={onChange}
-				/>
-			</Provider>,
+			<DatePicker
+				aria-label="Calendar"
+				value={new CalendarDate(2022, 7, 12)}
+				onChange={onChange}
+			/>,
 		);
 
 		expect(screen.getByText('7 / 12 / 2022')).toBeVisible();
@@ -88,11 +79,7 @@ describe('@project44-manifest/react - DatePicker', () => {
 	});
 
 	it('should close datepicker when outside click is register', async () => {
-		render(
-			<Provider>
-				<DatePicker aria-label="Calendar" />
-			</Provider>,
-		);
+		render(<DatePicker aria-label="Calendar" />);
 
 		fireEvent.click(screen.getByRole('button'));
 

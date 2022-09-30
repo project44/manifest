@@ -1,20 +1,17 @@
-import { act, fireEvent, screen, render, within } from '@testing-library/react';
-import { Combobox, ComboboxItem, ComboboxSection, Provider } from '../src';
-import userEvent from '@testing-library/user-event';
+import { act, fireEvent, screen, render, within, userEvent } from '@project44-manifest/test-utils';
+import { Combobox, ComboboxItem, ComboboxSection } from '../src';
 
 describe('@project44-manifest/react - Combobox', () => {
 	it('should render', () => {
 		render(
-			<Provider>
-				<Combobox label="Combobox" startIcon={<>icon</>}>
-					<ComboboxItem key="ardvark">Ardvark</ComboboxItem>
-					<ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
-					<ComboboxItem key="snake">Snake</ComboboxItem>
-					<ComboboxSection title="Section">
-						<ComboboxItem key="dog">Dog</ComboboxItem>
-					</ComboboxSection>
-				</Combobox>
-			</Provider>,
+			<Combobox label="Combobox" startIcon={<>icon</>}>
+				<ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+				<ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+				<ComboboxItem key="snake">Snake</ComboboxItem>
+				<ComboboxSection title="Section">
+					<ComboboxItem key="dog">Dog</ComboboxItem>
+				</ComboboxSection>
+			</Combobox>,
 		);
 
 		const combobox = screen.getByRole('combobox');
@@ -37,13 +34,11 @@ describe('@project44-manifest/react - Combobox', () => {
 
 	it('should close menu when no items match', () => {
 		render(
-			<Provider>
-				<Combobox label="Combobox">
-					<ComboboxItem key="ardvark">Ardvark</ComboboxItem>
-					<ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
-					<ComboboxItem key="snake">Snake</ComboboxItem>
-				</Combobox>
-			</Provider>,
+			<Combobox label="Combobox">
+				<ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+				<ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+				<ComboboxItem key="snake">Snake</ComboboxItem>
+			</Combobox>,
 		);
 
 		const combobox = screen.getByRole('combobox');
@@ -60,13 +55,11 @@ describe('@project44-manifest/react - Combobox', () => {
 
 	it('should open the listbox when opened by the button', async () => {
 		render(
-			<Provider>
-				<Combobox label="Combobox">
-					<ComboboxItem key="ardvark">Ardvark</ComboboxItem>
-					<ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
-					<ComboboxItem key="snake">Snake</ComboboxItem>
-				</Combobox>
-			</Provider>,
+			<Combobox label="Combobox">
+				<ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+				<ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+				<ComboboxItem key="snake">Snake</ComboboxItem>
+			</Combobox>,
 		);
 
 		const button = screen.getByRole('button');
@@ -84,13 +77,11 @@ describe('@project44-manifest/react - Combobox', () => {
 		const onSelectionChange = jest.fn();
 
 		render(
-			<Provider>
-				<Combobox label="Combobox" onSelectionChange={onSelectionChange}>
-					<ComboboxItem key="ardvark">Ardvark</ComboboxItem>
-					<ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
-					<ComboboxItem key="snake">Snake</ComboboxItem>
-				</Combobox>
-			</Provider>,
+			<Combobox label="Combobox" onSelectionChange={onSelectionChange}>
+				<ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+				<ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+				<ComboboxItem key="snake">Snake</ComboboxItem>
+			</Combobox>,
 		);
 
 		const button = screen.getByRole('button');
@@ -111,13 +102,11 @@ describe('@project44-manifest/react - Combobox', () => {
 
 	it('should open the listbox when opened by the keyboard', () => {
 		render(
-			<Provider>
-				<Combobox label="Combobox">
-					<ComboboxItem key="ardvark">Ardvark</ComboboxItem>
-					<ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
-					<ComboboxItem key="snake">Snake</ComboboxItem>
-				</Combobox>
-			</Provider>,
+			<Combobox label="Combobox">
+				<ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+				<ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+				<ComboboxItem key="snake">Snake</ComboboxItem>
+			</Combobox>,
 		);
 
 		fireEvent.keyDown(screen.getByRole('combobox'), { key: 'ArrowDown', code: 38, charCode: 38 });
@@ -134,13 +123,11 @@ describe('@project44-manifest/react - Combobox', () => {
 		const onOpenChange = jest.fn();
 
 		render(
-			<Provider>
-				<Combobox label="Combobox" onInputChange={onInputChange} onOpenChange={onOpenChange}>
-					<ComboboxItem key="ardvark">Ardvark</ComboboxItem>
-					<ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
-					<ComboboxItem key="snake">Snake</ComboboxItem>
-				</Combobox>
-			</Provider>,
+			<Combobox label="Combobox" onInputChange={onInputChange} onOpenChange={onOpenChange}>
+				<ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+				<ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+				<ComboboxItem key="snake">Snake</ComboboxItem>
+			</Combobox>,
 		);
 
 		const combobox = screen.getByRole('combobox');

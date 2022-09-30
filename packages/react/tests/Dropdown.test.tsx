@@ -1,59 +1,46 @@
-import { fireEvent, screen, render, within } from '@testing-library/react';
-import { axe } from 'jest-axe';
 import {
-	Dropdown,
-	DropdownItem,
-	DropdownMenu,
-	DropdownSection,
-	Icon,
-	IconButton,
-	Provider,
-} from '../src';
-import userEvent from '@testing-library/user-event';
+	accessibility,
+	fireEvent,
+	screen,
+	render,
+	within,
+	userEvent,
+} from '@project44-manifest/test-utils';
+import { Dropdown, DropdownItem, DropdownMenu, DropdownSection, Icon, IconButton } from '../src';
 
 describe('@project44-manifest/react - Dropdown', () => {
-	it('should have no accessibility violations', async () => {
-		const { container } = render(
-			<Provider>
-				<Dropdown isOpen>
-					<IconButton variant="primary">
-						<Icon icon="expand_more" />
-					</IconButton>
-					<DropdownMenu>
-						<DropdownItem key="ardvark" startIcon={<>icon</>}>
-							Ardvark
-						</DropdownItem>
-						<DropdownItem key="kangaroo">Kangaroo</DropdownItem>
-						<DropdownItem key="snake">Snake</DropdownItem>
-						<DropdownSection title="Section">
-							<DropdownItem key="dog">Dog</DropdownItem>
-						</DropdownSection>
-					</DropdownMenu>
-				</Dropdown>
-			</Provider>,
-		);
-
-		const results = await axe(container);
-
-		expect(results).toHaveNoViolations();
-	});
+	accessibility(
+		<Dropdown isOpen>
+			<IconButton variant="primary">
+				<Icon icon="expand_more" />
+			</IconButton>
+			<DropdownMenu>
+				<DropdownItem key="ardvark" startIcon={<>icon</>}>
+					Ardvark
+				</DropdownItem>
+				<DropdownItem key="kangaroo">Kangaroo</DropdownItem>
+				<DropdownItem key="snake">Snake</DropdownItem>
+				<DropdownSection title="Section">
+					<DropdownItem key="dog">Dog</DropdownItem>
+				</DropdownSection>
+			</DropdownMenu>
+		</Dropdown>,
+	);
 
 	it('should render and support selection', async () => {
 		const onAction = jest.fn();
 
 		render(
-			<Provider>
-				<Dropdown>
-					<IconButton variant="primary">
-						<Icon icon="expand_more" />
-					</IconButton>
-					<DropdownMenu onAction={onAction}>
-						<DropdownItem key="ardvark">Ardvark</DropdownItem>
-						<DropdownItem key="kangaroo">Kangaroo</DropdownItem>
-						<DropdownItem key="snake">Snake</DropdownItem>
-					</DropdownMenu>
-				</Dropdown>
-			</Provider>,
+			<Dropdown>
+				<IconButton variant="primary">
+					<Icon icon="expand_more" />
+				</IconButton>
+				<DropdownMenu onAction={onAction}>
+					<DropdownItem key="ardvark">Ardvark</DropdownItem>
+					<DropdownItem key="kangaroo">Kangaroo</DropdownItem>
+					<DropdownItem key="snake">Snake</DropdownItem>
+				</DropdownMenu>
+			</Dropdown>,
 		);
 
 		expect(screen.queryByRole('menu')).toBeNull();
@@ -75,18 +62,16 @@ describe('@project44-manifest/react - Dropdown', () => {
 		const onAction = jest.fn();
 
 		render(
-			<Provider>
-				<Dropdown>
-					<IconButton variant="primary">
-						<Icon icon="expand_more" />
-					</IconButton>
-					<DropdownMenu onAction={onAction}>
-						<DropdownItem key="ardvark">Ardvark</DropdownItem>
-						<DropdownItem key="kangaroo">Kangaroo</DropdownItem>
-						<DropdownItem key="snake">Snake</DropdownItem>
-					</DropdownMenu>
-				</Dropdown>
-			</Provider>,
+			<Dropdown>
+				<IconButton variant="primary">
+					<Icon icon="expand_more" />
+				</IconButton>
+				<DropdownMenu onAction={onAction}>
+					<DropdownItem key="ardvark">Ardvark</DropdownItem>
+					<DropdownItem key="kangaroo">Kangaroo</DropdownItem>
+					<DropdownItem key="snake">Snake</DropdownItem>
+				</DropdownMenu>
+			</Dropdown>,
 		);
 
 		expect(screen.queryByRole('menu')).toBeNull();
@@ -122,18 +107,16 @@ describe('@project44-manifest/react - Dropdown', () => {
 		const onAction = jest.fn();
 
 		render(
-			<Provider>
-				<Dropdown>
-					<IconButton variant="primary">
-						<Icon icon="expand_more" />
-					</IconButton>
-					<DropdownMenu disabledKeys={['kangaroo']} onAction={onAction}>
-						<DropdownItem key="ardvark">Ardvark</DropdownItem>
-						<DropdownItem key="kangaroo">Kangaroo</DropdownItem>
-						<DropdownItem key="snake">Snake</DropdownItem>
-					</DropdownMenu>
-				</Dropdown>
-			</Provider>,
+			<Dropdown>
+				<IconButton variant="primary">
+					<Icon icon="expand_more" />
+				</IconButton>
+				<DropdownMenu disabledKeys={['kangaroo']} onAction={onAction}>
+					<DropdownItem key="ardvark">Ardvark</DropdownItem>
+					<DropdownItem key="kangaroo">Kangaroo</DropdownItem>
+					<DropdownItem key="snake">Snake</DropdownItem>
+				</DropdownMenu>
+			</Dropdown>,
 		);
 
 		expect(screen.queryByRole('menu')).toBeNull();
@@ -157,22 +140,20 @@ describe('@project44-manifest/react - Dropdown', () => {
 		const onSelectionChange = jest.fn();
 
 		render(
-			<Provider>
-				<Dropdown>
-					<IconButton variant="primary">
-						<Icon icon="expand_more" />
-					</IconButton>
-					<DropdownMenu
-						disabledKeys={['kangaroo']}
-						onSelectionChange={onSelectionChange}
-						selectionMode="single"
-					>
-						<DropdownItem key="ardvark">Ardvark</DropdownItem>
-						<DropdownItem key="kangaroo">Kangaroo</DropdownItem>
-						<DropdownItem key="snake">Snake</DropdownItem>
-					</DropdownMenu>
-				</Dropdown>
-			</Provider>,
+			<Dropdown>
+				<IconButton variant="primary">
+					<Icon icon="expand_more" />
+				</IconButton>
+				<DropdownMenu
+					disabledKeys={['kangaroo']}
+					onSelectionChange={onSelectionChange}
+					selectionMode="single"
+				>
+					<DropdownItem key="ardvark">Ardvark</DropdownItem>
+					<DropdownItem key="kangaroo">Kangaroo</DropdownItem>
+					<DropdownItem key="snake">Snake</DropdownItem>
+				</DropdownMenu>
+			</Dropdown>,
 		);
 
 		expect(screen.queryByRole('menu')).toBeNull();
@@ -201,22 +182,20 @@ describe('@project44-manifest/react - Dropdown', () => {
 		const onSelectionChange = jest.fn();
 
 		render(
-			<Provider>
-				<Dropdown>
-					<IconButton variant="primary">
-						<Icon icon="expand_more" />
-					</IconButton>
-					<DropdownMenu
-						disabledKeys={['kangaroo']}
-						onSelectionChange={onSelectionChange}
-						selectionMode="multiple"
-					>
-						<DropdownItem key="ardvark">Ardvark</DropdownItem>
-						<DropdownItem key="kangaroo">Kangaroo</DropdownItem>
-						<DropdownItem key="snake">Snake</DropdownItem>
-					</DropdownMenu>
-				</Dropdown>
-			</Provider>,
+			<Dropdown>
+				<IconButton variant="primary">
+					<Icon icon="expand_more" />
+				</IconButton>
+				<DropdownMenu
+					disabledKeys={['kangaroo']}
+					onSelectionChange={onSelectionChange}
+					selectionMode="multiple"
+				>
+					<DropdownItem key="ardvark">Ardvark</DropdownItem>
+					<DropdownItem key="kangaroo">Kangaroo</DropdownItem>
+					<DropdownItem key="snake">Snake</DropdownItem>
+				</DropdownMenu>
+			</Dropdown>,
 		);
 
 		expect(screen.queryByRole('menu')).toBeNull();

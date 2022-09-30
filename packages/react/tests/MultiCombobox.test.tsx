@@ -1,38 +1,34 @@
-import { act, fireEvent, screen, render, within, waitFor } from '@testing-library/react';
-import { axe } from 'jest-axe';
-import { MultiCombobox, Provider, SelectItem, SelectSection } from '../src';
-import userEvent from '@testing-library/user-event';
+import {
+	accessibility,
+	act,
+	fireEvent,
+	screen,
+	render,
+	within,
+	waitFor,
+	userEvent,
+} from '@project44-manifest/test-utils';
+import { MultiCombobox, SelectItem, SelectSection } from '../src';
 
 describe('@project44-manifest/react - MultiCombobox', () => {
 	describe('render', () => {
-		it('should have no accessibility violations', async () => {
-			const { container } = render(
-				<Provider>
-					<MultiCombobox label="Select" isOpen startIcon={<>icon</>}>
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-						<SelectSection title="Section">
-							<SelectItem key="dog">Dog</SelectItem>
-						</SelectSection>
-					</MultiCombobox>
-				</Provider>,
-			);
-
-			const results = await axe(container);
-
-			expect(results).toHaveNoViolations();
-		});
-
+		accessibility(
+			<MultiCombobox label="Select" isOpen startIcon={<>icon</>}>
+				<SelectItem key="ardvark">Ardvark</SelectItem>
+				<SelectItem key="kangaroo">Kangaroo</SelectItem>
+				<SelectItem key="snake">Snake</SelectItem>
+				<SelectSection title="Section">
+					<SelectItem key="dog">Dog</SelectItem>
+				</SelectSection>
+			</MultiCombobox>,
+		);
 		it('should render correctly', () => {
 			render(
-				<Provider>
-					<MultiCombobox label="Select">
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiCombobox>
-				</Provider>,
+				<MultiCombobox label="Select">
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiCombobox>,
 			);
 
 			const combobox = screen.getByRole('combobox');
@@ -59,13 +55,11 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 			const onOpenChange = jest.fn();
 
 			render(
-				<Provider>
-					<MultiCombobox defaultInputValue="hsdjhnkjfd" label="Select" onOpenChange={onOpenChange}>
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiCombobox>
-				</Provider>,
+				<MultiCombobox defaultInputValue="hsdjhnkjfd" label="Select" onOpenChange={onOpenChange}>
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiCombobox>,
 			);
 
 			const trigger = screen.getByRole('button');
@@ -88,13 +82,11 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 
 		it('should open on focus', () => {
 			render(
-				<Provider>
-					<MultiCombobox label="Select" menuTrigger="focus">
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiCombobox>
-				</Provider>,
+				<MultiCombobox label="Select" menuTrigger="focus">
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiCombobox>,
 			);
 
 			const combobox = screen.getByRole('combobox');
@@ -110,13 +102,11 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 
 		it('should open via ArrowDown key down', () => {
 			render(
-				<Provider>
-					<MultiCombobox label="Select">
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiCombobox>
-				</Provider>,
+				<MultiCombobox label="Select">
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiCombobox>,
 			);
 
 			const combobox = screen.getByRole('combobox');
@@ -134,13 +124,11 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 
 		it('should open via ArrowUp key down', () => {
 			render(
-				<Provider>
-					<MultiCombobox label="Select">
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiCombobox>
-				</Provider>,
+				<MultiCombobox label="Select">
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiCombobox>,
 			);
 
 			const combobox = screen.getByRole('combobox');
@@ -158,13 +146,11 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 
 		it('should open via arrow button click', () => {
 			render(
-				<Provider>
-					<MultiCombobox label="Select">
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiCombobox>
-				</Provider>,
+				<MultiCombobox label="Select">
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiCombobox>,
 			);
 
 			const trigger = screen.getByRole('button');
@@ -180,13 +166,11 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 
 		it('should open list on user input', async () => {
 			render(
-				<Provider>
-					<MultiCombobox label="Select">
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiCombobox>
-				</Provider>,
+				<MultiCombobox label="Select">
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiCombobox>,
 			);
 
 			const combobox = screen.getByRole('combobox');
@@ -206,13 +190,11 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 	describe('close', () => {
 		it('should close when clicked outside', async () => {
 			render(
-				<Provider>
-					<MultiCombobox label="Select">
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiCombobox>
-				</Provider>,
+				<MultiCombobox label="Select">
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiCombobox>,
 			);
 
 			const trigger = screen.getByRole('button');
@@ -238,13 +220,11 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 
 		it('should close on Escape key down', async () => {
 			render(
-				<Provider>
-					<MultiCombobox label="Select">
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiCombobox>
-				</Provider>,
+				<MultiCombobox label="Select">
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiCombobox>,
 			);
 
 			const trigger = screen.getByRole('button');
@@ -273,19 +253,17 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 			const onSelectionChange = jest.fn();
 
 			render(
-				<Provider>
-					<MultiCombobox
-						label="Test"
-						allowsCustomValue
-						selectedKeys={['ardvark']}
-						onOpenChange={onOpenChange}
-						onSelectionChange={onSelectionChange}
-					>
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiCombobox>
-				</Provider>,
+				<MultiCombobox
+					label="Test"
+					allowsCustomValue
+					selectedKeys={['ardvark']}
+					onOpenChange={onOpenChange}
+					onSelectionChange={onSelectionChange}
+				>
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiCombobox>,
 			);
 
 			const combobox = screen.getByRole('combobox');
@@ -310,13 +288,11 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 	describe('value', () => {
 		it('should reset the input value on escape key down', async () => {
 			render(
-				<Provider>
-					<MultiCombobox label="Select">
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiCombobox>
-				</Provider>,
+				<MultiCombobox label="Select">
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiCombobox>,
 			);
 
 			const combobox = screen.getByRole('combobox');
@@ -341,13 +317,11 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 
 		it('should reset the input value on escape key down and custom value', async () => {
 			render(
-				<Provider>
-					<MultiCombobox label="Select" allowsCustomValue selectedKeys={['ardvark']}>
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiCombobox>
-				</Provider>,
+				<MultiCombobox label="Select" allowsCustomValue selectedKeys={['ardvark']}>
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiCombobox>,
 			);
 
 			const combobox = screen.getByRole('combobox');
@@ -376,17 +350,15 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 			const onSelectionChange = jest.fn();
 
 			render(
-				<Provider>
-					<MultiCombobox
-						disabledKeys={['snake']}
-						label="Select"
-						onSelectionChange={onSelectionChange}
-					>
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiCombobox>
-				</Provider>,
+				<MultiCombobox
+					disabledKeys={['snake']}
+					label="Select"
+					onSelectionChange={onSelectionChange}
+				>
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiCombobox>,
 			);
 
 			const trigger = screen.getByRole('button');
@@ -409,13 +381,11 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 			const onSelectionChange = jest.fn();
 
 			render(
-				<Provider>
-					<MultiCombobox label="Select" onSelectionChange={onSelectionChange}>
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiCombobox>
-				</Provider>,
+				<MultiCombobox label="Select" onSelectionChange={onSelectionChange}>
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiCombobox>,
 			);
 
 			const trigger = screen.getByRole('button');
@@ -440,13 +410,11 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 			const onSelectionChange = jest.fn();
 
 			render(
-				<Provider>
-					<MultiCombobox label="Select" onSelectionChange={onSelectionChange}>
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiCombobox>
-				</Provider>,
+				<MultiCombobox label="Select" onSelectionChange={onSelectionChange}>
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiCombobox>,
 			);
 
 			const trigger = screen.getByRole('button');
@@ -471,17 +439,15 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 			const onInputChange = jest.fn();
 
 			render(
-				<Provider>
-					<MultiCombobox
-						label="Select"
-						defaultSelectedKeys={['ardvark']}
-						onInputChange={onInputChange}
-					>
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiCombobox>
-				</Provider>,
+				<MultiCombobox
+					label="Select"
+					defaultSelectedKeys={['ardvark']}
+					onInputChange={onInputChange}
+				>
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiCombobox>,
 			);
 
 			const combobox: HTMLInputElement = screen.getByRole('combobox');
@@ -509,20 +475,18 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 			const onSelectionChange = jest.fn();
 
 			render(
-				<Provider>
-					<MultiCombobox
-						allowsCustomValue
-						label="Select"
-						selectedKeys={['ardvark']}
-						onKeyDown={onKeyDown}
-						onOpenChange={onOpenChange}
-						onSelectionChange={onSelectionChange}
-					>
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiCombobox>
-				</Provider>,
+				<MultiCombobox
+					allowsCustomValue
+					label="Select"
+					selectedKeys={['ardvark']}
+					onKeyDown={onKeyDown}
+					onOpenChange={onOpenChange}
+					onSelectionChange={onSelectionChange}
+				>
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiCombobox>,
 			);
 
 			const combobox = screen.getByRole('combobox');
@@ -562,13 +526,11 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 			};
 
 			render(
-				<Provider>
-					<MultiCombobox label="Select" {...focusProps}>
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiCombobox>
-				</Provider>,
+				<MultiCombobox label="Select" {...focusProps}>
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiCombobox>,
 			);
 
 			const combobox = screen.getByRole('combobox');

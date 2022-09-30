@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen } from '@project44-manifest/test-utils';
 import { Box } from '../src';
 
 describe('@project44-manifest/react - Box', () => {

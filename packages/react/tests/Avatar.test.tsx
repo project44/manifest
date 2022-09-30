@@ -1,13 +1,8 @@
-import { screen, fireEvent, render } from '@testing-library/react';
-import { axe } from 'jest-axe';
+import { accessibility, screen, fireEvent, render } from '@project44-manifest/test-utils';
 import { Avatar } from '../src';
 
 describe('@project44-manifest/react - Avatar', () => {
-	it('should have no accessibility violations', async () => {
-		const { container } = render(<Avatar />);
-
-		expect(await axe(container)).toHaveNoViolations();
-	});
+	accessibility(<Avatar />);
 
 	it('should render an image if a source is provided', () => {
 		render(<Avatar src="http://localhost/some_image.png" />);

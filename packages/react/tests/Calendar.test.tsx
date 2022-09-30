@@ -1,32 +1,9 @@
-import { fireEvent, screen, render } from '@testing-library/react';
-import { axe } from 'jest-axe';
+import { accessibility, fireEvent, screen, render } from '@project44-manifest/test-utils';
 import { Calendar } from '../src';
 import { CalendarDate } from '@internationalized/date';
 
 describe('@project44-manifest/react - Calendar', () => {
-	it('should have no accessibility violations', async () => {
-		const { container } = render(<Calendar />);
-
-		const results = await axe(container);
-
-		expect(results).toHaveNoViolations();
-	});
-
-	it('should have no accessibility violations when passed a default value', async () => {
-		const { container } = render(<Calendar defaultValue={new CalendarDate(2022, 7, 12)} />);
-
-		const results = await axe(container);
-
-		expect(results).toHaveNoViolations();
-	});
-
-	it('should have no accessibility violations when passed a value', async () => {
-		const { container } = render(<Calendar value={new CalendarDate(2022, 7, 12)} />);
-
-		const results = await axe(container);
-
-		expect(results).toHaveNoViolations();
-	});
+	accessibility(<Calendar />);
 
 	it('should support month navigation', () => {
 		render(<Calendar defaultValue={new CalendarDate(2022, 6, 12)} />);

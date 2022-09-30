@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@project44-manifest/test-utils';
 import { Overlay } from './Overlay';
 
 describe('@project44-manifest/react - Overlay', () => {

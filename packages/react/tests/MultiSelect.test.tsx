@@ -1,38 +1,35 @@
-import { act, fireEvent, screen, render, within, waitFor } from '@testing-library/react';
-import { axe } from 'jest-axe';
-import { MultiSelect, Provider, SelectItem, SelectSection } from '../src';
-import userEvent from '@testing-library/user-event';
+import {
+	accessibility,
+	act,
+	fireEvent,
+	screen,
+	render,
+	within,
+	waitFor,
+	userEvent,
+} from '@project44-manifest/test-utils';
+import { MultiSelect, SelectItem, SelectSection } from '../src';
 
 describe('@project44-manifest/react - MultiSelect', () => {
 	describe('render', () => {
-		it('should have no accessibility violations', async () => {
-			const { container } = render(
-				<Provider>
-					<MultiSelect label="Select" isOpen startIcon={<>icon</>}>
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-						<SelectSection title="Section">
-							<SelectItem key="dog">Dog</SelectItem>
-						</SelectSection>
-					</MultiSelect>
-				</Provider>,
-			);
-
-			const results = await axe(container);
-
-			expect(results).toHaveNoViolations();
-		});
+		accessibility(
+			<MultiSelect label="Select" isOpen startIcon={<>icon</>}>
+				<SelectItem key="ardvark">Ardvark</SelectItem>
+				<SelectItem key="kangaroo">Kangaroo</SelectItem>
+				<SelectItem key="snake">Snake</SelectItem>
+				<SelectSection title="Section">
+					<SelectItem key="dog">Dog</SelectItem>
+				</SelectSection>
+			</MultiSelect>,
+		);
 
 		it('should render correctly', () => {
 			render(
-				<Provider>
-					<MultiSelect label="Select">
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiSelect>
-				</Provider>,
+				<MultiSelect label="Select">
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiSelect>,
 			);
 
 			const select = screen.getByRole('textbox', { hidden: true });
@@ -57,13 +54,11 @@ describe('@project44-manifest/react - MultiSelect', () => {
 	describe('open', () => {
 		it('should open via mouse down', () => {
 			render(
-				<Provider>
-					<MultiSelect label="Select">
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiSelect>
-				</Provider>,
+				<MultiSelect label="Select">
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiSelect>,
 			);
 
 			const trigger = screen.getByRole('button');
@@ -79,13 +74,11 @@ describe('@project44-manifest/react - MultiSelect', () => {
 
 		it('should open via Space key down', () => {
 			render(
-				<Provider>
-					<MultiSelect label="Select">
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiSelect>
-				</Provider>,
+				<MultiSelect label="Select">
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiSelect>,
 			);
 
 			const trigger = screen.getByRole('button');
@@ -99,13 +92,11 @@ describe('@project44-manifest/react - MultiSelect', () => {
 
 		it('should open via Enter key down', () => {
 			render(
-				<Provider>
-					<MultiSelect label="Select">
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiSelect>
-				</Provider>,
+				<MultiSelect label="Select">
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiSelect>,
 			);
 
 			const trigger = screen.getByRole('button');
@@ -119,13 +110,11 @@ describe('@project44-manifest/react - MultiSelect', () => {
 
 		it('should open via ArrowDown key down', () => {
 			render(
-				<Provider>
-					<MultiSelect label="Select">
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiSelect>
-				</Provider>,
+				<MultiSelect label="Select">
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiSelect>,
 			);
 
 			const trigger = screen.getByRole('button');
@@ -140,13 +129,11 @@ describe('@project44-manifest/react - MultiSelect', () => {
 
 		it('should open via ArrowUp key down', () => {
 			render(
-				<Provider>
-					<MultiSelect label="Select">
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiSelect>
-				</Provider>,
+				<MultiSelect label="Select">
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiSelect>,
 			);
 
 			const trigger = screen.getByRole('button');
@@ -163,13 +150,11 @@ describe('@project44-manifest/react - MultiSelect', () => {
 	describe('close', () => {
 		it('should close when clicked outside', async () => {
 			render(
-				<Provider>
-					<MultiSelect label="Select">
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiSelect>
-				</Provider>,
+				<MultiSelect label="Select">
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiSelect>,
 			);
 
 			const trigger = screen.getByRole('button');
@@ -195,13 +180,11 @@ describe('@project44-manifest/react - MultiSelect', () => {
 
 		it('should close on Escape key down', async () => {
 			render(
-				<Provider>
-					<MultiSelect label="Select">
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiSelect>
-				</Provider>,
+				<MultiSelect label="Select">
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiSelect>,
 			);
 
 			const trigger = screen.getByRole('button');
@@ -231,17 +214,11 @@ describe('@project44-manifest/react - MultiSelect', () => {
 			const onSelectionChange = jest.fn();
 
 			render(
-				<Provider>
-					<MultiSelect
-						disabledKeys={['snake']}
-						label="Select"
-						onSelectionChange={onSelectionChange}
-					>
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiSelect>
-				</Provider>,
+				<MultiSelect disabledKeys={['snake']} label="Select" onSelectionChange={onSelectionChange}>
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiSelect>,
 			);
 
 			const trigger = screen.getByRole('button');
@@ -264,13 +241,11 @@ describe('@project44-manifest/react - MultiSelect', () => {
 			const onSelectionChange = jest.fn();
 
 			render(
-				<Provider>
-					<MultiSelect label="Select" onSelectionChange={onSelectionChange}>
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiSelect>
-				</Provider>,
+				<MultiSelect label="Select" onSelectionChange={onSelectionChange}>
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiSelect>,
 			);
 
 			const trigger = screen.getByRole('button');
@@ -294,13 +269,11 @@ describe('@project44-manifest/react - MultiSelect', () => {
 			const onSelectionChange = jest.fn();
 
 			render(
-				<Provider>
-					<MultiSelect label="Select" onSelectionChange={onSelectionChange}>
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiSelect>
-				</Provider>,
+				<MultiSelect label="Select" onSelectionChange={onSelectionChange}>
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiSelect>,
 			);
 
 			const trigger = screen.getByRole('button');
@@ -324,13 +297,11 @@ describe('@project44-manifest/react - MultiSelect', () => {
 			const onSelectionChange = jest.fn();
 
 			render(
-				<Provider>
-					<MultiSelect label="Select" onSelectionChange={onSelectionChange}>
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiSelect>
-				</Provider>,
+				<MultiSelect label="Select" onSelectionChange={onSelectionChange}>
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiSelect>,
 			);
 
 			const trigger = screen.getByRole('button');
@@ -356,13 +327,11 @@ describe('@project44-manifest/react - MultiSelect', () => {
 	describe('label', () => {
 		it('should support a label', () => {
 			render(
-				<Provider>
-					<MultiSelect label="Select" placeholder="Select an option...">
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiSelect>
-				</Provider>,
+				<MultiSelect label="Select" placeholder="Select an option...">
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiSelect>,
 			);
 
 			const label = screen.getAllByText('Select')[0];
@@ -376,13 +345,11 @@ describe('@project44-manifest/react - MultiSelect', () => {
 
 		it('should support an aria-label', () => {
 			render(
-				<Provider>
-					<MultiSelect aria-label="Select" placeholder="Select an option...">
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiSelect>
-				</Provider>,
+				<MultiSelect aria-label="Select" placeholder="Select an option...">
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiSelect>,
 			);
 
 			const trigger = screen.getByRole('button');
@@ -396,13 +363,11 @@ describe('@project44-manifest/react - MultiSelect', () => {
 
 		it('should support being aria-labelledby', () => {
 			render(
-				<Provider>
-					<MultiSelect aria-labelledby="select" placeholder="Select an option...">
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiSelect>
-				</Provider>,
+				<MultiSelect aria-labelledby="select" placeholder="Select an option...">
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiSelect>,
 			);
 
 			const trigger = screen.getByRole('button');
@@ -421,13 +386,11 @@ describe('@project44-manifest/react - MultiSelect', () => {
 
 		it('should focus the trigger element on label click', () => {
 			render(
-				<Provider>
-					<MultiSelect label="Select" placeholder="Select an option...">
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiSelect>
-				</Provider>,
+				<MultiSelect label="Select" placeholder="Select an option...">
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiSelect>,
 			);
 
 			const label = screen.getAllByText('Select')[0];
@@ -453,13 +416,11 @@ describe('@project44-manifest/react - MultiSelect', () => {
 			};
 
 			render(
-				<Provider>
-					<MultiSelect label="Select" {...focusProps}>
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiSelect>
-				</Provider>,
+				<MultiSelect label="Select" {...focusProps}>
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiSelect>,
 			);
 
 			const trigger = screen.getByRole('button');
@@ -471,13 +432,11 @@ describe('@project44-manifest/react - MultiSelect', () => {
 
 		it('should focus item on hover', async () => {
 			render(
-				<Provider>
-					<MultiSelect label="Select">
-						<SelectItem key="ardvark">Ardvark</SelectItem>
-						<SelectItem key="kangaroo">Kangaroo</SelectItem>
-						<SelectItem key="snake">Snake</SelectItem>
-					</MultiSelect>
-				</Provider>,
+				<MultiSelect label="Select">
+					<SelectItem key="ardvark">Ardvark</SelectItem>
+					<SelectItem key="kangaroo">Kangaroo</SelectItem>
+					<SelectItem key="snake">Snake</SelectItem>
+				</MultiSelect>,
 			);
 
 			const trigger = screen.getByRole('button');

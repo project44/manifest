@@ -67,7 +67,7 @@
     "@react-aria/link": "^3.3.1",
     "@react-aria/listbox": "^3.5.1",
     "@react-aria/menu": "^3.5.1",
-    "@react-aria/overlays": "^3.9.1",
+    "@react-aria/overlays": "^3.10.1",
     "@react-aria/radio": "^3.2.1",
     "@react-aria/select": "^3.7.1",
     "@react-aria/separator": "^3.2.1",
@@ -94,11 +94,8 @@
     "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/react-hooks": "^8.0.1",
-    "@testing-library/user-event": "^14.4.3",
+    "@project44-manifest/test-utils": "^0.1.0",
     "@types/react-transition-group": "^4.4.5",
-    "jest-axe": "^6.0.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },

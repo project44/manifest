@@ -1,38 +1,27 @@
-import { fireEvent, screen, render, within } from '@testing-library/react';
-import { axe } from 'jest-axe';
-import { Provider, Select, SelectItem, SelectSection } from '../src';
+import { accessibility, fireEvent, screen, render, within } from '@project44-manifest/test-utils';
+import { Select, SelectItem, SelectSection } from '../src';
 
 describe('@project44-manifest/react - Select', () => {
-	it('should have no accessibility violations', async () => {
-		const { container } = render(
-			<Provider>
-				<Select label="Select" isOpen startIcon={<>icon</>}>
-					<SelectItem key="ardvark">Ardvark</SelectItem>
-					<SelectItem key="kangaroo">Kangaroo</SelectItem>
-					<SelectItem key="snake">Snake</SelectItem>
-					<SelectSection title="Section">
-						<SelectItem key="dog">Dog</SelectItem>
-					</SelectSection>
-				</Select>
-			</Provider>,
-		);
-
-		const results = await axe(container);
-
-		expect(results).toHaveNoViolations();
-	});
+	accessibility(
+		<Select label="Select" isOpen startIcon={<>icon</>}>
+			<SelectItem key="ardvark">Ardvark</SelectItem>
+			<SelectItem key="kangaroo">Kangaroo</SelectItem>
+			<SelectItem key="snake">Snake</SelectItem>
+			<SelectSection title="Section">
+				<SelectItem key="dog">Dog</SelectItem>
+			</SelectSection>
+		</Select>,
+	);
 
 	it('should render and support selection', () => {
 		const onSelectionChange = jest.fn();
 
 		render(
-			<Provider>
-				<Select disabledKeys={['snake']} label="Select" onSelectionChange={onSelectionChange}>
-					<SelectItem key="ardvark">Ardvark</SelectItem>
-					<SelectItem key="kangaroo">Kangaroo</SelectItem>
-					<SelectItem key="snake">Snake</SelectItem>
-				</Select>
-			</Provider>,
+			<Select disabledKeys={['snake']} label="Select" onSelectionChange={onSelectionChange}>
+				<SelectItem key="ardvark">Ardvark</SelectItem>
+				<SelectItem key="kangaroo">Kangaroo</SelectItem>
+				<SelectItem key="snake">Snake</SelectItem>
+			</Select>,
 		);
 
 		const select = screen.getByRole('textbox', { hidden: true });
@@ -66,13 +55,11 @@ describe('@project44-manifest/react - Select', () => {
 		const onSelectionChange = jest.fn();
 
 		render(
-			<Provider>
-				<Select label="Select" onOpenChange={onOpenChange} onSelectionChange={onSelectionChange}>
-					<SelectItem key="ardvark">Ardvark</SelectItem>
-					<SelectItem key="kangaroo">Kangaroo</SelectItem>
-					<SelectItem key="snake">Snake</SelectItem>
-				</Select>
-			</Provider>,
+			<Select label="Select" onOpenChange={onOpenChange} onSelectionChange={onSelectionChange}>
+				<SelectItem key="ardvark">Ardvark</SelectItem>
+				<SelectItem key="kangaroo">Kangaroo</SelectItem>
+				<SelectItem key="snake">Snake</SelectItem>
+			</Select>,
 		);
 
 		const select = screen.getByRole('textbox', { hidden: true });
