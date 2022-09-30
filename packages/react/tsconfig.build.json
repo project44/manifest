@@ -16,6 +16,9 @@
       "path": "../system"
     },
     {
+      "path": "../test-utils"
+    },
+    {
       "path": "../theme"
     }
   ]

@@ -1,14 +1,8 @@
-import { render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
+import { accessibility, render, screen, userEvent } from '@project44-manifest/test-utils';
 import { Switch } from '../src';
-import userEvent from '@testing-library/user-event';
 
 describe('@project44-manifest/react - Switch', () => {
-	it('should have no accessibility violations', async () => {
-		const { container } = render(<Switch>Switch</Switch>);
-
-		expect(await axe(container)).toHaveNoViolations();
-	});
+	accessibility(<Switch>Switch</Switch>);
 
 	it('should render and support being checked', async () => {
 		const onChange = jest.fn();

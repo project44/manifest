@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react';
+import { screen, render } from '@project44-manifest/test-utils';
 import { createComponent } from '../src/system';
 
 describe('@project44-manifest/system - createComponent', () => {

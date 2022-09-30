@@ -1,30 +1,27 @@
-import { act, fireEvent, render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
-import { Popover, Provider } from '../src';
-import userEvent from '@testing-library/user-event';
+import {
+	accessibility,
+	act,
+	fireEvent,
+	render,
+	screen,
+	userEvent,
+} from '@project44-manifest/test-utils';
+import { Popover } from '../src';
 
 describe('@project44-manifest/react - Popover', () => {
-	it('should have no accessibility violations', async () => {
-		const { container } = render(
-			<Provider>
-				<Popover aria-label="Popover">
-					<div data-testid="popover">Popover</div>
-				</Popover>
-			</Provider>,
-		);
-
-		expect(await axe(container)).toHaveNoViolations();
-	});
+	accessibility(
+		<Popover aria-label="Popover">
+			<div data-testid="popover">Popover</div>
+		</Popover>,
+	);
 
 	it('should render and support close events', async () => {
 		const onClose = jest.fn();
 
 		render(
-			<Provider>
-				<Popover isOpen onClose={onClose}>
-					<span data-testid="popover">Popover</span>
-				</Popover>
-			</Provider>,
+			<Popover isOpen onClose={onClose}>
+				<span data-testid="popover">Popover</span>
+			</Popover>,
 		);
 
 		const popover = screen.getByText('Popover');
@@ -49,12 +46,10 @@ describe('@project44-manifest/react - Popover', () => {
 		};
 
 		render(
-			<Provider>
-				<Popover isOpen onClose={onClose} shouldCloseOnBlur>
-					<span data-testid="popover">Popover</span>
-					<button {...buttonProps}>click me</button>
-				</Popover>
-			</Provider>,
+			<Popover isOpen onClose={onClose} shouldCloseOnBlur>
+				<span data-testid="popover">Popover</span>
+				<button {...buttonProps}>click me</button>
+			</Popover>,
 		);
 
 		const button = screen.getAllByRole('button')[1];

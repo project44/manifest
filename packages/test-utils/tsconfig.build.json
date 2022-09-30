@@ -11,9 +11,5 @@
   "include": [
     "src/**/*"
   ],
-  "references": [
-    {
-      "path": "../test-utils"
-    }
-  ]
+  "references": []
 }

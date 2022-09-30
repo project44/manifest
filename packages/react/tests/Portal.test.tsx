@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen } from '@project44-manifest/test-utils';
 import { Portal } from '../src';
 
 describe('@project44-manifest/react - Portal', () => {

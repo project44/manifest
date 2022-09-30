@@ -1,14 +1,14 @@
-import { screen, fireEvent, render } from '@testing-library/react';
-import { axe } from 'jest-axe';
+import {
+	accessibility,
+	screen,
+	fireEvent,
+	render,
+	userEvent,
+} from '@project44-manifest/test-utils';
 import { TextField } from '../src';
-import userEvent from '@testing-library/user-event';
 
 describe('@project44-manifest/components - TextField', () => {
-	it('should pass accessibility', async () => {
-		const { container } = render(<TextField aria-label="text field" />);
-
-		expect(await axe(container)).toHaveNoViolations();
-	});
+	accessibility(<TextField aria-label="text field" />);
 
 	it('should render and support input', () => {
 		render(<TextField aria-label="text field" />);

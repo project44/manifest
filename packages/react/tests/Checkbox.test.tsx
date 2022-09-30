@@ -1,14 +1,8 @@
-import { render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
+import { accessibility, render, screen, userEvent } from '@project44-manifest/test-utils';
 import { Checkbox } from '../src';
-import userEvent from '@testing-library/user-event';
 
 describe('@project44-manifest/react - Checkbox', () => {
-	it('should have no accessibility violations', async () => {
-		const { container } = render(<Checkbox>Checkbox</Checkbox>);
-
-		expect(await axe(container)).toHaveNoViolations();
-	});
+	accessibility(<Checkbox>Checkbox</Checkbox>);
 
 	it('should render and support being checked', async () => {
 		const onChange = jest.fn();

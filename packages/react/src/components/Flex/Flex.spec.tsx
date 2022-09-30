@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen } from '@project44-manifest/test-utils';
 import { Flex } from './Flex';
 
 describe('@project44-manifest/react - Flex', () => {

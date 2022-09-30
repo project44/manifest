@@ -1,5 +1,4 @@
-import { render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
+import { accessibility, render, screen } from '@project44-manifest/test-utils';
 import { CalendarDate, endOfMonth, startOfMonth } from '@internationalized/date';
 import { CalendarRange } from '../src';
 import {
@@ -63,35 +62,14 @@ describe('@project44-manifest/react - CalendarRange', () => {
 		];
 	});
 
-	it('should have no accessibility violations when passed a default range value', async () => {
-		const { container } = render(
-			<CalendarRange
-				defaultValue={{
-					start: new CalendarDate(2022, 7, 2),
-					end: new CalendarDate(2022, 7, 12),
-				}}
-			/>,
-		);
-
-		const results = await axe(container);
-
-		expect(results).toHaveNoViolations();
-	});
-
-	it('should have no accessibility violations when passed a range value', async () => {
-		const { container } = render(
-			<CalendarRange
-				value={{
-					start: new CalendarDate(2022, 7, 2),
-					end: new CalendarDate(2022, 7, 12),
-				}}
-			/>,
-		);
-
-		const results = await axe(container);
-
-		expect(results).toHaveNoViolations();
-	});
+	accessibility(
+		<CalendarRange
+			defaultValue={{
+				start: new CalendarDate(2022, 7, 2),
+				end: new CalendarDate(2022, 7, 12),
+			}}
+		/>,
+	);
 
 	it('should render the sidebar for the relative dates', () => {
 		render(

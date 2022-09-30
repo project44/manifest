@@ -1,8 +1,13 @@
-import { fireEvent, screen, render, waitFor } from '@testing-library/react';
-import { axe } from 'jest-axe';
+import {
+	accessibility,
+	fireEvent,
+	screen,
+	render,
+	waitFor,
+	userEvent,
+} from '@project44-manifest/test-utils';
 import { CalendarDate, endOfMonth, startOfMonth } from '@internationalized/date';
-import { DateRangePicker, Provider } from '../src';
-import userEvent from '@testing-library/user-event';
+import { DateRangePicker } from '../src';
 import {
 	addMonths,
 	createCalendarDate,
@@ -66,29 +71,17 @@ describe('@project44-manifest/components - DateRangePicker', () => {
 		];
 	});
 
-	it('should have no accessibility violations', async () => {
-		const { container } = render(
-			<Provider>
-				<DateRangePicker aria-label="Calendar" isOpen />
-			</Provider>,
-		);
-
-		const results = await axe(container);
-
-		expect(results).toHaveNoViolations();
-	});
+	accessibility(<DateRangePicker aria-label="Calendar" isOpen />);
 
 	it('should support selecting a date', async () => {
 		const onChange = jest.fn();
 
 		render(
-			<Provider>
-				<DateRangePicker
-					aria-label="Calendar"
-					defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-					onChange={onChange}
-				/>
-			</Provider>,
+			<DateRangePicker
+				aria-label="Calendar"
+				defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+				onChange={onChange}
+			/>,
 		);
 
 		expect(screen.getByText('7 / 2 / 2022 - 7 / 12 / 2022')).toBeVisible();
@@ -125,13 +118,11 @@ describe('@project44-manifest/components - DateRangePicker', () => {
 		const onChange = jest.fn();
 
 		render(
-			<Provider>
-				<DateRangePicker
-					aria-label="Calendar"
-					value={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-					onChange={onChange}
-				/>
-			</Provider>,
+			<DateRangePicker
+				aria-label="Calendar"
+				value={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+				onChange={onChange}
+			/>,
 		);
 
 		expect(screen.getByText('7 / 2 / 2022 - 7 / 12 / 2022')).toBeVisible();
@@ -166,12 +157,10 @@ describe('@project44-manifest/components - DateRangePicker', () => {
 
 	it('should close datepicker when outside click is register', async () => {
 		render(
-			<Provider>
-				<DateRangePicker
-					aria-label="Calendar"
-					defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-				/>
-			</Provider>,
+			<DateRangePicker
+				aria-label="Calendar"
+				defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+			/>,
 		);
 
 		fireEvent.click(screen.getByRole('button'));
@@ -195,15 +184,13 @@ describe('@project44-manifest/components - DateRangePicker', () => {
 		const day = currentDate.getDate();
 
 		render(
-			<Provider>
-				<DateRangePicker
-					aria-label="Calendar"
-					defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-					onChange={onChange}
-					showRanges={true}
-					showCalendar={true}
-				/>
-			</Provider>,
+			<DateRangePicker
+				aria-label="Calendar"
+				defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+				onChange={onChange}
+				showRanges={true}
+				showCalendar={true}
+			/>,
 		);
 
 		expect(screen.getByText('7 / 2 / 2022 - 7 / 12 / 2022')).toBeVisible();
@@ -232,15 +219,13 @@ describe('@project44-manifest/components - DateRangePicker', () => {
 		const chosenRange = customRanges[customRanges.length - 1];
 
 		render(
-			<Provider>
-				<DateRangePicker
-					aria-label="Calendar"
-					defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-					onChange={onChange}
-					showRanges={true}
-					ranges={customRanges}
-				/>
-			</Provider>,
+			<DateRangePicker
+				aria-label="Calendar"
+				defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+				onChange={onChange}
+				showRanges={true}
+				ranges={customRanges}
+			/>,
 		);
 
 		expect(screen.getByText('7 / 2 / 2022 - 7 / 12 / 2022')).toBeVisible();
