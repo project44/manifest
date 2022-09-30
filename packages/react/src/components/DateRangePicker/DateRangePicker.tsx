@@ -6,7 +6,7 @@ import * as React from 'react';
 import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { CalendarRange } from '../CalendarRange';
-import { cx } from '../../styles';
+import { cx } from '@project44-manifest/react-styles';
 import { DefinedRange } from '../CalendarRanges';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';

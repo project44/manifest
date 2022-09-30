@@ -1,7 +1,7 @@
 import type { StyleProps } from '../../types';
 import { useMemo, Fragment } from 'react';
 import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { cx } from '../../styles';
+import { cx } from '@project44-manifest/react-styles';
 import { Icon } from '../Icon';
 import { PaginationItem } from '../PaginationItem';
 import { Typography } from '../Typography';

@@ -21,7 +21,7 @@ import type { ListState } from '@react-stately/list';
 import type { MenuTriggerAction } from '@react-types/combobox';
 import type { MenuTriggerState } from '@react-stately/menu';
 import type { MultipleSelectionStateProps } from '@react-stately/selection';
-import type { CSS } from './styles';
+import type { CSS } from '@project44-manifest/react-styles';
 
 export interface AriaMultiComboboxProps<T>
 	extends MultiComboboxProps<T>,

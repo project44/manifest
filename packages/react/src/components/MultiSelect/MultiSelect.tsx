@@ -5,7 +5,7 @@ import * as React from 'react';
 import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { cx } from '../../styles';
+import { cx } from '@project44-manifest/react-styles';
 import { FormControl } from '../FormControl';
 import { HiddenMultiSelect } from '../HiddenMultiSelect';
 import { Icon } from '../Icon';

@@ -6,7 +6,7 @@ import * as React from 'react';
 import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { Calendar } from '../Calendar';
-import { cx } from '../../styles';
+import { cx } from '@project44-manifest/react-styles';
 import { Overlay } from '../Overlay';
 import { Popover } from '../Popover';
 import { FormControl } from '../FormControl';

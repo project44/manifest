@@ -1,4 +1,4 @@
-import { css } from '../../styles';
+import { css } from '@project44-manifest/react-styles';
 
 export const useStyles = css({
 	borderBottom: '1px solid $colors$border-primary',

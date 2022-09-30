@@ -1,6 +1,6 @@
 import type { StyleProps } from '../../types';
 import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { cx } from '../../styles';
+import { cx } from '@project44-manifest/react-styles';
 
 export type TableHeaderElement = 'thead';
 export type TableHeaderOptions<T extends As = TableHeaderElement> = Options<T> & StyleProps;

@@ -180,7 +180,7 @@ export type { TypographyProps } from './components/Typography';
 export { VisuallyHidden } from './components/VisuallyHidden';
 export type { VisuallyHiddenProps } from './components/VisuallyHidden';
 
-export * from './styles';
+export * from '@project44-manifest/react-styles';
 
 export { useOverlayPosition } from '@react-aria/overlays';
 export { useTreeData } from '@react-stately/data';

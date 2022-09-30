@@ -8,7 +8,7 @@ import { As, createComponent, Props, Options } from '@project44-manifest/system'
 import { DropdownContext, useDropdownContext } from '../Dropdown';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useHover, usePress } from '@react-aria/interactions';
-import { cx } from '../../styles';
+import { cx } from '@project44-manifest/react-styles';
 import { Typography } from '../Typography';
 import { useFocusRing } from '@react-aria/focus';
 import { useMenuItem } from '@react-aria/menu';

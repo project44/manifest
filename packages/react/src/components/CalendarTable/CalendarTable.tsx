@@ -1,7 +1,7 @@
 import type { CalendarState, RangeCalendarState } from '@react-stately/calendar';
 import { endOfMonth, getWeeksInMonth } from '@internationalized/date';
 import { CalendarCell } from '../CalendarCell';
-import { cx } from '../../styles';
+import { cx } from '@project44-manifest/react-styles';
 import { Typography } from '../Typography';
 import { useCalendarGrid } from '@react-aria/calendar';
 import { useLocale } from '@react-aria/i18n';

@@ -6,7 +6,7 @@ import * as React from 'react';
 import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { ListBoxContext, useListBoxContext } from '../ListBoxContext';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { cx } from '../../styles';
+import { cx } from '@project44-manifest/react-styles';
 import { Typography } from '../Typography';
 import { useHover } from '@react-aria/interactions';
 import { useOption } from '@react-aria/listbox';

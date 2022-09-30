@@ -3,7 +3,7 @@ import type { SectionProps } from '@react-types/shared';
 import type { StyleProps } from '../../types';
 import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { ListBoxContext, useListBoxContext } from '../ListBoxContext';
-import { cx } from '../../styles';
+import { cx } from '@project44-manifest/react-styles';
 import { _ListBoxItem } from '../ListBoxItem';
 import { Separator } from '../Separator';
 import { Typography } from '../Typography';
