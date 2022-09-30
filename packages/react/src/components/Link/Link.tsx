@@ -1,6 +1,6 @@
-import type { StyleProps } from '../../types';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
 import { useStyles } from './Link.styles';
 
 export type LinkElement = 'a';
@@ -13,7 +13,7 @@ export const Link = createComponent<LinkOptions>((props, forwardedRef) => {
 	const { className } = useStyles({ css });
 
 	return (
-		<Comp {...other} className={cx(className, classNameProp, 'manifest-link')} ref={forwardedRef}>
+		<Comp {...other} ref={forwardedRef} className={cx(className, classNameProp, 'manifest-link')}>
 			{children}
 		</Comp>
 	);

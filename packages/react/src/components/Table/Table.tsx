@@ -1,7 +1,8 @@
-import type { StyleProps } from '../../types';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { TableContext } from './Table.context';
+import * as React from 'react';
 import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
+import { TableContext } from './Table.context';
 import { useStyles } from './Table.styles';
 
 export type TableElement = 'table';
@@ -21,12 +22,17 @@ export const Table = createComponent<TableOptions>((props, forwardedRef) => {
 
 	const { className } = useStyles({ css });
 
+	const context = React.useMemo(
+		() => ({ onMouseEnter, onMouseLeave, showHover }),
+		[onMouseEnter, onMouseLeave, showHover],
+	);
+
 	return (
-		<TableContext.Provider value={{ onMouseEnter, onMouseLeave, showHover }}>
+		<TableContext.Provider value={context}>
 			<Comp
 				{...other}
-				className={cx(className, classNameProp, 'manifest-table')}
 				ref={forwardedRef}
+				className={cx(className, classNameProp, 'manifest-table')}
 			/>
 		</TableContext.Provider>
 	);

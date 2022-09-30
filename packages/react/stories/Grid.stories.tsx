@@ -35,7 +35,7 @@ export const Rows = Template.bind({});
 
 Rows.decorators = [
 	() => (
-		<Grid rows="repeat(5, 1fr)" gap="small">
+		<Grid gap="small" rows="repeat(5, 1fr)">
 			<GridItem css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }} />
 			<GridItem css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }} />
 			<GridItem css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }} />
@@ -50,7 +50,7 @@ export const Span = Template.bind({});
 Span.decorators = [
 	() => (
 		<Grid columns="repeat(5, 1fr)" css={{ height: '200px' }} gap="small" rows="repeat(2, 1fr)">
-			<GridItem column={1} row={2} css={{ backgroundColor: '$background-secondary' }} />
+			<GridItem column={1} css={{ backgroundColor: '$background-secondary' }} row={2} />
 			<GridItem column={2} css={{ backgroundColor: '$background-secondary' }} />
 			<GridItem column={2} css={{ backgroundColor: '$background-secondary' }} />
 			<GridItem column={4} css={{ backgroundColor: '$background-secondary' }} />
@@ -68,8 +68,8 @@ Alignment.decorators = [
 				css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }}
 			/>
 			<GridItem
-				columnStart={4}
 				columnEnd={6}
+				columnStart={4}
 				css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }}
 			/>
 		</Grid>

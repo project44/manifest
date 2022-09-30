@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { CssBaseline } from '../CssBaseline';
 import { OverlayProvider } from '@react-aria/overlays';
 import { SSRProvider } from '@react-aria/ssr';
+import { CssBaseline } from '../CssBaseline';
 
 export interface ProviderProps extends React.HTMLAttributes<HTMLElement> {
 	/**

@@ -33,7 +33,7 @@ describe('@project44-manifest/react - Checkbox', () => {
 		const onChange = jest.fn();
 
 		render(
-			<Checkbox onChange={onChange} isSelected>
+			<Checkbox isSelected onChange={onChange}>
 				Checkbox
 			</Checkbox>,
 		);

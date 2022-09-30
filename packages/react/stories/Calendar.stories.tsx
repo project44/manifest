@@ -1,10 +1,10 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import * as React from 'react';
+import { useLocale } from '@react-aria/i18n';
 import type { DateValue } from '@react-types/calendar';
 import type { RangeValue } from '@react-types/shared';
-import * as React from 'react';
 import { CalendarDate, isWeekend } from '@internationalized/date';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Box, Calendar, CalendarRange } from '../src';
-import { useLocale } from '@react-aria/i18n';
 
 export default {
 	title: 'Components/Calendar',
@@ -35,7 +35,7 @@ export const Disabled = Template.bind({});
 Disabled.decorators = [
 	() => (
 		<Box css={{ width: 324 }}>
-			<Calendar defaultValue={new CalendarDate(2022, 7, 12)} isDisabled />
+			<Calendar isDisabled defaultValue={new CalendarDate(2022, 7, 12)} />
 		</Box>
 	),
 ];
@@ -45,7 +45,7 @@ export const ReadOnly = Template.bind({});
 ReadOnly.decorators = [
 	() => (
 		<Box css={{ width: 324 }}>
-			<Calendar defaultValue={new CalendarDate(2022, 7, 12)} isReadOnly />
+			<Calendar isReadOnly defaultValue={new CalendarDate(2022, 7, 12)} />
 		</Box>
 	),
 ];
@@ -59,8 +59,8 @@ DisabledDays.decorators = [
 		return (
 			<Box css={{ width: 324 }}>
 				<Calendar
-					isDateUnavailable={(date: DateValue) => isWeekend(date, locale)}
 					defaultValue={new CalendarDate(2022, 7, 12)}
+					isDateUnavailable={(date: DateValue) => isWeekend(date, locale)}
 				/>
 			</Box>
 		);

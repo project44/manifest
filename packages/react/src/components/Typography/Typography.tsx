@@ -1,6 +1,6 @@
-import type { StyleProps } from '../../types';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
 import { useStyles } from './Typography.styles';
 
 export type TypographyElement = 'span';
@@ -38,5 +38,5 @@ export const Typography = createComponent<TypographyOptions>((props, forwardedRe
 		[`manifest-typography--${variant}`]: variant,
 	});
 
-	return <Comp {...other} className={classes} ref={forwardedRef} />;
+	return <Comp {...other} ref={forwardedRef} className={classes} />;
 });

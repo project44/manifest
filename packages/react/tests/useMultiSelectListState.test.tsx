@@ -1,6 +1,6 @@
 import { Item } from '@react-stately/collections';
-import { renderHook } from '@testing-library/react-hooks';
-import { useMultiSelectListState } from './useMultiSelectListState';
+import { renderHook } from '@project44-manifest/test-utils';
+import { useMultiSelectListState } from '../src';
 
 describe('@project44-manifest/react - useMultiSelectListState', () => {
 	it('should return state', () => {

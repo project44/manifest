@@ -56,7 +56,7 @@ export const FormControl = Template.bind({});
 
 FormControl.decorators = [
 	() => (
-		<Combobox label="Label" helperText="Helper text" startIcon={<Icon icon="search" />}>
+		<Combobox helperText="Helper text" label="Label" startIcon={<Icon icon="search" />}>
 			<ComboboxItem key="ardvark">Ardvark</ComboboxItem>
 			<ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
 			<ComboboxItem key="snake">Snake</ComboboxItem>
@@ -69,8 +69,8 @@ export const Invalid = Template.bind({});
 Invalid.decorators = [
 	() => (
 		<Combobox
-			label="Label"
 			helperText="Error text"
+			label="Label"
 			startIcon={<Icon icon="search" />}
 			validationState="invalid"
 		>

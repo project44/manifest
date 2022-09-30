@@ -1,18 +1,18 @@
+import { CalendarDate, endOfMonth, startOfMonth } from '@internationalized/date';
 import {
 	accessibility,
 	fireEvent,
-	screen,
 	render,
-	waitFor,
+	screen,
 	userEvent,
+	waitFor,
 } from '@project44-manifest/test-utils';
-import { CalendarDate, endOfMonth, startOfMonth } from '@internationalized/date';
 import { DateRangePicker } from '../src';
+import { DefinedRange } from '../src/components/CalendarRanges';
 import {
 	addMonths,
 	createCalendarDate,
 } from '../src/components/CalendarRanges/defaultDefinedRanges';
-import { DefinedRange } from '../src/components/CalendarRanges';
 
 describe('@project44-manifest/components - DateRangePicker', () => {
 	let defaultDate: Date;
@@ -71,7 +71,7 @@ describe('@project44-manifest/components - DateRangePicker', () => {
 		];
 	});
 
-	accessibility(<DateRangePicker aria-label="Calendar" isOpen />);
+	accessibility(<DateRangePicker isOpen aria-label="Calendar" />);
 
 	it('should support selecting a date', async () => {
 		const onChange = jest.fn();
@@ -93,9 +93,9 @@ describe('@project44-manifest/components - DateRangePicker', () => {
 		expect(dialog).toBeInTheDocument();
 
 		const cells = screen.getAllByRole('gridcell');
-		const selected = cells.filter((cell) => cell.getAttribute('aria-selected') === 'true');
+		const selected = cells.find((cell) => cell.getAttribute('aria-selected') === 'true');
 
-		expect(selected[0].children[0]).toHaveAttribute(
+		expect(selected.children[0]).toHaveAttribute(
 			'aria-label',
 			'Selected Range: Saturday, July 2 to Tuesday, July 12, 2022, Saturday, July 2, 2022 selected',
 		);
@@ -134,9 +134,9 @@ describe('@project44-manifest/components - DateRangePicker', () => {
 		expect(dialog).toBeInTheDocument();
 
 		const cells = screen.getAllByRole('gridcell');
-		const selected = cells.filter((cell) => cell.getAttribute('aria-selected') === 'true');
+		const selected = cells.find((cell) => cell.getAttribute('aria-selected') === 'true');
 
-		expect(selected[0].children[0]).toHaveAttribute(
+		expect(selected.children[0]).toHaveAttribute(
 			'aria-label',
 			'Selected Range: Saturday, July 2 to Tuesday, July 12, 2022, Saturday, July 2, 2022 selected',
 		);
@@ -185,11 +185,11 @@ describe('@project44-manifest/components - DateRangePicker', () => {
 
 		render(
 			<DateRangePicker
+				showCalendar
+				showRanges
 				aria-label="Calendar"
 				defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
 				onChange={onChange}
-				showRanges={true}
-				showCalendar={true}
 			/>,
 		);
 
@@ -220,11 +220,11 @@ describe('@project44-manifest/components - DateRangePicker', () => {
 
 		render(
 			<DateRangePicker
+				showRanges
 				aria-label="Calendar"
 				defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-				onChange={onChange}
-				showRanges={true}
 				ranges={customRanges}
+				onChange={onChange}
 			/>,
 		);
 

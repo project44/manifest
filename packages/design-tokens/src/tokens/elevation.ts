@@ -17,5 +17,5 @@ export const zIndexModal = 9000;
 export const zIndexOverlay = 8000;
 export const zIndexPopover = 5000;
 export const zIndexSticky = 100;
-export const zIndexToast = 10000;
+export const zIndexToast = 10_000;
 export const zIndexTooltip = 6000;

@@ -1,8 +1,8 @@
 import {
 	accessibility,
-	screen,
 	fireEvent,
 	render,
+	screen,
 	userEvent,
 } from '@project44-manifest/test-utils';
 import { TextArea } from '../src';
@@ -40,7 +40,7 @@ describe('@project44-manifest/components - TextArea', () => {
 	it('should support a controlled value', async () => {
 		const onChange = jest.fn();
 
-		render(<TextArea aria-label="text field" onChange={onChange} value="foo" />);
+		render(<TextArea aria-label="text field" value="foo" onChange={onChange} />);
 
 		const input: HTMLInputElement = screen.getByRole('textbox');
 		const newValue = 'bar';
@@ -55,7 +55,7 @@ describe('@project44-manifest/components - TextArea', () => {
 	});
 
 	it('should support isDisabled', async () => {
-		render(<TextArea aria-label="text field" isDisabled />);
+		render(<TextArea isDisabled aria-label="text field" />);
 
 		const input: HTMLInputElement = screen.getByRole('textbox');
 
@@ -67,7 +67,7 @@ describe('@project44-manifest/components - TextArea', () => {
 	});
 
 	it('should support isReadonly', async () => {
-		render(<TextArea aria-label="text field" isReadOnly />);
+		render(<TextArea isReadOnly aria-label="text field" />);
 
 		const input: HTMLInputElement = screen.getByRole('textbox');
 

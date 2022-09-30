@@ -1,6 +1,6 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
 import { CalendarDate, DateValue } from '@internationalized/date';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import { DatePicker, Flex, Icon } from '../src';
 
 export default {
@@ -42,7 +42,7 @@ Disabled.decorators = [() => <DatePicker isDisabled />];
 export const ReadOnly = Template.bind({});
 
 ReadOnly.decorators = [
-	() => <DatePicker defaultValue={new CalendarDate(2022, 7, 12)} isReadOnly />,
+	() => <DatePicker isReadOnly defaultValue={new CalendarDate(2022, 7, 12)} />,
 ];
 
 export const Invalid = Template.bind({});
@@ -55,6 +55,6 @@ Controlled.decorators = [
 	() => {
 		const [value, setValue] = React.useState<DateValue>(new CalendarDate(2022, 7, 12));
 
-		return <DatePicker onChange={setValue} value={value} />;
+		return <DatePicker value={value} onChange={setValue} />;
 	},
 ];

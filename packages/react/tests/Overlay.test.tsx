@@ -1,5 +1,5 @@
 import { render, screen, waitFor } from '@project44-manifest/test-utils';
-import { Overlay } from './Overlay';
+import { Overlay } from '../src';
 
 describe('@project44-manifest/react - Overlay', () => {
 	it('should render nothing if isOpen is false', () => {

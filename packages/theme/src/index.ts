@@ -1,5 +1,3 @@
 export * from './themes';
-
-export { pxToRem } from './utils';
-
 export * from './types';
+export { pxToRem } from './utils';

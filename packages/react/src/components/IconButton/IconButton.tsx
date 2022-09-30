@@ -1,6 +1,6 @@
+import { cx } from '@project44-manifest/react-styles';
 import { As, createComponent, Props } from '@project44-manifest/system';
 import { Button, ButtonElement, ButtonOptions } from '../Button';
-import { cx } from '@project44-manifest/react-styles';
 import { useStyles } from './IconButton.styles';
 
 export type IconButtonOptions<T extends As = ButtonElement> = Omit<
@@ -18,8 +18,8 @@ export const IconButton = createComponent<IconButtonOptions>(
 		return (
 			<Button
 				{...other}
-				className={cx(className, classNameProp, 'manifest-icon-button')}
 				ref={forwardedRef}
+				className={cx(className, classNameProp, 'manifest-icon-button')}
 				size={size}
 				variant={variant}
 			/>

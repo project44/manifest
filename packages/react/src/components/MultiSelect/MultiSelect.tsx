@@ -1,25 +1,24 @@
-import type { AriaMultiSelectProps } from '../../types';
-import type { Placement } from '@react-types/overlays';
-import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
+import { useButton } from '@react-aria/button';
+import { useFocusRing } from '@react-aria/focus';
+import { useHover } from '@react-aria/interactions';
+import { useOverlayPosition } from '@react-aria/overlays';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
+import type { Placement } from '@react-types/overlays';
 import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import { useMultiSelect } from '../../hooks';
+import { useMultiSelectState } from '../../state';
+import type { AriaMultiSelectProps, StyleProps } from '../../types';
 import { FormControl } from '../FormControl';
 import { HiddenMultiSelect } from '../HiddenMultiSelect';
 import { Icon } from '../Icon';
+import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
 import { Overlay } from '../Overlay';
 import { Popover } from '../Popover';
 import { Stack } from '../Stack';
 import { Tag } from '../Tag';
 import { Typography } from '../Typography';
-import { useButton } from '@react-aria/button';
-import { useFocusRing } from '@react-aria/focus';
-import { useHover } from '@react-aria/interactions';
-import { useMultiSelect } from '../../hooks';
-import { useMultiSelectState } from '../../state';
-import { useOverlayPosition } from '@react-aria/overlays';
 import { useStyles } from './MultiSelect.styles';
 
 export type MultiSelectElement = 'label';
@@ -131,6 +130,10 @@ export const MultiSelect = createComponent<MultiSelectOptions>((props, forwarded
 	const { isFocusVisible, isFocused, focusProps } = useFocusRing({ autoFocus });
 	const { hoverProps, isHovered } = useHover({ isDisabled });
 
+	const handleClose = React.useCallback(() => void state.close(), [state]);
+
+	const handleRemove = (key: React.Key) => () => void state.selectionManager.toggleSelection(key);
+
 	const { className } = useStyles({
 		hasStartIcon: !!startIcon,
 		isActive: state.isOpen,
@@ -162,7 +165,7 @@ export const MultiSelect = createComponent<MultiSelectOptions>((props, forwarded
 			labelProps={mergeProps(labelProps, labelPropsProp)}
 			validationState={validationState}
 		>
-			<Comp className="manifest-multi-select__wrapper" ref={mergeRefs(containerRef, forwardedRef)}>
+			<Comp ref={mergeRefs(containerRef, forwardedRef)} className="manifest-multi-select__wrapper">
 				{startIcon && (
 					<span className={cx('manifest-multi-select__icon', 'manifest-multi-select__icon--start')}>
 						{startIcon}
@@ -172,25 +175,21 @@ export const MultiSelect = createComponent<MultiSelectOptions>((props, forwarded
 				<HiddenMultiSelect
 					autoComplete={autoComplete}
 					isDisabled={isDisabled}
-					state={state}
-					triggerRef={triggerRef}
 					label={label}
 					name={name}
+					state={state}
+					triggerRef={triggerRef}
 				/>
 
 				<button
 					{...mergeProps(buttonProps, focusProps, hoverProps, { autoFocus })}
-					className="manifest-multi-select__input"
 					ref={triggerRef}
+					className="manifest-multi-select__input"
 				>
-					{state.selectedItems.length ? (
+					{state.selectedItems.length > 0 ? (
 						<Stack css={{ flexWrap: 'wrap' }} gap="x-small" orientation="horizontal">
 							{state.selectedItems?.map((item) => (
-								<Tag
-									key={item.key}
-									onRemove={() => state.selectionManager.toggleSelection(item.key)}
-									isRemovable
-								>
+								<Tag key={item.key} isRemovable onRemove={handleRemove(item.key)}>
 									{item.textValue}
 								</Tag>
 							))}
@@ -209,17 +208,17 @@ export const MultiSelect = createComponent<MultiSelectOptions>((props, forwarded
 				<Overlay isOpen={state.isOpen && !isDisabled}>
 					<Popover
 						{...overlayProps}
+						ref={popoverRef}
 						className="manifest-combobox__popover"
 						css={{ left: containerDimensions?.left, width: containerDimensions?.width }}
 						isOpen={state.isOpen}
-						onClose={state.close}
-						ref={popoverRef}
+						onClose={handleClose}
 					>
 						<ListBoxBase
 							{...(menuProps as ListBoxBaseProps)}
-							className="manifest-multi-select__list-box"
-							disallowEmptySelection
 							ref={listBoxRef}
+							disallowEmptySelection
+							className="manifest-multi-select__list-box"
 							state={state}
 						/>
 					</Popover>

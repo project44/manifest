@@ -1,6 +1,6 @@
-import type { StyleProps } from '../../types';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
 import { useStyles } from './CardFooter.styles';
 
 export type CardFooterElement = 'div';
@@ -15,8 +15,8 @@ export const CardFooter = createComponent<CardFooterOptions>((props, forwardedRe
 	return (
 		<Comp
 			{...other}
-			className={cx(className, classNameProp, 'manifest-card-footer')}
 			ref={forwardedRef}
+			className={cx(className, classNameProp, 'manifest-card-footer')}
 		/>
 	);
 });

@@ -1,14 +1,13 @@
-import type { Node } from '@react-types/shared';
-import type { SectionProps } from '@react-types/shared';
-import type { StyleProps } from '../../types';
-import type { TreeState } from '@react-stately/tree';
 import * as React from 'react';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { cx } from '@project44-manifest/react-styles';
-import { _DropdownItem } from '../DropdownItem';
-import { Typography } from '../Typography';
 import { useMenuSection } from '@react-aria/menu';
 import { useSeparator } from '@react-aria/separator';
+import type { TreeState } from '@react-stately/tree';
+import type { Node, SectionProps } from '@react-types/shared';
+import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
+import { DROPDOWN_ITEM } from '../DropdownItem';
+import { Typography } from '../Typography';
 import { useStyles } from './DropdownSection.styles';
 
 export type DropdownSectionElement = 'li';
@@ -31,11 +30,14 @@ export interface DropdownSectionOptions<T extends As = DropdownSectionElement>
 	/**
 	 * Callback executed on item select.
 	 */
-	onAction?(key: React.Key): void;
+	onAction?: (key: React.Key) => void;
 }
 
-export type DropdownSectionProps<T extends As = DropdownSectionElement> = SectionProps<object> &
-	Omit<Props<DropdownSectionOptions<T>>, 'item' | 'state'>;
+export type DropdownSectionProps<T extends As = DropdownSectionElement> = Omit<
+	Props<DropdownSectionOptions<T>>,
+	'item' | 'state'
+> &
+	SectionProps<object>;
 
 /** @private */
 export const DropdownSection = createComponent<DropdownSectionOptions>((props, forwardedRef) => {
@@ -57,8 +59,8 @@ export const DropdownSection = createComponent<DropdownSectionOptions>((props, f
 			{showSeparator && <li {...separatorProps} className="manifest-dropdown-separator" />}
 			<Comp
 				{...itemProps}
-				className={cx(className, classNameProp, 'manifest-dropdown-section')}
 				ref={forwardedRef}
+				className={cx(className, classNameProp, 'manifest-dropdown-section')}
 			>
 				{item.rendered && (
 					<Typography
@@ -71,7 +73,7 @@ export const DropdownSection = createComponent<DropdownSectionOptions>((props, f
 				)}
 				<ul {...groupProps} className="manifest-dropdown-section__group">
 					{[...item.childNodes].map((node) => (
-						<_DropdownItem key={node.key} item={node} state={state} onAction={onAction} />
+						<DROPDOWN_ITEM key={node.key} item={node} state={state} onAction={onAction} />
 					))}
 				</ul>
 			</Comp>

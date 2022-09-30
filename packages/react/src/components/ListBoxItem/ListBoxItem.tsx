@@ -1,17 +1,15 @@
-import type { Node, SelectionMode } from '@react-types/shared';
-import type { FocusableProps } from '@react-types/shared';
-import type { ItemProps } from '@react-types/shared';
-import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { ListBoxContext, useListBoxContext } from '../ListBoxContext';
-import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { cx } from '@project44-manifest/react-styles';
-import { Typography } from '../Typography';
 import { useHover } from '@react-aria/interactions';
 import { useOption } from '@react-aria/listbox';
-import { useStyles } from './ListBoxItem.styles';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
+import type { FocusableProps, ItemProps, Node, SelectionMode } from '@react-types/shared';
+import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
 import { Checkbox } from '../Checkbox';
+import { useListBoxContext } from '../ListBoxContext';
+import { Typography } from '../Typography';
+import { useStyles } from './ListBoxItem.styles';
 
 export type ListBoxItemElement = 'div';
 
@@ -56,7 +54,7 @@ export const ListBoxItem = createComponent<ListBoxItemOptions>((props, forwarded
 
 	const itemRef = React.useRef<HTMLDivElement>(null);
 
-	const { state } = useListBoxContext() as ListBoxContext;
+	const { state } = useListBoxContext()!;
 
 	const { optionProps, labelProps, isFocused, isDisabled, isPressed, isSelected } = useOption(
 		{
@@ -71,10 +69,12 @@ export const ListBoxItem = createComponent<ListBoxItemOptions>((props, forwarded
 
 	const startIcon = React.useMemo(() => {
 		if (selectionMode === 'multiple') {
-			return <Checkbox aria-labelledby={labelProps.id} isReadOnly isSelected={isSelected} />;
-		} else {
-			return startIconProp ?? (item.props.startIcon as React.ReactElement);
+			return <Checkbox isReadOnly aria-labelledby={labelProps.id} isSelected={isSelected} />;
 		}
+
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+		return startIconProp ?? (item.props.startIcon as React.ReactElement);
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 	}, [labelProps, isSelected, selectionMode, startIconProp, item.props.startIcon]);
 
 	const { className } = useStyles({
@@ -96,8 +96,8 @@ export const ListBoxItem = createComponent<ListBoxItemOptions>((props, forwarded
 	return (
 		<Comp
 			{...mergeProps(optionProps, hoverProps)}
-			className={classes}
 			ref={mergeRefs(itemRef, forwardedRef)}
+			className={classes}
 		>
 			{startIcon && (
 				<span className={cx('manifest-listbox-item__icon', 'manifest-listbox-item__icon--start')}>

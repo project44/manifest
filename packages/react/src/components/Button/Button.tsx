@@ -1,16 +1,16 @@
-import type { ButtonSize, ButtonVariant } from './types';
-import type { AriaButtonProps } from '@react-types/button';
-import type { PressEvent } from '@react-types/shared';
-import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { cx } from '@project44-manifest/react-styles';
 import { useButton } from '@react-aria/button';
-import { useButtonGroup } from '../ButtonGroup';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
+import type { AriaButtonProps } from '@react-types/button';
+import type { PressEvent } from '@react-types/shared';
+import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
+import { useButtonGroup } from '../ButtonGroup';
 import { useStyles } from './Button.styles';
+import type { ButtonSize, ButtonVariant } from './types';
 
 export type ButtonElement = 'div';
 
@@ -45,7 +45,7 @@ export interface ButtonOptions<T extends As = ButtonElement>
 	/**
 	 * Handler called on a click event.
 	 */
-	onClick?(event: React.MouseEvent<HTMLButtonElement>): void;
+	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export type ButtonProps<T extends As = ButtonElement> = Props<ButtonOptions<T>>;
@@ -120,8 +120,8 @@ export const Button = createComponent<ButtonOptions>((props, forwardedRef) => {
 	return (
 		<Comp
 			{...mergeProps(buttonProps, focusProps, hoverProps)}
-			className={classnames}
 			ref={mergeRefs(buttonRef, forwardedRef)}
+			className={classnames}
 		>
 			{startIcon && (
 				<span className={cx('manifest-button__icon', 'manifest-button__icon--start')}>

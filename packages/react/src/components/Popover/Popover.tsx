@@ -1,10 +1,10 @@
-import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
+import { FocusScope } from '@react-aria/focus';
 import { DismissButton, useModal, useOverlay } from '@react-aria/overlays';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { cx } from '@project44-manifest/react-styles';
-import { FocusScope } from '@react-aria/focus';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
 import { useStyles } from './Popover.styles';
 
 export type PopoverElement = 'div';
@@ -35,14 +35,14 @@ export interface PopoverOptions<T extends As = PopoverElement> extends Options<T
 	/**
 	 * Handler that is called when the popover should close.
 	 */
-	onClose?(): void;
+	onClose?: () => void;
 	/**
 	 * When user interacts with the argument element outside of the overlay ref,
 	 * return true if onClose should be called.  This gives you a chance to filter
 	 * out interaction with elements that should not dismiss the overlay.
 	 * By default, onClose will always be called on interaction outside the overlay ref.
 	 */
-	shouldCloseOnInteractOutside?(element: Element): boolean;
+	shouldCloseOnInteractOutside?: (element: Element) => boolean;
 }
 
 export type PopoverProps<T extends As = PopoverElement> = Props<PopoverOptions<T>>;
@@ -86,8 +86,8 @@ export const Popover = createComponent<PopoverOptions>((props, forwardedRef) => 
 		<FocusScope restoreFocus>
 			<Comp
 				{...mergeProps(overlayProps, modalProps, other)}
-				className={classes}
 				ref={mergeRefs(popoverRef, forwardedRef)}
+				className={classes}
 				role="presentation"
 			>
 				<DismissButton onDismiss={onClose} />

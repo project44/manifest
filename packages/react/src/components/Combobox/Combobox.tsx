@@ -1,22 +1,22 @@
-import type { AriaComboBoxProps } from '@react-types/combobox';
-import type { Placement } from '@react-types/overlays';
-import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
-import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { cx } from '@project44-manifest/react-styles';
-import { FormControl } from '../FormControl';
-import { Icon } from '../Icon';
-import { Overlay } from '../Overlay';
-import { Popover } from '../Popover';
 import { useButton } from '@react-aria/button';
 import { useComboBox } from '@react-aria/combobox';
-import { useComboBoxState } from '@react-stately/combobox';
-import { useFilter } from '@react-aria/i18n';
 import { useFocusRing } from '@react-aria/focus';
+import { useFilter } from '@react-aria/i18n';
 import { useHover } from '@react-aria/interactions';
 import { useOverlayPosition } from '@react-aria/overlays';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
+import { useComboBoxState } from '@react-stately/combobox';
+import type { AriaComboBoxProps } from '@react-types/combobox';
+import type { Placement } from '@react-types/overlays';
+import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
+import { FormControl } from '../FormControl';
+import { Icon } from '../Icon';
+import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
+import { Overlay } from '../Overlay';
+import { Popover } from '../Popover';
 import { useStyles } from './Combobox.styles';
 
 export type ComboboxElement = 'div';
@@ -153,6 +153,8 @@ export const Combobox = createComponent<ComboboxOptions>((props, forwardedRef) =
 		within: true,
 	});
 
+	const handleClose = React.useCallback(() => void state.close(), [state]);
+
 	const { className } = useStyles({
 		hasStartIcon: !!startIcon,
 		isDisabled,
@@ -185,31 +187,31 @@ export const Combobox = createComponent<ComboboxOptions>((props, forwardedRef) =
 		>
 			<Comp
 				{...mergeProps(hoverProps, focusProps)}
-				className="manifest-combobox__wrapper"
 				ref={mergeRefs(containerRef, forwardedRef)}
+				className="manifest-combobox__wrapper"
 			>
 				{startIcon && <span className="manifest-combobox__icon">{startIcon}</span>}
 
-				<input {...inputProps} className="manifest-combobox__input" ref={inputRef} />
+				<input {...inputProps} ref={inputRef} className="manifest-combobox__input" />
 
-				<button {...buttonProps} className="manifest-combobox__button" ref={buttonRef}>
+				<button {...buttonProps} ref={buttonRef} className="manifest-combobox__button">
 					<Icon icon="expand_more" />
 				</button>
 
 				<Overlay isOpen={state.isOpen && !isDisabled}>
 					<Popover
 						{...overlayProps}
+						ref={popoverRef}
 						className="manifest-combobox__popover"
 						css={{ left: containerDimensions?.left, width: containerDimensions?.width }}
 						isOpen={state.isOpen}
-						onClose={state.close}
-						ref={popoverRef}
+						onClose={handleClose}
 					>
 						<ListBoxBase
 							{...(listBoxProps as ListBoxBaseProps)}
-							className="manifest-combobox__list-box"
-							disallowEmptySelection
 							ref={listBoxRef}
+							disallowEmptySelection
+							className="manifest-combobox__list-box"
 							state={state}
 						/>
 					</Popover>

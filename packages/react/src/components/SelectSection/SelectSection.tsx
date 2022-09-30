@@ -1,5 +1,5 @@
-import type { ListBoxSectionProps } from '../ListBoxSection';
 import { Section } from '@react-stately/collections';
+import type { ListBoxSectionProps } from '../ListBoxSection';
 
 export const SelectSection = Section as (props: SelectSectionProps) => JSX.Element;
 

@@ -1,5 +1,5 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Dropdown, DropdownItem, DropdownMenu, DropdownSection, Icon, IconButton } from '../src';
 
 export default {
@@ -51,10 +51,10 @@ WithIcons.decorators = [
 				<Icon icon="expand_more" />
 			</IconButton>
 			<DropdownMenu css={{ minWidth: 224 }}>
-				<DropdownItem startIcon={<Icon icon="person" />} key="profile">
+				<DropdownItem key="profile" startIcon={<Icon icon="person" />}>
 					Profile
 				</DropdownItem>
-				<DropdownItem startIcon={<Icon icon="search" />} key="search">
+				<DropdownItem key="search" startIcon={<Icon icon="search" />}>
 					Search
 				</DropdownItem>
 			</DropdownMenu>
@@ -98,7 +98,7 @@ export const Controlled = Template.bind({});
 
 Controlled.decorators = [
 	() => {
-		const [selected, setSelected] = React.useState<'all' | Set<React.Key>>(new Set(['Search']));
+		const [selected, setSelected] = React.useState<Set<React.Key> | 'all'>(new Set(['Search']));
 
 		return (
 			<Dropdown>
@@ -106,9 +106,9 @@ Controlled.decorators = [
 					<Icon icon="expand_more" />
 				</IconButton>
 				<DropdownMenu
-					onSelectionChange={setSelected}
-					selectionMode="single"
 					selectedKeys={selected}
+					selectionMode="single"
+					onSelectionChange={setSelected}
 				>
 					<DropdownItem key="Profile">Profile</DropdownItem>
 					<DropdownItem key="Search">Search</DropdownItem>

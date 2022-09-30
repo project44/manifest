@@ -1,5 +1,5 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Pill, Flex, Icon } from '../src';
+import { Flex, Icon, Pill } from '../src';
 
 export default {
 	title: 'Components/Pill',
@@ -31,8 +31,8 @@ export const Collapsible = Template.bind({});
 Collapsible.decorators = [
 	() => (
 		<Flex align="center" css={{ gap: '$small' }}>
-			<Pill colorScheme="indigo" icon={<Icon icon="flight" />} isCollapsible label="In Transit" />
-			<Pill colorScheme="red" icon={<Icon icon="front_hand" />} isCollapsible label="On Hold" />
+			<Pill isCollapsible colorScheme="indigo" icon={<Icon icon="flight" />} label="In Transit" />
+			<Pill isCollapsible colorScheme="red" icon={<Icon icon="front_hand" />} label="On Hold" />
 		</Flex>
 	),
 ];

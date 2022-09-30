@@ -1,6 +1,6 @@
-import { CSS as StitchesCSS, createStitches } from '@stitches/react';
-import { color, layout, space, typography } from './utils';
 import { lightTheme } from '@project44-manifest/theme';
+import { createStitches, CSS as StitchesCSS } from '@stitches/react';
+import { color, layout, space, typography } from './utils';
 
 export type CSS = StitchesCSS<typeof config>;
 

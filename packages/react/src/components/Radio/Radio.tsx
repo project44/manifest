@@ -1,18 +1,18 @@
-import type { AriaRadioProps } from '@react-types/radio';
-import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { RadioGroupContext, useRadioGroupContext } from '../RadioGroup';
-import { useHover, usePress } from '@react-aria/interactions';
-import { cx } from '@project44-manifest/react-styles';
-import { mergeProps } from '@react-aria/utils';
-import { Typography } from '../Typography';
 import { useFocusRing } from '@react-aria/focus';
+import { useHover, usePress } from '@react-aria/interactions';
 import { useRadio } from '@react-aria/radio';
+import { mergeProps } from '@react-aria/utils';
+import type { AriaRadioProps } from '@react-types/radio';
+import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
+import { useRadioGroupContext } from '../RadioGroup';
+import { Typography } from '../Typography';
 import { useStyles } from './Radio.styles';
 
 export type RadioElement = 'label';
-export type RadioOptions<T extends As = RadioElement> = Options<T> & AriaRadioProps & StyleProps;
+export type RadioOptions<T extends As = RadioElement> = AriaRadioProps & Options<T> & StyleProps;
 export type RadioProps<T extends As = RadioElement> = Props<RadioOptions<T>>;
 
 export const Radio = createComponent<RadioOptions>((props, forwardedRef) => {
@@ -27,7 +27,7 @@ export const Radio = createComponent<RadioOptions>((props, forwardedRef) => {
 
 	const inputRef = React.useRef<HTMLInputElement>(null);
 
-	const { state } = useRadioGroupContext() as RadioGroupContext;
+	const { state } = useRadioGroupContext()!;
 
 	const { inputProps } = useRadio(props, state, inputRef);
 	const { isFocusVisible, focusProps } = useFocusRing({ autoFocus });
@@ -49,11 +49,11 @@ export const Radio = createComponent<RadioOptions>((props, forwardedRef) => {
 	});
 
 	return (
-		<Comp {...mergeProps(hoverProps, pressProps)} className={classes} ref={forwardedRef}>
+		<Comp {...mergeProps(hoverProps, pressProps)} ref={forwardedRef} className={classes}>
 			<input
 				{...mergeProps(inputProps, focusProps)}
-				className="manifest-radio__input"
 				ref={inputRef}
+				className="manifest-radio__input"
 			/>
 
 			<div className="manifest-radio__control">

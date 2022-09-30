@@ -1,16 +1,16 @@
 import type * as Stitches from '@stitches/react';
 
 type Variant =
+	| 'body-bold'
+	| 'body'
+	| 'caption-bold'
+	| 'caption'
 	| 'display'
 	| 'heading'
-	| 'title'
-	| 'subtitle'
-	| 'body'
-	| 'body-bold'
-	| 'subtext'
 	| 'subtext-bold'
-	| 'caption'
-	| 'caption-bold';
+	| 'subtext'
+	| 'subtitle'
+	| 'title';
 
 export type VariantToken = `$${Variant}`;
 

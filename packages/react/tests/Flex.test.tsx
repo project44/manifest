@@ -1,5 +1,5 @@
 import { render, screen } from '@project44-manifest/test-utils';
-import { Flex } from './Flex';
+import { Flex } from '../src';
 
 describe('@project44-manifest/react - Flex', () => {
 	it('should render', () => {

@@ -1,7 +1,7 @@
-import type { MultiSelectListProps, MultiSelectListState } from '../types';
-import type { Selection } from '@react-types/shared';
 import { useListState } from '@react-stately/list';
 import { useControlledState } from '@react-stately/utils';
+import type { Selection } from '@react-types/shared';
+import type { MultiSelectListProps, MultiSelectListState } from '../types';
 
 /**
  * Pulled directly from the following library and augmented for our needs:

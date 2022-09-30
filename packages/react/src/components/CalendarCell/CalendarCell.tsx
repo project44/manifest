@@ -1,13 +1,13 @@
-import type { CalendarState, RangeCalendarState } from '@react-stately/calendar';
-import type { CalendarDate } from '@internationalized/date';
 import * as React from 'react';
-import { getDayOfWeek, isSameDay, isSameMonth, isToday } from '@internationalized/date';
-import { cx } from '@project44-manifest/react-styles';
-import { mergeProps } from '@react-aria/utils';
 import { useCalendarCell } from '@react-aria/calendar';
 import { useFocusRing } from '@react-aria/focus';
-import { useHover } from '@react-aria/interactions';
 import { useLocale } from '@react-aria/i18n';
+import { useHover } from '@react-aria/interactions';
+import { mergeProps } from '@react-aria/utils';
+import type { CalendarState, RangeCalendarState } from '@react-stately/calendar';
+import type { CalendarDate } from '@internationalized/date';
+import { getDayOfWeek, isSameDay, isSameMonth, isToday } from '@internationalized/date';
+import { cx } from '@project44-manifest/react-styles';
 import { useStyles } from './CalendarCell.styles';
 
 export interface CalendarCellProps {
@@ -85,8 +85,8 @@ export function CalendarCell(props: CalendarCellProps) {
 		<td {...cellProps} className={cx(className, 'manifest-calendar-cell')}>
 			<span
 				{...mergeProps(buttonProps, hoverProps, focusProps)}
-				className="manifest-calendar-cell__button"
 				ref={ref}
+				className="manifest-calendar-cell__button"
 			>
 				<span className="manifest-calendar-cell__text">
 					<span>{formattedDate}</span>

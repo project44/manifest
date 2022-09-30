@@ -1,6 +1,6 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
-import { MultiSelect, SelectItem, SelectSection, Icon } from '../src';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Icon, MultiSelect, SelectItem, SelectSection } from '../src';
 
 export default {
 	title: 'Components/MultiSelect',
@@ -80,8 +80,8 @@ Controlled.decorators = [
 
 		return (
 			<MultiSelect
-				onSelectionChange={(keys) => setSelected(keys as Set<string>)}
 				selectedKeys={selected}
+				onSelectionChange={(keys) => void setSelected(keys as Set<string>)}
 			>
 				<SelectItem key="Ardvark">Ardvark</SelectItem>
 				<SelectItem key="Kangaroo">Kangaroo</SelectItem>

@@ -1,16 +1,15 @@
-import type { OverlayTriggerProps } from '@react-types/overlays';
-import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { useTooltip, useTooltipTrigger } from '@react-aria/tooltip';
-import { cx } from '@project44-manifest/react-styles';
 import { FocusableProvider } from '@react-aria/focus';
-import { OverlayContainer } from '@react-aria/overlays';
-import { Typography } from '../Typography';
-import { useOverlayPosition } from '@react-aria/overlays';
-import { useStyles } from './Tooltip.styles';
+import { OverlayContainer, useOverlayPosition } from '@react-aria/overlays';
+import { useTooltip, useTooltipTrigger } from '@react-aria/tooltip';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useTooltipTriggerState } from '@react-stately/tooltip';
+import type { OverlayTriggerProps } from '@react-types/overlays';
+import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
+import { Typography } from '../Typography';
+import { useStyles } from './Tooltip.styles';
 
 export type TooltipElement = 'div';
 
@@ -33,7 +32,7 @@ export interface TooltipOptions<T extends As = TooltipElement>
 	 *
 	 * @default 'top'
 	 */
-	placement?: 'start' | 'end' | 'right' | 'left' | 'top' | 'bottom';
+	placement?: 'bottom' | 'end' | 'left' | 'right' | 'start' | 'top';
 	/**
 	 * The content rendered within the tooltip.
 	 */
@@ -85,8 +84,8 @@ export const Tooltip = createComponent<TooltipOptions>((props, forwardedRef) => 
 				<OverlayContainer>
 					<Comp
 						{...mergeProps(tooltipProps, positionProps, contentProps, other)}
-						className={cx(className, classNameProp, 'manifest-tooltip')}
 						ref={mergeRefs(overlayRef, forwardedRef)}
+						className={cx(className, classNameProp, 'manifest-tooltip')}
 					>
 						<Typography variant="caption">{title}</Typography>
 					</Comp>

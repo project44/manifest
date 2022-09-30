@@ -46,7 +46,7 @@ describe('@project44-manifest/react - Popover', () => {
 		};
 
 		render(
-			<Popover isOpen onClose={onClose} shouldCloseOnBlur>
+			<Popover isOpen shouldCloseOnBlur onClose={onClose}>
 				<span data-testid="popover">Popover</span>
 				<button {...buttonProps}>click me</button>
 			</Popover>,

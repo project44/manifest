@@ -1,22 +1,22 @@
-import type { AriaSelectProps } from '@react-types/select';
-import type { Placement } from '@react-types/overlays';
-import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { HiddenSelect, useSelect } from '@react-aria/select';
-import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
-import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { cx } from '@project44-manifest/react-styles';
-import { FormControl } from '../FormControl';
-import { Icon } from '../Icon';
-import { Overlay } from '../Overlay';
-import { Popover } from '../Popover';
-import { Typography } from '../Typography';
 import { useButton } from '@react-aria/button';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
 import { useOverlayPosition } from '@react-aria/overlays';
+import { HiddenSelect, useSelect } from '@react-aria/select';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useSelectState } from '@react-stately/select';
+import type { Placement } from '@react-types/overlays';
+import type { AriaSelectProps } from '@react-types/select';
+import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
+import { FormControl } from '../FormControl';
+import { Icon } from '../Icon';
+import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
+import { Overlay } from '../Overlay';
+import { Popover } from '../Popover';
+import { Typography } from '../Typography';
 import { useStyles } from './Select.styles';
 
 export type SelectElement = 'label';
@@ -135,6 +135,8 @@ export const Select = createComponent<SelectOptions>((props, forwardedRef) => {
 	const { isFocusVisible, isFocused, focusProps } = useFocusRing({ autoFocus });
 	const { hoverProps, isHovered } = useHover({ isDisabled });
 
+	const handleClose = React.useCallback(() => void state.close(), [state]);
+
 	const { className } = useStyles({
 		hasStartIcon: !!startIcon,
 		isActive: state.isOpen,
@@ -168,7 +170,7 @@ export const Select = createComponent<SelectOptions>((props, forwardedRef) => {
 			labelProps={mergeProps(labelProps, labelPropsProp)}
 			validationState={validationState}
 		>
-			<Comp className="manifest-select__wrapper" ref={mergeRefs(containerRef, forwardedRef)}>
+			<Comp ref={mergeRefs(containerRef, forwardedRef)} className="manifest-select__wrapper">
 				{startIcon && (
 					<span className={cx('manifest-select__icon', 'manifest-select__icon--start')}>
 						{startIcon}
@@ -178,16 +180,16 @@ export const Select = createComponent<SelectOptions>((props, forwardedRef) => {
 				<HiddenSelect
 					autoComplete={autoComplete}
 					isDisabled={isDisabled}
-					state={state}
-					triggerRef={triggerRef}
 					label={label}
 					name={name}
+					state={state}
+					triggerRef={triggerRef}
 				/>
 
 				<button
 					{...mergeProps(buttonProps, focusProps, hoverProps)}
-					className="manifest-select__input"
 					ref={triggerRef}
+					className="manifest-select__input"
 				>
 					<Typography {...valueProps} variant="subtext">
 						{state.selectedItem ? state.selectedItem.rendered : placeholder}
@@ -201,17 +203,17 @@ export const Select = createComponent<SelectOptions>((props, forwardedRef) => {
 				<Overlay isOpen={state.isOpen && !isDisabled}>
 					<Popover
 						{...overlayProps}
+						ref={popoverRef}
 						className="manifest-combobox__popover"
 						css={{ left: containerDimensions?.left, width: containerDimensions?.width }}
 						isOpen={state.isOpen}
-						onClose={state.close}
-						ref={popoverRef}
+						onClose={handleClose}
 					>
 						<ListBoxBase
 							{...(menuProps as ListBoxBaseProps)}
-							className="manifest-select__list-box"
-							disallowEmptySelection
 							ref={listBoxRef}
+							disallowEmptySelection
+							className="manifest-select__list-box"
 							state={state}
 						/>
 					</Popover>

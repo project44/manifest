@@ -1,11 +1,11 @@
-import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
 import { useStyles } from './Avatar.styles';
 
 export type AvatarElement = 'span';
-export type AvatarSize = 'small' | 'medium';
+export type AvatarSize = 'medium' | 'small';
 
 export interface AvatarOptions<T extends As = AvatarElement> extends Options<T>, StyleProps {
 	/**
@@ -43,10 +43,10 @@ export const Avatar = createComponent<AvatarOptions>((props, forwardedRef) => {
 	} = props;
 
 	const [mounted, setMounted] = React.useState(false);
-	const [status, setStatus] = React.useState<'error' | 'pending' | 'loaded'>('pending');
+	const [status, setStatus] = React.useState<'error' | 'loaded' | 'pending'>('pending');
 
-	const handleError = React.useCallback(() => setStatus('error'), []);
-	const handleLoad = React.useCallback(() => setStatus('loaded'), []);
+	const handleError = React.useCallback(() => void setStatus('error'), []);
+	const handleLoad = React.useCallback(() => void setStatus('loaded'), []);
 
 	const { className } = useStyles({ css, size });
 
@@ -67,14 +67,14 @@ export const Avatar = createComponent<AvatarOptions>((props, forwardedRef) => {
 	}, []);
 
 	return (
-		<Comp {...other} className={classes} ref={forwardedRef}>
+		<Comp {...other} ref={forwardedRef} className={classes}>
 			{src && mounted && status !== 'error' && (
 				<img
 					alt={alt}
 					className="manifest-avatar__image"
+					src={src}
 					onError={handleError}
 					onLoad={handleLoad}
-					src={src}
 				/>
 			)}
 			{(!src || status === 'error') && (

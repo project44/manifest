@@ -1,10 +1,10 @@
 import {
 	accessibility,
 	fireEvent,
-	screen,
 	render,
-	within,
+	screen,
 	userEvent,
+	within,
 } from '@project44-manifest/test-utils';
 import { Dropdown, DropdownItem, DropdownMenu, DropdownSection, Icon, IconButton } from '../src';
 
@@ -146,8 +146,8 @@ describe('@project44-manifest/react - Dropdown', () => {
 				</IconButton>
 				<DropdownMenu
 					disabledKeys={['kangaroo']}
-					onSelectionChange={onSelectionChange}
 					selectionMode="single"
+					onSelectionChange={onSelectionChange}
 				>
 					<DropdownItem key="ardvark">Ardvark</DropdownItem>
 					<DropdownItem key="kangaroo">Kangaroo</DropdownItem>
@@ -188,8 +188,8 @@ describe('@project44-manifest/react - Dropdown', () => {
 				</IconButton>
 				<DropdownMenu
 					disabledKeys={['kangaroo']}
-					onSelectionChange={onSelectionChange}
 					selectionMode="multiple"
+					onSelectionChange={onSelectionChange}
 				>
 					<DropdownItem key="ardvark">Ardvark</DropdownItem>
 					<DropdownItem key="kangaroo">Kangaroo</DropdownItem>

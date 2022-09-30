@@ -1,6 +1,6 @@
-import type { StyleProps } from '../../types';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
 import { useStyles } from './Stack.styles';
 
 export type StackElement = 'div';
@@ -9,7 +9,7 @@ export interface StackOptions<T extends As = StackElement> extends Options<T>, S
 	/**
 	 * The gap between elements in the stack.
 	 */
-	gap?: 'x-small' | 'small' | 'medium' | 'large' | 'x-large';
+	gap?: 'large' | 'medium' | 'small' | 'x-large' | 'x-small';
 	/**
 	 * The layout orientation  of the stack.
 	 *
@@ -35,8 +35,8 @@ export const Stack = createComponent<StackOptions>((props, forwardedRef) => {
 	return (
 		<Comp
 			{...other}
-			className={cx(className, classNameProp, 'manifest-container')}
 			ref={forwardedRef}
+			className={cx(className, classNameProp, 'manifest-container')}
 		/>
 	);
 });

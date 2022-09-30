@@ -1,11 +1,11 @@
-import { accessibility, render, screen } from '@project44-manifest/test-utils';
 import { CalendarDate, endOfMonth, startOfMonth } from '@internationalized/date';
+import { accessibility, render, screen } from '@project44-manifest/test-utils';
 import { CalendarRange } from '../src';
+import { DefinedRange } from '../src/components/CalendarRanges';
 import {
 	addMonths,
 	createCalendarDate,
 } from '../src/components/CalendarRanges/defaultDefinedRanges';
-import { DefinedRange } from '../src/components/CalendarRanges';
 
 describe('@project44-manifest/react - CalendarRange', () => {
 	let customRanges: DefinedRange[];
@@ -74,12 +74,12 @@ describe('@project44-manifest/react - CalendarRange', () => {
 	it('should render the sidebar for the relative dates', () => {
 		render(
 			<CalendarRange
+				showCalendar
+				showRanges
 				value={{
 					start: new CalendarDate(2022, 7, 2),
 					end: new CalendarDate(2022, 7, 12),
 				}}
-				showCalendar={true}
-				showRanges={true}
 			/>,
 		);
 
@@ -95,11 +95,11 @@ describe('@project44-manifest/react - CalendarRange', () => {
 	it('should render the sidebar with the default relative date ranges', () => {
 		render(
 			<CalendarRange
+				showRanges
 				value={{
 					start: new CalendarDate(2022, 7, 2),
 					end: new CalendarDate(2022, 7, 12),
 				}}
-				showRanges={true}
 			/>,
 		);
 
@@ -121,12 +121,12 @@ describe('@project44-manifest/react - CalendarRange', () => {
 	it('should render the calendar without relative date ranges', () => {
 		render(
 			<CalendarRange
+				showCalendar
+				showRanges={false}
 				value={{
 					start: new CalendarDate(2022, 7, 2),
 					end: new CalendarDate(2022, 7, 12),
 				}}
-				showCalendar={true}
-				showRanges={false}
 			/>,
 		);
 		const listBoxcontainer = screen.findAllByRole('listbox');
@@ -143,13 +143,13 @@ describe('@project44-manifest/react - CalendarRange', () => {
 	it('should render the calendar and sidebar with provided relative date ranges', () => {
 		render(
 			<CalendarRange
+				showCalendar
+				showRanges
+				ranges={customRanges}
 				value={{
 					start: new CalendarDate(2022, 7, 2),
 					end: new CalendarDate(2022, 7, 12),
 				}}
-				showCalendar={true}
-				showRanges={true}
-				ranges={customRanges}
 			/>,
 		);
 
@@ -173,13 +173,13 @@ describe('@project44-manifest/react - CalendarRange', () => {
 	it('should render the calendar and sidebar with provided relative date ranges and not the default ranges', () => {
 		render(
 			<CalendarRange
+				showCalendar
+				showRanges
+				ranges={customRanges}
 				value={{
 					start: new CalendarDate(2022, 7, 2),
 					end: new CalendarDate(2022, 7, 12),
 				}}
-				showCalendar={true}
-				showRanges={true}
-				ranges={customRanges}
 			/>,
 		);
 

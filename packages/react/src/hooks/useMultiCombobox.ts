@@ -1,8 +1,8 @@
-import type { AriaMultiComboboxProps, MultiComboboxState } from '../types';
-import type { ComboBoxState } from '@react-stately/combobox';
-import type { KeyboardDelegate } from '@react-types/shared';
 import * as React from 'react';
 import { AriaComboBoxOptions, ComboBoxAria, useComboBox } from '@react-aria/combobox';
+import type { ComboBoxState } from '@react-stately/combobox';
+import type { KeyboardDelegate } from '@react-types/shared';
+import type { AriaMultiComboboxProps, MultiComboboxState } from '../types';
 
 export interface AriaMultiComboboxOptions<T> extends AriaMultiComboboxProps<T> {
 	/** The ref for the input element. */

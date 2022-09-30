@@ -1,24 +1,23 @@
-import type { AriaMultiComboboxProps } from '../../types';
-import type { Placement } from '@react-types/overlays';
-import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
+import { useButton } from '@react-aria/button';
+import { useFocusRing } from '@react-aria/focus';
+import { useFilter } from '@react-aria/i18n';
+import { useHover } from '@react-aria/interactions';
+import { useOverlayPosition } from '@react-aria/overlays';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
+import type { Placement } from '@react-types/overlays';
 import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import { useMultiCombobox } from '../../hooks';
+import { useMultiComboboxState } from '../../state';
+import type { AriaMultiComboboxProps, StyleProps } from '../../types';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
+import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
 import { Overlay } from '../Overlay';
 import { Popover } from '../Popover';
 import { Stack } from '../Stack';
 import { Tag } from '../Tag';
-import { useButton } from '@react-aria/button';
-import { useFilter } from '@react-aria/i18n';
-import { useFocusRing } from '@react-aria/focus';
-import { useHover } from '@react-aria/interactions';
-import { useMultiCombobox } from '../../hooks';
-import { useMultiComboboxState } from '../../state';
-import { useOverlayPosition } from '@react-aria/overlays';
 import { useStyles } from './MultiCombobox.styles';
 
 export type MultiComboboxElement = 'div';
@@ -156,6 +155,10 @@ export const MultiCombobox = createComponent<MultiComboboxOptions>((props, forwa
 		within: true,
 	});
 
+	const handleClose = React.useCallback(() => void state.close(), [state]);
+
+	const handleRemove = (key: React.Key) => () => void state.selectionManager.toggleSelection(key);
+
 	const { className } = useStyles({
 		hasStartIcon: !!startIcon,
 		isDisabled,
@@ -188,43 +191,39 @@ export const MultiCombobox = createComponent<MultiComboboxOptions>((props, forwa
 		>
 			<Comp
 				{...mergeProps(hoverProps, focusProps)}
-				className="manifest-multi-combobox__wrapper"
 				ref={mergeRefs(containerRef, forwardedRef)}
+				className="manifest-multi-combobox__wrapper"
 			>
 				{startIcon && <span className="manifest-multi-combobox__icon">{startIcon}</span>}
 
 				<Stack css={{ flexWrap: 'wrap' }} gap="x-small" orientation="horizontal">
 					{state.selectedItems?.map((item) => (
-						<Tag
-							key={item.key}
-							onRemove={() => state.selectionManager.toggleSelection(item.key)}
-							isRemovable
-						>
+						<Tag key={item.key} isRemovable onRemove={handleRemove(item.key)}>
 							{item.textValue}
 						</Tag>
 					))}
 				</Stack>
 
-				<input {...inputProps} className="manifest-multi-combobox__input" ref={inputRef} />
+				<input {...inputProps} ref={inputRef} className="manifest-multi-combobox__input" />
 
-				<button {...buttonProps} className="manifest-multi-combobox__button" ref={buttonRef}>
+				<button {...buttonProps} ref={buttonRef} className="manifest-multi-combobox__button">
 					<Icon icon="expand_more" />
 				</button>
 
 				<Overlay isOpen={state.isOpen && !isDisabled}>
 					<Popover
 						{...overlayProps}
+						ref={popoverRef}
 						className="manifest-multi-combobox__popover"
 						css={{ left: containerDimensions?.left, width: containerDimensions?.width }}
 						isOpen={state.isOpen}
-						onClose={state.close}
-						ref={popoverRef}
+						onClose={handleClose}
 					>
 						<ListBoxBase
 							{...(listBoxProps as ListBoxBaseProps)}
-							className="manifest-multi-combobox__list-box"
-							disallowEmptySelection
 							ref={listBoxRef}
+							disallowEmptySelection
+							className="manifest-multi-combobox__list-box"
 							state={state}
 						/>
 					</Popover>

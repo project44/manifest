@@ -1,19 +1,19 @@
+import * as React from 'react';
+import { useRangeCalendar } from '@react-aria/calendar';
+import { useLocale } from '@react-aria/i18n';
+import { mergeRefs } from '@react-aria/utils';
+import { RangeCalendarStateOptions, useRangeCalendarState } from '@react-stately/calendar';
 import type { RangeCalendarProps } from '@react-types/calendar';
 import type { Selection } from '@react-types/shared';
-import type { StyleProps } from '../../types';
-import * as React from 'react';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { CalendarRanges, DefinedRange } from '../CalendarRanges';
 import { createCalendar, DateValue } from '@internationalized/date';
-import { RangeCalendarStateOptions, useRangeCalendarState } from '@react-stately/calendar';
 import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
 import { CalendarHeader } from '../CalendarHeader';
+import { CalendarRanges, DefinedRange } from '../CalendarRanges';
 import { CalendarTable } from '../CalendarTable';
-import { mergeRefs } from '@react-aria/utils';
 import { Separator } from '../Separator';
-import { useLocale } from '@react-aria/i18n';
-import { useRangeCalendar } from '@react-aria/calendar';
-import { useStyles } from '../CalendarRange/CalendarRange.styles';
+import { useStyles } from './CalendarRange.styles';
 
 export type CalendarElement = 'div';
 
@@ -72,21 +72,24 @@ export const CalendarRange = createComponent<CalendarRangeOptions>((props, forwa
 	const findRangeByKey = (
 		key: React.Key,
 		definedRanges: DefinedRange[],
-	): DefinedRange | undefined => {
-		return definedRanges.find((item) => item.key === key.toString());
-	};
+	): DefinedRange | undefined => definedRanges.find((item) => item.key === key.toString());
 
-	const handleRangeChange = (key: Selection, definedRanges: DefinedRange[]): void => {
-		const [first] = key;
-		const selectedRange = findRangeByKey(first, definedRanges);
-		if (selectedRange) {
-			const { value } = selectedRange;
-			state.setValue({
-				start: value.start,
-				end: value.end,
-			});
-		}
-	};
+	const handleRangeChange = React.useCallback(
+		(key: Selection, definedRanges: DefinedRange[]): void => {
+			const [first] = key;
+			const selectedRange = findRangeByKey(first, definedRanges);
+
+			if (selectedRange) {
+				const { value } = selectedRange;
+
+				state.setValue({
+					start: value.start,
+					end: value.end,
+				});
+			}
+		},
+		[state],
+	);
 
 	const { calendarProps, nextButtonProps, prevButtonProps } = useRangeCalendar(
 		other as RangeCalendarProps<DateValue>,
@@ -99,14 +102,14 @@ export const CalendarRange = createComponent<CalendarRangeOptions>((props, forwa
 	return (
 		<Comp
 			{...calendarProps}
-			className={cx(className, classNameProp, 'manifest-range-calendar')}
 			ref={mergeRefs(calendarRef, forwardedRef)}
+			className={cx(className, classNameProp, 'manifest-range-calendar')}
 		>
-			{showRanges && <CalendarRanges onRangeChange={handleRangeChange} ranges={ranges} />}
+			{showRanges && <CalendarRanges ranges={ranges} onRangeChange={handleRangeChange} />}
 			{showCalendar && (
 				<>
 					{showRanges && showCalendar && <Separator orientation="vertical" />}
-					<div data-testid="calendar-date-picker" className={cx('manifest-datepicker__calendar')}>
+					<div className={cx('manifest-datepicker__calendar')} data-testid="calendar-date-picker">
 						<CalendarHeader
 							nextButtonProps={nextButtonProps}
 							prevButtonProps={prevButtonProps}

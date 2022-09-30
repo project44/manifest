@@ -1,5 +1,5 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Button, Tooltip } from '../src';
 
 export default {
@@ -31,7 +31,7 @@ Controlled.decorators = [
 		const [open, setOpen] = React.useState(false);
 
 		return (
-			<Tooltip isOpen={open} onOpenChange={setOpen} title="Tooltip">
+			<Tooltip isOpen={open} title="Tooltip" onOpenChange={setOpen}>
 				<Button>Controlled</Button>
 			</Tooltip>
 		);

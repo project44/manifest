@@ -2,18 +2,18 @@ import {
 	accessibility,
 	act,
 	fireEvent,
-	screen,
 	render,
-	within,
-	waitFor,
+	screen,
 	userEvent,
+	waitFor,
+	within,
 } from '@project44-manifest/test-utils';
 import { MultiSelect, SelectItem, SelectSection } from '../src';
 
 describe('@project44-manifest/react - MultiSelect', () => {
 	describe('render', () => {
 		accessibility(
-			<MultiSelect label="Select" isOpen startIcon={<>icon</>}>
+			<MultiSelect isOpen label="Select" startIcon={<>icon</>}>
 				<SelectItem key="ardvark">Ardvark</SelectItem>
 				<SelectItem key="kangaroo">Kangaroo</SelectItem>
 				<SelectItem key="snake">Snake</SelectItem>

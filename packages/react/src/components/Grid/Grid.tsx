@@ -1,7 +1,7 @@
 import type * as CSS from 'csstype';
-import type { StyleProps } from '../../types';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
 import { useStyles } from './Grid.styles';
 
 export type GridElement = 'div';
@@ -10,13 +10,13 @@ export interface GridOptions<T extends As = GridElement> extends Options<T>, Sty
 	/**
 	 * The gap between columns
 	 */
-	columnGap?: 'x-small' | 'small' | 'medium' | 'large' | 'x-large';
+	columnGap?: 'large' | 'medium' | 'small' | 'x-large' | 'x-small';
 	/**
 	 * Shorthand for the gridTemplateColumns css property.
 	 *
 	 * @default 'auto'
 	 */
-	columns?: number | CSS.Property.GridTemplateColumns;
+	columns?: CSS.Property.GridTemplateColumns;
 	/**
 	 * Shorthand for the gridAutoFlow css property.
 	 */
@@ -24,17 +24,17 @@ export interface GridOptions<T extends As = GridElement> extends Options<T>, Sty
 	/**
 	 * The gap between rows and columns.
 	 */
-	gap?: 'x-small' | 'small' | 'medium' | 'large' | 'x-large';
+	gap?: 'large' | 'medium' | 'small' | 'x-large' | 'x-small';
 	/**
 	 * The gap between rows
 	 */
-	rowGap?: 'x-small' | 'small' | 'medium' | 'large' | 'x-large';
+	rowGap?: 'large' | 'medium' | 'small' | 'x-large' | 'x-small';
 	/**
 	 * Shorthand for the gridTemplateRows css property.
 	 *
 	 * @default 'auto'
 	 */
-	rows?: number | CSS.Property.GridTemplateRows;
+	rows?: CSS.Property.GridTemplateRows;
 }
 
 export type GridProps<T extends As = GridElement> = Props<GridOptions<T>>;
@@ -66,6 +66,6 @@ export const Grid = createComponent<GridOptions>((props, forwardedRef) => {
 	});
 
 	return (
-		<Comp {...other} className={cx(className, classNameProp, 'manifest-grid')} ref={forwardedRef} />
+		<Comp {...other} ref={forwardedRef} className={cx(className, classNameProp, 'manifest-grid')} />
 	);
 });

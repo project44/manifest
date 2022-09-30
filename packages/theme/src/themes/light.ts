@@ -1,6 +1,6 @@
+import merge from 'lodash.merge';
 import * as tokens from '@project44-manifest/design-tokens';
 import { baseTheme } from './base';
-import merge from 'lodash.merge';
 
 export const lightTheme = merge(baseTheme, {
 	colors: {

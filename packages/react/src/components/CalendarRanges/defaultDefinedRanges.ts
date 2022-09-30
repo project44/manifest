@@ -1,5 +1,10 @@
-import { CalendarDate } from '@internationalized/date';
-import { startOfMonth, endOfMonth, startOfWeek, endOfWeek } from '@internationalized/date';
+import {
+	CalendarDate,
+	endOfMonth,
+	endOfWeek,
+	startOfMonth,
+	startOfWeek,
+} from '@internationalized/date';
 import { DefinedRange } from './CalendarRanges';
 
 export const createCalendarDate = (date: Date) => {
@@ -49,55 +54,53 @@ export const defineds = {
 	endOfLastMonth: endOfMonth(addMonths(calendarDate, -1)),
 };
 
-export const getDefaultRanges = (): DefinedRange[] => {
-	return [
-		{
-			key: 'today',
-			label: 'Today',
-			value: {
-				start: defineds.startOfToday,
-				end: defineds.startOfToday,
-			},
+export const getDefaultRanges = (): DefinedRange[] => [
+	{
+		key: 'today',
+		label: 'Today',
+		value: {
+			start: defineds.startOfToday,
+			end: defineds.startOfToday,
 		},
-		{
-			key: 'yesterday',
-			label: 'Yesterday',
-			value: {
-				start: defineds.startOfYesterday,
-				end: defineds.endOfYesterday,
-			},
+	},
+	{
+		key: 'yesterday',
+		label: 'Yesterday',
+		value: {
+			start: defineds.startOfYesterday,
+			end: defineds.endOfYesterday,
 		},
-		{
-			key: 'thisWeek',
-			label: 'This Week',
-			value: {
-				start: defineds.startOfWeek,
-				end: defineds.endOfWeek,
-			},
+	},
+	{
+		key: 'thisWeek',
+		label: 'This Week',
+		value: {
+			start: defineds.startOfWeek,
+			end: defineds.endOfWeek,
 		},
-		{
-			key: 'lastWeek',
-			label: 'Last Week',
-			value: {
-				start: defineds.startOfLastWeek,
-				end: defineds.endOfLastWeek,
-			},
+	},
+	{
+		key: 'lastWeek',
+		label: 'Last Week',
+		value: {
+			start: defineds.startOfLastWeek,
+			end: defineds.endOfLastWeek,
 		},
-		{
-			key: 'thisMonth',
-			label: 'This Month',
-			value: {
-				start: defineds.startOfMonth,
-				end: defineds.endOfMonth,
-			},
+	},
+	{
+		key: 'thisMonth',
+		label: 'This Month',
+		value: {
+			start: defineds.startOfMonth,
+			end: defineds.endOfMonth,
 		},
-		{
-			key: 'lastMonth',
-			label: 'Last Month',
-			value: {
-				start: defineds.startOfLastMonth,
-				end: defineds.endOfLastMonth,
-			},
+	},
+	{
+		key: 'lastMonth',
+		label: 'Last Month',
+		value: {
+			start: defineds.startOfLastMonth,
+			end: defineds.endOfLastMonth,
 		},
-	];
-};
+	},
+];

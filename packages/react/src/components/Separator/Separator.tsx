@@ -1,8 +1,8 @@
-import type { StyleProps } from '../../types';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { cx } from '@project44-manifest/react-styles';
-import { mergeProps } from '@react-aria/utils';
 import { useSeparator } from '@react-aria/separator';
+import { mergeProps } from '@react-aria/utils';
+import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
 import { useStyles } from './Separator.styles';
 
 export type SeparatorElement = 'div';
@@ -35,5 +35,5 @@ export const Separator = createComponent<SeparatorOptions>((props, forwardedRef)
 		[`manifest-separator--${orientation}`]: orientation,
 	});
 
-	return <Comp {...mergeProps(separatorProps, other)} className={classes} ref={forwardedRef} />;
+	return <Comp {...mergeProps(separatorProps, other)} ref={forwardedRef} className={classes} />;
 });
