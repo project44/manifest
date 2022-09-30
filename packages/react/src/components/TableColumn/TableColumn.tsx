@@ -1,7 +1,7 @@
-import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
 import { Icon } from '../Icon';
 import { useStyles } from './TableColumn.styles';
 
@@ -38,7 +38,7 @@ export interface TableColumnOptions<T extends As = TableColumnElement>
 	/**
 	 * Callback executed on column click, used for column sort only.
 	 */
-	onClick?(event: React.MouseEvent<HTMLTableCellElement>): void;
+	onClick?: (event: React.MouseEvent<HTMLTableCellElement>) => void;
 }
 
 export type TableColumnProps<T extends As = TableColumnElement> = Props<TableColumnOptions<T>>;
@@ -86,11 +86,11 @@ export const TableColumn = createComponent<TableColumnOptions>((props, forwarded
 	return (
 		<Comp
 			{...other}
+			ref={forwardedRef}
 			aria-sort={isSortable ? (ariaSort as React.AriaAttributes['aria-sort']) : undefined}
 			className={classes}
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
-			ref={forwardedRef}
 		>
 			{children}
 			{isSortable && isActive && (

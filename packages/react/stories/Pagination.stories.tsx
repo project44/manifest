@@ -1,5 +1,5 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Pagination } from '../src';
 
 export default {
@@ -37,6 +37,6 @@ Controlled.decorators = [
 	() => {
 		const [page, setPage] = React.useState(4);
 
-		return <Pagination page={page} onChange={setPage} totalRowCount={100} />;
+		return <Pagination page={page} totalRowCount={100} onChange={setPage} />;
 	},
 ];

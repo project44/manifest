@@ -1,5 +1,5 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import { TextArea } from '../src';
 
 export default {
@@ -33,6 +33,6 @@ Controlled.decorators = [
 	() => {
 		const [value, setValue] = React.useState('Kangaroo');
 
-		return <TextArea onChange={setValue} value={value} />;
+		return <TextArea value={value} onChange={setValue} />;
 	},
 ];

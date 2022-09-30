@@ -1,8 +1,9 @@
-import type { ButtonSize, ButtonVariant } from '../Button';
-import type { StyleProps } from '../../types';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { ButtonGroupContext } from './ButtonGroup.context';
+import * as React from 'react';
 import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
+import type { ButtonSize, ButtonVariant } from '../Button';
+import { ButtonGroupContext } from './ButtonGroup.context';
 import { useStyles } from './ButtonGroup.styles';
 
 export type ButtonGroupElement = 'div';
@@ -48,18 +49,18 @@ export const ButtonGroup = createComponent<ButtonGroupOptions>((props, forwarded
 		...other
 	} = props;
 
+	const context = React.useMemo(() => ({ isDisabled, size, variant }), [isDisabled, size, variant]);
+
 	const { className } = useStyles({ css, isAttached });
 
 	const classes = cx(className, classNameProp, {
-		['manifest-button-group']: true,
+		'manifest-button-group': true,
 		[`manifest-button-group--attached`]: isAttached,
 	});
 
 	return (
-		<Comp {...other} className={classes} ref={forwardedRef}>
-			<ButtonGroupContext.Provider value={{ isDisabled, size, variant }}>
-				{children}
-			</ButtonGroupContext.Provider>
+		<Comp {...other} ref={forwardedRef} className={classes}>
+			<ButtonGroupContext.Provider value={context}>{children}</ButtonGroupContext.Provider>
 		</Comp>
 	);
 });

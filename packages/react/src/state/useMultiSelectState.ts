@@ -1,6 +1,6 @@
-import type { MultiSelectProps, MultiSelectState } from '../types';
 import * as React from 'react';
 import { useMenuTriggerState } from '@react-stately/menu';
+import type { MultiSelectProps, MultiSelectState } from '../types';
 import { useMultiSelectListState } from './useMultiSelectListState';
 
 /**
@@ -24,12 +24,12 @@ export function useMultiSelectState<T extends object>(
 		},
 		open() {
 			// Don't open if the collection is empty.
-			if (listState.collection.size !== 0) {
+			if (listState.collection.size > 0) {
 				triggerState.open();
 			}
 		},
 		toggle(focusStrategy) {
-			if (listState.collection.size !== 0) {
+			if (listState.collection.size > 0) {
 				triggerState.toggle(focusStrategy);
 			}
 		},

@@ -1,17 +1,15 @@
-import type { FocusableProps } from '@react-types/shared';
-import type { ItemProps } from '@react-types/shared';
-import type { Node } from '@react-types/shared';
-import type { StyleProps } from '../../types';
-import type { TreeState } from '@react-stately/tree';
 import * as React from 'react';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { DropdownContext, useDropdownContext } from '../Dropdown';
-import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { useHover, usePress } from '@react-aria/interactions';
-import { cx } from '@project44-manifest/react-styles';
-import { Typography } from '../Typography';
 import { useFocusRing } from '@react-aria/focus';
+import { useHover, usePress } from '@react-aria/interactions';
 import { useMenuItem } from '@react-aria/menu';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
+import type { TreeState } from '@react-stately/tree';
+import type { FocusableProps, ItemProps, Node } from '@react-types/shared';
+import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
+import { useDropdownContext } from '../Dropdown';
+import { Typography } from '../Typography';
 import { useStyles } from './DropdownItem.styles';
 
 export type DropdownItemElement = 'li';
@@ -43,11 +41,11 @@ export interface DropdownItemOptions<T extends As = DropdownItemElement>
 	/**
 	 * Callback executed on item select.
 	 */
-	onAction?(key: React.Key): void;
+	onAction?: (key: React.Key) => void;
 }
 
 export type DropdownItemProps<T extends As = DropdownItemElement> = ItemProps<object> &
-	Omit<Props<DropdownItemOptions<T>>, 'item' | 'isVirtualized' | 'state'>;
+	Omit<Props<DropdownItemOptions<T>>, 'isVirtualized' | 'item' | 'state'>;
 
 /** @private */
 export const DropdownItem = createComponent<DropdownItemOptions>((props, forwardedRef) => {
@@ -71,7 +69,7 @@ export const DropdownItem = createComponent<DropdownItemOptions>((props, forward
 	const isDisabled = state.disabledKeys.has(key);
 	const isSelected = state.selectionManager.isSelected(key);
 
-	const { onClose, closeOnSelect } = useDropdownContext() as DropdownContext;
+	const { onClose, closeOnSelect } = useDropdownContext()!;
 
 	const { menuItemProps, labelProps } = useMenuItem(
 		{
@@ -94,7 +92,9 @@ export const DropdownItem = createComponent<DropdownItemOptions>((props, forward
 	const { pressProps, isPressed } = usePress({ isDisabled, ref: itemRef });
 
 	const startIcon = React.useMemo(
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 		() => startIconProp ?? (item.props.startIcon as React.ReactElement),
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 		[startIconProp, item.props.startIcon],
 	);
 
@@ -117,8 +117,8 @@ export const DropdownItem = createComponent<DropdownItemOptions>((props, forward
 	return (
 		<Comp
 			{...mergeProps(menuItemProps, pressProps, focusProps, hoverProps)}
-			className={classes}
 			ref={mergeRefs(itemRef, forwardedRef)}
+			className={classes}
 		>
 			{startIcon && (
 				<span className={cx('manifest-dropdown-item__icon', 'manifest-dropdown-item__icon--start')}>

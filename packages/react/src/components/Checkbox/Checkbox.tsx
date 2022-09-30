@@ -1,20 +1,20 @@
-import type { AriaCheckboxProps } from '@react-types/checkbox';
-import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { useHover, usePress } from '@react-aria/interactions';
-import { cx } from '@project44-manifest/react-styles';
-import { Icon } from '../Icon';
-import { mergeProps } from '@react-aria/utils';
-import { Typography } from '../Typography';
 import { useCheckbox } from '@react-aria/checkbox';
 import { useFocusRing } from '@react-aria/focus';
-import { useStyles } from './Checkbox.styles';
+import { useHover, usePress } from '@react-aria/interactions';
+import { mergeProps } from '@react-aria/utils';
 import { useToggleState } from '@react-stately/toggle';
+import type { AriaCheckboxProps } from '@react-types/checkbox';
+import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
+import { Icon } from '../Icon';
+import { Typography } from '../Typography';
+import { useStyles } from './Checkbox.styles';
 
 export type CheckboxElement = 'label';
-export type CheckboxOptions<T extends As = CheckboxElement> = Options<T> &
-	AriaCheckboxProps &
+export type CheckboxOptions<T extends As = CheckboxElement> = AriaCheckboxProps &
+	Options<T> &
 	StyleProps;
 export type CheckboxProps<T extends As = CheckboxElement> = Props<CheckboxOptions<T>>;
 
@@ -57,11 +57,11 @@ export const Checkbox = createComponent<CheckboxOptions>((props, forwardedRef) =
 	});
 
 	return (
-		<Comp {...mergeProps(hoverProps, pressProps)} className={classes} ref={forwardedRef}>
+		<Comp {...mergeProps(hoverProps, pressProps)} ref={forwardedRef} className={classes}>
 			<input
 				{...mergeProps(inputProps, focusProps)}
-				className="manifest-checkbox__input"
 				ref={inputRef}
+				className="manifest-checkbox__input"
 			/>
 
 			<div className="manifest-checkbox__control">

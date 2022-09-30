@@ -1,5 +1,5 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ListBox, ListBoxItem, ListBoxSection } from '../src';
 
 export default {
@@ -64,13 +64,13 @@ export const Controlled = Template.bind({});
 
 Controlled.decorators = [
 	() => {
-		const [selected, setSelected] = React.useState<'all' | Set<React.Key>>(new Set(['Ardvark']));
+		const [selected, setSelected] = React.useState<Set<React.Key> | 'all'>(new Set(['Ardvark']));
 
 		return (
 			<ListBox
-				onSelectionChange={(selected) => setSelected(selected)}
 				selectedKeys={selected}
 				selectionMode="single"
+				onSelectionChange={(isSelected) => void setSelected(isSelected)}
 			>
 				<ListBoxItem key="Ardvark">Ardvark</ListBoxItem>
 				<ListBoxItem key="kangaroo">Kangaroo</ListBoxItem>

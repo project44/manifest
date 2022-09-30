@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { As, createComponent, Props } from '@project44-manifest/system';
-import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { TextFieldBase, TextFieldBaseElement, TextFieldBaseOptions } from '../TextFieldBase';
-import { cx } from '@project44-manifest/react-styles';
-import { useStyles } from './TextField.styles';
 import { useTextField } from '@react-aria/textfield';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
+import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Props } from '@project44-manifest/system';
+import { TextFieldBase, TextFieldBaseElement, TextFieldBaseOptions } from '../TextFieldBase';
+import { useStyles } from './TextField.styles';
 
 export interface TextFieldOptions<T extends As = TextFieldBaseElement>
 	extends TextFieldBaseOptions<T> {
@@ -63,6 +63,7 @@ export const TextField = createComponent<TextFieldOptions>((props, forwardedRef)
 	return (
 		<TextFieldBase
 			{...other}
+			ref={forwardedRef}
 			className={classes}
 			helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextProps)}
 			inputProps={mergeProps(inputProps, inputPropsProp)}
@@ -70,7 +71,6 @@ export const TextField = createComponent<TextFieldOptions>((props, forwardedRef)
 				mergeRefs(fieldRef, inputRef as typeof fieldRef) as React.RefObject<HTMLInputElement>
 			}
 			labelProps={mergeProps(labelProps, labelPropsProp)}
-			ref={forwardedRef}
 		/>
 	);
 });

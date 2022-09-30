@@ -1,16 +1,16 @@
+import { CalendarDate } from '@internationalized/date';
 import {
 	accessibility,
 	fireEvent,
-	screen,
 	render,
-	waitFor,
+	screen,
 	userEvent,
+	waitFor,
 } from '@project44-manifest/test-utils';
-import { CalendarDate } from '@internationalized/date';
 import { DatePicker } from '../src';
 
 describe('@project44-manifest/react - DatePicker', () => {
-	accessibility(<DatePicker aria-label="Calendar" isOpen />);
+	accessibility(<DatePicker isOpen aria-label="Calendar" />);
 
 	it('should support selecting a date', async () => {
 		const onChange = jest.fn();

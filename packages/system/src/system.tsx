@@ -1,5 +1,5 @@
-import type { Component, Options, Props } from './types';
 import * as React from 'react';
+import type { Component, Options, Props } from './types';
 
 /**
  * Creates a type-safe component with the `as` prop and `React.forwardRef`.

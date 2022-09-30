@@ -1,6 +1,6 @@
-import type { StyleProps } from '../../types';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
 import { Icon } from '../Icon';
 import { Typography } from '../Typography';
 import { useStyles } from './Tag.styles';
@@ -15,7 +15,7 @@ export interface TagOptions<T extends As = TagElement> extends Options<T>, Style
 	/**
 	 * Handler called on tag removable.
 	 */
-	onRemove?(): void;
+	onRemove?: () => void;
 }
 
 export type TagProps<T extends As = TagElement> = Props<TagOptions<T>>;
@@ -34,12 +34,12 @@ export const Tag = createComponent<TagOptions>((props, forwardedRef) => {
 	const { className } = useStyles({ css, isRemovable });
 
 	return (
-		<Comp {...other} className={cx(className, classNameProp, 'manifest-tag')} ref={forwardedRef}>
+		<Comp {...other} ref={forwardedRef} className={cx(className, classNameProp, 'manifest-tag')}>
 			<Typography className="manifest-tag__text" variant="caption">
 				{children}
 			</Typography>
 			{isRemovable && (
-				<Icon aria-label="remove" className="manifest-tag__icon" onClick={onRemove} icon="clear" />
+				<Icon aria-label="remove" className="manifest-tag__icon" icon="clear" onClick={onRemove} />
 			)}
 		</Comp>
 	);

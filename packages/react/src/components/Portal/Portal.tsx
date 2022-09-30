@@ -4,12 +4,16 @@ import { useLayoutEffect } from '@react-aria/utils';
 
 export interface PortalProps {
 	/**
+	 * The content of the portal.
+	 */
+	children: React.ReactNode;
+	/**
 	 * The ref of the element to append the children to.
 	 */
 	containerRef?: React.RefObject<HTMLElement>;
 }
 
-export const Portal: React.FC<React.PropsWithChildren<PortalProps>> = (props) => {
+export function Portal(props: PortalProps) {
 	const { children, containerRef } = props;
 
 	const [container, setContainer] = React.useState<HTMLElement | null>(null);
@@ -18,5 +22,5 @@ export const Portal: React.FC<React.PropsWithChildren<PortalProps>> = (props) =>
 		setContainer(containerRef ? containerRef.current : document.body);
 	}, [containerRef]);
 
-	return <>{container ? ReactDom.createPortal(children, container) : container}</>;
-};
+	return container ? ReactDom.createPortal(children, container) : container;
+}

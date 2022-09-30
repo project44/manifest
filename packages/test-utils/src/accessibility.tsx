@@ -1,6 +1,6 @@
-import type { RenderOptions } from '@testing-library/react';
 import * as React from 'react';
-import { axe, toHaveNoViolations, JestAxeConfigureOptions } from 'jest-axe';
+import { axe, JestAxeConfigureOptions, toHaveNoViolations } from 'jest-axe';
+import type { RenderOptions } from '@testing-library/react';
 import { render } from './render';
 
 export function accessibility(

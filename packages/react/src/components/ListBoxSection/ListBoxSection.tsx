@@ -1,13 +1,12 @@
-import type { Node } from '@react-types/shared';
-import type { SectionProps } from '@react-types/shared';
-import type { StyleProps } from '../../types';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { ListBoxContext, useListBoxContext } from '../ListBoxContext';
+import { useListBoxSection } from '@react-aria/listbox';
+import type { Node, SectionProps } from '@react-types/shared';
 import { cx } from '@project44-manifest/react-styles';
-import { _ListBoxItem } from '../ListBoxItem';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
+import { useListBoxContext } from '../ListBoxContext';
+import { LIST_BOX_ITEM } from '../ListBoxItem';
 import { Separator } from '../Separator';
 import { Typography } from '../Typography';
-import { useListBoxSection } from '@react-aria/listbox';
 import { useStyles } from './ListBoxSection.styles';
 
 export type ListBoxSectionElement = 'div';
@@ -21,14 +20,17 @@ export interface ListBoxSectionOptions<T extends As = ListBoxSectionElement>
 	item: Node<object>;
 }
 
-export type ListBoxSectionProps<T extends As = ListBoxSectionElement> = SectionProps<object> &
-	Omit<Props<ListBoxSectionOptions<T>>, 'item'>;
+export type ListBoxSectionProps<T extends As = ListBoxSectionElement> = Omit<
+	Props<ListBoxSectionOptions<T>>,
+	'item'
+> &
+	SectionProps<object>;
 
 /** @private */
 export const ListBoxSection = createComponent<ListBoxSectionOptions>((props, forwardedRef) => {
 	const { as: Comp = 'div', className: classNameProp, css, item } = props;
 
-	const { state } = useListBoxContext() as ListBoxContext;
+	const { state } = useListBoxContext()!;
 
 	const { itemProps, headingProps, groupProps } = useListBoxSection({
 		'aria-label': item['aria-label'],
@@ -44,8 +46,8 @@ export const ListBoxSection = createComponent<ListBoxSectionOptions>((props, for
 			{showSeparator && <Separator className="manifest-listbox-separator" />}
 			<Comp
 				{...itemProps}
-				className={cx(className, classNameProp, 'manifest-listbox-section')}
 				ref={forwardedRef}
+				className={cx(className, classNameProp, 'manifest-listbox-section')}
 			>
 				{item.rendered && (
 					<Typography
@@ -58,7 +60,7 @@ export const ListBoxSection = createComponent<ListBoxSectionOptions>((props, for
 				)}
 				<div {...groupProps} className="manifest-listbox-section__group">
 					{[...item.childNodes].map((node) => (
-						<_ListBoxItem key={node.key} item={node} />
+						<LIST_BOX_ITEM key={node.key} item={node} />
 					))}
 				</div>
 			</Comp>

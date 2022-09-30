@@ -1,13 +1,13 @@
-import type { AriaMultiSelectProps, MultiSelectState } from '../types';
-import type { KeyboardDelegate } from '@react-types/shared';
-import type { SelectAria } from '@react-aria/select';
 import * as React from 'react';
-import { chain, filterDOMProps, mergeProps, useId } from '@react-aria/utils';
-import { ListKeyboardDelegate, useTypeSelect } from '@react-aria/selection';
-import { setInteractionModality } from '@react-aria/interactions';
 import { useCollator } from '@react-aria/i18n';
+import { setInteractionModality } from '@react-aria/interactions';
 import { useField } from '@react-aria/label';
 import { useMenuTrigger } from '@react-aria/menu';
+import type { SelectAria } from '@react-aria/select';
+import { ListKeyboardDelegate, useTypeSelect } from '@react-aria/selection';
+import { chain, filterDOMProps, mergeProps, useId } from '@react-aria/utils';
+import type { KeyboardDelegate } from '@react-types/shared';
+import type { AriaMultiSelectProps, MultiSelectState } from '../types';
 
 export interface AriaMultiSelectOptions<T> extends AriaMultiSelectProps<T> {
 	/**

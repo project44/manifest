@@ -1,18 +1,18 @@
-import type { AriaSwitchProps } from '@react-types/switch';
-import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { useHover, usePress } from '@react-aria/interactions';
-import { cx } from '@project44-manifest/react-styles';
-import { mergeProps } from '@react-aria/utils';
-import { Typography } from '../Typography';
 import { useFocusRing } from '@react-aria/focus';
-import { useStyles } from './Switch.styles';
+import { useHover, usePress } from '@react-aria/interactions';
 import { useSwitch } from '@react-aria/switch';
+import { mergeProps } from '@react-aria/utils';
 import { useToggleState } from '@react-stately/toggle';
+import type { AriaSwitchProps } from '@react-types/switch';
+import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
+import { Typography } from '../Typography';
+import { useStyles } from './Switch.styles';
 
 export type SwitchElement = 'label';
-export type SwitchOptions<T extends As = SwitchElement> = Options<T> & AriaSwitchProps & StyleProps;
+export type SwitchOptions<T extends As = SwitchElement> = AriaSwitchProps & Options<T> & StyleProps;
 export type SwitchProps<T extends As = SwitchElement> = Props<SwitchOptions<T>>;
 
 export const Switch = createComponent<SwitchOptions>((props, forwardedRef) => {
@@ -51,11 +51,11 @@ export const Switch = createComponent<SwitchOptions>((props, forwardedRef) => {
 	});
 
 	return (
-		<Comp {...mergeProps(hoverProps, pressProps)} className={classes} ref={forwardedRef}>
+		<Comp {...mergeProps(hoverProps, pressProps)} ref={forwardedRef} className={classes}>
 			<input
 				{...mergeProps(inputProps, focusProps)}
-				className="manifest-switch__input"
 				ref={inputRef}
+				className="manifest-switch__input"
 			/>
 
 			<div className="manifest-switch__control">

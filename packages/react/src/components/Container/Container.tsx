@@ -1,6 +1,6 @@
-import type { StyleProps } from '../../types';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
 import { useStyles } from './Container.styles';
 
 export type ContainerElement = 'div';
@@ -17,7 +17,7 @@ export interface ContainerOptions<T extends As = ContainerElement> extends Optio
 	 *
 	 * @default 'large'
 	 */
-	maxWidth?: 'x-small' | 'small' | 'medium' | 'large' | 'x-large';
+	maxWidth?: 'large' | 'medium' | 'small' | 'x-large' | 'x-small';
 }
 
 export type ContainerProps<T extends As = ContainerElement> = Props<ContainerOptions<T>>;
@@ -37,8 +37,8 @@ export const Container = createComponent<ContainerOptions>((props, forwardedRef)
 	return (
 		<Comp
 			{...other}
-			className={cx(className, classNameProp, 'manifest-container')}
 			ref={forwardedRef}
+			className={cx(className, classNameProp, 'manifest-container')}
 		/>
 	);
 });

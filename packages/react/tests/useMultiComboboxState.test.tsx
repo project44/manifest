@@ -1,8 +1,8 @@
-import type { MultiComboboxProps } from '../types';
-import { Item } from '@react-stately/collections';
-import { renderHook } from '@testing-library/react-hooks';
-import { useMultiComboboxState } from './useMultiComboboxState';
 import { act } from 'react-dom/test-utils';
+import { Item } from '@react-stately/collections';
+import { renderHook } from '@project44-manifest/test-utils';
+import { useMultiComboboxState } from '../src';
+import type { MultiComboboxProps } from '../src/types';
 
 describe('@project44-manifest/react - useMultiComboboxState', () => {
 	describe('items', () => {
@@ -78,7 +78,7 @@ describe('@project44-manifest/react - useMultiComboboxState', () => {
 			expect(onOpenChange).toHaveBeenCalledWith(false, undefined);
 		});
 
-		it('should return open and close states with different trigger types', function () {
+		it('should return open and close states with different trigger types', () => {
 			const { result } = renderHook((props) => useMultiComboboxState(props), {
 				initialProps: defaultProps,
 			});
@@ -90,7 +90,7 @@ describe('@project44-manifest/react - useMultiComboboxState', () => {
 			expect(result.current.isOpen).toBe(true);
 			expect(onOpenChange).toHaveBeenCalledWith(true, 'focus');
 
-			act(() => result.current.close());
+			act(() => void result.current.close());
 
 			expect(result.current.isOpen).toBe(false);
 			expect(onOpenChange).toHaveBeenCalledWith(false, undefined);
@@ -102,7 +102,7 @@ describe('@project44-manifest/react - useMultiComboboxState', () => {
 			expect(result.current.isOpen).toBe(true);
 			expect(onOpenChange).toHaveBeenCalledWith(true, 'input');
 
-			act(() => result.current.close());
+			act(() => void result.current.close());
 
 			act(() => {
 				result.current.open(undefined, 'manual');
@@ -112,7 +112,7 @@ describe('@project44-manifest/react - useMultiComboboxState', () => {
 			expect(onOpenChange).toHaveBeenCalledWith(true, 'manual');
 		});
 
-		it('should return open and close states on toggle', function () {
+		it('should return open and close states on toggle', () => {
 			const { result } = renderHook((props) => useMultiComboboxState(props), {
 				initialProps: defaultProps,
 			});
@@ -124,7 +124,7 @@ describe('@project44-manifest/react - useMultiComboboxState', () => {
 			expect(result.current.isOpen).toBe(true);
 			expect(onOpenChange).toHaveBeenCalledWith(true, 'focus');
 
-			act(() => result.current.toggle(undefined, 'focus'));
+			act(() => void result.current.toggle(undefined, 'focus'));
 
 			expect(result.current.isOpen).toBe(false);
 			expect(onOpenChange).toHaveBeenCalledWith(false, undefined);
@@ -136,7 +136,7 @@ describe('@project44-manifest/react - useMultiComboboxState', () => {
 			expect(result.current.isOpen).toBe(true);
 			expect(onOpenChange).toHaveBeenCalledWith(true, 'input');
 
-			act(() => result.current.close());
+			act(() => void result.current.close());
 
 			act(() => {
 				result.current.toggle(undefined, 'manual');
@@ -161,20 +161,20 @@ describe('@project44-manifest/react - useMultiComboboxState', () => {
 			};
 		});
 
-		it('should support a blank default value', function () {
+		it('should support a blank default value', () => {
 			const initialProps = { ...defaultProps };
 			const { result } = renderHook((props) => useMultiComboboxState(props), { initialProps });
 
 			expect(result.current.inputValue).toBe('');
 			expect(onInputChange).not.toHaveBeenCalled();
 
-			act(() => result.current.setInputValue('f'));
+			act(() => void result.current.setInputValue('f'));
 
 			expect(result.current.inputValue).toBe('f');
 			expect(onInputChange).toHaveBeenCalledWith('f');
 		});
 
-		it('should support change events', function () {
+		it('should support change events', () => {
 			const initialProps = { ...defaultProps, defaultInputValue: 'foo' };
 
 			const { result } = renderHook((props) => useMultiComboboxState(props), { initialProps });
@@ -182,7 +182,7 @@ describe('@project44-manifest/react - useMultiComboboxState', () => {
 			expect(result.current.inputValue).toBe('foo');
 			expect(onInputChange).not.toHaveBeenCalled();
 
-			act(() => result.current.setInputValue('bar'));
+			act(() => void result.current.setInputValue('bar'));
 
 			expect(result.current.inputValue).toBe('bar');
 			expect(onInputChange).toHaveBeenCalledWith('bar');
@@ -206,36 +206,36 @@ describe('@project44-manifest/react - useMultiComboboxState', () => {
 			};
 		});
 
-		it('should support item selection', function () {
+		it('should support item selection', () => {
 			const { result } = renderHook((props) => useMultiComboboxState(props), {
 				initialProps: defaultProps,
 			});
 
 			expect(result.current.selectionManager.selectedKeys.size).toBe(0);
 
-			act(() => result.current.selectionManager.select('two'));
+			act(() => void result.current.selectionManager.select('two'));
 
 			expect(onSelectionChange).toHaveBeenCalled();
 		});
 
-		it('should support item selection with selectedKeys', function () {
+		it('should support item selection with selectedKeys', () => {
 			const initialProps = { ...defaultProps, selectedKeys: ['one'] };
 			const { result } = renderHook((props) => useMultiComboboxState(props), { initialProps });
 
 			expect(result.current.selectionManager.selectedKeys.size).toBe(1);
 
-			act(() => result.current.selectionManager.select('two'));
+			act(() => void result.current.selectionManager.select('two'));
 
 			expect(onSelectionChange).toHaveBeenCalled();
 		});
 
-		it('should support item selection with defaultSelectedKeys', function () {
+		it('should support item selection with defaultSelectedKeys', () => {
 			const initialProps = { ...defaultProps, defaultSelectedKeys: ['one'] };
 			const { result } = renderHook((props) => useMultiComboboxState(props), { initialProps });
 
 			expect(result.current.selectionManager.selectedKeys.size).toBe(1);
 
-			act(() => result.current.selectionManager.select('two'));
+			act(() => void result.current.selectionManager.select('two'));
 
 			expect(onSelectionChange).toHaveBeenCalled();
 		});

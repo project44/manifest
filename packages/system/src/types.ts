@@ -13,7 +13,7 @@ export type As<P = any> = React.ElementType<P>;
  */
 export interface Component<O extends Options> {
 	<T extends As>(
-		props: Omit<O, 'as'> & Omit<HTMLProps<Options<T>>, keyof O> & Required<Options<T>>,
+		props: Omit<HTMLProps<Options<T>>, keyof O> & Omit<O, 'as'> & Required<Options<T>>,
 	): JSX.Element | null;
 	(props: Props<O>): JSX.Element | null;
 
@@ -25,10 +25,13 @@ export interface Component<O extends Options> {
 /**
  * Props inferred from the as prop.
  */
-export type HTMLProps<O extends Options> = {
-	children?: React.ReactNode;
+export type HTMLProps<O extends Options> = Omit<
+	React.ComponentPropsWithRef<NonNullable<O['as']>>,
+	keyof O | 'children'
+> & {
 	[index: `data-${string}`]: unknown;
-} & Omit<React.ComponentPropsWithRef<NonNullable<O['as']>>, keyof O | 'children'>;
+	children?: React.ReactNode;
+};
 
 /**
  * Options with the `as` and `css` options.
@@ -41,4 +44,4 @@ export interface Options<T extends As = any> {
 /**
  * Options & HTMLProps
  */
-export type Props<O extends Options> = O & HTMLProps<O>;
+export type Props<O extends Options> = HTMLProps<O> & O;

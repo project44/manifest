@@ -1,14 +1,14 @@
+import * as React from 'react';
+import { useMenuTrigger } from '@react-aria/menu';
+import { useOverlayPosition } from '@react-aria/overlays';
+import { mergeProps } from '@react-aria/utils';
+import { useMenuTriggerState } from '@react-stately/menu';
 import type { MenuTriggerType } from '@react-types/menu';
 import type { Placement } from '@react-types/overlays';
-import * as React from 'react';
-import { DropdownContext } from './Dropdown.context';
-import { Overlay } from '../Overlay';
-import { mergeProps } from '@react-aria/utils';
-import { Popover } from '../Popover';
 import { Slot } from '@radix-ui/react-slot';
-import { useMenuTrigger } from '@react-aria/menu';
-import { useMenuTriggerState } from '@react-stately/menu';
-import { useOverlayPosition } from '@react-aria/overlays';
+import { Overlay } from '../Overlay';
+import { Popover } from '../Popover';
+import { DropdownContext } from './Dropdown.context';
 
 export interface DropdownProps {
 	/**
@@ -66,10 +66,10 @@ export interface DropdownProps {
 	 *
 	 * @default 'menu'
 	 */
-	type?: 'menu' | 'listbox';
+	type?: 'listbox' | 'menu';
 }
 
-export const Dropdown: React.FC<DropdownProps> = (props) => {
+export function Dropdown(props: DropdownProps) {
 	const {
 		children,
 		closeOnSelect = true,
@@ -103,28 +103,33 @@ export const Dropdown: React.FC<DropdownProps> = (props) => {
 		targetRef: triggerRef,
 	});
 
+	const handleClose = React.useCallback(() => void state.close(), [state]);
+
+	const context = React.useMemo(
+		() => ({
+			closeOnSelect,
+			menuProps: mergeProps(menuProps, { autoFocus: state.focusStrategy || true }),
+			menuRef,
+			onClose: handleClose,
+		}),
+		[closeOnSelect, handleClose, menuProps, menuRef, state.focusStrategy],
+	);
+
 	return (
-		<DropdownContext.Provider
-			value={{
-				closeOnSelect,
-				menuProps: mergeProps(menuProps, { autoFocus: state.focusStrategy || true }),
-				menuRef,
-				onClose: state.close,
-			}}
-		>
+		<DropdownContext.Provider value={context}>
 			<Slot {...menuTriggerProps} ref={triggerRef}>
 				{menuTrigger}
 			</Slot>
 			<Overlay isOpen={state.isOpen}>
 				<Popover
 					{...mergeProps(overlayProps, other)}
-					isOpen={state.isOpen}
-					onClose={state.close}
 					ref={popoverRef}
+					isOpen={state.isOpen}
+					onClose={handleClose}
 				>
 					{menu}
 				</Popover>
 			</Overlay>
 		</DropdownContext.Provider>
 	);
-};
+}

@@ -1,7 +1,7 @@
 import type * as CSS from 'csstype';
-import type { StyleProps } from '../../types';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
 import { useStyles } from './GridItem.styles';
 
 export type GridItemElement = 'div';
@@ -74,6 +74,6 @@ export const GridItem = createComponent<GridItemOptions>((props, forwardedRef) =
 	});
 
 	return (
-		<Comp {...other} className={cx(className, classNameProp, 'manifest-grid')} ref={forwardedRef} />
+		<Comp {...other} ref={forwardedRef} className={cx(className, classNameProp, 'manifest-grid')} />
 	);
 });

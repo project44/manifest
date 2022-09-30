@@ -16,7 +16,7 @@ describe('@project44-manifest/react - Portal', () => {
 	it('should render children in a container', () => {
 		const container = document.createElement('div');
 
-		document.body.appendChild(container);
+		document.body.append(container);
 
 		function Component() {
 			const ref = React.useRef<HTMLDivElement>(null);
@@ -37,6 +37,6 @@ describe('@project44-manifest/react - Portal', () => {
 
 		expect(container).toContainElement(screen.getByTestId('child'));
 
-		document.body.removeChild(container);
+		container.remove();
 	});
 });

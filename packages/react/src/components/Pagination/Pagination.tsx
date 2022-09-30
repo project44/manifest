@@ -1,11 +1,12 @@
-import type { StyleProps } from '../../types';
-import { useMemo, Fragment } from 'react';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
+import * as React from 'react';
+import { Fragment, useMemo } from 'react';
+import { useControlledState } from '@react-stately/utils';
 import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
 import { Icon } from '../Icon';
 import { PaginationItem } from '../PaginationItem';
 import { Typography } from '../Typography';
-import { useControlledState } from '@react-stately/utils';
 import { useStyles } from './Pagination.styles';
 
 type PageType = number | 'dots' | 'next' | 'previous';
@@ -55,7 +56,7 @@ export interface PaginationOptions<T extends As = PaginationElement>
 	/**
 	 * Callback executed on page change.
 	 */
-	onChange?(page: number): void;
+	onChange?: (page: number) => void;
 }
 
 export type PaginationProps<T extends As = PaginationElement> = Props<PaginationOptions<T>>;
@@ -124,17 +125,23 @@ export const Pagination = createComponent<PaginationOptions>((props, forwardedRe
 		];
 	}, [activePage, boundaries, pageCount, siblings]);
 
-	const next = () => setActivePage(Number(activePage) + 1);
-	const previous = () => setActivePage(Number(activePage) - 1);
-	const setPage = (pageNumber: number) => setActivePage(pageNumber);
+	const next = React.useCallback(
+		() => void setActivePage(Number(activePage) + 1),
+		[activePage, setActivePage],
+	);
+	const previous = React.useCallback(
+		() => void setActivePage(Number(activePage) - 1),
+		[activePage, setActivePage],
+	);
+	const setPage = (pageNumber: number) => () => void setActivePage(pageNumber);
 
 	const { className } = useStyles({ css });
 
 	return (
 		<Comp
 			{...other}
-			className={cx(className, classNameProp, 'manifest-pagination')}
 			ref={forwardedRef}
+			className={cx(className, classNameProp, 'manifest-pagination')}
 		>
 			<PaginationItem
 				aria-label="go to previous page"
@@ -147,7 +154,7 @@ export const Pagination = createComponent<PaginationOptions>((props, forwardedRe
 
 			{showPageNumbers &&
 				pages.map((item, index) => (
-					<Fragment key={`${item}_${index}`}>
+					<Fragment key={item}>
 						{item === 'dots' && (
 							<div aria-hidden className="manifest-pagination__ellipsis">
 								<Typography variant="subtextBold">...</Typography>
@@ -158,7 +165,7 @@ export const Pagination = createComponent<PaginationOptions>((props, forwardedRe
 								aria-current={item === activePage ? 'true' : undefined}
 								aria-label={`${item === activePage ? '' : 'go to '}page ${String(item)}`}
 								isActive={item === activePage}
-								onPress={() => setPage(item as number)}
+								onPress={setPage(item as number)}
 							>
 								<Typography variant="subtextBold">{item.toString()}</Typography>
 							</PaginationItem>

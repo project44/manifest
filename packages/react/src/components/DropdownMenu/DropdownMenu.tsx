@@ -1,25 +1,25 @@
-import type { AriaMenuProps } from '@react-types/menu';
-import type { StyleProps } from '../../types';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { DropdownContext, useDropdownContext } from '../Dropdown/Dropdown.context';
-import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { cx } from '@project44-manifest/react-styles';
-import { _DropdownItem } from '../DropdownItem';
-import { _DropdownSection } from '../DropdownSection';
 import { useMenu } from '@react-aria/menu';
-import { useStyles } from './DropdownMenu.styles';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useTreeState } from '@react-stately/tree';
+import type { AriaMenuProps } from '@react-types/menu';
+import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
+import { useDropdownContext } from '../Dropdown/Dropdown.context';
+import { DROPDOWN_ITEM } from '../DropdownItem';
+import { DROPDOWN_SECTION } from '../DropdownSection';
+import { useStyles } from './DropdownMenu.styles';
 
 export type DropdownMenuElement = 'ul';
-export type DropdownMenuOptions<T extends As = DropdownMenuElement> = Options<T> &
-	AriaMenuProps<object> &
+export type DropdownMenuOptions<T extends As = DropdownMenuElement> = AriaMenuProps<object> &
+	Options<T> &
 	StyleProps;
 export type DropdownMenuProps<T extends As = DropdownMenuElement> = Props<DropdownMenuOptions<T>>;
 
 export const DropdownMenu = createComponent<DropdownMenuOptions>((props, forwardedRef) => {
 	const { as: Comp = 'ul', className: classNameProp, css, ...other } = props;
 
-	const { menuRef, menuProps: contextProps } = useDropdownContext() as DropdownContext;
+	const { menuRef, menuProps: contextProps } = useDropdownContext()!;
 
 	const completeProps = { ...mergeProps(contextProps, other) };
 
@@ -31,26 +31,28 @@ export const DropdownMenu = createComponent<DropdownMenuOptions>((props, forward
 	return (
 		<Comp
 			{...menuProps}
-			className={cx(className, classNameProp, 'manifest-dropdown')}
 			ref={mergeRefs(menuRef, forwardedRef)}
+			className={cx(className, classNameProp, 'manifest-dropdown')}
 		>
 			{[...state.collection].map((item) => {
 				if (item.type === 'section') {
 					return (
-						<_DropdownSection
+						<DROPDOWN_SECTION
 							key={item.key}
 							item={item}
 							state={state}
+							// eslint-disable-next-line react/jsx-handler-names
 							onAction={completeProps.onAction}
 						/>
 					);
 				}
 
 				return (
-					<_DropdownItem
+					<DROPDOWN_ITEM
 						key={item.key}
 						item={item}
 						state={state}
+						// eslint-disable-next-line react/jsx-handler-names
 						onAction={completeProps.onAction}
 					/>
 				);

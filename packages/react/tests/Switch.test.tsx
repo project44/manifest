@@ -33,7 +33,7 @@ describe('@project44-manifest/react - Switch', () => {
 		const onChange = jest.fn();
 
 		render(
-			<Switch onChange={onChange} isSelected>
+			<Switch isSelected onChange={onChange}>
 				Switch
 			</Switch>,
 		);

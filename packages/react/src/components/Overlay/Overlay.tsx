@@ -17,7 +17,7 @@ export function Overlay(props: OverlayProps) {
 	const { children, containerRef, isOpen } = props;
 
 	const contents = (
-		<CSSTransition in={isOpen} classNames="manifest-overlay" timeout={200} unmountOnExit>
+		<CSSTransition unmountOnExit classNames="manifest-overlay" in={isOpen} timeout={200}>
 			{children}
 		</CSSTransition>
 	);

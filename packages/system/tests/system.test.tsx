@@ -1,4 +1,4 @@
-import { screen, render } from '@project44-manifest/test-utils';
+import { render, screen } from '@project44-manifest/test-utils';
 import { createComponent } from '../src/system';
 
 describe('@project44-manifest/system - createComponent', () => {
@@ -8,7 +8,7 @@ describe('@project44-manifest/system - createComponent', () => {
 				const { children, ...other } = props;
 
 				return (
-					<span {...other} data-testid="test" ref={forwardedRef}>
+					<span {...other} ref={forwardedRef} data-testid="test">
 						{children}
 					</span>
 				);
@@ -32,7 +32,7 @@ describe('@project44-manifest/system - createComponent', () => {
 				const { children, ...other } = props;
 
 				return (
-					<span {...other} data-testid="test" ref={forwardedRef}>
+					<span {...other} ref={forwardedRef} data-testid="test">
 						{children}
 					</span>
 				);

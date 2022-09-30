@@ -32,17 +32,18 @@ export function HiddenMultiSelect<T>(props: HiddenMultiSelectProps<T>) {
 				</label>
 			</div>
 		);
-	} else if (name) {
+	}
+	if (name) {
 		return (
 			<>
 				{[...state.selectedKeys].map((key) => (
 					<input
 						key={key}
-						type="hidden"
-						autoComplete={selectProps.autoComplete}
-						name={name}
-						disabled={isDisabled}
 						multiple
+						autoComplete={selectProps.autoComplete}
+						disabled={isDisabled}
+						name={name}
+						type="hidden"
 						value={key}
 					/>
 				))}

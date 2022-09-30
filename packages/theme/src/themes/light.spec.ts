@@ -1,5 +1,5 @@
-import { lightTheme } from './light';
 import { colorPrimaryDefault } from '@project44-manifest/design-tokens';
+import { lightTheme } from './light';
 
 describe('@project-manifest/theme - lightTheme', () => {
 	it('should return a theme object', () => {

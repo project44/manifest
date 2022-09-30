@@ -1,5 +1,5 @@
-import type { Placement } from '@react-types/overlays';
 import * as React from 'react';
+import type { Placement } from '@react-types/overlays';
 
 export interface PopoverContext {
 	isDismissable?: boolean;
@@ -11,10 +11,10 @@ export interface PopoverContext {
 	placement?: Placement;
 	positionProps: React.HTMLAttributes<Element>;
 	shouldCloseOnBlur?: boolean;
-	onClose?(): void;
-	onEntered?(): void;
-	onExited?(): void;
-	shouldCloseOnInteractOutside?(element: Element): boolean;
+	onClose?: () => void;
+	onEntered?: () => void;
+	onExited?: () => void;
+	shouldCloseOnInteractOutside?: (element: Element) => boolean;
 }
 
 export const PopoverContext = React.createContext<PopoverContext | null>(null);

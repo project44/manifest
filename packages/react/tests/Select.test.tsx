@@ -1,9 +1,9 @@
-import { accessibility, fireEvent, screen, render, within } from '@project44-manifest/test-utils';
+import { accessibility, fireEvent, render, screen, within } from '@project44-manifest/test-utils';
 import { Select, SelectItem, SelectSection } from '../src';
 
 describe('@project44-manifest/react - Select', () => {
 	accessibility(
-		<Select label="Select" isOpen startIcon={<>icon</>}>
+		<Select isOpen label="Select" startIcon={<>icon</>}>
 			<SelectItem key="ardvark">Ardvark</SelectItem>
 			<SelectItem key="kangaroo">Kangaroo</SelectItem>
 			<SelectItem key="snake">Snake</SelectItem>

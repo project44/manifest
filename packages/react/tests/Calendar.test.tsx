@@ -1,6 +1,6 @@
-import { accessibility, fireEvent, screen, render } from '@project44-manifest/test-utils';
-import { Calendar } from '../src';
 import { CalendarDate } from '@internationalized/date';
+import { accessibility, fireEvent, render, screen } from '@project44-manifest/test-utils';
+import { Calendar } from '../src';
 
 describe('@project44-manifest/react - Calendar', () => {
 	accessibility(<Calendar />);
@@ -69,7 +69,7 @@ describe('@project44-manifest/react - Calendar', () => {
 	it('should support being controlled', () => {
 		const onChange = jest.fn();
 
-		render(<Calendar onChange={onChange} value={new CalendarDate(2022, 7, 12)} />);
+		render(<Calendar value={new CalendarDate(2022, 7, 12)} onChange={onChange} />);
 
 		fireEvent.click(screen.getByText('13'));
 
@@ -83,7 +83,7 @@ describe('@project44-manifest/react - Calendar', () => {
 	it('should support being disabled', () => {
 		const onChange = jest.fn();
 
-		render(<Calendar isDisabled onChange={onChange} value={new CalendarDate(2022, 7, 12)} />);
+		render(<Calendar isDisabled value={new CalendarDate(2022, 7, 12)} onChange={onChange} />);
 
 		fireEvent.click(screen.getByText('13'));
 
@@ -97,7 +97,7 @@ describe('@project44-manifest/react - Calendar', () => {
 	it('should support being readonly', () => {
 		const onChange = jest.fn();
 
-		render(<Calendar isReadOnly onChange={onChange} value={new CalendarDate(2022, 7, 12)} />);
+		render(<Calendar isReadOnly value={new CalendarDate(2022, 7, 12)} onChange={onChange} />);
 
 		fireEvent.click(screen.getByText('13'));
 

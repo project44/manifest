@@ -1,8 +1,8 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import type { RangeValue } from '../src/components/CalendarRange';
 import * as React from 'react';
 import { CalendarDate, DateValue, endOfMonth, startOfMonth } from '@internationalized/date';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import { DateRangePicker, Flex, Icon } from '../src';
+import type { RangeValue } from '../src/components/CalendarRange';
 import {
 	addMonths,
 	createCalendarDate,
@@ -49,11 +49,11 @@ export const ReadOnly = Template.bind({});
 ReadOnly.decorators = [
 	() => (
 		<DateRangePicker
+			isReadOnly
 			defaultValue={{
 				start: new CalendarDate(2022, 7, 2),
 				end: new CalendarDate(2022, 7, 12),
 			}}
-			isReadOnly
 		/>
 	),
 ];
@@ -71,25 +71,17 @@ Controlled.decorators = [
 			end: new CalendarDate(2022, 7, 12),
 		});
 
-		return <DateRangePicker onChange={setValue} value={value} />;
+		return <DateRangePicker value={value} onChange={setValue} />;
 	},
 ];
 
 export const WithRelativeRanges = Template.bind({});
 
-WithRelativeRanges.decorators = [
-	() => {
-		return <DateRangePicker showRanges={true} />;
-	},
-];
+WithRelativeRanges.decorators = [() => <DateRangePicker showRanges />];
 
 export const OnlyRelativeRanges = Template.bind({});
 
-OnlyRelativeRanges.decorators = [
-	() => {
-		return <DateRangePicker showRanges={true} showCalendar={false} />;
-	},
-];
+OnlyRelativeRanges.decorators = [() => <DateRangePicker showRanges showCalendar={false} />];
 
 export const CustomRelativeRanges = Template.bind({});
 
@@ -142,6 +134,6 @@ CustomRelativeRanges.decorators = [
 			},
 		];
 
-		return <DateRangePicker showRanges={true} ranges={customRanges} />;
+		return <DateRangePicker showRanges ranges={customRanges} />;
 	},
 ];

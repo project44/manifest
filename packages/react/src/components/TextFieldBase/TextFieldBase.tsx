@@ -1,12 +1,12 @@
-import type { FocusableProps, ValidationState } from '@react-types/shared';
-import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { cx } from '@project44-manifest/react-styles';
-import { FormControl } from '../FormControl';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
+import type { FocusableProps, ValidationState } from '@react-types/shared';
+import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
+import { FormControl } from '../FormControl';
 import { useStyles } from './TextFieldBase.styles';
 
 export type TextFieldBaseElement = 'div';
@@ -95,7 +95,7 @@ export const TextFieldBase = createComponent<TextFieldBaseOptions>((props, forwa
 		validationState,
 	} = props;
 
-	const Comp = as ? as : multiline ? 'textarea' : 'input';
+	const Comp = as ?? (multiline ? 'textarea' : 'input');
 	const isInvalid = validationState === 'invalid';
 
 	const fieldRef = React.useRef<HTMLInputElement | HTMLTextAreaElement>(null);
@@ -133,7 +133,7 @@ export const TextFieldBase = createComponent<TextFieldBaseOptions>((props, forwa
 			labelProps={labelProps}
 			validationState={validationState}
 		>
-			<div className="manifest-textfield-base__wrapper" ref={forwardedRef}>
+			<div ref={forwardedRef} className="manifest-textfield-base__wrapper">
 				{startIcon && (
 					<span
 						className={cx('manifest-textfield-base__icon', 'manifest-textfield-base__icon--start')}
@@ -144,8 +144,8 @@ export const TextFieldBase = createComponent<TextFieldBaseOptions>((props, forwa
 
 				<Comp
 					{...mergeProps(inputProps, focusProps, hoverProps)}
+					ref={mergeRefs(fieldRef, inputRef!) as any}
 					className="manifest-textfield-base__input"
-					ref={mergeRefs(fieldRef, inputRef as typeof fieldRef) as any}
 					rows={multiline ? 1 : undefined}
 				/>
 

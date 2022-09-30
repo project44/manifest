@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { As, createComponent, Props } from '@project44-manifest/system';
-import { chain, mergeProps, mergeRefs, useLayoutEffect } from '@react-aria/utils';
-import { TextFieldBase, TextFieldBaseElement, TextFieldBaseOptions } from '../TextFieldBase';
-import { cx } from '@project44-manifest/react-styles';
-import { useControlledState } from '@react-stately/utils';
-import { useStyles } from './TextArea.styles';
 import { useTextField } from '@react-aria/textfield';
+import { chain, mergeProps, mergeRefs, useLayoutEffect } from '@react-aria/utils';
+import { useControlledState } from '@react-stately/utils';
+import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Props } from '@project44-manifest/system';
+import { TextFieldBase, TextFieldBaseElement, TextFieldBaseOptions } from '../TextFieldBase';
+import { useStyles } from './TextArea.styles';
 
 export interface TextAreaOptions<T extends As = TextFieldBaseElement>
 	extends Omit<TextFieldBaseOptions<T>, 'endIcon' | 'startIcon'> {
@@ -43,7 +43,7 @@ export const TextArea = createComponent<TextAreaOptions>((props, forwardedRef) =
 	const areaRef = React.useRef<HTMLTextAreaElement>(null);
 
 	const [inputValue, setInputValue] = useControlledState(props.value, props.defaultValue, () => {
-		//noop
+		// noop
 	});
 
 	const handleHeightChange = React.useCallback(() => {
@@ -77,6 +77,8 @@ export const TextArea = createComponent<TextAreaOptions>((props, forwardedRef) =
 	return (
 		<TextFieldBase
 			{...other}
+			ref={forwardedRef}
+			multiline
 			className={classes}
 			helperTextProps={mergeProps(descriptionProps, errorMessageProps, helperTextProps)}
 			inputProps={mergeProps(inputProps, inputPropsProp)}
@@ -84,8 +86,6 @@ export const TextArea = createComponent<TextAreaOptions>((props, forwardedRef) =
 				mergeRefs(areaRef, inputRef as typeof areaRef) as React.RefObject<HTMLTextAreaElement>
 			}
 			labelProps={mergeProps(labelProps, labelPropsProp)}
-			multiline
-			ref={forwardedRef}
 		/>
 	);
 });

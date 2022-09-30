@@ -1,6 +1,6 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
-import { Select, SelectItem, SelectSection, Flex, Icon } from '../src';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Flex, Icon, Select, SelectItem, SelectSection } from '../src';
 
 export default {
 	title: 'Components/Select',
@@ -98,7 +98,7 @@ Controlled.decorators = [
 		const [selected, setSelected] = React.useState<React.Key>('Kangaroo');
 
 		return (
-			<Select onSelectionChange={setSelected} selectedKey={selected}>
+			<Select selectedKey={selected} onSelectionChange={setSelected}>
 				<SelectItem key="Ardvark">Ardvark</SelectItem>
 				<SelectItem key="Kangaroo">Kangaroo</SelectItem>
 				<SelectItem key="Snake">Snake</SelectItem>

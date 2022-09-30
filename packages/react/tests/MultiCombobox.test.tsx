@@ -2,18 +2,18 @@ import {
 	accessibility,
 	act,
 	fireEvent,
-	screen,
 	render,
-	within,
-	waitFor,
+	screen,
 	userEvent,
+	waitFor,
+	within,
 } from '@project44-manifest/test-utils';
 import { MultiCombobox, SelectItem, SelectSection } from '../src';
 
 describe('@project44-manifest/react - MultiCombobox', () => {
 	describe('render', () => {
 		accessibility(
-			<MultiCombobox label="Select" isOpen startIcon={<>icon</>}>
+			<MultiCombobox isOpen label="Select" startIcon={<>icon</>}>
 				<SelectItem key="ardvark">Ardvark</SelectItem>
 				<SelectItem key="kangaroo">Kangaroo</SelectItem>
 				<SelectItem key="snake">Snake</SelectItem>
@@ -51,7 +51,7 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 	});
 
 	describe('open', () => {
-		it('should show all items', function () {
+		it('should show all items', () => {
 			const onOpenChange = jest.fn();
 
 			render(
@@ -254,8 +254,8 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 
 			render(
 				<MultiCombobox
-					label="Test"
 					allowsCustomValue
+					label="Test"
 					selectedKeys={['ardvark']}
 					onOpenChange={onOpenChange}
 					onSelectionChange={onSelectionChange}
@@ -317,7 +317,7 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 
 		it('should reset the input value on escape key down and custom value', async () => {
 			render(
-				<MultiCombobox label="Select" allowsCustomValue selectedKeys={['ardvark']}>
+				<MultiCombobox allowsCustomValue label="Select" selectedKeys={['ardvark']}>
 					<SelectItem key="ardvark">Ardvark</SelectItem>
 					<SelectItem key="kangaroo">Kangaroo</SelectItem>
 					<SelectItem key="snake">Snake</SelectItem>
@@ -440,8 +440,8 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 
 			render(
 				<MultiCombobox
-					label="Select"
 					defaultSelectedKeys={['ardvark']}
+					label="Select"
 					onInputChange={onInputChange}
 				>
 					<SelectItem key="ardvark">Ardvark</SelectItem>
@@ -469,7 +469,7 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 			expect(items).toHaveLength(1);
 		});
 
-		it('closes menu and resets selected key if allowsCustomValue=true and no item is focused', function () {
+		it('closes menu and resets selected key if allowsCustomValue=true and no item is focused', () => {
 			const onKeyDown = jest.fn();
 			const onOpenChange = jest.fn();
 			const onSelectionChange = jest.fn();

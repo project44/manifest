@@ -1,10 +1,10 @@
-import type { DropdownItemProps } from './DropdownItem';
-import { DropdownItem as _DropdownItem } from './DropdownItem';
 import { Item } from '@react-stately/collections';
+import type { DropdownItemProps } from './DropdownItem';
+import { DropdownItem as DROPDOWN_ITEM } from './DropdownItem';
 
 export const DropdownItem = Item as (
-	props: Omit<DropdownItemProps, 'item' | 'state' | 'onAction'>,
+	props: Omit<DropdownItemProps, 'item' | 'onAction' | 'state'>,
 ) => JSX.Element;
 
-export { _DropdownItem };
+export { DROPDOWN_ITEM };
 export type { DropdownItemProps };

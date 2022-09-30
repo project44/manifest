@@ -41,7 +41,7 @@ describe('@project44-manifest/react - Radio', () => {
 		const onChange = jest.fn();
 
 		render(
-			<RadioGroup onChange={onChange} value="dogs">
+			<RadioGroup value="dogs" onChange={onChange}>
 				<Radio value="cats">Cats</Radio>
 				<Radio value="dogs">Dogs</Radio>
 			</RadioGroup>,

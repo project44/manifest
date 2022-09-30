@@ -1,5 +1,5 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '../src';
 
 export default {
@@ -30,20 +30,20 @@ Default.decorators = [
 					<TableRow>
 						<TableColumn>No.</TableColumn>
 						<TableColumn
-							isActive={sortedColumn === 'name'}
 							isSortable
-							onClick={() => handleSort('name')}
+							isActive={sortedColumn === 'name'}
 							sortDirection={sortDirection}
+							onClick={() => void handleSort('name')}
 						>
 							Company name
 						</TableColumn>
 						<TableColumn>Country</TableColumn>
 						<TableColumn>State</TableColumn>
 						<TableColumn
-							isActive={sortedColumn === 'status'}
 							isSortable
-							onClick={() => handleSort('status')}
+							isActive={sortedColumn === 'status'}
 							sortDirection={sortDirection}
+							onClick={() => void handleSort('status')}
 						>
 							Status
 						</TableColumn>

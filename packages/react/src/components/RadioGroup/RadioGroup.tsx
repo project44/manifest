@@ -1,11 +1,12 @@
-import type { AriaRadioGroupProps } from '@react-types/radio';
-import type { StyleProps } from '../../types';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { cx } from '@project44-manifest/react-styles';
-import { mergeProps } from '@react-aria/utils';
-import { RadioGroupContext } from './RadioGroup.context';
+import * as React from 'react';
 import { useRadioGroup } from '@react-aria/radio';
+import { mergeProps } from '@react-aria/utils';
 import { useRadioGroupState } from '@react-stately/radio';
+import type { AriaRadioGroupProps } from '@react-types/radio';
+import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
+import { RadioGroupContext } from './RadioGroup.context';
 import { useStyles } from './RadioGroup.styles';
 
 export type RadioGroupElement = 'div';
@@ -37,6 +38,8 @@ export const RadioGroup = createComponent<RadioGroupOptions>((props, forwardedRe
 	const state = useRadioGroupState(props);
 	const { radioGroupProps } = useRadioGroup(props, state);
 
+	const context = React.useMemo(() => ({ state }), [state]);
+
 	const { className } = useStyles({ css, orientation });
 
 	const classes = cx(className, classNameProp, {
@@ -45,8 +48,8 @@ export const RadioGroup = createComponent<RadioGroupOptions>((props, forwardedRe
 	});
 
 	return (
-		<Comp {...mergeProps(radioGroupProps, other)} className={classes} ref={forwardedRef}>
-			<RadioGroupContext.Provider value={{ state }}>{children}</RadioGroupContext.Provider>
+		<Comp {...mergeProps(radioGroupProps, other)} ref={forwardedRef} className={classes}>
+			<RadioGroupContext.Provider value={context}>{children}</RadioGroupContext.Provider>
 		</Comp>
 	);
 });

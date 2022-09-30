@@ -1,11 +1,14 @@
+import * as React from 'react';
+// Will be fixed when this is moved into its own package
+// eslint-disable-next-line import/no-unresolved
+import { Selection } from '@react-types/shared';
 import { CalendarDate } from '@internationalized/date';
 import { cx } from '@project44-manifest/react-styles';
-import { getDefaultRanges } from './defaultDefinedRanges';
+import { RangeValue } from '../CalendarRange';
 import { ListBox } from '../ListBox';
 import { ListBoxItem } from '../ListBoxItem';
-import { RangeValue } from '../CalendarRange';
-import { Selection } from '@react-types/shared';
 import { useStyles } from './CalendarRanges.styles';
+import { getDefaultRanges } from './defaultDefinedRanges';
 
 export interface DefinedRange {
 	key: string;
@@ -20,7 +23,7 @@ export interface CalendarRangesProps {
 	ranges?: DefinedRange[];
 
 	/**
-	 * function to hable the change on Ranges
+	 * function to handle the change on Ranges
 	 */
 	onRangeChange?: (key: Selection, ranges: DefinedRange[]) => void;
 }
@@ -29,23 +32,28 @@ export interface CalendarRangesProps {
 export function CalendarRanges(props: CalendarRangesProps) {
 	const { onRangeChange, ranges = getDefaultRanges() } = props;
 	const { className } = useStyles();
-	const selectionChange = (key: Selection) => {
-		if (onRangeChange) {
-			onRangeChange(key, ranges);
-		}
-		return;
-	};
+
+	const handleSelectionChange = React.useCallback(
+		(key: Selection) => {
+			if (onRangeChange) {
+				onRangeChange(key, ranges);
+			}
+		},
+		[onRangeChange, ranges],
+	);
 
 	return (
 		<div className={cx(className, 'manifest-calendar-ranges')}>
-			<ListBox onSelectionChange={selectionChange} selectionMode="single" aria-label={'listbox'}>
-				{ranges.map((item) => {
-					return (
-						<ListBoxItem aria-label={item.label} key={item.key}>
-							{item.label}
-						</ListBoxItem>
-					);
-				})}
+			<ListBox
+				aria-label="listbox"
+				selectionMode="single"
+				onSelectionChange={handleSelectionChange}
+			>
+				{ranges.map((item) => (
+					<ListBoxItem key={item.key} aria-label={item.label}>
+						{item.label}
+					</ListBoxItem>
+				))}
 			</ListBox>
 		</div>
 	);

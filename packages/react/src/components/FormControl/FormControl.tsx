@@ -1,8 +1,8 @@
-import type { StyleProps } from '../../types';
-import type { Validation } from '@react-types/shared';
 import * as React from 'react';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
+import type { Validation } from '@react-types/shared';
 import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
 import { Typography } from '../Typography';
 import { useStyles } from './FormControl.styles';
 
@@ -66,14 +66,14 @@ export const FormControl = createComponent<FormControlOptions>((props, forwarded
 	return (
 		<div
 			{...other}
-			className={cx(className, classNameProp, 'manifest-form-control')}
 			ref={forwardedRef}
+			className={cx(className, classNameProp, 'manifest-form-control')}
 		>
 			{label && (
 				<Typography
 					as="label"
-					variant="subtextBold"
 					className="manifest-form-control__label"
+					variant="subtextBold"
 					{...labelProps}
 				>
 					{label}

@@ -1,6 +1,6 @@
-import type { StyleProps } from '../../types';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
 import { useStyles } from './Icon.styles';
 
 export type IconElement = 'span';
@@ -22,8 +22,8 @@ export const Icon = createComponent<IconOptions>((props, forwardedRef) => {
 	return (
 		<Comp
 			{...other}
-			className={cx(className, classNameProp, 'manifest-icon', 'material-icons')}
 			ref={forwardedRef}
+			className={cx(className, classNameProp, 'manifest-icon', 'material-icons')}
 		>
 			{icon}
 		</Comp>

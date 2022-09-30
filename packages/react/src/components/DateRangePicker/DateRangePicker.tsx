@@ -1,25 +1,25 @@
-import type { AriaDateRangePickerProps } from '@react-types/datepicker';
-import type { DateValue } from '@react-types/calendar';
-import type { Placement } from '@react-types/overlays';
-import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
+import { useButton } from '@react-aria/button';
+import { useDateRangePicker } from '@react-aria/datepicker';
+import { useFocusRing } from '@react-aria/focus';
+import { useHover } from '@react-aria/interactions';
+import { useOverlayPosition } from '@react-aria/overlays';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { CalendarRange } from '../CalendarRange';
+import { useDateRangePickerState } from '@react-stately/datepicker';
+import type { DateValue } from '@react-types/calendar';
+import type { AriaDateRangePickerProps } from '@react-types/datepicker';
+import type { Placement } from '@react-types/overlays';
 import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
+import { CalendarRange } from '../CalendarRange';
 import { DefinedRange } from '../CalendarRanges';
+import { useStyles } from '../DatePicker/DatePicker.styles';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
 import { Overlay } from '../Overlay';
 import { Popover } from '../Popover';
 import { Typography } from '../Typography';
-import { useButton } from '@react-aria/button';
-import { useDateRangePicker } from '@react-aria/datepicker';
-import { useDateRangePickerState } from '@react-stately/datepicker';
-import { useFocusRing } from '@react-aria/focus';
-import { useHover } from '@react-aria/interactions';
-import { useOverlayPosition } from '@react-aria/overlays';
-import { useStyles } from '../DatePicker/DatePicker.styles';
 
 export type DateRangePickerElement = 'div';
 
@@ -153,7 +153,7 @@ export const DateRangePicker = createComponent<DateRangePickerOptions>((props, f
 	const { overlayProps } = useOverlayPosition({
 		isOpen: state.isOpen,
 		offset,
-		onClose: () => state.setOpen(false),
+		onClose: () => void state.setOpen(false),
 		overlayRef: popoverRef,
 		placement,
 		shouldFlip,
@@ -165,6 +165,8 @@ export const DateRangePicker = createComponent<DateRangePickerOptions>((props, f
 	const { buttonProps, isPressed } = useButton({ ...triggerProps, isDisabled }, triggerRef);
 	const { isFocused, isFocusVisible, focusProps } = useFocusRing({ autoFocus });
 	const { hoverProps, isHovered } = useHover({ isDisabled });
+
+	const handleClose = React.useCallback(() => void state.setOpen(false), [state]);
 
 	const { className } = useStyles({
 		hasStartIcon: !!startIcon,
@@ -209,8 +211,8 @@ export const DateRangePicker = createComponent<DateRangePickerOptions>((props, f
 		>
 			<Comp
 				{...groupProps}
-				className="manifest-datepicker__wrapper"
 				ref={mergeRefs(containerRef, forwardedRef)}
+				className="manifest-datepicker__wrapper"
 			>
 				{startIcon && (
 					<span className={cx('manifest-datepicker__icon', 'manifest-datepicker__icon--start')}>
@@ -220,8 +222,8 @@ export const DateRangePicker = createComponent<DateRangePickerOptions>((props, f
 
 				<button
 					{...mergeProps(buttonProps, focusProps, hoverProps)}
-					className="manifest-datepicker__input"
 					ref={triggerRef}
+					className="manifest-datepicker__input"
 				>
 					<Typography variant="subtext">{getDisplayValue()}</Typography>
 				</button>
@@ -233,17 +235,17 @@ export const DateRangePicker = createComponent<DateRangePickerOptions>((props, f
 				<Overlay isOpen={state.isOpen}>
 					<Popover
 						{...mergeProps(dialogProps, overlayProps)}
+						ref={popoverRef}
 						className="manifest-datepicker__popover"
 						isOpen={state.isOpen}
-						onClose={() => state.setOpen(false)}
-						ref={popoverRef}
+						onClose={handleClose}
 					>
 						<CalendarRange
 							className="manifest-datepicker__calendar"
 							{...calendarProps}
+							ranges={ranges}
 							showCalendar={showCalendar}
 							showRanges={showRanges}
-							ranges={ranges}
 						/>
 					</Popover>
 				</Overlay>

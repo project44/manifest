@@ -1,6 +1,6 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
-import { TextField, Flex, Icon } from '../src';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Flex, Icon, TextField } from '../src';
 
 export default {
 	title: 'Components/TextField',
@@ -29,7 +29,7 @@ export const Icons = Template.bind({});
 Icons.decorators = [
 	() => (
 		<Flex css={{ gap: '$small' }} orientation="vertical">
-			<TextField placeholder="Search..." endIcon={<Icon icon="search" />} />
+			<TextField endIcon={<Icon icon="search" />} placeholder="Search..." />
 			<TextField placeholder="Search..." startIcon={<Icon icon="search" />} />
 		</Flex>
 	),
@@ -55,6 +55,6 @@ Controlled.decorators = [
 	() => {
 		const [value, setValue] = React.useState('Kangaroo');
 
-		return <TextField onChange={setValue} value={value} />;
+		return <TextField value={value} onChange={setValue} />;
 	},
 ];

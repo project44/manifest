@@ -1,3 +1,9 @@
+import type { RefObject } from 'react';
+import type { AriaHiddenSelectProps } from '@react-aria/select';
+import type { ListState } from '@react-stately/list';
+import type { MenuTriggerState } from '@react-stately/menu';
+import type { MultipleSelectionStateProps } from '@react-stately/selection';
+import type { MenuTriggerAction } from '@react-types/combobox';
 import type {
 	AriaLabelingProps,
 	AsyncLoadable,
@@ -15,12 +21,6 @@ import type {
 	TextInputBase,
 	Validation,
 } from '@react-types/shared';
-import type { RefObject } from 'react';
-import type { AriaHiddenSelectProps } from '@react-aria/select';
-import type { ListState } from '@react-stately/list';
-import type { MenuTriggerAction } from '@react-types/combobox';
-import type { MenuTriggerState } from '@react-stately/menu';
-import type { MultipleSelectionStateProps } from '@react-stately/selection';
 import type { CSS } from '@project44-manifest/react-styles';
 
 export interface AriaMultiComboboxProps<T>
@@ -58,15 +58,15 @@ export interface MultiComboboxState<T> extends MultiSelectState<T> {
 	/** The current value of the combo box input. */
 	inputValue: string;
 	/** Selects the currently focused item and updates the input value. */
-	commit(): void;
+	commit: () => void;
 	/** Opens the menu. */
-	open(focusStrategy?: FocusStrategy | null, trigger?: MenuTriggerAction | null): void;
+	open: (focusStrategy?: FocusStrategy | null, trigger?: MenuTriggerAction | null) => void;
 	/** Resets the input value to the previously selected item's text if any and closes the menu.  */
-	revert(): void;
+	revert: () => void;
 	/** Sets the value of the combo box input. */
-	setInputValue(value: string): void;
+	setInputValue: (value: string) => void;
 	/** Toggles the menu. */
-	toggle(focusStrategy?: FocusStrategy | null, trigger?: MenuTriggerAction | null): void;
+	toggle: (focusStrategy?: FocusStrategy | null, trigger?: MenuTriggerAction | null) => void;
 }
 
 export interface MultiComboboxProps<T>
@@ -139,14 +139,14 @@ export interface MultiSelectListState<T> extends ListState<T> {
 	/** The key for the currently selected item. */
 	readonly selectedKeys: Selection;
 	/** Sets the selected keys. */
-	setSelectedKeys(keys: Set<React.Key>): void;
+	setSelectedKeys: (keys: Set<React.Key>) => void;
 }
 
 export interface MultiSelectState<T> extends MultiSelectListState<T>, MenuTriggerState {
 	/** Whether the select is currently focused. */
 	readonly isFocused: boolean;
 	/** Sets whether the select is focused. */
-	setFocused(isFocused: boolean): void;
+	setFocused: (isFocused: boolean) => void;
 }
 
 export interface StyleProps {

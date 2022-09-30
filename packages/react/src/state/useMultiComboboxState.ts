@@ -1,11 +1,11 @@
-import type { MultiComboboxProps, MultiComboboxState, Selection } from '../types';
-import type { FocusStrategy } from '@react-types/shared';
-import type { MenuTriggerAction } from '@react-types/combobox';
 import * as React from 'react';
-import { filterCollection } from '../utils';
 import { useMenuTriggerState } from '@react-stately/menu';
-import { useMultiSelectListState } from './useMultiSelectListState';
 import { useControlledState } from '@react-stately/utils';
+import type { MenuTriggerAction } from '@react-types/combobox';
+import type { FocusStrategy } from '@react-types/shared';
+import type { MultiComboboxProps, MultiComboboxState, Selection } from '../types';
+import { filterCollection } from '../utils';
+import { useMultiSelectListState } from './useMultiSelectListState';
 
 export interface MultiComboBoxStateProps<T> extends MultiComboboxProps<T> {
 	/** The filter function used to determine if a option should be included in the combo box list. */
@@ -48,7 +48,7 @@ export function useMultiComboboxState<T extends object>(
 	const [isFocused, setIsFocused] = React.useState(false);
 
 	const [inputValue, setInputValue] = useControlledState(
-		inputValueProp as string,
+		inputValueProp!,
 		defaultInputValue,
 		onInputChange!,
 	);
@@ -63,21 +63,11 @@ export function useMultiComboboxState<T extends object>(
 		setInputValue('');
 	};
 
-	const handleOpenChange = React.useCallback((isOpen: boolean) => {
-		onOpenChange?.(isOpen, isOpen ? triggerTypeRef.current : undefined);
-	}, []);
-
-	const handleSelectionChange = React.useCallback((keys: Selection) => {
-		onSelectionChange?.(keys);
-
-		resetInputValue();
-
-		triggerState.close();
-	}, []);
-
 	const triggerState = useMenuTriggerState({
 		...props,
-		onOpenChange: handleOpenChange,
+		onOpenChange: (isOpen: boolean) => {
+			onOpenChange?.(isOpen, isOpen ? triggerTypeRef.current : undefined);
+		},
 		isOpen: undefined,
 		defaultOpen: undefined,
 	});
@@ -92,7 +82,13 @@ export function useMultiComboboxState<T extends object>(
 	} = useMultiSelectListState({
 		...props,
 		items: items ?? defaultItems,
-		onSelectionChange: handleSelectionChange,
+		onSelectionChange: (keys: Selection) => {
+			onSelectionChange?.(keys);
+
+			resetInputValue();
+
+			triggerState.close();
+		},
 	});
 
 	// Preserve original collection so we can show all items on demand
@@ -106,7 +102,7 @@ export function useMultiComboboxState<T extends object>(
 		[collection, inputValue, defaultFilter, items],
 	);
 
-	const open = (focusStrategy?: FocusStrategy, trigger?: MenuTriggerAction) => {
+	const open = (focusStrategy?: FocusStrategy | null, trigger?: MenuTriggerAction | null) => {
 		const displayAllItems =
 			trigger === 'manual' || (trigger === 'focus' && menuTrigger === 'focus');
 
@@ -129,14 +125,6 @@ export function useMultiComboboxState<T extends object>(
 			triggerTypeRef.current = trigger!;
 
 			triggerState.open(focusStrategy);
-		}
-	};
-
-	const revert = () => {
-		if (allowsCustomValue && [...selectedKeys].length) {
-			commitCustomValue();
-		} else {
-			commitSelection();
 		}
 	};
 
@@ -185,8 +173,8 @@ export function useMultiComboboxState<T extends object>(
 		}
 	};
 
-	const setFocused = (isFocused: boolean) => {
-		if (isFocused) {
+	const setFocused = (focused: boolean) => {
+		if (focused) {
 			if (menuTrigger === 'focus') {
 				open(null as unknown as FocusStrategy, 'focus');
 			}
@@ -200,10 +188,18 @@ export function useMultiComboboxState<T extends object>(
 			}
 		}
 
-		setIsFocused(isFocused);
+		setIsFocused(focused);
 	};
 
-	const toggle = (focusStrategy?: FocusStrategy, trigger?: MenuTriggerAction) => {
+	const revert = () => {
+		if (allowsCustomValue && [...selectedKeys].length > 0) {
+			commitCustomValue();
+		} else {
+			commitSelection();
+		}
+	};
+
+	const toggle = (focusStrategy?: FocusStrategy | null, trigger?: MenuTriggerAction | null) => {
 		const displayAllItems =
 			trigger === 'manual' || (trigger === 'focus' && menuTrigger === 'focus');
 

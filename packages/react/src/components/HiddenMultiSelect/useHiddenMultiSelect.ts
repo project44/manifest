@@ -1,7 +1,7 @@
-import type { HiddenMultiSelectProps, MultiSelectState } from '../../types';
 import type { ChangeEvent, RefObject } from 'react';
 import { useInteractionModality } from '@react-aria/interactions';
 import { useVisuallyHidden } from '@react-aria/visually-hidden';
+import type { HiddenMultiSelectProps, MultiSelectState } from '../../types';
 
 export function useHiddenMultiSelect<T>(
 	props: HiddenMultiSelectProps<T>,
@@ -32,8 +32,12 @@ export function useHiddenMultiSelect<T>(
 			size: state.collection.size,
 			selectedoptions: [...state.collection].map((item) => ({ value: item.key })),
 			onChange: (event: ChangeEvent<HTMLSelectElement>) =>
-				state.setSelectedKeys(
-					new Set([...Array.from(event.target.selectedOptions)].map((option) => option.value)),
+				void state.setSelectedKeys(
+					new Set(
+						[...(event.target.selectedOptions as unknown as { value: string }[])].map(
+							(option) => option.value,
+						),
+					),
 				),
 		},
 	};

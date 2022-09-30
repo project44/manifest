@@ -1,12 +1,12 @@
-import type { AriaButtonProps } from '@react-types/button';
-import type { StyleProps } from '../../types';
 import * as React from 'react';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
-import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { cx } from '@project44-manifest/react-styles';
 import { useButton } from '@react-aria/button';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
+import type { AriaButtonProps } from '@react-types/button';
+import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
 import { useStyles } from './PaginationItem.styles';
 
 export type PaginationItemElement = 'button';
@@ -61,8 +61,8 @@ export const PaginationItem = createComponent<PaginationItemOptions>((props, for
 	return (
 		<Comp
 			{...mergeProps(buttonProps, focusProps, hoverProps)}
-			className={classes}
 			ref={mergeRefs(itemRef, forwardedRef)}
+			className={classes}
 		>
 			{children}
 		</Comp>

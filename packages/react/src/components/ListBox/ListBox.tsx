@@ -1,6 +1,6 @@
+import { useListState } from '@react-stately/list';
 import { As, createComponent, Props } from '@project44-manifest/system';
 import { ListBoxBase, ListBoxBaseElement, ListBoxBaseOptions } from '../ListBoxBase';
-import { useListState } from '@react-stately/list';
 
 export type ListBoxOptions<T extends As = ListBoxBaseElement> = Omit<
 	ListBoxBaseOptions<T>,
@@ -11,5 +11,5 @@ export type ListBoxProps<T extends As = ListBoxBaseElement> = Props<ListBoxOptio
 export const ListBox = createComponent<ListBoxOptions>((props, forwardedRef) => {
 	const state = useListState(props);
 
-	return <ListBoxBase {...props} state={state} ref={forwardedRef} />;
+	return <ListBoxBase {...props} ref={forwardedRef} state={state} />;
 });

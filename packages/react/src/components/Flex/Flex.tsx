@@ -1,6 +1,6 @@
-import type { StyleProps } from '../../types';
-import { As, createComponent, Props, Options } from '@project44-manifest/system';
 import { cx } from '@project44-manifest/react-styles';
+import { As, createComponent, Options, Props } from '@project44-manifest/system';
+import type { StyleProps } from '../../types';
 import { useStyles } from './Flex.styles';
 
 export type FlexElement = 'div';
@@ -17,7 +17,7 @@ export interface FlexOptions<T extends As = FlexElement> extends Options<T>, Sty
 	/**
 	 * The gap between rows and columns.
 	 */
-	gap?: 'x-small' | 'small' | 'medium' | 'large' | 'x-large';
+	gap?: 'large' | 'medium' | 'small' | 'x-large' | 'x-small';
 	/**
 	 * The orientation of the container's children.
 	 */
@@ -46,6 +46,6 @@ export const Flex = createComponent<FlexOptions>((props, forwardedRef) => {
 	const { className } = useStyles({ align, css, justify, gap, orientation, wrap });
 
 	return (
-		<Comp {...other} className={cx(className, classNameProp, 'manifest-flex')} ref={forwardedRef} />
+		<Comp {...other} ref={forwardedRef} className={cx(className, classNameProp, 'manifest-flex')} />
 	);
 });
