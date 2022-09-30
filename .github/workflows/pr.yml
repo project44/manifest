@@ -12,5 +12,7 @@ jobs:
         with:
           cache: yarn
       - uses: beemojs/conventional-pr-action@v2
+        with:
+          config-preset: angular
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
