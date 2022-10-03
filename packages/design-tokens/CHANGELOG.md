@@ -1,5 +1,13 @@
 # @manifest/design-tokens
 
+## 1.1.1
+
+### Patch Changes
+
+- [#116](https://github.com/project44/manifest/pull/116)
+  [`30167da`](https://github.com/project44/manifest/commit/30167da62f3713434dfbedcb105c9620698e00d0)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Updating linting rules
+
 ## 1.1.0
 
 ### Minor Changes
