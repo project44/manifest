@@ -17,3 +17,4 @@ umd/
 *.min.js
 *.map
 *.snap
+*.hbs

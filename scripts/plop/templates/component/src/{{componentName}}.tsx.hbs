@@ -1,0 +1,21 @@
+import * as React from 'react';
+import { CSS, cx } from '@project44-manifest/react-styles';
+import { PolymorphicComponent, PolymorphicPropsWithRef, PolymorphicRef } from '@project44-manifest/react-types';
+import { use{{componentName}}Styles } from './use{{componentName}}Styles';
+
+export type {{componentName}}Element = 'div';
+
+export interface {{componentName}}Options {
+  /** Theme aware style object */
+  css?: CSS;
+}
+
+export interface {{componentName}}Props extends PolymorphicPropsWithRef<{{componentName}}Element, {{componentName}}Options> {}
+
+export const {{componentName}} = React.forwardRef((props: {{componentName}}Props, forwardedRef: PolymorphicRef<{{componentName}}Element>) => {
+  const { as: Comp = 'div', className: classNameProp, css, ...other } = props;
+
+  const { className } = use{{componentName}}Styles({ css });
+
+  return <Comp {...other} className={cx(className, classNameProp)} ref={forwardedRef} />
+}) as PolymorphicComponent<{{componentName}}Element, {{componentName}}Options>;

@@ -5,7 +5,9 @@
   "license": "MIT",
   "workspaces": [
     "apps/*",
-    "packages/*"
+    "packages/*",
+    "packages/react-components/*",
+    "scripts"
   ],
   "scripts": {
     "build": "turbo run build",
@@ -16,6 +18,8 @@
     "dev": "turbo run dev --filter=@project44-manifest/storybook",
     "dev:docs": "turbo run dev --filter=@project44-manifest/docs",
     "format": "prettier . --write",
+    "generate:component": "yarn workspace @project44-manifest/scripts generate:component",
+    "generate:prop-docs": "yarn workspace @project44-manifest/scripts generate:prop-docs",
     "lint": "eslint --cache --color --fix --ext .ts,.tsx ./packages",
     "prepare": "husky install",
     "release": "yarn changeset publish",
