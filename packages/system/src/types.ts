@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// Will be removing this file in the near future
 import * as React from 'react';
 
 // Borrowed and extended from ariakit

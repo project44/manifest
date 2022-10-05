@@ -6,10 +6,6 @@ module.exports = {
 		project: 'tsconfig.eslint.json',
 	},
 	rules: {
-		// In very rare cases we allow anys, especially when interfacing with third-party libraries. May remove this in the future.
-		'@typescript-eslint/no-explicit-any': 'warn',
-		'@typescript-eslint/no-unsafe-assignment': 'warn',
-
 		// TODO: remove once we bake in internationalization
 		'react/jsx-no-literals': 'off',
 

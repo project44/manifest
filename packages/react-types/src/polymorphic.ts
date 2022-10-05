@@ -1,11 +1,6 @@
 import * as React from 'react';
 
 /**
- * Polymorphic as.
- */
-export type As<Props = any> = React.ElementType<Props>;
-
-/**
  * Extend and override a set of source props.
  */
 export type ExtendableProps<S = {}, E = {}> = E & Omit<S, keyof E>;
@@ -13,7 +8,7 @@ export type ExtendableProps<S = {}, E = {}> = E & Omit<S, keyof E>;
 /**
  * Props with the polymorphic `as` prop.
  */
-export type PropsWithAs<P, T extends As> = P & { as?: T };
+export type PropsWithAs<P, T extends React.ElementType> = P & { as?: T };
 
 /**
  * Props with the polymorphic `as` prop and ref.
@@ -32,7 +27,7 @@ export type PropsWithAs<P, T extends As> = P & { as?: T };
  * ```
  *
  */
-export type PolymorphicPropsWithRef<T extends As, P = {}> = ExtendableProps<
+export type PolymorphicPropsWithRef<T extends React.ElementType, P = {}> = ExtendableProps<
 	React.ComponentPropsWithRef<T>,
 	PropsWithAs<P, T>
 >;
@@ -47,7 +42,7 @@ export type PolymorphicPropsWithRef<T extends As, P = {}> = ExtendableProps<
  * export type ComponentRef = PolymorphicRef<'div'>;
  *
  */
-export type PolymorphicRef<T extends As> = React.ComponentPropsWithRef<T>['ref'];
+export type PolymorphicRef<T extends React.ElementType> = React.ComponentPropsWithRef<T>['ref'];
 
 /**
  * A component with support for the polymorphic `as` prop and ref.
@@ -68,13 +63,12 @@ export type PolymorphicRef<T extends As> = React.ComponentPropsWithRef<T>['ref']
  * ```
  *
  */
-export interface PolymorphicComponent<T extends As, P = {}>
+export interface PolymorphicComponent<T extends React.ElementType, P = {}>
 	extends React.ForwardRefExoticComponent<PolymorphicPropsWithRef<T, P>> {
-	<C extends As = T>(props: PolymorphicPropsWithRef<C, P>): React.ReactElement | null;
+	<C extends React.ElementType = T>(
+		props: PolymorphicPropsWithRef<C, P>,
+	): React.ReactElement | null;
 
 	displayName?: string;
-	propTypes?: React.WeakValidationMap<any>;
-	contextTypes?: React.ValidationMap<any>;
-	defaultProps?: Partial<any>;
 	id?: string;
 }
