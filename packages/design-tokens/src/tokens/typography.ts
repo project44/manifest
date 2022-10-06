@@ -1,41 +1,65 @@
-/** --------------------------------------------
- * Font Family
- * -------------------------------------------- */
-export const fontFamilyMono = '"Fira Mono", Courier, monospace';
-export const fontFamilyText =
-	'"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif';
+import {
+	fontFamilyMono,
+	fontFamilyText,
+	fontSizeLarge,
+	fontSizeMedium,
+	fontSizeSmall,
+	fontSizeXLarge,
+	fontSizeXSmall,
+	fontSizeXxLarge,
+	fontWeightBold,
+	fontWeightRegular,
+	fontWeightSemibold,
+	letterSpacingLarge,
+	letterSpacingMedium,
+	letterSpacingSmall,
+	letterSpacingXSmall,
+	lineHeightLarge,
+	lineHeightMedium,
+	lineHeightSmall,
+	lineHeightXLarge,
+	lineHeightXSmall,
+	lineHeightXxLarge,
+} from '../constants';
 
-/** --------------------------------------------
- * Font Size
- * -------------------------------------------- */
-export const fontSizeLarge = '1.25rem';
-export const fontSizeMedium = '1rem';
-export const fontSizeSmall = '0.875rem';
-export const fontSizeXLarge = '1.5rem';
-export const fontSizeXSmall = '0.75rem';
-export const fontSizeXxLarge = '2rem';
+export const fontFamily = {
+	mono: fontFamilyMono,
+	text: fontFamilyText,
+};
 
-/** --------------------------------------------
- * Font Weight
- * -------------------------------------------- */
-export const fontWeightBold = 700;
-export const fontWeightRegular = 400;
-export const fontWeightSemibold = 600;
+export const fontSize = {
+	large: fontSizeLarge,
+	medium: fontSizeMedium,
+	small: fontSizeSmall,
+	'x-large': fontSizeXLarge,
+	'x-small': fontSizeXSmall,
+	'xx-large': fontSizeXxLarge,
+};
 
-/** --------------------------------------------
- * Letter Spacing
- * -------------------------------------------- */
-export const letterSpacingLarge = '0em';
-export const letterSpacingMedium = '-0.01em';
-export const letterSpacingSmall = '-0.02em';
-export const letterSpacingXSmall = '-0.03em';
+export const fontWeight = {
+	bold: fontWeightBold,
+	regular: fontWeightRegular,
+	semibold: fontWeightSemibold,
+};
 
-/** --------------------------------------------
- * Line Height
- * -------------------------------------------- */
-export const lineHeightLarge = '1.875rem';
-export const lineHeightMedium = '1.5rem';
-export const lineHeightSmall = '1.25rem';
-export const lineHeightXLarge = '2rem';
-export const lineHeightXSmall = '1.125rem';
-export const lineHeightXxLarge = '2.625rem';
+export const letterSpacing = {
+	large: letterSpacingLarge,
+	medium: letterSpacingMedium,
+	small: letterSpacingSmall,
+	'x-small': letterSpacingXSmall,
+};
+
+export const lineHeight = {
+	large: lineHeightLarge,
+	medium: lineHeightMedium,
+	small: lineHeightSmall,
+	'x-large': lineHeightXLarge,
+	'x-small': lineHeightXSmall,
+	'xx-large': lineHeightXxLarge,
+};
+
+export type FontFamilyTokens = typeof fontFamily;
+export type FontSizeTokens = typeof fontSize;
+export type FontWeightTokens = typeof fontWeight;
+export type LetterSpacingTokens = typeof letterSpacing;
+export type LineHeightTokens = typeof lineHeight;

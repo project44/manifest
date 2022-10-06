@@ -1,12 +1,21 @@
-/** --------------------------------------------
- * Border Radius
- * -------------------------------------------- */
-export const radiusFull = '999em';
-export const radiusSmall = '2px';
+import {
+	borderWidthLarge,
+	borderWidthMedium,
+	borderWidthSmall,
+	radiusFull,
+	radiusSmall,
+} from '../constants';
 
-/** --------------------------------------------
- * Border Width
- * -------------------------------------------- */
-export const borderWidthLarge = '3px';
-export const borderWidthMedium = '2px';
-export const borderWidthSmall = '1px';
+export const borderWidth = {
+	large: borderWidthLarge,
+	medium: borderWidthMedium,
+	small: borderWidthSmall,
+};
+
+export const radius = {
+	full: radiusFull,
+	small: radiusSmall,
+};
+
+export type BorderWidthTokens = typeof borderWidth;
+export type RadiusTokens = typeof radius;

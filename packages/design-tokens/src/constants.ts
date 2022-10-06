@@ -1,5 +1,12 @@
 /** --------------------------------------------
- * Palette colors
+ * Border Width
+ * -------------------------------------------- */
+export const borderWidthLarge = '3px';
+export const borderWidthMedium = '2px';
+export const borderWidthSmall = '1px';
+
+/** --------------------------------------------
+ * Color
  * -------------------------------------------- */
 export const colorPaletteBlack = '#091521';
 export const colorPaletteWhite = '#ffffff';
@@ -103,10 +110,6 @@ export const colorPaletteYellow600 = '#dcc243';
 export const colorPaletteYellow700 = '#c8ac3d';
 export const colorPaletteYellow800 = '#b39638';
 export const colorPaletteYellow900 = '#90722f';
-
-/** --------------------------------------------
- * Background colors
- * -------------------------------------------- */
 export const colorBackgroundDanger = colorPaletteRed50;
 export const colorBackgroundPrimary = colorPaletteWhite;
 export const colorBackgroundSecondary = colorPaletteGrey100;
@@ -116,34 +119,18 @@ export const colorBackgroundSurface = colorPaletteWhite;
 export const colorBackgroundTertiary = colorPaletteGrey200;
 export const colorBackgroundTopNav = '#1f3987';
 export const colorBackgroundWarning = colorPaletteOrange50;
-
-/** --------------------------------------------
- * Border colors
- * -------------------------------------------- */
 export const colorBorderDanger = colorPaletteRed600;
 export const colorBorderDisabled = colorPaletteGrey100;
 export const colorBorderPrimary = colorPaletteGrey200;
 export const colorBorderSuccess = colorPaletteGreen600;
 export const colorBorderWarning = colorPaletteOrange600;
-
-/** --------------------------------------------
- * Brand colors
- * -------------------------------------------- */
 export const colorBrandDefault = colorPaletteBlue500;
 export const colorBrandActive = `linear-gradient(0deg, rgba(9, 21, 33, 0.4), rgba(9, 21, 33, 0.4)), linear-gradient(90deg, ${colorPaletteBlue500} 0%, ${colorPalettePurple900} 163.65%, ${colorPalettePurple500}  191.59%)`;
 export const colorBrandHover = `linear-gradient(0deg, rgba(9, 21, 33, 0.2), rgba(9, 21, 33, 0.2)), linear-gradient(90deg, ${colorPaletteBlue500} 0%, ${colorPalettePurple900} 163.65%, ${colorPalettePurple500}  191.59%)`;
 export const colorBrandGradient = `linear-gradient(90deg, ${colorPaletteBlue500} 0%, ${colorPalettePurple900} 163.65%, ${colorPalettePurple500}  191.59%)`;
-
-/** --------------------------------------------
- * Primary colors
- * -------------------------------------------- */
 export const colorPrimaryDefault = colorPaletteIndigo500;
 export const colorPrimaryActive = colorPaletteIndigo900;
 export const colorPrimaryHover = colorPaletteIndigo700;
-
-/** --------------------------------------------
- * Text colors
- * -------------------------------------------- */
 export const colorTextContrast = colorPaletteWhite;
 export const colorTextDanger = colorPaletteRed600;
 export const colorTextDisabled = colorPaletteGrey400;
@@ -152,10 +139,6 @@ export const colorTextSecondary = colorPaletteGrey700;
 export const colorTextSuccess = colorPaletteGreen600;
 export const colorTextTertiary = colorPaletteGrey500;
 export const colorTextWarning = colorPaletteOrange600;
-
-/** --------------------------------------------
- * Data Visualization colors
- * -------------------------------------------- */
 export const colorDataVizDangerFill = colorPaletteRed300;
 export const colorDataVizDangerHover = colorPaletteRed600;
 export const colorDataVizDangerLine = colorPaletteRed500;
@@ -176,3 +159,91 @@ export const colorDataVizTertiaryLine = colorPalettePurple500;
 export const colorDataVizWarningFill = colorPaletteOrange300;
 export const colorDataVizWarningHover = colorPaletteOrange600;
 export const colorDataVizWarningLine = colorPaletteOrange500;
+
+/** --------------------------------------------
+ * Font Family
+ * -------------------------------------------- */
+export const fontFamilyMono = '"Fira Mono", Courier, monospace';
+export const fontFamilyText =
+	'"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif';
+
+/** --------------------------------------------
+ * Font Size
+ * -------------------------------------------- */
+export const fontSizeLarge = '1.25rem';
+export const fontSizeMedium = '1rem';
+export const fontSizeSmall = '0.875rem';
+export const fontSizeXLarge = '1.5rem';
+export const fontSizeXSmall = '0.75rem';
+export const fontSizeXxLarge = '2rem';
+
+/** --------------------------------------------
+ * Font Weight
+ * -------------------------------------------- */
+export const fontWeightBold = 700;
+export const fontWeightRegular = 400;
+export const fontWeightSemibold = 600;
+
+/** --------------------------------------------
+ * Letter Spacing
+ * -------------------------------------------- */
+export const letterSpacingLarge = '0em';
+export const letterSpacingMedium = '-0.01em';
+export const letterSpacingSmall = '-0.02em';
+export const letterSpacingXSmall = '-0.03em';
+
+/** --------------------------------------------
+ * Line Height
+ * -------------------------------------------- */
+export const lineHeightLarge = '1.875rem';
+export const lineHeightMedium = '1.5rem';
+export const lineHeightSmall = '1.25rem';
+export const lineHeightXLarge = '2rem';
+export const lineHeightXSmall = '1.125rem';
+export const lineHeightXxLarge = '2.625rem';
+
+/** --------------------------------------------
+ * Radius
+ * -------------------------------------------- */
+export const radiusFull = '999em';
+export const radiusSmall = '2px';
+
+/** --------------------------------------------
+ * Shadow
+ * -------------------------------------------- */
+export const shadowLarge =
+	'0px -1px 2px rgba(61, 58, 180, 0.1), 0px 6px 14px rgba(61, 58, 180, 0.15)';
+export const shadowMedium =
+	'0px -1px 2px rgba(61, 58, 180, 0.1), 0px 4px 5px rgba(61, 58, 180, 0.15)';
+export const shadowSmall =
+	'0px -1px 2px rgba(61, 58, 180, 0.1), 0px 1px 2px rgba(61, 58, 180, 0.4)';
+
+/** --------------------------------------------
+ * Size
+ * -------------------------------------------- */
+export const sizeLarge = '87.5rem';
+export const sizeMedium = '80rem';
+export const sizeSmall = '60rem';
+export const sizeXLarge = '120rem';
+export const sizeXSmall = '40.625rem';
+
+/** --------------------------------------------
+ * Space
+ * -------------------------------------------- */
+export const spaceMedium = '1rem';
+export const spaceSmall = '0.5rem';
+export const spaceLarge = '1.5rem';
+export const spaceXLarge = '2rem';
+export const spaceXSmall = '0.25rem';
+
+/** --------------------------------------------
+ * ZIndex
+ * -------------------------------------------- */
+export const zIndexDialog = 6000;
+export const zIndexDropdown = 7000;
+export const zIndexModal = 9000;
+export const zIndexOverlay = 8000;
+export const zIndexPopover = 5000;
+export const zIndexSticky = 100;
+export const zIndexToast = 10_000;
+export const zIndexTooltip = 6000;
