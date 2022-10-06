@@ -3715,8 +3715,15 @@ __metadata:
   resolution: "@project44-manifest/theme@workspace:packages/theme"
   dependencies:
     "@project44-manifest/design-tokens": ^1.1.1
+    "@project44-manifest/utils": ^0.1.0
     "@types/lodash.merge": ^4.6.7
     lodash.merge: ^4.6.2
+  languageName: unknown
+  linkType: soft
+
+"@project44-manifest/utils@^0.1.0, @project44-manifest/utils@workspace:packages/utils":
+  version: 0.0.0-use.local
+  resolution: "@project44-manifest/utils@workspace:packages/utils"
   languageName: unknown
   linkType: soft
 

@@ -1,7 +1,7 @@
 {
-  "name": "@project44-manifest/theme",
-  "version": "0.1.1",
-  "description": "Manifest Design System themes",
+  "name": "@project44-manifest/utils",
+  "version": "0.1.0",
+  "description": "Manifest Design System utilities",
   "license": "MIT",
   "author": "project44",
   "keywords": [
@@ -35,21 +35,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:project-44/manifest.git",
-    "directory": "packages/theme"
+    "url": "git@github.com:project-44/manifest.git"
   },
   "scripts": {
     "build": "packemon build --addEngines --addExports --declaration --declarationConfig tsconfig.build.json",
     "clean": "packemon clean && rm -rf .turbo node_modules *.tsbuildinfo",
     "typecheck": "tsc -b"
-  },
-  "dependencies": {
-    "@project44-manifest/design-tokens": "^1.1.1",
-    "@project44-manifest/utils": "^0.1.0",
-    "lodash.merge": "^4.6.2"
-  },
-  "devDependencies": {
-    "@types/lodash.merge": "^4.6.7"
   },
   "packemon": {
     "platform": "browser"
