@@ -1,4 +1,4 @@
-import { pxToRem } from './pxToRem';
+import { pxToRem } from '../src';
 
 describe('@project-manifest/theme - pxToRem', () => {
 	it('convert px value to rem', () => {
