@@ -1,7 +1,7 @@
 import type * as Stitches from '@stitches/react';
-import { layout } from './layout';
+import { layout } from '../../src/stitches/utils';
 
-describe('@project44-manifest/react - layout', () => {
+describe('@project44-manifest/react-styles - layout utils', () => {
 	it('should support display alias', () => {
 		const mixin = layout.d('block' as unknown as Stitches.PropertyValue<'display'>);
 
