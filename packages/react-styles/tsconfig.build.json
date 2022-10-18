@@ -1,6 +1,10 @@
 {
   "extends": "../../tsconfig.options.json",
   "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": [
+      "dom"
+    ],
     "outDir": "dts",
     "rootDir": "src"
   },
@@ -9,7 +13,13 @@
   ],
   "references": [
     {
+      "path": "../test-utils"
+    },
+    {
       "path": "../theme"
+    },
+    {
+      "path": "../utils"
     }
   ]
 }
