@@ -12,6 +12,8 @@
     "packages/react-components/*/src/**/*",
     "packages/react-components/*/stories/**/*",
     "packages/react-components/*/tests/**/*",
+    "packages/react-utilities/*/src/**/*",
+    "packages/react-utilities/*/tests/**/*",
     "scripts/**/*"
   ]
 }

@@ -1,7 +1,7 @@
 {
-  "name": "@project44-manifest/react-styles",
-  "version": "0.2.0",
-  "description": "Manifest Design System react styling tools",
+  "name": "@project44-manifest/react-test-utils",
+  "version": "0.1.0",
+  "description": "Manifest Design System react test utilities",
   "license": "MIT",
   "author": "project44",
   "keywords": [
@@ -9,7 +9,7 @@
     "design",
     "system",
     "react",
-    "components"
+    "jest"
   ],
   "main": "./lib/index.js",
   "module": "./esm/index.js",
@@ -37,7 +37,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:project-44/manifest.git"
+    "url": "git@github.com:project-44/manifest.git",
+    "directory": "packages/react"
   },
   "scripts": {
     "build": "packemon build --addEngines --addExports --declaration --declarationConfig tsconfig.build.json",
@@ -48,18 +49,19 @@
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0"
   },
-  "dependencies": {
-    "@project44-manifest/theme": "^0.1.1",
-    "@project44-manifest/utils": "^0.1.0",
-    "@stitches/react": "^1.2.8",
-    "clsx": "^1.1.1",
+  "devDependencies": {
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
-  "devDependencies": {
-    "@project44-manifest/test-utils": "^0.2.0"
-  },
   "packemon": {
     "platform": "browser"
+  },
+  "dependencies": {
+    "@react-aria/overlays": "^3.10.1",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/jest-axe": "^3.5.5",
+    "jest-axe": "^6.0.0"
   }
 }

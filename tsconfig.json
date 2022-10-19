@@ -16,7 +16,13 @@
       "path": "packages/react"
     },
     {
-      "path": "packages/react-styles"
+      "path": "packages/react-utilities/react-styles"
+    },
+    {
+      "path": "packages/react-utilities/react-test-utils"
+    },
+    {
+      "path": "packages/react-utilities/react-types"
     },
     {
       "path": "packages/react-types"
