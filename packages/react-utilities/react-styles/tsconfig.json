@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.options.json",
+  "extends": "../../../tsconfig.options.json",
   "compilerOptions": {
     "jsx": "react-jsx",
     "lib": [
@@ -16,13 +16,13 @@
   ],
   "references": [
     {
-      "path": "../test-utils"
+      "path": "../react-test-utils"
     },
     {
-      "path": "../theme"
+      "path": "../../theme"
     },
     {
-      "path": "../utils"
+      "path": "../../utils"
     }
   ]
 }

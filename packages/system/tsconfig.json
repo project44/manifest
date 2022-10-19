@@ -16,7 +16,7 @@
   ],
   "references": [
     {
-      "path": "../test-utils"
+      "path": "../react-utilities/react-test-utils"
     }
   ]
 }

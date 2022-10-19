@@ -1,18 +1,15 @@
 {
-  "extends": "../../tsconfig.options.json",
+  "extends": "../../../tsconfig.options.json",
   "compilerOptions": {
     "jsx": "react-jsx",
     "lib": [
       "dom"
     ],
     "outDir": "dts",
-    "rootDir": "."
+    "rootDir": "src"
   },
-  "exclude": [
-    "dts"
-  ],
   "include": [
-    "**/*"
+    "src/**/*"
   ],
   "references": []
 }

@@ -1,19 +1,22 @@
 {
-  "extends": "../../tsconfig.options.json",
+  "extends": "../../../tsconfig.options.json",
   "compilerOptions": {
     "jsx": "react-jsx",
     "lib": [
       "dom"
     ],
     "outDir": "dts",
-    "rootDir": "src"
+    "rootDir": "."
   },
+  "exclude": [
+    "dts"
+  ],
   "include": [
-    "src/**/*"
+    "**/*"
   ],
   "references": [
     {
-      "path": "../test-utils"
+      "path": "../react-test-utils"
     }
   ]
 }
