@@ -16,6 +16,9 @@
       "path": "packages/react"
     },
     {
+      "path": "packages/react-utilities/react-dom-utils"
+    },
+    {
       "path": "packages/react-utilities/react-styles"
     },
     {
