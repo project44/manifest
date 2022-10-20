@@ -5,10 +5,10 @@ import { useRadio } from '@react-aria/radio';
 import { mergeProps } from '@react-aria/utils';
 import type { AriaRadioProps } from '@react-types/radio';
 import { cx } from '@project44-manifest/react-styles';
+import { Typography } from '@project44-manifest/react-typography';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import type { StyleProps } from '../../types';
 import { useRadioGroupContext } from '../RadioGroup';
-import { Typography } from '../Typography';
 import { useStyles } from './Radio.styles';
 
 export type RadioElement = 'label';

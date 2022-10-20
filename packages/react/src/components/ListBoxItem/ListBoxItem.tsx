@@ -4,11 +4,11 @@ import { useOption } from '@react-aria/listbox';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import type { FocusableProps, ItemProps, Node, SelectionMode } from '@react-types/shared';
 import { cx } from '@project44-manifest/react-styles';
+import { Typography } from '@project44-manifest/react-typography';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import type { StyleProps } from '../../types';
 import { Checkbox } from '../Checkbox';
 import { useListBoxContext } from '../ListBoxContext';
-import { Typography } from '../Typography';
 import { useStyles } from './ListBoxItem.styles';
 
 export type ListBoxItemElement = 'div';

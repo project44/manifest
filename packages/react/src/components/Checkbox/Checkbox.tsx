@@ -6,10 +6,10 @@ import { mergeProps } from '@react-aria/utils';
 import { useToggleState } from '@react-stately/toggle';
 import type { AriaCheckboxProps } from '@react-types/checkbox';
 import { cx } from '@project44-manifest/react-styles';
+import { Typography } from '@project44-manifest/react-typography';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import type { StyleProps } from '../../types';
 import { Icon } from '../Icon';
-import { Typography } from '../Typography';
 import { useStyles } from './Checkbox.styles';
 
 export type CheckboxElement = 'label';

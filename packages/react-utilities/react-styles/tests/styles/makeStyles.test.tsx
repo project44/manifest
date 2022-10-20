@@ -1,10 +1,16 @@
 import * as React from 'react';
-import { renderHook } from '@project44-manifest/test-utils';
+import { renderHook } from '@project44-manifest/react-test-utils';
 import { makeStyles, ThemeProvider } from '../../src';
 
 const wrapper = ({ children }: { children: React.ReactNode }) => (
 	<ThemeProvider>{children}</ThemeProvider>
 );
+
+interface TestClasses {
+	root: string;
+	child: string;
+	test: string;
+}
 
 describe('@project44-manifest/react-styles - makeStyles', () => {
 	it('should support a style object', () => {
@@ -51,7 +57,7 @@ describe('@project44-manifest/react-styles - makeStyles', () => {
 		expect(result.current.classes.child).toBe('manifest-makeStyles-child');
 	});
 
-	it('should support human readable classnames', () => {
+	it('should support naming classnames', () => {
 		const useStyles = makeStyles({
 			root: { padding: '4px' },
 			child: { margin: '4px' },
@@ -63,19 +69,45 @@ describe('@project44-manifest/react-styles - makeStyles', () => {
 		expect(result.current.classes.child).toBe('manifest-test-child');
 	});
 
+	it('should support slot classes', () => {
+		const useStyles = makeStyles({
+			root: { padding: '4px' },
+			child: { margin: '4px' },
+		});
+
+		const { result } = renderHook(() => useStyles({}, { slots: { root: ['root-test'] } }), {
+			wrapper,
+		});
+
+		expect(result.current.classes.root).toContain('root-test');
+	});
+
 	it('should merge classes', () => {
 		const useStyles = makeStyles({
 			root: { padding: '4px' },
 			child: { margin: '4px' },
 		});
 
+		const classes: Partial<TestClasses> = {
+			root: 'root-test',
+			test: 'test-class',
+		};
+
 		const { result } = renderHook(
-			() => useStyles({}, { classes: { root: 'root-test', child: 'child-test' } }),
+			() =>
+				useStyles(
+					{},
+					{
+						classes,
+						slots: { root: ['root-test-1', 'test', undefined] },
+					},
+				),
 			{ wrapper },
 		);
 
 		expect(result.current.classes.root).toContain('root-test');
-		expect(result.current.classes.child).toContain('child-test');
+		expect(result.current.classes.root).toContain('root-test-1');
+		expect(result.current.classes.root).toContain('test-class');
 	});
 
 	it('should support css overrides', () => {

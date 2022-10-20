@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "clean": "rm -rf .turbo node_modules .contentlayer .next *.tsbuildinfo",
+    "clean": "rm -rf .turbo node_modules .contentlayer .next",
     "generate:prop-docs": "ts-node --skipProject ./scripts/generate-prop-docs.ts",
     "typecheck": "tsc -b"
   },

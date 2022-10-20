@@ -4,8 +4,8 @@ import { useLocale } from '@react-aria/i18n';
 import type { CalendarState, RangeCalendarState } from '@react-stately/calendar';
 import { endOfMonth, getWeeksInMonth } from '@internationalized/date';
 import { cx } from '@project44-manifest/react-styles';
+import { Typography } from '@project44-manifest/react-typography';
 import { CalendarCell } from '../CalendarCell';
-import { Typography } from '../Typography';
 import { useStyles } from './CalendarTable.styles';
 
 export interface CalendarTableProps {

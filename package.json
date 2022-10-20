@@ -13,7 +13,7 @@
   "scripts": {
     "build": "turbo run build",
     "build:docs": "turbo run build --filter=@project44-manifest/docs",
-    "build:packages": "turbo run build --filter='./packages/*'",
+    "build:packages": "turbo run build --filter='./packages/**/*'",
     "changeset": "changeset",
     "clean": "turbo run clean",
     "dev": "turbo run dev --filter=@project44-manifest/storybook",

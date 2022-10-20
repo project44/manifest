@@ -13,10 +13,16 @@
   ],
   "references": [
     {
-      "path": "../react-test-utils"
+      "path": "../../react-utilities/react-styles"
     },
     {
-      "path": "../../theme"
+      "path": "../../react-utilities/react-test-utils"
+    },
+    {
+      "path": "../../react-utilities/react-types"
+    },
+    {
+      "path": "../../react-utilities/react-utils"
     }
   ]
 }
