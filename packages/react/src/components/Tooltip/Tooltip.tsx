@@ -6,9 +6,9 @@ import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useTooltipTriggerState } from '@react-stately/tooltip';
 import type { OverlayTriggerProps } from '@react-types/overlays';
 import { cx } from '@project44-manifest/react-styles';
+import { Typography } from '@project44-manifest/react-typography';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import type { StyleProps } from '../../types';
-import { Typography } from '../Typography';
 import { useStyles } from './Tooltip.styles';
 
 export type TooltipElement = 'div';

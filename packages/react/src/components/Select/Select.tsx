@@ -9,6 +9,7 @@ import { useSelectState } from '@react-stately/select';
 import type { Placement } from '@react-types/overlays';
 import type { AriaSelectProps } from '@react-types/select';
 import { cx } from '@project44-manifest/react-styles';
+import { Typography } from '@project44-manifest/react-typography';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import type { StyleProps } from '../../types';
 import { FormControl } from '../FormControl';
@@ -16,7 +17,6 @@ import { Icon } from '../Icon';
 import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
 import { Overlay } from '../Overlay';
 import { Popover } from '../Popover';
-import { Typography } from '../Typography';
 import { useStyles } from './Select.styles';
 
 export type SelectElement = 'label';

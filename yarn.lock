@@ -3571,7 +3571,6 @@ __metadata:
   dependencies:
     "@project44-manifest/react-test-utils": ^0.1.0
     "@project44-manifest/theme": ^0.1.1
-    "@project44-manifest/utils": ^0.1.0
     "@stitches/react": ^1.2.8
     clsx: ^1.1.1
     react: ^18.1.0
@@ -3600,7 +3599,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-types@workspace:packages/react-utilities/react-types":
+"@project44-manifest/react-types@^0.1.0, @project44-manifest/react-types@workspace:packages/react-utilities/react-types":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-types@workspace:packages/react-utilities/react-types"
   dependencies:
@@ -3613,7 +3612,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-utils@workspace:packages/react-utilities/react-utils":
+"@project44-manifest/react-typography@^0.1.0, @project44-manifest/react-typography@workspace:packages/react-components/react-typography":
+  version: 0.0.0-use.local
+  resolution: "@project44-manifest/react-typography@workspace:packages/react-components/react-typography"
+  dependencies:
+    "@project44-manifest/react-styles": ^0.2.0
+    "@project44-manifest/react-test-utils": ^0.1.0
+    "@project44-manifest/react-types": ^0.1.0
+    "@project44-manifest/react-utils": ^0.1.0
+    react: ^18.1.0
+    react-dom: ^18.1.0
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+  languageName: unknown
+  linkType: soft
+
+"@project44-manifest/react-utils@^0.1.0, @project44-manifest/react-utils@workspace:packages/react-utilities/react-utils":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-utils@workspace:packages/react-utilities/react-utils"
   dependencies:
@@ -3635,6 +3650,7 @@ __metadata:
     "@internationalized/date": ^3.0.0
     "@project44-manifest/react-styles": ^0.2.0
     "@project44-manifest/react-test-utils": ^0.1.0
+    "@project44-manifest/react-typography": ^0.1.0
     "@project44-manifest/system": ^0.1.4
     "@radix-ui/react-slot": ^1.0.0
     "@react-aria/button": ^3.5.1

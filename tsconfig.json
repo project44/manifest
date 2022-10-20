@@ -16,7 +16,7 @@
       "path": "packages/react"
     },
     {
-      "path": "packages/react-utilities/react-dom-utils"
+      "path": "packages/react-components/react-typography"
     },
     {
       "path": "packages/react-utilities/react-styles"
@@ -28,13 +28,16 @@
       "path": "packages/react-utilities/react-types"
     },
     {
-      "path": "packages/react-types"
+      "path": "packages/react-utilities/react-utils"
     },
     {
       "path": "packages/system"
     },
     {
       "path": "packages/theme"
+    },
+    {
+      "path": "packages/utils"
     }
   ]
 }

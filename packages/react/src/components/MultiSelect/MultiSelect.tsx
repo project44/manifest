@@ -6,6 +6,7 @@ import { useOverlayPosition } from '@react-aria/overlays';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import type { Placement } from '@react-types/overlays';
 import { cx } from '@project44-manifest/react-styles';
+import { Typography } from '@project44-manifest/react-typography';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import { useMultiSelect } from '../../hooks';
 import { useMultiSelectState } from '../../state';
@@ -18,7 +19,6 @@ import { Overlay } from '../Overlay';
 import { Popover } from '../Popover';
 import { Stack } from '../Stack';
 import { Tag } from '../Tag';
-import { Typography } from '../Typography';
 import { useStyles } from './MultiSelect.styles';
 
 export type MultiSelectElement = 'label';

@@ -4,9 +4,9 @@ import { useTooltip, useTooltipTrigger } from '@react-aria/tooltip';
 import { mergeProps } from '@react-aria/utils';
 import { useTooltipTriggerState } from '@react-stately/tooltip';
 import { cx } from '@project44-manifest/react-styles';
+import { Typography } from '@project44-manifest/react-typography';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import type { StyleProps } from '../../types';
-import { Typography } from '../Typography';
 import { useStyles } from './Pill.styles';
 
 export type PillElement = 'div';

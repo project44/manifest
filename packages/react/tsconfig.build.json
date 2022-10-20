@@ -13,6 +13,9 @@
   ],
   "references": [
     {
+      "path": "../react-components/react-typography"
+    },
+    {
       "path": "../react-utilities/react-styles"
     },
     {

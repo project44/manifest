@@ -1,74 +1,54 @@
 import * as React from 'react';
 
-/**
- * Extend and override a set of source props.
- */
-export type ExtendableProps<S = {}, E = {}> = E & Omit<S, keyof E>;
+/** -------------------------------
+ * Utilities
+ * ------------------------------*/
+export type Merge<P1 = {}, P2 = {}> = Omit<P1, keyof P2> & P2;
 
-/**
- * Props with the polymorphic `as` prop.
- */
-export type PropsWithAs<P, T extends React.ElementType> = P & { as?: T };
+/** ------------------------------
+ * Props
+ * ------------------------------*/
 
-/**
- * Props with the polymorphic `as` prop and ref.
+// We do not know the type of the element, any is ok here.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type OwnProps<E> = E extends ForwardRefComponent<any, infer P> ? P : {};
+
+/** ------------------------------
+ * Polymorphic types
  *
- * @example
- * ```tsx
- * import { PolymorphicPropsWithRef } from '@project44-manifest/react-types';
+ * These types are borrowed from the team at reach-ui.
+ * Their package is for internal use, so copy and pasting here.
  *
- * type ComponentElement = 'div';
- *
- * export interface ComponentOptions {
- *  isActive?: boolean;
- * }
- *
- * export interface ComponentProps extends PolymorphicPropsWithRef<ComponentElement, ComponentOptions> {}
- * ```
- *
- */
-export type PolymorphicPropsWithRef<T extends React.ElementType, P = {}> = ExtendableProps<
-	React.ComponentPropsWithRef<T>,
-	PropsWithAs<P, T>
+ * see: https://github.com/reach/reach-ui/blob/dev/packages/polymorphic/src/reach-polymorphic.ts
+ *------------------------------*/
+
+export type ForwardRefExoticComponent<E, P> = React.ForwardRefExoticComponent<
+	Merge<E extends React.ElementType ? React.ComponentPropsWithRef<E> : never, P & { as?: E }>
 >;
 
-/**
- * Ref of the polymorphic `as` element.
- *
- * @example
- * ```tsx
- * import { PolymorphicRef } from '@project44-manifest/react-types';
- *
- * export type ComponentRef = PolymorphicRef<'div'>;
- *
- */
-export type PolymorphicRef<T extends React.ElementType> = React.ComponentPropsWithRef<T>['ref'];
-
-/**
- * A component with support for the polymorphic `as` prop and ref.
- *
- * @example
- * ```tsx
- * import { PolymorphicComponent, PolymorphicPropsWithRef } from '@project44-manifest/react-types';
- *
- * type ComponentElement = 'div';
- *
- * export interface ComponentOptions {
- *  isActive?: boolean;
- * }
- *
- * export interface ComponentProps extends PolymorphicPropsWithRef<ComponentElement, ComponentOptions> {}
- *
- * export const Component = React.forwardRef((props: ComponentProps, ref: PolymorphicRef<ComponentElement>) => { ... }) as PolymorphicComponent<ComponentElement, ComponentOptions>;
- * ```
- *
- */
-export interface PolymorphicComponent<T extends React.ElementType, P = {}>
-	extends React.ForwardRefExoticComponent<PolymorphicPropsWithRef<T, P>> {
-	<C extends React.ElementType = T>(
-		props: PolymorphicPropsWithRef<C, P>,
+export interface ForwardRefComponent<
+	IntrinsicElementString,
+	Props = {},
+	/**
+	 * Extends original type to ensure built in React types play nice
+	 * with polymorphic components still e.g. `React.ElementRef` etc.
+	 */
+> extends ForwardRefExoticComponent<IntrinsicElementString, Props> {
+	/*
+	 * When `as` prop is passed, use this overload. Merges original own props
+	 * (without DOM props) and the inferred props from `as` element with the own
+	 * props taking precendence.
+	 *
+	 * We explicitly avoid `React.ElementType` and manually narrow the prop types
+	 * so that events are typed when using JSX.IntrinsicElements.
+	 */
+	<As = IntrinsicElementString>(
+		props: As extends ''
+			? { as: keyof JSX.IntrinsicElements }
+			: As extends React.ComponentType<infer P>
+			? Merge<P, Props & { as: As }>
+			: As extends keyof JSX.IntrinsicElements
+			? Merge<JSX.IntrinsicElements[As], Props & { as: As }>
+			: never,
 	): React.ReactElement | null;
-
-	displayName?: string;
-	id?: string;
 }

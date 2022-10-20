@@ -1,38 +1,29 @@
 import * as React from 'react';
 import { render } from '@project44-manifest/test-utils';
-import { PolymorphicComponent, PolymorphicPropsWithRef, PolymorphicRef } from '../src';
+import { ForwardRefComponent } from '../src';
 
 type ButtonElement = 'button';
 
-interface ButtonOptions {
+interface ButtonProps {
 	isDisabled?: boolean;
 	isActive?: boolean;
 }
 
-interface ButtonProps extends PolymorphicPropsWithRef<ButtonElement, ButtonOptions> {}
+const Button = React.forwardRef((props, forwardedRef) => {
+	const { as: Comp = 'button', ...other } = props;
 
-const Button = React.forwardRef(
-	(props: ButtonProps, forwardedRef: PolymorphicRef<ButtonElement>) => {
-		const { as: Comp = 'button', ...other } = props;
+	return <Comp {...other} ref={forwardedRef} />;
+}) as ForwardRefComponent<ButtonElement, ButtonProps>;
 
-		return <Comp {...other} ref={forwardedRef} />;
-	},
-) as PolymorphicComponent<ButtonElement, ButtonOptions>;
-
-interface ExtendedButtonOptions extends Omit<ButtonOptions, 'isActive'> {
+interface ExtendedButtonButtonProps extends Omit<ButtonProps, 'isActive'> {
 	isExtended?: boolean;
 }
 
-interface ExtendedButtonButtonProps
-	extends PolymorphicPropsWithRef<ButtonElement, ExtendedButtonOptions> {}
+const ExtendedButton = React.forwardRef((props, forwardedRef) => {
+	const { isExtended, ...extendedButtonProps } = props;
 
-const ExtendedButton = React.forwardRef(
-	(props: ExtendedButtonButtonProps, forwardedRef: PolymorphicRef<ButtonElement>) => {
-		const { isExtended, ...extendedButtonProps } = props;
-
-		return <Button {...extendedButtonProps} ref={forwardedRef} />;
-	},
-) as PolymorphicComponent<ButtonElement, ExtendedButtonOptions>;
+	return <Button {...extendedButtonProps} ref={forwardedRef} />;
+}) as ForwardRefComponent<ButtonElement, ExtendedButtonButtonProps>;
 
 type LinkProps = React.ComponentProps<'a'> & {
 	isPrimary?: boolean;
