@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { cx } from '@project44-manifest/react-styles';
 import { ForwardRefComponent } from '@project44-manifest/react-types';
 import { filterDOMProps } from '@project44-manifest/react-utils';
 import { useStyles } from './Typography.styles';
@@ -31,7 +30,7 @@ export const Typography = React.forwardRef((props, forwardedRef) => {
 
 	const Comp = as ?? (paragraph ? 'p' : variantMap[variant]);
 
-	const { classes } = useStyles(props, {
+	const { classes, cx } = useStyles(props, {
 		name: 'typography',
 		classes: classesProp,
 		slots: { root: [variant, paragraph && 'paragraph'] },
