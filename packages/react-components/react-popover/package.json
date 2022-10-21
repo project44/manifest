@@ -1,0 +1,72 @@
+{
+  "name": "@project44-manifest/react-popover",
+  "version": "0.0.0",
+  "description": "Manifest Design System react popover component",
+  "license": "MIT",
+  "author": "project44",
+  "keywords": [
+    "manifest",
+    "design",
+    "system",
+    "react",
+    "components"
+  ],
+  "main": "./lib/index.js",
+  "module": "./esm/index.js",
+  "types": "./dts/index.d.ts",
+  "files": [
+    "dts/**/*.d.ts",
+    "esm/**/*.{js,map}",
+    "lib/**/*.{js,map}",
+    "src/**/*.{ts,tsx,json}"
+  ],
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dts/index.d.ts",
+      "browser": {
+        "module": "./esm/index.js",
+        "import": "./esm/index.js",
+        "default": "./lib/index.js"
+      },
+      "default": "./lib/index.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:project-44/manifest.git"
+  },
+  "scripts": {
+    "build": "packemon build --addEngines --addExports --declaration --declarationConfig tsconfig.build.json",
+    "clean": "packemon clean && rm -rf .turbo node_modules *.tsbuildinfo",
+    "typecheck": "tsc -b"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  },
+  "dependencies": {
+    "@project44-manifest/react-styles": "^0.3.0",
+    "@project44-manifest/react-types": "^0.2.0",
+    "@project44-manifest/react-utils": "^0.2.0",
+    "@react-aria/button": "^3.6.2",
+    "@react-aria/dialog": "^3.4.0",
+    "@react-aria/focus": "^3.9.0",
+    "@react-aria/overlays": "^3.11.0",
+    "@react-stately/overlays": "^3.4.2",
+    "@react-stately/utils": "^3.5.1",
+    "framer-motion": "^7.6.1"
+  },
+  "devDependencies": {
+    "@project44-manifest/react-button": "^0.2.0",
+    "@project44-manifest/react-test-utils": "^0.2.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "packemon": {
+    "platform": "browser"
+  }
+}
