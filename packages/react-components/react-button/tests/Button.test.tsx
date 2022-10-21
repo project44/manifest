@@ -1,5 +1,5 @@
 import { accessibility, fireEvent, render, screen } from '@project44-manifest/test-utils';
-import { Button } from '../src';
+import { Button, ButtonSize, ButtonVariant } from '../src';
 
 describe('@project44-manifest/react - Button', () => {
 	accessibility(<Button>Click Me</Button>);
@@ -15,7 +15,7 @@ describe('@project44-manifest/react - Button', () => {
 
 	it('should render icons', () => {
 		render(
-			<Button endIcon={<span data-testId="end" />} startIcon={<span data-testId="start" />}>
+			<Button endIcon={<span data-testid="end" />} startIcon={<span data-testid="start" />}>
 				Click Me
 			</Button>,
 		);
@@ -57,10 +57,39 @@ describe('@project44-manifest/react - Button', () => {
 			</Button>,
 		);
 
-		const button = screen.getByText('Click Me');
+		const button = screen.getByRole('button');
+
+		expect(button.classList).toContain('manifest-button-disabled');
 
 		fireEvent.click(button);
 
 		expect(clickSpy).not.toHaveBeenCalled();
+	});
+
+	it.each`
+		variant        | className
+		${'primary'}   | ${'manifest-button-primary'}
+		${'secondary'} | ${'manifest-button-secondary'}
+		${'tertiary'}  | ${'manifest-button-tertiary'}
+		${'danger'}    | ${'manifest-button-danger'}
+		${'brand'}     | ${'manifest-button-brand'}
+	`('should attach the $className className for the $variant variant', ({ className, variant }) => {
+		render(<Button variant={variant as ButtonVariant}>Click Me</Button>);
+
+		const button = screen.getByRole('button');
+
+		expect(button.classList).toContain(className);
+	});
+
+	it.each`
+		size        | className
+		${'medium'} | ${'manifest-button-medium'}
+		${'small'}  | ${'manifest-button-small'}
+	`('should attach the $className className for the $size size', ({ className, size }) => {
+		render(<Button size={size as ButtonSize}>Click Me</Button>);
+
+		const button = screen.getByRole('button');
+
+		expect(button.classList).toContain(className);
 	});
 });

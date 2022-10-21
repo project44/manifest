@@ -1,5 +1,3 @@
-import type { Props } from './types';
-
 const attributes = new Set([
 	'accessKey',
 	'alt',
@@ -250,8 +248,11 @@ const domProps = new Set([...attributes, ...events]);
 const ariaRegex = /^(aria-.*)$/;
 const dataRegex = /^(data-.*)$/;
 
-export function filterDOMProps<T extends Props>(props: Props, allowedProps?: Set<string>) {
-	const result: Props = {};
+export function filterDOMProps<T extends Record<string, unknown>>(
+	props: Record<string, unknown>,
+	allowedProps?: Set<string>,
+) {
+	const result: Record<string, unknown> = {};
 
 	for (const prop in props) {
 		if (Object.prototype.hasOwnProperty.call(props, prop)) {

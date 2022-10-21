@@ -10,10 +10,10 @@ import type { Callback, Props, TupleTypes, UnionToIntersection } from './types';
  * https://github.com/adobe/react-spectrum/blob/main/packages/%40react-aria/utils/src/mergeProps.ts
  */
 export function mergeProps<T extends Props[]>(...args: T): UnionToIntersection<TupleTypes<T>> {
-	const result: Props = { ...args[0] };
+	const result: Record<string, unknown> = { ...args[0] };
 
 	for (let i = 1; i < args.length; i += 1) {
-		const props = args[i];
+		const props: Record<string, unknown> = args[i];
 
 		for (const prop in props) {
 			if (Object.prototype.hasOwnProperty.call(props, prop)) {

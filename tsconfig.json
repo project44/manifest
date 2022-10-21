@@ -16,6 +16,9 @@
       "path": "packages/react"
     },
     {
+      "path": "packages/react-components/react-button"
+    },
+    {
       "path": "packages/react-components/react-typography"
     },
     {

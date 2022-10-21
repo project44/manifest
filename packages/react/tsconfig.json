@@ -16,6 +16,9 @@
   ],
   "references": [
     {
+      "path": "../react-components/react-button"
+    },
+    {
       "path": "../react-components/react-typography"
     },
     {
