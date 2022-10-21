@@ -1,3 +1,4 @@
+export * from './context';
 export * from './filterDOMProps';
 export * from './mergeCallbacks';
 export * from './mergeProps';
