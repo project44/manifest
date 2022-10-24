@@ -1,0 +1,28 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": [
+      "dom"
+    ],
+    "outDir": "dts",
+    "rootDir": "src"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "references": [
+    {
+      "path": "../../react-utilities/react-styles"
+    },
+    {
+      "path": "../../react-utilities/react-test-utils"
+    },
+    {
+      "path": "../../react-utilities/react-types"
+    },
+    {
+      "path": "../../react-utilities/react-utils"
+    }
+  ]
+}
