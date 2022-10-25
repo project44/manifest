@@ -1,5 +1,13 @@
 # @project44-manifest/react-button
 
+## 0.2.1
+
+### Patch Changes
+
+- [#132](https://github.com/project44/manifest/pull/132)
+  [`4cd20d5`](https://github.com/project44/manifest/commit/4cd20d5f710d434f56b3d3713e78acf74f3ab194)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - forwarding props to button element
+
 ## 0.2.0
 
 ### Minor Changes
