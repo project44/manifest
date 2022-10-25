@@ -1,7 +1,7 @@
 import { accessibility, render, screen } from '@project44-manifest/test-utils';
 import { IconButton } from '../src';
 
-describe('@project44-manifest/react - Button', () => {
+describe('react-button - IconButton', () => {
 	accessibility(<IconButton>icon</IconButton>);
 
 	it('should render', () => {

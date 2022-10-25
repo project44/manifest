@@ -3665,6 +3665,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@project44-manifest/react-layout@^0.0.0, @project44-manifest/react-layout@workspace:packages/react-components/react-layout":
+  version: 0.0.0-use.local
+  resolution: "@project44-manifest/react-layout@workspace:packages/react-components/react-layout"
+  dependencies:
+    "@project44-manifest/react-styles": ^0.3.0
+    "@project44-manifest/react-test-utils": ^0.2.0
+    "@project44-manifest/react-types": ^0.2.0
+    "@project44-manifest/react-utils": ^0.2.0
+    "@types/lodash.camelcase": ^4.3.7
+    lodash.camelcase: ^4.3.0
+    react: ^18.1.0
+    react-dom: ^18.1.0
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+  languageName: unknown
+  linkType: soft
+
 "@project44-manifest/react-styles@^0.3.0, @project44-manifest/react-styles@workspace:packages/react-utilities/react-styles":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-styles@workspace:packages/react-utilities/react-styles"
@@ -3771,6 +3789,7 @@ __metadata:
   dependencies:
     "@internationalized/date": ^3.0.0
     "@project44-manifest/react-button": ^0.2.0
+    "@project44-manifest/react-layout": ^0.0.0
     "@project44-manifest/react-styles": ^0.3.0
     "@project44-manifest/react-test-utils": ^0.2.0
     "@project44-manifest/react-tooltip": ^0.2.0
@@ -7303,6 +7322,15 @@ __metadata:
     "@types/interpret": "*"
     "@types/node": "*"
   checksum: 3d411a234a911d0464f5f77e8cb63ad88e1115fadb1138cfa12b02b67fb93d365966a0af5e1cc4a9f92c8d8d369727021cb638df4f9756d953fa37f3a3d6ba46
+  languageName: node
+  linkType: hard
+
+"@types/lodash.camelcase@npm:^4.3.7":
+  version: 4.3.7
+  resolution: "@types/lodash.camelcase@npm:4.3.7"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: ef068b921ab439f7b1a2c0ebbd890ba64ba437fc6aeb5e3ac18d34da30f9054fceaac5ccfdfa9e12b2fc403e10910439d3ebf92ba2f93de03c2f02261adfc000
   languageName: node
   linkType: hard
 
