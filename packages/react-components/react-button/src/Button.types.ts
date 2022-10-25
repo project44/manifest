@@ -68,6 +68,11 @@ export interface ButtonProps {
 	/** The target window for the link. */
 	target?: string;
 	/**
+	 * The behavior of the button when used in an HTML form.
+	 * @default 'button'
+	 */
+	type?: 'button' | 'reset' | 'submit';
+	/**
 	 * The display variant of the button.
 	 *
 	 * @default 'primary'
