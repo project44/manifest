@@ -3615,7 +3615,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@project44-manifest/design-tokens@^1.1.0, @project44-manifest/design-tokens@^1.1.1, @project44-manifest/design-tokens@workspace:packages/design-tokens":
+"@project44-manifest/design-tokens@^1.1.0, @project44-manifest/design-tokens@^1.2.0, @project44-manifest/design-tokens@workspace:packages/design-tokens":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/design-tokens@workspace:packages/design-tokens"
   languageName: unknown
@@ -3646,14 +3646,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-button@^0.1.0, @project44-manifest/react-button@workspace:packages/react-components/react-button":
+"@project44-manifest/react-button@^0.2.0, @project44-manifest/react-button@workspace:packages/react-components/react-button":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-button@workspace:packages/react-components/react-button"
   dependencies:
-    "@project44-manifest/react-styles": ^0.2.0
-    "@project44-manifest/react-test-utils": ^0.1.0
-    "@project44-manifest/react-types": ^0.1.0
-    "@project44-manifest/react-utils": ^0.1.0
+    "@project44-manifest/react-styles": ^0.3.0
+    "@project44-manifest/react-test-utils": ^0.2.0
+    "@project44-manifest/react-types": ^0.2.0
+    "@project44-manifest/react-utils": ^0.2.0
     "@react-aria/button": ^3.6.2
     "@react-aria/focus": ^3.9.0
     "@react-aria/interactions": ^3.12.0
@@ -3665,12 +3665,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-styles@^0.2.0, @project44-manifest/react-styles@workspace:packages/react-utilities/react-styles":
+"@project44-manifest/react-styles@^0.3.0, @project44-manifest/react-styles@workspace:packages/react-utilities/react-styles":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-styles@workspace:packages/react-utilities/react-styles"
   dependencies:
-    "@project44-manifest/react-test-utils": ^0.1.0
-    "@project44-manifest/theme": ^0.1.1
+    "@project44-manifest/react-test-utils": ^0.2.0
+    "@project44-manifest/theme": ^0.1.2
     "@stitches/react": ^1.2.8
     clsx: ^1.1.1
     react: ^18.1.0
@@ -3681,7 +3681,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-test-utils@^0.1.0, @project44-manifest/react-test-utils@workspace:packages/react-utilities/react-test-utils":
+"@project44-manifest/react-test-utils@^0.2.0, @project44-manifest/react-test-utils@workspace:packages/react-utilities/react-test-utils":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-test-utils@workspace:packages/react-utilities/react-test-utils"
   dependencies:
@@ -3699,14 +3699,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-tooltip@^0.1.0, @project44-manifest/react-tooltip@workspace:packages/react-components/react-tooltip":
+"@project44-manifest/react-tooltip@^0.2.0, @project44-manifest/react-tooltip@workspace:packages/react-components/react-tooltip":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-tooltip@workspace:packages/react-components/react-tooltip"
   dependencies:
-    "@project44-manifest/react-styles": ^0.2.0
-    "@project44-manifest/react-test-utils": ^0.1.0
-    "@project44-manifest/react-types": ^0.1.0
-    "@project44-manifest/react-utils": ^0.1.0
+    "@project44-manifest/react-styles": ^0.3.0
+    "@project44-manifest/react-test-utils": ^0.2.0
+    "@project44-manifest/react-types": ^0.2.0
+    "@project44-manifest/react-utils": ^0.2.0
     "@react-aria/interactions": ^3.12.0
     "@react-aria/overlays": ^3.11.0
     "@react-aria/tooltip": ^3.3.2
@@ -3720,7 +3720,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-types@^0.1.0, @project44-manifest/react-types@workspace:packages/react-utilities/react-types":
+"@project44-manifest/react-types@^0.2.0, @project44-manifest/react-types@workspace:packages/react-utilities/react-types":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-types@workspace:packages/react-utilities/react-types"
   dependencies:
@@ -3733,14 +3733,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-typography@^0.1.0, @project44-manifest/react-typography@workspace:packages/react-components/react-typography":
+"@project44-manifest/react-typography@^0.2.0, @project44-manifest/react-typography@workspace:packages/react-components/react-typography":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-typography@workspace:packages/react-components/react-typography"
   dependencies:
-    "@project44-manifest/react-styles": ^0.2.0
-    "@project44-manifest/react-test-utils": ^0.1.0
-    "@project44-manifest/react-types": ^0.1.0
-    "@project44-manifest/react-utils": ^0.1.0
+    "@project44-manifest/react-styles": ^0.3.0
+    "@project44-manifest/react-test-utils": ^0.2.0
+    "@project44-manifest/react-types": ^0.2.0
+    "@project44-manifest/react-utils": ^0.2.0
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
@@ -3749,12 +3749,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-utils@^0.1.0, @project44-manifest/react-utils@workspace:packages/react-utilities/react-utils":
+"@project44-manifest/react-utils@^0.2.0, @project44-manifest/react-utils@workspace:packages/react-utilities/react-utils":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-utils@workspace:packages/react-utilities/react-utils"
   dependencies:
-    "@project44-manifest/react-test-utils": ^0.1.0
-    "@project44-manifest/utils": ^0.1.0
+    "@project44-manifest/react-test-utils": ^0.2.0
+    "@project44-manifest/utils": ^0.2.0
     "@radix-ui/react-slot": ^1.0.1
     clsx: ^1.1.1
     react: ^18.1.0
@@ -3770,11 +3770,11 @@ __metadata:
   resolution: "@project44-manifest/react@workspace:packages/react"
   dependencies:
     "@internationalized/date": ^3.0.0
-    "@project44-manifest/react-button": ^0.1.0
-    "@project44-manifest/react-styles": ^0.2.0
-    "@project44-manifest/react-test-utils": ^0.1.0
-    "@project44-manifest/react-tooltip": ^0.1.0
-    "@project44-manifest/react-typography": ^0.1.0
+    "@project44-manifest/react-button": ^0.2.0
+    "@project44-manifest/react-styles": ^0.3.0
+    "@project44-manifest/react-test-utils": ^0.2.0
+    "@project44-manifest/react-tooltip": ^0.2.0
+    "@project44-manifest/react-typography": ^0.2.0
     "@project44-manifest/system": ^0.1.4
     "@radix-ui/react-slot": ^1.0.0
     "@react-aria/button": ^3.5.1
@@ -3862,7 +3862,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@project44-manifest/system@workspace:packages/system"
   dependencies:
-    "@project44-manifest/react-test-utils": ^0.1.0
+    "@project44-manifest/react-test-utils": ^0.2.0
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
@@ -3889,18 +3889,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@project44-manifest/theme@^0.1.1, @project44-manifest/theme@workspace:packages/theme":
+"@project44-manifest/theme@^0.1.2, @project44-manifest/theme@workspace:packages/theme":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/theme@workspace:packages/theme"
   dependencies:
-    "@project44-manifest/design-tokens": ^1.1.1
-    "@project44-manifest/utils": ^0.1.0
+    "@project44-manifest/design-tokens": ^1.2.0
+    "@project44-manifest/utils": ^0.2.0
     "@types/lodash.merge": ^4.6.7
     lodash.merge: ^4.6.2
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/utils@^0.1.0, @project44-manifest/utils@workspace:packages/utils":
+"@project44-manifest/utils@^0.2.0, @project44-manifest/utils@workspace:packages/utils":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/utils@workspace:packages/utils"
   languageName: unknown
