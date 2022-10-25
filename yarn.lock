@@ -3646,7 +3646,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-button@^0.2.0, @project44-manifest/react-button@workspace:packages/react-components/react-button":
+"@project44-manifest/react-button@^0.2.2, @project44-manifest/react-button@workspace:packages/react-components/react-button":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-button@workspace:packages/react-components/react-button"
   dependencies:
@@ -3665,7 +3665,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-layout@^0.0.0, @project44-manifest/react-layout@workspace:packages/react-components/react-layout":
+"@project44-manifest/react-layout@^0.1.0, @project44-manifest/react-layout@workspace:packages/react-components/react-layout":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-layout@workspace:packages/react-components/react-layout"
   dependencies:
@@ -3717,7 +3717,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-tooltip@^0.2.0, @project44-manifest/react-tooltip@workspace:packages/react-components/react-tooltip":
+"@project44-manifest/react-tooltip@^0.2.1, @project44-manifest/react-tooltip@workspace:packages/react-components/react-tooltip":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-tooltip@workspace:packages/react-components/react-tooltip"
   dependencies:
@@ -3751,7 +3751,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-typography@^0.2.0, @project44-manifest/react-typography@workspace:packages/react-components/react-typography":
+"@project44-manifest/react-typography@^0.2.1, @project44-manifest/react-typography@workspace:packages/react-components/react-typography":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-typography@workspace:packages/react-components/react-typography"
   dependencies:
@@ -3788,12 +3788,12 @@ __metadata:
   resolution: "@project44-manifest/react@workspace:packages/react"
   dependencies:
     "@internationalized/date": ^3.0.0
-    "@project44-manifest/react-button": ^0.2.0
-    "@project44-manifest/react-layout": ^0.0.0
+    "@project44-manifest/react-button": ^0.2.2
+    "@project44-manifest/react-layout": ^0.1.0
     "@project44-manifest/react-styles": ^0.3.0
     "@project44-manifest/react-test-utils": ^0.2.0
-    "@project44-manifest/react-tooltip": ^0.2.0
-    "@project44-manifest/react-typography": ^0.2.0
+    "@project44-manifest/react-tooltip": ^0.2.1
+    "@project44-manifest/react-typography": ^0.2.1
     "@project44-manifest/system": ^0.1.4
     "@radix-ui/react-slot": ^1.0.0
     "@react-aria/button": ^3.5.1
