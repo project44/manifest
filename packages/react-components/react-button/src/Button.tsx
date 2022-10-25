@@ -2,7 +2,7 @@ import * as React from 'react';
 import { AriaButtonProps, useButton } from '@react-aria/button';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
-import { ForwardRefComponent, PressEvent } from '@project44-manifest/react-types';
+import { ForwardRefComponent } from '@project44-manifest/react-types';
 import { mergeProps, mergeRefs } from '@project44-manifest/react-utils';
 import { ButtonIcon } from './Button.icon';
 import { useStyles } from './Button.styles';
@@ -21,31 +21,40 @@ export const Button = React.forwardRef((props, forwardedRef) => {
 		css,
 		isDisabled = group?.isDisabled,
 		endIcon,
+		href,
 		onClick,
 		onPress,
+		onPressStart,
+		onPressEnd,
+		onPressChange,
+		onPressUp,
+		rel,
 		size = group?.size ?? 'medium',
 		startIcon,
 		variant = group?.variant ?? 'primary',
+		target,
+		type = 'button',
 		...other
 	} = props;
 
 	const buttonRef = React.useRef<HTMLButtonElement>(null);
 
-	const handlePress = React.useCallback(
-		(event: PressEvent) => {
-			onClick?.(event as unknown as React.MouseEvent<HTMLButtonElement>);
-			onPress?.(event);
-		},
-		[onClick, onPress],
-	);
-
 	const { buttonProps, isPressed } = useButton(
 		{
-			...(other as AriaButtonProps),
-			elementType: Comp,
+			...other,
+			elementType: typeof Comp === 'string' ? Comp : 'button',
+			href,
 			isDisabled,
-			onPress: handlePress,
-		},
+			onClick,
+			onPress,
+			onPressStart,
+			onPressEnd,
+			onPressChange,
+			onPressUp,
+			rel,
+			target,
+			type,
+		} as AriaButtonProps,
 		buttonRef,
 	);
 	const { isFocusVisible, focusProps } = useFocusRing({ autoFocus });
@@ -70,7 +79,7 @@ export const Button = React.forwardRef((props, forwardedRef) => {
 
 	return (
 		<Comp
-			{...mergeProps(buttonProps, focusProps, hoverProps)}
+			{...mergeProps(buttonProps, focusProps, hoverProps, other)}
 			ref={mergeRefs(buttonRef, forwardedRef)}
 			className={cx(classes.root, classNameProp)}
 			data-focus-visible={isFocusVisible ? '' : undefined}
