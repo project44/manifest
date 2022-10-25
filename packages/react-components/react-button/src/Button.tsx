@@ -63,6 +63,7 @@ export const Button = React.forwardRef((props, forwardedRef) => {
 	const { classes, cx } = useStyles(
 		{ isDisabled, size, variant },
 		{
+			css,
 			name: 'button',
 			classes: classesProp,
 			slots: {

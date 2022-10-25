@@ -30,11 +30,15 @@ export const Typography = React.forwardRef((props, forwardedRef) => {
 
 	const Comp = as ?? (paragraph ? 'p' : variantMap[variant]);
 
-	const { classes, cx } = useStyles(props, {
-		name: 'typography',
-		classes: classesProp,
-		slots: { root: [variant, paragraph && 'paragraph'] },
-	});
+	const { classes, cx } = useStyles(
+		{ paragraph, variant },
+		{
+			css,
+			name: 'typography',
+			classes: classesProp,
+			slots: { root: [variant, paragraph && 'paragraph'] },
+		},
+	);
 
 	return (
 		<Comp

@@ -1,7 +1,7 @@
 import { accessibility, render, screen } from '@project44-manifest/react-test-utils';
 import { Button, ButtonGroup } from '../src';
 
-describe('@dolly/button - ButtonGroup', () => {
+describe('react-button - ButtonGroup', () => {
 	accessibility(
 		<ButtonGroup>
 			<Button>Cancel</Button>

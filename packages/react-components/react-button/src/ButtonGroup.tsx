@@ -20,11 +20,15 @@ export const ButtonGroup = React.forwardRef((props, forwardedRef) => {
 
 	const context = React.useMemo(() => ({ isDisabled, size, variant }), [isDisabled, size, variant]);
 
-	const { classes, cx } = useStyles(props, {
-		name: 'button-group',
-		classes: classesProp,
-		slots: { root: [size, variant, isAttached && 'attached', isDisabled && 'disabled'] },
-	});
+	const { classes, cx } = useStyles(
+		{ isAttached },
+		{
+			css,
+			name: 'button-group',
+			classes: classesProp,
+			slots: { root: [size, variant, isAttached && 'attached', isDisabled && 'disabled'] },
+		},
+	);
 
 	return (
 		<Comp {...other} ref={forwardedRef} className={cx(classes.root, classNameProp)}>

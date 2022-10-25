@@ -19,6 +19,9 @@
       "path": "packages/react-components/react-button"
     },
     {
+      "path": "packages/react-components/react-layout"
+    },
+    {
       "path": "packages/react-components/react-tooltip"
     },
     {

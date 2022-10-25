@@ -34,6 +34,7 @@ export const Tooltip = React.forwardRef((props, forwardedRef) => {
 	});
 
 	const { classes, cx } = useStyles(props, {
+		css,
 		name: 'tooltip',
 		classes: classesProp,
 		slots: { root: [] },

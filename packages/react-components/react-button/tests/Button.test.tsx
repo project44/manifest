@@ -1,7 +1,7 @@
 import { accessibility, fireEvent, render, screen } from '@project44-manifest/test-utils';
 import { Button, ButtonSize, ButtonVariant } from '../src';
 
-describe('@project44-manifest/react - Button', () => {
+describe('react-button - Button', () => {
 	accessibility(<Button>Click Me</Button>);
 
 	it('should render', () => {

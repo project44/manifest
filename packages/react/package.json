@@ -52,6 +52,7 @@
   "dependencies": {
     "@internationalized/date": "^3.0.0",
     "@project44-manifest/react-button": "^0.2.0",
+    "@project44-manifest/react-layout": "^0.0.0",
     "@project44-manifest/react-styles": "^0.3.0",
     "@project44-manifest/react-tooltip": "^0.2.0",
     "@project44-manifest/react-typography": "^0.2.0",
