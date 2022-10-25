@@ -1,5 +1,20 @@
 # @manifest/design-tokens
 
+## 1.2.0
+
+### Minor Changes
+
+- [#122](https://github.com/project44/manifest/pull/122)
+  [`97f6a82`](https://github.com/project44/manifest/commit/97f6a82a97cd3e89e66dfa31269ba5f540a0de40)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - [design-tokens] adding a token object
+  export.
+
+### Patch Changes
+
+- [#129](https://github.com/project44/manifest/pull/129)
+  [`c8c0792`](https://github.com/project44/manifest/commit/c8c07926264dc9bb4693c8c2b871f1825148610b)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - [react-button] adding react-button package
+
 ## 1.1.1
 
 ### Patch Changes

@@ -1,5 +1,38 @@
 # @manifest/react
 
+## 2.6.0
+
+### Minor Changes
+
+- [#127](https://github.com/project44/manifest/pull/127)
+  [`e123973`](https://github.com/project44/manifest/commit/e123973ac42f84cca73aa0fb14e66c623594f080)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - [react-typography] adding new
+  react-typography package \n [react] using new react-typography in place of the typography
+  component \n [react-styles] added support for slot level class names \n [react-types] simplied
+  polymorphic types
+
+* [#129](https://github.com/project44/manifest/pull/129)
+  [`c8c0792`](https://github.com/project44/manifest/commit/c8c07926264dc9bb4693c8c2b871f1825148610b)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - [react-button] adding react-button package
+
+### Patch Changes
+
+- [#130](https://github.com/project44/manifest/pull/130)
+  [`b1bb2b3`](https://github.com/project44/manifest/commit/b1bb2b39e9702bd3d80000b3197128e3f449ffd8)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - [react-tooltip] adding react-tooltip
+  package
+
+- Updated dependencies
+  [[`9523cee`](https://github.com/project44/manifest/commit/9523cee0c7aa3141c1e82af0c754bb3ce958f47f),
+  [`b1bb2b3`](https://github.com/project44/manifest/commit/b1bb2b39e9702bd3d80000b3197128e3f449ffd8),
+  [`87cf677`](https://github.com/project44/manifest/commit/87cf677ac47f55e2e747f327d0057f2d323ead92),
+  [`e123973`](https://github.com/project44/manifest/commit/e123973ac42f84cca73aa0fb14e66c623594f080),
+  [`c8c0792`](https://github.com/project44/manifest/commit/c8c07926264dc9bb4693c8c2b871f1825148610b)]:
+  - @project44-manifest/react-styles@0.3.0
+  - @project44-manifest/react-tooltip@0.2.0
+  - @project44-manifest/react-typography@0.2.0
+  - @project44-manifest/react-button@0.2.0
+
 ## 2.5.0
 
 ### Minor Changes
