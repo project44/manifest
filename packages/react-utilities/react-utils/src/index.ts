@@ -4,3 +4,4 @@ export * from './mergeCallbacks';
 export * from './mergeProps';
 export * from './mergeRefs';
 export * from './types';
+export { Slot } from '@radix-ui/react-slot';

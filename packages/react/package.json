@@ -53,6 +53,7 @@
     "@internationalized/date": "^3.0.0",
     "@project44-manifest/react-button": "^0.1.0",
     "@project44-manifest/react-styles": "^0.2.0",
+    "@project44-manifest/react-tooltip": "^0.1.0",
     "@project44-manifest/react-typography": "^0.1.0",
     "@project44-manifest/system": "^0.1.4",
     "@radix-ui/react-slot": "^1.0.0",
