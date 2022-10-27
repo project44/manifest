@@ -6,6 +6,7 @@
     "/packages/react",
     "/packages/react-components/react-button",
     "/packages/react-components/react-layout",
+    "/packages/react-components/react-popover",
     "/packages/react-components/react-tooltip",
     "/packages/react-components/react-typography",
     "/packages/react-utilities/react-styles",

@@ -1,14 +1,28 @@
-import { Provider } from '@project44-manifest/react';
+import { Provider, styled } from '@project44-manifest/react';
+
+const Wrapper = styled('div', {
+	alignItems: 'center',
+	backgroundColor: '$background-primary',
+	color: '$text-primary',
+	display: 'flex',
+	flexDirection: 'row',
+	flexWrap: 'wrap',
+	justifyContent: 'center',
+	width: '100vw',
+	height: '100vh',
+});
 
 export const decorators = [
 	(Story) => (
 		<Provider>
-			<Story />
+			<Wrapper>
+				<Story />
+			</Wrapper>
 		</Provider>
 	),
 ];
 
 export const parameters = {
-	actions: { argTypesRegex: '^on.*' },
-	controls: { expanded: true },
+	layout: 'fullscreen',
+	actions: { argTypesRegex: '^on[A-Z].*' },
 };
