@@ -4,6 +4,13 @@
   "packages": [
     "/packages/design-tokens",
     "/packages/react",
+    "/packages/react-components/react-button",
+    "/packages/react-components/react-layout",
+    "/packages/react-components/react-tooltip",
+    "/packages/react-components/react-typography",
+    "/packages/react-utilities/react-styles",
+    "/packages/react-utilities/react-types",
+    "/packages/react-utilities/react-utils",
     "/packages/system",
     "/packages/theme"
   ],
