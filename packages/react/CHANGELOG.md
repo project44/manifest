@@ -1,13 +1,5 @@
 # @manifest/react
 
-## 2.6.2
-
-### Patch Changes
-
-- [#140](https://github.com/project44/manifest/pull/140)
-  [`df6ce7b`](https://github.com/project44/manifest/commit/df6ce7b838bfdb89ab9cfc67df50f2ceb9a111c4)
-  Thanks [@bclark-p44](https://github.com/bclark-p44)! - updating react-tooltip package version
-
 ## 2.6.1
 
 ### Patch Changes
