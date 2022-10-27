@@ -56,7 +56,7 @@
     "@react-aria/overlays": "^3.11.0",
     "@react-aria/tooltip": "^3.3.2",
     "@react-stately/tooltip": "^3.2.2",
-    "framer-motion": "^7.6.1"
+    "framer-motion": "6.2.9"
   },
   "devDependencies": {
     "@project44-manifest/react-test-utils": "^0.2.0",
