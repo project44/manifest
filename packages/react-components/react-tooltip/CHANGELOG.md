@@ -1,5 +1,13 @@
 # @project44-manifest/react-tooltip
 
+## 0.2.2
+
+### Patch Changes
+
+- [#137](https://github.com/project44/manifest/pull/137)
+  [`c7b0da2`](https://github.com/project44/manifest/commit/c7b0da2f90cfc0ef8dac4409de7c7e49e02c675e)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Updating framer-motion to support react 17
+
 ## 0.2.1
 
 ### Patch Changes
