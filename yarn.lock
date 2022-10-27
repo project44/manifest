@@ -3652,7 +3652,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-tooltip@^0.2.1, @project44-manifest/react-tooltip@workspace:packages/react-components/react-tooltip":
+"@project44-manifest/react-tooltip@^0.2.2, @project44-manifest/react-tooltip@workspace:packages/react-components/react-tooltip":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-tooltip@workspace:packages/react-components/react-tooltip"
   dependencies:
@@ -3727,7 +3727,7 @@ __metadata:
     "@project44-manifest/react-layout": ^0.1.0
     "@project44-manifest/react-styles": ^0.3.0
     "@project44-manifest/react-test-utils": ^0.2.0
-    "@project44-manifest/react-tooltip": ^0.2.1
+    "@project44-manifest/react-tooltip": ^0.2.2
     "@project44-manifest/react-typography": ^0.2.1
     "@project44-manifest/system": ^0.1.4
     "@radix-ui/react-slot": ^1.0.0
