@@ -2,10 +2,11 @@ import * as React from 'react';
 import { AriaButtonProps, useButton } from '@react-aria/button';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
+import { cx } from '@project44-manifest/react-styles';
 import { ForwardRefComponent } from '@project44-manifest/react-types';
 import { mergeProps, mergeRefs } from '@project44-manifest/react-utils';
 import { ButtonIcon } from './Button.icon';
-import { useStyles } from './Button.styles';
+import { StyledButton } from './Button.styles';
 import { ButtonElement, ButtonProps } from './Button.types';
 import { useButtonGroup } from './ButtonGroup.context';
 
@@ -13,11 +14,10 @@ export const Button = React.forwardRef((props, forwardedRef) => {
 	const group = useButtonGroup();
 
 	const {
-		as: Comp = 'button',
+		as,
 		autoFocus,
 		children,
 		className: classNameProp,
-		classes: classesProp,
 		css,
 		isDisabled = group?.isDisabled,
 		endIcon,
@@ -42,7 +42,7 @@ export const Button = React.forwardRef((props, forwardedRef) => {
 	const { buttonProps, isPressed } = useButton(
 		{
 			...other,
-			elementType: typeof Comp === 'string' ? Comp : 'button',
+			elementType: typeof as === 'string' ? as : 'button',
 			href,
 			isDisabled,
 			onClick,
@@ -58,45 +58,47 @@ export const Button = React.forwardRef((props, forwardedRef) => {
 		buttonRef,
 	);
 	const { isFocusVisible, focusProps } = useFocusRing({ autoFocus });
-	const { hoverProps } = useHover({ isDisabled });
+	const { isHovered, hoverProps } = useHover({ isDisabled });
 
-	const { classes, cx } = useStyles(
-		{ isDisabled, size, variant },
-		{
-			css,
-			name: 'button',
-			classes: classesProp,
-			slots: {
-				root: [
-					size,
-					variant,
-					isDisabled && 'disabled',
-					endIcon && 'endIcon',
-					startIcon && 'startIcon',
-				],
-			},
-		},
-	);
+	const classnames = cx('manifest-button', classNameProp, {
+		'manifest-button--disabled': isDisabled,
+		[`manifest-button--${size}`]: size,
+		[`manifest-button--${variant}`]: variant,
+	});
 
 	return (
-		<Comp
+		<StyledButton
 			{...mergeProps(buttonProps, focusProps, hoverProps, other)}
 			ref={mergeRefs(buttonRef, forwardedRef)}
-			className={cx(classes.root, classNameProp)}
-			data-focus-visible={isFocusVisible ? '' : undefined}
-			data-pressed={isPressed ? '' : null}
+			as={as}
+			className={classnames}
+			css={css}
+			isDisabled={isDisabled}
+			isFocusVisible={isFocusVisible}
+			isHovered={isHovered}
+			isPressed={isPressed}
+			size={size}
+			variant={variant}
 		>
 			{startIcon && (
-				<ButtonIcon className={classes.startIcon} placement="start" size={size}>
+				<ButtonIcon
+					className={cx('manifest-button__icon', 'manifest-button__icon--start')}
+					placement="start"
+					size={size}
+				>
 					{startIcon}
 				</ButtonIcon>
 			)}
 			{children}
 			{endIcon && (
-				<ButtonIcon className={classes.endIcon} placement="end" size={size}>
+				<ButtonIcon
+					className={cx('manifest-button__icon', 'manifest-button__icon--end')}
+					placement="end"
+					size={size}
+				>
 					{endIcon}
 				</ButtonIcon>
 			)}
-		</Comp>
+		</StyledButton>
 	);
 }) as ForwardRefComponent<ButtonElement, ButtonProps>;

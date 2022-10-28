@@ -7,7 +7,7 @@ export default {
 } as ComponentMeta<typeof Grid>;
 
 export const Default = () => (
-	<Grid columns="repeat(5, 1fr)" gap="small">
+	<Grid columns="repeat(5, 1fr)" css={{ width: '100%' }} gap="small">
 		<GridItem css={{ backgroundColor: '$background-secondary' }} />
 		<GridItem css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }} />
 		<GridItem css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }} />
@@ -17,7 +17,7 @@ export const Default = () => (
 );
 
 export const Rows = () => (
-	<Grid gap="small" rows="repeat(5, 1fr)">
+	<Grid css={{ width: '100%' }} gap="small" rows="repeat(5, 1fr)">
 		<GridItem css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }} />
 		<GridItem css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }} />
 		<GridItem css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }} />
@@ -27,7 +27,12 @@ export const Rows = () => (
 );
 
 export const Spanning = () => (
-	<Grid columns="repeat(5, 1fr)" css={{ height: '200px' }} gap="small" rows="repeat(2, 1fr)">
+	<Grid
+		columns="repeat(5, 1fr)"
+		css={{ height: '200px', width: '100%' }}
+		gap="small"
+		rows="repeat(2, 1fr)"
+	>
 		<GridItem column={1} css={{ backgroundColor: '$background-secondary' }} row={2} />
 		<GridItem column={2} css={{ backgroundColor: '$background-secondary' }} />
 		<GridItem column={2} css={{ backgroundColor: '$background-secondary' }} />
@@ -36,7 +41,7 @@ export const Spanning = () => (
 );
 
 export const Position = () => (
-	<Grid columns="repeat(5, 1fr)" gap="small">
+	<Grid columns="repeat(5, 1fr)" css={{ width: '100%' }} gap="small">
 		<GridItem
 			column={2}
 			css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }}

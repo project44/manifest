@@ -1,4 +1,4 @@
-import { colorPrimaryDefault } from '@project44-manifest/design-tokens';
+import { colorDataVizDangerFill, colorPrimaryDefault } from '@project44-manifest/design-tokens';
 import { lightTheme } from '../src';
 
 describe('@project-manifest/theme - themes', () => {
@@ -9,6 +9,10 @@ describe('@project-manifest/theme - themes', () => {
 
 		it('should return theme specific colors', () => {
 			expect(lightTheme.colors['primary-default']).toBe(colorPrimaryDefault);
+		});
+
+		it('should flatten nested color tokens', () => {
+			expect(lightTheme.colors['data-viz-danger-fill']).toBe(colorDataVizDangerFill);
 		});
 	});
 });

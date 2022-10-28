@@ -1,8 +1,8 @@
-import { makeStyles } from '@project44-manifest/react-styles';
+import { focus, styled } from '@project44-manifest/react-styles';
 
-export const useStyles = makeStyles({
-	root: {},
-	surface: {
+export const StyledPopover = styled(
+	'div',
+	{
 		backgroundColor: '$background-surface',
 		borderRadius: '$small',
 		boxSizing: 'border-box',
@@ -12,9 +12,6 @@ export const useStyles = makeStyles({
 		outline: 0,
 		overflowY: 'auto',
 		overflowX: 'hidden',
-
-		'&[data-focus-visible]': {
-			outline: '$colors$palette-indigo-200 solid 2px',
-		},
 	},
-});
+	focus,
+);

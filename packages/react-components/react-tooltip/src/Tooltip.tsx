@@ -5,16 +5,12 @@ import { mergeProps, mergeRefs, Slot } from '@project44-manifest/react-utils';
 import { TooltipContent } from './Tooltip.content';
 import { useTooltip } from './Tooltip.hook';
 import { useTooltipState } from './Tooltip.state';
-import { useStyles } from './Tooltip.styles';
 import { TooltipElement, TooltipProps } from './Tooltip.types';
 
 export const Tooltip = React.forwardRef((props, forwardedRef) => {
 	const {
 		defaultOpen,
 		children,
-		className: classNameProp,
-		classes: classesProp,
-		css,
 		delay = 250,
 		isOpen,
 		isDisabled,
@@ -33,13 +29,6 @@ export const Tooltip = React.forwardRef((props, forwardedRef) => {
 		trigger,
 	});
 
-	const { classes, cx } = useStyles(props, {
-		css,
-		name: 'tooltip',
-		classes: classesProp,
-		slots: { root: [] },
-	});
-
 	return (
 		<>
 			<Slot {...triggerProps} ref={triggerRef}>
@@ -50,7 +39,6 @@ export const Tooltip = React.forwardRef((props, forwardedRef) => {
 					<TooltipContent
 						{...mergeProps(tooltipProps, other)}
 						ref={mergeRefs(tooltipRef, forwardedRef)}
-						className={cx(classes.root, classNameProp)}
 					>
 						{title}
 					</TooltipContent>

@@ -1,7 +1,7 @@
 import type * as Stitches from '@stitches/react';
-import { space } from '../../src/stitches/utils';
+import { space } from '../src/stitches/utils';
 
-describe('@project44-manifest/react-styles - space utils', () => {
+describe('react-styles - space utils', () => {
 	it('should support margin alias', () => {
 		const mixin = space.m('4px' as unknown as Stitches.PropertyValue<'margin'>);
 

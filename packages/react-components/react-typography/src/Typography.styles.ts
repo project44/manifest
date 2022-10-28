@@ -1,20 +1,29 @@
-import { makeStyles } from '@project44-manifest/react-styles';
-import { TypographyProps } from './Typography.types';
+import { styled } from '@project44-manifest/react-styles';
 
-export const useStyles = makeStyles<TypographyProps>((_, { paragraph, variant = 'body' }) => ({
-	root: {
-		margin: '0',
+export const StyledTypography = styled('p', {
+	margin: '0',
 
-		...(paragraph && { marginBottom: '$medium' }),
-		...(variant === 'body' && { typography: '$body' }),
-		...(variant === 'bodyBold' && { typography: '$body-bold' }),
-		...(variant === 'caption' && { typography: '$caption' }),
-		...(variant === 'captionBold' && { typography: '$caption-bold' }),
-		...(variant === 'display' && { typography: '$display' }),
-		...(variant === 'heading' && { typography: '$heading' }),
-		...(variant === 'subtext' && { typography: '$subtext' }),
-		...(variant === 'subtextBold' && { typography: '$subtext-bold' }),
-		...(variant === 'subtitle' && { typography: '$subtitle' }),
-		...(variant === 'title' && { typography: '$title' }),
+	variants: {
+		paragraph: {
+			true: {
+				marginBottom: '$medium',
+			},
+		},
+		variant: {
+			display: { typography: '$display' },
+			heading: { typography: '$heading' },
+			title: { typography: '$title' },
+			subtitle: { typography: '$subtitle' },
+			body: { typography: '$body' },
+			bodyBold: { typography: '$body-bold' },
+			subtext: { typography: '$subtext' },
+			subtextBold: { typography: '$subtext-bold' },
+			caption: { typography: '$caption' },
+			captionBold: { typography: '$caption-bold' },
+		},
 	},
-}));
+
+	defaultVariants: {
+		variant: 'body',
+	},
+});

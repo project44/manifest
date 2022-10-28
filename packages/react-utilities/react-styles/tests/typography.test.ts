@@ -1,6 +1,6 @@
-import { typography, VariantToken } from '../../src/stitches/utils';
+import { typography, VariantToken } from '../src/stitches/utils';
 
-describe('@project44-manifest/react-styles - typography utils', () => {
+describe('react-styles - typography utils', () => {
 	it('should support typography alias', () => {
 		const mixin = typography.typography('$display' as VariantToken);
 

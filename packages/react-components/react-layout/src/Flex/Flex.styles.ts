@@ -1,30 +1,47 @@
-import { makeStyles } from '@project44-manifest/react-styles';
-import { FlexProps } from './Flex.types';
+import { styled } from '@project44-manifest/react-styles';
 
-export const useStyles = makeStyles<FlexProps>((_, { align, gap, justify, orientation, wrap }) => ({
-	root: {
-		display: 'flex',
+export const StyledFlex = styled('div', {
+	boxSizing: 'border-box',
+	display: 'flex',
 
-		...(align === 'baseline' && { alignItems: 'baseline' }),
-		...(align === 'center' && { alignItems: 'center' }),
-		...(align === 'end' && { alignItems: 'flex-end' }),
-		...(align === 'start' && { alignItems: 'flex-start' }),
-
-		...(gap === 'large' && { gap: '$large' }),
-		...(gap === 'medium' && { gap: '$medium' }),
-		...(gap === 'small' && { gap: '$small' }),
-		...(gap === 'x-large' && { gap: '$x-large' }),
-		...(gap === 'x-small' && { gap: '$x-small' }),
-
-		...(justify === 'around' && { justifyContent: 'space-around' }),
-		...(justify === 'between' && { justifyContent: 'space-between' }),
-		...(justify === 'center' && { justifyContent: 'center' }),
-		...(justify === 'end' && { justifyContent: 'flex-end' }),
-		...(justify === 'start' && { justifyContent: 'flex-start' }),
-
-		...(orientation === 'horizontal' && { flexDirection: 'row' }),
-		...(orientation === 'vertical' && { flexDirection: 'column' }),
-
-		...(wrap && { flexWrap: 'wrap' }),
+	variants: {
+		align: {
+			baseline: { alignItems: 'baseline' },
+			center: { alignItems: 'center' },
+			end: { alignItems: 'flex-end' },
+			start: { alignItems: 'flex-start' },
+		},
+		gap: {
+			large: {
+				gap: '$large',
+			},
+			medium: {
+				gap: '$medium',
+			},
+			small: {
+				gap: '$small',
+			},
+			'x-large': {
+				gap: '$x-large',
+			},
+			'x-small': {
+				gap: '$x-small',
+			},
+		},
+		justify: {
+			around: { justifyContent: 'space-around' },
+			between: { justifyContent: 'space-between' },
+			center: { justifyContent: 'center' },
+			end: { justifyContent: 'flex-end' },
+			start: { justifyContent: 'flex-start' },
+		},
+		orientation: {
+			horizontal: { flexDirection: 'row' },
+			vertical: { flexDirection: 'column' },
+		},
+		wrap: {
+			false: {},
+			true: { flexWrap: 'wrap' },
+		},
 	},
-}));
+});

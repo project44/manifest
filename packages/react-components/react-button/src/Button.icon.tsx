@@ -1,7 +1,9 @@
 import { pxToRem, styled } from '@project44-manifest/react-styles';
 
 export const ButtonIcon = styled('span', {
-	display: 'inherit',
+	alignSelf: 'center',
+	display: 'inline-flex',
+	flexShrink: 0,
 
 	variants: {
 		placement: {

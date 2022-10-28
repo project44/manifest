@@ -5,32 +5,11 @@ export type ButtonSize = 'medium' | 'small';
 
 export type ButtonVariant = 'brand' | 'danger' | 'primary' | 'secondary' | 'tertiary';
 
-export interface ButtonSizeClasses {
-	medium: string;
-	large: string;
-}
-
-export interface ButtonVariantClasses {
-	brand: string;
-	danger: string;
-	primary: string;
-	secondary: string;
-	tertiary: string;
-}
-
-export interface ButtonClasses extends ButtonSizeClasses, ButtonVariantClasses {
-	disabled: string;
-	endIcon: string;
-	startIcon: string;
-}
-
 export type ButtonElement = 'button';
 
 export interface ButtonProps {
 	/** Whether the element should receive focus on render. */
 	autoFocus?: boolean;
-	/** Override classes for the component */
-	classes?: Partial<ButtonClasses>;
 	/** Theme aware style object */
 	css?: CSS;
 	/** Icon added after the button text. */

@@ -1,27 +1,31 @@
-import { makeStyles } from '@project44-manifest/react-styles';
-import { ButtonGroupProps } from './ButtonGroup.types';
+import { styled } from '@project44-manifest/react-styles';
 
-export const useStyles = makeStyles<ButtonGroupProps>((_, { isAttached }) => ({
-	root: {
-		boxSizing: 'border-box',
-		display: 'inline-flex',
+export const StyledButtonGroup = styled('div', {
+	boxSizing: 'border-box',
+	display: 'inline-flex',
 
-		...(isAttached && {
-			'> *:first-of-type:not(:last-of-type)': {
-				borderBottomRightRadius: 0,
-				borderTopRightRadius: 0,
+	variants: {
+		isAttached: {
+			true: {
+				'> *:first-of-type:not(:last-of-type)': {
+					borderBottomRightRadius: 0,
+					borderTopRightRadius: 0,
+				},
+
+				'> *:not(:first-of-type):not(:last-of-type)': { borderRadius: 0 },
+
+				'> *:not(:first-of-type):last-of-type': {
+					borderBottomLeftRadius: 0,
+					borderTopLeftRadius: 0,
+				},
 			},
-
-			'> *:not(:first-of-type):not(:last-of-type)': { borderRadius: 0 },
-
-			'> *:not(:first-of-type):last-of-type': {
-				borderBottomLeftRadius: 0,
-				borderTopLeftRadius: 0,
+			false: {
+				'& > *:not(style) ~ *:not(style)': { marginLeft: '$small' },
 			},
-		}),
-
-		...(!isAttached && {
-			'& > *:not(style) ~ *:not(style)': { marginLeft: '$small' },
-		}),
+		},
 	},
-}));
+
+	defaultVariants: {
+		isAttached: false,
+	},
+});

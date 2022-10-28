@@ -1,10 +1,6 @@
 import type * as CSSType from 'csstype';
 import { CSS } from '@project44-manifest/react-styles';
 
-export interface GridItemClasses {
-	root: string;
-}
-
 export type GridItemElement = 'div';
 
 export interface GridItemProps {
@@ -12,8 +8,6 @@ export interface GridItemProps {
 	 * Shorthand for the gridArea css property.
 	 */
 	area?: CSSType.Property.GridArea;
-	/** Override classes for the component */
-	classes?: Partial<GridItemClasses>;
 	/**
 	 * Shorthand for the gridColumn css property.
 	 */

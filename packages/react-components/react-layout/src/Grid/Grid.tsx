@@ -1,14 +1,13 @@
 import * as React from 'react';
-import camelCase from 'lodash.camelcase';
+import { cx } from '@project44-manifest/react-styles';
 import { ForwardRefComponent } from '@project44-manifest/react-types';
-import { useStyles } from './Grid.styles';
+import { StyledGrid } from './Grid.styles';
 import { GridElement, GridProps } from './Grid.types';
 
 export const Grid = React.forwardRef((props, forwardedRef) => {
 	const {
-		as: Comp = 'div',
+		as,
 		className: classNameProp,
-		classes: classesProp,
 		columnGap,
 		columns = 'auto',
 		css,
@@ -19,21 +18,21 @@ export const Grid = React.forwardRef((props, forwardedRef) => {
 		...other
 	} = props;
 
-	const { classes, cx } = useStyles(
-		{ columnGap, columns, flow, gap, rowGap, rows },
-		{
-			css,
-			name: 'grid',
-			classes: classesProp,
-			slots: {
-				root: [
-					columnGap && `${camelCase(`column-gap-${columnGap}`)}`,
-					gap && `${camelCase(`gap-${gap}`)}`,
-					rowGap && `${camelCase(`row-gap-${rowGap}`)}`,
-				],
-			},
-		},
+	return (
+		<StyledGrid
+			{...other}
+			ref={forwardedRef}
+			as={as}
+			className={cx('manifest-grid', classNameProp)}
+			columnGap={columnGap}
+			css={{
+				...css,
+				gridAutoFlow: flow,
+				gridTemplateColumns: columns,
+				gridTemplateRows: rows,
+			}}
+			gap={gap}
+			rowGap={rowGap}
+		/>
 	);
-
-	return <Comp {...other} ref={forwardedRef} className={cx(classes.root, classNameProp)} />;
 }) as ForwardRefComponent<GridElement, GridProps>;

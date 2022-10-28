@@ -51,12 +51,10 @@
   "dependencies": {
     "@project44-manifest/react-styles": "^0.3.0",
     "@project44-manifest/react-types": "^0.2.0",
-    "@project44-manifest/react-utils": "^0.2.0",
-    "lodash.camelcase": "^4.3.0"
+    "@project44-manifest/react-utils": "^0.2.0"
   },
   "devDependencies": {
     "@project44-manifest/react-test-utils": "^0.2.0",
-    "@types/lodash.camelcase": "^4.3.7",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
