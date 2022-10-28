@@ -1,5 +1,17 @@
 # @manifest/react
 
+## 2.6.3
+
+### Patch Changes
+
+- Updated dependencies
+  [[`7f20b30`](https://github.com/project44/manifest/commit/7f20b3033748bf70b76a88fcfc079539b588134a)]:
+  - @project44-manifest/react-button@1.0.0
+  - @project44-manifest/react-layout@1.0.0
+  - @project44-manifest/react-tooltip@1.0.0
+  - @project44-manifest/react-typography@1.0.0
+  - @project44-manifest/react-styles@1.0.0
+
 ## 2.6.2
 
 ### Patch Changes
