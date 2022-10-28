@@ -1,37 +1,10 @@
 {
-  "extends": "../../tsconfig.options.json",
+  "extends": "tsconfig-manifest/tsconfig.react.json",
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "lib": [
-      "dom"
-    ],
-    "outDir": "dts",
+    "outDir": "dist",
     "rootDir": "src"
   },
   "include": [
     "src/**/*"
-  ],
-  "references": [
-    {
-      "path": "../react-components/react-button"
-    },
-    {
-      "path": "../react-components/react-layout"
-    },
-    {
-      "path": "../react-components/react-tooltip"
-    },
-    {
-      "path": "../react-components/react-typography"
-    },
-    {
-      "path": "../react-utilities/react-styles"
-    },
-    {
-      "path": "../react-utilities/react-test-utils"
-    },
-    {
-      "path": "../system"
-    }
   ]
 }

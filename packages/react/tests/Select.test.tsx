@@ -1,4 +1,10 @@
-import { accessibility, fireEvent, render, screen, within } from '@project44-manifest/test-utils';
+import {
+	accessibility,
+	fireEvent,
+	render,
+	screen,
+	within,
+} from '@project44-manifest/react-test-utils';
 import { Select, SelectItem, SelectSection } from '../src';
 
 describe('@project44-manifest/react - Select', () => {

@@ -41,7 +41,6 @@ export const DropdownMenu = createComponent<DropdownMenuOptions>((props, forward
 							key={item.key}
 							item={item}
 							state={state}
-							// eslint-disable-next-line react/jsx-handler-names
 							onAction={completeProps.onAction}
 						/>
 					);
@@ -52,7 +51,6 @@ export const DropdownMenu = createComponent<DropdownMenuOptions>((props, forward
 						key={item.key}
 						item={item}
 						state={state}
-						// eslint-disable-next-line react/jsx-handler-names
 						onAction={completeProps.onAction}
 					/>
 				);

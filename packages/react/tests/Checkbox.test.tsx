@@ -1,4 +1,4 @@
-import { accessibility, render, screen, userEvent } from '@project44-manifest/test-utils';
+import { accessibility, render, screen, userEvent } from '@project44-manifest/react-test-utils';
 import { Checkbox } from '../src';
 
 describe('@project44-manifest/react - Checkbox', () => {

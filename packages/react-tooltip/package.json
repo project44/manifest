@@ -1,0 +1,62 @@
+{
+  "name": "@project44-manifest/react-tooltip",
+  "version": "1.0.0",
+  "description": "Manifest Design System react tooltip component",
+  "license": "MIT",
+  "author": "project44",
+  "keywords": [
+    "manifest",
+    "design",
+    "system",
+    "react",
+    "components"
+  ],
+  "sideEffects": false,
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "source": "src/index.ts",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:project-44/manifest.git",
+    "directory": "packages/react-tooltip"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup",
+    "clean": "rimraf dist .turbo",
+    "lint": "eslint \"**/*.{ts,tsx}\"",
+    "test": "jest",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  },
+  "dependencies": {
+    "@project44-manifest/react-styles": "*",
+    "@project44-manifest/react-types": "*",
+    "@project44-manifest/react-utils": "*",
+    "@react-aria/interactions": "^3.12.0",
+    "@react-aria/overlays": "^3.11.0",
+    "@react-aria/tooltip": "^3.3.2",
+    "@react-stately/tooltip": "^3.2.2",
+    "framer-motion": "6.2.9"
+  },
+  "devDependencies": {
+    "@project44-manifest/react-test-utils": "*",
+    "eslint": "^8.26.0",
+    "eslint-config-manifest": "*",
+    "jest": "^29.2.2",
+    "jest-preset-manifest": "*",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "tsconfig-manifest": "*",
+    "tsup": "^6.4.0"
+  }
+}

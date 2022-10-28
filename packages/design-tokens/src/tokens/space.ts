@@ -20,9 +20,9 @@ export const size = {
 };
 
 export const space = {
+	large: spaceLarge,
 	medium: spaceMedium,
 	small: spaceSmall,
-	large: spaceLarge,
 	'x-large': spaceXLarge,
 	'x-small': spaceXSmall,
 };

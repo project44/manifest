@@ -153,7 +153,7 @@ export const Pagination = createComponent<PaginationOptions>((props, forwardedRe
 			</PaginationItem>
 
 			{showPageNumbers &&
-				pages.map((item, index) => (
+				pages.map((item) => (
 					<Fragment key={item}>
 						{item === 'dots' && (
 							<div aria-hidden className="manifest-pagination__ellipsis">

@@ -9,51 +9,43 @@
     "design",
     "system"
   ],
-  "main": "./lib/index.js",
-  "module": "./esm/index.js",
-  "types": "./dts/index.d.ts",
+  "sideEffects": false,
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "source": "src/index.ts",
+  "types": "dist/index.d.ts",
   "files": [
-    "dts/**/*.d.ts",
-    "esm/**/*.{js,map}",
-    "lib/**/*.{js,map}",
-    "src/**/*.{ts,tsx,json}"
+    "dist"
   ],
-  "exports": {
-    "./package.json": "./package.json",
-    ".": {
-      "types": "./dts/index.d.ts",
-      "browser": {
-        "module": "./esm/index.js",
-        "import": "./esm/index.js",
-        "default": "./lib/index.js"
-      },
-      "default": "./lib/index.js"
-    }
-  },
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
     "url": "git@github.com:project-44/manifest.git",
     "directory": "packages/theme"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "build": "packemon build --addEngines --addExports --declaration --declarationConfig tsconfig.build.json",
-    "clean": "packemon clean && rm -rf .turbo node_modules *.tsbuildinfo",
-    "typecheck": "tsc -b"
+    "build": "tsup",
+    "clean": "rimraf dist .turbo",
+    "lint": "eslint \"**/*.{ts,tsx}\"",
+    "test": "jest",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@project44-manifest/design-tokens": "^1.2.0",
-    "@project44-manifest/utils": "^1.0.0",
+    "@project44-manifest/design-tokens": "*",
+    "@project44-manifest/utils": "*",
     "lodash.kebabcase": "^4.1.1",
     "lodash.merge": "^4.6.2"
   },
   "devDependencies": {
     "@types/lodash.kebabcase": "^4.1.7",
-    "@types/lodash.merge": "^4.6.7"
-  },
-  "packemon": {
-    "platform": "browser"
+    "@types/lodash.merge": "^4.6.7",
+    "eslint": "^8.26.0",
+    "eslint-config-manifest": "*",
+    "jest": "^29.2.2",
+    "jest-preset-manifest": "*",
+    "tsconfig-manifest": "*",
+    "tsup": "^6.4.0"
   }
 }

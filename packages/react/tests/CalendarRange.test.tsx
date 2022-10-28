@@ -1,5 +1,5 @@
 import { CalendarDate, endOfMonth, startOfMonth } from '@internationalized/date';
-import { accessibility, render, screen } from '@project44-manifest/test-utils';
+import { accessibility, render, screen } from '@project44-manifest/react-test-utils';
 import { CalendarRange } from '../src';
 import { DefinedRange } from '../src/components/CalendarRanges';
 import {

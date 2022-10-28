@@ -1,4 +1,4 @@
-import { render, screen } from '@project44-manifest/test-utils';
+import { render, screen } from '@project44-manifest/react-test-utils';
 import { createComponent } from '../src/system';
 
 describe('@project44-manifest/system - createComponent', () => {

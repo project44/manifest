@@ -4,7 +4,7 @@ import {
 	render,
 	screen,
 	userEvent,
-} from '@project44-manifest/test-utils';
+} from '@project44-manifest/react-test-utils';
 import { TextArea } from '../src';
 
 describe('@project44-manifest/components - TextArea', () => {

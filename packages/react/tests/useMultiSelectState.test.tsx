@@ -1,6 +1,6 @@
 import { act } from 'react-dom/test-utils';
 import { Item } from '@react-stately/collections';
-import { renderHook } from '@project44-manifest/test-utils';
+import { renderHook } from '@project44-manifest/react-test-utils';
 import { useMultiSelectState } from '../src';
 
 describe('@project44-manifest/react - useMultiSelectState', () => {

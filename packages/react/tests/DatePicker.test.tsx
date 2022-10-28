@@ -6,7 +6,7 @@ import {
 	screen,
 	userEvent,
 	waitFor,
-} from '@project44-manifest/test-utils';
+} from '@project44-manifest/react-test-utils';
 import { DatePicker } from '../src';
 
 describe('@project44-manifest/react - DatePicker', () => {

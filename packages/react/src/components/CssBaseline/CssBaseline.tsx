@@ -6,6 +6,5 @@ export const CssBaseline = memo<React.PropsWithChildren<unknown>>((props) => {
 
 	useStyles();
 
-	// eslint-disable-next-line react/jsx-no-useless-fragment
 	return <>{children}</>;
 });

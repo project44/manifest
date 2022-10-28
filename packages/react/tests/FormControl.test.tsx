@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useField } from '@react-aria/label';
-import { accessibility, render, screen } from '@project44-manifest/test-utils';
+import { accessibility, render, screen } from '@project44-manifest/react-test-utils';
 import { FormControl, FormControlProps } from '../src';
 
 const TestComponent = React.forwardRef(

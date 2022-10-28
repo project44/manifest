@@ -1,33 +1,33 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "baseBranch": "origin/main",
   "pipeline": {
     "build": {
-      "outputs": [
-        ".cache/**",
-        ".contentlayer/**",
-        ".next/**",
-        "dts/**",
-        "esm/**",
-        "lib/**"
-      ],
       "dependsOn": [
         "^build"
+      ],
+      "outputs": [
+        "dist/**"
       ]
     },
     "clean": {
       "cache": false
     },
-    "dev": {
-      "cache": false
+    "lint": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": []
     },
     "test": {
-      "outputs": [],
-      "dependsOn": []
+      "dependsOn": [
+        "build"
+      ],
+      "outputs": []
     },
     "typecheck": {
-      "outputs": [
-        "dts/**"
+      "cache": false,
+      "dependsOn": [
+        "^typecheck"
       ]
     }
   }

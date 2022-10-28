@@ -1,4 +1,4 @@
-import {
+import type {
 	BorderWidthTokens,
 	FontFamilyTokens,
 	FontSizeTokens,
@@ -11,7 +11,7 @@ import {
 	SpaceTokens,
 	ZIndexTokens,
 } from '@project44-manifest/design-tokens';
-import { ColorsTokens } from './themes/shared/colors';
+import type { ColorsTokens } from './themes/shared/colors';
 
 export interface Theme {
 	borderWidths: BorderWidthTokens;
