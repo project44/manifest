@@ -12,16 +12,4 @@ describe('react-button - IconButton', () => {
 		expect(button).toBeVisible();
 		expect(button).toHaveAttribute('type', 'button');
 	});
-
-	it.each`
-		size        | className
-		${'medium'} | ${'manifest-button-medium'}
-		${'small'}  | ${'manifest-button-small'}
-	`('should attach the $className className for the $size size', ({ className, size }) => {
-		render(<IconButton size={size}>icon</IconButton>);
-
-		const button = screen.getByRole('button');
-
-		expect(button.classList).toContain(className);
-	});
 });

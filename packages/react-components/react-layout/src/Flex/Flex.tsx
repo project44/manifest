@@ -1,15 +1,14 @@
 import * as React from 'react';
-import camelCase from 'lodash.camelcase';
+import { cx } from '@project44-manifest/react-styles';
 import { ForwardRefComponent } from '@project44-manifest/react-types';
-import { useStyles } from './Flex.styles';
+import { StyledFlex } from './Flex.styles';
 import { FlexElement, FlexProps } from './Flex.types';
 
 export const Flex = React.forwardRef((props, forwardedRef) => {
 	const {
-		as: Comp = 'div',
+		as,
 		align,
 		className: classNameProp,
-		classes: classesProp,
 		css,
 		gap,
 		justify,
@@ -18,23 +17,18 @@ export const Flex = React.forwardRef((props, forwardedRef) => {
 		...other
 	} = props;
 
-	const { classes, cx } = useStyles(
-		{ align, gap, justify, orientation, wrap },
-		{
-			css,
-			name: 'flex',
-			classes: classesProp,
-			slots: {
-				root: [
-					align && `${camelCase(`align-${align}`)}`,
-					justify && `${camelCase(`justify-${justify}`)}`,
-					gap && `${camelCase(`gap-${gap}`)}`,
-					orientation && orientation,
-					wrap && 'wrap',
-				],
-			},
-		},
+	return (
+		<StyledFlex
+			{...other}
+			ref={forwardedRef}
+			align={align}
+			as={as}
+			className={cx('manifest-flex', classNameProp)}
+			css={css}
+			gap={gap}
+			justify={justify}
+			orientation={orientation}
+			wrap={wrap}
+		/>
 	);
-
-	return <Comp {...other} ref={forwardedRef} className={cx(classes.root, classNameProp)} />;
 }) as ForwardRefComponent<FlexElement, FlexProps>;

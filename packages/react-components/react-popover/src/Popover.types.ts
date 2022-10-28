@@ -25,16 +25,9 @@ export type PopoverPlacement =
 	| 'top start'
 	| 'top';
 
-export interface PopoverClasses {
-	root: string;
-	surface: string;
-}
-
 export type PopoverElement = 'div';
 
 export interface PopoverProps {
-	/** Override classes for the component */
-	classes?: Partial<PopoverClasses>;
 	/** Theme aware style object */
 	css?: CSS;
 	/**

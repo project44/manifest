@@ -1,17 +1,9 @@
 import { CSS } from '@project44-manifest/react-styles';
-import { ButtonSize, ButtonSizeClasses, ButtonVariant, ButtonVariantClasses } from './Button.types';
+import { ButtonSize, ButtonVariant } from './Button.types';
 
 export type ButtonGroupElement = 'div';
 
-export interface ButtonGroupClasses extends ButtonSizeClasses, ButtonVariantClasses {
-	root: string;
-	attached: string;
-	disabled: string;
-}
-
 export interface ButtonGroupProps {
-	/** Override classes for the component */
-	classes?: Partial<ButtonGroupClasses>;
 	/** Theme aware style object */
 	css?: CSS;
 	/**

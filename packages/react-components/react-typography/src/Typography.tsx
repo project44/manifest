@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { cx } from '@project44-manifest/react-styles';
 import { ForwardRefComponent } from '@project44-manifest/react-types';
-import { filterDOMProps } from '@project44-manifest/react-utils';
-import { useStyles } from './Typography.styles';
+import { StyledTypography } from './Typography.styles';
 import { TypographyElement, TypographyProps } from './Typography.types';
 
 const variantMap = {
@@ -18,33 +18,19 @@ const variantMap = {
 } as const;
 
 export const Typography = React.forwardRef((props, forwardedRef) => {
-	const {
-		as,
-		className: classNameProp,
-		classes: classesProp,
-		css,
-		paragraph,
-		variant = 'body',
-		...other
-	} = props;
+	const { as, className: classNameProp, css, paragraph, variant = 'body', ...other } = props;
 
 	const Comp = as ?? (paragraph ? 'p' : variantMap[variant]);
 
-	const { classes, cx } = useStyles(
-		{ paragraph, variant },
-		{
-			css,
-			name: 'typography',
-			classes: classesProp,
-			slots: { root: [variant, paragraph && 'paragraph'] },
-		},
-	);
-
 	return (
-		<Comp
-			{...filterDOMProps({ ...other })}
+		<StyledTypography
+			{...other}
 			ref={forwardedRef}
-			className={cx(classes.root, classNameProp)}
+			as={Comp}
+			className={cx('manifest-typography', classNameProp)}
+			css={css}
+			paragraph={paragraph}
+			variant={variant}
 		/>
 	);
 }) as ForwardRefComponent<TypographyElement, TypographyProps>;

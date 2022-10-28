@@ -1,33 +1,60 @@
-import { makeStyles } from '@project44-manifest/react-styles';
-import { GridProps } from './Grid.types';
+import { styled } from '@project44-manifest/react-styles';
 
-export const useStyles = makeStyles<GridProps>(
-	(_, { columnGap, columns = 'auto', flow, gap, rowGap, rows = 'auto' }) => ({
-		root: {
-			boxSizing: 'border-box',
-			display: 'grid',
+export const StyledGrid = styled('div', {
+	boxSizing: 'border-box',
+	display: 'grid',
 
-			...(columns && { gridTemplateColumns: columns }),
-			...(flow && { gridAutoFlow: flow }),
-			...(rows && { gridTemplateRows: rows }),
-
-			...(columnGap === 'large' && { columnGap: '$large' }),
-			...(columnGap === 'medium' && { columnGap: '$medium' }),
-			...(columnGap === 'small' && { columnGap: '$small' }),
-			...(columnGap === 'x-large' && { columnGap: '$x-large' }),
-			...(columnGap === 'x-small' && { columnGap: '$x-small' }),
-
-			...(gap === 'large' && { gap: '$large' }),
-			...(gap === 'medium' && { gap: '$medium' }),
-			...(gap === 'small' && { gap: '$small' }),
-			...(gap === 'x-large' && { gap: '$x-large' }),
-			...(gap === 'x-small' && { gap: '$x-small' }),
-
-			...(rowGap === 'large' && { rowGap: '$large' }),
-			...(rowGap === 'medium' && { rowGap: '$medium' }),
-			...(rowGap === 'small' && { rowGap: '$small' }),
-			...(rowGap === 'x-large' && { rowGap: '$x-large' }),
-			...(rowGap === 'x-small' && { rowGap: '$x-small' }),
+	variants: {
+		columnGap: {
+			large: {
+				columnGap: '$large',
+			},
+			medium: {
+				columnGap: '$medium',
+			},
+			small: {
+				columnGap: '$small',
+			},
+			'x-large': {
+				columnGap: '$x-large',
+			},
+			'x-small': {
+				columnGap: '$x-small',
+			},
 		},
-	}),
-);
+		gap: {
+			large: {
+				gap: '$large',
+			},
+			medium: {
+				gap: '$medium',
+			},
+			small: {
+				gap: '$small',
+			},
+			'x-large': {
+				gap: '$x-large',
+			},
+			'x-small': {
+				gap: '$x-small',
+			},
+		},
+		rowGap: {
+			large: {
+				rowGap: '$large',
+			},
+			medium: {
+				rowGap: '$medium',
+			},
+			small: {
+				rowGap: '$small',
+			},
+			'x-large': {
+				rowGap: '$x-large',
+			},
+			'x-small': {
+				rowGap: '$x-small',
+			},
+		},
+	},
+});

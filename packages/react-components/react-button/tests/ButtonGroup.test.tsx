@@ -23,17 +23,4 @@ describe('react-button - ButtonGroup', () => {
 		expect(buttonGroup).toBeInTheDocument();
 		expect(buttons).toHaveLength(2);
 	});
-
-	it('should render attached', () => {
-		render(
-			<ButtonGroup isAttached data-testid="button-group">
-				<Button>Cancel</Button>
-				<Button>Save</Button>
-			</ButtonGroup>,
-		);
-
-		const buttonGroup = screen.getByTestId('button-group');
-
-		expect(buttonGroup.classList).toContain('manifest-button-group-attached');
-	});
 });

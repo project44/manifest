@@ -1,30 +1,9 @@
 import type * as CSSType from 'csstype';
 import { CSS } from '@project44-manifest/react-styles';
 
-export interface GridClasses {
-	root: string;
-	columnGapLarge: string;
-	columnGapMedium: string;
-	columnGapSmall: string;
-	columnGapXLarge: string;
-	columnGapXSmall: string;
-	gapLarge: string;
-	gapMedium: string;
-	gapSmall: string;
-	gapXLarge: string;
-	gapXSmall: string;
-	rowGapLarge: string;
-	rowGapMedium: string;
-	rowGapSmall: string;
-	rowGapXLarge: string;
-	rowGapXSmall: string;
-}
-
 export type GridElement = 'div';
 
 export interface GridProps {
-	/** Override classes for the component */
-	classes?: Partial<GridClasses>;
 	/**
 	 * The gap between columns
 	 */

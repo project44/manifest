@@ -1,18 +1,38 @@
-import { makeStyles } from '@project44-manifest/react-styles';
-import { StackProps } from './Stack.types';
+import { styled } from '@project44-manifest/react-styles';
 
-export const useStyles = makeStyles<StackProps>((_, { gap, orientation }) => ({
-	root: {
-		display: 'flex',
-		flexDirection: 'column',
+export const StyledStack = styled('div', {
+	display: 'flex',
+	flexDirection: 'column',
 
-		...(gap === 'large' && { gap: '$large' }),
-		...(gap === 'medium' && { gap: '$medium' }),
-		...(gap === 'small' && { gap: '$small' }),
-		...(gap === 'x-large' && { gap: '$x-large' }),
-		...(gap === 'x-small' && { gap: '$x-small' }),
-
-		...(orientation === 'horizontal' && { flexDirection: 'row' }),
-		...(orientation === 'vertical' && { flexDirection: 'column' }),
+	variants: {
+		orientation: {
+			horizontal: {
+				flexDirection: 'row',
+			},
+			vertical: {
+				flexDirection: 'column',
+			},
+		},
+		gap: {
+			large: {
+				gap: '$large',
+			},
+			medium: {
+				gap: '$medium',
+			},
+			small: {
+				gap: '$small',
+			},
+			'x-large': {
+				gap: '$x-large',
+			},
+			'x-small': {
+				gap: '$x-small',
+			},
+		},
 	},
-}));
+
+	defaultVariants: {
+		orientation: 'vertical',
+	},
+});

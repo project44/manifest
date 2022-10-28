@@ -1,31 +1,21 @@
 import * as React from 'react';
-import camelCase from 'lodash.camelcase';
+import { cx } from '@project44-manifest/react-styles';
 import { ForwardRefComponent } from '@project44-manifest/react-types';
-import { useStyles } from './Stack.styles';
+import { StyledStack } from './Stack.styles';
 import { StackElement, StackProps } from './Stack.types';
 
 export const Stack = React.forwardRef((props, forwardedRef) => {
-	const {
-		as: Comp = 'div',
-		className: classNameProp,
-		classes: classesProp,
-		css,
-		gap,
-		orientation,
-		...other
-	} = props;
+	const { as, className: classNameProp, css, gap, orientation, ...other } = props;
 
-	const { classes, cx } = useStyles(
-		{ gap, orientation },
-		{
-			css,
-			name: 'stack',
-			classes: classesProp,
-			slots: {
-				root: [gap && `${camelCase(`gap-${gap}`)}`, orientation && orientation],
-			},
-		},
+	return (
+		<StyledStack
+			{...other}
+			ref={forwardedRef}
+			as={as}
+			className={cx('manifest-stack', classNameProp)}
+			css={css}
+			gap={gap}
+			orientation={orientation}
+		/>
 	);
-
-	return <Comp {...other} ref={forwardedRef} className={cx(classes.root, classNameProp)} />;
 }) as ForwardRefComponent<StackElement, StackProps>;

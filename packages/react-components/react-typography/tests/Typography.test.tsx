@@ -13,28 +13,24 @@ describe('@project44-manifest/react-typography', () => {
 	});
 
 	it.each`
-		tag       | variant          | className
-		${'H1'}   | ${'display'}     | ${'manifest-typography-display'}
-		${'H2'}   | ${'heading'}     | ${'manifest-typography-heading'}
-		${'H3'}   | ${'title'}       | ${'manifest-typography-title'}
-		${'H4'}   | ${'subtitle'}    | ${'manifest-typography-subtitle'}
-		${'P'}    | ${'body'}        | ${'manifest-typography-body'}
-		${'P'}    | ${'bodyBold'}    | ${'manifest-typography-bodyBold'}
-		${'SPAN'} | ${'caption'}     | ${'manifest-typography-caption'}
-		${'SPAN'} | ${'captionBold'} | ${'manifest-typography-captionBold'}
-		${'SPAN'} | ${'subtext'}     | ${'manifest-typography-subtext'}
-		${'SPAN'} | ${'subtextBold'} | ${'manifest-typography-subtextBold'}
-	`(
-		'should render a $tag and attach the $className className for the $variant variant',
-		({ className, tag, variant }) => {
-			render(<Typography variant={variant as TypographyVariant}>Hello World</Typography>);
+		tag       | variant
+		${'H1'}   | ${'display'}
+		${'H2'}   | ${'heading'}
+		${'H3'}   | ${'title'}
+		${'H4'}   | ${'subtitle'}
+		${'P'}    | ${'body'}
+		${'P'}    | ${'bodyBold'}
+		${'SPAN'} | ${'caption'}
+		${'SPAN'} | ${'captionBold'}
+		${'SPAN'} | ${'subtext'}
+		${'SPAN'} | ${'subtextBold'}
+	`('should render a $tag for the $variant variant', ({ tag, variant }) => {
+		render(<Typography variant={variant as TypographyVariant}>Hello World</Typography>);
 
-			const typography = screen.getByText('Hello World');
+		const typography = screen.getByText('Hello World');
 
-			expect(typography.nodeName).toBe(tag);
-			expect(typography.classList).toContain(className);
-		},
-	);
+		expect(typography.nodeName).toBe(tag);
+	});
 
 	it('should render paragraphs correctly', () => {
 		render(
@@ -46,22 +42,5 @@ describe('@project44-manifest/react-typography', () => {
 		const typography = screen.getByText('Hello World');
 
 		expect(typography.nodeName).toBe('P');
-		expect(typography.classList).toContain('manifest-typography-paragraph');
-		expect(typography.classList).toContain('manifest-typography-title');
-	});
-
-	it('should support class overrides', () => {
-		render(
-			<Typography classes={{ root: 'custom-class', title: 'custom-title-class' }} variant="title">
-				Hello World
-			</Typography>,
-		);
-
-		const typography = screen.getByText('Hello World');
-
-		expect(typography.classList).toContain('manifest-typography-root');
-		expect(typography.classList).toContain('custom-class');
-		expect(typography.classList).toContain('manifest-typography-title');
-		expect(typography.classList).toContain('custom-title-class');
 	});
 });

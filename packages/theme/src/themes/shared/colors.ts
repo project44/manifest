@@ -1,5 +1,5 @@
 import { tokens } from '@project44-manifest/design-tokens';
-import { flattenDeep } from '@project44-manifest/utils';
+import { flattenTokens } from '../../utils';
 
 /**
  * Kebab case color tokens.
@@ -157,6 +157,6 @@ export type ThemeColorToken =
 	| 'text-tertiary'
 	| 'text-warning';
 
-export const colors = flattenDeep<ThemeColorToken>(tokens.color);
+export const colors = flattenTokens<ThemeColorToken>(tokens.color);
 
 export type ColorsTokens = typeof colors;

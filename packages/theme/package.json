@@ -46,9 +46,11 @@
   "dependencies": {
     "@project44-manifest/design-tokens": "^1.2.0",
     "@project44-manifest/utils": "^0.2.0",
+    "lodash.kebabcase": "^4.1.1",
     "lodash.merge": "^4.6.2"
   },
   "devDependencies": {
+    "@types/lodash.kebabcase": "^4.1.7",
     "@types/lodash.merge": "^4.6.7"
   },
   "packemon": {

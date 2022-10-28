@@ -1,36 +1,48 @@
-import { makeStyles } from '@project44-manifest/react-styles';
-import { ContainerProps } from './Container.types';
+import { styled } from '@project44-manifest/react-styles';
 
-export const useStyles = makeStyles<ContainerProps>((_, { fixed, maxWidth }) => ({
-	root: {
-		boxSizing: 'border-box',
-		display: 'block',
-		mx: 'auto',
-		px: '$large',
-		width: '100%',
+export const StyledContainer = styled('div', {
+	boxSizing: 'border-box',
+	display: 'block',
+	mx: 'auto',
+	px: '$large',
+	width: '100%',
 
-		...(maxWidth === 'large' && { maxWidth: '$large' }),
-		...(maxWidth === 'medium' && { maxWidth: '$medium' }),
-		...(maxWidth === 'small' && { maxWidth: '$small' }),
-		...(maxWidth === 'x-large' && { maxWidth: '$x-large' }),
-		...(maxWidth === 'x-small' && { maxWidth: '$x-small' }),
-
-		...(fixed && {
-			'@sm': {
+	variants: {
+		fixed: {
+			true: {
+				'@sm': {
+					maxWidth: '$small',
+				},
+				'@md': {
+					maxWidth: '$medium',
+				},
+				'@lg': {
+					maxWidth: '$large',
+				},
+				'@xl': {
+					maxWidth: '$x-large',
+				},
+				'@xs': {
+					maxWidth: '$x-small',
+				},
+			},
+		},
+		maxWidth: {
+			small: {
 				maxWidth: '$small',
 			},
-			'@md': {
+			medium: {
 				maxWidth: '$medium',
 			},
-			'@lg': {
+			large: {
 				maxWidth: '$large',
 			},
-			'@xl': {
+			'x-large': {
 				maxWidth: '$x-large',
 			},
-			'@xs': {
+			'x-small': {
 				maxWidth: '$x-small',
 			},
-		}),
+		},
 	},
-}));
+});

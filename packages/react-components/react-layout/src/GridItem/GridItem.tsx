@@ -1,14 +1,14 @@
 import * as React from 'react';
+import { cx } from '@project44-manifest/react-styles';
 import { ForwardRefComponent } from '@project44-manifest/react-types';
-import { useStyles } from './GridItem.styles';
+import { StyledGridItem } from './GridItem.styles';
 import { GridItemElement, GridItemProps } from './GridItem.types';
 
 export const GridItem = React.forwardRef((props, forwardedRef) => {
 	const {
 		area,
-		as: Comp = 'div',
+		as,
 		className: classNameProp,
-		classes: classesProp,
 		css,
 		column,
 		columnEnd,
@@ -20,17 +20,23 @@ export const GridItem = React.forwardRef((props, forwardedRef) => {
 		...other
 	} = props;
 
-	const { classes, cx } = useStyles(
-		{ area, column, columnEnd, columnStart, order, row, rowEnd, rowStart },
-		{
-			css,
-			name: 'grid-item',
-			classes: classesProp,
-			slots: {
-				root: [],
-			},
-		},
+	return (
+		<StyledGridItem
+			{...other}
+			ref={forwardedRef}
+			as={as}
+			className={cx('manifest-grid-item', classNameProp)}
+			css={{
+				...css,
+				gridArea: area,
+				gridColumn: typeof column === 'number' ? `span ${column} / span ${column}` : column,
+				gridColumnEnd: columnEnd,
+				gridColumnStart: columnStart,
+				gridRow: typeof row === 'number' ? `span ${row} / span ${row}` : row,
+				gridRowEnd: rowEnd,
+				gridRowStart: rowStart,
+				order,
+			}}
+		/>
 	);
-
-	return <Comp {...other} ref={forwardedRef} className={cx(classes.root, classNameProp)} />;
 }) as ForwardRefComponent<GridItemElement, GridItemProps>;

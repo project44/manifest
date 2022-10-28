@@ -1,14 +1,8 @@
 import { CSS } from '@project44-manifest/react-styles';
 
-export interface TooltipClasses {
-	root: string;
-}
-
 export type TooltipElement = 'div';
 
 export interface TooltipProps {
-	/** Override classes for the component */
-	classes?: Partial<TooltipClasses>;
 	/** Theme aware style object */
 	css?: CSS;
 	/** Whether the tooltip is open by default (uncontrolled). */

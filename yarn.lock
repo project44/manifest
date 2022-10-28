@@ -3551,8 +3551,6 @@ __metadata:
     "@project44-manifest/react-test-utils": ^0.2.0
     "@project44-manifest/react-types": ^0.2.0
     "@project44-manifest/react-utils": ^0.2.0
-    "@types/lodash.camelcase": ^4.3.7
-    lodash.camelcase: ^4.3.0
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
@@ -3814,7 +3812,9 @@ __metadata:
   dependencies:
     "@project44-manifest/design-tokens": ^1.2.0
     "@project44-manifest/utils": ^0.2.0
+    "@types/lodash.kebabcase": ^4.1.7
     "@types/lodash.merge": ^4.6.7
+    lodash.kebabcase: ^4.1.1
     lodash.merge: ^4.6.2
   languageName: unknown
   linkType: soft
@@ -6925,12 +6925,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash.camelcase@npm:^4.3.7":
-  version: 4.3.7
-  resolution: "@types/lodash.camelcase@npm:4.3.7"
+"@types/lodash.kebabcase@npm:^4.1.7":
+  version: 4.1.7
+  resolution: "@types/lodash.kebabcase@npm:4.1.7"
   dependencies:
     "@types/lodash": "*"
-  checksum: ef068b921ab439f7b1a2c0ebbd890ba64ba437fc6aeb5e3ac18d34da30f9054fceaac5ccfdfa9e12b2fc403e10910439d3ebf92ba2f93de03c2f02261adfc000
+  checksum: 8c28dae574d0d15d316b8412f1edf7628398f0d1d34bec978af9d8b9f1286749492c23680817e74c6bd15e14b45b0006c79b320ebd260f9b8c0ac85668e0c409
   languageName: node
   linkType: hard
 
@@ -16793,6 +16793,13 @@ __metadata:
   version: 4.4.2
   resolution: "lodash.get@npm:4.4.2"
   checksum: e403047ddb03181c9d0e92df9556570e2b67e0f0a930fcbbbd779370972368f5568e914f913e93f3b08f6d492abc71e14d4e9b7a18916c31fa04bd2306efe545
+  languageName: node
+  linkType: hard
+
+"lodash.kebabcase@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "lodash.kebabcase@npm:4.1.1"
+  checksum: 5a6c59161914e1bae23438a298c7433e83d935e0f59853fa862e691164696bc07f6dfa4c313d499fbf41ba8d53314e9850416502376705a357d24ee6ca33af78
   languageName: node
   linkType: hard
 

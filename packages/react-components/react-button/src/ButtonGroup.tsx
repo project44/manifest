@@ -1,15 +1,15 @@
 import * as React from 'react';
+import { cx } from '@project44-manifest/react-styles';
 import { ForwardRefComponent } from '@project44-manifest/react-types';
 import { ButtonGroupProvider } from './ButtonGroup.context';
-import { useStyles } from './ButtonGroup.styles';
+import { StyledButtonGroup } from './ButtonGroup.styles';
 import { ButtonGroupElement, ButtonGroupProps } from './ButtonGroup.types';
 
 export const ButtonGroup = React.forwardRef((props, forwardedRef) => {
 	const {
-		as: Comp = 'div',
+		as,
 		children,
 		className: classNameProp,
-		classes: classesProp,
 		css,
 		isDisabled,
 		isAttached,
@@ -20,19 +20,24 @@ export const ButtonGroup = React.forwardRef((props, forwardedRef) => {
 
 	const context = React.useMemo(() => ({ isDisabled, size, variant }), [isDisabled, size, variant]);
 
-	const { classes, cx } = useStyles(
-		{ isAttached },
+	const className = cx(
+		'manifest-button-group',
 		{
-			css,
-			name: 'button-group',
-			classes: classesProp,
-			slots: { root: [size, variant, isAttached && 'attached', isDisabled && 'disabled'] },
+			'manifest-button-group--attached': isAttached,
 		},
+		classNameProp,
 	);
 
 	return (
-		<Comp {...other} ref={forwardedRef} className={cx(classes.root, classNameProp)}>
+		<StyledButtonGroup
+			{...other}
+			ref={forwardedRef}
+			as={as}
+			className={className}
+			css={css}
+			isAttached={isAttached}
+		>
 			<ButtonGroupProvider value={context}>{children}</ButtonGroupProvider>
-		</Comp>
+		</StyledButtonGroup>
 	);
 }) as ForwardRefComponent<ButtonGroupElement, ButtonGroupProps>;

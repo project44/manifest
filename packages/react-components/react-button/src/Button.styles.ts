@@ -1,8 +1,8 @@
-import { makeStyles, pxToRem } from '@project44-manifest/react-styles';
-import { ButtonProps } from './Button.types';
+import { focus, pxToRem, styled } from '@project44-manifest/react-styles';
 
-export const useStyles = makeStyles<ButtonProps>((_, { isDisabled, size, variant }) => ({
-	root: {
+export const StyledButton = styled(
+	'button',
+	{
 		alignItems: 'center',
 		appearance: 'none',
 		backgroundColor: 'transparent',
@@ -25,85 +25,156 @@ export const useStyles = makeStyles<ButtonProps>((_, { isDisabled, size, variant
 		userSelect: 'none',
 		whiteSpace: 'nowrap',
 
-		'&[data-focus-visible]': {
-			outline: '$colors$palette-indigo-200 solid 2px',
+		variants: {
+			hasEndIcon: {
+				true: {
+					paddingRight: '$small',
+				},
+			},
+			hasStartIcon: {
+				true: {
+					paddingLeft: '$small',
+				},
+			},
+			isDisabled: {
+				true: {
+					cursor: 'not-allowed',
+					pointerEvents: 'none',
+					opacity: 0.57,
+				},
+			},
+			isFocusVisible: {
+				true: {},
+			},
+			isHovered: {
+				true: {},
+			},
+			isPressed: {
+				true: {},
+			},
+			variant: {
+				danger: {
+					backgroundColor: '$palette-red-500',
+					color: '$palette-white',
+				},
+				brand: {
+					background: '$brand-gradient',
+					color: '$palette-white',
+				},
+				primary: {
+					backgroundColor: '$primary-default',
+					color: '$palette-white',
+				},
+				secondary: {
+					backgroundColor: '$palette-white',
+				},
+				tertiary: {
+					backgroundColor: 'transparent',
+					boxShadow: 'none',
+				},
+			},
+			size: {
+				medium: {
+					height: pxToRem(40),
+					py: '$small',
+
+					[`> .material-icons`]: {
+						fontSize: '$x-large',
+					},
+				},
+				small: {
+					height: pxToRem(32),
+					py: pxToRem(6),
+
+					[`> .material-icons`]: {
+						fontSize: pxToRem(18),
+					},
+				},
+			},
 		},
 
-		...(isDisabled && {
-			cursor: 'default',
-			pointerEvents: 'none',
-			opacity: 0.57,
-		}),
-
-		...(variant === 'brand' && {
-			background: '$brand-gradient',
-			color: '$palette-white',
-
-			'&:hover': {
-				background: '$brand-hover',
+		compoundVariants: [
+			{
+				isHovered: true,
+				variant: 'primary',
+				css: {
+					backgroundColor: '$primary-hover',
+				},
 			},
-
-			'&[data-pressed]': {
-				background: '$brand-active',
+			{
+				isHovered: true,
+				variant: 'secondary',
+				css: {
+					backgroundColor: '$palette-grey-100',
+				},
 			},
-		}),
-
-		...(variant === 'danger' && {
-			backgroundColor: '$palette-red-500',
-			color: '$palette-white',
-
-			'&:hover': {
-				background:
-					'linear-gradient(0deg, rgba(9, 21, 33, 0.15), rgba(9, 21, 33, 0.15)), $colors$palette-red-500',
+			{
+				isHovered: true,
+				variant: 'tertiary',
+				css: {
+					backgroundColor: '$palette-grey-100',
+				},
 			},
-
-			'&[data-pressed]': {
-				background:
-					'linear-gradient(0deg, rgba(9, 21, 33, 0.3), rgba(9, 21, 33, 0.3)), $colors$palette-red-500',
-				boxShadow: 'inset 0px 1px 1px rgba(5, 10, 26, 0.25)',
+			{
+				isHovered: true,
+				variant: 'brand',
+				css: {
+					background: '$brand-hover',
+				},
 			},
-		}),
-		...(variant === 'primary' && {
-			backgroundColor: '$primary-default',
-			color: '$palette-white',
-
-			'&:hover': {
-				backgroundColor: '$primary-hover',
+			{
+				isHovered: true,
+				variant: 'danger',
+				css: {
+					background:
+						'linear-gradient(0deg, rgba(9, 21, 33, 0.15), rgba(9, 21, 33, 0.15)), $colors$palette-red-500',
+				},
 			},
-
-			'&[data-pressed]': {
-				backgroundColor: '$primary-active',
-				boxShadow: 'inset 0px 1px 1px rgba(5, 10, 26, 0.25)',
+			{
+				isPressed: true,
+				variant: 'primary',
+				css: {
+					backgroundColor: '$primary-active',
+					boxShadow: 'inset 0px 1px 1px rgba(5, 10, 26, 0.25)',
+				},
 			},
-		}),
-		...(variant === 'secondary' && {
-			backgroundColor: '$palette-white',
-
-			'&:hover': {
-				backgroundColor: '$palette-grey-100',
+			{
+				isPressed: true,
+				variant: 'secondary',
+				css: {
+					backgroundColor: '$palette-grey-300',
+					boxShadow: 'inset 0px 1px 1px rgba(5, 10, 26, 0.25)',
+				},
 			},
-
-			'&[data-pressed]': {
-				backgroundColor: '$palette-grey-300',
-				boxShadow: 'inset 0px 1px 1px rgba(5, 10, 26, 0.25)',
+			{
+				isPressed: true,
+				variant: 'tertiary',
+				css: {
+					backgroundColor: '$palette-grey-300',
+				},
 			},
-		}),
-		...(variant === 'tertiary' && {
-			backgroundColor: 'transparent',
-			boxShadow: 'none',
-
-			'&:hover': {
-				backgroundColor: '$palette-grey-100',
+			{
+				isPressed: true,
+				variant: 'brand',
+				css: {
+					background: '$brand-active',
+				},
 			},
-
-			'&[data-pressed]': {
-				backgroundColor: '$palette-grey-300',
+			{
+				isPressed: true,
+				variant: 'danger',
+				css: {
+					background:
+						'linear-gradient(0deg, rgba(9, 21, 33, 0.3), rgba(9, 21, 33, 0.3)), $colors$palette-red-500',
+					boxShadow: 'inset 0px 1px 1px rgba(5, 10, 26, 0.25)',
+				},
 			},
-		}),
+		],
 
-		...(size === 'medium' && { py: pxToRem(10) }),
-		...(size === 'small' && { py: pxToRem(6) }),
+		defaultVariants: {
+			size: 'medium',
+			variant: 'primary',
+		},
 	},
-	endIcon: {},
-	startIcon: {},
-}));
+	focus,
+);
