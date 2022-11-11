@@ -6,10 +6,14 @@
         "^build"
       ],
       "outputs": [
+        ".next/**",
         "dist/**"
       ]
     },
     "clean": {
+      "cache": false
+    },
+    "dev": {
       "cache": false
     },
     "lint": {

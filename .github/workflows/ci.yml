@@ -6,34 +6,69 @@ on:
       - 'main'
   pull_request:
 
+env:
+  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number || github.sha }}
+  cancel-in-progress: true
+
 jobs:
-  ci:
-    name: Build and Validate
+  build:
+    name: Build
     runs-on: 'ubuntu-latest'
-    env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
 
     steps:
       - name: Check out code
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 2
-
-      - name: Setup Node
-        uses: 'actions/setup-node@v3'
-        with:
-          node-version: 16.14.x
-          cache: 'yarn'
 
       - name: Install dependencies
-        run: yarn
+        uses: ./.github/actions/install-dependencies
 
-      - name: Build
+      - name: Compile bundles
         run: yarn build
 
-      - name: Lint
+  format:
+    name: Format
+    runs-on: 'ubuntu-latest'
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        uses: ./.github/actions/install-dependencies
+
+      - name: Run prettier
+        run: yarn format
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        uses: ./.github/actions/install-dependencies
+
+      - name: Run ESLint
         run: yarn lint
 
-      - name: Test
+  unit:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        uses: ./.github/actions/install-dependencies
+
+      - name: Run tests
         run: yarn test
