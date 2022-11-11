@@ -11,39 +11,28 @@
     "react",
     "components"
   ],
-  "main": "./lib/index.js",
-  "module": "./esm/index.js",
-  "types": "./dts/index.d.ts",
+  "sideEffects": false,
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "source": "src/index.ts",
+  "types": "dist/index.d.ts",
   "files": [
-    "dts/**/*.d.ts",
-    "esm/**/*.{js,map}",
-    "lib/**/*.{js,map}",
-    "src/**/*.{ts,tsx,json}"
+    "dist"
   ],
-  "exports": {
-    "./package.json": "./package.json",
-    ".": {
-      "types": "./dts/index.d.ts",
-      "browser": {
-        "module": "./esm/index.js",
-        "import": "./esm/index.js",
-        "default": "./lib/index.js"
-      },
-      "default": "./lib/index.js"
-    }
-  },
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
     "url": "git@github.com:project-44/manifest.git",
     "directory": "packages/react"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "build": "packemon build --addEngines --addExports --declaration --declarationConfig tsconfig.build.json",
-    "clean": "packemon clean && rm -rf .turbo node_modules *.tsbuildinfo",
-    "typecheck": "tsc -b"
+    "build": "tsup",
+    "clean": "rimraf dist .turbo",
+    "lint": "eslint \"**/*.{ts,tsx}\"",
+    "test": "jest",
+    "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0",
@@ -51,12 +40,12 @@
   },
   "dependencies": {
     "@internationalized/date": "^3.0.0",
-    "@project44-manifest/react-button": "^1.0.0",
-    "@project44-manifest/react-layout": "^1.0.0",
-    "@project44-manifest/react-styles": "^1.0.0",
-    "@project44-manifest/react-tooltip": "^1.0.0",
-    "@project44-manifest/react-typography": "^1.0.0",
-    "@project44-manifest/system": "^0.1.4",
+    "@project44-manifest/react-button": "*",
+    "@project44-manifest/react-layout": "*",
+    "@project44-manifest/react-styles": "*",
+    "@project44-manifest/react-tooltip": "*",
+    "@project44-manifest/react-typography": "*",
+    "@project44-manifest/system": "*",
     "@radix-ui/react-slot": "^1.0.0",
     "@react-aria/button": "^3.5.1",
     "@react-aria/calendar": "^3.0.0",
@@ -100,12 +89,15 @@
     "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
-    "@project44-manifest/react-test-utils": "^0.2.0",
+    "@project44-manifest/react-test-utils": "*",
     "@types/react-transition-group": "^4.4.5",
+    "eslint": "^8.26.0",
+    "eslint-config-manifest": "*",
+    "jest": "^29.2.2",
+    "jest-preset-manifest": "*",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
-  },
-  "packemon": {
-    "platform": "browser"
+    "react-dom": "^18.1.0",
+    "tsconfig-manifest": "*",
+    "tsup": "^6.4.0"
   }
 }

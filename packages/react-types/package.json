@@ -1,0 +1,48 @@
+{
+  "name": "@project44-manifest/react-types",
+  "version": "0.2.0",
+  "description": "Manifest Design System react types",
+  "license": "MIT",
+  "author": "project44",
+  "keywords": [
+    "manifest",
+    "design",
+    "system",
+    "react",
+    "components"
+  ],
+  "sideEffects": false,
+  "types": "src/index.d.ts",
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:project-44/manifest.git",
+    "directory": "packages/react-types"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rimraf dist .turbo",
+    "lint": "eslint \"**/*.{ts,tsx}\"",
+    "test": "jest",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  },
+  "devDependencies": {
+    "@project44-manifest/react-test-utils": "*",
+    "eslint": "^8.26.0",
+    "eslint-config-manifest": "*",
+    "jest": "^29.2.2",
+    "jest-preset-manifest": "*",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "tsconfig-manifest": "*",
+    "tsup": "^6.4.0"
+  }
+}

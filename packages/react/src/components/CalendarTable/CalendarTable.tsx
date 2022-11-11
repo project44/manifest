@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import { useCalendarGrid } from '@react-aria/calendar';
 import { useLocale } from '@react-aria/i18n';
 import type { CalendarState, RangeCalendarState } from '@react-stately/calendar';
@@ -25,8 +24,6 @@ export function CalendarTable(props: CalendarTableProps) {
 	const startDate = state.visibleRange.start.add({});
 	const endDate = endOfMonth(startDate);
 
-	// Array from does not work for what we need here.
-	// eslint-disable-next-line unicorn/no-new-array
 	const weeks = [...new Array(weeksInMonth).keys()];
 
 	const { gridProps, headerProps, weekDays } = useCalendarGrid({ endDate, startDate }, state);

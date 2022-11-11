@@ -1,5 +1,5 @@
 import { CalendarDate } from '@internationalized/date';
-import { accessibility, fireEvent, render, screen } from '@project44-manifest/test-utils';
+import { accessibility, fireEvent, render, screen } from '@project44-manifest/react-test-utils';
 import { Calendar } from '../src';
 
 describe('@project44-manifest/react - Calendar', () => {
@@ -21,10 +21,7 @@ describe('@project44-manifest/react - Calendar', () => {
 	});
 
 	it('should autofocus the selected date', () => {
-		render(
-			// eslint-disable-next-line jsx-a11y/no-autofocus
-			<Calendar autoFocus value={new CalendarDate(2022, 7, 12)} />,
-		);
+		render(<Calendar autoFocus value={new CalendarDate(2022, 7, 12)} />);
 
 		const cell = screen.getByLabelText('selected', { exact: false });
 		const grid = screen.getByRole('grid');

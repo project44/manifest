@@ -5,7 +5,7 @@ import {
 	screen,
 	userEvent,
 	within,
-} from '@project44-manifest/test-utils';
+} from '@project44-manifest/react-test-utils';
 import { Dropdown, DropdownItem, DropdownMenu, DropdownSection, Icon, IconButton } from '../src';
 
 describe('@project44-manifest/react - Dropdown', () => {

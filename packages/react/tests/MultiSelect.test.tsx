@@ -7,7 +7,7 @@ import {
 	userEvent,
 	waitFor,
 	within,
-} from '@project44-manifest/test-utils';
+} from '@project44-manifest/react-test-utils';
 import { MultiSelect, SelectItem, SelectSection } from '../src';
 
 describe('@project44-manifest/react - MultiSelect', () => {

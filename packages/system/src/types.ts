@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // Will be removing this file in the near future
-import * as React from 'react';
+import type * as React from 'react';
 
 // Borrowed and extended from ariakit
 // https://github.com/ariakit/ariakit/blob/main/packages/ariakit-react-utils/src/types.ts

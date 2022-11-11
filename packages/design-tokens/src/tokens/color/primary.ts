@@ -5,7 +5,7 @@ import {
 } from '../../constants';
 
 export const primary = {
-	default: colorPaletteIndigo500,
 	active: colorPaletteIndigo900,
+	default: colorPaletteIndigo500,
 	hover: colorPaletteIndigo700,
 };

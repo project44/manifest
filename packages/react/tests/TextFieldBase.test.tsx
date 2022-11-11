@@ -1,4 +1,4 @@
-import { accessibility, render, screen } from '@project44-manifest/test-utils';
+import { accessibility, render, screen } from '@project44-manifest/react-test-utils';
 import { TextFieldBase } from '../src/components/TextFieldBase';
 
 describe('@project44-manifest/components - TextFieldBase', () => {

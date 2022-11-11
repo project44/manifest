@@ -1,22 +1,22 @@
 {
-  "buildCommand": "build:packages",
+  "buildCommand": "turbo run build --filter='./packages/**/*'",
   "node": "16",
   "packages": [
     "/packages/design-tokens",
     "/packages/react",
-    "/packages/react-components/react-button",
-    "/packages/react-components/react-layout",
-    "/packages/react-components/react-popover",
-    "/packages/react-components/react-tooltip",
-    "/packages/react-components/react-typography",
-    "/packages/react-utilities/react-styles",
-    "/packages/react-utilities/react-types",
-    "/packages/react-utilities/react-utils",
+    "/packages/react-button",
+    "/packages/react-layout",
+    "/packages/react-popover",
+    "/packages/react-tooltip",
+    "/packages/react-typography",
+    "/packages/react-styles",
+    "/packages/react-types",
+    "/packages/react-utils",
     "/packages/system",
-    "/packages/theme"
+    "/packages/theme",
+    "/packages/utils"
   ],
   "sandboxes": [
-    "/examples/create-react-app",
-    "/examples/create-react-app-typescript"
+    "/examples/create-react-app"
   ]
 }

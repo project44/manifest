@@ -1,4 +1,4 @@
-import { accessibility, fireEvent, render, screen } from '@project44-manifest/test-utils';
+import { accessibility, fireEvent, render, screen } from '@project44-manifest/react-test-utils';
 import { Avatar } from '../src';
 
 describe('@project44-manifest/react - Avatar', () => {

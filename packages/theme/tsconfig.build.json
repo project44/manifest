@@ -1,18 +1,10 @@
 {
-  "extends": "../../tsconfig.options.json",
+  "extends": "tsconfig-manifest/tsconfig.react.json",
   "compilerOptions": {
-    "outDir": "dts",
+    "outDir": "dist",
     "rootDir": "src"
   },
   "include": [
     "src/**/*"
-  ],
-  "references": [
-    {
-      "path": "../design-tokens"
-    },
-    {
-      "path": "../utils"
-    }
   ]
 }

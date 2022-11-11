@@ -20,7 +20,6 @@ dts/
 build/
 .contentlayer
 .vercel
-.turbo
 
 # ignore sitemap
 apps/**/sitemap.xml
@@ -45,8 +44,6 @@ apps/**/sitemap.xml
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-# Moon
-.moon/cache
 
 # turborepo
 .turbo

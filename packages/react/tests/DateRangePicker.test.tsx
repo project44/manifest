@@ -6,7 +6,7 @@ import {
 	screen,
 	userEvent,
 	waitFor,
-} from '@project44-manifest/test-utils';
+} from '@project44-manifest/react-test-utils';
 import { DateRangePicker } from '../src';
 import { DefinedRange } from '../src/components/CalendarRanges';
 import {
@@ -95,7 +95,7 @@ describe('@project44-manifest/components - DateRangePicker', () => {
 		const cells = screen.getAllByRole('gridcell');
 		const selected = cells.find((cell) => cell.getAttribute('aria-selected') === 'true');
 
-		expect(selected.children[0]).toHaveAttribute(
+		expect(selected?.children[0]).toHaveAttribute(
 			'aria-label',
 			'Selected Range: Saturday, July 2 to Tuesday, July 12, 2022, Saturday, July 2, 2022 selected',
 		);
@@ -136,7 +136,7 @@ describe('@project44-manifest/components - DateRangePicker', () => {
 		const cells = screen.getAllByRole('gridcell');
 		const selected = cells.find((cell) => cell.getAttribute('aria-selected') === 'true');
 
-		expect(selected.children[0]).toHaveAttribute(
+		expect(selected?.children[0]).toHaveAttribute(
 			'aria-label',
 			'Selected Range: Saturday, July 2 to Tuesday, July 12, 2022, Saturday, July 2, 2022 selected',
 		);

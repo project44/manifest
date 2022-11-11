@@ -1,6 +1,6 @@
 import { act } from 'react-dom/test-utils';
 import { Item } from '@react-stately/collections';
-import { renderHook } from '@project44-manifest/test-utils';
+import { renderHook } from '@project44-manifest/react-test-utils';
 import { useMultiComboboxState } from '../src';
 import type { MultiComboboxProps } from '../src/types';
 

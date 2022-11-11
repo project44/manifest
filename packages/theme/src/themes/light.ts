@@ -1,4 +1,4 @@
-import { Theme } from '../types';
+import type { Theme } from '../types';
 import { borderWidths, radii } from './shared/borders';
 import { colors } from './shared/colors';
 import { shadows, zIndices } from './shared/elevation';

@@ -1,38 +1,19 @@
 {
-  "extends": "../../tsconfig.options.json",
+  "extends": "tsconfig-manifest/tsconfig.next.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "composite": true,
-    "emitDeclarationOnly": false,
     "incremental": true,
-    "jsx": "preserve",
-    "lib": [
-      "dom"
-    ],
-    "noEmit": true,
     "paths": {
       "contentlayer/generated": [
         "./.contentlayer/generated"
       ]
-    },
-    "strict": false,
-    "resolveJsonModule": true
+    }
   },
   "include": [
-    "src",
     "**/*.json",
-    "next-env.d.ts",
     ".contentlayer/generated"
   ],
   "exclude": [
     "node_modules"
-  ],
-  "references": [
-    {
-      "path": "../../packages/design-tokens"
-    },
-    {
-      "path": "../../packages/react"
-    }
   ]
 }

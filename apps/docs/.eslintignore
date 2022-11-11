@@ -1,0 +1,5 @@
+.turbo/
+.next/
+.contentlayer/
+node_modules/
+build/

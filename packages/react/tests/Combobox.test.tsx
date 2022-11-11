@@ -1,4 +1,11 @@
-import { act, fireEvent, render, screen, userEvent, within } from '@project44-manifest/test-utils';
+import {
+	act,
+	fireEvent,
+	render,
+	screen,
+	userEvent,
+	within,
+} from '@project44-manifest/react-test-utils';
 import { Combobox, ComboboxItem, ComboboxSection } from '../src';
 
 describe('@project44-manifest/react - Combobox', () => {

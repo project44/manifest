@@ -6,7 +6,6 @@
     "build": "next build",
     "dev": "next dev",
     "clean": "rm -rf .turbo node_modules .contentlayer .next",
-    "generate:prop-docs": "ts-node --skipProject ./scripts/generate-prop-docs.ts",
     "typecheck": "tsc -b"
   },
   "dependencies": {
@@ -28,7 +27,8 @@
     "ts-node": "^10.9.1"
   },
   "devDependencies": {
-    "eslint-config-next": "^12.2.5",
-    "next-sitemap": "^3.1.21"
+    "eslint": "^8.26.0",
+    "eslint-config-manifest": "*",
+    "tsconfig-manifest": "*"
   }
 }
