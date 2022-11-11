@@ -5,18 +5,26 @@
   "license": "MIT",
   "workspaces": [
     "apps/*",
-    "packages/*"
+    "packages/*",
+    "tools/*"
   ],
   "scripts": {
     "build": "turbo run build",
+    "build:apps": "turbo run build --filter=\"./apps/*\"",
+    "build:packages": "turbo run build --filter=\"./packages/*\"",
+    "build:tools": "turbo run build --filter=\"./tools/*\"",
     "clean": "turbo run clean",
+    "coverage": "turbo run coverage",
+    "dev": "turbo run dev",
     "format": "prettier --check \"**/*.{ts,tsx,md}\"",
-    "format:write": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format:fix": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "turbo run lint",
-    "test": "turbo run test",
+    "lint:fix": "turbo run lint -- --fix",
     "prepare": "husky install",
-    "typecheck": "turbo run typecheck",
-    "release": "turbo run build --filter=./packages/* && changeset publish"
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck --filter=\"!./apps/*\"",
+    "release": "yarn run build && changeset publish",
+    "version": "yarn changeset version && yarn install --mode=update-lockfile"
   },
   "dependencies": {
     "@changesets/changelog-github": "^0.4.4",
@@ -34,5 +42,8 @@
     "turbo": "^1.6.3",
     "typescript": "4.7.4"
   },
-  "packageManager": "yarn@3.2.3"
+  "packageManager": "yarn@3.2.3",
+  "engines": {
+    "node": "^18.12.1"
+  }
 }

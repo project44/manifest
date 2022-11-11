@@ -4,7 +4,6 @@ const config = {
 	coveragePathIgnorePatterns: ['coverage/', 'dist/', 'node_modules/', 'public/', '*.d.ts'].map(
 		(str) => str.replace(/\*+/g, '.*'),
 	),
-	coverageReporters: ['text-summary', 'html'],
 	coverageThreshold: {
 		global: {
 			branches: 80,

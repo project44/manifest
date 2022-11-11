@@ -7,11 +7,20 @@
       ],
       "outputs": [
         ".next/**",
+        "build/**",
         "dist/**"
       ]
     },
     "clean": {
       "cache": false
+    },
+    "coverage": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "coverage/**"
+      ]
     },
     "dev": {
       "cache": false
@@ -24,7 +33,7 @@
     },
     "test": {
       "dependsOn": [
-        "build"
+        "^build"
       ],
       "outputs": []
     },

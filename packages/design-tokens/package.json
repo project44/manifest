@@ -30,6 +30,8 @@
   "scripts": {
     "build": "tsup",
     "clean": "rimraf dist .turbo",
+    "coverage": "jest --coverage",
+    "dev": "yarn run build --watch",
     "lint": "eslint \"**/*.{ts,tsx}\"",
     "test": "jest",
     "typecheck": "tsc --noEmit"
