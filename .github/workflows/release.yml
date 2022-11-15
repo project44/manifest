@@ -8,6 +8,9 @@ on:
     branches:
       - main
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -16,10 +19,8 @@ jobs:
       - name: Checkout branch
         uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: 'actions/setup-node@v3'
-        with:
-          node-version: 16.14.x
+      - name: Install dependencies
+        uses: ./.github/actions/install-dependencies
 
       - name: Creating .npmrc
         run: |
@@ -38,6 +39,7 @@ jobs:
       - name: Create release Pull Request or publish to NPM
         uses: changesets/action@v1
         with:
+          version: yarn version
           publish: yarn release
           commit: 'chore(release): version packages'
         env:

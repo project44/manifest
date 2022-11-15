@@ -28,6 +28,7 @@
   "scripts": {
     "build": "tsup",
     "clean": "rimraf dist .turbo",
+    "dev": "yarn run build --watch",
     "lint": "eslint \"**/*.{ts,tsx}\"",
     "test": "jest",
     "typecheck": "tsc --noEmit"
