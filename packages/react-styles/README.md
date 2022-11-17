@@ -76,6 +76,52 @@ tokens.
 Check out the [Stitches documentation](https://stitches.dev/docs/tokens) for more information about
 theme tokens.
 
+### pxToRem
+
+We encourage using `rem` instead of `px` for your unit of measurement to improve accessibility for
+those with visual impairments. To make the conversion from `px` to `rem` easier we have provided a
+utility function that will convert those values using a base font size of `16px`.
+
+```tsx
+import { css, styled } from '@project44-manifest/react-styles';
+
+const MyComponent = styled('div', {
+  padding: pxToRem(64),
+});
+```
+
+### cx
+
+This library also provides a utility for constructing className strings conditionally.
+
+```tsx
+import { cx } from '@project44-manifest/react-styles';
+
+// Strings (variadic)
+cx('foo', true && 'bar', 'baz');
+//=> 'foo bar baz'
+
+// Objects
+cx({ foo: true, bar: false, baz: isTrue() });
+//=> 'foo baz'
+
+// Objects (variadic)
+cx({ foo: true }, { bar: false }, null, { '--foobar': 'hello' });
+//=> 'foo --foobar'
+
+// Arrays
+cx(['foo', 0, false, 'bar']);
+//=> 'foo bar'
+
+// Arrays (variadic)
+cx(['foo'], ['', 0, false, 'bar'], [['baz', [['hello'], 'there']]]);
+//=> 'foo bar baz hello there'
+
+// Kitchen sink (with nesting)
+cx('foo', [1 && 'bar', { baz: false, bat: null }, ['hello', ['world']]], 'cya');
+//=> 'foo bar hello world cya'
+```
+
 ## Contributing
 
 Contributions are always welcome!! Please review our [Contribution Guide](/.github/CONTRIBUTING.md)
