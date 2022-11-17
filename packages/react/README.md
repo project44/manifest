@@ -62,7 +62,7 @@ All Manifest components are polymorphic, meaning that each component can be rend
 different element or node using the `as` prop.
 
 ```tsx
-import { Button } from '@porject44-manifest/react';
+import { Button } from '@project44-manifest/react';
 
 <Button as="span" />;
 ```
@@ -72,30 +72,13 @@ import { Button } from '@porject44-manifest/react';
 
 ### Styling
 
-The `@project44-manifest/react` library ships with a pre-configured styling engine powered by
-[Stitches](https://stitches.dev).
-
-All the components support the `css` prop for overriding styles. It's like the style attribute, but
-it supports tokens, media queries, nesting and token-aware values.
-
-For more information about the `css` prop, check out the Stitches
-[documentation](https://stitches.dev/docs/overriding-styles#the-css-prop).
-
 > Please note that all components have been built to the specification of the Manifest Design
 > System. Therefor overriding component styles should be used sparingly. If you need to control the
 > layout of components we recommend using the layout primitives supplied by Manifest instead of
 > overriding individual component styles.
 
-```tsx
-import { Button } from '@project44-manifest/react';
-
-<Button css={{ backgroundColor: '$palette-color-black' }} />;
-```
-
-> Notice the usage of [theme tokens](https://stitches.dev/docs/tokens) in the above example, it is
-> highly encouraged to use theme tokens vs. hard coded values as this allows all components to
-> inherit any changes made at the theme level. Check out our
-> [theme specification](../theme/README.md) for a complete list of available theme tokens.
+Checkout the [`@project44-manifest/react-styles`](../react-styles/README.md) library for usage
+guidelines.
 
 ### Composing components
 
