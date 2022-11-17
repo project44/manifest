@@ -25,37 +25,26 @@ For usage guidelines and full documentation please visit our
 
 ## Getting Started
 
-Just getting started? Check out [`@project44-manifest/react`](./packages/react).
+> Please refer the individual packages READMEs for installation and usage instructions.
 
-Need something more specific? You may want to check out these packages:
+Manifest uses [Turborepo](https://turbo.build/repo) as it's build system and
+[Yarn](https://classic.yarnpkg.com/en/docs/workspaces/) for dependency management.
 
-| Package name                                | Description                                    |
-| ------------------------------------------- | ---------------------------------------------- |
-| [`design tokens`](./packages/design-tokens) | The design tokens for Manifest Design System.  |
-| [`react`](./packages/react)                 | React components, patterns and styling engine. |
-| [`theme`](./packages/theme)                 | A theme implementing our design tokens.        |
-
-Manifest uses [Turborepo](https://turbo.build/repo) as it's build system, to get started working
-with repo install the dependencies and build the packages:
+To install all the dependencies run the following command:
 
 ```sh
-yarn && yarn build
+yarn install
 ```
 
-To run a command for a single workspace use the `--filter` tag provided by turbo.
+Once all the packages are installed, you'll need to compile the source code. Building the code
+ensures that workspaces that reference other workspaces use the correct source code, preventing
+errors in our linter and [TypeScript](https://www.typescriptlang.org/) compiler.
 
 ```sh
-yarn turbo run --filter=@project44-manifest/react
+yarn build
 ```
 
-Some common commands includes:
-
-| Command                                                     | Purpose                                                    |
-| ----------------------------------------------------------- | ---------------------------------------------------------- |
-| `yarn turbo run dev --filter=@project44-manifest/storybook` | Starts a development server for the react components.      |
-| `yarn turbo run dev --filter=@project44-manifest/doc`       | Starts a development server for the documentation website. |
-
-The following commands will run in all packages:
+Now you're all set! Here are some other common commands that you may find useful:
 
 | Command          | Purpose                                                              |
 | ---------------- | -------------------------------------------------------------------- |
@@ -67,6 +56,12 @@ The following commands will run in all packages:
 | `yarn lint`      | Run linting.                                                         |
 | `yarn test`      | Run unit tests.                                                      |
 | `yarn typecheck` | Validate TypeScript types.                                           |
+
+To run a command for a single workspace use the `--filter` tag provided by turbo.
+
+```sh
+yarn turbo run <command> --filter=<workspace_name>
+```
 
 ## Contributing
 

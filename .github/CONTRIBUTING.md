@@ -36,13 +36,12 @@ that no one is actively working on the same issue or feature.
 3. Install dependencies by running `yarn` in the project root
 4. Build the code with `yarn build`
 5. Write your code
-6. Start storybook dev environment `yarn dev`
-7. Ensure code is tested and tests pass with `yarn test`
-8. Ensure your code passes formatting rules with `yarn format`
-9. Lint your code with `yarn lint`
-10. Check your typescript types with `yarn typecheck`
-11. Generate a changeset with `yarn changeset`
-12. Profit
+6. Ensure code is tested and tests pass with `yarn test`
+7. Ensure your code passes formatting rules with `yarn format`
+8. Lint your code with `yarn lint`
+9. Check your typescript types with `yarn typecheck`
+10. Generate a changeset with `yarn changeset`
+11. Profit
 
 ## Commit Conventions
 
@@ -70,7 +69,7 @@ yarn build
 3. Start development server
 
 ```sh
-yarn dev
+yarn turbo run --filter=@project44-manifest/storybook
 ```
 
 ## Testing
