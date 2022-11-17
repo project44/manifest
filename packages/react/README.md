@@ -116,6 +116,14 @@ function MyComponent() {
 }
 ```
 
+Along with the `Box`, Manifest provides a robust set of layout primitives that can be used to
+control layout and composing components.
+
+These primitives include a `Container`, `Flex`, `Grid`, and `Stack` component.
+
+Please refer the the [documentation website](https://www.manifestdesignsystem.com/docs/components)
+for usage information and best practices.
+
 ## Contributing
 
 Contributions are always welcome!! Please review our [Contribution Guide](/.github/CONTRIBUTING.md)
