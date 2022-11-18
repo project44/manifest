@@ -1,28 +1,31 @@
-name: PR
+name: Changelog
 
 on:
   pull_request:
+    paths:
+      - 'packages/**'
     types:
       - opened
       - edited
       - synchronize
 
 jobs:
-  title:
-    name: Title
+  changeset:
+    if: github.head_ref != 'changeset-release/main'
+
+    name: Changeset
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout branch
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Use Node.js 18
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
-          cache: yarn
 
-      - name: Check for conventional title
-      - uses: amannn/action-semantic-pull-request@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check for changeset
+        run: yarn changeset status --since="origin/main"

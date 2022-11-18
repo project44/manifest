@@ -69,7 +69,7 @@ yarn build
 3. Start development server
 
 ```sh
-yarn turbo run --filter=@project44-manifest/storybook
+yarn turbo run dev --filter=@project44-manifest/storybook
 ```
 
 ## Testing

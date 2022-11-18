@@ -1,28 +1,28 @@
-name: PR
+name: Size limit
 
 on:
   pull_request:
+    paths:
+      - 'packages/**'
     types:
       - opened
       - edited
       - synchronize
 
 jobs:
-  title:
-    name: Title
+  size:
+    name: Size limit
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout branch
+      - name: Check out code
         uses: actions/checkout@v3
 
       - name: Use Node.js 18
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
-          cache: yarn
 
-      - name: Check for conventional title
-      - uses: amannn/action-semantic-pull-request@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: andresz1/size-limit-action@v1.7.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
