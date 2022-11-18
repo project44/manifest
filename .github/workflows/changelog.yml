@@ -20,10 +20,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Use Node.js 18
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18.x
+      - name: Install dependencies
+        uses: ./.github/actions/install-dependencies
 
       - name: Check for changeset
         run: yarn changeset status --since="origin/main"
