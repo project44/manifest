@@ -1,0 +1,27 @@
+name: Changelog
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+
+jobs:
+  changeset:
+    if: github.head_ref != 'changeset-release/main'
+
+    name: Changeset
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Install dependencies
+        uses: ./.github/actions/install-dependencies
+
+      - name: Check for changeset
+        run: yarn changeset status --since="origin/main"

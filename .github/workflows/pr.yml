@@ -1,18 +1,18 @@
 name: PR
 
-on: pull_request
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
 
 jobs:
-  conventional:
-    name: Conventional PR Title
+  title:
+    name: Validate title
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          cache: yarn
-      - uses: beemojs/conventional-pr-action@v2
-        with:
-          config-preset: angular
+      - uses: amannn/action-semantic-pull-request@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

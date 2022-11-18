@@ -13,7 +13,7 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:project-44/manifest.git",
-    "directory": "packages/eslint-config"
+    "directory": "tools/eslint-config"
   },
   "peerDependencies": {
     "eslint": "^8.26.0"

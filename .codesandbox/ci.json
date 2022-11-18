@@ -1,5 +1,5 @@
 {
-  "buildCommand": "turbo run build --filter='./packages/**/*'",
+  "buildCommand": "turbo run build",
   "node": "16",
   "packages": [
     "/packages/design-tokens",
