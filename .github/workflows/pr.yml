@@ -9,20 +9,10 @@ on:
 
 jobs:
   title:
-    name: Title
+    name: Validate title
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout branch
-        uses: actions/checkout@v3
-
-      - name: Use Node.js 18
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18.x
-          cache: yarn
-
-      - name: Check for conventional title
-        uses: amannn/action-semantic-pull-request@v4
+      - uses: amannn/action-semantic-pull-request@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
