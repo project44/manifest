@@ -13,6 +13,7 @@ concurrency:
 
 jobs:
   release:
+    name: Changelog PR or Release
     runs-on: ubuntu-latest
 
     steps:
@@ -30,9 +31,6 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Install Dependencies
-        run: yarn
-
       - name: Build
         run: yarn build
 
@@ -41,7 +39,8 @@ jobs:
         with:
           version: yarn version
           publish: yarn release
-          commit: 'chore(release): version packages'
+          commit: 'ci(release): version packages'
+          title: 'ci(release): version packages'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
