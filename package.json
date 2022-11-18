@@ -19,7 +19,7 @@
     "prepare": "husky install",
     "test": "turbo run test --filter=\"./packages/*\"",
     "typecheck": "turbo run typecheck --filter=\"./packages/*\"",
-    "release": "yarn run build && changeset publish",
+    "version-packages": "yarn run build && changeset publish",
     "version": "yarn changeset version && yarn install --mode=update-lockfile"
   },
   "dependencies": {
