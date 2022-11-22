@@ -50,7 +50,7 @@ export type DropdownItemProps<T extends As = DropdownItemElement> = ItemProps<ob
 /** @private */
 export const DropdownItem = createComponent<DropdownItemOptions>((props, forwardedRef) => {
 	const {
-		as: Comp = 'li',
+		as = 'li',
 		autoFocus,
 		className: classNameProp,
 		css,
@@ -62,6 +62,9 @@ export const DropdownItem = createComponent<DropdownItemOptions>((props, forward
 	} = props;
 
 	const { rendered, key } = item;
+	const itemProps = item.props as DropdownItemProps;
+
+	const Comp = itemProps.as ?? as;
 
 	const itemRef = React.useRef<HTMLLIElement>(null);
 
@@ -92,14 +95,21 @@ export const DropdownItem = createComponent<DropdownItemOptions>((props, forward
 	const { pressProps, isPressed } = usePress({ isDisabled, ref: itemRef });
 
 	const startIcon = React.useMemo(
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-		() => startIconProp ?? (item.props.startIcon as React.ReactElement),
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-		[startIconProp, item.props.startIcon],
+		() => startIconProp ?? itemProps.startIcon!,
+		[startIconProp, itemProps.startIcon],
 	);
 
+	const children =
+		typeof rendered === 'string' ? (
+			<Typography {...labelProps} className="manifest-dropdown-item__text" variant="subtext">
+				{rendered}
+			</Typography>
+		) : (
+			rendered
+		);
+
 	const { className } = useStyles({
-		css,
+		css: { ...css, ...itemProps.css },
 		isDisabled,
 		isFocused,
 		isHovered,
@@ -107,7 +117,7 @@ export const DropdownItem = createComponent<DropdownItemOptions>((props, forward
 		isSelected,
 	});
 
-	const classes = cx(className, classNameProp, {
+	const classes = cx(className, classNameProp, itemProps.className, {
 		'manifest-dropdown-item': true,
 		'manifest-dropdown-item--disabled': isDisabled,
 		'manifest-dropdown-item--selected': isSelected,
@@ -126,9 +136,7 @@ export const DropdownItem = createComponent<DropdownItemOptions>((props, forward
 				</span>
 			)}
 
-			<Typography {...labelProps} className="manifest-dropdown-item__text" variant="subtext">
-				{rendered}
-			</Typography>
+			{children}
 		</Comp>
 	);
 });

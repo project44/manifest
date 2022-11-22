@@ -42,6 +42,8 @@ export interface DropdownProps {
 	 * @default 4
 	 */
 	offset?: number;
+	/** Handler that is called when the overlay's open state changes. */
+	onOpenChange?: (isOpen: boolean) => void;
 	/**
 	 * The placement of the element with respect to its anchor element.
 	 *
