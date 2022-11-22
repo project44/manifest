@@ -11,7 +11,7 @@ on:
 
 jobs:
   size:
-    name: Size limit
+    name: Compressed Size
     runs-on: ubuntu-latest
 
     steps:
@@ -23,6 +23,9 @@ jobs:
         with:
           node-version: 18.x
 
-      - uses: andresz1/size-limit-action@v1.7.0
+      - name: Generate compressed bundle sizes
+        uses: zahnster/compressed-size-action@2.4.2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          pattern: '**/dist/**/*.js'
+          exclude: '{**/*.map,**/node_modules/**}'
