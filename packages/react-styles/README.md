@@ -18,9 +18,6 @@ The `@project44-manifest/react-styles` library ships with a pre-configured styli
 
 The `styled` api can be used to create a component.
 
-> This API is for internal use only, please use our component primitives or `css` prop when working
-> with manifest design system components.
-
 ```tsx
 import { styled } from '@project44-manifest/react-styles';
 
@@ -33,16 +30,11 @@ const Button = styled('button', {
 <Button>Hello World</Button>;
 ```
 
-Check out the [Stitches documentation](https://stitches.dev/docs/styling) for complex examples of
-styling with Stitches.
-
 ### CSS Prop
 
 All components created using this library will include a `css` prop, which can be used to pass in
-style overrides.
-
-It’s like the style attribute, but it supports tokens, media queries, nesting and token-aware
-values.
+style overrides. It’s like the style attribute, but it supports tokens, media queries, nesting and
+token-aware values.
 
 ```tsx
 const Button = styled('button', {});
@@ -62,19 +54,13 @@ const Button = styled('button', {});
 </Button>;
 ```
 
-Check out the [Stitches documentation](https://stitches.dev/docs/overriding-styles#the-css-prop) for
-information regarding the `css` prop.
-
 ### Theme Tokens
 
-> Its is highly encouraged to use theme tokens vs. hard coded values as this allows all components
-> to inherit any changes made at the theme level.
+Theme tokens are used to style components. These tokens should be used where applicable instead of
+hard code CSS values as this allows all components to inherit any changes made to the theme.
 
 Check out our [theme specification](../theme/README.md) for a complete list of available theme
-tokens.
-
-Check out the [Stitches documentation](https://stitches.dev/docs/tokens) for more information about
-theme tokens.
+tokens, and the Stitches guide to [using tokens](https://stitches.dev/docs/tokens#using-tokens).
 
 ### pxToRem
 

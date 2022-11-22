@@ -72,15 +72,59 @@ import { Button } from '@project44-manifest/react';
 
 ### Styling
 
-> Please note that all components have been built to the specification of the Manifest Design
-> System. Therefor overriding component styles should be used sparingly. If you need to control the
-> layout of components we recommend using the layout primitives supplied by Manifest instead of
-> overriding individual component styles.
+Each component is built to the specification of the design system and generally should not need
+styles overridden. Overriding component styles create visual discrepancies across our products as
+well as makes it harder to maintain components when changes are made at the system level.
 
-Checkout the [`@project44-manifest/react-styles`](../react-styles/README.md) library for usage
-guidelines.
+If you find yourself needing to override the component's styles, it is best to use the css prop as
+it’s like the style attribute, but it supports tokens, media queries, nesting, and token-aware
+values.
+
+Checkout the [`@project44-manifest/react-styles`](../react-styles/README.md#css-prop) library for
+usage guidelines.
 
 ### Composing components
+
+If you are composing a new component you have two options: the `Box` component, or the `styled` api.
+
+#### Box
+
+The Box component functions like any other component in the system, supporting the css prop and the
+polymorphic as prop. We suggest composing components this way purely from a consistency standpoint.
+Manifest components with style overrides should use the css prop, so new components composed with
+the Box component will also use the css prop. This make code scanning easier as engineers and tools
+can all look for that prop to infer the styling.
+
+```tsx
+import { Box } from '@project44-manifest/react';
+
+function MyComponent() {
+  return (
+    <Box as="span" css={{ color: '$palette-grey-100' }}>
+      {' '}
+      Hello World
+    </Box>
+  );
+}
+```
+
+#### Styled
+
+If you prefer the styled component syntax, you can use the provided `styled` api.
+
+```tsx
+import { styled } from '@project44-manifest/react-styles';
+
+const Button = styled('button', {
+  backgroundColor: '$palette-blue-500',
+  borderRadius: '$full',
+  color: '$palette-white',
+});
+
+<Button>Hello World</Button>;
+```
+
+The styled api support usage of theme tokens just like the css prop.
 
 If you need to compose your own components utilizing the design system in react we recommend using
 the polymorphic `Box` component. The `Box` component ships with support for the `css` and `as`
