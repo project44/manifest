@@ -1,5 +1,14 @@
 # @manifest/react
 
+## 2.6.5
+
+### Patch Changes
+
+- [#161](https://github.com/project44/manifest/pull/161)
+  [`3e45a90`](https://github.com/project44/manifest/commit/3e45a90954000586572b9890e33de8d22836cde8)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - [useMultiComboboxState] optional change
+  property access on collection interface
+
 ## 2.6.4
 
 ### Patch Changes
