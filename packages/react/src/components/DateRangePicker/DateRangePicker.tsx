@@ -10,7 +10,6 @@ import type { DateValue } from '@react-types/calendar';
 import type { AriaDateRangePickerProps } from '@react-types/datepicker';
 import type { Placement } from '@react-types/overlays';
 import { cx } from '@project44-manifest/react-styles';
-import { Typography } from '@project44-manifest/react-typography';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import type { StyleProps } from '../../types';
 import { CalendarRange } from '../CalendarRange';
@@ -20,6 +19,7 @@ import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
 import { Overlay } from '../Overlay';
 import { Popover } from '../Popover';
+import { Typography } from '../Typography';
 
 export type DateRangePickerElement = 'div';
 

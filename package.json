@@ -17,10 +17,10 @@
     "format": "prettier --check \"**/*.{ts,tsx,md}\"",
     "lint": "turbo run lint --filter=\"./packages/*\"",
     "prepare": "husky install",
+    "release": "yarn run build && changeset publish",
     "test": "turbo run test --filter=\"./packages/*\"",
     "typecheck": "turbo run typecheck --filter=\"./packages/*\"",
-    "version-packages": "yarn run build && changeset publish",
-    "version": "yarn changeset version && yarn install --mode=update-lockfile"
+    "version": "yarn changeset version"
   },
   "dependencies": {
     "@changesets/changelog-github": "^0.4.4",

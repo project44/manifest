@@ -4,10 +4,10 @@ import { useSeparator } from '@react-aria/separator';
 import type { TreeState } from '@react-stately/tree';
 import type { Node, SectionProps } from '@react-types/shared';
 import { cx } from '@project44-manifest/react-styles';
-import { Typography } from '@project44-manifest/react-typography';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import type { StyleProps } from '../../types';
 import { DROPDOWN_ITEM } from '../DropdownItem';
+import { Typography } from '../Typography';
 import { useStyles } from './DropdownSection.styles';
 
 export type DropdownSectionElement = 'li';

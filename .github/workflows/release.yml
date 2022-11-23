@@ -20,8 +20,11 @@ jobs:
       - name: Checkout branch
         uses: actions/checkout@v3
 
-      - name: Install dependencies
-        uses: ./.github/actions/install-dependencies
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: 'yarn'
 
       - name: Creating .npmrc
         run: |
@@ -31,13 +34,14 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Build
-        run: yarn build
+      - name: Install dependencies
+        shell: bash
+        run: yarn install --immutable
 
       - name: Create release Pull Request or publish to NPM
         uses: changesets/action@v1
         with:
-          version: yarn version-packages
+          version: yarn version
           publish: yarn release
           commit: 'ci(release): version packages'
           title: 'ci(release): version packages'

@@ -9,7 +9,7 @@ import type { StyleProps } from '../../types';
 import { FormControl } from '../FormControl';
 import { useStyles } from './TextFieldBase.styles';
 
-export type TextFieldBaseElement = 'input';
+export type TextFieldBaseElement = 'div';
 
 export interface TextFieldBaseOptions<T extends As = TextFieldBaseElement>
 	extends Options<T>,
@@ -99,7 +99,6 @@ export const TextFieldBase = createComponent<TextFieldBaseOptions>((props, forwa
 	const isInvalid = validationState === 'invalid';
 
 	const fieldRef = React.useRef<HTMLInputElement | HTMLTextAreaElement>(null);
-	const mergedRef = mergeRefs(fieldRef, inputRef!);
 
 	const { focusProps, isFocused, isFocusVisible } = useFocusRing({
 		autoFocus,
@@ -145,7 +144,7 @@ export const TextFieldBase = createComponent<TextFieldBaseOptions>((props, forwa
 
 				<Comp
 					{...mergeProps(inputProps, focusProps, hoverProps)}
-					ref={mergedRef as never}
+					ref={mergeRefs(fieldRef, inputRef!) as never}
 					className="manifest-textfield-base__input"
 					rows={multiline ? 1 : undefined}
 				/>

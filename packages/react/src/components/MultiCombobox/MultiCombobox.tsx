@@ -6,7 +6,6 @@ import { useHover } from '@react-aria/interactions';
 import { useOverlayPosition } from '@react-aria/overlays';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import type { Placement } from '@react-types/overlays';
-import { Stack } from '@project44-manifest/react-layout';
 import { cx } from '@project44-manifest/react-styles';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import { useMultiCombobox } from '../../hooks';
@@ -17,6 +16,7 @@ import { Icon } from '../Icon';
 import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
 import { Overlay } from '../Overlay';
 import { Popover } from '../Popover';
+import { Stack } from '../Stack';
 import { Tag } from '../Tag';
 import { useStyles } from './MultiCombobox.styles';
 
