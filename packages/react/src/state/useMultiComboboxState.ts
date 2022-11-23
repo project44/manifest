@@ -141,7 +141,7 @@ export function useMultiComboboxState<T extends object>(
 			onSelectionChange?.(selectedKeys);
 
 			// Stop menu from reopening from useEffect
-			const itemText = collection.getItem(selectionManager.focusedKey).textValue ?? '';
+			const itemText = collection.getItem(selectionManager.focusedKey)?.textValue ?? '';
 
 			valueRef.current = itemText;
 		}
