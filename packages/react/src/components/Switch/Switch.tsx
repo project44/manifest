@@ -6,9 +6,9 @@ import { mergeProps } from '@react-aria/utils';
 import { useToggleState } from '@react-stately/toggle';
 import type { AriaSwitchProps } from '@react-types/switch';
 import { cx } from '@project44-manifest/react-styles';
-import { Typography } from '@project44-manifest/react-typography';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import type { StyleProps } from '../../types';
+import { Typography } from '../Typography';
 import { useStyles } from './Switch.styles';
 
 export type SwitchElement = 'label';

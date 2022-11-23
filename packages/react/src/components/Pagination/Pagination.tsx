@@ -2,11 +2,11 @@ import * as React from 'react';
 import { Fragment, useMemo } from 'react';
 import { useControlledState } from '@react-stately/utils';
 import { cx } from '@project44-manifest/react-styles';
-import { Typography } from '@project44-manifest/react-typography';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import type { StyleProps } from '../../types';
 import { Icon } from '../Icon';
 import { PaginationItem } from '../PaginationItem';
+import { Typography } from '../Typography';
 import { useStyles } from './Pagination.styles';
 
 type PageType = number | 'dots' | 'next' | 'previous';
@@ -153,7 +153,7 @@ export const Pagination = createComponent<PaginationOptions>((props, forwardedRe
 			</PaginationItem>
 
 			{showPageNumbers &&
-				pages.map((item) => (
+				pages.map((item, index) => (
 					<Fragment key={item}>
 						{item === 'dots' && (
 							<div aria-hidden className="manifest-pagination__ellipsis">

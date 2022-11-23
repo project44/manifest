@@ -1,12 +1,12 @@
 import { useListBoxSection } from '@react-aria/listbox';
 import type { Node, SectionProps } from '@react-types/shared';
 import { cx } from '@project44-manifest/react-styles';
-import { Typography } from '@project44-manifest/react-typography';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import type { StyleProps } from '../../types';
 import { useListBoxContext } from '../ListBoxContext';
 import { LIST_BOX_ITEM } from '../ListBoxItem';
 import { Separator } from '../Separator';
+import { Typography } from '../Typography';
 import { useStyles } from './ListBoxSection.styles';
 
 export type ListBoxSectionElement = 'div';
