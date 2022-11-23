@@ -1,5 +1,14 @@
 # @manifest/react
 
+## 2.6.4
+
+### Patch Changes
+
+- [#158](https://github.com/project44/manifest/pull/158)
+  [`9c5b626`](https://github.com/project44/manifest/commit/9c5b62625701af3963e6f7f96ad86d5a6715c197)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - [Dropdown] fixing DropdownItem prop
+  overrides
+
 ## 2.6.3
 
 ### Patch Changes
