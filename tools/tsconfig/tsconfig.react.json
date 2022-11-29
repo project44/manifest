@@ -4,6 +4,7 @@
   "compilerOptions": {
     "declaration": true,
     "declarationMap": true,
+    "emitDeclarationOnly": true,
     "jsx": "react-jsx",
     "lib": [
       "DOM",

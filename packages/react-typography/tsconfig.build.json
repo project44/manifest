@@ -1,7 +1,7 @@
 {
   "extends": "tsconfig-manifest/tsconfig.react.json",
   "compilerOptions": {
-    "outDir": "dist",
+    "outDir": "dts",
     "rootDir": "src"
   },
   "include": [
