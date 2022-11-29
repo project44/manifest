@@ -25,7 +25,7 @@
     "access": "public"
   },
   "scripts": {
-    "clean": "rimraf dist .turbo",
+    "clean": "rimraf .turbo",
     "lint": "eslint \"**/*.{ts,tsx}\"",
     "test": "jest",
     "typecheck": "tsc --noEmit"
@@ -42,7 +42,6 @@
     "jest-preset-manifest": "*",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "tsconfig-manifest": "*",
-    "tsup": "^6.4.0"
+    "tsconfig-manifest": "*"
   }
 }

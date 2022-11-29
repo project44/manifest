@@ -10,12 +10,14 @@
     "system"
   ],
   "sideEffects": false,
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "source": "src/index.ts",
-  "types": "dist/index.d.ts",
+  "main": "./lib/index.js",
+  "module": "./esm/index.js",
+  "types": "./dts/index.d.ts",
   "files": [
-    "dist"
+    "dts/**/*.d.ts",
+    "esm/**/*.{js,map}",
+    "lib/**/*.{js,map}",
+    "src/**/*.{ts,tsx,json}"
   ],
   "repository": {
     "type": "git",
@@ -26,9 +28,10 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsup",
-    "clean": "rimraf dist .turbo",
-    "dev": "yarn run build --watch",
+    "build": "packemon build --addEngines --declaration --declarationConfig tsconfig.build.json",
+    "clean": "rimraf .turbo && packemon clean",
+    "coverage": "jest --coverage",
+    "dev": "packemon watch",
     "lint": "eslint \"**/*.{ts,tsx}\"",
     "test": "jest",
     "typecheck": "tsc --noEmit"
@@ -46,7 +49,9 @@
     "eslint-config-manifest": "*",
     "jest": "^29.2.2",
     "jest-preset-manifest": "*",
-    "tsconfig-manifest": "*",
-    "tsup": "^6.4.0"
+    "tsconfig-manifest": "*"
+  },
+  "packemon": {
+    "platform": "browser"
   }
 }
