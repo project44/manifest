@@ -1,5 +1,19 @@
 # @manifest/react
 
+## 2.6.6
+
+### Patch Changes
+
+- [#163](https://github.com/project44/manifest/pull/163)
+  [`b601e29`](https://github.com/project44/manifest/commit/b601e29af8cc9cc3f404358a231dfc16851761b7)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Fixing underlying build issue in all
+  packages
+
+- Updated dependencies
+  [[`b601e29`](https://github.com/project44/manifest/commit/b601e29af8cc9cc3f404358a231dfc16851761b7)]:
+  - @project44-manifest/react-styles@1.0.1
+  - @project44-manifest/system@0.1.5
+
 ## 2.6.5
 
 ### Patch Changes
