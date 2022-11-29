@@ -1,6 +1,6 @@
 {
   "name": "tsconfig-manifest",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Manifest Design System Typescript configurations",
   "keywords": [
     "typescript",
