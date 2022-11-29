@@ -1,12 +1,5 @@
 {
   "extends": "tsconfig-manifest/tsconfig.react.json",
-  "compilerOptions": {
-    "outDir": "dist",
-    "rootDir": "."
-  },
-  "exclude": [
-    "dist"
-  ],
   "include": [
     "**/*",
     "../../@types/**/*"

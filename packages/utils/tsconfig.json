@@ -1,12 +1,5 @@
 {
   "extends": "tsconfig-manifest/tsconfig.library.json",
-  "compilerOptions": {
-    "outDir": "dist",
-    "rootDir": "."
-  },
-  "exclude": [
-    "dist"
-  ],
   "include": [
     "**/*"
   ]

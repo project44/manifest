@@ -1,4 +1,6 @@
 .turbo/
 node_modules/
 coverage/
-dist/
+dts/
+esm/
+lib/
