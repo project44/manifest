@@ -12,58 +12,58 @@ import { useStyles } from './ListBoxSection.styles';
 export type ListBoxSectionElement = 'div';
 
 export interface ListBoxSectionOptions<T extends As = ListBoxSectionElement>
-	extends Options<T>,
-		StyleProps {
-	/**
-	 * Item object in the collection.
-	 */
-	item: Node<object>;
+  extends Options<T>,
+    StyleProps {
+  /**
+   * Item object in the collection.
+   */
+  item: Node<object>;
 }
 
 export type ListBoxSectionProps<T extends As = ListBoxSectionElement> = Omit<
-	Props<ListBoxSectionOptions<T>>,
-	'item'
+  Props<ListBoxSectionOptions<T>>,
+  'item'
 > &
-	SectionProps<object>;
+  SectionProps<object>;
 
 /** @private */
 export const ListBoxSection = createComponent<ListBoxSectionOptions>((props, forwardedRef) => {
-	const { as: Comp = 'div', className: classNameProp, css, item } = props;
+  const { as: Comp = 'div', className: classNameProp, css, item } = props;
 
-	const { state } = useListBoxContext()!;
+  const { state } = useListBoxContext()!;
 
-	const { itemProps, headingProps, groupProps } = useListBoxSection({
-		'aria-label': item['aria-label'],
-		heading: item.rendered,
-	});
+  const { itemProps, headingProps, groupProps } = useListBoxSection({
+    'aria-label': item['aria-label'],
+    heading: item.rendered,
+  });
 
-	const showSeparator = item.key !== state.collection.getFirstKey();
+  const showSeparator = item.key !== state.collection.getFirstKey();
 
-	const { className } = useStyles({ css });
+  const { className } = useStyles({ css });
 
-	return (
-		<>
-			{showSeparator && <Separator className="manifest-listbox-separator" />}
-			<Comp
-				{...itemProps}
-				ref={forwardedRef}
-				className={cx(className, classNameProp, 'manifest-listbox-section')}
-			>
-				{item.rendered && (
-					<Typography
-						{...headingProps}
-						className="manifest-listbox-section__label"
-						variant="caption"
-					>
-						{item.rendered}
-					</Typography>
-				)}
-				<div {...groupProps} className="manifest-listbox-section__group">
-					{[...item.childNodes].map((node) => (
-						<LIST_BOX_ITEM key={node.key} item={node} />
-					))}
-				</div>
-			</Comp>
-		</>
-	);
+  return (
+    <>
+      {showSeparator && <Separator className="manifest-listbox-separator" />}
+      <Comp
+        {...itemProps}
+        ref={forwardedRef}
+        className={cx(className, classNameProp, 'manifest-listbox-section')}
+      >
+        {item.rendered && (
+          <Typography
+            {...headingProps}
+            className="manifest-listbox-section__label"
+            variant="caption"
+          >
+            {item.rendered}
+          </Typography>
+        )}
+        <div {...groupProps} className="manifest-listbox-section__group">
+          {[...item.childNodes].map((node) => (
+            <LIST_BOX_ITEM key={node.key} item={node} />
+          ))}
+        </div>
+      </Comp>
+    </>
+  );
 });

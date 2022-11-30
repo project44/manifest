@@ -8,42 +8,42 @@ import { useTooltipState } from './Tooltip.state';
 import type { TooltipElement, TooltipProps } from './Tooltip.types';
 
 export const Tooltip = React.forwardRef((props, forwardedRef) => {
-	const {
-		defaultOpen,
-		children,
-		delay = 250,
-		isOpen,
-		isDisabled,
-		placement = 'bottom',
-		onOpenChange,
-		title,
-		trigger,
-		...other
-	} = props;
+  const {
+    defaultOpen,
+    children,
+    delay = 250,
+    isOpen,
+    isDisabled,
+    placement = 'bottom',
+    onOpenChange,
+    title,
+    trigger,
+    ...other
+  } = props;
 
-	const state = useTooltipState({ defaultOpen, delay, isDisabled, isOpen, onOpenChange, trigger });
-	const { tooltipProps, tooltipRef, triggerProps, triggerRef } = useTooltip(state, {
-		defaultOpen,
-		isDisabled,
-		placement,
-		trigger,
-	});
+  const state = useTooltipState({ defaultOpen, delay, isDisabled, isOpen, onOpenChange, trigger });
+  const { tooltipProps, tooltipRef, triggerProps, triggerRef } = useTooltip(state, {
+    defaultOpen,
+    isDisabled,
+    placement,
+    trigger,
+  });
 
-	return (
-		<>
-			<Slot {...triggerProps} ref={triggerRef}>
-				{children}
-			</Slot>
-			<AnimatePresence>
-				{state.isOpen && (
-					<TooltipContent
-						{...mergeProps(tooltipProps, other)}
-						ref={mergeRefs(tooltipRef, forwardedRef)}
-					>
-						{title}
-					</TooltipContent>
-				)}
-			</AnimatePresence>
-		</>
-	);
+  return (
+    <>
+      <Slot {...triggerProps} ref={triggerRef}>
+        {children}
+      </Slot>
+      <AnimatePresence>
+        {state.isOpen && (
+          <TooltipContent
+            {...mergeProps(tooltipProps, other)}
+            ref={mergeRefs(tooltipRef, forwardedRef)}
+          >
+            {title}
+          </TooltipContent>
+        )}
+      </AnimatePresence>
+    </>
+  );
 }) as ForwardRefComponent<TooltipElement, TooltipProps>;

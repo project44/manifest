@@ -1,3 +1,1 @@
-import clsx from 'clsx';
-
-export const cx = clsx;
+export { default as cx } from 'clsx';

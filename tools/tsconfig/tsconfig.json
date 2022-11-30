@@ -7,6 +7,10 @@
     "experimentalDecorators": false,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
+    "lib": [
+      "ESNext"
+    ],
+    "module": "ESNext",
     "moduleResolution": "Node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
@@ -14,7 +18,8 @@
     "noUnusedLocals": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "strict": true
+    "strict": true,
+    "target": "ES2022"
   },
   "exclude": [
     "node_modules"

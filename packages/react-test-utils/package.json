@@ -32,7 +32,7 @@
   "scripts": {
     "build": "packemon build --addEngines --declaration --declarationConfig tsconfig.build.json",
     "clean": "rimraf .turbo && packemon clean",
-    "lint": "eslint \"**/*.{ts,tsx}\"",
+    "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
@@ -48,8 +48,6 @@
     "jest-axe": "^6.0.0"
   },
   "devDependencies": {
-    "eslint": "^8.26.0",
-    "eslint-config-manifest": "*",
     "tsconfig-manifest": "*"
   },
   "packemon": {

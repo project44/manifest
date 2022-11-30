@@ -6,16 +6,16 @@ import { sizes, space } from './shared/layout';
 import { fonts, fontSizes, fontWeights, letterSpacings, lineHeights } from './shared/typography';
 
 export const lightTheme: Theme = {
-	borderWidths,
-	colors,
-	fonts,
-	fontSizes,
-	fontWeights,
-	letterSpacings,
-	lineHeights,
-	radii,
-	shadows,
-	sizes,
-	space,
-	zIndices,
+  borderWidths,
+  colors,
+  fonts,
+  fontSizes,
+  fontWeights,
+  letterSpacings,
+  lineHeights,
+  radii,
+  shadows,
+  sizes,
+  space,
+  zIndices,
 };

@@ -5,17 +5,17 @@ import { StyledStack } from './Stack.styles';
 import type { StackElement, StackProps } from './Stack.types';
 
 export const Stack = React.forwardRef((props, forwardedRef) => {
-	const { as, className: classNameProp, css, gap, orientation, ...other } = props;
+  const { as, className: classNameProp, css, gap, orientation, ...other } = props;
 
-	return (
-		<StyledStack
-			{...other}
-			ref={forwardedRef}
-			as={as}
-			className={cx('manifest-stack', classNameProp)}
-			css={css}
-			gap={gap}
-			orientation={orientation}
-		/>
-	);
+  return (
+    <StyledStack
+      {...other}
+      ref={forwardedRef}
+      as={as}
+      className={cx('manifest-stack', classNameProp)}
+      css={css}
+      gap={gap}
+      orientation={orientation}
+    />
+  );
 }) as ForwardRefComponent<StackElement, StackProps>;

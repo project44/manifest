@@ -5,19 +5,19 @@ import { Button } from './Button';
 import type { IconButtonElement, IconButtonProps } from './IconButton.types';
 
 export const IconButton = React.forwardRef((props, forwardedRef) => {
-	const { className: classNameProp, css, size = 'medium', ...other } = props;
+  const { className: classNameProp, css, size = 'medium', ...other } = props;
 
-	return (
-		<Button
-			{...other}
-			ref={forwardedRef}
-			className={cx('manifest-icon-button', classNameProp)}
-			css={{
-				...css,
-				justifyContent: 'center',
-				px: size === 'small' ? pxToRem(7) : '$small',
-			}}
-			size={size}
-		/>
-	);
+  return (
+    <Button
+      {...other}
+      ref={forwardedRef}
+      className={cx('manifest-icon-button', classNameProp)}
+      css={{
+        ...css,
+        justifyContent: 'center',
+        px: size === 'small' ? pxToRem(7) : '$small',
+      }}
+      size={size}
+    />
+  );
 }) as ForwardRefComponent<IconButtonElement, IconButtonProps>;

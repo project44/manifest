@@ -12,49 +12,49 @@ import { useStyles } from './DropdownMenu.styles';
 
 export type DropdownMenuElement = 'ul';
 export type DropdownMenuOptions<T extends As = DropdownMenuElement> = AriaMenuProps<object> &
-	Options<T> &
-	StyleProps;
+  Options<T> &
+  StyleProps;
 export type DropdownMenuProps<T extends As = DropdownMenuElement> = Props<DropdownMenuOptions<T>>;
 
 export const DropdownMenu = createComponent<DropdownMenuOptions>((props, forwardedRef) => {
-	const { as: Comp = 'ul', className: classNameProp, css, ...other } = props;
+  const { as: Comp = 'ul', className: classNameProp, css, ...other } = props;
 
-	const { menuRef, menuProps: contextProps } = useDropdownContext()!;
+  const { menuRef, menuProps: contextProps } = useDropdownContext()!;
 
-	const completeProps = { ...mergeProps(contextProps, other) };
+  const completeProps = { ...mergeProps(contextProps, other) };
 
-	const state = useTreeState(completeProps);
-	const { menuProps } = useMenu(completeProps, state, menuRef);
+  const state = useTreeState(completeProps);
+  const { menuProps } = useMenu(completeProps, state, menuRef);
 
-	const { className } = useStyles({ css });
+  const { className } = useStyles({ css });
 
-	return (
-		<Comp
-			{...menuProps}
-			ref={mergeRefs(menuRef, forwardedRef)}
-			className={cx(className, classNameProp, 'manifest-dropdown')}
-		>
-			{[...state.collection].map((item) => {
-				if (item.type === 'section') {
-					return (
-						<DROPDOWN_SECTION
-							key={item.key}
-							item={item}
-							state={state}
-							onAction={completeProps.onAction}
-						/>
-					);
-				}
+  return (
+    <Comp
+      {...menuProps}
+      ref={mergeRefs(menuRef, forwardedRef)}
+      className={cx(className, classNameProp, 'manifest-dropdown')}
+    >
+      {[...state.collection].map((item) => {
+        if (item.type === 'section') {
+          return (
+            <DROPDOWN_SECTION
+              key={item.key}
+              item={item}
+              state={state}
+              onAction={completeProps.onAction}
+            />
+          );
+        }
 
-				return (
-					<DROPDOWN_ITEM
-						key={item.key}
-						item={item}
-						state={state}
-						onAction={completeProps.onAction}
-					/>
-				);
-			})}
-		</Comp>
-	);
+        return (
+          <DROPDOWN_ITEM
+            key={item.key}
+            item={item}
+            state={state}
+            onAction={completeProps.onAction}
+          />
+        );
+      })}
+    </Comp>
+  );
 });

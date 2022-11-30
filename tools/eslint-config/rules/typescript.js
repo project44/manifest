@@ -1,285 +1,178 @@
 module.exports = {
-	plugins: ['@typescript-eslint'],
-	rules: {
-		'@typescript-eslint/adjacent-overload-signatures': 'error',
-		'@typescript-eslint/array-type': [
-			'error',
-			{
-				default: 'array',
-			},
-		],
-		'@typescript-eslint/await-thenable': 'off',
-		'@typescript-eslint/ban-ts-comment': [
-			'error',
-			{
-				minimumDescriptionLength: 3,
-				'ts-check': false,
-				'ts-expect-error': 'allow-with-description',
-				'ts-ignore': true,
-				'ts-nocheck': true,
-			},
-		],
-		'@typescript-eslint/ban-tslint-comment': 'error',
-		'@typescript-eslint/ban-types': 'off',
-		'@typescript-eslint/brace-style': 'off',
-		'@typescript-eslint/class-literal-property-style': 'off',
-		'@typescript-eslint/comma-dangle': 'off',
-		'@typescript-eslint/comma-spacing': 'off',
-		'@typescript-eslint/consistent-indexed-object-style': ['error', 'record'],
-		'@typescript-eslint/consistent-type-assertions': [
-			'error',
-			{
-				assertionStyle: 'as',
-				objectLiteralTypeAssertions: 'allow-as-parameter',
-			},
-		],
-		'@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
-		'@typescript-eslint/consistent-type-imports': 'off',
-		'@typescript-eslint/default-param-last': 'error',
-		'@typescript-eslint/dot-notation': 'error',
-		'@typescript-eslint/explicit-function-return-type': 'off',
-		'@typescript-eslint/explicit-member-accessibility': [
-			'error',
-			{
-				accessibility: 'no-public',
-			},
-		],
-		'@typescript-eslint/explicit-module-boundary-types': 'off',
-		'@typescript-eslint/func-call-spacing': 'off',
-		'@typescript-eslint/indent': 'off',
-		'@typescript-eslint/keyword-spacing': 'off',
-		'@typescript-eslint/lines-between-class-members': [
-			'error',
-			{
-				exceptAfterOverload: true,
-			},
-		],
-		'@typescript-eslint/member-delimiter-style': 'off',
-		'@typescript-eslint/member-ordering': 'error',
-		'@typescript-eslint/method-signature-style': 'error',
-		'@typescript-eslint/naming-convention': 'off',
-		'@typescript-eslint/no-array-constructor': 'error',
-		'@typescript-eslint/no-base-to-string': 'error',
-		'@typescript-eslint/no-confusing-non-null-assertion': 'error',
-		'@typescript-eslint/no-confusing-void-expression': [
-			'error',
-			{
-				ignoreVoidOperator: true,
-			},
-		],
-		'@typescript-eslint/no-dupe-class-members': 'error',
-		'@typescript-eslint/no-duplicate-enum-values': 'error',
-		'@typescript-eslint/no-duplicate-imports': 'off',
-		'@typescript-eslint/no-dynamic-delete': 'off',
-		'@typescript-eslint/no-empty-function': 'off',
-		'@typescript-eslint/no-empty-interface': [
-			'error',
-			{
-				allowSingleExtends: true,
-			},
-		],
-		'@typescript-eslint/no-explicit-any': [
-			'error',
-			{
-				ignoreRestArgs: true,
-			},
-		],
-		'@typescript-eslint/no-extra-non-null-assertion': 'error',
-		'@typescript-eslint/no-extra-parens': 'off',
-		'@typescript-eslint/no-extra-semi': 'off',
-		'@typescript-eslint/no-extraneous-class': 'error',
-		'@typescript-eslint/no-floating-promises': [
-			'error',
-			{
-				ignoreIIFE: true,
-				ignoreVoid: true,
-			},
-		],
-		'@typescript-eslint/no-for-in-array': 'error',
-		'@typescript-eslint/no-implicit-any-catch': 'error',
-		'@typescript-eslint/no-implied-eval': 'error',
-		'@typescript-eslint/no-inferrable-types': [
-			'error',
-			{
-				ignoreParameters: true,
-				ignoreProperties: true,
-			},
-		],
-		'@typescript-eslint/no-invalid-this': 'error',
-		'@typescript-eslint/no-invalid-void-type': 'off',
-		'@typescript-eslint/no-loop-func': 'error',
-		'@typescript-eslint/no-loss-of-precision': 'error',
-		'@typescript-eslint/no-magic-numbers': 'off',
-		'@typescript-eslint/no-misused-new': 'error',
-		'@typescript-eslint/no-misused-promises': [
-			'error',
-			{
-				checksConditionals: true,
-			},
-		],
-		'@typescript-eslint/no-namespace': [
-			'error',
-			{
-				allowDeclarations: true,
-				allowDefinitionFiles: true,
-			},
-		],
-		'@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'error',
-		'@typescript-eslint/no-non-null-asserted-optional-chain': 'error',
-		'@typescript-eslint/no-non-null-assertion': 'off',
-		'@typescript-eslint/no-parameter-properties': 'error',
-		'@typescript-eslint/no-redeclare': 'off',
-		'@typescript-eslint/no-redundant-type-constituents': 'error',
-		'@typescript-eslint/no-require-imports': 'off',
-		'@typescript-eslint/no-shadow': [
-			'error',
-			{
-				ignoreOnInitialization: true,
-				ignoreTypeValueShadow: true,
-			},
-		],
-		'@typescript-eslint/no-this-alias': [
-			'error',
-			{
-				allowDestructuring: true,
-			},
-		],
-		'@typescript-eslint/no-throw-literal': 'error',
-		'@typescript-eslint/no-type-alias': 'off',
-		'@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
-		'@typescript-eslint/no-unnecessary-condition': 'off',
-		'@typescript-eslint/no-unnecessary-qualifier': 'error',
-		'@typescript-eslint/no-unnecessary-type-arguments': 'off',
-		'@typescript-eslint/no-unnecessary-type-assertion': 'error',
-		'@typescript-eslint/no-unnecessary-type-constraint': 'error',
-		'@typescript-eslint/no-unsafe-argument': 'error',
-		'@typescript-eslint/no-unsafe-assignment': 'error',
-		'@typescript-eslint/no-unsafe-call': 'error',
-		'@typescript-eslint/no-unsafe-member-access': 'error',
-		'@typescript-eslint/no-unsafe-return': 'error',
-		'@typescript-eslint/no-unused-expressions': 'error',
-		'@typescript-eslint/no-unused-vars': [
-			'error',
-			{
-				args: 'none',
-				caughtErrors: 'all',
-				ignoreRestSiblings: true,
-				vars: 'all',
-			},
-		],
-		'@typescript-eslint/no-use-before-define': [
-			'error',
-			{
-				classes: true,
-				enums: true,
-				functions: true,
-				typedefs: true,
-				variables: true,
-			},
-		],
-		'@typescript-eslint/no-useless-constructor': 'error',
-		'@typescript-eslint/no-useless-empty-export': 'off',
-		'@typescript-eslint/no-var-requires': 'off',
-		'@typescript-eslint/non-nullable-type-assertion-style': 'error',
-		'@typescript-eslint/object-curly-spacing': 'off',
-		'@typescript-eslint/prefer-as-const': 'error',
-		'@typescript-eslint/prefer-enum-initializers': 'off',
-		'@typescript-eslint/prefer-for-of': 'error',
-		'@typescript-eslint/prefer-function-type': 'error',
-		'@typescript-eslint/prefer-includes': 'error',
-		'@typescript-eslint/prefer-literal-enum-member': 'error',
-		'@typescript-eslint/prefer-namespace-keyword': 'off',
-		'@typescript-eslint/prefer-nullish-coalescing': 'error',
-		'@typescript-eslint/prefer-optional-chain': 'error',
-		'@typescript-eslint/prefer-readonly': 'off',
-		'@typescript-eslint/prefer-readonly-parameter-types': 'off',
-		'@typescript-eslint/prefer-reduce-type-parameter': 'error',
-		'@typescript-eslint/prefer-regexp-exec': 'off',
-		'@typescript-eslint/prefer-string-starts-ends-with': 'error',
-		'@typescript-eslint/prefer-ts-expect-error': 'error',
-		'@typescript-eslint/promise-function-async': [
-			'error',
-			{
-				allowAny: true,
-				allowedPromiseNames: ['Awaitable', 'PromiseLike', 'Thenable'],
-				checkArrowFunctions: false,
-			},
-		],
-		'@typescript-eslint/quotes': [
-			'error',
-			'single',
-			{
-				avoidEscape: true,
-			},
-		],
-		'@typescript-eslint/require-array-sort-compare': 'off',
-		'@typescript-eslint/require-await': 'error',
-		'@typescript-eslint/restrict-plus-operands': [
-			'error',
-			{
-				checkCompoundAssignments: true,
-			},
-		],
-		'@typescript-eslint/restrict-template-expressions': 'off',
-		'@typescript-eslint/return-await': ['error', 'in-try-catch'],
-		'@typescript-eslint/semi': 'off',
-		'@typescript-eslint/sort-type-union-intersection-members': 'error',
-		'@typescript-eslint/space-before-function-paren': 'off',
-		'@typescript-eslint/space-infix-ops': 'off',
-		'@typescript-eslint/strict-boolean-expressions': 'off',
-		'@typescript-eslint/switch-exhaustiveness-check': 'error',
-		'@typescript-eslint/triple-slash-reference': [
-			'error',
-			{
-				lib: 'never',
-				path: 'never',
-				types: 'never',
-			},
-		],
-		'@typescript-eslint/type-annotation-spacing': 'off',
-		'@typescript-eslint/typedef': 'off',
-		'@typescript-eslint/unbound-method': [
-			'off',
-			{
-				ignoreStatic: true,
-			},
-		],
-		'@typescript-eslint/unified-signatures': [
-			'error',
-			{
-				ignoreDifferentlyNamedParameters: true,
-			},
-		],
-		'default-param-last': 'off',
-		'dot-notation': 'off',
-		'lines-between-class-members': 'off',
-		'no-array-constructor': 'off',
-		'no-dupe-class-members': 'off',
-		'no-duplicate-imports': 'off',
-		'no-empty-function': 'off',
-		'no-implied-eval': 'off',
-		'no-invalid-this': 'off',
-		'no-loop-func': 'off',
-		'no-loss-of-precision': 'off',
-		'no-redeclare': 'off',
-		'no-return-await': 'off',
-		'no-shadow': 'off',
-		'no-throw-literal': 'off',
-		'no-undef': 'off',
-		'no-unused-expressions': 'off',
-		'no-unused-vars': 'off',
-		'no-use-before-define': 'off',
-		'no-useless-constructor': 'off',
-		'no-void': 'off',
-		quotes: 'off',
-		'require-await': 'off',
-	},
-	overrides: [
-		{
-			files: ['*.stories.tsx'],
-			rules: {
-				'@typescript-eslint/consistent-type-assertions': 'off',
-			},
-		},
-	],
+  extends: [
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:import/typescript',
+  ],
+  rules: {
+    // Enforce consistent object definitions.
+    '@typescript-eslint/consistent-indexed-object-style': ['error', 'record'],
+    // Enforce consistent usage of type assertions.
+    '@typescript-eslint/consistent-type-assertions': [
+      'error',
+      {
+        assertionStyle: 'as',
+        objectLiteralTypeAssertions: 'allow-as-parameter',
+      },
+    ],
+    // Enforce consistent type definition preferring interfaces.
+    '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
+    // Enforce default parameters to be the last of parameters.
+    'default-param-last': 'off',
+    '@typescript-eslint/default-param-last': 'error',
+    // Enforce dot notation whenever possible.
+    'dot-notation': 'off',
+    '@typescript-eslint/dot-notation': 'error',
+    // Enforce explicit accessibility modifiers on class properties and methods.
+    '@typescript-eslint/explicit-member-accessibility': [
+      'error',
+      {
+        accessibility: 'no-public',
+      },
+    ],
+    // Enforce lines between class members.
+    'lines-between-class-members': 'off',
+    '@typescript-eslint/lines-between-class-members': [
+      'error',
+      {
+        exceptAfterOverload: true,
+      },
+    ],
+    // Enforce explicit member ordering.
+    '@typescript-eslint/member-ordering': 'error',
+    // Enforce consistent method signature syntax.
+    '@typescript-eslint/method-signature-style': 'error',
+    // Enforce toString() to be called only on supported objects.
+    '@typescript-eslint/no-base-to-string': 'error',
+    // Disallow confusing non-null assertions.
+    '@typescript-eslint/no-confusing-non-null-assertion': 'error',
+    // Disallow confusing void expressions.
+    '@typescript-eslint/no-confusing-void-expression': [
+      'error',
+      {
+        ignoreVoidOperator: true,
+      },
+    ],
+    // Disallow duplicate class members.
+    'no-dupe-class-members': 'off',
+    '@typescript-eslint/no-dupe-class-members': 'error',
+    // Disallow duplicate enum member values.
+    '@typescript-eslint/no-duplicate-enum-values': 'error',
+    // Allow empty functions, good for abstract classes.
+    'no-empty-function': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
+    // Disallow use of the any type.
+    '@typescript-eslint/no-explicit-any': [
+      'error',
+      {
+        ignoreRestArgs: true,
+      },
+    ],
+    // Allow extra semi-colons, covered by prettier.
+    'no-extra-semi': 'off',
+    '@typescript-eslint/no-extra-semi': 'off',
+    // Disallow classes used as namespaces.
+    '@typescript-eslint/no-extraneous-class': 'error',
+    // Disallow this keywords outside of classes or class-like objects..
+    'no-invalid-this': 'off',
+    '@typescript-eslint/no-invalid-this': 'error',
+    // Disallow function declarations that contain unsafe references inside loop statements.
+    'no-loop-func': 'off',
+    '@typescript-eslint/no-loop-func': 'error',
+    // Disallow non-null assertions in the left operand of a nullish coalescing operator.
+    '@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'error',
+    // Allow non-null assertions using the ! postfix operator.
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    // Disallow members of unions and intersections that do nothing or override type information.
+    '@typescript-eslint/no-redundant-type-constituents': 'error',
+    // Too restrictive.
+    '@typescript-eslint/restrict-template-expressions': 'off',
+    // Disallow variable declarations from shadowing variables declared in the outer scope.
+    'no-shadow': 'off',
+    '@typescript-eslint/no-shadow': [
+      'error',
+      {
+        ignoreOnInitialization: true,
+        ignoreTypeValueShadow: true,
+      },
+    ],
+    // Disallow throwing literals as exceptions.
+    '@typescript-eslint/no-throw-literal': 'error',
+    // Disallow unnecessary equality comparisons against boolean literals.
+    '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
+    '@typescript-eslint/no-unnecessary-qualifier': 'error',
+    // Disallow unnecessary namespace qualifiers.
+    '@typescript-eslint/no-unused-expressions': 'error',
+    // Disallow unused variables. Except for with rest spreading is used.
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        args: 'none',
+        caughtErrors: 'all',
+        ignoreRestSiblings: true,
+        vars: 'all',
+      },
+    ],
+    // Disallow the use of variables before they are defined.
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': 'error',
+    // Disallow unnecessary constructors.
+    'no-useless-constructor': 'off',
+    '@typescript-eslint/no-useless-constructor': 'error',
+    // Enforce non-null assertions over explicit type casts.
+    '@typescript-eslint/non-nullable-type-assertion-style': 'error',
+    // Prefer the use of for-of loop over the standard for loop where possible.
+    '@typescript-eslint/prefer-for-of': 'error',
+    // Prefer using function types instead of interfaces with call signatures.
+    '@typescript-eslint/prefer-function-type': 'error',
+    // Prefer includes method over indexOf method.
+    '@typescript-eslint/prefer-includes': 'error',
+    // Prefer all enum members to be literal values.
+    '@typescript-eslint/prefer-literal-enum-member': 'error',
+    // Prefer modern syntax
+    '@typescript-eslint/prefer-namespace-keyword': 'off',
+    // Prefer using the nullish coalescing operator instead of logical chaining.
+    '@typescript-eslint/prefer-nullish-coalescing': 'error',
+    // Prefer using concise optional chain expressions instead of chained logical ands, negated logical ors, or empty objects.
+    '@typescript-eslint/prefer-optional-chain': 'error',
+    // Prefer using type parameter when calling Array#reduce instead of casting.
+    '@typescript-eslint/prefer-reduce-type-parameter': 'error',
+    // Prefer using String#startsWith and String#endsWith over other equivalent methods of checking substrings.
+    '@typescript-eslint/prefer-string-starts-ends-with': 'error',
+    // Prefer using @ts-expect-error over @ts-ignore.
+    '@typescript-eslint/prefer-ts-expect-error': 'error',
+    // Prefer any function or method that returns a Promise to be marked async.
+    '@typescript-eslint/promise-function-async': [
+      'error',
+      {
+        allowAny: true,
+        allowedPromiseNames: ['Awaitable', 'PromiseLike', 'Thenable'],
+        checkArrowFunctions: false,
+      },
+    ],
+    // Enforce the use of single quotes.
+    quotes: 'off',
+    '@typescript-eslint/quotes': [
+      'error',
+      'single',
+      {
+        avoidEscape: true,
+      },
+    ],
+    // Enforce consistent returning of awaited values.
+    'no-return-await': 'off',
+    '@typescript-eslint/return-await': ['error', 'in-try-catch'],
+    // Require switch-case statements to be exhaustive with union type.
+    '@typescript-eslint/switch-exhaustiveness-check': 'error',
+    // Throws false positives with some hooks.
+    '@typescript-eslint/unbound-method': 'off',
+    // Disallow two overloads that could be unified into one with a union or an optional/rest parameter.
+    '@typescript-eslint/unified-signatures': [
+      'error',
+      {
+        ignoreDifferentlyNamedParameters: true,
+      },
+    ],
+  },
 };

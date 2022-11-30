@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { CalendarDate, DateValue } from '@internationalized/date';
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import { DatePicker, Flex, Icon } from '../src';
 
 export default {
-	title: 'Components/DatePicker',
-	component: DatePicker,
-} as ComponentMeta<typeof DatePicker>;
+  title: 'Components/DatePicker',
+  component: DatePicker,
+};
 
 const Template: ComponentStory<typeof DatePicker> = (args) => <DatePicker {...args} />;
 
@@ -15,12 +15,12 @@ export const Default = Template.bind({});
 export const Sizes = Template.bind({});
 
 Sizes.decorators = [
-	() => (
-		<Flex css={{ gap: '$small' }} orientation="vertical">
-			<DatePicker size="medium" />
-			<DatePicker size="small" />
-		</Flex>
-	),
+  () => (
+    <Flex css={{ gap: '$small' }} orientation="vertical">
+      <DatePicker size="medium" />
+      <DatePicker size="small" />
+    </Flex>
+  ),
 ];
 
 export const StartIcon = Template.bind({});
@@ -42,7 +42,7 @@ Disabled.decorators = [() => <DatePicker isDisabled />];
 export const ReadOnly = Template.bind({});
 
 ReadOnly.decorators = [
-	() => <DatePicker isReadOnly defaultValue={new CalendarDate(2022, 7, 12)} />,
+  () => <DatePicker isReadOnly defaultValue={new CalendarDate(2022, 7, 12)} />,
 ];
 
 export const Invalid = Template.bind({});
@@ -52,9 +52,9 @@ Invalid.decorators = [() => <DatePicker helperText="Error text" validationState=
 export const Controlled = Template.bind({});
 
 Controlled.decorators = [
-	() => {
-		const [value, setValue] = React.useState<DateValue>(new CalendarDate(2022, 7, 12));
+  () => {
+    const [value, setValue] = React.useState<DateValue>(new CalendarDate(2022, 7, 12));
 
-		return <DatePicker value={value} onChange={setValue} />;
-	},
+    return <DatePicker value={value} onChange={setValue} />;
+  },
 ];

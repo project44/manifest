@@ -4,58 +4,58 @@ import { renderHook } from '@project44-manifest/react-test-utils';
 import { useMultiSelectState } from '../src';
 
 describe('@project44-manifest/react - useMultiSelectState', () => {
-	it('should return state and support events', () => {
-		const { result } = renderHook(() =>
-			useMultiSelectState({
-				children: [
-					<Item key="test">test</Item>,
-					<Item key="test_2">test 2</Item>,
-					<Item key="test_3">test 3</Item>,
-				],
-			}),
-		);
+  it('should return state and support events', () => {
+    const { result } = renderHook(() =>
+      useMultiSelectState({
+        children: [
+          <Item key="test">test</Item>,
+          <Item key="test_2">test 2</Item>,
+          <Item key="test_3">test 3</Item>,
+        ],
+      }),
+    );
 
-		expect(result.current.isOpen).toBeFalsy();
-		expect(result.current.selectionManager.selectionMode).toBe('multiple');
+    expect(result.current.isOpen).toBeFalsy();
+    expect(result.current.selectionManager.selectionMode).toBe('multiple');
 
-		act(() => {
-			result.current.open();
-		});
+    act(() => {
+      result.current.open();
+    });
 
-		expect(result.current.isOpen).toBeTruthy();
+    expect(result.current.isOpen).toBeTruthy();
 
-		act(() => {
-			result.current.close();
-		});
+    act(() => {
+      result.current.close();
+    });
 
-		expect(result.current.isOpen).toBeFalsy();
+    expect(result.current.isOpen).toBeFalsy();
 
-		act(() => {
-			result.current.toggle();
-		});
+    act(() => {
+      result.current.toggle();
+    });
 
-		expect(result.current.isOpen).toBeTruthy();
-	});
+    expect(result.current.isOpen).toBeTruthy();
+  });
 
-	it('should return state and not support events if collection is empty', () => {
-		const { result } = renderHook(() =>
-			useMultiSelectState({
-				children: [],
-			}),
-		);
+  it('should return state and not support events if collection is empty', () => {
+    const { result } = renderHook(() =>
+      useMultiSelectState({
+        children: [],
+      }),
+    );
 
-		expect(result.current.isOpen).toBeFalsy();
+    expect(result.current.isOpen).toBeFalsy();
 
-		act(() => {
-			result.current.open();
-		});
+    act(() => {
+      result.current.open();
+    });
 
-		expect(result.current.isOpen).toBeFalsy();
+    expect(result.current.isOpen).toBeFalsy();
 
-		act(() => {
-			result.current.toggle();
-		});
+    act(() => {
+      result.current.toggle();
+    });
 
-		expect(result.current.isOpen).toBeFalsy();
-	});
+    expect(result.current.isOpen).toBeFalsy();
+  });
 });

@@ -8,15 +8,15 @@ export type CardHeaderOptions<T extends As = CardHeaderElement> = Options<T> & S
 export type CardHeaderProps<T extends As = CardHeaderElement> = Props<CardHeaderOptions<T>>;
 
 export const CardHeader = createComponent<CardHeaderOptions>((props, forwardedRef) => {
-	const { as: Comp = 'div', className: classNameProp, css, ...other } = props;
+  const { as: Comp = 'div', className: classNameProp, css, ...other } = props;
 
-	const { className } = useStyles({ css });
+  const { className } = useStyles({ css });
 
-	return (
-		<Comp
-			{...other}
-			ref={forwardedRef}
-			className={cx(className, classNameProp, 'manifest-card-header')}
-		/>
-	);
+  return (
+    <Comp
+      {...other}
+      ref={forwardedRef}
+      className={cx(className, classNameProp, 'manifest-card-header')}
+    />
+  );
 });
