@@ -1,4 +1,11 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "tsconfig-manifest/tsconfig.json"
+  "extends": "tsconfig-manifest/tsconfig.react.json",
+  "include": [
+    "apps/**/*",
+    "packages/**/*",
+    "tools/**/*"
+  ],
+  "exclude": [
+    "**/node_modules"
+  ]
 }

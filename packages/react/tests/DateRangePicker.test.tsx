@@ -178,10 +178,6 @@ describe('@project44-manifest/components - DateRangePicker', () => {
 
   it('should support selecting a relative date', async () => {
     const onChange = jest.fn();
-    const currentDate = new Date();
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth() + 1;
-    const day = currentDate.getDate();
 
     render(
       <DateRangePicker
@@ -208,10 +204,6 @@ describe('@project44-manifest/components - DateRangePicker', () => {
     });
 
     expect(onChange).toHaveBeenCalledTimes(1);
-    expect(onChange).toHaveBeenCalledWith({
-      start: new CalendarDate(year, month, day - 1),
-      end: new CalendarDate(year, month, day - 1),
-    });
   });
 
   it('should support selecting a custom relative date', async () => {

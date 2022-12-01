@@ -29,17 +29,12 @@
     "access": "public"
   },
   "scripts": {
-    "build": "packemon build --addEngines --declaration --declarationConfig tsconfig.build.json",
+    "build": "packemon build --addEngines --declaration --declarationConfig tsconfig.build.json --declarationConfig tsconfig.build.json",
     "clean": "rimraf .turbo && packemon clean",
-    "coverage": "jest --coverage",
     "dev": "packemon watch",
-    "lint": "eslint .",
-    "test": "jest",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "jest": "^29.2.2",
-    "jest-preset-manifest": "*",
     "tsconfig-manifest": "*"
   },
   "packemon": {
