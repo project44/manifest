@@ -56,11 +56,16 @@ DisabledDays.decorators = [
   () => {
     const { locale } = useLocale();
 
+    const isDateUnavailable = React.useCallback(
+      (date: DateValue) => isWeekend(date, locale),
+      [locale],
+    );
+
     return (
       <Box css={{ width: 324 }}>
         <Calendar
           defaultValue={new CalendarDate(2022, 7, 12)}
-          isDateUnavailable={(date: DateValue) => isWeekend(date, locale)}
+          isDateUnavailable={isDateUnavailable}
         />
       </Box>
     );

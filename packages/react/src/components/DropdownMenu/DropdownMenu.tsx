@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useMenu } from '@react-aria/menu';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useTreeState } from '@react-stately/tree';
@@ -21,12 +22,22 @@ export const DropdownMenu = createComponent<DropdownMenuOptions>((props, forward
 
   const { menuRef, menuProps: contextProps } = useDropdownContext()!;
 
-  const completeProps = { ...mergeProps(contextProps, other) };
+  const completeProps = React.useMemo(
+    () => ({ ...mergeProps(contextProps, other) }),
+    [contextProps, other],
+  );
 
   const state = useTreeState(completeProps);
   const { menuProps } = useMenu(completeProps, state, menuRef);
 
   const { className } = useStyles({ css });
+
+  const handleAction = React.useCallback(
+    (key: React.Key) => {
+      completeProps.onAction?.(key);
+    },
+    [completeProps],
+  );
 
   return (
     <Comp
@@ -37,23 +48,11 @@ export const DropdownMenu = createComponent<DropdownMenuOptions>((props, forward
       {[...state.collection].map((item) => {
         if (item.type === 'section') {
           return (
-            <DROPDOWN_SECTION
-              key={item.key}
-              item={item}
-              state={state}
-              onAction={completeProps.onAction}
-            />
+            <DROPDOWN_SECTION key={item.key} item={item} state={state} onAction={handleAction} />
           );
         }
 
-        return (
-          <DROPDOWN_ITEM
-            key={item.key}
-            item={item}
-            state={state}
-            onAction={completeProps.onAction}
-          />
-        );
+        return <DROPDOWN_ITEM key={item.key} item={item} state={state} onAction={handleAction} />;
       })}
     </Comp>
   );
