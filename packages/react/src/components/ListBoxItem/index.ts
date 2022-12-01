@@ -1,7 +1,10 @@
 import { Item } from '@react-stately/collections';
-import { ListBoxItem as LIST_BOX_ITEM, ListBoxItemOptions, ListBoxItemProps } from './ListBoxItem';
+import { ListBoxItemProps } from './ListBoxItem';
 
 export const ListBoxItem = Item as (props: ListBoxItemProps) => JSX.Element;
 
-export type { ListBoxItemOptions, ListBoxItemProps };
-export { LIST_BOX_ITEM };
+export {
+  type ListBoxItemOptions,
+  type ListBoxItemProps,
+  ListBoxItem as LIST_BOX_ITEM,
+} from './ListBoxItem';

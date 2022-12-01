@@ -7,13 +7,13 @@ import { primary } from './primary';
 import { text } from './text';
 
 export const color = {
-	background,
-	border,
-	brand,
-	dataViz,
-	palette,
-	primary,
-	text,
+  background,
+  border,
+  brand,
+  dataViz,
+  palette,
+  primary,
+  text,
 };
 
 export type ColorTokens = typeof color;

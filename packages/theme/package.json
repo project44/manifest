@@ -30,10 +30,7 @@
   "scripts": {
     "build": "packemon build --addEngines --declaration --declarationConfig tsconfig.build.json",
     "clean": "rimraf .turbo && packemon clean",
-    "coverage": "jest --coverage",
     "dev": "packemon watch",
-    "lint": "eslint \"**/*.{ts,tsx}\"",
-    "test": "jest",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -45,10 +42,6 @@
   "devDependencies": {
     "@types/lodash.kebabcase": "^4.1.7",
     "@types/lodash.merge": "^4.6.7",
-    "eslint": "^8.26.0",
-    "eslint-config-manifest": "*",
-    "jest": "^29.2.2",
-    "jest-preset-manifest": "*",
     "tsconfig-manifest": "*"
   },
   "packemon": {

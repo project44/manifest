@@ -1,10 +1,10 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import { Button } from '../src';
 
 export default {
-	title: 'Components/Button',
-	component: Button,
-} as ComponentMeta<typeof Button>;
+  title: 'Components/Button',
+  component: Button,
+};
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args}>Button</Button>;
 
@@ -13,41 +13,41 @@ export const Default = Template.bind({});
 export const Primary = Template.bind({});
 
 Primary.args = {
-	variant: 'primary',
+  variant: 'primary',
 };
 
 export const Secondary = Template.bind({});
 
 Secondary.args = {
-	variant: 'secondary',
+  variant: 'secondary',
 };
 
 export const Tertiary = Template.bind({});
 
 Tertiary.args = {
-	variant: 'tertiary',
+  variant: 'tertiary',
 };
 
 export const Danger = Template.bind({});
 
 Danger.args = {
-	variant: 'danger',
+  variant: 'danger',
 };
 
 export const Brand = Template.bind({});
 
 Brand.args = {
-	variant: 'brand',
+  variant: 'brand',
 };
 
 export const Medium = Template.bind({});
 
 Medium.args = {
-	size: 'medium',
+  size: 'medium',
 };
 
 export const Small = Template.bind({});
 
 Small.args = {
-	size: 'small',
+  size: 'small',
 };

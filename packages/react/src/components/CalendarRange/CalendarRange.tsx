@@ -18,108 +18,108 @@ import { useStyles } from './CalendarRange.styles';
 export type CalendarElement = 'div';
 
 export interface CalendarRangeOptions<T extends As = CalendarElement>
-	extends Options<T>,
-		RangeCalendarProps<DateValue>,
-		StyleProps {
-	/**
-	 * Allows to show or hide the calendar of the component
-	 *
-	 * @default true
-	 * @example
-	 * <DateRangePicker showCalendar={false} />
-	 */
-	showCalendar?: boolean;
+  extends Options<T>,
+    RangeCalendarProps<DateValue>,
+    StyleProps {
+  /**
+   * Allows to show or hide the calendar of the component
+   *
+   * @default true
+   * @example
+   * <DateRangePicker showCalendar={false} />
+   */
+  showCalendar?: boolean;
 
-	/**
-	 * Allows to pass or avoid the ranges to the component
-	 *
-	 * @default false
-	 * @example
-	 * <DateRangePicker showRanges={false} />
-	 */
-	showRanges?: boolean;
+  /**
+   * Allows to pass or avoid the ranges to the component
+   *
+   * @default false
+   * @example
+   * <DateRangePicker showRanges={false} />
+   */
+  showRanges?: boolean;
 
-	/**
-	 * Brings the list of ranges defined to the component
-	 */
-	ranges?: DefinedRange[];
+  /**
+   * Brings the list of ranges defined to the component
+   */
+  ranges?: DefinedRange[];
 }
 
 export type CalendarRangeProps<T extends As = CalendarElement> = Props<CalendarRangeOptions<T>>;
 
 export const CalendarRange = createComponent<CalendarRangeOptions>((props, forwardedRef) => {
-	const {
-		as: Comp = 'div',
-		className: classNameProp,
-		css,
-		showCalendar,
-		showRanges,
-		ranges,
-		...other
-	} = props;
+  const {
+    as: Comp = 'div',
+    className: classNameProp,
+    css,
+    showCalendar,
+    showRanges,
+    ranges,
+    ...other
+  } = props;
 
-	const calendarRef = React.useRef<HTMLDivElement>(null);
+  const calendarRef = React.useRef<HTMLDivElement>(null);
 
-	const { locale } = useLocale();
+  const { locale } = useLocale();
 
-	const state = useRangeCalendarState({
-		...other,
-		locale,
-		visibleDuration: { months: 1 },
-		createCalendar,
-	} as RangeCalendarStateOptions);
+  const state = useRangeCalendarState({
+    ...other,
+    locale,
+    visibleDuration: { months: 1 },
+    createCalendar,
+  } as RangeCalendarStateOptions);
 
-	const findRangeByKey = (
-		key: React.Key,
-		definedRanges: DefinedRange[],
-	): DefinedRange | undefined => definedRanges.find((item) => item.key === key.toString());
+  const findRangeByKey = (
+    key: React.Key,
+    definedRanges: DefinedRange[],
+  ): DefinedRange | undefined => definedRanges.find((item) => item.key === key.toString());
 
-	const handleRangeChange = React.useCallback(
-		(key: Selection, definedRanges: DefinedRange[]): void => {
-			const [first] = key;
-			const selectedRange = findRangeByKey(first, definedRanges);
+  const handleRangeChange = React.useCallback(
+    (key: Selection, definedRanges: DefinedRange[]): void => {
+      const [first] = key;
+      const selectedRange = findRangeByKey(first, definedRanges);
 
-			if (selectedRange) {
-				const { value } = selectedRange;
+      if (selectedRange) {
+        const { value } = selectedRange;
 
-				state.setValue({
-					start: value.start,
-					end: value.end,
-				});
-			}
-		},
-		[state],
-	);
+        state.setValue({
+          start: value.start,
+          end: value.end,
+        });
+      }
+    },
+    [state],
+  );
 
-	const { calendarProps, nextButtonProps, prevButtonProps } = useRangeCalendar(
-		other as RangeCalendarProps<DateValue>,
-		state,
-		calendarRef,
-	);
+  const { calendarProps, nextButtonProps, prevButtonProps } = useRangeCalendar(
+    other as RangeCalendarProps<DateValue>,
+    state,
+    calendarRef,
+  );
 
-	const { className } = useStyles({ css, showCalendar });
+  const { className } = useStyles({ css, showCalendar });
 
-	return (
-		<Comp
-			{...calendarProps}
-			ref={mergeRefs(calendarRef, forwardedRef)}
-			className={cx(className, classNameProp, 'manifest-range-calendar')}
-		>
-			{showRanges && <CalendarRanges ranges={ranges} onRangeChange={handleRangeChange} />}
-			{showCalendar && (
-				<>
-					{showRanges && showCalendar && <Separator orientation="vertical" />}
-					<div className={cx('manifest-datepicker__calendar')} data-testid="calendar-date-picker">
-						<CalendarHeader
-							nextButtonProps={nextButtonProps}
-							prevButtonProps={prevButtonProps}
-							state={state}
-						/>
-						<Separator />
-						<CalendarTable state={state} />
-					</div>
-				</>
-			)}
-		</Comp>
-	);
+  return (
+    <Comp
+      {...calendarProps}
+      ref={mergeRefs(calendarRef, forwardedRef)}
+      className={cx(className, classNameProp, 'manifest-range-calendar')}
+    >
+      {showRanges && <CalendarRanges ranges={ranges} onRangeChange={handleRangeChange} />}
+      {showCalendar && (
+        <>
+          {showRanges && showCalendar && <Separator orientation="vertical" />}
+          <div className={cx('manifest-datepicker__calendar')} data-testid="calendar-date-picker">
+            <CalendarHeader
+              nextButtonProps={nextButtonProps}
+              prevButtonProps={prevButtonProps}
+              state={state}
+            />
+            <Separator />
+            <CalendarTable state={state} />
+          </div>
+        </>
+      )}
+    </Comp>
+  );
 });

@@ -7,7 +7,7 @@ export type TableHeaderOptions<T extends As = TableHeaderElement> = Options<T> &
 export type TableHeaderProps<T extends As = TableHeaderElement> = Props<TableHeaderOptions<T>>;
 
 export const TableHeader = createComponent<TableHeaderOptions>(
-	({ as: Comp = 'thead', className, ...other }, forwardedRef) => (
-		<Comp {...other} ref={forwardedRef} className={cx(className, 'manifest-table-header')} />
-	),
+  ({ as: Comp = 'thead', className, ...other }, forwardedRef) => (
+    <Comp {...other} ref={forwardedRef} className={cx(className, 'manifest-table-header')} />
+  ),
 );

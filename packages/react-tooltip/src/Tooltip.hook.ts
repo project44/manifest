@@ -6,35 +6,35 @@ import { mergeProps } from '@project44-manifest/react-utils';
 import type { TooltipProps, TooltipState } from './Tooltip.types';
 
 export function useTooltip(state: TooltipState, props: TooltipProps) {
-	const { isDisabled, placement, trigger } = props;
+  const { isDisabled, placement, trigger } = props;
 
-	const tooltipRef = React.useRef<HTMLDivElement>(null);
-	const triggerRef = React.useRef<HTMLElement>(null);
+  const tooltipRef = React.useRef<HTMLDivElement>(null);
+  const triggerRef = React.useRef<HTMLElement>(null);
 
-	const { tooltipProps, triggerProps } = useTooltipTrigger(
-		{ isDisabled, trigger },
-		state,
-		triggerRef,
-	);
-	const { overlayProps: positionProps } = useOverlayPosition({
-		isOpen: state?.isOpen,
-		offset: 4,
-		placement,
-		overlayRef: tooltipRef,
-		targetRef: triggerRef,
-	});
+  const { tooltipProps, triggerProps } = useTooltipTrigger(
+    { isDisabled, trigger },
+    state,
+    triggerRef,
+  );
+  const { overlayProps: positionProps } = useOverlayPosition({
+    isOpen: state?.isOpen,
+    offset: 4,
+    placement,
+    overlayRef: tooltipRef,
+    targetRef: triggerRef,
+  });
 
-	const { hoverProps } = useHover({
-		onHoverStart: () => void state?.open(true),
-		onHoverEnd: () => void state?.close(),
-	});
+  const { hoverProps } = useHover({
+    onHoverStart: () => void state?.open(true),
+    onHoverEnd: () => void state?.close(),
+  });
 
-	return {
-		tooltipProps: mergeProps(tooltipProps, hoverProps, positionProps, { role: 'tooltip' }),
-		tooltipRef,
-		triggerProps: mergeProps(triggerProps),
-		triggerRef,
-	};
+  return {
+    tooltipProps: mergeProps(tooltipProps, hoverProps, positionProps, { role: 'tooltip' }),
+    tooltipRef,
+    triggerProps: mergeProps(triggerProps),
+    triggerRef,
+  };
 }
 
 export type UseTooltipReturn = ReturnType<typeof useTooltip>;

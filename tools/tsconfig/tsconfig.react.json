@@ -10,8 +10,6 @@
       "DOM",
       "DOM.Iterable",
       "ESNext"
-    ],
-    "module": "ESNext",
-    "target": "ES2022"
+    ]
   }
 }

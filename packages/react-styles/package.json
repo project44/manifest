@@ -32,10 +32,7 @@
   "scripts": {
     "build": "packemon build --addEngines --declaration --declarationConfig tsconfig.build.json",
     "clean": "rimraf .turbo && packemon clean",
-    "coverage": "jest --coverage",
     "dev": "packemon watch",
-    "lint": "eslint \"**/*.{ts,tsx}\"",
-    "test": "jest",
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
@@ -49,10 +46,6 @@
   },
   "devDependencies": {
     "@project44-manifest/react-test-utils": "*",
-    "eslint": "^8.26.0",
-    "eslint-config-manifest": "*",
-    "jest": "^29.2.2",
-    "jest-preset-manifest": "*",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "tsconfig-manifest": "*"

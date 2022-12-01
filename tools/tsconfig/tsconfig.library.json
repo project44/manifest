@@ -4,11 +4,6 @@
   "compilerOptions": {
     "declaration": true,
     "declarationMap": true,
-    "emitDeclarationOnly": true,
-    "lib": [
-      "ESNext"
-    ],
-    "module": "ESNext",
-    "target": "ES2022"
+    "emitDeclarationOnly": true
   }
 }

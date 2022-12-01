@@ -1,247 +1,152 @@
 module.exports = {
-	overrides: [
-		{
-			files: ['*.tsx'],
-			extends: ['plugin:jsx-a11y/recommended'],
-			plugins: ['jsx-a11y', 'react', 'react-hooks', 'react-perf'],
-			parserOptions: {
-				ecmaFeatures: {
-					jsx: true,
-				},
-			},
-			settings: {
-				react: {
-					version: 'detect',
-				},
-			},
-			rules: {
-				'@typescript-eslint/member-ordering': 'off',
-				'react-perf/jsx-no-jsx-as-prop': 'off',
-				'react-perf/jsx-no-new-array-as-prop': 'error',
-				'react-perf/jsx-no-new-function-as-prop': 'error',
-				'react-perf/jsx-no-new-object-as-prop': 'off',
-				'react/boolean-prop-naming': 'off',
-				'react/button-has-type': 'off',
-				'react/default-props-match-prop-types': 'off',
-				'react/destructuring-assignment': 'error',
-				'react/display-name': 'off',
-				'react/forbid-component-props': 'off',
-				'react/forbid-dom-props': 'off',
-				'react/forbid-elements': 'off',
-				'react/forbid-foreign-prop-types': 'off',
-				'react/forbid-prop-types': 'off',
-				'react/function-component-definition': [
-					'error',
-					{
-						namedComponents: 'function-declaration',
-						unnamedComponents: 'arrow-function',
-					},
-				],
-				'react/jsx-boolean-value': ['error', 'never'],
-				'react/jsx-child-element-spacing': 'off',
-				'react/jsx-closing-bracket-location': 'off',
-				'react/jsx-closing-tag-location': 'off',
-				'react/jsx-curly-brace-presence': [
-					'error',
-					{
-						children: 'never',
-						props: 'never',
-					},
-				],
-				'react/jsx-curly-newline': 'off',
-				'react/jsx-curly-spacing': 'off',
-				'react/jsx-equals-spacing': 'off',
-				'react/jsx-filename-extension': 'off',
-				'react/jsx-first-prop-new-line': 'off',
-				'react/jsx-fragments': ['error', 'syntax'],
-				'react/jsx-handler-names': [
-					'error',
-					{
-						eventHandlerPrefix: 'handle',
-						eventHandlerPropPrefix: 'on',
-					},
-				],
-				'react/jsx-indent': 'off',
-				'react/jsx-indent-props': 'off',
-				'react/jsx-key': [
-					'error',
-					{
-						checkFragmentShorthand: true,
-						checkKeyMustBeforeSpread: true,
-					},
-				],
-				'react/jsx-max-depth': 'off',
-				'react/jsx-max-props-per-line': 'off',
-				'react/jsx-newline': 'off',
-				'react/jsx-no-bind': [
-					'error',
-					{
-						allowArrowFunctions: false,
-						allowBind: false,
-						allowFunctions: false,
-						ignoreDOMComponents: true,
-						ignoreRefs: true,
-					},
-				],
-				'react/jsx-no-comment-textnodes': 'error',
-				'react/jsx-no-constructed-context-values': 'error',
-				'react/jsx-no-duplicate-props': 'error',
-				'react/jsx-no-literals': [
-					'error',
-					{
-						ignoreProps: true,
-						noAttributeStrings: false,
-						noStrings: true,
-					},
-				],
-				'react/jsx-no-script-url': 'error',
-				'react/jsx-no-target-blank': 'error',
-				'react/jsx-no-undef': 'error',
-				'react/jsx-no-useless-fragment': 'error',
-				'react/jsx-one-expression-per-line': 'off',
-				'react/jsx-pascal-case': [
-					'error',
-					{
-						allowAllCaps: true,
-						allowNamespace: true,
-					},
-				],
-				'react/jsx-props-no-multi-spaces': 'off',
-				'react/jsx-props-no-spreading': 'off',
-				'react/jsx-sort-default-props': 'off',
-				'react/jsx-sort-props': [
-					'error',
-					{
-						callbacksLast: true,
-						ignoreCase: true,
-						noSortAlphabetically: false,
-						reservedFirst: true,
-						shorthandFirst: true,
-						shorthandLast: false,
-					},
-				],
-				'react/jsx-space-before-closing': 'off',
-				'react/jsx-tag-spacing': 'off',
-				'react/jsx-uses-react': 'off',
-				'react/jsx-uses-vars': 'error',
-				'react/jsx-wrap-multilines': 'off',
-				'react/no-access-state-in-setstate': 'error',
-				'react/no-adjacent-inline-elements': 'off',
-				'react/no-array-index-key': 'error',
-				'react/no-arrow-function-lifecycle': 'error',
-				'react/no-children-prop': 'error',
-				'react/no-danger': 'error',
-				'react/no-danger-with-children': 'error',
-				'react/no-deprecated': 'error',
-				'react/no-did-mount-set-state': 'error',
-				'react/no-did-update-set-state': 'error',
-				'react/no-direct-mutation-state': 'error',
-				'react/no-find-dom-node': 'error',
-				'react/no-invalid-html-attribute': 'error',
-				'react/no-is-mounted': 'error',
-				'react/no-multi-comp': 'off',
-				'react/no-namespace': 'error',
-				'react/no-redundant-should-component-update': 'error',
-				'react/no-render-return-value': 'error',
-				'react/no-set-state': 'off',
-				'react/no-string-refs': 'error',
-				'react/no-this-in-sfc': 'error',
-				'react/no-typos': 'error',
-				'react/no-unescaped-entities': 'error',
-				'react/no-unknown-property': 'error',
-				'react/no-unsafe': [
-					'error',
-					{
-						checkAliases: true,
-					},
-				],
-				'react/no-unstable-nested-components': 'error',
-				'react/no-unused-class-component-methods': 'error',
-				'react/no-unused-prop-types': 'off',
-				'react/no-unused-state': 'error',
-				'react/no-will-update-set-state': 'error',
-				'react/prefer-es6-class': 'off',
-				'react/prefer-exact-props': 'off',
-				'react/prefer-read-only-props': 'off',
-				'react/prefer-stateless-function': 'error',
-				'react/prop-types': 'off',
-				'react/react-in-jsx-scope': 'off',
-				'react/require-default-props': 'off',
-				'react/require-optimization': 'off',
-				'react/require-render-return': 'error',
-				'react/self-closing-comp': [
-					'error',
-					{
-						component: true,
-						html: true,
-					},
-				],
-				'react/sort-comp': [
-					'error',
-					{
-						groups: {
-							handlers: ['/^on.+$/', '/^handle.+$/'],
-							lifecycle: [
-								'constructor',
-								'getDerivedStateFromProps',
-								'componentDidMount',
-								'shouldComponentUpdate',
-								'getSnapshotBeforeUpdate',
-								'componentDidUpdate',
-								'componentDidCatch',
-								'componentWillUnmount',
-							],
-							properties: [
-								'/^(?!on).+$/',
-								'/^(?!handle).+$/',
-								'/^(?!render).+$/',
-								'/^.+Ref$/',
-								'state',
-							],
-							renderers: ['/^render.+$/', 'render'],
-							statics: ['propTypes', 'defaultProps'],
-						},
-						order: [
-							'statics',
-							'properties',
-							'lifecycle',
-							'everything-else',
-							'handlers',
-							'renderers',
-						],
-					},
-				],
-				'react/sort-prop-types': 'off',
-				'react/state-in-constructor': 'off',
-				'react/static-property-placement': 'error',
-				'react/style-prop-object': 'error',
-				'react/void-dom-elements-no-children': 'error',
-			},
-		},
-		{
-			files: ['*.ts', '*.tsx'],
-			plugins: ['react-hooks'],
-			rules: {
-				'react-hooks/rules-of-hooks': 'error',
-				'react-hooks/exhaustive-deps': 'error',
-			},
-		},
-		{
-			files: ['*.stories.tsx'],
-			rules: {
-				'react/function-component-definition': 'off',
-				'react/jsx-no-bind': 'off',
-				'react-perf/jsx-no-new-function-as-prop': 'off',
-				'react-perf/jsx-no-new-array-as-prop': 'off',
-			},
-		},
-		{
-			files: ['*.test.tsx'],
-			rules: {
-				'react/jsx-no-bind': 'off',
-				'react-perf/jsx-no-new-array-as-prop': 'off',
-				'react-perf/jsx-no-new-function-as-prop': 'off',
-			},
-		},
-	],
+  overrides: [
+    {
+      files: ['*.{tsx,jsx}'],
+      extends: [
+        'plugin:jsx-a11y/recommended',
+        'plugin:react/recommended',
+        'plugin:react-hooks/recommended',
+      ],
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+      settings: {
+        react: {
+          version: 'detect',
+        },
+      },
+      rules: {
+        // Disallow destructuring assignment of props, state, and context.
+        'react/destructuring-assignment': 'error',
+        // Display name is inferred from function declarations.
+        'react/display-name': 'off',
+        // Enforce function declarations for components.
+        'react/function-component-definition': [
+          'error',
+          {
+            namedComponents: 'function-declaration',
+            unnamedComponents: 'arrow-function',
+          },
+        ],
+        // Enforce boolean attributes notation in JS.
+        'react/jsx-boolean-value': ['error', 'never'],
+        // Disallow unnecessary JSX expressions.
+        'react/jsx-curly-brace-presence': [
+          'error',
+          {
+            children: 'never',
+            props: 'never',
+          },
+        ],
+        // Enforce shorthand fragment usage.
+        'react/jsx-fragments': ['error', 'syntax'],
+        // Enforce on and handle event naming.
+        'react/jsx-handler-names': [
+          'error',
+          {
+            eventHandlerPrefix: 'handle',
+            eventHandlerPropPrefix: 'on',
+          },
+        ],
+        // Disallow inline function calls in JSX.
+        'react/jsx-no-bind': [
+          'error',
+          {
+            allowArrowFunctions: false,
+            allowBind: false,
+            allowFunctions: false,
+            ignoreDOMComponents: true,
+            ignoreRefs: true,
+          },
+        ],
+        // Disallows JSX context provider values from taking values that will cause needless rerenders.
+        'react/jsx-no-constructed-context-values': 'error',
+        // Disallow unnecessary fragments.
+        'react/jsx-no-useless-fragment': 'error',
+        // Enforce PascalCase for user-defined JSX components.
+        'react/jsx-pascal-case': [
+          'error',
+          {
+            allowAllCaps: true,
+            allowNamespace: true,
+          },
+        ],
+        // Enforces prop sorting for readability.
+        'react/jsx-sort-props': [
+          'error',
+          {
+            callbacksLast: true,
+            ignoreCase: true,
+            noSortAlphabetically: false,
+            reservedFirst: true,
+            shorthandFirst: true,
+            shorthandLast: false,
+          },
+        ],
+        // Support the new JSX runtime. (>=17).
+        'react/jsx-uses-react': 'off',
+        // Disallow when this.state is accessed within setState.
+        'react/no-access-state-in-setstate': 'error',
+        // Disallow usage of Array index in keys
+        'react/no-array-index-key': 'error',
+        // Lifecycle methods should be methods on the prototype, not class fields.
+        'react/no-arrow-function-lifecycle': 'error',
+        // Disallow usage of dangerous JSX properties.
+        'react/no-danger': 'error',
+        // Disallow usage of invalid attributes.
+        'react/no-invalid-html-attribute': 'error',
+        // Enforce that namespaces are not used in React elements.
+        'react/no-namespace': 'error',
+        // Disallow this from being used in stateless functional components.
+        'react/no-this-in-sfc': 'error',
+        // Disallow common typos.
+        'react/no-typos': 'error',
+        // Disallow usage of unsafe lifecycle methods.
+        'react/no-unsafe': [
+          'error',
+          {
+            checkAliases: true,
+          },
+        ],
+        // Disallow creating unstable components inside components.
+        'react/no-unstable-nested-components': 'error',
+        // Enforce stateless components to be written as a pure function.
+        'react/prefer-stateless-function': 'error',
+        // Use Typescript types for prop types.
+        'react/prop-types': 'off',
+        // Support the new JSX runtime. (>=17).
+        'react/react-in-jsx-scope': 'off',
+        // Disallow extra closing tags for components without children.
+        'react/self-closing-comp': [
+          'error',
+          {
+            component: true,
+            html: true,
+          },
+        ],
+        // Enforce style prop value is an object.
+        'react/style-prop-object': 'error',
+        // Disallow void DOM elements (e.g. <img />, <br />) from receiving children.
+        'react/void-dom-elements-no-children': 'error',
+      },
+    },
+    // Use react member order over typescript.
+    {
+      files: ['*.tsx'],
+      rules: {
+        '@typescript-eslint/member-ordering': 'off',
+      },
+    },
+    // Make test composition easier.
+    {
+      files: ['*.{test, spec}.tsx'],
+      rules: {
+        'react/jsx-no-bind': 'off',
+        'react-perf/jsx-no-new-array-as-prop': 'off',
+        'react-perf/jsx-no-new-function-as-prop': 'off',
+      },
+    },
+  ],
 };

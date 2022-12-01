@@ -5,30 +5,30 @@ import { StyledFlex } from './Flex.styles';
 import type { FlexElement, FlexProps } from './Flex.types';
 
 export const Flex = React.forwardRef((props, forwardedRef) => {
-	const {
-		as,
-		align,
-		className: classNameProp,
-		css,
-		gap,
-		justify,
-		orientation,
-		wrap,
-		...other
-	} = props;
+  const {
+    as,
+    align,
+    className: classNameProp,
+    css,
+    gap,
+    justify,
+    orientation,
+    wrap,
+    ...other
+  } = props;
 
-	return (
-		<StyledFlex
-			{...other}
-			ref={forwardedRef}
-			align={align}
-			as={as}
-			className={cx('manifest-flex', classNameProp)}
-			css={css}
-			gap={gap}
-			justify={justify}
-			orientation={orientation}
-			wrap={wrap}
-		/>
-	);
+  return (
+    <StyledFlex
+      {...other}
+      ref={forwardedRef}
+      align={align}
+      as={as}
+      className={cx('manifest-flex', classNameProp)}
+      css={css}
+      gap={gap}
+      justify={justify}
+      orientation={orientation}
+      wrap={wrap}
+    />
+  );
 }) as ForwardRefComponent<FlexElement, FlexProps>;

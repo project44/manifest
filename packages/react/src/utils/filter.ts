@@ -11,31 +11,31 @@ type FilterFn = (textValue: string, inputValue: string) => boolean;
  * https://github.com/adobe/react-spectrum/blob/main/packages/%40react-stately/combobox/src/useComboBoxState.ts
  */
 function filterNodes<T>(
-	nodes: Iterable<Node<T>>,
-	inputValue: string,
-	filter: FilterFn,
+  nodes: Iterable<Node<T>>,
+  inputValue: string,
+  filter: FilterFn,
 ): Iterable<Node<T>> {
-	const filteredNode = [];
+  const filteredNode = [];
 
-	for (const node of nodes) {
-		if (node.type === 'section' && node.hasChildNodes) {
-			const filtered = filterNodes(node.childNodes, inputValue, filter);
+  for (const node of nodes) {
+    if (node.type === 'section' && node.hasChildNodes) {
+      const filtered = filterNodes(node.childNodes, inputValue, filter);
 
-			if ([...filtered].length > 0) {
-				filteredNode.push({ ...node, childNodes: filtered });
-			}
-		} else if (node.type !== 'section' && filter(node.textValue, inputValue)) {
-			filteredNode.push({ ...node });
-		}
-	}
+      if ([...filtered].length > 0) {
+        filteredNode.push({ ...node, childNodes: filtered });
+      }
+    } else if (node.type !== 'section' && filter(node.textValue, inputValue)) {
+      filteredNode.push({ ...node });
+    }
+  }
 
-	return filteredNode;
+  return filteredNode;
 }
 
 export function filterCollection<T extends object>(
-	collection: Collection<Node<T>>,
-	inputValue: string,
-	filter: FilterFn,
+  collection: Collection<Node<T>>,
+  inputValue: string,
+  filter: FilterFn,
 ): Collection<Node<T>> {
-	return new ListCollection(filterNodes(collection, inputValue, filter));
+  return new ListCollection(filterNodes(collection, inputValue, filter));
 }

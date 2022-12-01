@@ -1,8 +1,4 @@
-import { color } from './color';
-import { layout } from './layout';
-import { space } from './space';
-import type { VariantToken } from './typography';
-import { typography } from './typography';
-
-export { color, layout, space, typography };
-export type { VariantToken };
+export { color } from './color';
+export { layout } from './layout';
+export { space } from './space';
+export { type VariantToken, typography } from './typography';

@@ -8,11 +8,11 @@ export type BoxOptions<T extends As = BoxElement> = Options<T> & StyleProps;
 export type BoxProps<T extends As = BoxElement> = Props<BoxOptions<T>>;
 
 export const Box = createComponent<BoxOptions>((props, forwardedRef) => {
-	const { as: Comp = 'div', className: classNameProp, css, ...other } = props;
+  const { as: Comp = 'div', className: classNameProp, css, ...other } = props;
 
-	const { className } = useStyles({ css });
+  const { className } = useStyles({ css });
 
-	return (
-		<Comp {...other} ref={forwardedRef} className={cx(className, classNameProp, 'manifest-box')} />
-	);
+  return (
+    <Comp {...other} ref={forwardedRef} className={cx(className, classNameProp, 'manifest-box')} />
+  );
 });

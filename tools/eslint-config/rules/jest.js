@@ -1,73 +1,47 @@
 module.exports = {
-	overrides: [
-		{
-			files: ['**/tests/**/*.test.{ts,tsx,js,jsx}', '**/tests/**/*.{ts,tsx,js,jsx}'],
-			plugins: ['jest'],
-			env: {
-				jest: true,
-				'jest/globals': true,
-			},
-			rules: {
-				'@typescript-eslint/no-empty-function': 'off',
-				'@typescript-eslint/no-explicit-any': 'off',
-				'@typescript-eslint/no-extraneous-class': 'off',
-				'@typescript-eslint/no-implicit-any-catch': 'off',
-				'@typescript-eslint/no-unsafe-argument': 'off',
-				'@typescript-eslint/no-unsafe-assignment': 'off',
-				'@typescript-eslint/no-unsafe-call': 'off',
-				'@typescript-eslint/no-unsafe-member-access': 'off',
-				'@typescript-eslint/no-unsafe-return': 'off',
-				'@typescript-eslint/no-useless-constructor': 'off',
-				'@typescript-eslint/promise-function-async': 'off',
-				'import/no-extraneous-dependencies': 'off',
-				'import/no-relative-packages': 'off',
-				'jest/consistent-test-it': 'error',
-				'jest/expect-expect': 'error',
-				'jest/no-alias-methods': 'error',
-				'jest/no-commented-out-tests': 'off',
-				'jest/no-conditional-expect': 'off',
-				'jest/no-conditional-in-test': 'off',
-				'jest/no-deprecated-functions': 'error',
-				'jest/no-disabled-tests': 'error',
-				'jest/no-done-callback': 'error',
-				'jest/no-duplicate-hooks': 'error',
-				'jest/no-export': 'error',
-				'jest/no-focused-tests': 'error',
-				'jest/no-hooks': 'off',
-				'jest/no-identical-title': 'error',
-				'jest/no-if': 'off',
-				'jest/no-interpolation-in-snapshots': 'error',
-				'jest/no-jasmine-globals': 'error',
-				'jest/no-large-snapshots': 'off',
-				'jest/no-mocks-import': 'error',
-				'jest/no-restricted-matchers': 'off',
-				'jest/no-standalone-expect': 'error',
-				'jest/no-test-prefixes': 'error',
-				'jest/no-test-return-statement': 'error',
-				'jest/prefer-called-with': 'off',
-				'jest/prefer-expect-assertions': 'off',
-				'jest/prefer-expect-resolves': 'error',
-				'jest/prefer-hooks-on-top': 'error',
-				'jest/prefer-lowercase-title': 'off',
-				'jest/prefer-snapshot-hint': 'off',
-				'jest/prefer-spy-on': 'error',
-				'jest/prefer-strict-equal': 'off',
-				'jest/prefer-to-be': 'error',
-				'jest/prefer-to-contain': 'error',
-				'jest/prefer-to-have-length': 'error',
-				'jest/prefer-todo': 'error',
-				'jest/require-hook': 'off',
-				'jest/require-to-throw-message': 'off',
-				'jest/unbound-method': 'off',
-				'jest/valid-describe-callback': 'error',
-				'jest/valid-expect': 'error',
-				'jest/valid-expect-in-promise': 'off',
-				'jest/valid-title': 'error',
-				'max-classes-per-file': 'off',
-				'no-console': 'off',
-				'no-magic-numbers': 'off',
-				'promise/prefer-await-to-callbacks': 'off',
-			},
-		},
-	],
+  overrides: [
+    {
+      files: ['*.{test, spec}.{ts,tsx,js,jsx}'],
+      extends: ['plugin:jest/recommended'],
+      env: {
+        'jest/globals': true,
+      },
+      rules: {
+        // Allow imports of dev dependencies.
+        'import/no-extraneous-dependencies': 'off',
+        // Enforce test and it usage conventions.
+        'jest/consistent-test-it': 'error',
+        // Enforce assertion to be made in a test body.
+        'jest/expect-expect': 'error',
+        // Disallow disabled tests.
+        'jest/no-disabled-tests': 'error',
+        // Disallow duplicate setup and teardown hooks.
+        'jest/no-duplicate-hooks': 'error',
+        // Disallow explicitly returning from tests.
+        'jest/no-test-return-statement': 'error',
+        // Prefer await expect(...).resolves over expect(await ...) syntax.
+        'jest/prefer-expect-resolves': 'error',
+        // Prefer having hooks before any test cases.
+        'jest/prefer-hooks-on-top': 'error',
+        // Prefer using jest.spyOn().
+        'jest/prefer-spy-on': 'error',
+        // Prefer using toBe() for primitive literals.
+        'jest/prefer-to-be': 'error',
+        // Prefer using toContain().
+        'jest/prefer-to-contain': 'error',
+        // Prefer using toHaveLength()
+        'jest/prefer-to-have-length': 'error',
+        // Prefer using test.todo.
+        'jest/prefer-todo': 'error',
+
+        // Allow `any` in tests for convenience.
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-unsafe-argument': 'off',
+        '@typescript-eslint/no-unsafe-assignment': 'off',
+        '@typescript-eslint/no-unsafe-call': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+        '@typescript-eslint/no-unsafe-return': 'off',
+      },
+    },
+  ],
 };

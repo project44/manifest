@@ -8,10 +8,8 @@
       "DOM.Iterable",
       "ESNext"
     ],
-    "module": "ESNext",
     "noEmit": true,
-    "strict": false,
-    "target": "ES2022"
+    "strict": false
   },
   "include": [
     "src",
