@@ -15,6 +15,9 @@
     "url": "git@github.com:project-44/manifest.git",
     "directory": "tools/eslint-config"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "eslint": "^8.26.0"
   },

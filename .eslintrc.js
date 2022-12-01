@@ -1,9 +1,9 @@
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
   root: true,
-  extends: ['manifest'],
+  extends: ['manifest', 'manifest/react'],
   parserOptions: {
-    project: ['./tsconfig.json'],
+    project: './tsconfig.json',
   },
   overrides: [
     {

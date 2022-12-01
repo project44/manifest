@@ -37,7 +37,9 @@
     "lint-staged": "^13.0.4",
     "packemon": "^2.4.1",
     "prettier": "^2.7.1",
+    "prettier-config-manifest": "*",
     "rimraf": "^3.0.2",
+    "tsconfig-manifest": "*",
     "turbo": "^1.6.3",
     "typescript": "4.7.4",
     "vercel": "^28.5.5"
