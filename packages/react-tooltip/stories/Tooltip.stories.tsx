@@ -14,7 +14,7 @@ export default {
 };
 
 const Template: ComponentStory<typeof Tooltip> = (args) => (
-	<Tooltip {...args} title="Tooltip">
+	<Tooltip defaultOpen {...args} title="Tooltip">
 		<button>Hover Me</button>
 	</Tooltip>
 );

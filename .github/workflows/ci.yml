@@ -7,6 +7,7 @@ on:
   pull_request:
 
 env:
+  PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
   TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
@@ -39,3 +40,6 @@ jobs:
 
       - name: Run Jest
         run: yarn test
+
+      - name: Run Percy tests
+        run: yarn --cwd ./apps/storybook/ test:visual

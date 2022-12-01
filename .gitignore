@@ -47,3 +47,6 @@ apps/**/sitemap.xml
 
 # turborepo
 .turbo
+
+# environment variables
+.env
