@@ -17,7 +17,7 @@ Default.decorators = [
     const [sortDirection, setSortDirection] = React.useState<'asc' | 'desc'>('asc');
     const [sortedColumn, setSortedColumn] = React.useState('name');
 
-    const handleSort = (column: string) => {
+    const handleSort = (column: string) => () => {
       const isAsc = sortedColumn === column && sortDirection === 'asc';
 
       setSortDirection(isAsc ? 'desc' : 'asc');
@@ -33,7 +33,7 @@ Default.decorators = [
               isSortable
               isActive={sortedColumn === 'name'}
               sortDirection={sortDirection}
-              onClick={() => void handleSort('name')}
+              onClick={handleSort('name')}
             >
               Company name
             </TableColumn>
@@ -43,7 +43,7 @@ Default.decorators = [
               isSortable
               isActive={sortedColumn === 'status'}
               sortDirection={sortDirection}
-              onClick={() => void handleSort('status')}
+              onClick={handleSort('status')}
             >
               Status
             </TableColumn>

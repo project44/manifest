@@ -78,11 +78,12 @@ Controlled.decorators = [
   () => {
     const [selected, setSelected] = React.useState(new Set(['Kangaroo']));
 
+    const handleSelectionChange = React.useCallback((keys: 'all' | Set<React.Key>) => {
+      setSelected(keys as Set<string>);
+    }, []);
+
     return (
-      <MultiSelect
-        selectedKeys={selected}
-        onSelectionChange={(keys) => void setSelected(keys as Set<string>)}
-      >
+      <MultiSelect selectedKeys={selected} onSelectionChange={handleSelectionChange}>
         <SelectItem key="Ardvark">Ardvark</SelectItem>
         <SelectItem key="Kangaroo">Kangaroo</SelectItem>
         <SelectItem key="Snake">Snake</SelectItem>

@@ -1,0 +1,20 @@
+{
+  "name": "prettier-config-manifest",
+  "version": "0.0.0",
+  "description": "Manifest Design System prettier configuration",
+  "license": "MIT",
+  "author": "project44",
+  "main": "./prettier.json",
+  "files": [
+    "prettier.json"
+  ],
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:project-44/manifest.git",
+    "directory": "tools/prettier-config"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

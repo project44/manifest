@@ -47,15 +47,15 @@ export function CalendarTable(props: CalendarTableProps) {
         <tbody className="manifest-calendar-table__body">
           {weeks.map((weekIndex) => (
             <tr key={weekIndex} className="manifest-calendar-table__row">
-              {state
-                .getDatesInWeek(weekIndex, startDate)
-                .map((date, i) =>
-                  date ? (
-                    <CalendarCell key={i} currentMonth={startDate} date={date} state={state} />
-                  ) : (
-                    <td key={i} />
-                  ),
-                )}
+              {state.getDatesInWeek(weekIndex, startDate).map((date, i) =>
+                date ? (
+                  // eslint-disable-next-line react/no-array-index-key
+                  <CalendarCell key={i} currentMonth={startDate} date={date} state={state} />
+                ) : (
+                  // eslint-disable-next-line react/no-array-index-key
+                  <td key={i} />
+                ),
+              )}
             </tr>
           ))}
         </tbody>

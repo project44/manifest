@@ -12,6 +12,9 @@
     "url": "git@github.com:project-44/manifest.git",
     "directory": "tools/jest-preset"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "jest": "^29.2.2"
   },

@@ -66,11 +66,15 @@ Controlled.decorators = [
   () => {
     const [selected, setSelected] = React.useState<Set<React.Key> | 'all'>(new Set(['Ardvark']));
 
+    const handleSelectionChange = React.useCallback((keys: 'all' | Set<React.Key>) => {
+      setSelected(keys as Set<string>);
+    }, []);
+
     return (
       <ListBox
         selectedKeys={selected}
         selectionMode="single"
-        onSelectionChange={(isSelected) => void setSelected(isSelected)}
+        onSelectionChange={handleSelectionChange}
       >
         <ListBoxItem key="Ardvark">Ardvark</ListBoxItem>
         <ListBoxItem key="kangaroo">Kangaroo</ListBoxItem>

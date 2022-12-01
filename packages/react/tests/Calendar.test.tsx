@@ -21,6 +21,7 @@ describe('@project44-manifest/react - Calendar', () => {
   });
 
   it('should autofocus the selected date', () => {
+    // eslint-disable-next-line jsx-a11y/no-autofocus
     render(<Calendar autoFocus value={new CalendarDate(2022, 7, 12)} />);
 
     const cell = screen.getByLabelText('selected', { exact: false });

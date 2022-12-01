@@ -17762,7 +17762,9 @@ __metadata:
     lint-staged: ^13.0.4
     packemon: ^2.4.1
     prettier: ^2.7.1
+    prettier-config-manifest: "*"
     rimraf: ^3.0.2
+    tsconfig-manifest: "*"
     turbo: ^1.6.3
     typescript: 4.7.4
     vercel: ^28.5.5
@@ -20773,6 +20775,12 @@ __metadata:
   checksum: 7694a9525405447662c1ffd352fcb41b6410c705b739b6f4e3a3e21cf5fdede8377890088e8934436b8b17ba55365a615f153960f30877bf0d0392f9e93503ea
   languageName: node
   linkType: hard
+
+"prettier-config-manifest@*, prettier-config-manifest@workspace:tools/prettier-config":
+  version: 0.0.0-use.local
+  resolution: "prettier-config-manifest@workspace:tools/prettier-config"
+  languageName: unknown
+  linkType: soft
 
 "prettier@npm:>=2.2.1 <=2.3.0":
   version: 2.3.0
