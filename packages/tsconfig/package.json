@@ -20,7 +20,7 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:project-44/manifest.git",
-    "directory": "tools/tsconfig"
+    "directory": "packages/tsconfig"
   },
   "publishConfig": {
     "access": "public"

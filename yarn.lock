@@ -12605,9 +12605,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-manifest@*, eslint-config-manifest@workspace:tools/eslint-config":
+"eslint-config-manifest@*, eslint-config-manifest@workspace:packages/eslint-config":
   version: 0.0.0-use.local
-  resolution: "eslint-config-manifest@workspace:tools/eslint-config"
+  resolution: "eslint-config-manifest@workspace:packages/eslint-config"
   dependencies:
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
@@ -16511,9 +16511,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-preset-manifest@*, jest-preset-manifest@workspace:tools/jest-preset":
+"jest-preset-manifest@*, jest-preset-manifest@workspace:packages/jest-preset":
   version: 0.0.0-use.local
-  resolution: "jest-preset-manifest@workspace:tools/jest-preset"
+  resolution: "jest-preset-manifest@workspace:packages/jest-preset"
   dependencies:
     "@swc/core": ^1.3.14
     "@swc/jest": ^0.2.23
@@ -20776,9 +20776,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-config-manifest@*, prettier-config-manifest@workspace:tools/prettier-config":
+"prettier-config-manifest@*, prettier-config-manifest@workspace:packages/prettier-config":
   version: 0.0.0-use.local
-  resolution: "prettier-config-manifest@workspace:tools/prettier-config"
+  resolution: "prettier-config-manifest@workspace:packages/prettier-config"
   languageName: unknown
   linkType: soft
 
@@ -24058,9 +24058,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsconfig-manifest@*, tsconfig-manifest@workspace:tools/tsconfig":
+"tsconfig-manifest@*, tsconfig-manifest@workspace:packages/tsconfig":
   version: 0.0.0-use.local
-  resolution: "tsconfig-manifest@workspace:tools/tsconfig"
+  resolution: "tsconfig-manifest@workspace:packages/tsconfig"
   languageName: unknown
   linkType: soft
 

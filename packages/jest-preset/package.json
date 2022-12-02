@@ -10,7 +10,7 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:project-44/manifest.git",
-    "directory": "tools/jest-preset"
+    "directory": "packages/jest-preset"
   },
   "publishConfig": {
     "access": "public"

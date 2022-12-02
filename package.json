@@ -5,8 +5,7 @@
   "license": "MIT",
   "workspaces": [
     "apps/*",
-    "packages/*",
-    "tools/*"
+    "packages/*"
   ],
   "scripts": {
     "build": "turbo run build",
