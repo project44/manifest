@@ -2,8 +2,7 @@
   "extends": "tsconfig-manifest/tsconfig.react.json",
   "include": [
     "apps/**/*",
-    "packages/**/*",
-    "tools/**/*"
+    "packages/**/*"
   ],
   "exclude": [
     "**/node_modules"

@@ -12,7 +12,7 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:project-44/manifest.git",
-    "directory": "tools/prettier-config"
+    "directory": "packages/prettier-config"
   },
   "publishConfig": {
     "access": "public"
