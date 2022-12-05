@@ -42,4 +42,4 @@ jobs:
         run: yarn test
 
       - name: Run Percy tests
-        run: yarn --cwd ./apps/storybook/ test:visual
+        run: yarn test:visual
