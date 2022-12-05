@@ -2,30 +2,30 @@ import { accessibility, fireEvent, render, screen } from '@project44-manifest/re
 import { Avatar } from '../src';
 
 describe('@project44-manifest/react - Avatar', () => {
-	accessibility(<Avatar />);
+  accessibility(<Avatar />);
 
-	it('should render an image if a source is provided', () => {
-		render(<Avatar src="http://localhost/some_image.png" />);
+  it('should render an image if a source is provided', () => {
+    render(<Avatar src="http://localhost/some_image.png" />);
 
-		fireEvent.load(screen.getByRole('img'));
+    fireEvent.load(screen.getByRole('img'));
 
-		expect(screen.getByRole('img')).toBeInTheDocument();
-		expect(screen.getByRole('img')).toHaveAttribute('src', 'http://localhost/some_image.png');
-	});
+    expect(screen.getByRole('img')).toBeInTheDocument();
+    expect(screen.getByRole('img')).toHaveAttribute('src', 'http://localhost/some_image.png');
+  });
 
-	it('should render a fallback if no source is provided', () => {
-		render(<Avatar fallback="MD" />);
+  it('should render a fallback if no source is provided', () => {
+    render(<Avatar fallback="MD" />);
 
-		expect(screen.queryByRole('img')).toBeNull();
-		expect(screen.getByText('MD')).toBeInTheDocument();
-	});
+    expect(screen.queryByRole('img')).toBeNull();
+    expect(screen.getByText('MD')).toBeInTheDocument();
+  });
 
-	it('should render a fallback if source returns an error', () => {
-		render(<Avatar fallback="MD" src="http://localhost/some_image.png" />);
+  it('should render a fallback if source returns an error', () => {
+    render(<Avatar fallback="MD" src="http://localhost/some_image.png" />);
 
-		fireEvent.error(screen.getByRole('img'));
+    fireEvent.error(screen.getByRole('img'));
 
-		expect(screen.queryByRole('img')).toBeNull();
-		expect(screen.getByText('MD')).toBeInTheDocument();
-	});
+    expect(screen.queryByRole('img')).toBeNull();
+    expect(screen.getByText('MD')).toBeInTheDocument();
+  });
 });

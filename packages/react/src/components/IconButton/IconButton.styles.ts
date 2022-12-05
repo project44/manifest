@@ -1,16 +1,16 @@
 import { css, pxToRem } from '@project44-manifest/react-styles';
 
 export const useStyles = css({
-	justifyContent: 'center',
+  justifyContent: 'center',
 
-	variants: {
-		size: {
-			medium: {
-				px: '$small',
-			},
-			small: {
-				px: pxToRem(7),
-			},
-		},
-	},
+  variants: {
+    size: {
+      medium: {
+        px: '$small',
+      },
+      small: {
+        px: pxToRem(7),
+      },
+    },
+  },
 });

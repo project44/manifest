@@ -11,50 +11,50 @@ import { useStyles } from './CalendarRanges.styles';
 import { getDefaultRanges } from './defaultDefinedRanges';
 
 export interface DefinedRange {
-	key: string;
-	label: string;
-	value: RangeValue<CalendarDate>;
+  key: string;
+  label: string;
+  value: RangeValue<CalendarDate>;
 }
 
 export interface CalendarRangesProps {
-	/**
-	 *  The ranges provided
-	 */
-	ranges?: DefinedRange[];
+  /**
+   *  The ranges provided
+   */
+  ranges?: DefinedRange[];
 
-	/**
-	 * function to handle the change on Ranges
-	 */
-	onRangeChange?: (key: Selection, ranges: DefinedRange[]) => void;
+  /**
+   * function to handle the change on Ranges
+   */
+  onRangeChange?: (key: Selection, ranges: DefinedRange[]) => void;
 }
 
 /* @private */
 export function CalendarRanges(props: CalendarRangesProps) {
-	const { onRangeChange, ranges = getDefaultRanges() } = props;
-	const { className } = useStyles();
+  const { onRangeChange, ranges = getDefaultRanges() } = props;
+  const { className } = useStyles();
 
-	const handleSelectionChange = React.useCallback(
-		(key: Selection) => {
-			if (onRangeChange) {
-				onRangeChange(key, ranges);
-			}
-		},
-		[onRangeChange, ranges],
-	);
+  const handleSelectionChange = React.useCallback(
+    (key: Selection) => {
+      if (onRangeChange) {
+        onRangeChange(key, ranges);
+      }
+    },
+    [onRangeChange, ranges],
+  );
 
-	return (
-		<div className={cx(className, 'manifest-calendar-ranges')}>
-			<ListBox
-				aria-label="listbox"
-				selectionMode="single"
-				onSelectionChange={handleSelectionChange}
-			>
-				{ranges.map((item) => (
-					<ListBoxItem key={item.key} aria-label={item.label}>
-						{item.label}
-					</ListBoxItem>
-				))}
-			</ListBox>
-		</div>
-	);
+  return (
+    <div className={cx(className, 'manifest-calendar-ranges')}>
+      <ListBox
+        aria-label="listbox"
+        selectionMode="single"
+        onSelectionChange={handleSelectionChange}
+      >
+        {ranges.map((item) => (
+          <ListBoxItem key={item.key} aria-label={item.label}>
+            {item.label}
+          </ListBoxItem>
+        ))}
+      </ListBox>
+    </div>
+  );
 }

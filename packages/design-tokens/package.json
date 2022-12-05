@@ -29,19 +29,12 @@
     "access": "public"
   },
   "scripts": {
-    "build": "packemon build --addEngines --declaration --declarationConfig tsconfig.build.json",
+    "build": "packemon build --addEngines --declaration --declarationConfig tsconfig.build.json --declarationConfig tsconfig.build.json",
     "clean": "rimraf .turbo && packemon clean",
-    "coverage": "jest --coverage",
     "dev": "packemon watch",
-    "lint": "eslint \"**/*.{ts,tsx}\"",
-    "test": "jest",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "eslint": "^8.26.0",
-    "eslint-config-manifest": "*",
-    "jest": "^29.2.2",
-    "jest-preset-manifest": "*",
     "tsconfig-manifest": "*"
   },
   "packemon": {

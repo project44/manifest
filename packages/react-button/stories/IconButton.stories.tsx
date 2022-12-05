@@ -1,15 +1,15 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import { IconButton } from '../src';
 
 export default {
-	title: 'Components/IconButton',
-	component: IconButton,
-} as ComponentMeta<typeof IconButton>;
+  title: 'Components/IconButton',
+  component: IconButton,
+};
 
 const Template: ComponentStory<typeof IconButton> = (args) => (
-	<IconButton {...args}>
-		<i className="material-icons">add</i>
-	</IconButton>
+  <IconButton {...args}>
+    <i className="material-icons">add</i>
+  </IconButton>
 );
 
 export const Default = Template.bind({});
@@ -17,41 +17,41 @@ export const Default = Template.bind({});
 export const Primary = Template.bind({});
 
 Primary.args = {
-	variant: 'primary',
+  variant: 'primary',
 };
 
 export const Secondary = Template.bind({});
 
 Secondary.args = {
-	variant: 'secondary',
+  variant: 'secondary',
 };
 
 export const Tertiary = Template.bind({});
 
 Tertiary.args = {
-	variant: 'tertiary',
+  variant: 'tertiary',
 };
 
 export const Danger = Template.bind({});
 
 Danger.args = {
-	variant: 'danger',
+  variant: 'danger',
 };
 
 export const Brand = Template.bind({});
 
 Brand.args = {
-	variant: 'brand',
+  variant: 'brand',
 };
 
 export const Medium = Template.bind({});
 
 Medium.args = {
-	size: 'medium',
+  size: 'medium',
 };
 
 export const Small = Template.bind({});
 
 Small.args = {
-	size: 'small',
+  size: 'small',
 };

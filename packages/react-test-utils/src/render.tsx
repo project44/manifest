@@ -5,7 +5,7 @@ import type { RenderOptions } from '@testing-library/react';
 import { render } from '@testing-library/react';
 
 function customRender(ui: React.ReactElement, options: RenderOptions = {}) {
-	return render(<OverlayProvider>{ui}</OverlayProvider>, options);
+  return render(<OverlayProvider>{ui}</OverlayProvider>, options);
 }
 
 export { customRender as render };

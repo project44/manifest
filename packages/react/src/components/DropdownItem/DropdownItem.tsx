@@ -15,128 +15,128 @@ import { useStyles } from './DropdownItem.styles';
 export type DropdownItemElement = 'li';
 
 export interface DropdownItemOptions<T extends As = DropdownItemElement>
-	extends Options<T>,
-		FocusableProps,
-		StyleProps {
-	/**
-	 * Icon added after the button text.
-	 */
-	endIcon?: React.ReactElement;
-	/**
-	 * Whether the item is virtualized.
-	 */
-	isVirtualized?: boolean;
-	/**
-	 * Item object in the collection.
-	 */
-	item: Node<object>;
-	/**
-	 * Icon added before the button text.
-	 */
-	startIcon?: React.ReactElement;
-	/**
-	 * Collection state.
-	 */
-	state: TreeState<object>;
-	/**
-	 * Callback executed on item select.
-	 */
-	onAction?: (key: React.Key) => void;
+  extends Options<T>,
+    FocusableProps,
+    StyleProps {
+  /**
+   * Icon added after the button text.
+   */
+  endIcon?: React.ReactElement;
+  /**
+   * Whether the item is virtualized.
+   */
+  isVirtualized?: boolean;
+  /**
+   * Item object in the collection.
+   */
+  item: Node<object>;
+  /**
+   * Icon added before the button text.
+   */
+  startIcon?: React.ReactElement;
+  /**
+   * Collection state.
+   */
+  state: TreeState<object>;
+  /**
+   * Callback executed on item select.
+   */
+  onAction?: (key: React.Key) => void;
 }
 
 export type DropdownItemProps<T extends As = DropdownItemElement> = ItemProps<object> &
-	Omit<Props<DropdownItemOptions<T>>, 'isVirtualized' | 'item' | 'state'>;
+  Omit<Props<DropdownItemOptions<T>>, 'isVirtualized' | 'item' | 'state'>;
 
 /** @private */
 export const DropdownItem = createComponent<DropdownItemOptions>((props, forwardedRef) => {
-	const {
-		as = 'li',
-		autoFocus,
-		className: classNameProp,
-		css,
-		isVirtualized,
-		item,
-		onAction,
-		startIcon: startIconProp,
-		state,
-	} = props;
+  const {
+    as = 'li',
+    autoFocus,
+    className: classNameProp,
+    css,
+    isVirtualized,
+    item,
+    onAction,
+    startIcon: startIconProp,
+    state,
+  } = props;
 
-	const { rendered, key } = item;
-	const itemProps = item.props as DropdownItemProps;
+  const { rendered, key } = item;
+  const itemProps = item.props as DropdownItemProps;
 
-	const Comp = itemProps.as ?? as;
+  const Comp = itemProps.as ?? as;
 
-	const itemRef = React.useRef<HTMLLIElement>(null);
+  const itemRef = React.useRef<HTMLLIElement>(null);
 
-	const isFocused = state.selectionManager.focusedKey === item.key;
-	const isDisabled = state.disabledKeys.has(key);
-	const isSelected = state.selectionManager.isSelected(key);
+  const isFocused = state.selectionManager.focusedKey === item.key;
+  const isDisabled = state.disabledKeys.has(key);
+  const isSelected = state.selectionManager.isSelected(key);
 
-	const { onClose, closeOnSelect } = useDropdownContext()!;
+  const { onClose, closeOnSelect } = useDropdownContext()!;
 
-	const { menuItemProps, labelProps } = useMenuItem(
-		{
-			'aria-label': item['aria-label'],
-			closeOnSelect,
-			key,
-			isDisabled,
-			isSelected,
-			isVirtualized,
-			onAction,
-			onClose,
-		},
-		state,
-		itemRef,
-	);
-	const { focusProps } = useFocusRing({
-		autoFocus,
-	});
-	const { hoverProps, isHovered } = useHover({ isDisabled });
-	const { pressProps, isPressed } = usePress({ isDisabled, ref: itemRef });
+  const { menuItemProps, labelProps } = useMenuItem(
+    {
+      'aria-label': item['aria-label'],
+      closeOnSelect,
+      key,
+      isDisabled,
+      isSelected,
+      isVirtualized,
+      onAction,
+      onClose,
+    },
+    state,
+    itemRef,
+  );
+  const { focusProps } = useFocusRing({
+    autoFocus,
+  });
+  const { hoverProps, isHovered } = useHover({ isDisabled });
+  const { pressProps, isPressed } = usePress({ isDisabled, ref: itemRef });
 
-	const startIcon = React.useMemo(
-		() => startIconProp ?? itemProps.startIcon!,
-		[startIconProp, itemProps.startIcon],
-	);
+  const startIcon = React.useMemo(
+    () => startIconProp ?? itemProps.startIcon!,
+    [startIconProp, itemProps.startIcon],
+  );
 
-	const children =
-		typeof rendered === 'string' ? (
-			<Typography {...labelProps} className="manifest-dropdown-item__text" variant="subtext">
-				{rendered}
-			</Typography>
-		) : (
-			rendered
-		);
+  const children =
+    typeof rendered === 'string' ? (
+      <Typography {...labelProps} className="manifest-dropdown-item__text" variant="subtext">
+        {rendered}
+      </Typography>
+    ) : (
+      rendered
+    );
 
-	const { className } = useStyles({
-		css: { ...css, ...itemProps.css },
-		isDisabled,
-		isFocused,
-		isHovered,
-		isPressed,
-		isSelected,
-	});
+  const { className } = useStyles({
+    css: { ...css, ...itemProps.css },
+    isDisabled,
+    isFocused,
+    isHovered,
+    isPressed,
+    isSelected,
+  });
 
-	const classes = cx(className, classNameProp, itemProps.className, {
-		'manifest-dropdown-item': true,
-		'manifest-dropdown-item--disabled': isDisabled,
-		'manifest-dropdown-item--selected': isSelected,
-		'manifest-dropdown-item--selectable': state.selectionManager.selectionMode !== 'none',
-	});
+  const classes = cx(className, classNameProp, itemProps.className, {
+    'manifest-dropdown-item': true,
+    'manifest-dropdown-item--disabled': isDisabled,
+    'manifest-dropdown-item--selected': isSelected,
+    'manifest-dropdown-item--selectable': state.selectionManager.selectionMode !== 'none',
+  });
 
-	return (
-		<Comp
-			{...mergeProps(menuItemProps, pressProps, focusProps, hoverProps)}
-			ref={mergeRefs(itemRef, forwardedRef)}
-			className={classes}
-		>
-			{startIcon && (
-				<span className={cx('manifest-dropdown-item__icon', 'manifest-dropdown-item__icon--start')}>
-					{startIcon}
-				</span>
-			)}
+  return (
+    <Comp
+      {...mergeProps(menuItemProps, pressProps, focusProps, hoverProps)}
+      ref={mergeRefs(itemRef, forwardedRef)}
+      className={classes}
+    >
+      {startIcon && (
+        <span className={cx('manifest-dropdown-item__icon', 'manifest-dropdown-item__icon--start')}>
+          {startIcon}
+        </span>
+      )}
 
-			{children}
-		</Comp>
-	);
+      {children}
+    </Comp>
+  );
 });

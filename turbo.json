@@ -14,28 +14,8 @@
     "clean": {
       "cache": false
     },
-    "coverage": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        "coverage/**"
-      ]
-    },
     "dev": {
       "cache": false
-    },
-    "lint": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": []
-    },
-    "test": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": []
     },
     "typecheck": {
       "cache": false,

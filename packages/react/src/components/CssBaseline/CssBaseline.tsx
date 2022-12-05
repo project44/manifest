@@ -1,10 +1,12 @@
-import { memo } from 'react';
+import * as React from 'react';
 import { useStyles } from './CssBaseline.styles';
 
-export const CssBaseline = memo<React.PropsWithChildren<unknown>>((props) => {
-	const { children } = props;
+export const CssBaseline = React.memo<React.PropsWithChildren<unknown>>((props) => {
+  const { children } = props;
 
-	useStyles();
+  useStyles();
 
-	return <>{children}</>;
+  // We don't wish to add any markup here, a fragment is not useless in this case.
+  // eslint-disable-next-line react/jsx-no-useless-fragment
+  return <>{children}</>;
 });

@@ -12,59 +12,59 @@ import { useStyles } from './PaginationItem.styles';
 export type PaginationItemElement = 'button';
 
 export interface PaginationItemOptions<T extends As = PaginationItemElement>
-	extends Options<T>,
-		AriaButtonProps,
-		StyleProps {
-	/**
-	 * Whether the pagination item is active.
-	 */
-	isActive?: boolean;
+  extends Options<T>,
+    AriaButtonProps,
+    StyleProps {
+  /**
+   * Whether the pagination item is active.
+   */
+  isActive?: boolean;
 }
 
 export type PaginationItemProps<T extends As = PaginationItemElement> = Props<
-	PaginationItemOptions<T>
+  PaginationItemOptions<T>
 >;
 
 export const PaginationItem = createComponent<PaginationItemOptions>((props, forwardedRef) => {
-	const {
-		as: Comp = 'button',
-		autoFocus,
-		children,
-		className: classNameProp,
-		isActive,
-		isDisabled,
-	} = props;
+  const {
+    as: Comp = 'button',
+    autoFocus,
+    children,
+    className: classNameProp,
+    isActive,
+    isDisabled,
+  } = props;
 
-	const itemRef = React.useRef<HTMLButtonElement>(null);
+  const itemRef = React.useRef<HTMLButtonElement>(null);
 
-	const { buttonProps, isPressed } = useButton(
-		{ ...props, elementType: 'button', isDisabled },
-		itemRef,
-	);
-	const { isFocusVisible, focusProps } = useFocusRing({ autoFocus });
-	const { hoverProps, isHovered } = useHover({ isDisabled });
+  const { buttonProps, isPressed } = useButton(
+    { ...props, elementType: 'button', isDisabled },
+    itemRef,
+  );
+  const { isFocusVisible, focusProps } = useFocusRing({ autoFocus });
+  const { hoverProps, isHovered } = useHover({ isDisabled });
 
-	const { className } = useStyles({
-		isActive,
-		isDisabled,
-		isFocusVisible,
-		isHovered,
-		isPressed,
-	});
+  const { className } = useStyles({
+    isActive,
+    isDisabled,
+    isFocusVisible,
+    isHovered,
+    isPressed,
+  });
 
-	const classes = cx(className, classNameProp, {
-		'manifest-pagination-item': true,
-		'manifest-pagination-item--disabled': true,
-		'manifest-pagination-item--selected': isActive,
-	});
+  const classes = cx(className, classNameProp, {
+    'manifest-pagination-item': true,
+    'manifest-pagination-item--disabled': true,
+    'manifest-pagination-item--selected': isActive,
+  });
 
-	return (
-		<Comp
-			{...mergeProps(buttonProps, focusProps, hoverProps)}
-			ref={mergeRefs(itemRef, forwardedRef)}
-			className={classes}
-		>
-			{children}
-		</Comp>
-	);
+  return (
+    <Comp
+      {...mergeProps(buttonProps, focusProps, hoverProps)}
+      ref={mergeRefs(itemRef, forwardedRef)}
+      className={classes}
+    >
+      {children}
+    </Comp>
+  );
 });

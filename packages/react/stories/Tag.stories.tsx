@@ -1,22 +1,22 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import { Tag } from '../src';
 
 export default {
-	title: 'Components/Tag',
-	component: Tag,
-} as ComponentMeta<typeof Tag>;
+  title: 'Components/Tag',
+  component: Tag,
+};
 
 const Template: ComponentStory<typeof Tag> = (args) => <Tag {...args} />;
 
 export const Default = Template.bind({});
 
 Default.args = {
-	children: 'Tag',
+  children: 'Tag',
 };
 
 export const Removeable = Template.bind({});
 
 Removeable.args = {
-	children: 'Tag',
-	isRemovable: true,
+  children: 'Tag',
+  isRemovable: true,
 };

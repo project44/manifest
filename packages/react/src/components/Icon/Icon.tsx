@@ -6,26 +6,26 @@ import { useStyles } from './Icon.styles';
 export type IconElement = 'span';
 
 export interface IconOptions<T extends As = IconElement> extends Options<T>, StyleProps {
-	/**
-	 * The material-icons icon name
-	 */
-	icon?: string;
+  /**
+   * The material-icons icon name
+   */
+  icon?: string;
 }
 
 export type IconProps<T extends As = IconElement> = Props<IconOptions<T>>;
 
 export const Icon = createComponent<IconOptions>((props, forwardedRef) => {
-	const { as: Comp = 'span', className: classNameProp, css, icon, ...other } = props;
+  const { as: Comp = 'span', className: classNameProp, css, icon, ...other } = props;
 
-	const { className } = useStyles({ css });
+  const { className } = useStyles({ css });
 
-	return (
-		<Comp
-			{...other}
-			ref={forwardedRef}
-			className={cx(className, classNameProp, 'manifest-icon', 'material-icons')}
-		>
-			{icon}
-		</Comp>
-	);
+  return (
+    <Comp
+      {...other}
+      ref={forwardedRef}
+      className={cx(className, classNameProp, 'manifest-icon', 'material-icons')}
+    >
+      {icon}
+    </Comp>
+  );
 });

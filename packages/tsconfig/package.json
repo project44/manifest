@@ -1,0 +1,28 @@
+{
+  "name": "tsconfig-manifest",
+  "version": "0.0.3",
+  "description": "Manifest Design System Typescript configurations",
+  "keywords": [
+    "typescript",
+    "tsconfig",
+    "manifest",
+    "react"
+  ],
+  "license": "MIT",
+  "author": "project44",
+  "files": [
+    "tsconfig.json",
+    "tsconfig.library.json",
+    "tsconfig.next.json",
+    "tsconfig.react.json"
+  ],
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:project-44/manifest.git",
+    "directory": "packages/tsconfig"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

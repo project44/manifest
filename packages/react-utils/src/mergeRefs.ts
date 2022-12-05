@@ -7,15 +7,15 @@ import type * as React from 'react';
  * https://github.com/adobe/react-spectrum/blob/main/packages/%40react-aria/utils/src/mergeRefs.ts
  */
 export function mergeRefs<T>(...refs: React.ForwardedRef<T>[]) {
-	return (value: T) => {
-		refs.forEach((ref) => {
-			if (typeof ref === 'function') {
-				ref(value);
-			} else if (ref != null) {
-				// We need to assign the ref directly.
-				// eslint-disable-next-line no-param-reassign
-				ref.current = value;
-			}
-		});
-	};
+  return (value: T) => {
+    for (const ref of refs) {
+      if (typeof ref === 'function') {
+        ref(value);
+      } else if (ref != undefined) {
+        // We need to assign the ref directly.
+        // eslint-disable-next-line no-param-reassign
+        ref.current = value;
+      }
+    }
+  };
 }
