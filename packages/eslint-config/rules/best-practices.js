@@ -32,8 +32,6 @@ module.exports = {
     ],
     // Prefer compact syntax when applicable.
     'prefer-exponentiation-operator': 'error',
-    // Prefer use of Object.hasOwn() over Object.prototype.hasOwnProperty.call().
-    'prefer-object-has-own': 'error',
     // Prefer compact syntax when applicable
     'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
     // Disallow assignments that can lead to race conditions due to usage of await or yield.
