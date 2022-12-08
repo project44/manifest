@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-manifest",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Manifest Design System eslint configuration",
   "license": "MIT",
   "author": "project44",
