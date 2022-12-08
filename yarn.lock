@@ -4343,6 +4343,7 @@ __metadata:
   resolution: "@project44-manifest/react@workspace:packages/react"
   dependencies:
     "@internationalized/date": ^3.0.0
+    "@project44-manifest/react-button": "*"
     "@project44-manifest/react-styles": "*"
     "@project44-manifest/react-test-utils": "*"
     "@project44-manifest/react-tooltip": "*"
