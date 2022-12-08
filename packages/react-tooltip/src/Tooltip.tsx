@@ -29,6 +29,8 @@ export const Tooltip = React.forwardRef((props, forwardedRef) => {
     trigger,
   });
 
+  console.log(triggerProps);
+
   return (
     <>
       <Slot {...triggerProps} ref={triggerRef}>
