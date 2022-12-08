@@ -1,5 +1,14 @@
 # @project44-manifest/react-utils
 
+## 0.2.3
+
+### Patch Changes
+
+- [#175](https://github.com/project44/manifest/pull/175)
+  [`3dbcef3`](https://github.com/project44/manifest/commit/3dbcef3b621ae3e5e03b87af9e9316819d275b1f)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Removing usage of Object.hasOwn method to
+  support lesser node versions
+
 ## 0.2.2
 
 ### Patch Changes
