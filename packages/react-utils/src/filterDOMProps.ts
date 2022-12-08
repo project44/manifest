@@ -255,7 +255,7 @@ export function filterDOMProps<T extends Record<string, unknown>>(
   const result: Record<string, unknown> = {};
 
   for (const prop in props) {
-    if (Object.hasOwn(props, prop)) {
+    if (Object.prototype.hasOwnProperty.call(props, prop)) {
       const isAllowed =
         domProps.has(prop) ||
         ariaRegex.test(prop) ||

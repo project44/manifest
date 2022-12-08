@@ -16,7 +16,7 @@ export function mergeProps<T extends Props[]>(...args: T): UnionToIntersection<T
     const props: Record<string, unknown> = args[i];
 
     for (const prop in props) {
-      if (Object.hasOwn(props, prop)) {
+      if (Object.prototype.hasOwnProperty.call(props, prop)) {
         const mergedValue = result[prop];
         const propValue = props[prop];
 
