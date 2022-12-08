@@ -42,6 +42,7 @@
   "dependencies": {
     "@internationalized/date": "^3.0.0",
     "@project44-manifest/react-styles": "*",
+    "@project44-manifest/react-tooltip": "*",
     "@project44-manifest/system": "*",
     "@radix-ui/react-slot": "^1.0.0",
     "@react-aria/button": "^3.5.1",
