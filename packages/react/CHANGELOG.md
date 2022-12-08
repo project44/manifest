@@ -1,5 +1,14 @@
 # @manifest/react
 
+## 2.6.7
+
+### Patch Changes
+
+- [#171](https://github.com/project44/manifest/pull/171)
+  [`19ce4f3`](https://github.com/project44/manifest/commit/19ce4f344f638ad58b5d4faaa33524a5a025b98e)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Reverting back to using react-tooltip
+  package
+
 ## 2.6.6
 
 ### Patch Changes
