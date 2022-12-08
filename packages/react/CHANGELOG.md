@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 2.6.8
+
+### Patch Changes
+
+- [#173](https://github.com/project44/manifest/pull/173)
+  [`5d9a72c`](https://github.com/project44/manifest/commit/5d9a72cfd989d8072ea5cfded249a0a7a4312371)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Use react-button package
+
 ## 2.6.7
 
 ### Patch Changes
