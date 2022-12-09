@@ -17,7 +17,7 @@
     "percy": "yarn ./apps/storybook/ exec percy storybook ./build",
     "prepare": "husky install",
     "release-packages": "yarn build && yarn changeset publish",
-    "storybook:build": "yarn ./apps/storybook/ exec build-storybook -c .storybook -o ./build",
+    "storybook:build": "yarn turbsto run build --filter=@project44-manifest/storybook",
     "test": "jest",
     "test:visual": "yarn storybook:build && yarn percy",
     "typecheck": "turbo run typecheck",
