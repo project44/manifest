@@ -5,7 +5,9 @@
   "scripts": {
     "build": "build-storybook -c .storybook -o ./build",
     "dev": "start-storybook -p 6006 --quiet",
-    "clean": "rm -rf .turbo node_modules build"
+    "clean": "rm -rf .turbo node_modules build",
+    "percy": "percy storybook ./build",
+    "test:visual": "yarn build && yarn percy"
   },
   "dependencies": {
     "@project44-manifest/react": "*",
@@ -16,5 +18,9 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "webpack": "^5.74.0"
+  },
+  "devDependencies": {
+    "@percy/cli": "^1.16.0",
+    "@percy/storybook": "^4.3.4"
   }
 }

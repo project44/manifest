@@ -14,9 +14,12 @@
     "dev": "turbo run dev",
     "format": "prettier --check \"**/*.{ts,tsx,md}\"",
     "lint": "eslint --ext .tsx,.ts ./packages",
+    "percy": "yarn ./apps/storybook/ exec percy storybook ./build",
     "prepare": "husky install",
     "release-packages": "yarn build && yarn changeset publish",
+    "storybook:build": "yarn turbo run build --filter=@project44-manifest/storybook",
     "test": "jest",
+    "test:visual": "yarn storybook:build && yarn percy",
     "typecheck": "turbo run typecheck",
     "version-packages": "yarn changeset version"
   },
