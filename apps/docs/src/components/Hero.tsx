@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { Box, Button, Container, Flex, pxToRem, Typography } from '@project44-manifest/react';
 import NextImage from 'next/image';
 import { useRouter } from 'next/router';
-import { Box, Button, Container, Flex, pxToRem, Typography } from '@project44-manifest/react';
 
 function Hero() {
   const router = useRouter();

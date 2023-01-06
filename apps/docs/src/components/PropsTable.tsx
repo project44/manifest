@@ -1,42 +1,42 @@
 import * as React from 'react';
+import { props as componentDocs, PropDoc } from '../data/props';
 import { Flex, Separator, Stack, Typography } from '@project44-manifest/react';
-import { PropDoc as PropertyDocument,props as componentDocs } from '../data/props';
 import InlineCode from './InlineCode';
 
-interface PropertiesTableProperty {
+interface PropsTableProp {
   of: string;
 }
 
-function PropertiesTable(properties: PropertiesTableProperty) {
-  const { of } = properties;
+function PropsTable(props: PropsTableProp) {
+  const { of } = props;
 
   const propDocs = React.useMemo(() => {
-    const { props: _properties } = componentDocs.find((component) => component.displayName === of);
+    const { props: _props } = componentDocs.find((component) => component.displayName === of);
 
-    return _properties as PropertyDocument[];
+    return _props as PropDoc[];
   }, [of]);
 
   return (
     <Stack css={{ pb: '$x-large' }}>
-      {propDocs.map((document_) => (
-        <Stack key={`${of}_${document_.name}`}>
+      {propDocs.map((doc) => (
+        <Stack key={`${of}_${doc.name}`}>
           <Separator css={{ my: '$medium' }} />
           <Flex align="center" justify="between">
             <Stack gap="small" orientation="horizontal">
               <Typography variant="subtitle">
-                {document_.name}
-                {document_.required ? '' : '?'}
+                {doc.name}
+                {doc.required ? '' : '?'}
               </Typography>
               <Typography variant="subtext">
-                <InlineCode>{document_.type}</InlineCode>
+                <InlineCode>{doc.type}</InlineCode>
               </Typography>
             </Stack>
           </Flex>
-          <Typography variant="subtext">{document_.description}</Typography>
+          <Typography variant="subtext">{doc.description}</Typography>
         </Stack>
       ))}
     </Stack>
   );
 }
 
-export default PropertiesTable;
+export default PropsTable;

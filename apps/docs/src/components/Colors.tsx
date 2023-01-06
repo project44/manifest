@@ -3,14 +3,14 @@ import * as tokens from '@project44-manifest/design-tokens';
 import { Grid, GridItem } from '@project44-manifest/react';
 import ColorSwatch from './ColorSwatch';
 
-interface ColorsProperties {
+interface ColorsProps {
   category?: string;
 }
 
 const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
 
-function Colors(properties: ColorsProperties) {
-  const { category } = properties;
+function Colors(props: ColorsProps) {
+  const { category } = props;
 
   const colors = Object.keys(tokens)
     .filter((token) => {
@@ -23,7 +23,7 @@ function Colors(properties: ColorsProperties) {
     .sort(collator.compare);
 
   return (
-    <Grid columns="repeat(3, 1fr)" css={{ py: '$large' }} gap="large">
+    <Grid css={{ py: '$large' }} columns="repeat(3, 1fr)" gap="large">
       {colors.map((token) => {
         const name = token.replace(category, '');
         const hex = tokens[token];

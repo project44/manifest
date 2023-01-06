@@ -1,16 +1,16 @@
+import type { DocMeta } from '../../../types';
 import * as React from 'react';
 import { allDocs } from 'contentlayer/generated';
-import { GetStaticProps } from 'next';
-import Thumbnails from '../../../components/Thumbnails';
 import DocsLayout from '../../../layouts/Docs';
-import type { DocMeta as DocumentMeta } from '../../../types';
+import Thumbnails from '../../../components/Thumbnails';
+import { GetStaticProps } from 'next';
 
-interface GettingStartedProperties {
-  items: DocumentMeta[];
+interface GettingStartedProps {
+  items: DocMeta[];
 }
 
-export default function GettingStarted(properties: GettingStartedProperties) {
-  const { items } = properties;
+export default function GettingStarted(props: GettingStartedProps) {
+  const { items } = props;
 
   return (
     <DocsLayout
@@ -24,8 +24,8 @@ export default function GettingStarted(properties: GettingStartedProperties) {
 
 export const getStaticProps: GetStaticProps = () => {
   const items = allDocs
-    .filter((document_) => document_.slug.startsWith('/docs/getting-started') as boolean)
-    .map((document_) => document_.meta as DocumentMeta);
+    .filter((doc) => doc.slug.startsWith('/docs/getting-started') as boolean)
+    .map((doc) => doc.meta as DocMeta);
 
   return {
     props: { items },

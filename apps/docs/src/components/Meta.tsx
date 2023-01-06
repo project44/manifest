@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { Box, Typography } from '@project44-manifest/react';
 
-interface MetaProperties {
+interface MetaProps {
   description?: string;
   title?: string;
 }
 
-function Meta(properties: MetaProperties) {
-  const { description, title } = properties;
+function Meta(props: MetaProps) {
+  const { description, title } = props;
 
   return (
     <Box css={{ py: '$x-large' }}>

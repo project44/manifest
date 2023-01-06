@@ -5,48 +5,48 @@ import BlockQuote from './BlockQuote';
 import CodeBlock from './CodeBlock';
 import Colors from './Colors';
 import ColorSwatch from './ColorSwatch';
+import InlineCode from './InlineCode';
 import Heading from './Heading';
 import Image from './Image';
-import InlineCode from './InlineCode';
-import PropertiesTable from './PropsTable';
+import PropsTable from './PropsTable';
 import TypeScale from './TypeScale';
 
 const MDXComponents = {
   ...Manifest,
   Colors,
   ColorSwatch,
-  PropsTable: PropertiesTable,
+  PropsTable,
   TypeScale,
   a: Anchor,
   blockquote: BlockQuote,
   code: InlineCode,
   Image,
-  h1: (properties: React.DetailsHTMLAttributes<unknown>) => (
-    <Manifest.Typography as="h1" variant="display" {...properties} />
+  h1: (props: React.DetailsHTMLAttributes<unknown>) => (
+    <Manifest.Typography as="h1" variant="display" {...props} />
   ),
-  h2: (properties: React.DetailsHTMLAttributes<unknown>) => (
-    <Heading as="h2" variant="heading" {...properties} />
+  h2: (props: React.DetailsHTMLAttributes<unknown>) => (
+    <Heading as="h2" variant="heading" {...props} />
   ),
-  h3: (properties: React.DetailsHTMLAttributes<unknown>) => (
-    <Heading as="h3" variant="title" {...properties} />
+  h3: (props: React.DetailsHTMLAttributes<unknown>) => (
+    <Heading as="h3" variant="title" {...props} />
   ),
-  h4: (properties: React.DetailsHTMLAttributes<unknown>) => (
-    <Heading as="h4" variant="subtitle" {...properties} />
+  h4: (props: React.DetailsHTMLAttributes<unknown>) => (
+    <Heading as="h4" variant="subtitle" {...props} />
   ),
-  hr: (properties: React.DetailsHTMLAttributes<unknown>) => <Manifest.Separator {...properties} />,
-  p: (properties: React.DetailsHTMLAttributes<unknown>) => (
-    <Manifest.Typography as="p" css={{ marginBottom: '$medium' }} variant="body" {...properties} />
+  hr: (props: React.DetailsHTMLAttributes<unknown>) => <Manifest.Separator {...props} />,
+  p: (props: React.DetailsHTMLAttributes<unknown>) => (
+    <Manifest.Typography as="p" css={{ marginBottom: '$medium' }} variant="body" {...props} />
   ),
-  pre: (properties: any) => {
-    if (typeof properties.children === 'string') return <Manifest.Box as="pre" {...properties} />;
+  pre: (props: any) => {
+    if (typeof props.children === 'string') return <Manifest.Box as="pre" {...props} />;
 
-    return <CodeBlock {...properties} />;
+    return <CodeBlock {...props} />;
   },
   table: Manifest.Table,
   tbody: Manifest.TableBody,
   thead: Manifest.TableHeader,
-  td: (properties: React.DetailsHTMLAttributes<unknown>) => (
-    <Manifest.TableCell css={{ whiteSpace: 'inherit' }} {...properties} />
+  td: (props: React.DetailsHTMLAttributes<unknown>) => (
+    <Manifest.TableCell css={{ whiteSpace: 'inherit' }} {...props} />
   ),
   tr: Manifest.TableRow,
   th: Manifest.TableColumn,

@@ -1,26 +1,26 @@
 import * as React from 'react';
 import NextHead from 'next/head';
 
-interface HeadProperties {
+interface HeadProps {
   description?: string;
   title?: string;
 }
 
-function Head(properties: HeadProperties) {
-  const { description, title: titleProperty } = properties;
+function Head(props: HeadProps) {
+  const { description, title: titleProp } = props;
 
   const titlePrefix = 'Manifest Design System';
 
   let title = titlePrefix;
 
-  if (titleProperty) {
-    title = `${titleProperty} - ${titlePrefix}`;
+  if (titleProp) {
+    title = `${titleProp} - ${titlePrefix}`;
   }
 
   return (
     <NextHead>
       <title>{title}</title>
-      {description && <meta content={description} name="description" />}
+      {description && <meta name="description" content={description} />}
     </NextHead>
   );
 }

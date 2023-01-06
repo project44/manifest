@@ -1,19 +1,19 @@
-import * as React from 'react';
 import type { Doc } from 'contentlayer/generated';
-import { allDocs } from 'contentlayer/generated';
-import { GetStaticPaths, GetStaticProps } from 'next';
-import { useMDXComponent } from 'next-contentlayer/hooks';
-import MDXComponents from '../../components/MDXComponents';
-import DocsLayout from '../../layouts/Docs';
 import type { TOC } from '../../types';
+import * as React from 'react';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { allDocs } from 'contentlayer/generated';
+import DocsLayout from '../../layouts/Docs';
+import MDXComponents from '../../components/MDXComponents';
+import { useMDXComponent } from 'next-contentlayer/hooks';
 
 interface DocsProps {
   doc: Doc;
   toc?: TOC[];
 }
 
-export default function Docs(properties: DocsProps) {
-  const { doc, toc } = properties;
+export default function Docs(props: DocsProps) {
+  const { doc, toc } = props;
 
   const Doc = useMDXComponent(doc.body.code as string);
 
@@ -25,17 +25,17 @@ export default function Docs(properties: DocsProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = () => {
-  const paths = allDocs.map((document_) => document_.slug as string);
+  const paths = allDocs.map((doc) => doc.slug as string);
 
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps = (context) => {
-  const slug = Array.isArray(context?.params.slug) ? context?.params.slug.join('/') : context?.params.slug;
-  const document_ = allDocs.find((document__) => document__.slug.endsWith(slug) as boolean) as Doc;
-  const toc = document_?.meta?.toc;
+export const getStaticProps: GetStaticProps = (ctx) => {
+  const slug = Array.isArray(ctx?.params.slug) ? ctx?.params.slug.join('/') : ctx?.params.slug;
+  const doc = allDocs.find((doc) => doc.slug.endsWith(slug) as boolean) as Doc;
+  const toc = doc?.meta?.toc;
 
   return {
-    props: { doc: document_, toc },
+    props: { doc, toc },
   };
 };

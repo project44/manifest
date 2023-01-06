@@ -1,4 +1,4 @@
-export interface DocumentMeta {
+export interface DocMeta {
   description: string;
   slug: string;
   title: string;

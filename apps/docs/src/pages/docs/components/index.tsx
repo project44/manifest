@@ -1,16 +1,16 @@
+import type { DocMeta } from '../../../types';
 import * as React from 'react';
 import { allDocs } from 'contentlayer/generated';
-import { GetStaticProps } from 'next';
-import Thumbnails from '../../../components/Thumbnails';
 import DocsLayout from '../../../layouts/Docs';
-import type { DocMeta as DocumentMeta } from '../../../types';
+import Thumbnails from '../../../components/Thumbnails';
+import { GetStaticProps } from 'next';
 
-interface ComponentsProperties {
-  items: DocumentMeta[];
+interface ComponentsProps {
+  items: DocMeta[];
 }
 
-export default function Components(properties: ComponentsProperties) {
-  const { items } = properties;
+export default function Components(props: ComponentsProps) {
+  const { items } = props;
 
   return (
     <DocsLayout title="Components">
@@ -21,8 +21,8 @@ export default function Components(properties: ComponentsProperties) {
 
 export const getStaticProps: GetStaticProps = () => {
   const items = allDocs
-    .filter((document_) => document_.slug.startsWith('/docs/components') as boolean)
-    .map((document_) => document_.meta as DocumentMeta);
+    .filter((doc) => doc.slug.startsWith('/docs/components') as boolean)
+    .map((doc) => doc.meta as DocMeta);
 
   return {
     props: { items },

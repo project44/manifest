@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { Box, pxToRem, Stack } from '@project44-manifest/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Box, pxToRem, Stack } from '@project44-manifest/react';
 
 function Header() {
   return (
@@ -32,11 +32,11 @@ function Header() {
             orientation="horizontal"
           >
             <Image
-              alt="Manifest Design System logo"
-              height={32}
-              layout="fixed"
               src="/images/logo.svg"
+              layout="fixed"
               width={32}
+              height={32}
+              alt="Manifest Design System logo"
             />
             Manifest Design System
           </Stack>

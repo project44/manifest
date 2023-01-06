@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Box } from '@project44-manifest/react';
 
-type BlockQuoteProperties = React.ComponentPropsWithoutRef<typeof Box>;
+type BlockQuoteProps = React.ComponentPropsWithoutRef<typeof Box>;
 
-function BlockQuote(properties: BlockQuoteProperties) {
-  const { css, ...other } = properties;
+function BlockQuote(props: BlockQuoteProps) {
+  const { css, ...other } = props;
 
   return (
     <Box

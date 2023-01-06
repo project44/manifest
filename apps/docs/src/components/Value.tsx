@@ -1,5 +1,4 @@
 import * as React from 'react';
-import NextImage from 'next/image';
 import {
   Box,
   Card,
@@ -10,6 +9,7 @@ import {
   Stack,
   Typography,
 } from '@project44-manifest/react';
+import NextImage from 'next/image';
 
 function Value() {
   return (

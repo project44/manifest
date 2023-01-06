@@ -19,7 +19,7 @@ function Features() {
             minHeight: pxToRem(768),
           }}
         >
-          <Grid columns="repeat(3, 1fr)" css={{ gap: '40px', maxWidth: pxToRem(1070), mx: 'auto' }}>
+          <Grid css={{ gap: '40px', maxWidth: pxToRem(1070), mx: 'auto' }} columns="repeat(3, 1fr)">
             <GridItem>
               <ActionCard
                 description="Find all the design decisions that power the system."

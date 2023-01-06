@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { useRouter } from 'next/router';
 import { Box, pxToRem, Stack } from '@project44-manifest/react';
-import SidebarItem from '../components/SidebarItem';
 import items from '../data/sidebar';
+import SidebarItem from '../components/SidebarItem';
+import { useRouter } from 'next/router';
 
 function Sidebar() {
   const router = useRouter();
@@ -23,10 +23,10 @@ function Sidebar() {
         <Stack as="ul" css={{ listStyleType: 'none', margin: 0, padding: 0 }}>
           {items.map((item) => (
             <SidebarItem
-              key={item.slug}
               currentPath={router.asPath}
-              items={item.items ?? null}
               slug={item.slug}
+              key={item.slug}
+              items={item.items ?? null}
               title={item.title}
             />
           ))}

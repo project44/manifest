@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { LiveError, LivePreview } from 'react-live';
 import { Flex, pxToRem, styled } from '@project44-manifest/react';
+import { LiveError, LivePreview } from 'react-live';
 
 const StyledPreview = styled(LivePreview, {
   fontFamily: '$text',
   width: '100%',
 });
 
-const Preview: React.FC<React.ComponentPropsWithRef<'div'>> = (properties) => (
+const Preview: React.FC<React.ComponentPropsWithRef<'div'>> = (props) => (
   <Flex
-    {...properties}
+    {...props}
     css={{
       backgroundColor: '$background-primary',
       fontFamily: '$text',

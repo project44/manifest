@@ -1,15 +1,15 @@
+import type { DocMeta } from '../types';
 import * as React from 'react';
-import { getThumbnailUrl } from 'src/utils';
 import { Grid, GridItem, pxToRem } from '@project44-manifest/react';
-import type { DocMeta as DocumentMeta } from '../types';
 import ActionCard from './ActionCard';
+import { getThumbnailUrl } from 'src/utils';
 
-interface ThumbnailsProperties {
-  items: DocumentMeta[];
+interface ThumbnailsProps {
+  items: DocMeta[];
 }
 
-function Thumbnails(properties: ThumbnailsProperties) {
-  const { items } = properties;
+function Thumbnails(props: ThumbnailsProps) {
+  const { items } = props;
 
   return (
     <Grid columns="repeat(3, 1fr)" css={{ py: pxToRem(64) }} gap="large">

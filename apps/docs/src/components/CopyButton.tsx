@@ -1,13 +1,13 @@
 import * as React from 'react';
+import { IconButton, Icon, Tooltip } from '@project44-manifest/react';
 import copyToClipboard from 'copy-to-clipboard';
-import { Icon, IconButton, Tooltip } from '@project44-manifest/react';
 
-interface CopyButtonProperties {
+interface CopyButtonProps {
   code: string;
 }
 
-function CopyButton(properties: CopyButtonProperties) {
-  const { code } = properties;
+function CopyButton(props: CopyButtonProps) {
+  const { code } = props;
 
   const [isCopied, setIsCopied] = React.useState(false);
 
@@ -30,12 +30,12 @@ function CopyButton(properties: CopyButtonProperties) {
       }, 2000);
     }
 
-    return () => void clearTimeout(timer);
+    return () => clearTimeout(timer);
   }, [isCopied]);
 
   return (
     <Tooltip title={isCopied ? 'Copied' : 'Copy'}>
-      <IconButton size="small" variant="tertiary" onPress={handleCopy}>
+      <IconButton onPress={handleCopy} size="small" variant="tertiary">
         <Icon icon="content_copy" />
       </IconButton>
     </Tooltip>
