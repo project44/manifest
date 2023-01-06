@@ -1,8 +1,8 @@
 import * as React from 'react';
-import DefaultLayout from '../layouts/Default';
 import Features from '../components/Features';
 import Hero from '../components/Hero';
 import Value from '../components/Value';
+import DefaultLayout from '../layouts/Default';
 
 function Home() {
   return (

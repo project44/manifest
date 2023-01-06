@@ -72,9 +72,9 @@ export const ListBoxItem = createComponent<ListBoxItemOptions>((props, forwarded
       return <Checkbox isReadOnly aria-labelledby={labelProps.id} isSelected={isSelected} />;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+     
     return startIconProp ?? (item.props.startIcon as React.ReactElement);
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+     
   }, [labelProps, isSelected, selectionMode, startIconProp, item.props.startIcon]);
 
   const { className } = useStyles({

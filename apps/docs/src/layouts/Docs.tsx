@@ -1,12 +1,12 @@
-import type { TOC as TOCType } from '../types';
 import * as React from 'react';
-import { Box, Container, Flex, pxToRem, Stack } from '@project44-manifest/react';
 import isEmpty from 'lodash/isEmpty';
+import { Box, Container, Flex, pxToRem, Stack } from '@project44-manifest/react';
+import Head from '../components/Head';
+import Meta from '../components/Meta';
+import type { TOC as TOCType } from '../types';
 import Header from './Header';
 import Sidebar from './Sidebar';
 import TOC from './TOC';
-import Head from '../components/Head';
-import Meta from '../components/Meta';
 
 interface DocsLayoutProps {
   children: React.ReactNode;
@@ -15,8 +15,8 @@ interface DocsLayoutProps {
   toc?: TOCType[];
 }
 
-function DocsLayout(props: DocsLayoutProps) {
-  const { children, description, title, toc = [] } = props;
+function DocsLayout(properties: DocsLayoutProps) {
+  const { children, description, title, toc = [] } = properties;
 
   return (
     <Box

@@ -5,48 +5,48 @@ import BlockQuote from './BlockQuote';
 import CodeBlock from './CodeBlock';
 import Colors from './Colors';
 import ColorSwatch from './ColorSwatch';
-import InlineCode from './InlineCode';
 import Heading from './Heading';
 import Image from './Image';
-import PropsTable from './PropsTable';
+import InlineCode from './InlineCode';
+import PropertiesTable from './PropsTable';
 import TypeScale from './TypeScale';
 
 const MDXComponents = {
   ...Manifest,
   Colors,
   ColorSwatch,
-  PropsTable,
+  PropsTable: PropertiesTable,
   TypeScale,
   a: Anchor,
   blockquote: BlockQuote,
   code: InlineCode,
   Image,
-  h1: (props: React.DetailsHTMLAttributes<unknown>) => (
-    <Manifest.Typography as="h1" variant="display" {...props} />
+  h1: (properties: React.DetailsHTMLAttributes<unknown>) => (
+    <Manifest.Typography as="h1" variant="display" {...properties} />
   ),
-  h2: (props: React.DetailsHTMLAttributes<unknown>) => (
-    <Heading as="h2" variant="heading" {...props} />
+  h2: (properties: React.DetailsHTMLAttributes<unknown>) => (
+    <Heading as="h2" variant="heading" {...properties} />
   ),
-  h3: (props: React.DetailsHTMLAttributes<unknown>) => (
-    <Heading as="h3" variant="title" {...props} />
+  h3: (properties: React.DetailsHTMLAttributes<unknown>) => (
+    <Heading as="h3" variant="title" {...properties} />
   ),
-  h4: (props: React.DetailsHTMLAttributes<unknown>) => (
-    <Heading as="h4" variant="subtitle" {...props} />
+  h4: (properties: React.DetailsHTMLAttributes<unknown>) => (
+    <Heading as="h4" variant="subtitle" {...properties} />
   ),
-  hr: (props: React.DetailsHTMLAttributes<unknown>) => <Manifest.Separator {...props} />,
-  p: (props: React.DetailsHTMLAttributes<unknown>) => (
-    <Manifest.Typography as="p" css={{ marginBottom: '$medium' }} variant="body" {...props} />
+  hr: (properties: React.DetailsHTMLAttributes<unknown>) => <Manifest.Separator {...properties} />,
+  p: (properties: React.DetailsHTMLAttributes<unknown>) => (
+    <Manifest.Typography as="p" css={{ marginBottom: '$medium' }} variant="body" {...properties} />
   ),
-  pre: (props: any) => {
-    if (typeof props.children === 'string') return <Manifest.Box as="pre" {...props} />;
+  pre: (properties: any) => {
+    if (typeof properties.children === 'string') return <Manifest.Box as="pre" {...properties} />;
 
-    return <CodeBlock {...props} />;
+    return <CodeBlock {...properties} />;
   },
   table: Manifest.Table,
   tbody: Manifest.TableBody,
   thead: Manifest.TableHeader,
-  td: (props: React.DetailsHTMLAttributes<unknown>) => (
-    <Manifest.TableCell css={{ whiteSpace: 'inherit' }} {...props} />
+  td: (properties: React.DetailsHTMLAttributes<unknown>) => (
+    <Manifest.TableCell css={{ whiteSpace: 'inherit' }} {...properties} />
   ),
   tr: Manifest.TableRow,
   th: Manifest.TableColumn,

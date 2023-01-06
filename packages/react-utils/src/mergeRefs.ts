@@ -11,9 +11,9 @@ export function mergeRefs<T>(...refs: React.ForwardedRef<T>[]) {
     for (const ref of refs) {
       if (typeof ref === 'function') {
         ref(value);
-      } else if (ref != undefined) {
+      } else if (ref !== null) {
         // We need to assign the ref directly.
-        // eslint-disable-next-line no-param-reassign
+
         ref.current = value;
       }
     }

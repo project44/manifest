@@ -1,21 +1,21 @@
 import * as React from 'react';
-import { Box, Card, CardBody, CardHeader, Icon, Typography } from '@project44-manifest/react';
 import NextImage from 'next/image';
 import NextLink from 'next/link';
+import { Box, Card, CardBody, CardHeader, Icon, Typography } from '@project44-manifest/react';
 
-interface ActionCardProps {
+interface ActionCardProperties {
   description?: string;
   href: string;
   src: string;
   title: string;
-  onClick?(): void;
+  onClick?: () => void;
 }
 
-function ActionCard(props: ActionCardProps) {
-  const { description, href, src, title } = props;
+function ActionCard(properties: ActionCardProperties) {
+  const { description, href, src, title } = properties;
 
   return (
-    <NextLink href={href} passHref>
+    <NextLink passHref href={href}>
       <Box as="a" css={{ color: 'inherit', textDecoration: 'none', typography: '$body' }}>
         <Card css={{ '&:hover': { boxShadow: '$large' } }}>
           <Box css={{ px: '$large', pt: '$large' }}>

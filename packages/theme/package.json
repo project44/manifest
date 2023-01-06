@@ -27,24 +27,29 @@
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {
-    "build": "packemon build --addEngines --declaration --declarationConfig tsconfig.build.json",
-    "clean": "rimraf .turbo && packemon clean",
-    "dev": "packemon watch",
-    "typecheck": "tsc --noEmit"
-  },
   "dependencies": {
-    "@project44-manifest/design-tokens": "*",
-    "@project44-manifest/utils": "*",
+    "@project44-manifest/design-tokens": "^1.2.1",
+    "@project44-manifest/utils": "^1.0.1",
     "lodash.kebabcase": "^4.1.1",
     "lodash.merge": "^4.6.2"
   },
   "devDependencies": {
     "@types/lodash.kebabcase": "^4.1.7",
-    "@types/lodash.merge": "^4.6.7",
-    "tsconfig-manifest": "*"
+    "@types/lodash.merge": "^4.6.7"
   },
   "packemon": {
     "platform": "browser"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dts/index.d.ts",
+      "browser": {
+        "module": "./esm/index.js",
+        "import": "./esm/index.js",
+        "default": "./lib/index.js"
+      },
+      "default": "./lib/index.js"
+    }
   }
 }

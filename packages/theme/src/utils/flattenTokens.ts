@@ -12,7 +12,7 @@ export function flattenTokens<K extends string = string>(
   function flatten(obj: Record<string, unknown>, prev?: string) {
     for (const [key, value] of Object.entries(obj)) {
       const processedKey = kebabCase(key);
-      const fullKey = prev == undefined ? processedKey : `${prev}-${processedKey}`;
+      const fullKey = prev === undefined ? processedKey : `${prev}-${processedKey}`;
 
       if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
         result[fullKey] = value;

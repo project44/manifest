@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { Box, pxToRem } from '@project44-manifest/react';
 import { LiveEditor } from 'react-live';
+import { Box, pxToRem } from '@project44-manifest/react';
 
-const Editor: React.FC<React.ComponentPropsWithRef<'div'>> = (props) => {
-  return (
+const Editor: React.FC<React.ComponentPropsWithRef<'div'>> = (properties) => (
     <Box
-      {...props}
+      {...properties}
       css={{
         fontFamily: '$mono',
         fontSize: '$small',
@@ -16,6 +15,5 @@ const Editor: React.FC<React.ComponentPropsWithRef<'div'>> = (props) => {
       <LiveEditor />
     </Box>
   );
-};
 
 export default Editor;

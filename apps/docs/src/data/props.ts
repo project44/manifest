@@ -1,4 +1,4 @@
-export interface PropDoc {
+export interface PropertyDocument {
   description: string;
   defaultValue: any;
   name: string;
@@ -6,12 +6,12 @@ export interface PropDoc {
   type: string;
 }
 
-export interface ComponentDoc {
+export interface ComponentDocument {
   displayName: string;
-  props: PropDoc[];
+  props: PropertyDocument[];
 }
 
-export const props: ComponentDoc[] = [
+export const props: ComponentDocument[] = [
   {
     displayName: 'Box',
     props: [

@@ -278,7 +278,7 @@ describe('@project44-manifest/react - MultiCombobox', () => {
         combobox.blur();
       });
 
-      expect(onOpenChange).toHaveBeenLastCalledWith(false, undefined);
+      expect(onOpenChange).toHaveBeenLastCalledWith(false);
       expect(onSelectionChange).toHaveBeenCalledTimes(1);
 
       expect(screen.queryByRole('listbox')).toBeNull();
@@ -508,7 +508,7 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       expect(onSelectionChange).toHaveBeenCalledTimes(1);
 
       expect(onOpenChange).toHaveBeenCalledTimes(2);
-      expect(onOpenChange).toHaveBeenLastCalledWith(false, undefined);
+      expect(onOpenChange).toHaveBeenLastCalledWith(false);
     });
   });
 
@@ -518,7 +518,7 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       const onFocus = jest.fn();
       const onFocusChange = jest.fn();
 
-      const focusProps = {
+      const focusProperties = {
         autoFocus: true,
         onBlur,
         onFocus,
@@ -526,7 +526,7 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       };
 
       render(
-        <MultiCombobox label="Select" {...focusProps}>
+        <MultiCombobox label="Select" {...focusProperties}>
           <SelectItem key="ardvark">Ardvark</SelectItem>
           <SelectItem key="kangaroo">Kangaroo</SelectItem>
           <SelectItem key="snake">Snake</SelectItem>

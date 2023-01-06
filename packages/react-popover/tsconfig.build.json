@@ -1,11 +1,12 @@
 {
-  "extends": "tsconfig-manifest/tsconfig.react.json",
+  "extends": "../../tsconfig.options.json",
   "compilerOptions": {
     "outDir": "dts",
     "rootDir": "src"
   },
   "include": [
     "src/**/*",
-    "../../@types/**/*"
-  ]
+    "../../types/**/*"
+  ],
+  "references": []
 }

@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Box } from '@project44-manifest/react';
 import NextImage, { ImageProps } from 'next/image';
+import { Box } from '@project44-manifest/react';
 
-const Image: React.FC<ImageProps> = (props) => (
+const Image: React.FC<ImageProps> = (properties) => (
   <Box
     css={{
       backgroundColor: '$background-secondary',
@@ -10,7 +10,7 @@ const Image: React.FC<ImageProps> = (props) => (
       marginBottom: '$x-large',
     }}
   >
-    <NextImage layout="responsive" width={700} height={400} objectFit="contain" {...props} />
+    <NextImage height={400} layout="responsive" objectFit="contain" width={700} {...properties} />
   </Box>
 );
 

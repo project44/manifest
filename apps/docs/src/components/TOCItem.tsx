@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Box, Link, pxToRem, styled } from '@project44-manifest/react';
 import NextLink from 'next/link';
+import { Box, Link, pxToRem, styled } from '@project44-manifest/react';
 
-interface TOCItemProps {
+interface TOCItemProperties {
   content: string;
   currentHeading: string;
   slug: string;
@@ -51,12 +51,12 @@ const StyledLink = styled(Link, {
   },
 });
 
-function TOCItem(props: TOCItemProps) {
-  const { content, currentHeading, level, slug } = props;
+function TOCItem(properties: TOCItemProperties) {
+  const { content, currentHeading, level, slug } = properties;
 
   return (
-    <Box as="li" css={{ py: '$x-small' }} key={slug}>
-      <NextLink href={`#${slug}`} passHref>
+    <Box key={slug} as="li" css={{ py: '$x-small' }}>
+      <NextLink passHref href={`#${slug}`}>
         <StyledLink isActive={currentHeading === slug} isNested={level > 2}>
           {content}
         </StyledLink>

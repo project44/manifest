@@ -2,12 +2,6 @@
   "name": "@project44-manifest/docs",
   "version": "1.0.0",
   "private": true,
-  "scripts": {
-    "build": "next build",
-    "dev": "next dev",
-    "clean": "rm -rf .turbo node_modules .contentlayer .next",
-    "typecheck": "tsc -b"
-  },
   "dependencies": {
     "@internationalized/date": "^3.0.1",
     "@project44-manifest/design-tokens": "*",
@@ -29,6 +23,7 @@
   "devDependencies": {
     "eslint": "^8.26.0",
     "eslint-config-manifest": "*",
+    "eslint-config-next": "^13.1.1",
     "tsconfig-manifest": "*"
   }
 }

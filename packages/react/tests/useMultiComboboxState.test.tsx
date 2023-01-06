@@ -2,21 +2,21 @@ import { act } from 'react-dom/test-utils';
 import { Item } from '@react-stately/collections';
 import { renderHook } from '@project44-manifest/react-test-utils';
 import { useMultiComboboxState } from '../src';
-import type { MultiComboboxProps } from '../src/types';
+import type { MultiComboboxProps as MultiComboboxProperties } from '../src/types';
 
 describe('@project44-manifest/react - useMultiComboboxState', () => {
   describe('items', () => {
-    let defaultProps: MultiComboboxProps<{ key: string; name: string }>;
+    let defaultProps: MultiComboboxProperties<{ key: string; name: string }>;
 
     beforeEach(() => {
       defaultProps = {
         items: [{ key: 'one', name: 'one' }],
-        children: (props) => <Item {...props}>{props.name}</Item>,
+        children: (properties) => <Item {...properties}>{properties.name}</Item>,
       };
     });
 
     it('should support items', () => {
-      const { result } = renderHook((props) => useMultiComboboxState(props), {
+      const { result } = renderHook((properties) => useMultiComboboxState(properties), {
         initialProps: defaultProps,
       });
 
@@ -25,14 +25,14 @@ describe('@project44-manifest/react - useMultiComboboxState', () => {
 
     it('should support default items', () => {
       const { items, ...other } = defaultProps;
-      const initialProps = { ...other, defaultItems: [{ key: 'one', name: 'one' }] };
-      const { result } = renderHook((props) => useMultiComboboxState(props), { initialProps });
+      const initialProperties = { ...other, defaultItems: [{ key: 'one', name: 'one' }] };
+      const { result } = renderHook((properties) => useMultiComboboxState(properties), { initialProps: initialProperties });
 
       expect(result.current.collection.size).toBe(1);
     });
 
     it('should support children as items', () => {
-      const { result } = renderHook((props) => useMultiComboboxState(props), {
+      const { result } = renderHook((properties) => useMultiComboboxState(properties), {
         initialProps: {
           children: [<Item key="one">One</Item>],
         },
@@ -43,21 +43,21 @@ describe('@project44-manifest/react - useMultiComboboxState', () => {
   });
 
   describe('open', () => {
-    let defaultProps: MultiComboboxProps<{ key: string; name: string }>;
-    let onOpenChange: MultiComboboxProps<{ key: string; name: string }>['onOpenChange'];
+    let defaultProps: MultiComboboxProperties<{ key: string; name: string }>;
+    let onOpenChange: MultiComboboxProperties<{ key: string; name: string }>['onOpenChange'];
 
     beforeEach(() => {
       onOpenChange = jest.fn();
 
       defaultProps = {
         items: [{ key: 'one', name: 'one' }],
-        children: (props) => <Item {...props}>{props.name}</Item>,
+        children: (properties) => <Item {...properties}>{properties.name}</Item>,
         onOpenChange,
       };
     });
 
     it('should return open and close states', () => {
-      const { result } = renderHook((props) => useMultiComboboxState(props), {
+      const { result } = renderHook((properties) => useMultiComboboxState(properties), {
         initialProps: defaultProps,
       });
 
@@ -79,7 +79,7 @@ describe('@project44-manifest/react - useMultiComboboxState', () => {
     });
 
     it('should return open and close states with different trigger types', () => {
-      const { result } = renderHook((props) => useMultiComboboxState(props), {
+      const { result } = renderHook((properties) => useMultiComboboxState(properties), {
         initialProps: defaultProps,
       });
 
@@ -113,7 +113,7 @@ describe('@project44-manifest/react - useMultiComboboxState', () => {
     });
 
     it('should return open and close states on toggle', () => {
-      const { result } = renderHook((props) => useMultiComboboxState(props), {
+      const { result } = renderHook((properties) => useMultiComboboxState(properties), {
         initialProps: defaultProps,
       });
 
@@ -148,22 +148,22 @@ describe('@project44-manifest/react - useMultiComboboxState', () => {
   });
 
   describe('input', () => {
-    let defaultProps: MultiComboboxProps<{ key: string; name: string }>;
-    let onInputChange: MultiComboboxProps<{ key: string; name: string }>['onInputChange'];
+    let defaultProps: MultiComboboxProperties<{ key: string; name: string }>;
+    let onInputChange: MultiComboboxProperties<{ key: string; name: string }>['onInputChange'];
 
     beforeEach(() => {
       onInputChange = jest.fn();
 
       defaultProps = {
         items: [{ key: 'one', name: 'one' }],
-        children: (props) => <Item {...props}>{props.name}</Item>,
+        children: (properties) => <Item {...properties}>{properties.name}</Item>,
         onInputChange,
       };
     });
 
     it('should support a blank default value', () => {
-      const initialProps = { ...defaultProps };
-      const { result } = renderHook((props) => useMultiComboboxState(props), { initialProps });
+      const initialProperties = { ...defaultProps };
+      const { result } = renderHook((properties) => useMultiComboboxState(properties), { initialProps: initialProperties });
 
       expect(result.current.inputValue).toBe('');
       expect(onInputChange).not.toHaveBeenCalled();
@@ -175,9 +175,9 @@ describe('@project44-manifest/react - useMultiComboboxState', () => {
     });
 
     it('should support change events', () => {
-      const initialProps = { ...defaultProps, defaultInputValue: 'foo' };
+      const initialProperties = { ...defaultProps, defaultInputValue: 'foo' };
 
-      const { result } = renderHook((props) => useMultiComboboxState(props), { initialProps });
+      const { result } = renderHook((properties) => useMultiComboboxState(properties), { initialProps: initialProperties });
 
       expect(result.current.inputValue).toBe('foo');
       expect(onInputChange).not.toHaveBeenCalled();
@@ -190,8 +190,8 @@ describe('@project44-manifest/react - useMultiComboboxState', () => {
   });
 
   describe('selection', () => {
-    let defaultProps: MultiComboboxProps<{ key: string; name: string }>;
-    let onSelectionChange: MultiComboboxProps<{ key: string; name: string }>['onSelectionChange'];
+    let defaultProps: MultiComboboxProperties<{ key: string; name: string }>;
+    let onSelectionChange: MultiComboboxProperties<{ key: string; name: string }>['onSelectionChange'];
 
     beforeEach(() => {
       onSelectionChange = jest.fn();
@@ -201,13 +201,13 @@ describe('@project44-manifest/react - useMultiComboboxState', () => {
           { key: 'one', name: 'one' },
           { key: 'two', name: 'two' },
         ],
-        children: (props) => <Item {...props}>{props.name}</Item>,
+        children: (properties) => <Item {...properties}>{properties.name}</Item>,
         onSelectionChange,
       };
     });
 
     it('should support item selection', () => {
-      const { result } = renderHook((props) => useMultiComboboxState(props), {
+      const { result } = renderHook((properties) => useMultiComboboxState(properties), {
         initialProps: defaultProps,
       });
 
@@ -219,8 +219,8 @@ describe('@project44-manifest/react - useMultiComboboxState', () => {
     });
 
     it('should support item selection with selectedKeys', () => {
-      const initialProps = { ...defaultProps, selectedKeys: ['one'] };
-      const { result } = renderHook((props) => useMultiComboboxState(props), { initialProps });
+      const initialProperties = { ...defaultProps, selectedKeys: ['one'] };
+      const { result } = renderHook((properties) => useMultiComboboxState(properties), { initialProps: initialProperties });
 
       expect(result.current.selectionManager.selectedKeys.size).toBe(1);
 
@@ -230,8 +230,8 @@ describe('@project44-manifest/react - useMultiComboboxState', () => {
     });
 
     it('should support item selection with defaultSelectedKeys', () => {
-      const initialProps = { ...defaultProps, defaultSelectedKeys: ['one'] };
-      const { result } = renderHook((props) => useMultiComboboxState(props), { initialProps });
+      const initialProperties = { ...defaultProps, defaultSelectedKeys: ['one'] };
+      const { result } = renderHook((properties) => useMultiComboboxState(properties), { initialProps: initialProperties });
 
       expect(result.current.selectionManager.selectedKeys.size).toBe(1);
 

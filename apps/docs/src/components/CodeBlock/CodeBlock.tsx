@@ -1,13 +1,13 @@
-import type { Language } from 'prism-react-renderer';
 import * as React from 'react';
+import dynamic from 'next/dynamic';
+import type { Language } from 'prism-react-renderer';
+import theme from 'prism-react-renderer/themes/dracula';
 import { Box } from '@project44-manifest/react';
+import { useStyles } from './CodeBlock.styles';
 import Container from './components/Container';
 import Highlight from './components/Highlight';
-import dynamic from 'next/dynamic';
-import theme from 'prism-react-renderer/themes/dracula';
-import { useStyles } from './CodeBlock.styles';
 
-interface CodeBlockProps {
+interface CodeBlockProperties {
   children: any;
   className?: string;
   live?: boolean;
@@ -16,15 +16,15 @@ interface CodeBlockProps {
 
 const Live = dynamic(() => import('./components/Live'));
 
-function CodeBlock(props: CodeBlockProps) {
+function CodeBlock(properties: CodeBlockProperties) {
   const {
     children,
-    className: classNameProp,
+    className: classNameProperty,
     live = true,
     showToolbar = true,
-  } = props.children.props;
+  } = properties.children.props;
 
-  const language = classNameProp?.replace(/language-/, '') as Language;
+  const language = classNameProperty?.replace(/language-/, '') as Language;
   const code = children.trim();
 
   useStyles();

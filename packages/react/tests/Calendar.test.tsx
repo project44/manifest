@@ -9,19 +9,19 @@ describe('@project44-manifest/react - Calendar', () => {
     render(<Calendar defaultValue={new CalendarDate(2022, 6, 12)} />);
 
     const nextButton = screen.getByLabelText('Next');
-    const prevButton = screen.getByLabelText('Previous');
+    const previousButton = screen.getByLabelText('Previous');
 
     fireEvent.click(nextButton);
 
     expect(screen.getAllByText('July 2022')[1]).toBeVisible();
 
-    fireEvent.click(prevButton);
+    fireEvent.click(previousButton);
 
     expect(screen.getAllByText('June 2022')[1]).toBeVisible();
   });
 
   it('should autofocus the selected date', () => {
-    // eslint-disable-next-line jsx-a11y/no-autofocus
+     
     render(<Calendar autoFocus value={new CalendarDate(2022, 7, 12)} />);
 
     const cell = screen.getByLabelText('selected', { exact: false });

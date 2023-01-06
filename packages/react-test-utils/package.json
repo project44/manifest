@@ -29,12 +29,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {
-    "build": "packemon build --addEngines --declaration --declarationConfig tsconfig.build.json",
-    "clean": "rimraf .turbo && packemon clean",
-    "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
-  },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0"
@@ -47,10 +41,19 @@
     "@types/jest-axe": "^3.5.5",
     "jest-axe": "^6.0.0"
   },
-  "devDependencies": {
-    "tsconfig-manifest": "*"
-  },
   "packemon": {
     "platform": "browser"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dts/index.d.ts",
+      "browser": {
+        "module": "./esm/index.js",
+        "import": "./esm/index.js",
+        "default": "./lib/index.js"
+      },
+      "default": "./lib/index.js"
+    }
   }
 }

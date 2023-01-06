@@ -8,20 +8,20 @@ import {
 } from '@project44-manifest/react-test-utils';
 import {
   Popover,
-  PopoverProps,
+  PopoverProps as PopoverProperties,
   usePopover,
-  UsePopoverProps,
+  UsePopoverProps as UsePopoverProperties,
   usePopoverState,
-  UsePopoverStateProps,
+  UsePopoverStateProps as UsePopoverStateProperties,
 } from '../src';
 
-function Component(props: PopoverProps & UsePopoverProps & UsePopoverStateProps) {
+function Component(properties: PopoverProperties & UsePopoverProperties & UsePopoverStateProperties) {
   const {
     defaultOpen,
     isOpen,
     maxHeight,
     offset,
-    onClose: onCloseProp,
+    onClose: onCloseProperty,
     onOpenChange,
     placement,
     scrollRef,
@@ -29,13 +29,13 @@ function Component(props: PopoverProps & UsePopoverProps & UsePopoverStateProps)
     shouldUpdatePosition,
     type = 'dialog',
     ...other
-  } = props;
+  } = properties;
 
   const state = usePopoverState({ defaultOpen, isOpen, onOpenChange });
   const { onClose, overlayProps, overlayRef, triggerProps, triggerRef } = usePopover(state, {
     maxHeight,
     offset,
-    onClose: onCloseProp,
+    onClose: onCloseProperty,
     placement,
     scrollRef,
     shouldFlip,

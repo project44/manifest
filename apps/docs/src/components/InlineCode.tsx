@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Box } from '@project44-manifest/react';
 
-type InlineCodeProps = React.ComponentPropsWithoutRef<typeof Box>;
+type InlineCodeProperties = React.ComponentPropsWithoutRef<typeof Box>;
 
-function InlineCode(props: InlineCodeProps) {
-  const { css, ...other } = props;
+function InlineCode(properties: InlineCodeProperties) {
+  const { css, ...other } = properties;
 
   return (
     <Box

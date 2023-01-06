@@ -3,8 +3,8 @@ import { Box, Flex, Separator, Stack, Typography } from '@project44-manifest/rea
 
 // TODO: Auto generate these from the tokens.
 
-export const TypeScale = () => (
-  <Stack css={{ py: '$large' }}>
+export function TypeScale() {
+  return <Stack css={{ py: '$large' }}>
     <Flex align="center">
       <Stack css={{ flex: 1 }}>
         <Typography css={{ mb: '$small' }} variant="display">
@@ -204,6 +204,6 @@ export const TypeScale = () => (
       </Box>
     </Flex>
   </Stack>
-);
+}
 
 export default TypeScale;

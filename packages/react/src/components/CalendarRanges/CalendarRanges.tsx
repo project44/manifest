@@ -1,6 +1,6 @@
 import * as React from 'react';
 // Will be fixed when this is moved into its own package
-// eslint-disable-next-line import/no-unresolved
+ 
 import { Selection } from '@react-types/shared';
 import { CalendarDate } from '@internationalized/date';
 import { cx } from '@project44-manifest/react-styles';

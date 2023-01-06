@@ -1,17 +1,17 @@
 import * as React from 'react';
 import { useField } from '@react-aria/label';
 import { accessibility, render, screen } from '@project44-manifest/react-test-utils';
-import { FormControl, FormControlProps } from '../src';
+import { FormControl, FormControlProps as FormControlProperties } from '../src';
 
 const TestComponent = React.forwardRef(
-  (props: FormControlProps, ref: React.Ref<HTMLDivElement>) => {
-    const { validationState } = props;
-    const { labelProps, fieldProps, descriptionProps, errorMessageProps } = useField(props);
+  (properties: FormControlProperties, reference: React.Ref<HTMLDivElement>) => {
+    const { validationState } = properties;
+    const { labelProps, fieldProps, descriptionProps, errorMessageProps } = useField(properties);
 
     return (
       <FormControl
-        {...props}
-        ref={ref}
+        {...properties}
+        ref={reference}
         helperTextProps={validationState === 'invalid' ? errorMessageProps : descriptionProps}
         labelProps={labelProps}
       >

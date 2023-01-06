@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { Box, Stack, pxToRem, Typography } from '@project44-manifest/react';
+import { Box, pxToRem, Stack, Typography } from '@project44-manifest/react';
 
-interface ColorSwatchProps {
+interface ColorSwatchProperties {
   hex: string;
   name: string;
   token: string;
 }
 
-function ColorSwatch(props: ColorSwatchProps) {
-  const { hex, name, token } = props;
+function ColorSwatch(properties: ColorSwatchProperties) {
+  const { hex, name, token } = properties;
 
   return (
     <Stack>

@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { Box } from '@project44-manifest/react';
-import Header from './Header';
 import Head from '../components/Head';
+import Header from './Header';
 
-interface DefaultLayoutProps {
+interface DefaultLayoutProperties {
   children: React.ReactNode;
 }
 
-function DefaultLayout(props: DefaultLayoutProps) {
-  const { children } = props;
+function DefaultLayout(properties: DefaultLayoutProperties) {
+  const { children } = properties;
 
   return (
     <>

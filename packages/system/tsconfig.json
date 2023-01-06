@@ -1,6 +1,18 @@
 {
-  "extends": "tsconfig-manifest/tsconfig.react.json",
+  "extends": "../../tsconfig.options.json",
+  "compilerOptions": {
+    "outDir": "../../.moon/cache/types/packages/system"
+  },
   "include": [
-    "**/*"
+    "src/**/*",
+    "tests/**/*"
+  ],
+  "references": [
+    {
+      "path": "../react-test-utils"
+    },
+    {
+      "path": "./tsconfig.build.json"
+    }
   ]
 }

@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 // Will be removing this file in the near future
 import type * as React from 'react';
 

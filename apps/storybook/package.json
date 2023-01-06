@@ -2,13 +2,6 @@
   "name": "@project44-manifest/storybook",
   "version": "0.0.0",
   "private": true,
-  "scripts": {
-    "build": "build-storybook -c .storybook -o ./build",
-    "dev": "start-storybook -p 6006 --quiet",
-    "clean": "rm -rf .turbo node_modules build",
-    "percy": "percy storybook ./build",
-    "test:visual": "yarn build && yarn percy"
-  },
   "dependencies": {
     "@project44-manifest/react": "*",
     "@storybook/addon-a11y": "^6.5.10",

@@ -1,0 +1,27 @@
+type: 'application'
+
+workspace:
+  inheritedTasks:
+    exclude: ['buildPackage']
+
+fileGroups:
+  app:
+    - '.storybook/**/*'
+
+tasks:
+  build:
+    command: 'build-storybook'
+    args:
+      - '-c'
+      - '.storybook'
+      - '-o'
+      - './build'
+    inputs:
+      - '@group(app)'
+
+  dev:
+    command: 'start-storybook'
+    args:
+      - '-p'
+      - '6006'
+    local: true

@@ -1,19 +1,33 @@
 {
-  "extends": "tsconfig-manifest/tsconfig.next.json",
+  "extends": "../../tsconfig.options.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "emitDeclarationOnly": false,
     "incremental": true,
+    "jsx": "preserve",
+    "noEmit": true,
+    "outDir": "../../.moon/cache/types/apps/docs",
     "paths": {
       "contentlayer/generated": [
         "./.contentlayer/generated"
       ]
-    }
+    },
+    "resolveJsonModule": true
   },
   "include": [
-    "**/*.json",
+    ".eslintrc.js",
+    "src/**/*",
     ".contentlayer/generated"
   ],
   "exclude": [
     "node_modules"
+  ],
+  "references": [
+    {
+      "path": "../../packages/design-tokens"
+    },
+    {
+      "path": "../../packages/react"
+    }
   ]
 }

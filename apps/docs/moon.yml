@@ -1,0 +1,38 @@
+type: 'application'
+
+workspace:
+  inheritedTasks:
+    exclude: ['buildPackage']
+
+fileGroups:
+  app:
+    - 'src/**/*'
+    - 'contentlayer.config.ts'
+    - 'next-env.d.ts'
+    - 'next.config.*'
+
+tasks:
+  build:
+    command: 'next build'
+    inputs:
+      - '@group(app)'
+      - '@group(sources)'
+
+  export:
+    command: 'next export -o ./build'
+    deps:
+      - 'build'
+    inputs:
+      - '@group(app)'
+      - '@group(sources)'
+    outputs:
+      - '.next'
+      - 'build'
+
+  dev:
+    command: 'next dev'
+    local: true
+
+  start:
+    command: 'next start'
+    local: true

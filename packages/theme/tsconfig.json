@@ -1,6 +1,21 @@
 {
-  "extends": "tsconfig-manifest/tsconfig.library.json",
+  "extends": "../../tsconfig.options.json",
+  "compilerOptions": {
+    "outDir": "../../.moon/cache/types/packages/theme"
+  },
   "include": [
-    "**/*"
+    "src/**/*",
+    "tests/**/*"
+  ],
+  "references": [
+    {
+      "path": "../design-tokens"
+    },
+    {
+      "path": "../utils"
+    },
+    {
+      "path": "./tsconfig.build.json"
+    }
   ]
 }

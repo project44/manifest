@@ -1,6 +1,6 @@
 import { ListCollection } from '@react-stately/list';
 // Will be fixed when this is moved into its own package
-// eslint-disable-next-line import/no-unresolved
+ 
 import { Collection, Node } from '@react-types/shared';
 
 type FilterFn = (textValue: string, inputValue: string) => boolean;

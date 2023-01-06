@@ -4,8 +4,7 @@ import { Box, BoxProps } from '@project44-manifest/react';
 const Container: React.FC<BoxProps & React.ComponentPropsWithRef<typeof Box>> = ({
   css,
   ...other
-}) => {
-  return (
+}) => (
     <Box
       {...other}
       css={{
@@ -23,6 +22,5 @@ const Container: React.FC<BoxProps & React.ComponentPropsWithRef<typeof Box>> = 
       }}
     />
   );
-};
 
 export default Container;

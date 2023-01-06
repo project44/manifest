@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Head, Html, Main, NextScript } from 'next/document';
 import { getCssText } from '@project44-manifest/react';
 
 class MyDocument extends Document {
@@ -8,7 +8,7 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link href="/images/favicon.png" rel="icon" />
-          <link href="https://fonts.gstatic.com" rel="preconnect" crossOrigin="anonymous" />
+          <link crossOrigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect" />
           <link href="https://fonts.googleapis.com" rel="preconnect" />
           <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
@@ -19,7 +19,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
           <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-          <style id="stitches" dangerouslySetInnerHTML={{ __html: getCssText() }} />
+          <style dangerouslySetInnerHTML={{ __html: getCssText() }} id="stitches" />
         </Head>
         <body>
           <Main />

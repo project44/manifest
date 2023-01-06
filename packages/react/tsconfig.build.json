@@ -1,5 +1,5 @@
 {
-  "extends": "tsconfig-manifest/tsconfig.react.json",
+  "extends": "../../tsconfig.options.json",
   "compilerOptions": {
     "outDir": "dts",
     "rootDir": "src"

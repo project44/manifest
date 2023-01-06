@@ -1,14 +1,14 @@
-import type { TOC as TOCType } from '../types';
 import * as React from 'react';
 import { Box, pxToRem, Stack } from '@project44-manifest/react';
 import TOCItem from '../components/TOCItem';
+import type { TOC as TOCType } from '../types';
 
-interface TOCProps {
+interface TOCProperties {
   items?: TOCType[];
 }
 
-function TOC(props: TOCProps) {
-  const { items = [] } = props;
+function TOC(properties: TOCProperties) {
+  const { items = [] } = properties;
 
   const [currentHeading, setCurrentHeading] = React.useState<string>('');
 
@@ -20,18 +20,18 @@ function TOC(props: TOCProps) {
     observer.current?.disconnect();
     observer.current = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
+        for (const entry of entries) {
           if (entry?.isIntersecting) {
             setCurrentHeading(entry.target.getAttribute('id') ?? '');
           }
-        });
+        }
       },
       { rootMargin: '0% 0% -85% 0%' },
     );
 
-    headings.forEach((heading) => {
+    for (const heading of headings) {
       if (heading) observer.current?.observe(heading);
-    });
+    }
 
     return () => observer.current?.disconnect();
   }, [items]);
@@ -62,9 +62,9 @@ function TOC(props: TOCProps) {
         >
           {items.map((item) => (
             <TOCItem
+              key={item.slug}
               content={item.content}
               currentHeading={currentHeading}
-              key={item.slug}
               level={item.lvl}
               slug={item.slug}
             />
