@@ -28,7 +28,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Run checks
-      - run: yarn moon ci
+        run: yarn moon ci
 
       - name: Report results
         uses: moonrepo/run-report-action@v1
