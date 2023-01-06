@@ -1,9 +1,6 @@
 export type Callback<T extends unknown[]> = ((...args: T) => void) | undefined;
 
-// Cloning the types from react-aria, need to preserve the types for the mergeProps function to be typed correctly
- 
 export interface Props {
-   
   [key: string]: any;
 }
 
