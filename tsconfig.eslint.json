@@ -1,0 +1,23 @@
+{
+  "extends": "./tsconfig.options.json",
+  "compilerOptions": {
+    "emitDeclarationOnly": false,
+    "noEmit": true
+  },
+  "include": [
+    "apps/**/*",
+    "packages/**/*",
+    "tools/**/*",
+    "**/.eslintrc.js",
+    "**/jest.config.js"
+  ],
+  "exclude": [
+    "**/.cache/**/*",
+    "**/.next/**/*",
+    "**/build/**/*",
+    "**/dts/**/*",
+    "**/esm/**/*",
+    "**/lib/**/*",
+    "**/node_modules/**/*"
+  ]
+}

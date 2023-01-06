@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+ 
 import { Button } from '@project44-manifest/react-button';
 import { Box, Flex } from '@project44-manifest/react-layout';
 import { Popover, PopoverPlacement, usePopover, usePopoverState } from '../src';

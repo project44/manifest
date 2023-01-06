@@ -1,6 +1,30 @@
 {
-  "extends": "tsconfig-manifest/tsconfig.react.json",
+  "extends": "../../tsconfig.options.json",
+  "compilerOptions": {
+    "outDir": "../../.moon/cache/types/packages/react"
+  },
   "include": [
-    "**/*"
+    "src/**/*",
+    "tests/**/*"
+  ],
+  "references": [
+    {
+      "path": "../react-button"
+    },
+    {
+      "path": "../react-styles"
+    },
+    {
+      "path": "../react-test-utils"
+    },
+    {
+      "path": "../react-tooltip"
+    },
+    {
+      "path": "../system"
+    },
+    {
+      "path": "./tsconfig.build.json"
+    }
   ]
 }

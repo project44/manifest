@@ -1,0 +1,18 @@
+type: 'library'
+
+workspace:
+  inheritedTasks:
+    rename:
+      buildPackage: 'build'
+
+tasks:
+  build:
+    outputs:
+      - 'esm'
+      - 'lib'
+
+dependsOn:
+  - 'react-styles'
+  - 'react-test-utils'
+  - 'react-types'
+  - 'react-utils'

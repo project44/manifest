@@ -50,3 +50,7 @@ apps/**/sitemap.xml
 
 # environment variables
 .env
+
+# moon
+.moon/cache
+.moon/docker

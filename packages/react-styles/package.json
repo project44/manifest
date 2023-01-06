@@ -29,28 +29,34 @@
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {
-    "build": "packemon build --addEngines --declaration --declarationConfig tsconfig.build.json",
-    "clean": "rimraf .turbo && packemon clean",
-    "dev": "packemon watch",
-    "typecheck": "tsc --noEmit"
-  },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@project44-manifest/theme": "*",
+    "@project44-manifest/react-test-utils": "workspace:^",
+    "@project44-manifest/theme": "^1.0.1",
     "@stitches/react": "^1.2.8",
     "clsx": "^1.1.1"
   },
   "devDependencies": {
-    "@project44-manifest/react-test-utils": "*",
+    "@project44-manifest/react-test-utils": "^0.2.1",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "tsconfig-manifest": "*"
+    "react-dom": "^18.1.0"
   },
   "packemon": {
     "platform": "browser"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dts/index.d.ts",
+      "browser": {
+        "module": "./esm/index.js",
+        "import": "./esm/index.js",
+        "default": "./lib/index.js"
+      },
+      "default": "./lib/index.js"
+    }
   }
 }

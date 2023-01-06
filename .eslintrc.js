@@ -3,7 +3,8 @@ module.exports = {
   root: true,
   extends: ['manifest', 'manifest/react'],
   parserOptions: {
-    project: './tsconfig.json',
+    project: 'tsconfig.eslint.json',
+    tsconfigRootDir: __dirname,
   },
   overrides: [
     {

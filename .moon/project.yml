@@ -1,0 +1,112 @@
+$schema: 'https://moonrepo.dev/schemas/global-project.json'
+
+fileGroups:
+  app: []
+  configs:
+    - '*.{js,json,yml,yaml}'
+
+  sources:
+    - 'public/**/*'
+    - 'src/**/*'
+    - 'types/**/*'
+
+  tests:
+    - 'tests/**/*.test.*'
+
+  assets:
+    - 'assets/**/*'
+    - 'images/**/*'
+    - 'static/**/*'
+    - '**/*.{scss,css}'
+    - '**/*.mdx'
+
+  typescript:
+    - 'tsconfig.json'
+    - 'tsconfig.*.json'
+    - '/tsconfig.json'
+    - '/tsconfig.*.json'
+
+tasks:
+  buildPackage:
+    command: 'packemon'
+    args:
+      - 'build'
+      - '--addEngines'
+      - '--addExports'
+      - '--declaration'
+      - '--declarationConfig'
+      - 'tsconfig.build.json'
+    inputs:
+      - 'src/**/*'
+      - 'package.json'
+      - 'tsconfig.build.json'
+      - '/tsconfig.options.json'
+    outputs:
+      - 'dts'
+    env:
+      NODE_ENV: 'production'
+
+  lint:
+    command: 'eslint'
+    args:
+      - '--cache'
+      - '--cache-location'
+      - './.eslintcache'
+      - '--color'
+      - '--ext'
+      - '.js,.ts,.tsx'
+      - '--fix'
+      - '--ignore-path'
+      - '@in(5)'
+      - '--exit-on-fatal-error'
+      - '--no-error-on-unmatched-pattern'
+      - '--report-unused-disable-directives'
+    inputs:
+      - '@globs(sources)'
+      - '@globs(tests)'
+      - '*.js'
+      - '.eslintrc.js'
+      - 'tsconfig.json'
+      - '/.eslintignore'
+      - '/.eslintrc.js'
+      - '/tsconfig.eslint.json'
+      - '/tsconfig.options.json'
+    options:
+      affectedFiles: true
+
+  format:
+    command: 'prettier'
+    args:
+      - '--config'
+      - '@in(1)'
+      - '--ignore-path'
+      - '@in(0)'
+      - '--check'
+      - '.'
+    inputs:
+      - '/.prettierignore'
+      - '/.prettierrc.js'
+      - '@globs(configs)'
+      - '@globs(sources)'
+      - '@globs(tests)'
+      - '**/*.{md,mdx,yml,yaml,json}'
+
+  test:
+    command: 'jest'
+    args:
+      - '--coverage'
+      - '--passWithNoTests'
+    inputs:
+      - '@globs(sources)'
+      - '@globs(tests)'
+      - 'jest.config.*'
+
+  typecheck:
+    command: 'tsc'
+    args:
+      - '--build'
+      - '--pretty'
+    inputs:
+      - '@globs(sources)'
+      - '@globs(tests)'
+      - '@globs(typescript)'

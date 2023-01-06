@@ -1,7 +1,34 @@
 {
-  "extends": "tsconfig-manifest/tsconfig.react.json",
+  "extends": "../../tsconfig.options.json",
+  "compilerOptions": {
+    "outDir": "../../.moon/cache/types/packages/react-popover"
+  },
   "include": [
-    "**/*",
-    "../../@types/**/*"
+    "src/**/*",
+    "tests/**/*",
+    "../../types/**/*"
+  ],
+  "references": [
+    {
+      "path": "../react-button"
+    },
+    {
+      "path": "../react-layout"
+    },
+    {
+      "path": "../react-styles"
+    },
+    {
+      "path": "../react-test-utils"
+    },
+    {
+      "path": "../react-types"
+    },
+    {
+      "path": "../react-utils"
+    },
+    {
+      "path": "./tsconfig.build.json"
+    }
   ]
 }

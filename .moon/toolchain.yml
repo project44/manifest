@@ -1,0 +1,16 @@
+$schema: 'https://moonrepo.dev/schemas/toolchain.json'
+
+node:
+  version: '18.12.0'
+  packageManager: 'yarn'
+  yarn:
+    version: '3.2.3'
+  addEnginesConstraint: true
+  dedupeOnLockfileChange: true
+  syncProjectWorkspaceDependencies: true
+
+typescript:
+  projectConfigFileName: 'tsconfig.json'
+  rootConfigFileName: 'tsconfig.json'
+  routeOutDirToCache: true
+  syncProjectReferences: true

@@ -13,7 +13,7 @@ export function mergeRefs<T>(...refs: React.ForwardedRef<T>[]) {
         ref(value);
       } else if (ref != undefined) {
         // We need to assign the ref directly.
-        // eslint-disable-next-line no-param-reassign
+         
         ref.current = value;
       }
     }
