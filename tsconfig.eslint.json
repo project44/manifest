@@ -5,8 +5,9 @@
     "noEmit": true
   },
   "include": [
-    "packages/**/*",
     "apps/**/*",
+    "packages/**/*",
+    "tools/**/*",
     "**/.eslintrc.js",
     "**/jest.config.js"
   ],

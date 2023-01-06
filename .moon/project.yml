@@ -20,6 +20,12 @@ fileGroups:
     - '**/*.{scss,css}'
     - '**/*.mdx'
 
+  typescript:
+    - 'tsconfig.json'
+    - 'tsconfig.*.json'
+    - '/tsconfig.json'
+    - '/tsconfig.*.json'
+
 tasks:
   buildPackage:
     command: 'packemon'
@@ -88,6 +94,7 @@ tasks:
   test:
     command: 'jest'
     args:
+      - '--coverage'
       - '--passWithNoTests'
     inputs:
       - '@globs(sources)'
@@ -95,9 +102,11 @@ tasks:
       - 'jest.config.*'
 
   typecheck:
-    command: 'tsc --build --verbose'
+    command: 'tsc'
+    args:
+      - '--build'
+      - '--pretty'
     inputs:
       - '@globs(sources)'
       - '@globs(tests)'
-      - 'tsconfig.json'
-      - '/tsconfig.options.json'
+      - '@globs(typescript)'

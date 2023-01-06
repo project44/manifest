@@ -49,6 +49,12 @@
     },
     {
       "path": "packages/utils"
+    },
+    {
+      "path": "tools/eslint-config"
+    },
+    {
+      "path": "tools/jest-preset"
     }
   ]
 }

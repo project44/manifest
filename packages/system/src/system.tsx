@@ -8,7 +8,7 @@ import type { Component, Options, Props } from './types';
  */
 export function createComponent<O extends Options>(
   // The function is being removed in favor of our Polymorphic types.
-   
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   component: React.ForwardRefRenderFunction<any, Props<O>>,
 ) {
   return React.forwardRef(component) as unknown as Component<O>;

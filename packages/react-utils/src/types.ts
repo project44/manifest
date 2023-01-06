@@ -1,6 +1,9 @@
 export type Callback<T extends unknown[]> = ((...args: T) => void) | undefined;
 
+// Cloning the types from react-aria, need to preserve the types for the mergeProps function to be typed correctly
+// eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
 export interface Props {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }
 
