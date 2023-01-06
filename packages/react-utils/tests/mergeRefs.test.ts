@@ -1,24 +1,24 @@
 import * as React from 'react';
-import { mergeRefs as mergeReferences } from '../src';
+import { mergeRefs } from '../src';
 
 describe('@project44-manifest/react-utils - mergeRefs', () => {
   it('should merge refs', () => {
     const input = React.createElement('input', { type: 'text' });
-    const reference = React.createRef();
-    const callbackReference = jest.fn();
+    const ref = React.createRef();
+    const callbackRef = jest.fn();
 
-    mergeReferences(reference, callbackReference)(input);
+    mergeRefs(ref, callbackRef)(input);
 
-    expect(reference.current).toBe(input);
-    expect(callbackReference).toHaveBeenCalledWith(input);
+    expect(ref.current).toBe(input);
+    expect(callbackRef).toHaveBeenCalledWith(input);
   });
 
   it('should ignore invalid refs', () => {
     const input = React.createElement('input', { type: 'text' });
-    const reference = null;
-    const referenceObject = {};
+    const ref = null;
+    const refObject = {};
 
-    mergeReferences(reference, referenceObject as React.RefObject<any>)(input);
+    mergeRefs(ref, refObject as React.RefObject<any>)(input);
 
     // Just checking for an error
     expect(true).toBeTruthy();

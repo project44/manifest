@@ -19,15 +19,15 @@ describe('@project44-manifest/react - Portal', () => {
     document.body.append(container);
 
     function Component() {
-      const reference = React.useRef<HTMLDivElement>(null);
+      const ref = React.useRef<HTMLDivElement>(null);
 
-      if (reference.current === null) {
+      if (ref.current === null) {
         // @ts-expect-error: current reassignment is fine.
-        reference.current = container;
+        ref.current = container;
       }
 
       return (
-        <Portal containerRef={reference}>
+        <Portal containerRef={ref}>
           <span data-testid="child" />
         </Portal>
       );

@@ -41,14 +41,14 @@ describe('@project44-manifest/react - Popover', () => {
   it('should support blur on close', () => {
     const onClose = jest.fn();
 
-    const buttonProperties = {
+    const buttonProps = {
       autoFocus: true,
     };
 
     render(
       <Popover isOpen shouldCloseOnBlur onClose={onClose}>
         <span data-testid="popover">Popover</span>
-        <button {...buttonProperties}>click me</button>
+        <button {...buttonProps}>click me</button>
       </Popover>,
     );
 

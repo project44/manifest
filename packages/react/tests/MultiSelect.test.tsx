@@ -408,7 +408,7 @@ describe('@project44-manifest/react - MultiSelect', () => {
       const onFocus = jest.fn();
       const onFocusChange = jest.fn();
 
-      const focusProperties = {
+      const focusProps = {
         autoFocus: true,
         onBlur,
         onFocus,
@@ -416,7 +416,7 @@ describe('@project44-manifest/react - MultiSelect', () => {
       };
 
       render(
-        <MultiSelect label="Select" {...focusProperties}>
+        <MultiSelect label="Select" {...focusProps}>
           <SelectItem key="ardvark">Ardvark</SelectItem>
           <SelectItem key="kangaroo">Kangaroo</SelectItem>
           <SelectItem key="snake">Snake</SelectItem>

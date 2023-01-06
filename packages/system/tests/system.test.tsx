@@ -4,11 +4,11 @@ import { createComponent } from '../src/system';
 describe('@project44-manifest/system - createComponent', () => {
   it('should support the as prop', () => {
     const TestComponent = createComponent<{ as?: 'span'; testProp?: string }>(
-      (properties, forwardedReference) => {
-        const { children, ...other } = properties;
+      (props, forwardedRef) => {
+        const { children, ...other } = props;
 
         return (
-          <span {...other} ref={forwardedReference} data-testid="test">
+          <span {...other} ref={forwardedRef} data-testid="test">
             {children}
           </span>
         );
@@ -25,22 +25,22 @@ describe('@project44-manifest/system - createComponent', () => {
   });
 
   it('should support forwarding refs', () => {
-    const reference = jest.fn();
+    const ref = jest.fn();
 
     const TestComponent = createComponent<{ as?: 'span'; testProp?: string }>(
-      (properties, forwardedReference) => {
-        const { children, ...other } = properties;
+      (props, forwardedRef) => {
+        const { children, ...other } = props;
 
         return (
-          <span {...other} ref={forwardedReference} data-testid="test">
+          <span {...other} ref={forwardedRef} data-testid="test">
             {children}
           </span>
         );
       },
     );
 
-    render(<TestComponent ref={reference} />);
+    render(<TestComponent ref={ref} />);
 
-    expect(reference).toHaveBeenCalled();
+    expect(ref).toHaveBeenCalled();
   });
 });

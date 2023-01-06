@@ -1,40 +1,40 @@
 import * as React from 'react';
 import { render } from '@project44-manifest/react-test-utils';
-import type { ForwardRefComponent as ForwardReferenceComponent } from '../src';
+import type { ForwardRefComponent } from '../src';
 
 type ButtonElement = 'button';
 
-interface ButtonProperties {
+interface ButtonProps {
   isDisabled?: boolean;
   isActive?: boolean;
 }
 
-const Button = React.forwardRef((properties, forwardedReference) => {
-  const { as: Comp = 'button', ...other } = properties;
+const Button = React.forwardRef((props, forwardedRef) => {
+  const { as: Comp = 'button', ...other } = props;
 
-  return <Comp {...other} ref={forwardedReference} />;
-}) as ForwardReferenceComponent<ButtonElement, ButtonProperties>;
+  return <Comp {...other} ref={forwardedRef} />;
+}) as ForwardRefComponent<ButtonElement, ButtonProps>;
 
-interface ExtendedButtonProperties extends Omit<ButtonProperties, 'isActive'> {
+interface ExtendedButtonButtonProps extends Omit<ButtonProps, 'isActive'> {
   isExtended?: boolean;
 }
 
-const ExtendedButton = React.forwardRef((properties, forwardedReference) => {
-  const { isExtended, ...extendedButtonProperties } = properties;
+const ExtendedButton = React.forwardRef((props, forwardedRef) => {
+  const { isExtended, ...extendedButtonProps } = props;
 
-  return <Button {...extendedButtonProperties} ref={forwardedReference} />;
-}) as ForwardReferenceComponent<ButtonElement, ExtendedButtonProperties>;
+  return <Button {...extendedButtonProps} ref={forwardedRef} />;
+}) as ForwardRefComponent<ButtonElement, ExtendedButtonButtonProps>;
 
-type LinkProperties = React.ComponentProps<'a'> & {
+type LinkProps = React.ComponentProps<'a'> & {
   isPrimary?: boolean;
   onToggle?: (open: boolean) => void;
 };
 
-const Link = React.forwardRef<HTMLAnchorElement, LinkProperties>((properties, reference) => {
-  const { children, isPrimary, ...linkProperties } = properties;
+const Link = React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
+  const { children, isPrimary, ...linkProps } = props;
 
   return (
-    <a ref={reference} className={isPrimary ? 'primary' : undefined} {...linkProperties}>
+    <a ref={ref} className={isPrimary ? 'primary' : undefined} {...linkProps}>
       {children}
     </a>
   );

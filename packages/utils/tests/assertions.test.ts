@@ -3,9 +3,9 @@ import { isObject } from '../src';
 describe('@project44-manifest/utils - assertions', () => {
   describe('isObject', () => {
     it('should return truthy if an object', () => {
-      const object = { foo: true };
+      const obj = { foo: true };
 
-      expect(isObject(object)).toBeTruthy();
+      expect(isObject(obj)).toBeTruthy();
     });
 
     it('should return falsy if not an object', () => {
