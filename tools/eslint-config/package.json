@@ -42,5 +42,22 @@
   "packemon": {
     "format": "lib",
     "platform": "node"
+  },
+  "engines": {
+    "node": ">=14.15.0",
+    "npm": ">=6.14.0"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    "./*": {
+      "types": "./dts/*.d.ts",
+      "node": "./lib/*.js",
+      "default": "./lib/*.js"
+    },
+    ".": {
+      "types": "./dts/index.d.ts",
+      "node": "./lib/index.js",
+      "default": "./lib/index.js"
+    }
   }
 }

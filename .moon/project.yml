@@ -27,7 +27,7 @@ fileGroups:
     - '/tsconfig.*.json'
 
 tasks:
-  buildPackage:
+  build:
     command: 'packemon'
     args:
       - 'build'
@@ -37,42 +37,13 @@ tasks:
       - '--declarationConfig'
       - 'tsconfig.build.json'
     inputs:
-      - 'src/**/*'
+      - '@globs(sources)'
+      - '@globs(typescript)'
       - 'package.json'
-      - 'tsconfig.build.json'
-      - '/tsconfig.options.json'
     outputs:
       - 'dts'
     env:
       NODE_ENV: 'production'
-
-  lint:
-    command: 'eslint'
-    args:
-      - '--cache'
-      - '--cache-location'
-      - './.eslintcache'
-      - '--color'
-      - '--ext'
-      - '.js,.ts,.tsx'
-      - '--fix'
-      - '--ignore-path'
-      - '@in(5)'
-      - '--exit-on-fatal-error'
-      - '--no-error-on-unmatched-pattern'
-      - '--report-unused-disable-directives'
-    inputs:
-      - '@globs(sources)'
-      - '@globs(tests)'
-      - '*.js'
-      - '.eslintrc.js'
-      - 'tsconfig.json'
-      - '/.eslintignore'
-      - '/.eslintrc.js'
-      - '/tsconfig.eslint.json'
-      - '/tsconfig.options.json'
-    options:
-      affectedFiles: true
 
   format:
     command: 'prettier'
@@ -91,6 +62,33 @@ tasks:
       - '@globs(tests)'
       - '**/*.{md,mdx,yml,yaml,json}'
 
+  lint:
+    command: 'eslint'
+    args:
+      - '--cache'
+      - '--cache-location'
+      - './.eslintcache'
+      - '--color'
+      - '--ext'
+      - '.js,.ts,.tsx'
+      - '--fix'
+      - '--ignore-path'
+      - '@in(5)'
+      - '--exit-on-fatal-error'
+      - '--no-error-on-unmatched-pattern'
+      - '--report-unused-disable-directives'
+    inputs:
+      - '@globs(configs)'
+      - '@globs(sources)'
+      - '@globs(tests)'
+      - '@globs(typescript)'
+      - '**/.eslintrc'
+      - '**/.eslintrc.*'
+      - '/.eslintignore'
+      - '/.eslintrc.*'
+    options:
+      affectedFiles: true
+
   test:
     command: 'jest'
     args:
@@ -98,7 +96,11 @@ tasks:
     inputs:
       - '@globs(sources)'
       - '@globs(tests)'
+      - '.babelrc'
+      - '.babelrc.*'
+      - 'babel.config.*'
       - 'jest.config.*'
+      - '/babel.config.*'
 
   typecheck:
     command: 'tsc'
