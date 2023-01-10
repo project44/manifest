@@ -94,7 +94,6 @@ tasks:
   test:
     command: 'jest'
     args:
-      - '--coverage'
       - '--passWithNoTests'
     inputs:
       - '@globs(sources)'

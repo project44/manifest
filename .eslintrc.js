@@ -1,7 +1,6 @@
-/** @type {import('eslint').Linter.Config} */
 module.exports = {
   root: true,
-  extends: ['manifest', 'manifest/react'],
+  extends: ['manifest'],
   parserOptions: {
     project: 'tsconfig.eslint.json',
     tsconfigRootDir: __dirname,
@@ -11,6 +10,7 @@ module.exports = {
       files: ['*.stories.tsx'],
       rules: {
         'import/no-default-export': 'off',
+        'import/no-extraneous-dependencies': 'off',
         'react/function-component-definition': 'off',
       },
     },

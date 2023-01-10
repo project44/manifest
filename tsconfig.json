@@ -45,10 +45,16 @@
       "path": "packages/utils"
     },
     {
+      "path": "tools/babel-preset"
+    },
+    {
       "path": "tools/eslint-config"
     },
     {
       "path": "tools/jest-preset"
+    },
+    {
+      "path": "tools/tsconfig"
     }
   ]
 }

@@ -11,9 +11,7 @@ export function mergeRefs<T>(...refs: React.ForwardedRef<T>[]) {
     for (const ref of refs) {
       if (typeof ref === 'function') {
         ref(value);
-      } else if (ref != undefined) {
-        // We need to assign the ref directly.
-         
+      } else if (ref) {
         ref.current = value;
       }
     }
