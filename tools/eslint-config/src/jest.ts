@@ -1,9 +1,11 @@
 import type eslint from 'eslint';
 
+const EXTS = 'ts,tsx,js,jsx';
+
 const config: eslint.Linter.Config = {
   overrides: [
     {
-      files: ['**/tests/**/*.test.{ts,tsx,js,jsx}', '**/tests/**/*.{ts,tsx,js,jsx}'],
+      files: [`**/tests/**/*.test.{${EXTS}}`, `**/tests/**/*.{${EXTS}}`, `**/test.{${EXTS}}`],
       plugins: ['jest'],
       env: {
         jest: true,
