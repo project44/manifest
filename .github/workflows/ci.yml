@@ -27,6 +27,9 @@ jobs:
         shell: bash
         run: yarn install --immutable
 
+      - name: Setup tooling
+        run: yarn setup
+
       - name: Run checks
         run: yarn moon ci
 
