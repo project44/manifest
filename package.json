@@ -4,7 +4,6 @@
   "private": true,
   "license": "MIT",
   "workspaces": [
-    "apps/*",
     "packages/*",
     "tools/*"
   ],
@@ -55,7 +54,7 @@
     "vercel": "^28.5.5",
     "webpack": "^5.75.0"
   },
-  "packageManager": "yarn@3.2.3",
+  "packageManager": "yarn@3.3.1",
   "engines": {
     "node": "18.12.0"
   }
