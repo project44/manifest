@@ -44,6 +44,7 @@
   },
   "exports": {
     "./package.json": "./package.json",
+    "./jest-preset": "./lib/index.js",
     "./*": {
       "types": "./dts/*.d.ts",
       "node": "./lib/*.js",
