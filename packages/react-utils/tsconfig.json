@@ -8,9 +8,6 @@
   ],
   "references": [
     {
-      "path": "../react-test-utils"
-    },
-    {
       "path": "../utils"
     },
     {

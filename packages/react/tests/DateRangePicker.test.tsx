@@ -1,12 +1,8 @@
+import { OverlayProvider } from '@react-aria/overlays';
+import { axe } from 'jest-axe';
 import { CalendarDate, endOfMonth, startOfMonth } from '@internationalized/date';
-import {
-  accessibility,
-  fireEvent,
-  render,
-  screen,
-  userEvent,
-  waitFor,
-} from '@project44-manifest/react-test-utils';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { DateRangePicker } from '../src';
 import { DefinedRange } from '../src/components/CalendarRanges';
 import {
@@ -71,17 +67,28 @@ describe('@project44-manifest/components - DateRangePicker', () => {
     ];
   });
 
-  accessibility(<DateRangePicker isOpen aria-label="Calendar" />);
+  it('should have no accessibility violations', async () => {
+    const { container } = render(
+      <OverlayProvider>
+        <DateRangePicker isOpen aria-label="Calendar" />
+      </OverlayProvider>,
+    );
+    const results = await axe(container);
+
+    expect(results).toHaveNoViolations();
+  });
 
   it('should support selecting a date', async () => {
     const onChange = jest.fn();
 
     render(
-      <DateRangePicker
-        aria-label="Calendar"
-        defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-        onChange={onChange}
-      />,
+      <OverlayProvider>
+        <DateRangePicker
+          aria-label="Calendar"
+          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+          onChange={onChange}
+        />
+      </OverlayProvider>,
     );
 
     expect(screen.getByText('7 / 2 / 2022 - 7 / 12 / 2022')).toBeVisible();
@@ -118,11 +125,13 @@ describe('@project44-manifest/components - DateRangePicker', () => {
     const onChange = jest.fn();
 
     render(
-      <DateRangePicker
-        aria-label="Calendar"
-        value={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-        onChange={onChange}
-      />,
+      <OverlayProvider>
+        <DateRangePicker
+          aria-label="Calendar"
+          value={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+          onChange={onChange}
+        />
+      </OverlayProvider>,
     );
 
     expect(screen.getByText('7 / 2 / 2022 - 7 / 12 / 2022')).toBeVisible();
@@ -157,10 +166,12 @@ describe('@project44-manifest/components - DateRangePicker', () => {
 
   it('should close datepicker when outside click is register', async () => {
     render(
-      <DateRangePicker
-        aria-label="Calendar"
-        defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-      />,
+      <OverlayProvider>
+        <DateRangePicker
+          aria-label="Calendar"
+          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+        />
+      </OverlayProvider>,
     );
 
     fireEvent.click(screen.getByRole('button'));
@@ -180,13 +191,15 @@ describe('@project44-manifest/components - DateRangePicker', () => {
     const onChange = jest.fn();
 
     render(
-      <DateRangePicker
-        showCalendar
-        showRanges
-        aria-label="Calendar"
-        defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-        onChange={onChange}
-      />,
+      <OverlayProvider>
+        <DateRangePicker
+          showCalendar
+          showRanges
+          aria-label="Calendar"
+          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+          onChange={onChange}
+        />
+      </OverlayProvider>,
     );
 
     expect(screen.getByText('7 / 2 / 2022 - 7 / 12 / 2022')).toBeVisible();
@@ -211,13 +224,15 @@ describe('@project44-manifest/components - DateRangePicker', () => {
     const chosenRange = customRanges[customRanges.length - 1];
 
     render(
-      <DateRangePicker
-        showRanges
-        aria-label="Calendar"
-        defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-        ranges={customRanges}
-        onChange={onChange}
-      />,
+      <OverlayProvider>
+        <DateRangePicker
+          showRanges
+          aria-label="Calendar"
+          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+          ranges={customRanges}
+          onChange={onChange}
+        />
+      </OverlayProvider>,
     );
 
     expect(screen.getByText('7 / 2 / 2022 - 7 / 12 / 2022')).toBeVisible();

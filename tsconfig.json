@@ -21,9 +21,6 @@
       "path": "packages/react-styles"
     },
     {
-      "path": "packages/react-test-utils"
-    },
-    {
       "path": "packages/react-tooltip"
     },
     {
@@ -45,10 +42,16 @@
       "path": "packages/utils"
     },
     {
+      "path": "tools/babel-preset"
+    },
+    {
       "path": "tools/eslint-config"
     },
     {
       "path": "tools/jest-preset"
+    },
+    {
+      "path": "tools/tsconfig"
     }
   ]
 }

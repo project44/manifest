@@ -5,15 +5,13 @@
   },
   "include": [
     "src/**/*",
+    "stories/**/*",
     "tests/**/*",
     "../../types/**/*"
   ],
   "references": [
     {
       "path": "../react-styles"
-    },
-    {
-      "path": "../react-test-utils"
     },
     {
       "path": "../react-types"

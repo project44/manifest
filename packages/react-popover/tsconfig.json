@@ -5,6 +5,7 @@
   },
   "include": [
     "src/**/*",
+    "stories/**/*",
     "tests/**/*",
     "../../types/**/*"
   ],
@@ -17,9 +18,6 @@
     },
     {
       "path": "../react-styles"
-    },
-    {
-      "path": "../react-test-utils"
     },
     {
       "path": "../react-types"

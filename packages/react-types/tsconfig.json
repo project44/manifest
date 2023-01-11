@@ -3,11 +3,7 @@
   "include": [
     "**/*"
   ],
-  "references": [
-    {
-      "path": "../react-test-utils"
-    }
-  ],
+  "references": [],
   "compilerOptions": {
     "outDir": "../../.moon/cache/types/packages/react-types"
   }

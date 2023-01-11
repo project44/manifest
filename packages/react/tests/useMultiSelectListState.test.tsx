@@ -1,5 +1,5 @@
 import { Item } from '@react-stately/collections';
-import { renderHook } from '@project44-manifest/react-test-utils';
+import { renderHook } from '@testing-library/react';
 import { useMultiSelectListState } from '../src';
 
 describe('@project44-manifest/react - useMultiSelectListState', () => {

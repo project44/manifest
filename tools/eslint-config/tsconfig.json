@@ -1,9 +1,15 @@
 {
   "extends": "../../tsconfig.options.json",
   "include": [
-    "**/*"
+    "src/**/*",
+    ".eslintrc.js",
+    "*.js"
   ],
-  "references": [],
+  "references": [
+    {
+      "path": "./tsconfig.build.json"
+    }
+  ],
   "compilerOptions": {
     "outDir": "../../.moon/cache/types/tools/eslint-config"
   }

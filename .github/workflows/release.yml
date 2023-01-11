@@ -4,7 +4,8 @@ on:
   push:
     paths:
       - '.changeset/**'
-      - 'packages/**'
+      - 'tooling/**'
+      - 'tools/**'
     branches:
       - main
 
@@ -41,8 +42,8 @@ jobs:
       - name: Create release Pull Request or publish to NPM
         uses: changesets/action@v1
         with:
-          version: yarn version-packages
-          publish: yarn release-packages
+          version: yarn run version
+          publish: yarn run release
           commit: 'ci(release): version packages'
           title: 'ci(release): version packages'
         env:

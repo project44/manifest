@@ -1,9 +1,15 @@
+import { axe } from 'jest-axe';
 import { CalendarDate } from '@internationalized/date';
-import { accessibility, fireEvent, render, screen } from '@project44-manifest/react-test-utils';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Calendar } from '../src';
 
 describe('@project44-manifest/react - Calendar', () => {
-  accessibility(<Calendar />);
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<Calendar />);
+    const results = await axe(container);
+
+    expect(results).toHaveNoViolations();
+  });
 
   it('should support month navigation', () => {
     render(<Calendar defaultValue={new CalendarDate(2022, 6, 12)} />);

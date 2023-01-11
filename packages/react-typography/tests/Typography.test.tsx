@@ -1,8 +1,14 @@
-import { accessibility, render, screen } from '@project44-manifest/react-test-utils';
+import { axe } from 'jest-axe';
+import { render, screen } from '@testing-library/react';
 import { Typography, TypographyVariant } from '../src';
 
 describe('@project44-manifest/react-typography', () => {
-  accessibility(<Typography>Hello World</Typography>);
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<Typography>Hello World</Typography>);
+    const results = await axe(container);
+
+    expect(results).toHaveNoViolations();
+  });
 
   it('should render correctly', () => {
     render(<Typography>Hello World</Typography>);

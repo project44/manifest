@@ -1,11 +1,8 @@
 {
   "extends": "./tsconfig.options.json",
-  "compilerOptions": {
-    "emitDeclarationOnly": false,
-    "noEmit": true
-  },
   "include": [
     "packages/**/*",
+    "tests/*",
     "tools/**/*",
     "**/.eslintrc.js",
     "**/jest.config.js"

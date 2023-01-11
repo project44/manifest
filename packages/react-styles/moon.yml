@@ -1,10 +1,5 @@
 type: 'library'
 
-workspace:
-  inheritedTasks:
-    rename:
-      buildPackage: 'build'
-
 tasks:
   build:
     outputs:
@@ -12,5 +7,4 @@ tasks:
       - 'lib'
 
 dependsOn:
-  - 'react-test-utils'
   - 'theme'

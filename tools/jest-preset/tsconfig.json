@@ -1,9 +1,14 @@
 {
   "extends": "../../tsconfig.options.json",
   "include": [
-    "**/*"
+    "src/**/*",
+    "jest-preset.js"
   ],
-  "references": [],
+  "references": [
+    {
+      "path": "./tsconfig.build.json"
+    }
+  ],
   "compilerOptions": {
     "outDir": "../../.moon/cache/types/tools/jest-preset"
   }

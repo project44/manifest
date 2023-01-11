@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { render, screen } from '@project44-manifest/react-test-utils';
+import { render, screen } from '@testing-library/react';
 import { Portal } from '../src';
 
 describe('@project44-manifest/react - Portal', () => {
@@ -21,6 +21,7 @@ describe('@project44-manifest/react - Portal', () => {
     function Component() {
       const ref = React.useRef<HTMLDivElement>(null);
 
+      // eslint-disable-next-line jest/no-conditional-in-test
       if (ref.current === null) {
         // @ts-expect-error: current reassignment is fine.
         ref.current = container;

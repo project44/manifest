@@ -1,12 +1,5 @@
-import {
-  accessibility,
-  act,
-  fireEvent,
-  render,
-  screen,
-  triggerPress,
-  waitFor,
-} from '@project44-manifest/react-test-utils';
+import { axe } from 'jest-axe';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { Tooltip } from '../src';
 
 describe('react-tooltip', () => {
@@ -15,11 +8,16 @@ describe('react-tooltip', () => {
     fireEvent.keyUp(document.body, { key: 'Tab' });
   });
 
-  accessibility(
-    <Tooltip isOpen aria-label="tooltip">
-      <button>Open Tooltip</button>
-    </Tooltip>,
-  );
+  it('should have no accessibility violations', async () => {
+    const { container } = render(
+      <Tooltip isOpen aria-label="tooltip">
+        <button>Open Tooltip</button>
+      </Tooltip>,
+    );
+    const results = await axe(container);
+
+    expect(results).toHaveNoViolations();
+  });
 
   it('should open on hover', async () => {
     render(
@@ -123,7 +121,9 @@ describe('react-tooltip', () => {
 
     expect(tooltip).toBeInTheDocument();
 
-    triggerPress(button);
+    fireEvent.mouseDown(button);
+    fireEvent.mouseUp(button);
+    fireEvent.click(button);
 
     await waitFor(() => {
       expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();

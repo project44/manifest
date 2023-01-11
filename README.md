@@ -27,12 +27,22 @@ For usage guidelines and full documentation please visit our
 
 > Please refer the individual packages READMEs for installation and usage instructions.
 
+### Install Moonrepo
+
 Manifest uses [Moonrepo](https://moonrepo.dev) as it's build system and repo management tool. We
 suggest installing moon globally with npm:
 
 ```sh
 npm install -g @moonrepo/cli
 ```
+
+### Install dependencies and setup workspaces
+
+```sh
+yarn && yarn setup
+```
+
+### Run a command
 
 Moonrepo includes a builtin [toolchain](https://moonrepo.dev/docs/concepts/toolchain) which will
 install and dedupe yarn dependencies automatically. This means that you shoudn't need to run any

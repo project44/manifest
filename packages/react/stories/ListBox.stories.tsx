@@ -66,7 +66,7 @@ Controlled.decorators = [
   () => {
     const [selected, setSelected] = React.useState<Set<React.Key> | 'all'>(new Set(['Ardvark']));
 
-    const handleSelectionChange = React.useCallback((keys: 'all' | Set<React.Key>) => {
+    const handleSelectionChange = React.useCallback((keys: Set<React.Key> | 'all') => {
       setSelected(keys as Set<string>);
     }, []);
 
