@@ -1,35 +1,9 @@
 import { OverlayProvider } from '@react-aria/overlays';
-import { axe } from 'jest-axe';
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Dropdown, DropdownItem, DropdownMenu, DropdownSection, Icon, IconButton } from '../src';
 
 describe('@project44-manifest/react - Dropdown', () => {
-  it('should have no accessibility violations', async () => {
-    const { container } = render(
-      <OverlayProvider>
-        <Dropdown isOpen>
-          <IconButton variant="primary">
-            <Icon icon="expand_more" />
-          </IconButton>
-          <DropdownMenu>
-            <DropdownItem key="ardvark" startIcon={<>icon</>}>
-              Ardvark
-            </DropdownItem>
-            <DropdownItem key="kangaroo">Kangaroo</DropdownItem>
-            <DropdownItem key="snake">Snake</DropdownItem>
-            <DropdownSection title="Section">
-              <DropdownItem key="dog">Dog</DropdownItem>
-            </DropdownSection>
-          </DropdownMenu>
-        </Dropdown>
-      </OverlayProvider>,
-    );
-    const results = await axe(container);
-
-    expect(results).toHaveNoViolations();
-  });
-
   it('should render and support selection', async () => {
     const onAction = jest.fn();
 

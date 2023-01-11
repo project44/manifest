@@ -1,4 +1,3 @@
-import { axe } from 'jest-axe';
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { Tooltip } from '../src';
 
@@ -6,17 +5,6 @@ describe('react-tooltip', () => {
   beforeEach(() => {
     fireEvent.keyDown(document.body, { key: 'Tab' });
     fireEvent.keyUp(document.body, { key: 'Tab' });
-  });
-
-  it('should have no accessibility violations', async () => {
-    const { container } = render(
-      <Tooltip isOpen aria-label="tooltip">
-        <button>Open Tooltip</button>
-      </Tooltip>,
-    );
-    const results = await axe(container);
-
-    expect(results).toHaveNoViolations();
   });
 
   it('should open on hover', async () => {

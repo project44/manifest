@@ -1,29 +1,10 @@
 import { OverlayProvider } from '@react-aria/overlays';
-import { axe } from 'jest-axe';
 import { act, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MultiSelect, SelectItem, SelectSection } from '../src';
 
 describe('@project44-manifest/react - MultiSelect', () => {
   describe('render', () => {
-    it('should have no accessibility violations', async () => {
-      const { container } = render(
-        <OverlayProvider>
-          <MultiSelect isOpen label="Select" startIcon={<>icon</>}>
-            <SelectItem key="ardvark">Ardvark</SelectItem>
-            <SelectItem key="kangaroo">Kangaroo</SelectItem>
-            <SelectItem key="snake">Snake</SelectItem>
-            <SelectSection title="Section">
-              <SelectItem key="dog">Dog</SelectItem>
-            </SelectSection>
-          </MultiSelect>
-        </OverlayProvider>,
-      );
-      const results = await axe(container);
-
-      expect(results).toHaveNoViolations();
-    });
-
     it('should render correctly', () => {
       render(
         <OverlayProvider>

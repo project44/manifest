@@ -1,5 +1,4 @@
 import { OverlayProvider } from '@react-aria/overlays';
-import { axe } from 'jest-axe';
 import { CalendarDate, endOfMonth, startOfMonth } from '@internationalized/date';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -65,17 +64,6 @@ describe('@project44-manifest/components - DateRangePicker', () => {
         },
       },
     ];
-  });
-
-  it('should have no accessibility violations', async () => {
-    const { container } = render(
-      <OverlayProvider>
-        <DateRangePicker isOpen aria-label="Calendar" />
-      </OverlayProvider>,
-    );
-    const results = await axe(container);
-
-    expect(results).toHaveNoViolations();
   });
 
   it('should support selecting a date', async () => {

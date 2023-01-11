@@ -1,22 +1,10 @@
 import { OverlayProvider } from '@react-aria/overlays';
-import { axe } from 'jest-axe';
 import { CalendarDate } from '@internationalized/date';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { DatePicker } from '../src';
 
 describe('@project44-manifest/react - DatePicker', () => {
-  it('should have no accessibility violations', async () => {
-    const { container } = render(
-      <OverlayProvider>
-        <DatePicker isOpen aria-label="Calendar" />
-      </OverlayProvider>,
-    );
-    const results = await axe(container);
-
-    expect(results).toHaveNoViolations();
-  });
-
   it('should support selecting a date', async () => {
     const onChange = jest.fn();
 

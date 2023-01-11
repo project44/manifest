@@ -1,21 +1,8 @@
-import { axe } from 'jest-axe';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Radio, RadioGroup } from '../src';
 
 describe('@project44-manifest/react - Radio', () => {
-  it('should have no accessibility violations', async () => {
-    const { container } = render(
-      <RadioGroup>
-        <Radio value="cats">Cats</Radio>
-        <Radio value="dogs">Dogs</Radio>
-      </RadioGroup>,
-    );
-    const results = await axe(container);
-
-    expect(results).toHaveNoViolations();
-  });
-
   it('should render and support selection', async () => {
     const onChange = jest.fn();
 

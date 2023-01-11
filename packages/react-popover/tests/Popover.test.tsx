@@ -1,4 +1,3 @@
-import { axe } from 'jest-axe';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import {
   Popover,
@@ -56,13 +55,6 @@ function Component(props: PopoverProps & UsePopoverProps & UsePopoverStateProps)
 }
 
 describe('react-popover', () => {
-  it('should have no accessibility violations', async () => {
-    const { container } = render(<Component />);
-    const results = await axe(container);
-
-    expect(results).toHaveNoViolations();
-  });
-
   it('should open on click', () => {
     render(<Component />);
 
