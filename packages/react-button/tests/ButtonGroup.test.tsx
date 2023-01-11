@@ -1,13 +1,19 @@
-import { accessibility, render, screen } from '@project44-manifest/react-test-utils';
+import { axe } from 'jest-axe';
+import { render, screen } from '@testing-library/react';
 import { Button, ButtonGroup } from '../src';
 
 describe('react-button - ButtonGroup', () => {
-  accessibility(
-    <ButtonGroup>
-      <Button>Cancel</Button>
-      <Button>Save</Button>
-    </ButtonGroup>,
-  );
+  it('should have no accessibility violations', async () => {
+    const { container } = render(
+      <ButtonGroup>
+        <Button>Cancel</Button>
+        <Button>Save</Button>
+      </ButtonGroup>,
+    );
+    const results = await axe(container);
+
+    expect(results).toHaveNoViolations();
+  });
 
   it('should render', () => {
     render(

@@ -21,9 +21,6 @@
       "path": "packages/react-styles"
     },
     {
-      "path": "packages/react-test-utils"
-    },
-    {
       "path": "packages/react-tooltip"
     },
     {

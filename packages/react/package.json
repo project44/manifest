@@ -37,7 +37,6 @@
     "@internationalized/date": "^3.0.0",
     "@project44-manifest/react-button": "^1.0.1",
     "@project44-manifest/react-styles": "^1.0.1",
-    "@project44-manifest/react-test-utils": "workspace:^",
     "@project44-manifest/react-tooltip": "^1.0.1",
     "@project44-manifest/system": "^0.1.5",
     "@radix-ui/react-slot": "^1.0.0",
@@ -83,7 +82,6 @@
     "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
-    "@project44-manifest/react-test-utils": "^0.2.1",
     "@types/react-transition-group": "^4.4.5",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"

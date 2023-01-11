@@ -5,6 +5,3 @@ tasks:
     outputs:
       - 'esm'
       - 'lib'
-
-dependsOn:
-  - 'react-test-utils'

@@ -7,5 +7,4 @@ tasks:
       - 'lib'
 
 dependsOn:
-  - 'react-test-utils'
   - 'utils'

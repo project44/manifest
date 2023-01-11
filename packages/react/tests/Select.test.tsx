@@ -1,33 +1,38 @@
-import {
-  accessibility,
-  fireEvent,
-  render,
-  screen,
-  within,
-} from '@project44-manifest/react-test-utils';
+import { OverlayProvider } from '@react-aria/overlays';
+import { axe } from 'jest-axe';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import { Select, SelectItem, SelectSection } from '../src';
 
 describe('@project44-manifest/react - Select', () => {
-  accessibility(
-    <Select isOpen label="Select" startIcon={<>icon</>}>
-      <SelectItem key="ardvark">Ardvark</SelectItem>
-      <SelectItem key="kangaroo">Kangaroo</SelectItem>
-      <SelectItem key="snake">Snake</SelectItem>
-      <SelectSection title="Section">
-        <SelectItem key="dog">Dog</SelectItem>
-      </SelectSection>
-    </Select>,
-  );
+  it('should have no accessibility violations', async () => {
+    const { container } = render(
+      <OverlayProvider>
+        <Select isOpen label="Select" startIcon={<>icon</>}>
+          <SelectItem key="ardvark">Ardvark</SelectItem>
+          <SelectItem key="kangaroo">Kangaroo</SelectItem>
+          <SelectItem key="snake">Snake</SelectItem>
+          <SelectSection title="Section">
+            <SelectItem key="dog">Dog</SelectItem>
+          </SelectSection>
+        </Select>
+      </OverlayProvider>,
+    );
+    const results = await axe(container);
+
+    expect(results).toHaveNoViolations();
+  });
 
   it('should render and support selection', () => {
     const onSelectionChange = jest.fn();
 
     render(
-      <Select disabledKeys={['snake']} label="Select" onSelectionChange={onSelectionChange}>
-        <SelectItem key="ardvark">Ardvark</SelectItem>
-        <SelectItem key="kangaroo">Kangaroo</SelectItem>
-        <SelectItem key="snake">Snake</SelectItem>
-      </Select>,
+      <OverlayProvider>
+        <Select disabledKeys={['snake']} label="Select" onSelectionChange={onSelectionChange}>
+          <SelectItem key="ardvark">Ardvark</SelectItem>
+          <SelectItem key="kangaroo">Kangaroo</SelectItem>
+          <SelectItem key="snake">Snake</SelectItem>
+        </Select>
+      </OverlayProvider>,
     );
 
     const select = screen.getByRole('textbox', { hidden: true });
@@ -61,11 +66,13 @@ describe('@project44-manifest/react - Select', () => {
     const onSelectionChange = jest.fn();
 
     render(
-      <Select label="Select" onOpenChange={onOpenChange} onSelectionChange={onSelectionChange}>
-        <SelectItem key="ardvark">Ardvark</SelectItem>
-        <SelectItem key="kangaroo">Kangaroo</SelectItem>
-        <SelectItem key="snake">Snake</SelectItem>
-      </Select>,
+      <OverlayProvider>
+        <Select label="Select" onOpenChange={onOpenChange} onSelectionChange={onSelectionChange}>
+          <SelectItem key="ardvark">Ardvark</SelectItem>
+          <SelectItem key="kangaroo">Kangaroo</SelectItem>
+          <SelectItem key="snake">Snake</SelectItem>
+        </Select>
+      </OverlayProvider>,
     );
 
     const select = screen.getByRole('textbox', { hidden: true });

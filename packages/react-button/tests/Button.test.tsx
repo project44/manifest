@@ -1,8 +1,14 @@
-import { accessibility, fireEvent, render, screen } from '@project44-manifest/react-test-utils';
+import { axe } from 'jest-axe';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Button } from '../src';
 
 describe('react-button - Button', () => {
-  accessibility(<Button>Click Me</Button>);
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<Button>Click Me</Button>);
+    const results = await axe(container);
+
+    expect(results).toHaveNoViolations();
+  });
 
   it('should render', () => {
     render(<Button>Click Me</Button>);

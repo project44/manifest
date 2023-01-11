@@ -1,11 +1,5 @@
-import {
-  accessibility,
-  fireEvent,
-  render,
-  screen,
-  triggerPress,
-  waitFor,
-} from '@project44-manifest/react-test-utils';
+import { axe } from 'jest-axe';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import {
   Popover,
   PopoverProps,
@@ -62,7 +56,12 @@ function Component(props: PopoverProps & UsePopoverProps & UsePopoverStateProps)
 }
 
 describe('react-popover', () => {
-  accessibility(<Component />);
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<Component />);
+    const results = await axe(container);
+
+    expect(results).toHaveNoViolations();
+  });
 
   it('should open on click', () => {
     render(<Component />);
@@ -113,7 +112,9 @@ describe('react-popover', () => {
 
     expect(popover).toBeInTheDocument();
 
-    triggerPress(document.body);
+    fireEvent.mouseDown(document.body);
+    fireEvent.mouseUp(document.body);
+    fireEvent.click(document.body);
 
     await waitFor(() => {
       expect(popover).not.toBeInTheDocument();
@@ -168,7 +169,9 @@ describe('react-popover', () => {
 
     expect(popover).toBeInTheDocument();
 
-    triggerPress(document.body);
+    fireEvent.mouseDown(document.body);
+    fireEvent.mouseUp(document.body);
+    fireEvent.click(document.body);
 
     expect(popover).toBeInTheDocument();
 

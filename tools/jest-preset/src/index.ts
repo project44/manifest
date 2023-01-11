@@ -38,9 +38,19 @@ const config = {
   setupFilesAfterEnv,
   testEnvironment: 'node',
   testMatch: ['**/tests/**/*.test.{js,jsx,ts,tsx}'],
-  testRunner: 'jest-circus/runner',
   transform: {
-    '\\.(js|ts|jsx|tsx)$': ['babel-jest', { rootMode: 'upward' }],
+    '^.+\\.(js|jsx|ts|tsx)?$': [
+      '@swc/jest',
+      {
+        jsc: {
+          transform: {
+            react: {
+              runtime: 'automatic',
+            },
+          },
+        },
+      },
+    ],
   },
 };
 

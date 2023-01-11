@@ -9,6 +9,5 @@ tasks:
 dependsOn:
   - 'react-button'
   - 'react-styles'
-  - 'react-test-utils'
   - 'react-tooltip'
   - 'system'

@@ -8,6 +8,5 @@ tasks:
 
 dependsOn:
   - 'react-styles'
-  - 'react-test-utils'
   - 'react-types'
   - 'react-utils'

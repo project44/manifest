@@ -35,7 +35,6 @@
   },
   "dependencies": {
     "@project44-manifest/react-styles": "^1.0.1",
-    "@project44-manifest/react-test-utils": "workspace:^",
     "@project44-manifest/react-types": "^0.2.1",
     "@project44-manifest/react-utils": "^0.2.3",
     "@react-aria/button": "^3.6.2",
@@ -43,7 +42,6 @@
     "@react-aria/interactions": "^3.12.0"
   },
   "devDependencies": {
-    "@project44-manifest/react-test-utils": "^0.2.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },

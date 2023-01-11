@@ -1,4 +1,4 @@
-import { render, screen } from '@project44-manifest/react-test-utils';
+import { render, screen } from '@testing-library/react';
 import { Grid } from '../src';
 
 describe('react-layout - Grid', () => {
