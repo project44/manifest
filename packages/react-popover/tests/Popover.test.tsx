@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import {
   Popover,
   PopoverProps,
@@ -55,6 +55,22 @@ function Component(props: PopoverProps & UsePopoverProps & UsePopoverStateProps)
 }
 
 describe('react-popover', () => {
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+
+    act(() => {
+      jest.runAllTimers();
+    });
+  });
+
+  afterAll(() => {
+    jest.restoreAllMocks();
+  });
+
   it('should open on click', () => {
     render(<Component />);
 
@@ -108,9 +124,11 @@ describe('react-popover', () => {
     fireEvent.mouseUp(document.body);
     fireEvent.click(document.body);
 
-    await waitFor(() => {
-      expect(popover).not.toBeInTheDocument();
+    act(() => {
+      jest.runAllTimers();
     });
+
+    await waitFor(() => void expect(popover).not.toBeInTheDocument());
   });
 
   it('should close on escape key click', async () => {
@@ -127,9 +145,11 @@ describe('react-popover', () => {
     fireEvent.keyDown(popover, { key: 'Escape' });
     fireEvent.keyUp(popover, { key: 'Escape' });
 
-    await waitFor(() => {
-      expect(popover).not.toBeInTheDocument();
+    act(() => {
+      jest.runAllTimers();
     });
+
+    await waitFor(() => void expect(popover).not.toBeInTheDocument());
   });
 
   it('should close on blur if shouldCloseOnBlur is true', async () => {
@@ -145,9 +165,11 @@ describe('react-popover', () => {
 
     fireEvent.blur(popover);
 
-    await waitFor(() => {
-      expect(popover).not.toBeInTheDocument();
+    act(() => {
+      jest.runAllTimers();
     });
+
+    await waitFor(() => void expect(popover).not.toBeInTheDocument());
   });
 
   it('should not close is isDismissable is false', () => {

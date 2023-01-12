@@ -2,14 +2,32 @@ import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { Tooltip } from '../src';
 
 describe('react-tooltip', () => {
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+
+    act(() => {
+      jest.runAllTimers();
+    });
+  });
+
+  afterAll(() => {
+    jest.restoreAllMocks();
+  });
+
   beforeEach(() => {
     fireEvent.keyDown(document.body, { key: 'Tab' });
     fireEvent.keyUp(document.body, { key: 'Tab' });
   });
 
   it('should open on hover', async () => {
+    const onOpenChange = jest.fn();
+
     render(
-      <Tooltip delay={0} title="Tooltip">
+      <Tooltip title="Tooltip" onOpenChange={onOpenChange}>
         <button>Open Tooltip</button>
       </Tooltip>,
     );
@@ -24,15 +42,34 @@ describe('react-tooltip', () => {
     fireEvent.mouseEnter(button);
     fireEvent.mouseMove(button);
 
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(onOpenChange).toHaveBeenCalledWith(true);
+
     const tooltip = screen.getByRole('tooltip');
 
     expect(tooltip).toBeInTheDocument();
 
     fireEvent.mouseLeave(button);
 
-    await waitFor(() => {
-      expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
+    act(() => {
+      jest.runAllTimers();
     });
+
+    expect(tooltip).toBeVisible();
+
+    expect(onOpenChange).toHaveBeenCalledTimes(2);
+    expect(onOpenChange).toHaveBeenCalledWith(false);
+
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(onOpenChange).toHaveBeenCalledTimes(2);
+
+    await waitFor(() => void expect(tooltip).not.toBeInTheDocument());
   });
 
   it('should open on focus', async () => {
@@ -58,9 +95,11 @@ describe('react-tooltip', () => {
       button.blur();
     });
 
-    await waitFor(() => {
-      expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
+    act(() => {
+      jest.runAllTimers();
     });
+
+    await waitFor(() => void expect(screen.queryByRole('tooltip')).not.toBeInTheDocument());
   });
 
   it('should close with escape', async () => {
@@ -85,9 +124,11 @@ describe('react-tooltip', () => {
     fireEvent.keyDown(document.body, { key: 'Escape' });
     fireEvent.keyUp(document.body, { key: 'Escape' });
 
-    await waitFor(() => {
-      expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
+    act(() => {
+      jest.runAllTimers();
     });
+
+    await waitFor(() => void expect(screen.queryByRole('tooltip')).not.toBeInTheDocument());
   });
 
   it('should close if trigger is clicked', async () => {
@@ -113,9 +154,11 @@ describe('react-tooltip', () => {
     fireEvent.mouseUp(button);
     fireEvent.click(button);
 
-    await waitFor(() => {
-      expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
+    act(() => {
+      jest.runAllTimers();
     });
+
+    await waitFor(() => void expect(screen.queryByRole('tooltip')).not.toBeInTheDocument());
   });
 
   it('should not close if tooltip is hovered', async () => {
@@ -146,18 +189,16 @@ describe('react-tooltip', () => {
 
     fireEvent.mouseLeave(tooltip);
 
-    await waitFor(() => {
-      expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
+    act(() => {
+      jest.runAllTimers();
     });
+
+    await waitFor(() => void expect(screen.queryByRole('tooltip')).not.toBeInTheDocument());
   });
 
   it('should support delay', async () => {
-    jest.useFakeTimers();
-
-    const DELAY = 250;
-
     render(
-      <Tooltip delay={DELAY} title="Tooltip">
+      <Tooltip delay={250} title="Tooltip">
         <button>Open Tooltip</button>
       </Tooltip>,
     );
@@ -175,14 +216,10 @@ describe('react-tooltip', () => {
     expect(screen.queryByRole('tooltip')).toBeNull();
 
     act(() => {
-      jest.advanceTimersByTime(DELAY);
+      jest.runAllTimers();
     });
 
-    await waitFor(() => {
-      expect(screen.getByRole('tooltip')).toBeInTheDocument();
-    });
-
-    jest.useRealTimers();
+    await waitFor(() => void expect(screen.getByRole('tooltip')).toBeInTheDocument());
   });
 
   it('should be able to be controlled', () => {
