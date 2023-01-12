@@ -14,7 +14,7 @@ describe('@project44-manifest/react - Avatar', () => {
   it('should render a fallback if no source is provided', () => {
     render(<Avatar fallback="MD" />);
 
-    expect(screen.queryByRole('img')).toBeNull();
+    expect(screen.queryByRole('img')).not.toBeInTheDocument();
     expect(screen.getByText('MD')).toBeInTheDocument();
   });
 
@@ -23,7 +23,7 @@ describe('@project44-manifest/react - Avatar', () => {
 
     fireEvent.error(screen.getByRole('img'));
 
-    expect(screen.queryByRole('img')).toBeNull();
+    expect(screen.queryByRole('img')).not.toBeInTheDocument();
     expect(screen.getByText('MD')).toBeInTheDocument();
   });
 });

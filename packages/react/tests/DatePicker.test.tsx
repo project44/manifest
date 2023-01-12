@@ -1,11 +1,26 @@
 import { OverlayProvider } from '@react-aria/overlays';
 import { CalendarDate } from '@internationalized/date';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import { DatePicker } from '../src';
 
 describe('@project44-manifest/react - DatePicker', () => {
-  it('should support selecting a date', async () => {
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+
+    act(() => {
+      jest.runAllTimers();
+    });
+  });
+
+  afterAll(() => {
+    jest.restoreAllMocks();
+  });
+
+  it('should support selecting a date', () => {
     const onChange = jest.fn();
 
     render(
@@ -28,19 +43,23 @@ describe('@project44-manifest/react - DatePicker', () => {
 
     const selectedDate = screen.getByLabelText('selected', { exact: false });
 
-    expect(selectedDate.textContent).toBe('12');
+    expect(selectedDate).toHaveTextContent('12');
 
+    fireEvent.mouseDown(screen.getByText('13'));
+    fireEvent.mouseUp(screen.getByText('13'));
     fireEvent.click(screen.getByText('13'));
 
-    await waitFor(() => {
-      expect(dialog).not.toBeInTheDocument();
+    act(() => {
+      jest.runAllTimers();
     });
+
+    expect(dialog).not.toBeInTheDocument();
 
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith(new CalendarDate(2022, 7, 13));
   });
 
-  it('should support being controlled', async () => {
+  it('should support being controlled', () => {
     const onChange = jest.fn();
 
     render(
@@ -63,19 +82,22 @@ describe('@project44-manifest/react - DatePicker', () => {
 
     const selectedDate = screen.getByLabelText('selected', { exact: false });
 
-    expect(selectedDate.textContent).toBe('12');
+    expect(selectedDate).toHaveTextContent('12');
 
+    fireEvent.mouseDown(screen.getByText('13'));
+    fireEvent.mouseUp(screen.getByText('13'));
     fireEvent.click(screen.getByText('13'));
 
-    await waitFor(() => {
-      expect(dialog).not.toBeInTheDocument();
+    act(() => {
+      jest.runAllTimers();
     });
 
+    expect(dialog).not.toBeInTheDocument();
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith(new CalendarDate(2022, 7, 13));
   });
 
-  it('should close datepicker when outside click is register', async () => {
+  it('should close datepicker when outside click is register', () => {
     render(
       <OverlayProvider>
         <DatePicker aria-label="Calendar" />
@@ -88,10 +110,14 @@ describe('@project44-manifest/react - DatePicker', () => {
 
     expect(dialog).toBeInTheDocument();
 
-    await userEvent.click(document.body);
+    fireEvent.mouseDown(document.body);
+    fireEvent.mouseUp(document.body);
+    fireEvent.click(document.body);
 
-    await waitFor(() => {
-      expect(dialog).not.toBeInTheDocument();
+    act(() => {
+      jest.runAllTimers();
     });
+
+    expect(dialog).not.toBeInTheDocument();
   });
 });

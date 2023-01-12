@@ -12,6 +12,9 @@ describe('@project44-manifest/react - MultiSelect', () => {
             <SelectItem key="ardvark">Ardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
+            <SelectSection title="Section">
+              <SelectItem key="dog">Dog</SelectItem>
+            </SelectSection>
           </MultiSelect>
         </OverlayProvider>,
       );
@@ -31,7 +34,7 @@ describe('@project44-manifest/react - MultiSelect', () => {
 
       expect(listbox).toBeVisible();
 
-      expect(items).toHaveLength(3);
+      expect(items).toHaveLength(4);
     });
   });
 

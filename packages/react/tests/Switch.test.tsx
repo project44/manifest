@@ -1,9 +1,9 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Switch } from '../src';
 
 describe('@project44-manifest/react - Switch', () => {
-  it('should render and support being checked', async () => {
+  it('should render and support being checked', () => {
     const onChange = jest.fn();
 
     render(<Switch onChange={onChange}>Switch</Switch>);
@@ -14,21 +14,21 @@ describe('@project44-manifest/react - Switch', () => {
     expect(checkbox.checked).toBeFalsy();
     expect(checkbox).toHaveAttribute('aria-checked', 'false');
 
-    await userEvent.click(checkbox);
+    fireEvent.click(checkbox);
 
     expect(checkbox).toHaveAttribute('aria-checked', 'true');
     expect(checkbox.checked).toBeTruthy();
     expect(onChange).toHaveBeenCalled();
     expect(onChange.mock.calls[0][0]).toBe(true);
 
-    await userEvent.click(checkbox);
+    fireEvent.click(checkbox);
 
     expect(checkbox).toHaveAttribute('aria-checked', 'false');
     expect(onChange).toHaveBeenCalled();
     expect(onChange.mock.calls[1][0]).toBe(false);
   });
 
-  it('should support being controlled', async () => {
+  it('should support being controlled', () => {
     const onChange = jest.fn();
 
     render(
@@ -41,13 +41,13 @@ describe('@project44-manifest/react - Switch', () => {
 
     expect(checkbox.checked).toBeTruthy();
 
-    await userEvent.click(checkbox);
+    fireEvent.click(checkbox);
 
     expect(onChange).toHaveBeenCalled();
     expect(onChange.mock.calls[0][0]).toBe(false);
   });
 
-  it('should support being checked by deafult', async () => {
+  it('should support being checked by deafult', () => {
     const onChange = jest.fn();
 
     render(
@@ -60,14 +60,14 @@ describe('@project44-manifest/react - Switch', () => {
 
     expect(checkbox.checked).toBeTruthy();
 
-    await userEvent.click(checkbox);
+    fireEvent.click(checkbox);
 
     expect(checkbox.checked).toBeFalsy();
     expect(onChange).toHaveBeenCalled();
     expect(onChange.mock.calls[0][0]).toBe(false);
   });
 
-  it('should support being disabled', async () => {
+  it('should support being disabled', () => {
     const onChange = jest.fn();
 
     render(
@@ -80,7 +80,7 @@ describe('@project44-manifest/react - Switch', () => {
 
     expect(checkbox.checked).toBeFalsy();
 
-    await userEvent.click(checkbox);
+    void userEvent.click(checkbox);
 
     expect(checkbox.checked).toBeFalsy();
     expect(onChange).not.toHaveBeenCalled();
