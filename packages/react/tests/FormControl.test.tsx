@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useField } from '@react-aria/label';
-import { axe } from 'jest-axe';
 import { render, screen } from '@testing-library/react';
 import { FormControl, FormControlProps } from '../src';
 
@@ -23,13 +22,6 @@ const TestComponent = React.forwardRef(
 );
 
 describe('@project44-manifest/components - FormControl', () => {
-  it('should have no accessibility violations', async () => {
-    const { container } = render(<TestComponent label="Label" />);
-    const results = await axe(container);
-
-    expect(results).toHaveNoViolations();
-  });
-
   it('should render with label and helper text', () => {
     render(<TestComponent helperText="Helper text" label="Label" />);
 

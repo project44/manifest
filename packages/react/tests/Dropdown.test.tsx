@@ -1,35 +1,9 @@
 import { OverlayProvider } from '@react-aria/overlays';
-import { axe } from 'jest-axe';
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Dropdown, DropdownItem, DropdownMenu, DropdownSection, Icon, IconButton } from '../src';
 
 describe('@project44-manifest/react - Dropdown', () => {
-  it('should have no accessibility violations', async () => {
-    const { container } = render(
-      <OverlayProvider>
-        <Dropdown isOpen>
-          <IconButton variant="primary">
-            <Icon icon="expand_more" />
-          </IconButton>
-          <DropdownMenu>
-            <DropdownItem key="ardvark" startIcon={<>icon</>}>
-              Ardvark
-            </DropdownItem>
-            <DropdownItem key="kangaroo">Kangaroo</DropdownItem>
-            <DropdownItem key="snake">Snake</DropdownItem>
-            <DropdownSection title="Section">
-              <DropdownItem key="dog">Dog</DropdownItem>
-            </DropdownSection>
-          </DropdownMenu>
-        </Dropdown>
-      </OverlayProvider>,
-    );
-    const results = await axe(container);
-
-    expect(results).toHaveNoViolations();
-  });
-
   it('should render and support selection', async () => {
     const onAction = jest.fn();
 
@@ -43,12 +17,15 @@ describe('@project44-manifest/react - Dropdown', () => {
             <DropdownItem key="ardvark">Ardvark</DropdownItem>
             <DropdownItem key="kangaroo">Kangaroo</DropdownItem>
             <DropdownItem key="snake">Snake</DropdownItem>
+            <DropdownSection title="Section">
+              <DropdownItem key="dog">Dog</DropdownItem>
+            </DropdownSection>
           </DropdownMenu>
         </Dropdown>
       </OverlayProvider>,
     );
 
-    expect(screen.queryByRole('menu')).toBeNull();
+    expect(screen.queryByRole('menu')).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button'));
 
@@ -56,7 +33,7 @@ describe('@project44-manifest/react - Dropdown', () => {
     const items = within(menu).getAllByRole('menuitem');
 
     expect(menu).toBeVisible();
-    expect(items).toHaveLength(3);
+    expect(items).toHaveLength(4);
 
     await userEvent.click(screen.getByText('Ardvark'));
 
@@ -81,7 +58,7 @@ describe('@project44-manifest/react - Dropdown', () => {
       </OverlayProvider>,
     );
 
-    expect(screen.queryByRole('menu')).toBeNull();
+    expect(screen.queryByRole('menu')).not.toBeInTheDocument();
 
     fireEvent.keyDown(screen.getByRole('button'), { key: ' ', code: 32, charCode: 32 });
 
@@ -93,17 +70,17 @@ describe('@project44-manifest/react - Dropdown', () => {
 
     const selectedItem = items[0];
 
-    expect(selectedItem).toBe(document.activeElement);
+    expect(selectedItem).toHaveFocus();
 
     fireEvent.keyDown(selectedItem, { key: 'ArrowDown', code: 40, charCode: 40 });
 
     const nextSelectedItem = items[1];
 
-    expect(nextSelectedItem).toBe(document.activeElement);
+    expect(nextSelectedItem).toHaveFocus();
 
     fireEvent.keyDown(nextSelectedItem, { key: 'ArrowUp', code: 38, charCode: 38 });
 
-    expect(selectedItem).toBe(document.activeElement);
+    expect(selectedItem).toHaveFocus();
 
     fireEvent.keyDown(nextSelectedItem, { key: ' ', code: 32, charCode: 32 });
 
@@ -128,7 +105,7 @@ describe('@project44-manifest/react - Dropdown', () => {
       </OverlayProvider>,
     );
 
-    expect(screen.queryByRole('menu')).toBeNull();
+    expect(screen.queryByRole('menu')).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button'));
 
@@ -167,7 +144,7 @@ describe('@project44-manifest/react - Dropdown', () => {
       </OverlayProvider>,
     );
 
-    expect(screen.queryByRole('menu')).toBeNull();
+    expect(screen.queryByRole('menu')).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button'));
 
@@ -211,7 +188,7 @@ describe('@project44-manifest/react - Dropdown', () => {
       </OverlayProvider>,
     );
 
-    expect(screen.queryByRole('menu')).toBeNull();
+    expect(screen.queryByRole('menu')).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button'));
 

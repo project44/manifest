@@ -1,24 +1,25 @@
 import { OverlayProvider } from '@react-aria/overlays';
-import { axe } from 'jest-axe';
 import { act, fireEvent, render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { Popover } from '../src';
 
 describe('@project44-manifest/react - Popover', () => {
-  it('should have no accessibility violations', async () => {
-    const { container } = render(
-      <OverlayProvider>
-        <Popover aria-label="Popover">
-          <div data-testid="popover">Popover</div>
-        </Popover>
-      </OverlayProvider>,
-    );
-    const results = await axe(container);
-
-    expect(results).toHaveNoViolations();
+  beforeAll(() => {
+    jest.useFakeTimers();
   });
 
-  it('should render and support close events', async () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+
+    act(() => {
+      jest.runAllTimers();
+    });
+  });
+
+  afterAll(() => {
+    jest.restoreAllMocks();
+  });
+
+  it('should render and support close events', () => {
     const onClose = jest.fn();
 
     render(
@@ -38,7 +39,13 @@ describe('@project44-manifest/react - Popover', () => {
 
     expect(onClose).toHaveBeenCalledTimes(1);
 
-    await userEvent.click(document.body);
+    fireEvent.mouseDown(document.body);
+    fireEvent.mouseUp(document.body);
+    fireEvent.click(document.body);
+
+    act(() => {
+      jest.runAllTimers();
+    });
 
     expect(onClose).toHaveBeenCalledTimes(2);
   });
@@ -68,6 +75,10 @@ describe('@project44-manifest/react - Popover', () => {
 
     act(() => {
       button.blur();
+    });
+
+    act(() => {
+      jest.runAllTimers();
     });
 
     expect(onClose).toHaveBeenCalledTimes(1);

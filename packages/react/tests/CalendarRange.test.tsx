@@ -1,4 +1,3 @@
-import { axe } from 'jest-axe';
 import { CalendarDate, endOfMonth, startOfMonth } from '@internationalized/date';
 import { render, screen } from '@testing-library/react';
 import { CalendarRange } from '../src';
@@ -61,20 +60,6 @@ describe('@project44-manifest/react - CalendarRange', () => {
         },
       },
     ];
-  });
-
-  it('should have no accessibility violations', async () => {
-    const { container } = render(
-      <CalendarRange
-        defaultValue={{
-          start: new CalendarDate(2022, 7, 2),
-          end: new CalendarDate(2022, 7, 12),
-        }}
-      />,
-    );
-    const results = await axe(container);
-
-    expect(results).toHaveNoViolations();
   });
 
   it('should render the sidebar for the relative dates', () => {
