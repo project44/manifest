@@ -1,27 +1,33 @@
-import {
-  accessibility,
-  act,
-  fireEvent,
-  render,
-  screen,
-  userEvent,
-} from '@project44-manifest/react-test-utils';
+import { OverlayProvider } from '@react-aria/overlays';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import { Popover } from '../src';
 
 describe('@project44-manifest/react - Popover', () => {
-  accessibility(
-    <Popover aria-label="Popover">
-      <div data-testid="popover">Popover</div>
-    </Popover>,
-  );
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
 
-  it('should render and support close events', async () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+
+    act(() => {
+      jest.runAllTimers();
+    });
+  });
+
+  afterAll(() => {
+    jest.restoreAllMocks();
+  });
+
+  it('should render and support close events', () => {
     const onClose = jest.fn();
 
     render(
-      <Popover isOpen onClose={onClose}>
-        <span data-testid="popover">Popover</span>
-      </Popover>,
+      <OverlayProvider>
+        <Popover isOpen onClose={onClose}>
+          <span data-testid="popover">Popover</span>
+        </Popover>
+      </OverlayProvider>,
     );
 
     const popover = screen.getByText('Popover');
@@ -33,7 +39,13 @@ describe('@project44-manifest/react - Popover', () => {
 
     expect(onClose).toHaveBeenCalledTimes(1);
 
-    await userEvent.click(document.body);
+    fireEvent.mouseDown(document.body);
+    fireEvent.mouseUp(document.body);
+    fireEvent.click(document.body);
+
+    act(() => {
+      jest.runAllTimers();
+    });
 
     expect(onClose).toHaveBeenCalledTimes(2);
   });
@@ -46,10 +58,12 @@ describe('@project44-manifest/react - Popover', () => {
     };
 
     render(
-      <Popover isOpen shouldCloseOnBlur onClose={onClose}>
-        <span data-testid="popover">Popover</span>
-        <button {...buttonProps}>click me</button>
-      </Popover>,
+      <OverlayProvider>
+        <Popover isOpen shouldCloseOnBlur onClose={onClose}>
+          <span data-testid="popover">Popover</span>
+          <button {...buttonProps}>click me</button>
+        </Popover>
+      </OverlayProvider>,
     );
 
     const button = screen.getAllByRole('button')[1];
@@ -61,6 +75,10 @@ describe('@project44-manifest/react - Popover', () => {
 
     act(() => {
       button.blur();
+    });
+
+    act(() => {
+      jest.runAllTimers();
     });
 
     expect(onClose).toHaveBeenCalledTimes(1);

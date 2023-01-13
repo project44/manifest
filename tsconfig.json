@@ -1,10 +1,57 @@
 {
-  "extends": "tsconfig-manifest/tsconfig.react.json",
-  "include": [
-    "apps/**/*",
-    "packages/**/*"
-  ],
-  "exclude": [
-    "**/node_modules"
+  "extends": "./tsconfig.options.json",
+  "files": [],
+  "references": [
+    {
+      "path": "packages/design-tokens"
+    },
+    {
+      "path": "packages/react"
+    },
+    {
+      "path": "packages/react-button"
+    },
+    {
+      "path": "packages/react-layout"
+    },
+    {
+      "path": "packages/react-popover"
+    },
+    {
+      "path": "packages/react-styles"
+    },
+    {
+      "path": "packages/react-tooltip"
+    },
+    {
+      "path": "packages/react-types"
+    },
+    {
+      "path": "packages/react-typography"
+    },
+    {
+      "path": "packages/react-utils"
+    },
+    {
+      "path": "packages/system"
+    },
+    {
+      "path": "packages/theme"
+    },
+    {
+      "path": "packages/utils"
+    },
+    {
+      "path": "tools/babel-preset"
+    },
+    {
+      "path": "tools/eslint-config"
+    },
+    {
+      "path": "tools/jest-preset"
+    },
+    {
+      "path": "tools/tsconfig"
+    }
   ]
 }

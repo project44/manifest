@@ -1,0 +1,13 @@
+type: 'library'
+
+tasks:
+  build:
+    outputs:
+      - 'esm'
+      - 'lib'
+
+dependsOn:
+  - 'react-button'
+  - 'react-styles'
+  - 'react-tooltip'
+  - 'system'

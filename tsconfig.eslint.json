@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.options.json",
+  "include": [
+    "packages/**/*",
+    "tests/*",
+    "tools/**/*",
+    "**/.eslintrc.js",
+    "**/jest.config.js"
+  ],
+  "exclude": [
+    "**/.cache/**/*",
+    "**/.next/**/*",
+    "**/build/**/*",
+    "**/dts/**/*",
+    "**/esm/**/*",
+    "**/lib/**/*",
+    "**/node_modules/**/*"
+  ]
+}

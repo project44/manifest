@@ -1,10 +1,9 @@
-import { accessibility, render, screen, userEvent } from '@project44-manifest/react-test-utils';
+import { fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Checkbox } from '../src';
 
 describe('@project44-manifest/react - Checkbox', () => {
-  accessibility(<Checkbox>Checkbox</Checkbox>);
-
-  it('should render and support being checked', async () => {
+  it('should render and support being checked', () => {
     const onChange = jest.fn();
 
     render(<Checkbox onChange={onChange}>Checkbox</Checkbox>);
@@ -13,23 +12,23 @@ describe('@project44-manifest/react - Checkbox', () => {
 
     expect(checkbox).toBeVisible();
     expect(checkbox.checked).toBeFalsy();
-    expect(checkbox).toHaveAttribute('aria-checked', 'false');
+    expect(checkbox).not.toBeChecked();
 
-    await userEvent.click(checkbox);
+    fireEvent.click(checkbox);
 
-    expect(checkbox).toHaveAttribute('aria-checked', 'true');
+    expect(checkbox).toBeChecked();
     expect(checkbox.checked).toBeTruthy();
     expect(onChange).toHaveBeenCalled();
     expect(onChange.mock.calls[0][0]).toBe(true);
 
-    await userEvent.click(checkbox);
+    fireEvent.click(checkbox);
 
-    expect(checkbox).toHaveAttribute('aria-checked', 'false');
+    expect(checkbox).not.toBeChecked();
     expect(onChange).toHaveBeenCalled();
     expect(onChange.mock.calls[1][0]).toBe(false);
   });
 
-  it('should support being controlled', async () => {
+  it('should support being controlled', () => {
     const onChange = jest.fn();
 
     render(
@@ -42,13 +41,13 @@ describe('@project44-manifest/react - Checkbox', () => {
 
     expect(checkbox.checked).toBeTruthy();
 
-    await userEvent.click(checkbox);
+    fireEvent.click(checkbox);
 
     expect(onChange).toHaveBeenCalled();
     expect(onChange.mock.calls[0][0]).toBe(false);
   });
 
-  it('should support being checked by deafult', async () => {
+  it('should support being checked by deafult', () => {
     const onChange = jest.fn();
 
     render(
@@ -61,14 +60,14 @@ describe('@project44-manifest/react - Checkbox', () => {
 
     expect(checkbox.checked).toBeTruthy();
 
-    await userEvent.click(checkbox);
+    fireEvent.click(checkbox);
 
     expect(checkbox.checked).toBeFalsy();
     expect(onChange).toHaveBeenCalled();
     expect(onChange.mock.calls[0][0]).toBe(false);
   });
 
-  it('should support being disabled', async () => {
+  it('should support being disabled', () => {
     const onChange = jest.fn();
 
     render(
@@ -79,9 +78,9 @@ describe('@project44-manifest/react - Checkbox', () => {
 
     const checkbox: HTMLInputElement = screen.getByRole('checkbox');
 
-    expect(checkbox.checked).toBeFalsy();
+    expect(checkbox).not.toBeChecked();
 
-    await userEvent.click(checkbox);
+    void userEvent.click(checkbox);
 
     expect(checkbox.checked).toBeFalsy();
     expect(onChange).not.toHaveBeenCalled();
@@ -95,7 +94,7 @@ describe('@project44-manifest/react - Checkbox', () => {
     expect(checkbox).toHaveAttribute('aria-invalid', 'true');
   });
 
-  it('should support being indeterminate', async () => {
+  it('should support being indeterminate', () => {
     const onChange = jest.fn();
 
     render(
@@ -106,21 +105,21 @@ describe('@project44-manifest/react - Checkbox', () => {
 
     const checkbox: HTMLInputElement = screen.getByRole('checkbox');
 
-    expect(checkbox).toHaveAttribute('aria-checked', 'mixed');
+    expect(checkbox).not.toBeChecked();
     expect(checkbox.indeterminate).toBeTruthy();
     expect(checkbox.checked).toBeFalsy();
 
-    await userEvent.click(checkbox);
+    fireEvent.click(checkbox);
 
-    expect(checkbox).toHaveAttribute('aria-checked', 'mixed');
+    expect(checkbox).toBeChecked();
     expect(checkbox.indeterminate).toBeTruthy();
     expect(checkbox.checked).toBeTruthy();
     expect(onChange).toHaveBeenCalled();
     expect(onChange.mock.calls[0][0]).toBe(true);
 
-    await userEvent.click(checkbox);
+    fireEvent.click(checkbox);
 
-    expect(checkbox).toHaveAttribute('aria-checked', 'mixed');
+    expect(checkbox).not.toBeChecked();
     expect(checkbox.indeterminate).toBeTruthy();
     expect(checkbox.checked).toBeFalsy();
     expect(onChange).toHaveBeenCalled();

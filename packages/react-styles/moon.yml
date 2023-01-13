@@ -1,0 +1,10 @@
+type: 'library'
+
+tasks:
+  build:
+    outputs:
+      - 'esm'
+      - 'lib'
+
+dependsOn:
+  - 'theme'

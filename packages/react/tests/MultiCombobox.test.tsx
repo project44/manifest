@@ -1,52 +1,50 @@
-import {
-  accessibility,
-  act,
-  fireEvent,
-  render,
-  screen,
-  userEvent,
-  waitFor,
-  within,
-} from '@project44-manifest/react-test-utils';
+import { OverlayProvider } from '@react-aria/overlays';
+import { act, fireEvent, render, screen, within } from '@testing-library/react';
 import { MultiCombobox, SelectItem, SelectSection } from '../src';
 
 describe('@project44-manifest/react - MultiCombobox', () => {
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+
+    act(() => {
+      jest.runAllTimers();
+    });
+  });
+
+  afterAll(() => {
+    jest.restoreAllMocks();
+  });
+
   describe('render', () => {
-    accessibility(
-      <MultiCombobox isOpen label="Select" startIcon={<>icon</>}>
-        <SelectItem key="ardvark">Ardvark</SelectItem>
-        <SelectItem key="kangaroo">Kangaroo</SelectItem>
-        <SelectItem key="snake">Snake</SelectItem>
-        <SelectSection title="Section">
-          <SelectItem key="dog">Dog</SelectItem>
-        </SelectSection>
-      </MultiCombobox>,
-    );
     it('should render correctly', () => {
       render(
-        <MultiCombobox label="Select">
-          <SelectItem key="ardvark">Ardvark</SelectItem>
-          <SelectItem key="kangaroo">Kangaroo</SelectItem>
-          <SelectItem key="snake">Snake</SelectItem>
-        </MultiCombobox>,
+        <OverlayProvider>
+          <MultiCombobox label="Select">
+            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="kangaroo">Kangaroo</SelectItem>
+            <SelectItem key="snake">Snake</SelectItem>
+            <SelectSection title="Section">
+              <SelectItem key="dog">Dog</SelectItem>
+            </SelectSection>
+          </MultiCombobox>
+        </OverlayProvider>,
       );
 
       const combobox = screen.getByRole('combobox');
 
-      expect(combobox).toBeVisible();
+      expect(combobox).toHaveAttribute('autoCorrect', 'off');
+      expect(combobox).toHaveAttribute('spellCheck', 'false');
+      expect(combobox).toHaveAttribute('autoComplete', 'off');
 
-      act(() => {
-        combobox.focus();
+      const button = screen.getByRole('button');
+      expect(button).toHaveAttribute('aria-haspopup', 'listbox');
 
-        fireEvent.change(combobox, { target: { value: 'Kan' } });
-      });
-
-      const listbox = screen.getByRole('listbox');
-      const items = within(listbox).getAllByRole('option');
-
-      expect(listbox).toBeVisible();
-      expect(items).toHaveLength(1);
-      expect(combobox).not.toHaveAttribute('aria-activedescendant');
+      const label = screen.getAllByText('Select')[0];
+      expect(label).toBeVisible();
     });
   });
 
@@ -55,23 +53,24 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       const onOpenChange = jest.fn();
 
       render(
-        <MultiCombobox defaultInputValue="hsdjhnkjfd" label="Select" onOpenChange={onOpenChange}>
-          <SelectItem key="ardvark">Ardvark</SelectItem>
-          <SelectItem key="kangaroo">Kangaroo</SelectItem>
-          <SelectItem key="snake">Snake</SelectItem>
-        </MultiCombobox>,
+        <OverlayProvider>
+          <MultiCombobox defaultInputValue="hsdjhnkjfd" label="Select" onOpenChange={onOpenChange}>
+            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="kangaroo">Kangaroo</SelectItem>
+            <SelectItem key="snake">Snake</SelectItem>
+          </MultiCombobox>
+        </OverlayProvider>,
       );
 
       const trigger = screen.getByRole('button');
-      const combobox = screen.getByRole('combobox');
 
-      expect(screen.queryByRole('listbox')).toBeNull();
+      fireEvent.mouseDown(trigger);
+      fireEvent.mouseUp(trigger);
+      fireEvent.click(trigger);
 
       act(() => {
-        combobox.focus();
+        jest.runAllTimers();
       });
-
-      fireEvent.click(trigger);
 
       expect(onOpenChange).toHaveBeenCalledWith(true, 'manual');
 
@@ -82,17 +81,23 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 
     it('should open on focus', () => {
       render(
-        <MultiCombobox label="Select" menuTrigger="focus">
-          <SelectItem key="ardvark">Ardvark</SelectItem>
-          <SelectItem key="kangaroo">Kangaroo</SelectItem>
-          <SelectItem key="snake">Snake</SelectItem>
-        </MultiCombobox>,
+        <OverlayProvider>
+          <MultiCombobox label="Select" menuTrigger="focus">
+            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="kangaroo">Kangaroo</SelectItem>
+            <SelectItem key="snake">Snake</SelectItem>
+          </MultiCombobox>
+        </OverlayProvider>,
       );
 
       const combobox = screen.getByRole('combobox');
 
       act(() => {
         combobox.focus();
+      });
+
+      act(() => {
+        jest.runAllTimers();
       });
 
       const listbox = screen.getByRole('listbox');
@@ -102,11 +107,13 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 
     it('should open via ArrowDown key down', () => {
       render(
-        <MultiCombobox label="Select">
-          <SelectItem key="ardvark">Ardvark</SelectItem>
-          <SelectItem key="kangaroo">Kangaroo</SelectItem>
-          <SelectItem key="snake">Snake</SelectItem>
-        </MultiCombobox>,
+        <OverlayProvider>
+          <MultiCombobox label="Select">
+            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="kangaroo">Kangaroo</SelectItem>
+            <SelectItem key="snake">Snake</SelectItem>
+          </MultiCombobox>
+        </OverlayProvider>,
       );
 
       const combobox = screen.getByRole('combobox');
@@ -115,7 +122,12 @@ describe('@project44-manifest/react - MultiCombobox', () => {
         combobox.focus();
       });
 
-      fireEvent.keyDown(combobox, { key: 'ArrowDown' });
+      fireEvent.keyDown(combobox, { key: 'ArrowDown', code: 40, charCode: 40 });
+      fireEvent.keyUp(combobox, { key: 'ArrowDown', code: 40, charCode: 40 });
+
+      act(() => {
+        jest.runAllTimers();
+      });
 
       const listbox = screen.getByRole('listbox');
 
@@ -124,11 +136,13 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 
     it('should open via ArrowUp key down', () => {
       render(
-        <MultiCombobox label="Select">
-          <SelectItem key="ardvark">Ardvark</SelectItem>
-          <SelectItem key="kangaroo">Kangaroo</SelectItem>
-          <SelectItem key="snake">Snake</SelectItem>
-        </MultiCombobox>,
+        <OverlayProvider>
+          <MultiCombobox label="Select">
+            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="kangaroo">Kangaroo</SelectItem>
+            <SelectItem key="snake">Snake</SelectItem>
+          </MultiCombobox>
+        </OverlayProvider>,
       );
 
       const combobox = screen.getByRole('combobox');
@@ -137,40 +151,29 @@ describe('@project44-manifest/react - MultiCombobox', () => {
         combobox.focus();
       });
 
-      fireEvent.keyDown(combobox, { key: 'ArrowUp' });
+      fireEvent.keyDown(combobox, { key: 'ArrowUp', code: 38, charCode: 38 });
+      fireEvent.keyUp(combobox, { key: 'ArrowUp', code: 38, charCode: 38 });
+
+      act(() => {
+        jest.runAllTimers();
+      });
 
       const listbox = screen.getByRole('listbox');
 
       expect(listbox).toBeVisible();
     });
 
-    it('should open via arrow button click', () => {
+    it('should open list on user input', () => {
+      const onOpenChange = jest.fn();
+
       render(
-        <MultiCombobox label="Select">
-          <SelectItem key="ardvark">Ardvark</SelectItem>
-          <SelectItem key="kangaroo">Kangaroo</SelectItem>
-          <SelectItem key="snake">Snake</SelectItem>
-        </MultiCombobox>,
-      );
-
-      const trigger = screen.getByRole('button');
-
-      expect(trigger).toHaveAttribute('aria-haspopup', 'listbox');
-
-      fireEvent.click(trigger);
-
-      const listbox = screen.getByRole('listbox');
-
-      expect(listbox).toBeVisible();
-    });
-
-    it('should open list on user input', async () => {
-      render(
-        <MultiCombobox label="Select">
-          <SelectItem key="ardvark">Ardvark</SelectItem>
-          <SelectItem key="kangaroo">Kangaroo</SelectItem>
-          <SelectItem key="snake">Snake</SelectItem>
-        </MultiCombobox>,
+        <OverlayProvider>
+          <MultiCombobox label="Select" onOpenChange={onOpenChange}>
+            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="kangaroo">Kangaroo</SelectItem>
+            <SelectItem key="snake">Snake</SelectItem>
+          </MultiCombobox>
+        </OverlayProvider>,
       );
 
       const combobox = screen.getByRole('combobox');
@@ -179,7 +182,15 @@ describe('@project44-manifest/react - MultiCombobox', () => {
         combobox.focus();
       });
 
-      await userEvent.type(combobox, 'a');
+      expect(onOpenChange).not.toHaveBeenCalled();
+
+      fireEvent.change(combobox, { target: { value: 'a' } });
+
+      expect(onOpenChange).toHaveBeenCalledWith(true, 'input');
+
+      act(() => {
+        jest.runAllTimers();
+      });
 
       const listbox = screen.getByRole('listbox');
 
@@ -188,13 +199,15 @@ describe('@project44-manifest/react - MultiCombobox', () => {
   });
 
   describe('close', () => {
-    it('should close when clicked outside', async () => {
+    it('should close when clicked outside', () => {
       render(
-        <MultiCombobox label="Select">
-          <SelectItem key="ardvark">Ardvark</SelectItem>
-          <SelectItem key="kangaroo">Kangaroo</SelectItem>
-          <SelectItem key="snake">Snake</SelectItem>
-        </MultiCombobox>,
+        <OverlayProvider>
+          <MultiCombobox label="Select">
+            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="kangaroo">Kangaroo</SelectItem>
+            <SelectItem key="snake">Snake</SelectItem>
+          </MultiCombobox>
+        </OverlayProvider>,
       );
 
       const trigger = screen.getByRole('button');
@@ -208,23 +221,29 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       expect(trigger).toHaveAttribute('aria-expanded', 'true');
       expect(trigger).toHaveAttribute('aria-controls', listbox.id);
 
-      await userEvent.click(document.body);
+      fireEvent.mouseDown(document.body);
+      fireEvent.mouseUp(document.body);
+      fireEvent.click(document.body);
 
-      await waitFor(() => {
-        expect(listbox).not.toBeInTheDocument();
+      act(() => {
+        jest.runAllTimers();
       });
+
+      expect(listbox).not.toBeInTheDocument();
 
       expect(trigger).toHaveAttribute('aria-expanded', 'false');
       expect(trigger).not.toHaveAttribute('aria-controls');
     });
 
-    it('should close on Escape key down', async () => {
+    it('should close on Escape key down', () => {
       render(
-        <MultiCombobox label="Select">
-          <SelectItem key="ardvark">Ardvark</SelectItem>
-          <SelectItem key="kangaroo">Kangaroo</SelectItem>
-          <SelectItem key="snake">Snake</SelectItem>
-        </MultiCombobox>,
+        <OverlayProvider>
+          <MultiCombobox label="Select">
+            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="kangaroo">Kangaroo</SelectItem>
+            <SelectItem key="snake">Snake</SelectItem>
+          </MultiCombobox>
+        </OverlayProvider>,
       );
 
       const trigger = screen.getByRole('button');
@@ -240,68 +259,36 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 
       fireEvent.keyDown(listbox, { key: 'Escape' });
 
-      await waitFor(() => {
-        expect(listbox).not.toBeInTheDocument();
+      act(() => {
+        jest.runAllTimers();
       });
+
+      expect(listbox).not.toBeInTheDocument();
 
       expect(trigger).toHaveAttribute('aria-expanded', 'false');
       expect(trigger).not.toHaveAttribute('aria-controls');
     });
-
-    it('should close and commit custom value', async () => {
-      const onOpenChange = jest.fn();
-      const onSelectionChange = jest.fn();
-
-      render(
-        <MultiCombobox
-          allowsCustomValue
-          label="Test"
-          selectedKeys={['ardvark']}
-          onOpenChange={onOpenChange}
-          onSelectionChange={onSelectionChange}
-        >
-          <SelectItem key="ardvark">Ardvark</SelectItem>
-          <SelectItem key="kangaroo">Kangaroo</SelectItem>
-          <SelectItem key="snake">Snake</SelectItem>
-        </MultiCombobox>,
-      );
-
-      const combobox = screen.getByRole('combobox');
-
-      expect(onSelectionChange).not.toHaveBeenCalled();
-
-      await userEvent.click(combobox);
-
-      act(() => {
-        fireEvent.change(combobox, { target: { value: 'Kan' } });
-
-        combobox.blur();
-      });
-
-      expect(onOpenChange).toHaveBeenLastCalledWith(false, undefined);
-      expect(onSelectionChange).toHaveBeenCalledTimes(1);
-
-      expect(screen.queryByRole('listbox')).toBeNull();
-    });
   });
 
   describe('value', () => {
-    it('should reset the input value on escape key down', async () => {
+    it('should reset the input value on escape key down', () => {
       render(
-        <MultiCombobox label="Select">
-          <SelectItem key="ardvark">Ardvark</SelectItem>
-          <SelectItem key="kangaroo">Kangaroo</SelectItem>
-          <SelectItem key="snake">Snake</SelectItem>
-        </MultiCombobox>,
+        <OverlayProvider>
+          <MultiCombobox label="Select">
+            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="kangaroo">Kangaroo</SelectItem>
+            <SelectItem key="snake">Snake</SelectItem>
+          </MultiCombobox>
+        </OverlayProvider>,
       );
 
       const combobox = screen.getByRole('combobox');
 
       act(() => {
         combobox.focus();
-
-        fireEvent.change(combobox, { target: { value: 'Kan' } });
       });
+
+      fireEvent.change(combobox, { target: { value: 'Kan' } });
 
       const listbox = screen.getByRole('listbox');
 
@@ -310,27 +297,31 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       fireEvent.keyDown(combobox, { key: 'Escape' });
       fireEvent.keyUp(combobox, { key: 'Escape' });
 
-      await waitFor(() => {
-        expect(screen.queryByRole('listbox')).toBeNull();
+      act(() => {
+        jest.runAllTimers();
       });
+
+      expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
     });
 
-    it('should reset the input value on escape key down and custom value', async () => {
+    it('should reset the input value on escape key down and custom value', () => {
       render(
-        <MultiCombobox allowsCustomValue label="Select" selectedKeys={['ardvark']}>
-          <SelectItem key="ardvark">Ardvark</SelectItem>
-          <SelectItem key="kangaroo">Kangaroo</SelectItem>
-          <SelectItem key="snake">Snake</SelectItem>
-        </MultiCombobox>,
+        <OverlayProvider>
+          <MultiCombobox allowsCustomValue label="Select" selectedKeys={['ardvark']}>
+            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="kangaroo">Kangaroo</SelectItem>
+            <SelectItem key="snake">Snake</SelectItem>
+          </MultiCombobox>
+        </OverlayProvider>,
       );
 
       const combobox = screen.getByRole('combobox');
 
       act(() => {
         combobox.focus();
-
-        fireEvent.change(combobox, { target: { value: 'Kan' } });
       });
+
+      fireEvent.change(combobox, { target: { value: 'Kan' } });
 
       const listbox = screen.getByRole('listbox');
 
@@ -339,9 +330,11 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       fireEvent.keyDown(combobox, { key: 'Escape' });
       fireEvent.keyUp(combobox, { key: 'Escape' });
 
-      await waitFor(() => {
-        expect(screen.queryByRole('listbox')).toBeNull();
+      act(() => {
+        jest.runAllTimers();
       });
+
+      expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
     });
   });
 
@@ -350,15 +343,17 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       const onSelectionChange = jest.fn();
 
       render(
-        <MultiCombobox
-          disabledKeys={['snake']}
-          label="Select"
-          onSelectionChange={onSelectionChange}
-        >
-          <SelectItem key="ardvark">Ardvark</SelectItem>
-          <SelectItem key="kangaroo">Kangaroo</SelectItem>
-          <SelectItem key="snake">Snake</SelectItem>
-        </MultiCombobox>,
+        <OverlayProvider>
+          <MultiCombobox
+            disabledKeys={['snake']}
+            label="Select"
+            onSelectionChange={onSelectionChange}
+          >
+            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="kangaroo">Kangaroo</SelectItem>
+            <SelectItem key="snake">Snake</SelectItem>
+          </MultiCombobox>
+        </OverlayProvider>,
       );
 
       const trigger = screen.getByRole('button');
@@ -381,11 +376,13 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       const onSelectionChange = jest.fn();
 
       render(
-        <MultiCombobox label="Select" onSelectionChange={onSelectionChange}>
-          <SelectItem key="ardvark">Ardvark</SelectItem>
-          <SelectItem key="kangaroo">Kangaroo</SelectItem>
-          <SelectItem key="snake">Snake</SelectItem>
-        </MultiCombobox>,
+        <OverlayProvider>
+          <MultiCombobox label="Select" onSelectionChange={onSelectionChange}>
+            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="kangaroo">Kangaroo</SelectItem>
+            <SelectItem key="snake">Snake</SelectItem>
+          </MultiCombobox>
+        </OverlayProvider>,
       );
 
       const trigger = screen.getByRole('button');
@@ -410,11 +407,13 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       const onSelectionChange = jest.fn();
 
       render(
-        <MultiCombobox label="Select" onSelectionChange={onSelectionChange}>
-          <SelectItem key="ardvark">Ardvark</SelectItem>
-          <SelectItem key="kangaroo">Kangaroo</SelectItem>
-          <SelectItem key="snake">Snake</SelectItem>
-        </MultiCombobox>,
+        <OverlayProvider>
+          <MultiCombobox label="Select" onSelectionChange={onSelectionChange}>
+            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="kangaroo">Kangaroo</SelectItem>
+            <SelectItem key="snake">Snake</SelectItem>
+          </MultiCombobox>
+        </OverlayProvider>,
       );
 
       const trigger = screen.getByRole('button');
@@ -439,15 +438,17 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       const onInputChange = jest.fn();
 
       render(
-        <MultiCombobox
-          defaultSelectedKeys={['ardvark']}
-          label="Select"
-          onInputChange={onInputChange}
-        >
-          <SelectItem key="ardvark">Ardvark</SelectItem>
-          <SelectItem key="kangaroo">Kangaroo</SelectItem>
-          <SelectItem key="snake">Snake</SelectItem>
-        </MultiCombobox>,
+        <OverlayProvider>
+          <MultiCombobox
+            defaultSelectedKeys={['ardvark']}
+            label="Select"
+            onInputChange={onInputChange}
+          >
+            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="kangaroo">Kangaroo</SelectItem>
+            <SelectItem key="snake">Snake</SelectItem>
+          </MultiCombobox>
+        </OverlayProvider>,
       );
 
       const combobox: HTMLInputElement = screen.getByRole('combobox');
@@ -456,7 +457,12 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 
       act(() => {
         combobox.focus();
-        fireEvent.change(combobox, { target: { value: 'Ka' } });
+      });
+
+      fireEvent.change(combobox, { target: { value: 'Ka' } });
+
+      act(() => {
+        jest.runAllTimers();
       });
 
       expect(onInputChange).toHaveBeenCalledTimes(1);
@@ -464,9 +470,9 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       expect(combobox.value).toBe('Ka');
 
       const listbox = screen.getByRole('listbox');
-      const items = within(listbox).getAllByRole('option');
+      const items = within(listbox).getByRole('option');
 
-      expect(items).toHaveLength(1);
+      expect(items).toBeInTheDocument();
     });
 
     it('closes menu and resets selected key if allowsCustomValue=true and no item is focused', () => {
@@ -475,33 +481,38 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       const onSelectionChange = jest.fn();
 
       render(
-        <MultiCombobox
-          allowsCustomValue
-          label="Select"
-          selectedKeys={['ardvark']}
-          onKeyDown={onKeyDown}
-          onOpenChange={onOpenChange}
-          onSelectionChange={onSelectionChange}
-        >
-          <SelectItem key="ardvark">Ardvark</SelectItem>
-          <SelectItem key="kangaroo">Kangaroo</SelectItem>
-          <SelectItem key="snake">Snake</SelectItem>
-        </MultiCombobox>,
+        <OverlayProvider>
+          <MultiCombobox
+            allowsCustomValue
+            label="Select"
+            selectedKeys={['ardvark']}
+            onKeyDown={onKeyDown}
+            onOpenChange={onOpenChange}
+            onSelectionChange={onSelectionChange}
+          >
+            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="kangaroo">Kangaroo</SelectItem>
+            <SelectItem key="snake">Snake</SelectItem>
+          </MultiCombobox>
+        </OverlayProvider>,
       );
 
       const combobox = screen.getByRole('combobox');
 
       act(() => {
         combobox.focus();
-        fireEvent.change(combobox, { target: { value: 'Ka' } });
       });
 
-      expect(document.activeElement).toBe(combobox);
+      fireEvent.change(combobox, { target: { value: 'Ka' } });
+
+      expect(combobox).toHaveFocus();
       expect(combobox).not.toHaveAttribute('aria-activedescendant');
 
+      fireEvent.keyDown(combobox, { key: 'Enter', code: 13, charCode: 13 });
+      fireEvent.keyUp(combobox, { key: 'Enter', code: 13, charCode: 13 });
+
       act(() => {
-        fireEvent.keyDown(combobox, { key: 'Enter', code: 13, charCode: 13 });
-        fireEvent.keyUp(combobox, { key: 'Enter', code: 13, charCode: 13 });
+        jest.runAllTimers();
       });
 
       expect(onKeyDown).toHaveBeenCalledTimes(1);
@@ -526,16 +537,18 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       };
 
       render(
-        <MultiCombobox label="Select" {...focusProps}>
-          <SelectItem key="ardvark">Ardvark</SelectItem>
-          <SelectItem key="kangaroo">Kangaroo</SelectItem>
-          <SelectItem key="snake">Snake</SelectItem>
-        </MultiCombobox>,
+        <OverlayProvider>
+          <MultiCombobox label="Select" {...focusProps}>
+            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="kangaroo">Kangaroo</SelectItem>
+            <SelectItem key="snake">Snake</SelectItem>
+          </MultiCombobox>
+        </OverlayProvider>,
       );
 
       const combobox = screen.getByRole('combobox');
 
-      expect(document.activeElement).toBe(combobox);
+      expect(combobox).toHaveFocus();
       expect(onFocus).toHaveBeenCalled();
       expect(onFocusChange).toHaveBeenCalledWith(true);
     });

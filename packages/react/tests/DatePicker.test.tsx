@@ -1,26 +1,36 @@
+import { OverlayProvider } from '@react-aria/overlays';
 import { CalendarDate } from '@internationalized/date';
-import {
-  accessibility,
-  fireEvent,
-  render,
-  screen,
-  userEvent,
-  waitFor,
-} from '@project44-manifest/react-test-utils';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import { DatePicker } from '../src';
 
 describe('@project44-manifest/react - DatePicker', () => {
-  accessibility(<DatePicker isOpen aria-label="Calendar" />);
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
 
-  it('should support selecting a date', async () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+
+    act(() => {
+      jest.runAllTimers();
+    });
+  });
+
+  afterAll(() => {
+    jest.restoreAllMocks();
+  });
+
+  it('should support selecting a date', () => {
     const onChange = jest.fn();
 
     render(
-      <DatePicker
-        aria-label="Calendar"
-        defaultValue={new CalendarDate(2022, 7, 12)}
-        onChange={onChange}
-      />,
+      <OverlayProvider>
+        <DatePicker
+          aria-label="Calendar"
+          defaultValue={new CalendarDate(2022, 7, 12)}
+          onChange={onChange}
+        />
+      </OverlayProvider>,
     );
 
     expect(screen.getByText('7 / 12 / 2022')).toBeVisible();
@@ -33,27 +43,33 @@ describe('@project44-manifest/react - DatePicker', () => {
 
     const selectedDate = screen.getByLabelText('selected', { exact: false });
 
-    expect(selectedDate.textContent).toBe('12');
+    expect(selectedDate).toHaveTextContent('12');
 
+    fireEvent.mouseDown(screen.getByText('13'));
+    fireEvent.mouseUp(screen.getByText('13'));
     fireEvent.click(screen.getByText('13'));
 
-    await waitFor(() => {
-      expect(dialog).not.toBeInTheDocument();
+    act(() => {
+      jest.runAllTimers();
     });
+
+    expect(dialog).not.toBeInTheDocument();
 
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith(new CalendarDate(2022, 7, 13));
   });
 
-  it('should support being controlled', async () => {
+  it('should support being controlled', () => {
     const onChange = jest.fn();
 
     render(
-      <DatePicker
-        aria-label="Calendar"
-        value={new CalendarDate(2022, 7, 12)}
-        onChange={onChange}
-      />,
+      <OverlayProvider>
+        <DatePicker
+          aria-label="Calendar"
+          value={new CalendarDate(2022, 7, 12)}
+          onChange={onChange}
+        />
+      </OverlayProvider>,
     );
 
     expect(screen.getByText('7 / 12 / 2022')).toBeVisible();
@@ -66,20 +82,27 @@ describe('@project44-manifest/react - DatePicker', () => {
 
     const selectedDate = screen.getByLabelText('selected', { exact: false });
 
-    expect(selectedDate.textContent).toBe('12');
+    expect(selectedDate).toHaveTextContent('12');
 
+    fireEvent.mouseDown(screen.getByText('13'));
+    fireEvent.mouseUp(screen.getByText('13'));
     fireEvent.click(screen.getByText('13'));
 
-    await waitFor(() => {
-      expect(dialog).not.toBeInTheDocument();
+    act(() => {
+      jest.runAllTimers();
     });
 
+    expect(dialog).not.toBeInTheDocument();
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith(new CalendarDate(2022, 7, 13));
   });
 
-  it('should close datepicker when outside click is register', async () => {
-    render(<DatePicker aria-label="Calendar" />);
+  it('should close datepicker when outside click is register', () => {
+    render(
+      <OverlayProvider>
+        <DatePicker aria-label="Calendar" />
+      </OverlayProvider>,
+    );
 
     fireEvent.click(screen.getByRole('button'));
 
@@ -87,10 +110,14 @@ describe('@project44-manifest/react - DatePicker', () => {
 
     expect(dialog).toBeInTheDocument();
 
-    await userEvent.click(document.body);
+    fireEvent.mouseDown(document.body);
+    fireEvent.mouseUp(document.body);
+    fireEvent.click(document.body);
 
-    await waitFor(() => {
-      expect(dialog).not.toBeInTheDocument();
+    act(() => {
+      jest.runAllTimers();
     });
+
+    expect(dialog).not.toBeInTheDocument();
   });
 });

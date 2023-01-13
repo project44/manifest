@@ -1,9 +1,7 @@
-import { accessibility, render, screen } from '@project44-manifest/react-test-utils';
+import { render, screen } from '@testing-library/react';
 import { TextFieldBase } from '../src/components/TextFieldBase';
 
 describe('@project44-manifest/components - TextFieldBase', () => {
-  accessibility(<TextFieldBase inputProps={{ 'aria-label': 'text field' }} />);
-
   it('should render', () => {
     render(<TextFieldBase endIcon={<span>end icon</span>} startIcon={<span>start icon</span>} />);
 

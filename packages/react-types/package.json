@@ -24,18 +24,12 @@
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {
-    "clean": "rimraf .turbo",
-    "typecheck": "tsc --noEmit"
-  },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
-    "@project44-manifest/react-test-utils": "*",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "tsconfig-manifest": "*"
+    "react-dom": "^18.1.0"
   }
 }

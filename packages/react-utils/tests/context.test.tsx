@@ -1,4 +1,4 @@
-import { render, renderHook } from '@project44-manifest/react-test-utils';
+import { render, renderHook } from '@testing-library/react';
 import { createContext } from '../src';
 
 describe('@project44-manifest/react-utils - context', () => {

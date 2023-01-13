@@ -1,0 +1,110 @@
+$schema: 'https://moonrepo.dev/schemas/global-project.json'
+
+fileGroups:
+  app: []
+  configs:
+    - '*.{js,json}'
+
+  sources:
+    - 'public/**/*'
+    - 'src/**/*'
+    - 'types/**/*'
+
+  tests:
+    - 'tests/**/*.test.*'
+
+  assets:
+    - 'assets/**/*'
+    - 'images/**/*'
+    - 'static/**/*'
+    - '**/*.{scss,css}'
+    - '**/*.mdx'
+
+  typescript:
+    - 'tsconfig.json'
+    - 'tsconfig.*.json'
+    - '/tsconfig.json'
+    - '/tsconfig.*.json'
+
+tasks:
+  build:
+    command: 'packemon'
+    args:
+      - 'build'
+      - '--addEngines'
+      - '--addExports'
+      - '--declaration'
+      - '--declarationConfig'
+      - 'tsconfig.build.json'
+    inputs:
+      - '@globs(sources)'
+      - '@globs(typescript)'
+      - 'package.json'
+    outputs:
+      - 'dts'
+    env:
+      NODE_ENV: 'production'
+
+  format:
+    command: 'prettier'
+    args:
+      - '--config'
+      - '@in(1)'
+      - '--ignore-path'
+      - '@in(0)'
+      - '--check'
+      - '.'
+    inputs:
+      - '/.prettierignore'
+      - '/.prettierrc.js'
+      - '@globs(configs)'
+      - '@globs(sources)'
+      - '@globs(tests)'
+      - '**/*.{md,mdx,yml,yaml,json}'
+
+  lint:
+    command: 'eslint'
+    args:
+      - '--ext'
+      - '.js,.jsx,.ts,.tsx'
+      - '--fix'
+      - '--report-unused-disable-directives'
+      - '--no-error-on-unmatched-pattern'
+      - '--exit-on-fatal-error'
+      - '--ignore-path'
+      - '@in(6)'
+      - '.'
+    inputs:
+      - '@globs(configs)'
+      - '@globs(sources)'
+      - '@globs(tests)'
+      - '@globs(typescript)'
+      - '**/.eslintrc'
+      - '**/.eslintrc.*'
+      - '/.eslintignore'
+      - '/.eslintrc.*'
+    options:
+      affectedFiles: true
+
+  test:
+    command: 'jest'
+    args:
+      - '--passWithNoTests'
+    inputs:
+      - '@globs(sources)'
+      - '@globs(tests)'
+      - '.babelrc'
+      - '.babelrc.*'
+      - 'babel.config.*'
+      - 'jest.config.*'
+      - '/babel.config.*'
+
+  typecheck:
+    command: 'tsc'
+    args:
+      - '--build'
+      - '--pretty'
+    inputs:
+      - '@globs(sources)'
+      - '@globs(tests)'
+      - '@globs(typescript)'

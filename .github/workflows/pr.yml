@@ -2,17 +2,50 @@ name: PR
 
 on:
   pull_request:
-    types:
-      - opened
-      - edited
-      - synchronize
+    branches:
+      - main
 
 jobs:
-  title:
-    name: Validate title
+  conventional:
+    name: Conventional title
     runs-on: ubuntu-latest
 
     steps:
-      - uses: amannn/action-semantic-pull-request@v5
+      - name: Checkout branch
+        uses: actions/checkout@v3
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: yarn
+
+      - name: Check pr title
+        uses: beemojs/conventional-pr-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  changeset:
+    if: github.head_ref != 'changeset-release/main'
+
+    name: Changeset
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: yarn
+
+      - name: Install dependencies
+        shell: bash
+        run: yarn install --immutable
+
+      - name: Check for changeset
+        run: yarn changeset status --since="origin/main"

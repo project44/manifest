@@ -1,0 +1,11 @@
+type: 'library'
+
+tasks:
+  build:
+    outputs:
+      - 'esm'
+      - 'lib'
+
+dependsOn:
+  - 'design-tokens'
+  - 'utils'

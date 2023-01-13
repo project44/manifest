@@ -28,16 +28,19 @@
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {
-    "build": "packemon build --addEngines --declaration --declarationConfig tsconfig.build.json --declarationConfig tsconfig.build.json",
-    "clean": "rimraf .turbo && packemon clean",
-    "dev": "packemon watch",
-    "typecheck": "tsc --noEmit"
-  },
-  "devDependencies": {
-    "tsconfig-manifest": "*"
-  },
   "packemon": {
     "platform": "browser"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dts/index.d.ts",
+      "browser": {
+        "module": "./esm/index.js",
+        "import": "./esm/index.js",
+        "default": "./lib/index.js"
+      },
+      "default": "./lib/index.js"
+    }
   }
 }

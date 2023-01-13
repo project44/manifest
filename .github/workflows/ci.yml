@@ -3,43 +3,38 @@ name: CI
 on:
   push:
     branches:
-      - 'main'
+      - main
   pull_request:
-
-env:
-  PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event.number || github.sha }}
-  cancel-in-progress: true
 
 jobs:
   validate:
     name: Validate
-    runs-on: 'ubuntu-latest'
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Check out code
+      - name: Checkout branch
         uses: actions/checkout@v3
         with:
-          fetch-depth: 2
+          fetch-depth: 0
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: yarn
 
       - name: Install dependencies
-        uses: ./.github/actions/install-dependencies
+        shell: bash
+        run: yarn install --immutable
 
-      - name: build
-        run: yarn build
+      - name: Setup tooling
+        run: yarn setup
 
-      - name: Format
-        run: yarn format
+      - name: Run checks
+        run: yarn moon ci
 
-      - name: Lint
-        run: yarn lint
-
-      - name: Run Jest
-        run: yarn test
-
-      - name: Run Percy tests
-        run: yarn test:visual
+      - name: Report results
+        uses: moonrepo/run-report-action@v1
+        if: success() || failure()
+        with:
+          access-token: ${{ secrets.GITHUB_TOKEN }}

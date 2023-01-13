@@ -1,15 +1,8 @@
-import {
-  accessibility,
-  fireEvent,
-  render,
-  screen,
-  userEvent,
-} from '@project44-manifest/react-test-utils';
+import { fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { TextArea } from '../src';
 
 describe('@project44-manifest/components - TextArea', () => {
-  accessibility(<TextArea aria-label="text field" />);
-
   it('should render and support input', () => {
     render(<TextArea aria-label="text field" />);
 

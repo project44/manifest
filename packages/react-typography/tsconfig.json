@@ -1,6 +1,25 @@
 {
-  "extends": "tsconfig-manifest/tsconfig.react.json",
+  "extends": "../../tsconfig.options.json",
+  "compilerOptions": {
+    "outDir": "../../.moon/cache/types/packages/react-typography"
+  },
   "include": [
-    "**/*"
+    "src/**/*",
+    "stories/**/*",
+    "tests/**/*"
+  ],
+  "references": [
+    {
+      "path": "../react-styles"
+    },
+    {
+      "path": "../react-types"
+    },
+    {
+      "path": "../react-utils"
+    },
+    {
+      "path": "./tsconfig.build.json"
+    }
   ]
 }

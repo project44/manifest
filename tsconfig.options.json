@@ -1,0 +1,9 @@
+{
+  "extends": "tsconfig-manifest/tsconfig.projects.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": [
+      "dom"
+    ]
+  }
+}

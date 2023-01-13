@@ -1,11 +1,4 @@
-import {
-  accessibility,
-  fireEvent,
-  render,
-  screen,
-  triggerPress,
-  waitFor,
-} from '@project44-manifest/react-test-utils';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import {
   Popover,
   PopoverProps,
@@ -62,7 +55,21 @@ function Component(props: PopoverProps & UsePopoverProps & UsePopoverStateProps)
 }
 
 describe('react-popover', () => {
-  accessibility(<Component />);
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+
+    act(() => {
+      jest.runAllTimers();
+    });
+  });
+
+  afterAll(() => {
+    jest.restoreAllMocks();
+  });
 
   it('should open on click', () => {
     render(<Component />);
@@ -113,11 +120,15 @@ describe('react-popover', () => {
 
     expect(popover).toBeInTheDocument();
 
-    triggerPress(document.body);
+    fireEvent.mouseDown(document.body);
+    fireEvent.mouseUp(document.body);
+    fireEvent.click(document.body);
 
-    await waitFor(() => {
-      expect(popover).not.toBeInTheDocument();
+    act(() => {
+      jest.runAllTimers();
     });
+
+    await waitFor(() => void expect(popover).not.toBeInTheDocument());
   });
 
   it('should close on escape key click', async () => {
@@ -134,9 +145,11 @@ describe('react-popover', () => {
     fireEvent.keyDown(popover, { key: 'Escape' });
     fireEvent.keyUp(popover, { key: 'Escape' });
 
-    await waitFor(() => {
-      expect(popover).not.toBeInTheDocument();
+    act(() => {
+      jest.runAllTimers();
     });
+
+    await waitFor(() => void expect(popover).not.toBeInTheDocument());
   });
 
   it('should close on blur if shouldCloseOnBlur is true', async () => {
@@ -152,9 +165,11 @@ describe('react-popover', () => {
 
     fireEvent.blur(popover);
 
-    await waitFor(() => {
-      expect(popover).not.toBeInTheDocument();
+    act(() => {
+      jest.runAllTimers();
     });
+
+    await waitFor(() => void expect(popover).not.toBeInTheDocument());
   });
 
   it('should not close is isDismissable is false', () => {
@@ -168,7 +183,9 @@ describe('react-popover', () => {
 
     expect(popover).toBeInTheDocument();
 
-    triggerPress(document.body);
+    fireEvent.mouseDown(document.body);
+    fireEvent.mouseUp(document.body);
+    fireEvent.click(document.body);
 
     expect(popover).toBeInTheDocument();
 

@@ -1,0 +1,13 @@
+$schema: 'https://moonrepo.dev/schemas/workspace.json'
+
+projects:
+  - 'packages/*'
+  - 'tools/*'
+
+vcs:
+  manager: 'git'
+  defaultBranch: 'main'
+
+runner:
+  implicitDeps:
+    - '^:build'

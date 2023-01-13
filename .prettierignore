@@ -1,11 +1,14 @@
 .next/
 .cache/
 .contentlayer/
-.turbo/
 node_modules/
 build/
 coverage/
 dist/
+dts/
+esm/
+lib/
+CHANGELOG.md
 *.d.ts
 *.d.cts
 *.d.mts

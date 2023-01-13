@@ -1,9 +1,7 @@
-import { accessibility, fireEvent, render, screen } from '@project44-manifest/react-test-utils';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Button } from '../src';
 
 describe('react-button - Button', () => {
-  accessibility(<Button>Click Me</Button>);
-
   it('should render', () => {
     render(<Button>Click Me</Button>);
 

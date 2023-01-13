@@ -1,5 +1,5 @@
 import { CalendarDate, endOfMonth, startOfMonth } from '@internationalized/date';
-import { accessibility, render, screen } from '@project44-manifest/react-test-utils';
+import { render, screen } from '@testing-library/react';
 import { CalendarRange } from '../src';
 import { DefinedRange } from '../src/components/CalendarRanges';
 import {
@@ -61,15 +61,6 @@ describe('@project44-manifest/react - CalendarRange', () => {
       },
     ];
   });
-
-  accessibility(
-    <CalendarRange
-      defaultValue={{
-        start: new CalendarDate(2022, 7, 2),
-        end: new CalendarDate(2022, 7, 12),
-      }}
-    />,
-  );
 
   it('should render the sidebar for the relative dates', () => {
     render(

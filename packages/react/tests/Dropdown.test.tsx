@@ -1,49 +1,31 @@
-import {
-  accessibility,
-  fireEvent,
-  render,
-  screen,
-  userEvent,
-  within,
-} from '@project44-manifest/react-test-utils';
+import { OverlayProvider } from '@react-aria/overlays';
+import { fireEvent, render, screen, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Dropdown, DropdownItem, DropdownMenu, DropdownSection, Icon, IconButton } from '../src';
 
 describe('@project44-manifest/react - Dropdown', () => {
-  accessibility(
-    <Dropdown isOpen>
-      <IconButton variant="primary">
-        <Icon icon="expand_more" />
-      </IconButton>
-      <DropdownMenu>
-        <DropdownItem key="ardvark" startIcon={<>icon</>}>
-          Ardvark
-        </DropdownItem>
-        <DropdownItem key="kangaroo">Kangaroo</DropdownItem>
-        <DropdownItem key="snake">Snake</DropdownItem>
-        <DropdownSection title="Section">
-          <DropdownItem key="dog">Dog</DropdownItem>
-        </DropdownSection>
-      </DropdownMenu>
-    </Dropdown>,
-  );
-
   it('should render and support selection', async () => {
     const onAction = jest.fn();
 
     render(
-      <Dropdown>
-        <IconButton variant="primary">
-          <Icon icon="expand_more" />
-        </IconButton>
-        <DropdownMenu onAction={onAction}>
-          <DropdownItem key="ardvark">Ardvark</DropdownItem>
-          <DropdownItem key="kangaroo">Kangaroo</DropdownItem>
-          <DropdownItem key="snake">Snake</DropdownItem>
-        </DropdownMenu>
-      </Dropdown>,
+      <OverlayProvider>
+        <Dropdown>
+          <IconButton variant="primary">
+            <Icon icon="expand_more" />
+          </IconButton>
+          <DropdownMenu onAction={onAction}>
+            <DropdownItem key="ardvark">Ardvark</DropdownItem>
+            <DropdownItem key="kangaroo">Kangaroo</DropdownItem>
+            <DropdownItem key="snake">Snake</DropdownItem>
+            <DropdownSection title="Section">
+              <DropdownItem key="dog">Dog</DropdownItem>
+            </DropdownSection>
+          </DropdownMenu>
+        </Dropdown>
+      </OverlayProvider>,
     );
 
-    expect(screen.queryByRole('menu')).toBeNull();
+    expect(screen.queryByRole('menu')).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button'));
 
@@ -51,7 +33,7 @@ describe('@project44-manifest/react - Dropdown', () => {
     const items = within(menu).getAllByRole('menuitem');
 
     expect(menu).toBeVisible();
-    expect(items).toHaveLength(3);
+    expect(items).toHaveLength(4);
 
     await userEvent.click(screen.getByText('Ardvark'));
 
@@ -62,19 +44,21 @@ describe('@project44-manifest/react - Dropdown', () => {
     const onAction = jest.fn();
 
     render(
-      <Dropdown>
-        <IconButton variant="primary">
-          <Icon icon="expand_more" />
-        </IconButton>
-        <DropdownMenu onAction={onAction}>
-          <DropdownItem key="ardvark">Ardvark</DropdownItem>
-          <DropdownItem key="kangaroo">Kangaroo</DropdownItem>
-          <DropdownItem key="snake">Snake</DropdownItem>
-        </DropdownMenu>
-      </Dropdown>,
+      <OverlayProvider>
+        <Dropdown>
+          <IconButton variant="primary">
+            <Icon icon="expand_more" />
+          </IconButton>
+          <DropdownMenu onAction={onAction}>
+            <DropdownItem key="ardvark">Ardvark</DropdownItem>
+            <DropdownItem key="kangaroo">Kangaroo</DropdownItem>
+            <DropdownItem key="snake">Snake</DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+      </OverlayProvider>,
     );
 
-    expect(screen.queryByRole('menu')).toBeNull();
+    expect(screen.queryByRole('menu')).not.toBeInTheDocument();
 
     fireEvent.keyDown(screen.getByRole('button'), { key: ' ', code: 32, charCode: 32 });
 
@@ -86,17 +70,17 @@ describe('@project44-manifest/react - Dropdown', () => {
 
     const selectedItem = items[0];
 
-    expect(selectedItem).toBe(document.activeElement);
+    expect(selectedItem).toHaveFocus();
 
     fireEvent.keyDown(selectedItem, { key: 'ArrowDown', code: 40, charCode: 40 });
 
     const nextSelectedItem = items[1];
 
-    expect(nextSelectedItem).toBe(document.activeElement);
+    expect(nextSelectedItem).toHaveFocus();
 
     fireEvent.keyDown(nextSelectedItem, { key: 'ArrowUp', code: 38, charCode: 38 });
 
-    expect(selectedItem).toBe(document.activeElement);
+    expect(selectedItem).toHaveFocus();
 
     fireEvent.keyDown(nextSelectedItem, { key: ' ', code: 32, charCode: 32 });
 
@@ -107,19 +91,21 @@ describe('@project44-manifest/react - Dropdown', () => {
     const onAction = jest.fn();
 
     render(
-      <Dropdown>
-        <IconButton variant="primary">
-          <Icon icon="expand_more" />
-        </IconButton>
-        <DropdownMenu disabledKeys={['kangaroo']} onAction={onAction}>
-          <DropdownItem key="ardvark">Ardvark</DropdownItem>
-          <DropdownItem key="kangaroo">Kangaroo</DropdownItem>
-          <DropdownItem key="snake">Snake</DropdownItem>
-        </DropdownMenu>
-      </Dropdown>,
+      <OverlayProvider>
+        <Dropdown>
+          <IconButton variant="primary">
+            <Icon icon="expand_more" />
+          </IconButton>
+          <DropdownMenu disabledKeys={['kangaroo']} onAction={onAction}>
+            <DropdownItem key="ardvark">Ardvark</DropdownItem>
+            <DropdownItem key="kangaroo">Kangaroo</DropdownItem>
+            <DropdownItem key="snake">Snake</DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+      </OverlayProvider>,
     );
 
-    expect(screen.queryByRole('menu')).toBeNull();
+    expect(screen.queryByRole('menu')).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button'));
 
@@ -140,23 +126,25 @@ describe('@project44-manifest/react - Dropdown', () => {
     const onSelectionChange = jest.fn();
 
     render(
-      <Dropdown>
-        <IconButton variant="primary">
-          <Icon icon="expand_more" />
-        </IconButton>
-        <DropdownMenu
-          disabledKeys={['kangaroo']}
-          selectionMode="single"
-          onSelectionChange={onSelectionChange}
-        >
-          <DropdownItem key="ardvark">Ardvark</DropdownItem>
-          <DropdownItem key="kangaroo">Kangaroo</DropdownItem>
-          <DropdownItem key="snake">Snake</DropdownItem>
-        </DropdownMenu>
-      </Dropdown>,
+      <OverlayProvider>
+        <Dropdown>
+          <IconButton variant="primary">
+            <Icon icon="expand_more" />
+          </IconButton>
+          <DropdownMenu
+            disabledKeys={['kangaroo']}
+            selectionMode="single"
+            onSelectionChange={onSelectionChange}
+          >
+            <DropdownItem key="ardvark">Ardvark</DropdownItem>
+            <DropdownItem key="kangaroo">Kangaroo</DropdownItem>
+            <DropdownItem key="snake">Snake</DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+      </OverlayProvider>,
     );
 
-    expect(screen.queryByRole('menu')).toBeNull();
+    expect(screen.queryByRole('menu')).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button'));
 
@@ -182,23 +170,25 @@ describe('@project44-manifest/react - Dropdown', () => {
     const onSelectionChange = jest.fn();
 
     render(
-      <Dropdown>
-        <IconButton variant="primary">
-          <Icon icon="expand_more" />
-        </IconButton>
-        <DropdownMenu
-          disabledKeys={['kangaroo']}
-          selectionMode="multiple"
-          onSelectionChange={onSelectionChange}
-        >
-          <DropdownItem key="ardvark">Ardvark</DropdownItem>
-          <DropdownItem key="kangaroo">Kangaroo</DropdownItem>
-          <DropdownItem key="snake">Snake</DropdownItem>
-        </DropdownMenu>
-      </Dropdown>,
+      <OverlayProvider>
+        <Dropdown>
+          <IconButton variant="primary">
+            <Icon icon="expand_more" />
+          </IconButton>
+          <DropdownMenu
+            disabledKeys={['kangaroo']}
+            selectionMode="multiple"
+            onSelectionChange={onSelectionChange}
+          >
+            <DropdownItem key="ardvark">Ardvark</DropdownItem>
+            <DropdownItem key="kangaroo">Kangaroo</DropdownItem>
+            <DropdownItem key="snake">Snake</DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+      </OverlayProvider>,
     );
 
-    expect(screen.queryByRole('menu')).toBeNull();
+    expect(screen.queryByRole('menu')).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button'));
 

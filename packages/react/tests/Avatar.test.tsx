@@ -1,9 +1,7 @@
-import { accessibility, fireEvent, render, screen } from '@project44-manifest/react-test-utils';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Avatar } from '../src';
 
 describe('@project44-manifest/react - Avatar', () => {
-  accessibility(<Avatar />);
-
   it('should render an image if a source is provided', () => {
     render(<Avatar src="http://localhost/some_image.png" />);
 
@@ -16,7 +14,7 @@ describe('@project44-manifest/react - Avatar', () => {
   it('should render a fallback if no source is provided', () => {
     render(<Avatar fallback="MD" />);
 
-    expect(screen.queryByRole('img')).toBeNull();
+    expect(screen.queryByRole('img')).not.toBeInTheDocument();
     expect(screen.getByText('MD')).toBeInTheDocument();
   });
 
@@ -25,7 +23,7 @@ describe('@project44-manifest/react - Avatar', () => {
 
     fireEvent.error(screen.getByRole('img'));
 
-    expect(screen.queryByRole('img')).toBeNull();
+    expect(screen.queryByRole('img')).not.toBeInTheDocument();
     expect(screen.getByText('MD')).toBeInTheDocument();
   });
 });

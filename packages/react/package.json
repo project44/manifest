@@ -29,22 +29,16 @@
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {
-    "build": "packemon build --addEngines --declaration --declarationConfig tsconfig.build.json",
-    "clean": "rimraf .turbo && packemon clean",
-    "dev": "packemon watch",
-    "typecheck": "tsc --noEmit"
-  },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0"
   },
   "dependencies": {
     "@internationalized/date": "^3.0.0",
-    "@project44-manifest/react-button": "*",
-    "@project44-manifest/react-styles": "*",
-    "@project44-manifest/react-tooltip": "*",
-    "@project44-manifest/system": "*",
+    "@project44-manifest/react-button": "^1.0.1",
+    "@project44-manifest/react-styles": "^1.0.1",
+    "@project44-manifest/react-tooltip": "^1.0.1",
+    "@project44-manifest/system": "^0.1.5",
     "@radix-ui/react-slot": "^1.0.0",
     "@react-aria/button": "^3.5.1",
     "@react-aria/calendar": "^3.0.0",
@@ -88,13 +82,23 @@
     "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
-    "@project44-manifest/react-test-utils": "*",
     "@types/react-transition-group": "^4.4.5",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "tsconfig-manifest": "*"
+    "react-dom": "^18.1.0"
   },
   "packemon": {
     "platform": "browser"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dts/index.d.ts",
+      "browser": {
+        "module": "./esm/index.js",
+        "import": "./esm/index.js",
+        "default": "./lib/index.js"
+      },
+      "default": "./lib/index.js"
+    }
   }
 }

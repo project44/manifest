@@ -1,6 +1,15 @@
 {
-  "extends": "tsconfig-manifest/tsconfig.library.json",
+  "extends": "../../tsconfig.options.json",
+  "compilerOptions": {
+    "outDir": "../../.moon/cache/types/packages/utils"
+  },
   "include": [
-    "**/*"
+    "src/**/*",
+    "tests/**/*"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.build.json"
+    }
   ]
 }

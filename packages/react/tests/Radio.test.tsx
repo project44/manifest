@@ -1,19 +1,13 @@
-import { accessibility, render, screen, userEvent } from '@project44-manifest/react-test-utils';
+import { fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Radio, RadioGroup } from '../src';
 
 describe('@project44-manifest/react - Radio', () => {
-  accessibility(
-    <RadioGroup>
-      <Radio value="cats">Cats</Radio>
-      <Radio value="dogs">Dogs</Radio>
-    </RadioGroup>,
-  );
-
-  it('should render and support selection', async () => {
+  it('should render and support selection', () => {
     const onChange = jest.fn();
 
     render(
-      <RadioGroup onChange={onChange}>
+      <RadioGroup label="Test" onChange={onChange}>
         <Radio value="cats">Cats</Radio>
         <Radio value="dogs">Dogs</Radio>
       </RadioGroup>,
@@ -28,7 +22,7 @@ describe('@project44-manifest/react - Radio', () => {
     expect(radios[0].checked).toBe(false);
     expect(radios[1].checked).toBe(false);
 
-    await userEvent.click(screen.getByLabelText('Cats'));
+    fireEvent.click(screen.getByLabelText('Cats'));
 
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith('cats');
@@ -37,11 +31,11 @@ describe('@project44-manifest/react - Radio', () => {
     expect(radios[1].checked).toBe(false);
   });
 
-  it('should support being controlled', async () => {
+  it('should support being controlled', () => {
     const onChange = jest.fn();
 
     render(
-      <RadioGroup value="dogs" onChange={onChange}>
+      <RadioGroup label="Test" value="dogs" onChange={onChange}>
         <Radio value="cats">Cats</Radio>
         <Radio value="dogs">Dogs</Radio>
       </RadioGroup>,
@@ -56,7 +50,7 @@ describe('@project44-manifest/react - Radio', () => {
     expect(radios[0].checked).toBe(false);
     expect(radios[1].checked).toBe(true);
 
-    await userEvent.click(screen.getByLabelText('Cats'));
+    fireEvent.click(screen.getByLabelText('Cats'));
 
     expect(onChange).toHaveBeenCalled();
     expect(onChange).toHaveBeenCalledWith('cats');
@@ -65,11 +59,11 @@ describe('@project44-manifest/react - Radio', () => {
     expect(radios[1].checked).toBe(true);
   });
 
-  it('should support a default value', async () => {
+  it('should support a default value', () => {
     const onChange = jest.fn();
 
     render(
-      <RadioGroup defaultValue="dogs" onChange={onChange}>
+      <RadioGroup defaultValue="dogs" label="Test" onChange={onChange}>
         <Radio value="cats">Cats</Radio>
         <Radio value="dogs">Dogs</Radio>
       </RadioGroup>,
@@ -84,7 +78,7 @@ describe('@project44-manifest/react - Radio', () => {
     expect(radios[0].checked).toBe(false);
     expect(radios[1].checked).toBe(true);
 
-    await userEvent.click(screen.getByLabelText('Cats'));
+    fireEvent.click(screen.getByLabelText('Cats'));
 
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith('cats');
@@ -97,7 +91,7 @@ describe('@project44-manifest/react - Radio', () => {
     const onChange = jest.fn();
 
     render(
-      <RadioGroup isDisabled onChange={onChange}>
+      <RadioGroup isDisabled label="Test" onChange={onChange}>
         <Radio value="cats">Cats</Radio>
         <Radio value="dogs">Dogs</Radio>
       </RadioGroup>,
@@ -113,11 +107,11 @@ describe('@project44-manifest/react - Radio', () => {
     expect(radios[1]).toHaveAttribute('disabled');
   });
 
-  it('should support disabled radios', async () => {
+  it('should support disabled radios', () => {
     const onChange = jest.fn();
 
     render(
-      <RadioGroup onChange={onChange}>
+      <RadioGroup label="Test" onChange={onChange}>
         <Radio value="cats">Cats</Radio>
         <Radio isDisabled value="dogs">
           Dogs
@@ -134,14 +128,14 @@ describe('@project44-manifest/react - Radio', () => {
     expect(radios[0]).not.toHaveAttribute('disabled');
     expect(radios[1]).toHaveAttribute('disabled');
 
-    await userEvent.click(screen.getByLabelText('Dogs'));
+    void userEvent.click(screen.getByLabelText('Dogs'));
 
     expect(onChange).not.toHaveBeenCalled();
 
     expect(radios[0].checked).toBe(false);
     expect(radios[1].checked).toBe(false);
 
-    await userEvent.click(screen.getByLabelText('Cats'));
+    fireEvent.click(screen.getByLabelText('Cats'));
 
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith('cats');

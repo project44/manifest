@@ -1,12 +1,6 @@
+import { OverlayProvider } from '@react-aria/overlays';
 import { CalendarDate, endOfMonth, startOfMonth } from '@internationalized/date';
-import {
-  accessibility,
-  fireEvent,
-  render,
-  screen,
-  userEvent,
-  waitFor,
-} from '@project44-manifest/react-test-utils';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import { DateRangePicker } from '../src';
 import { DefinedRange } from '../src/components/CalendarRanges';
 import {
@@ -69,19 +63,33 @@ describe('@project44-manifest/components - DateRangePicker', () => {
         },
       },
     ];
+
+    jest.useFakeTimers();
   });
 
-  accessibility(<DateRangePicker isOpen aria-label="Calendar" />);
+  afterEach(() => {
+    jest.clearAllMocks();
 
-  it('should support selecting a date', async () => {
+    act(() => {
+      jest.runAllTimers();
+    });
+  });
+
+  afterAll(() => {
+    jest.restoreAllMocks();
+  });
+
+  it('should support selecting a date', () => {
     const onChange = jest.fn();
 
     render(
-      <DateRangePicker
-        aria-label="Calendar"
-        defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-        onChange={onChange}
-      />,
+      <OverlayProvider>
+        <DateRangePicker
+          aria-label="Calendar"
+          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+          onChange={onChange}
+        />
+      </OverlayProvider>,
     );
 
     expect(screen.getByText('7 / 2 / 2022 - 7 / 12 / 2022')).toBeVisible();
@@ -103,10 +111,11 @@ describe('@project44-manifest/components - DateRangePicker', () => {
     fireEvent.click(screen.getByLabelText('Sunday, July 3, 2022 selected'));
     fireEvent.click(screen.getByLabelText('Sunday, July 17, 2022'));
 
-    await waitFor(() => {
-      expect(dialog).not.toBeInTheDocument();
+    act(() => {
+      jest.runAllTimers();
     });
 
+    expect(dialog).not.toBeInTheDocument();
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith({
       start: new CalendarDate(2022, 7, 3),
@@ -114,15 +123,17 @@ describe('@project44-manifest/components - DateRangePicker', () => {
     });
   });
 
-  it('should support being controlled', async () => {
+  it('should support being controlled', () => {
     const onChange = jest.fn();
 
     render(
-      <DateRangePicker
-        aria-label="Calendar"
-        value={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-        onChange={onChange}
-      />,
+      <OverlayProvider>
+        <DateRangePicker
+          aria-label="Calendar"
+          value={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+          onChange={onChange}
+        />
+      </OverlayProvider>,
     );
 
     expect(screen.getByText('7 / 2 / 2022 - 7 / 12 / 2022')).toBeVisible();
@@ -144,9 +155,11 @@ describe('@project44-manifest/components - DateRangePicker', () => {
     fireEvent.click(screen.getByLabelText('Sunday, July 3, 2022 selected'));
     fireEvent.click(screen.getByLabelText('Sunday, July 17, 2022'));
 
-    await waitFor(() => {
-      expect(dialog).not.toBeInTheDocument();
+    act(() => {
+      jest.runAllTimers();
     });
+
+    expect(dialog).not.toBeInTheDocument();
 
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith({
@@ -155,12 +168,14 @@ describe('@project44-manifest/components - DateRangePicker', () => {
     });
   });
 
-  it('should close datepicker when outside click is register', async () => {
+  it('should close datepicker when outside click is register', () => {
     render(
-      <DateRangePicker
-        aria-label="Calendar"
-        defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-      />,
+      <OverlayProvider>
+        <DateRangePicker
+          aria-label="Calendar"
+          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+        />
+      </OverlayProvider>,
     );
 
     fireEvent.click(screen.getByRole('button'));
@@ -169,24 +184,30 @@ describe('@project44-manifest/components - DateRangePicker', () => {
 
     expect(dialog).toBeInTheDocument();
 
-    await userEvent.click(document.body);
+    fireEvent.mouseDown(document.body);
+    fireEvent.mouseUp(document.body);
+    fireEvent.click(document.body);
 
-    await waitFor(() => {
-      expect(dialog).not.toBeInTheDocument();
+    act(() => {
+      jest.runAllTimers();
     });
+
+    expect(dialog).not.toBeInTheDocument();
   });
 
-  it('should support selecting a relative date', async () => {
+  it('should support selecting a relative date', () => {
     const onChange = jest.fn();
 
     render(
-      <DateRangePicker
-        showCalendar
-        showRanges
-        aria-label="Calendar"
-        defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-        onChange={onChange}
-      />,
+      <OverlayProvider>
+        <DateRangePicker
+          showCalendar
+          showRanges
+          aria-label="Calendar"
+          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+          onChange={onChange}
+        />
+      </OverlayProvider>,
     );
 
     expect(screen.getByText('7 / 2 / 2022 - 7 / 12 / 2022')).toBeVisible();
@@ -197,27 +218,30 @@ describe('@project44-manifest/components - DateRangePicker', () => {
 
     expect(dialog).toBeInTheDocument();
 
-    fireEvent.click(await screen.findByText('Yesterday'));
+    fireEvent.click(screen.getByText('Yesterday'));
 
-    await waitFor(() => {
-      expect(dialog).not.toBeInTheDocument();
+    act(() => {
+      jest.runAllTimers();
     });
 
+    expect(dialog).not.toBeInTheDocument();
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 
-  it('should support selecting a custom relative date', async () => {
+  it('should support selecting a custom relative date', () => {
     const onChange = jest.fn();
     const chosenRange = customRanges[customRanges.length - 1];
 
     render(
-      <DateRangePicker
-        showRanges
-        aria-label="Calendar"
-        defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
-        ranges={customRanges}
-        onChange={onChange}
-      />,
+      <OverlayProvider>
+        <DateRangePicker
+          showRanges
+          aria-label="Calendar"
+          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+          ranges={customRanges}
+          onChange={onChange}
+        />
+      </OverlayProvider>,
     );
 
     expect(screen.getByText('7 / 2 / 2022 - 7 / 12 / 2022')).toBeVisible();
@@ -228,12 +252,13 @@ describe('@project44-manifest/components - DateRangePicker', () => {
 
     expect(dialog).toBeInTheDocument();
 
-    fireEvent.click(await screen.findByText('Last Two Years'));
+    fireEvent.click(screen.getByText('Last Two Years'));
 
-    await waitFor(() => {
-      expect(dialog).not.toBeInTheDocument();
+    act(() => {
+      jest.runAllTimers();
     });
 
+    expect(dialog).not.toBeInTheDocument();
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith({
       start: chosenRange?.value.start,

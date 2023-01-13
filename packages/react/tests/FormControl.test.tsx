@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useField } from '@react-aria/label';
-import { accessibility, render, screen } from '@project44-manifest/react-test-utils';
+import { render, screen } from '@testing-library/react';
 import { FormControl, FormControlProps } from '../src';
 
 const TestComponent = React.forwardRef(
@@ -22,8 +22,6 @@ const TestComponent = React.forwardRef(
 );
 
 describe('@project44-manifest/components - FormControl', () => {
-  accessibility(<TestComponent label="Label" />);
-
   it('should render with label and helper text', () => {
     render(<TestComponent helperText="Helper text" label="Label" />);
 

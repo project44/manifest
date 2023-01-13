@@ -27,40 +27,43 @@ For usage guidelines and full documentation please visit our
 
 > Please refer the individual packages READMEs for installation and usage instructions.
 
-Manifest uses [Turborepo](https://turbo.build/repo) as it's build system and
-[Yarn](https://classic.yarnpkg.com/en/docs/workspaces/) for dependency management.
+### Install Moonrepo
 
-To install all the dependencies run the following command:
+Manifest uses [Moonrepo](https://moonrepo.dev) as it's build system and repo management tool. We
+suggest installing moon globally with npm:
 
 ```sh
-yarn install
+npm install -g @moonrepo/cli
 ```
 
-Once all the packages are installed, you'll need to compile the source code. Building the code
-ensures that workspaces that reference other workspaces use the correct source code, preventing
-errors in our linter and [TypeScript](https://www.typescriptlang.org/) compiler.
+### Install dependencies and setup workspaces
 
 ```sh
-yarn build
+yarn && yarn setup
 ```
 
-Now you're all set! Here are some other common commands that you may find useful:
+### Run a command
 
-| Command          | Purpose                                                              |
-| ---------------- | -------------------------------------------------------------------- |
-| `yarn build`     | Builds all the packages, tools and apps in the repo.                 |
-| `yarn clean`     | Removes build assets and caches.                                     |
-| `yarn coverage`  | Generate test coverage reports for each package.                     |
-| `yarn dev`       | Runs development servers and watch for code changes within packages. |
-| `yarn format`    | Check code formatting.                                               |
-| `yarn lint`      | Run linting.                                                         |
-| `yarn test`      | Run unit tests.                                                      |
-| `yarn typecheck` | Validate TypeScript types.                                           |
+Moonrepo includes a builtin [toolchain](https://moonrepo.dev/docs/concepts/toolchain) which will
+install and dedupe yarn dependencies automatically. This means that you shoudn't need to run any
+install scripts before running commands via moonrepo.
 
-To run a command for a single workspace use the `--filter` tag provided by turbo.
+Once `moonrepo` is installed, the following commands are available:
+
+| Command               | Purpose                    |
+| --------------------- | -------------------------- |
+| `moon check --all`    | Runs all tasks             |
+| `moon run :build`     | Builds all projects.       |
+| `moon run :format`    | Format all projects.       |
+| `moon run :lint`      | Lints all projects.        |
+| `moon run :test`      | Runs test in all projects. |
+| `moon run :typecheck` | Type checks all projects.  |
+
+Tasks can all be run on individual projects, a list of projects can be found in
+`.moon/workspace.yml`.
 
 ```sh
-yarn turbo run <command> --filter=<workspace_name>
+moon run <project>:<task>
 ```
 
 ## Contributing

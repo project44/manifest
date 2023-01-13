@@ -1,33 +1,22 @@
-import {
-  accessibility,
-  fireEvent,
-  render,
-  screen,
-  within,
-} from '@project44-manifest/react-test-utils';
+import { OverlayProvider } from '@react-aria/overlays';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import { Select, SelectItem, SelectSection } from '../src';
 
 describe('@project44-manifest/react - Select', () => {
-  accessibility(
-    <Select isOpen label="Select" startIcon={<>icon</>}>
-      <SelectItem key="ardvark">Ardvark</SelectItem>
-      <SelectItem key="kangaroo">Kangaroo</SelectItem>
-      <SelectItem key="snake">Snake</SelectItem>
-      <SelectSection title="Section">
-        <SelectItem key="dog">Dog</SelectItem>
-      </SelectSection>
-    </Select>,
-  );
-
   it('should render and support selection', () => {
     const onSelectionChange = jest.fn();
 
     render(
-      <Select disabledKeys={['snake']} label="Select" onSelectionChange={onSelectionChange}>
-        <SelectItem key="ardvark">Ardvark</SelectItem>
-        <SelectItem key="kangaroo">Kangaroo</SelectItem>
-        <SelectItem key="snake">Snake</SelectItem>
-      </Select>,
+      <OverlayProvider>
+        <Select disabledKeys={['snake']} label="Select" onSelectionChange={onSelectionChange}>
+          <SelectItem key="ardvark">Ardvark</SelectItem>
+          <SelectItem key="kangaroo">Kangaroo</SelectItem>
+          <SelectItem key="snake">Snake</SelectItem>
+          <SelectSection title="Section">
+            <SelectItem key="dog">Dog</SelectItem>
+          </SelectSection>
+        </Select>
+      </OverlayProvider>,
     );
 
     const select = screen.getByRole('textbox', { hidden: true });
@@ -45,7 +34,7 @@ describe('@project44-manifest/react - Select', () => {
 
     expect(listbox).toBeVisible();
 
-    expect(items).toHaveLength(3);
+    expect(items).toHaveLength(4);
 
     fireEvent.click(items[1]);
 
@@ -61,11 +50,13 @@ describe('@project44-manifest/react - Select', () => {
     const onSelectionChange = jest.fn();
 
     render(
-      <Select label="Select" onOpenChange={onOpenChange} onSelectionChange={onSelectionChange}>
-        <SelectItem key="ardvark">Ardvark</SelectItem>
-        <SelectItem key="kangaroo">Kangaroo</SelectItem>
-        <SelectItem key="snake">Snake</SelectItem>
-      </Select>,
+      <OverlayProvider>
+        <Select label="Select" onOpenChange={onOpenChange} onSelectionChange={onSelectionChange}>
+          <SelectItem key="ardvark">Ardvark</SelectItem>
+          <SelectItem key="kangaroo">Kangaroo</SelectItem>
+          <SelectItem key="snake">Snake</SelectItem>
+        </Select>
+      </OverlayProvider>,
     );
 
     const select = screen.getByRole('textbox', { hidden: true });

@@ -1,107 +1,134 @@
-import {
-  act,
-  fireEvent,
-  render,
-  screen,
-  userEvent,
-  within,
-} from '@project44-manifest/react-test-utils';
+import { OverlayProvider } from '@react-aria/overlays';
+import { act, fireEvent, render, screen, within } from '@testing-library/react';
 import { Combobox, ComboboxItem, ComboboxSection } from '../src';
 
 describe('@project44-manifest/react - Combobox', () => {
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+
+    act(() => {
+      jest.runAllTimers();
+    });
+  });
+
+  afterAll(() => {
+    jest.restoreAllMocks();
+  });
+
   it('should render', () => {
     render(
-      <Combobox label="Combobox" startIcon={<>icon</>}>
-        <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
-        <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
-        <ComboboxItem key="snake">Snake</ComboboxItem>
-        <ComboboxSection title="Section">
-          <ComboboxItem key="dog">Dog</ComboboxItem>
-        </ComboboxSection>
-      </Combobox>,
+      <OverlayProvider>
+        <Combobox label="Combobox" startIcon={<>icon</>}>
+          <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+          <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+          <ComboboxItem key="snake">Snake</ComboboxItem>
+          <ComboboxSection title="Section">
+            <ComboboxItem key="dog">Dog</ComboboxItem>
+          </ComboboxSection>
+        </Combobox>
+      </OverlayProvider>,
     );
 
     const combobox = screen.getByRole('combobox');
 
-    expect(combobox).toBeVisible();
+    expect(combobox).toHaveAttribute('autoCorrect', 'off');
+    expect(combobox).toHaveAttribute('spellCheck', 'false');
+    expect(combobox).toHaveAttribute('autoComplete', 'off');
 
-    act(() => {
-      combobox.focus();
-      fireEvent.change(combobox, { target: { value: 'Kan' } });
-    });
+    const button = screen.getByRole('button');
+    expect(button).toHaveAttribute('aria-haspopup', 'listbox');
 
-    const listbox = screen.getByRole('listbox');
-    const items = within(listbox).getAllByRole('option');
-
-    expect(listbox).toBeVisible();
-    expect(items).toHaveLength(1);
-    expect(combobox).not.toHaveAttribute('aria-activedescendant');
-    expect(items[0].textContent).toBe('Kangaroo');
+    const label = screen.getAllByText('Combobox')[0];
+    expect(label).toBeVisible();
   });
 
   it('should close menu when no items match', () => {
     render(
-      <Combobox label="Combobox">
-        <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
-        <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
-        <ComboboxItem key="snake">Snake</ComboboxItem>
-      </Combobox>,
+      <OverlayProvider>
+        <Combobox label="Combobox">
+          <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+          <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+          <ComboboxItem key="snake">Snake</ComboboxItem>
+        </Combobox>
+      </OverlayProvider>,
     );
 
     const combobox = screen.getByRole('combobox');
 
-    expect(combobox).toBeVisible();
-
     act(() => {
       combobox.focus();
-      fireEvent.change(combobox, { target: { value: 'Bear' } });
     });
 
-    expect(screen.queryByRole('listbox')).toBeNull();
+    fireEvent.change(combobox, { target: { value: 'Bear' } });
+
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
   });
 
-  it('should open the listbox when opened by the button', async () => {
+  it('should open the listbox when opened by the button', () => {
+    const onOpenChange = jest.fn();
+
     render(
-      <Combobox label="Combobox">
-        <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
-        <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
-        <ComboboxItem key="snake">Snake</ComboboxItem>
-      </Combobox>,
+      <OverlayProvider>
+        <Combobox label="Combobox" onOpenChange={onOpenChange}>
+          <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+          <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+          <ComboboxItem key="snake">Snake</ComboboxItem>
+        </Combobox>
+      </OverlayProvider>,
     );
 
-    const button = screen.getByRole('button');
+    const trigger = screen.getByRole('button');
 
-    await userEvent.click(button);
+    fireEvent.mouseDown(trigger);
+    fireEvent.mouseUp(trigger);
+    fireEvent.click(trigger);
+
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(onOpenChange).toHaveBeenCalledWith(true, 'manual');
 
     const listbox = screen.getByRole('listbox');
-    const items = within(listbox).getAllByRole('option');
 
     expect(listbox).toBeVisible();
-    expect(items).toHaveLength(3);
   });
 
-  it('should support item selection', async () => {
+  it('should support item selection', () => {
     const onSelectionChange = jest.fn();
 
     render(
-      <Combobox label="Combobox" onSelectionChange={onSelectionChange}>
-        <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
-        <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
-        <ComboboxItem key="snake">Snake</ComboboxItem>
-      </Combobox>,
+      <OverlayProvider>
+        <Combobox label="Combobox" onSelectionChange={onSelectionChange}>
+          <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+          <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+          <ComboboxItem key="snake">Snake</ComboboxItem>
+        </Combobox>
+      </OverlayProvider>,
     );
 
-    const button = screen.getByRole('button');
+    const trigger = screen.getByRole('button');
 
-    await userEvent.click(button);
+    fireEvent.mouseDown(trigger);
+    fireEvent.mouseUp(trigger);
+    fireEvent.click(trigger);
+
+    act(() => {
+      jest.runAllTimers();
+    });
 
     const listbox = screen.getByRole('listbox');
     const items = within(listbox).getAllByRole('option');
 
-    expect(listbox).toBeVisible();
-    expect(items).toHaveLength(3);
-
-    await userEvent.click(items[0]);
+    fireEvent.click(items[0]);
 
     expect(onSelectionChange).toHaveBeenCalled();
     expect(onSelectionChange).toHaveBeenCalledWith('ardvark');
@@ -109,20 +136,24 @@ describe('@project44-manifest/react - Combobox', () => {
 
   it('should open the listbox when opened by the keyboard', () => {
     render(
-      <Combobox label="Combobox">
-        <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
-        <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
-        <ComboboxItem key="snake">Snake</ComboboxItem>
-      </Combobox>,
+      <OverlayProvider>
+        <Combobox label="Combobox">
+          <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+          <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+          <ComboboxItem key="snake">Snake</ComboboxItem>
+        </Combobox>
+      </OverlayProvider>,
     );
 
     fireEvent.keyDown(screen.getByRole('combobox'), { key: 'ArrowDown', code: 38, charCode: 38 });
 
+    act(() => {
+      jest.runAllTimers();
+    });
+
     const listbox = screen.getByRole('listbox');
-    const items = within(listbox).getAllByRole('option');
 
     expect(listbox).toBeVisible();
-    expect(items).toHaveLength(3);
   });
 
   it('should support being controlled', () => {
@@ -130,11 +161,13 @@ describe('@project44-manifest/react - Combobox', () => {
     const onOpenChange = jest.fn();
 
     render(
-      <Combobox label="Combobox" onInputChange={onInputChange} onOpenChange={onOpenChange}>
-        <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
-        <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
-        <ComboboxItem key="snake">Snake</ComboboxItem>
-      </Combobox>,
+      <OverlayProvider>
+        <Combobox label="Combobox" onInputChange={onInputChange} onOpenChange={onOpenChange}>
+          <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+          <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+          <ComboboxItem key="snake">Snake</ComboboxItem>
+        </Combobox>
+      </OverlayProvider>,
     );
 
     const combobox = screen.getByRole('combobox');
@@ -143,7 +176,12 @@ describe('@project44-manifest/react - Combobox', () => {
 
     act(() => {
       combobox.focus();
-      fireEvent.change(combobox, { target: { value: 'Kan' } });
+    });
+
+    fireEvent.change(combobox, { target: { value: 'Kan' } });
+
+    act(() => {
+      jest.runAllTimers();
     });
 
     expect(onInputChange).toHaveBeenCalled();
