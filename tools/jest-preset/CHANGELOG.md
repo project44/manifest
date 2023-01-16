@@ -1,5 +1,14 @@
 # jest-preset-manifest
 
+## 1.0.1
+
+### Patch Changes
+
+- [#184](https://github.com/project44/manifest/pull/184)
+  [`8a11a54`](https://github.com/project44/manifest/commit/8a11a54f1643592c19d0546e7f923c9bac11ab51)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - [jest-preset-manifest] use babel instead of
+  swc for transform
+
 ## 1.0.0
 
 ### Major Changes
