@@ -39,18 +39,7 @@ const config = {
   testEnvironment: 'node',
   testMatch: ['**/tests/**/*.test.{js,jsx,ts,tsx}'],
   transform: {
-    '^.+\\.(js|jsx|ts|tsx)?$': [
-      '@swc/jest',
-      {
-        jsc: {
-          transform: {
-            react: {
-              runtime: 'automatic',
-            },
-          },
-        },
-      },
-    ],
+    '^.+\\.(js|jsx|ts|tsx)?$': ['babel-jest', { rootMode: 'upward' }],
   },
 };
 
