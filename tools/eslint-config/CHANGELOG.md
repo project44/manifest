@@ -1,5 +1,14 @@
 # eslint-config-manifest
 
+## 1.0.1
+
+### Patch Changes
+
+- [#186](https://github.com/project44/manifest/pull/186)
+  [`cfee346`](https://github.com/project44/manifest/commit/cfee346799f3d9d84f1f62cd145d90252f82f433)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - [eslint-config] disable no-default-export
+  for config files
+
 ## 1.0.0
 
 ### Major Changes
