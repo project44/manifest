@@ -96,6 +96,7 @@ const config: eslint.Linter.Config = {
       files: ['**/.*.{js,ts}', '**/*.config.{js,ts}'],
       rules: {
         'import/no-commonjs': 'off',
+        'import/no-default-export': 'off',
       },
     },
   ],
