@@ -195,14 +195,16 @@ When working with react components and packages, we have provided a
 [storybook](https://storybook.js.org/) development server to use for validation.
 
 ```sh
-moon run storybook:dev
+yarn storybook
 ```
 
-We also recommend validating and changes against the documentation site as well. Start the
-[next.js](https://nextjs.org/) powered documention development server:
+## Creating components
 
-```sh
-moon run docs:dev
+If you need to create a new component packages, we have provided a script that will bootstrap the
+new component package for you.
+
+```
+moon generate ./packages/<component-name>
 ```
 
 ## Testing
