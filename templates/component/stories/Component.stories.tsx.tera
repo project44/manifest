@@ -1,0 +1,16 @@
+{% set component_name = name | pascal_case %}
+
+---
+to: stories/{{ component_name }}.stories.tsx
+---
+
+import { {{ component_name }} } from '../src';
+
+export default {
+  title: 'Components/{{ component_name }}',
+  component: {{ component_name }},
+};
+
+export const Default = () => (
+  <{{ component_name }}>story</{{ component_name }}>
+);
