@@ -1,53 +1,59 @@
-import type { ComponentStory } from '@storybook/react';
+import { Stack } from '@project44-manifest/react-layout';
+import { StoryFn } from '@storybook/react';
 import { Button } from '../src';
 
 export default {
   title: 'Components/Button',
   component: Button,
+  decorators: [
+    (Story: StoryFn) => (
+      <Stack css={{ alignItems: 'center' }} gap="medium" orientation="horizontal">
+        <Story />
+      </Stack>
+    ),
+  ],
 };
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args}>Button</Button>;
+export const Variant = () => (
+  <>
+    <Button variant="primary">Primary</Button>
+    <Button variant="secondary">Secondary</Button>
+    <Button variant="tertiary">Tertiary</Button>
+    <Button variant="danger">Danger</Button>
+    <Button variant="brand">Brand</Button>
+  </>
+);
 
-export const Default = Template.bind({});
+export const Size = () => (
+  <>
+    <Button size="medium">Medium</Button>
+    <Button size="small">Small</Button>
+  </>
+);
 
-export const Primary = Template.bind({});
+export const Disabled = () => (
+  <>
+    <Button isDisabled variant="primary">
+      Primary
+    </Button>
+    <Button isDisabled variant="secondary">
+      Secondary
+    </Button>
+    <Button isDisabled variant="tertiary">
+      Tertiary
+    </Button>
+    <Button isDisabled variant="danger">
+      Danger
+    </Button>
+    <Button isDisabled variant="brand">
+      Brand
+    </Button>
+  </>
+);
 
-Primary.args = {
-  variant: 'primary',
-};
-
-export const Secondary = Template.bind({});
-
-Secondary.args = {
-  variant: 'secondary',
-};
-
-export const Tertiary = Template.bind({});
-
-Tertiary.args = {
-  variant: 'tertiary',
-};
-
-export const Danger = Template.bind({});
-
-Danger.args = {
-  variant: 'danger',
-};
-
-export const Brand = Template.bind({});
-
-Brand.args = {
-  variant: 'brand',
-};
-
-export const Medium = Template.bind({});
-
-Medium.args = {
-  size: 'medium',
-};
-
-export const Small = Template.bind({});
-
-Small.args = {
-  size: 'small',
-};
+export const Icon = () => (
+  <>
+    <Button startIcon={<i className="material-icons">add</i>}>Start Icon</Button>
+    <Button endIcon={<i className="material-icons">add</i>}>End Icon</Button>
+  </>
+);
