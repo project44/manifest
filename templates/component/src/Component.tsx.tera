@@ -1,0 +1,35 @@
+{% set component_name = name | pascal_case %}
+
+---
+to: src/{{ component_name }}.tsx
+---
+
+import * as React from 'react';
+import { cx } from '@project44-manifest/react-styles';
+import type { ForwardRefComponent } from '@project44-manifest/react-types';
+import { Styled{{ component_name }} } from './{{ component_name }}.styles';
+import type { {{ component_name }}Element, {{ component_name }}Props } from './{{ component_name }}.types';
+
+export const {{ component_name }} = React.forwardRef((props, forwardedRef) => {
+  const {
+    as,
+    children,
+    className: classNameProp,
+    css,
+    ...other
+  } = props;
+
+  const className = cx('manifest-{{ name | kebab_case }}', classNameProp);
+
+  return (
+    <Styled{{ component_name }}
+      {...other}
+      ref={forwardedRef}
+      as={as}
+      className={className}
+      css={css}
+    >
+    {children}
+    </Styled{{ component_name }}>
+  );
+}) as ForwardRefComponent<{{ component_name }}Element, {{ component_name }}Props>;

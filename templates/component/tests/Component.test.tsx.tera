@@ -1,0 +1,16 @@
+{% set component_name = name | pascal_case %}
+
+---
+to: tests/{{ component_name }}.stories.tsx
+---
+
+import { render, screen } from '@testing-library/react';
+import { {{ component_name }} } from '../src';
+
+describe('{{ component_name }}', () => {
+  it('should render', () => {
+    render(<{{ component_name }}>test</{{ component_name }}>);
+
+    expect(screen.getByText('test')).toBeDefined();
+  });
+});

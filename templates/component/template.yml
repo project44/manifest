@@ -1,0 +1,17 @@
+$schema: 'https://moonrepo.dev/schemas/template.json'
+
+title: 'Component'
+description: 'Creates a new component package.'
+variables:
+  name:
+    type: 'string'
+    default: ''
+    required: true
+    prompt:
+      'What is the component package name (do not include the package scope `@project44-manifest`)?'
+    variables:
+  description:
+    type: 'string'
+    default: ''
+    required: true
+    prompt: 'What is the component package description?'

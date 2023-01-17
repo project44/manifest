@@ -1,0 +1,11 @@
+{% set component_name = name | pascal_case %}
+
+---
+to: src/use{{ component_name }}.ts
+---
+
+import type { {{ component_name }}Props } from './{{ component_name }}.types';
+
+export function use{{ component_name }}(props: {{ component_name }}Props) {
+  return {};
+}

@@ -1,0 +1,25 @@
+{
+  "extends": "../../tsconfig.options.json",
+  "compilerOptions": {
+    "outDir": "../../.moon/cache/types/packages/{{ name | kebab_case }}"
+  },
+  "include": [
+    "src/**/*",
+    "stories/**/*",
+    "tests/**/*"
+  ],
+  "references": [
+    {
+      "path": "../react-styles"
+    },
+    {
+      "path": "../react-types"
+    },
+    {
+      "path": "../react-utils"
+    },
+    {
+      "path": "./tsconfig.build.json"
+    }
+  ]
+}

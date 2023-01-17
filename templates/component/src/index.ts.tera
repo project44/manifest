@@ -1,0 +1,5 @@
+{% set component_name = name | pascal_case %}
+
+export * from "./{{ component_name }}";
+export * from "./{{ component_name }}.types";
+export * from "./use{{ component_name }}";
