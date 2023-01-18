@@ -1,6 +1,6 @@
 {
   "name": "@project44-manifest/react",
-  "version": "2.6.9",
+  "version": "2.6.8",
   "description": "Manifest Design System react components",
   "license": "MIT",
   "author": "project44",
@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@internationalized/date": "^3.0.0",
-    "@project44-manifest/react-button": "^1.0.2",
+    "@project44-manifest/react-button": "^1.0.1",
     "@project44-manifest/react-styles": "^1.0.1",
     "@project44-manifest/react-tooltip": "^1.0.1",
     "@project44-manifest/system": "^0.1.5",
