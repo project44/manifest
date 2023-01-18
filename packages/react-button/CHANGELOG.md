@@ -1,5 +1,14 @@
 # @project44-manifest/react-button
 
+## 1.0.2
+
+### Patch Changes
+
+- [#191](https://github.com/project44/manifest/pull/191)
+  [`2009213`](https://github.com/project44/manifest/commit/200921302eef9e83441b7b2788224af158479dab)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Updating button and input focus styles to
+  match design specification
+
 ## 1.0.1
 
 ### Patch Changes
