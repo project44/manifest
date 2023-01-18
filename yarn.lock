@@ -3230,6 +3230,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@project44-manifest/icons@workspace:packages/icons":
+  version: 0.0.0-use.local
+  resolution: "@project44-manifest/icons@workspace:packages/icons"
+  languageName: unknown
+  linkType: soft
+
 "@project44-manifest/react-button@^1.0.2, @project44-manifest/react-button@workspace:packages/button":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-button@workspace:packages/button"

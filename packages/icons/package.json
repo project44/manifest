@@ -1,0 +1,34 @@
+{
+  "name": "@project44-manifest/icons",
+  "version": "0.0.0",
+  "description": "Manifest Design System icon library",
+  "license": "MIT",
+  "author": "project44",
+  "keywords": [
+    "manifest",
+    "design",
+    "system",
+    "icons"
+  ],
+  "sideEffects": false,
+  "main": "./lib/index.js",
+  "module": "./esm/index.js",
+  "types": "./dts/index.d.ts",
+  "files": [
+    "dts/**/*.d.ts",
+    "esm/**/*.{js,map}",
+    "lib/**/*.{js,map}",
+    "src/**/*.{ts,tsx,json}"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:project-44/manifest.git",
+    "directory": "packages/icons"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "packemon": {
+    "platform": "browser"
+  }
+}
