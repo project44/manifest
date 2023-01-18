@@ -3254,7 +3254,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-button@*, @project44-manifest/react-button@^1.0.1, @project44-manifest/react-button@workspace:packages/react-button":
+"@project44-manifest/react-button@*, @project44-manifest/react-button@^1.0.2, @project44-manifest/react-button@workspace:packages/react-button":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-button@workspace:packages/react-button"
   dependencies:
@@ -3393,7 +3393,7 @@ __metadata:
   resolution: "@project44-manifest/react@workspace:packages/react"
   dependencies:
     "@internationalized/date": ^3.0.0
-    "@project44-manifest/react-button": ^1.0.1
+    "@project44-manifest/react-button": ^1.0.2
     "@project44-manifest/react-styles": ^1.0.1
     "@project44-manifest/react-tooltip": ^1.0.1
     "@project44-manifest/system": ^0.1.5
