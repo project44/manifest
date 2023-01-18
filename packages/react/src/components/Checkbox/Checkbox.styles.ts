@@ -17,6 +17,7 @@ export const useStyles = css({
     borderRadius: '$small',
     color: '$palette-white',
     cursor: 'pointer',
+    position: 'relative',
     size: pxToRem(18),
   },
 
@@ -66,12 +67,22 @@ export const useStyles = css({
     isFocusVisible: {
       true: {
         '.manifest-checkbox__control': {
-          outline: '$colors$palette-indigo-200 solid 3px',
+          '&:after': {
+            backgroundColor: 'transparent',
+            border: '2px solid $colors$palette-indigo-200',
+            // TODO: replace with design token once its defined.
+            borderRadius: '4px',
+            bottom: '-6px',
+            content: '',
+            display: 'block',
+            left: '-6px',
+            position: 'absolute',
+            right: '-6px',
+            top: '-6px',
+          },
         },
       },
-      false: {
-        outline: 'none',
-      },
+      false: {},
     },
     isHovered: {
       true: {

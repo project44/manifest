@@ -110,12 +110,22 @@ export const useStyles = css({
     isFocusVisible: {
       true: {
         '.manifest-multi-combobox__wrapper': {
-          outline: '$colors$palette-indigo-200 solid 3px',
+          '&:after': {
+            backgroundColor: 'transparent',
+            border: '2px solid $colors$palette-indigo-200',
+            // TODO: replace with design token once its defined.s
+            borderRadius: '4px',
+            bottom: '-4px',
+            content: '',
+            display: 'block',
+            left: '-4px',
+            position: 'absolute',
+            right: '-4px',
+            top: '-4px',
+          },
         },
       },
-      false: {
-        outline: 'none',
-      },
+      false: {},
     },
     isHovered: {
       true: {

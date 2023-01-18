@@ -91,8 +91,20 @@ export const useStyles = css({
     },
     isFocusVisible: {
       true: {
-        '.manifest-textfield-base__input': {
-          boxShadow: '0 0 0 3px $colors$palette-indigo-200',
+        '.manifest-textfield-base__wrapper': {
+          '&:after': {
+            backgroundColor: 'transparent',
+            border: '2px solid $colors$palette-indigo-200',
+            // TODO: replace with design token once its defined.
+            borderRadius: '4px',
+            bottom: '-3px',
+            content: '',
+            display: 'block',
+            left: '-3px',
+            position: 'absolute',
+            right: '-3px',
+            top: '-3px',
+          },
         },
       },
       false: {

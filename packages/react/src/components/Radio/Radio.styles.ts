@@ -3,6 +3,7 @@ import { css, pxToRem } from '@project44-manifest/react-styles';
 export const useStyles = css({
   $$backgroundColor: '$colors$palette-white',
   $$borderColor: '$colors$palette-grey-500',
+  $$indicatorSize: pxToRem(14),
 
   alignItems: 'center',
   boxSizing: 'border-box',
@@ -20,7 +21,8 @@ export const useStyles = css({
     color: '$palette-white',
     display: 'inline-flex',
     justifyContent: 'center',
-    size: pxToRem(18),
+    position: 'relative',
+    size: pxToRem(20),
   },
 
   '.manifest-radio__indicator': {
@@ -35,7 +37,7 @@ export const useStyles = css({
       borderRadius: '$full',
       content: '""',
       display: 'block',
-      size: pxToRem(10),
+      size: '$$indicatorSize',
     },
   },
 
@@ -60,6 +62,7 @@ export const useStyles = css({
       true: {
         $$backgroundColor: '$colors$primary-default',
         $$borderColor: 'transparent',
+        $$indicatorSize: pxToRem(10),
       },
     },
     isDisabled: {
@@ -72,11 +75,19 @@ export const useStyles = css({
     isFocusVisible: {
       true: {
         '.manifest-radio__control': {
-          outline: '$colors$palette-indigo-200 solid 3px',
+          '&:after': {
+            backgroundColor: 'transparent',
+            border: '2px solid $colors$palette-indigo-200',
+            borderRadius: '$full',
+            bottom: '-7px',
+            content: '',
+            display: 'block',
+            left: '-7px',
+            position: 'absolute',
+            right: '-7px',
+            top: '-7px',
+          },
         },
-      },
-      false: {
-        outline: 'none',
       },
     },
     isHovered: {

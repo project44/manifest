@@ -71,11 +71,19 @@ export const useStyles = css({
     isFocusVisible: {
       true: {
         '.manifest-switch__control': {
-          outline: '$colors$palette-indigo-200 solid 3px',
+          '&:after': {
+            backgroundColor: 'transparent',
+            border: '2px solid $colors$palette-indigo-200',
+            borderRadius: '$full',
+            bottom: '-4px',
+            content: '',
+            display: 'block',
+            left: '-4px',
+            position: 'absolute',
+            right: '-4px',
+            top: '-4px',
+          },
         },
-      },
-      false: {
-        outline: 'none',
       },
     },
     isHovered: {

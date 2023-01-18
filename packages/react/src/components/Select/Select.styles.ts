@@ -87,13 +87,23 @@ export const useStyles = css({
     },
     isFocusVisible: {
       true: {
-        '.manifest-select__input': {
-          outline: '$colors$palette-indigo-200 solid 3px',
+        '.manifest-select__wrapper': {
+          '&:after': {
+            backgroundColor: 'transparent',
+            border: '2px solid $colors$palette-indigo-200',
+            // TODO: replace with design token once its defined.s
+            borderRadius: '4px',
+            bottom: '-3px',
+            content: '',
+            display: 'block',
+            left: '-3px',
+            position: 'absolute',
+            right: '-3px',
+            top: '-3px',
+          },
         },
       },
-      false: {
-        outline: 'none',
-      },
+      false: {},
     },
     isHovered: {
       true: {
