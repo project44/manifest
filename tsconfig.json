@@ -12,6 +12,12 @@
       "path": "packages/design-tokens"
     },
     {
+      "path": "packages/icon"
+    },
+    {
+      "path": "packages/icons"
+    },
+    {
       "path": "packages/jest-preset"
     },
     {

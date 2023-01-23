@@ -1,25 +1,10 @@
 {
   "extends": "../../tsconfig.options.json",
+  "include": [
+    "**/*"
+  ],
+  "references": [],
   "compilerOptions": {
     "outDir": "../../.moon/cache/types/packages/icons"
-  },
-  "include": [
-    "src/**/*",
-    "stories/**/*",
-    "tests/**/*"
-  ],
-  "references": [
-    {
-      "path": "../react-styles"
-    },
-    {
-      "path": "../react-types"
-    },
-    {
-      "path": "../react-utils"
-    },
-    {
-      "path": "./tsconfig.build.json"
-    }
-  ]
+  }
 }

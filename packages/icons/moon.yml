@@ -1,12 +1,16 @@
 type: 'library'
 
+workspace:
+  inheritedTasks:
+    exclude: ['build', 'format', 'lint', 'test', 'typecheck']
+
 tasks:
   build:
-    outputs:
-      - 'esm'
+    command: 'svgo'
+    args:
+      - '-f'
+      - 'src'
+      - '-o'
       - 'lib'
-
-dependsOn:
-  - 'react-styles'
-  - 'react-types'
-  - 'react-utils'
+    outputs:
+      - 'lib'
