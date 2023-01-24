@@ -1,1 +1,2 @@
-export * from './components/Provider';
+export * from './Provider';
+export * from './types';

@@ -1,11 +1,16 @@
 import * as React from 'react';
 import { useLocale } from '@react-aria/i18n';
 import { useModalProvider } from '@react-aria/overlays';
+import { StyledProvider } from './styles';
 import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
-import { StyledProvider } from './ProviderWrapper.styles';
-import type { ProviderWrapperElement, ProviderWrapperProps } from './ProviderWrapper.types';
+import type { ProviderElement, ProviderProps } from './types';
 
+/**
+ * Wrapper for the children within a provider, sets the user language and direction of the content.
+ *
+ * @private
+ */
 export const ProviderWrapper = React.forwardRef((props, forwardedRef) => {
   const { as, children, className: classNameProp, css, ...other } = props;
 
@@ -28,4 +33,4 @@ export const ProviderWrapper = React.forwardRef((props, forwardedRef) => {
       {children}
     </StyledProvider>
   );
-}) as ForwardRefComponent<ProviderWrapperElement, ProviderWrapperProps>;
+}) as ForwardRefComponent<ProviderElement, ProviderProps>;

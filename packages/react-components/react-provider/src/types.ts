@@ -1,8 +1,16 @@
-import { ProviderWrapperProps } from '../ProviderWrapper';
+import type { CSS } from '@project44-manifest/react-styles';
 
 export type ProviderElement = 'div';
 
-export interface ProviderProps extends ProviderWrapperProps {
+export interface ProviderProps {
+  /**
+   * Content to be wrapped by the provider.
+   */
+  children: React.ReactNode;
+  /**
+   * Theme aware style object
+   */
+  css?: CSS;
   /**
    * Whether to disable the baseline css.
    *

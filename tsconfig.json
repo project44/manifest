@@ -12,10 +12,16 @@
       "path": "packages/react-components/react-button"
     },
     {
+      "path": "packages/react-components/react-css-baseline"
+    },
+    {
       "path": "packages/react-components/react-layout"
     },
     {
       "path": "packages/react-components/react-popover"
+    },
+    {
+      "path": "packages/react-components/react-provider"
     },
     {
       "path": "packages/react-components/react-tooltip"

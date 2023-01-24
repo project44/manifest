@@ -1,1 +1,1 @@
-export * from './components/CSSBaseline';
+export * from './CSSBaseline';
