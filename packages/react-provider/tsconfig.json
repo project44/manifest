@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.options.json",
   "compilerOptions": {
-    "outDir": "../../.moon/cache/types/packages/react"
+    "outDir": "../../.moon/cache/types/packages/react-provider"
   },
   "include": [
     "src/**/*",
@@ -10,22 +10,13 @@
   ],
   "references": [
     {
-      "path": "../react-components/react-button"
-    },
-    {
       "path": "../react-css-baseline"
-    },
-    {
-      "path": "../react-provider"
     },
     {
       "path": "../react-styles"
     },
     {
-      "path": "../react-components/react-tooltip"
-    },
-    {
-      "path": "../system"
+      "path": "../react-types"
     },
     {
       "path": "./tsconfig.build.json"

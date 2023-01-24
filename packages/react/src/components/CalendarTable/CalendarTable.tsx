@@ -35,8 +35,12 @@ export function CalendarTable(props: CalendarTableProps) {
       <table {...gridProps} className="manifest-calendar-table__table">
         <thead className="manifest-calendar-table__head" {...headerProps}>
           <tr className="manifest-calendar-table__row">
-            {weekDays.map((weekday) => (
-              <th key={weekday} className="manifest-calendar-table__column" scope="col">
+            {weekDays.map((weekday, index) => (
+              <th
+                key={`column-${index.toString()}`}
+                className="manifest-calendar-table__column"
+                scope="col"
+              >
                 <Typography aria-hidden="true" variant="caption">
                   {weekday}
                 </Typography>
@@ -47,15 +51,20 @@ export function CalendarTable(props: CalendarTableProps) {
         <tbody className="manifest-calendar-table__body">
           {weeks.map((weekIndex) => (
             <tr key={weekIndex} className="manifest-calendar-table__row">
-              {state.getDatesInWeek(weekIndex, startDate).map((date, i) =>
-                date ? (
-                  // eslint-disable-next-line react/no-array-index-key
-                  <CalendarCell key={i} currentMonth={startDate} date={date} state={state} />
-                ) : (
-                  // eslint-disable-next-line react/no-array-index-key
-                  <td key={i} />
-                ),
-              )}
+              {state
+                .getDatesInWeek(weekIndex, startDate)
+                .map((date, index) =>
+                  date ? (
+                    <CalendarCell
+                      key={`cell-${index.toString()}`}
+                      currentMonth={startDate}
+                      date={date}
+                      state={state}
+                    />
+                  ) : (
+                    <td key={`cell-${index.toString()}`} />
+                  ),
+                )}
             </tr>
           ))}
         </tbody>

@@ -1,4 +1,4 @@
-import { Provider } from '@project44-manifest/react';
+import { Provider } from '@project44-manifest/react-provider';
 
 export const decorators = [
   (Story) => (
