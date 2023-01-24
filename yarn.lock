@@ -285,7 +285,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-simple-access@npm:^7.19.4, @babel/helper-simple-access@npm:^7.20.2":
+"@babel/helper-simple-access@npm:^7.20.2":
   version: 7.20.2
   resolution: "@babel/helper-simple-access@npm:7.20.2"
   dependencies:
@@ -1050,7 +1050,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-modules-commonjs@npm:^7.13.8":
+"@babel/plugin-transform-modules-commonjs@npm:^7.13.8, @babel/plugin-transform-modules-commonjs@npm:^7.19.6":
   version: 7.20.11
   resolution: "@babel/plugin-transform-modules-commonjs@npm:7.20.11"
   dependencies:
@@ -1060,19 +1060,6 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0-0
   checksum: ddd0623e2ad4b5c0faaa0ae30d3407a3fa484d911c968ed33cfb1b339ac3691321c959db60b66dc136dbd67770fff586f7e48a7ce0d7d357f92d6ef6fb7ed1a7
-  languageName: node
-  linkType: hard
-
-"@babel/plugin-transform-modules-commonjs@npm:^7.19.6":
-  version: 7.19.6
-  resolution: "@babel/plugin-transform-modules-commonjs@npm:7.19.6"
-  dependencies:
-    "@babel/helper-module-transforms": ^7.19.6
-    "@babel/helper-plugin-utils": ^7.19.0
-    "@babel/helper-simple-access": ^7.19.4
-  peerDependencies:
-    "@babel/core": ^7.0.0-0
-  checksum: 85d46945ab5ba3fff89e962d560a5d40253f228b9659a697683db3de07c0236e8cd60e5eb41958007359951a42bc268bf32350fcdb5b4a86f58dff1e032c096e
   languageName: node
   linkType: hard
 
@@ -3254,10 +3241,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-button@*, @project44-manifest/react-button@^1.0.2, @project44-manifest/react-button@workspace:packages/react-button":
+"@project44-manifest/react-button@^1.0.2, @project44-manifest/react-button@workspace:packages/react-components/react-button":
   version: 0.0.0-use.local
-  resolution: "@project44-manifest/react-button@workspace:packages/react-button"
+  resolution: "@project44-manifest/react-button@workspace:packages/react-components/react-button"
   dependencies:
+    "@project44-manifest/react-layout": ^1.0.1
     "@project44-manifest/react-styles": ^1.0.1
     "@project44-manifest/react-types": ^0.2.1
     "@project44-manifest/react-utils": ^0.2.3
@@ -3272,9 +3260,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-layout@*, @project44-manifest/react-layout@workspace:packages/react-layout":
+"@project44-manifest/react-layout@^1.0.1, @project44-manifest/react-layout@workspace:packages/react-components/react-layout":
   version: 0.0.0-use.local
-  resolution: "@project44-manifest/react-layout@workspace:packages/react-layout"
+  resolution: "@project44-manifest/react-layout@workspace:packages/react-components/react-layout"
   dependencies:
     "@project44-manifest/react-styles": ^1.0.1
     "@project44-manifest/react-types": ^0.2.1
@@ -3287,12 +3275,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-popover@workspace:packages/react-popover":
+"@project44-manifest/react-popover@workspace:packages/react-components/react-popover":
   version: 0.0.0-use.local
-  resolution: "@project44-manifest/react-popover@workspace:packages/react-popover"
+  resolution: "@project44-manifest/react-popover@workspace:packages/react-components/react-popover"
   dependencies:
-    "@project44-manifest/react-button": "*"
-    "@project44-manifest/react-layout": "*"
+    "@project44-manifest/react-button": ^1.0.2
+    "@project44-manifest/react-layout": ^1.0.1
     "@project44-manifest/react-styles": ^1.0.1
     "@project44-manifest/react-types": ^0.2.1
     "@project44-manifest/react-utils": ^0.2.3
@@ -3326,9 +3314,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-tooltip@^1.0.1, @project44-manifest/react-tooltip@workspace:packages/react-tooltip":
+"@project44-manifest/react-tooltip@^1.0.1, @project44-manifest/react-tooltip@workspace:packages/react-components/react-tooltip":
   version: 0.0.0-use.local
-  resolution: "@project44-manifest/react-tooltip@workspace:packages/react-tooltip"
+  resolution: "@project44-manifest/react-tooltip@workspace:packages/react-components/react-tooltip"
   dependencies:
     "@project44-manifest/react-styles": ^1.0.1
     "@project44-manifest/react-types": ^0.2.1
@@ -3358,9 +3346,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-typography@workspace:packages/react-typography":
+"@project44-manifest/react-typography@workspace:packages/react-components/react-typography":
   version: 0.0.0-use.local
-  resolution: "@project44-manifest/react-typography@workspace:packages/react-typography"
+  resolution: "@project44-manifest/react-typography@workspace:packages/react-components/react-typography"
   dependencies:
     "@project44-manifest/react-styles": ^1.0.1
     "@project44-manifest/react-types": ^0.2.1
@@ -5691,7 +5679,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/babel__core@npm:^7.0.0, @types/babel__core@npm:^7.1.20":
+"@types/babel__core@npm:^7.0.0, @types/babel__core@npm:^7.1.14, @types/babel__core@npm:^7.1.20":
   version: 7.1.20
   resolution: "@types/babel__core@npm:7.1.20"
   dependencies:
@@ -5701,19 +5689,6 @@ __metadata:
     "@types/babel__template": "*"
     "@types/babel__traverse": "*"
   checksum: a09c4f0456552547a5b8a5a009a3daec4d362f622168f8e08bda0ded2da0a65ab0b1642e23c433b3616721f5701dc34a996c5bde5baeaea53eda98f438043f2c
-  languageName: node
-  linkType: hard
-
-"@types/babel__core@npm:^7.1.14":
-  version: 7.1.19
-  resolution: "@types/babel__core@npm:7.1.19"
-  dependencies:
-    "@babel/parser": ^7.1.0
-    "@babel/types": ^7.0.0
-    "@types/babel__generator": "*"
-    "@types/babel__template": "*"
-    "@types/babel__traverse": "*"
-  checksum: 8c9fa87a1c2224cbec251683a58bebb0d74c497118034166aaa0491a4e2627998a6621fc71f8a60ffd27d9c0c52097defedf7637adc6618d0331c15adb302338
   languageName: node
   linkType: hard
 
@@ -6138,18 +6113,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*":
-  version: 18.0.17
-  resolution: "@types/react@npm:18.0.17"
-  dependencies:
-    "@types/prop-types": "*"
-    "@types/scheduler": "*"
-    csstype: ^3.0.2
-  checksum: 18cae64f5bfd6bb58fbd8ee2ba52ec82de844f114254e26de7b513e4b86621f643f9b71d7066958cd571b0d78cb86cbceda449c5289f9349ca573df29ab69252
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:>=16":
+"@types/react@npm:*, @types/react@npm:>=16":
   version: 18.0.26
   resolution: "@types/react@npm:18.0.26"
   dependencies:
@@ -14510,16 +14474,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.7.1":
-  version: 2.7.1
-  resolution: "prettier@npm:2.7.1"
-  bin:
-    prettier: bin-prettier.js
-  checksum: 55a4409182260866ab31284d929b3cb961e5fdb91fe0d2e099dac92eaecec890f36e524b4c19e6ceae839c99c6d7195817579cdffc8e2c80da0cb794463a748b
-  languageName: node
-  linkType: hard
-
-"prettier@npm:^2.8.0":
+"prettier@npm:^2.7.1, prettier@npm:^2.8.0":
   version: 2.8.3
   resolution: "prettier@npm:2.8.3"
   bin:

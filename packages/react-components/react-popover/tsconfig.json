@@ -1,13 +1,13 @@
 {
-  "extends": "../../tsconfig.options.json",
+  "extends": "../../../tsconfig.options.json",
   "compilerOptions": {
-    "outDir": "../../.moon/cache/types/packages/react-popover"
+    "outDir": "../../../.moon/cache/types/packages/react-components/react-popover"
   },
   "include": [
     "src/**/*",
     "stories/**/*",
     "tests/**/*",
-    "../../types/**/*"
+    "../../../types/**/*"
   ],
   "references": [
     {
@@ -17,13 +17,13 @@
       "path": "../react-layout"
     },
     {
-      "path": "../react-styles"
+      "path": "../../react-styles"
     },
     {
-      "path": "../react-types"
+      "path": "../../react-types"
     },
     {
-      "path": "../react-utils"
+      "path": "../../react-utils"
     },
     {
       "path": "./tsconfig.build.json"

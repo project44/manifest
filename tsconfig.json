@@ -9,25 +9,25 @@
       "path": "packages/react"
     },
     {
-      "path": "packages/react-button"
+      "path": "packages/react-components/react-button"
     },
     {
-      "path": "packages/react-layout"
+      "path": "packages/react-components/react-layout"
     },
     {
-      "path": "packages/react-popover"
+      "path": "packages/react-components/react-popover"
+    },
+    {
+      "path": "packages/react-components/react-tooltip"
+    },
+    {
+      "path": "packages/react-components/react-typography"
     },
     {
       "path": "packages/react-styles"
     },
     {
-      "path": "packages/react-tooltip"
-    },
-    {
       "path": "packages/react-types"
-    },
-    {
-      "path": "packages/react-typography"
     },
     {
       "path": "packages/react-utils"

@@ -4,7 +4,15 @@
   "private": true,
   "license": "MIT",
   "workspaces": [
-    "packages/*",
+    "packages/design-tokens",
+    "packages/react",
+    "packages/react-components/*",
+    "packages/react-styles",
+    "packages/react-types",
+    "packages/react-utils",
+    "packages/system",
+    "packages/theme",
+    "packages/utils",
     "tools/*"
   ],
   "scripts": {
