@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import { CSSBaseline } from '../src';
+import { CssBaseline } from '../src';
 
 describe('react-css-baseline', () => {
   it('should render', () => {
-    render(<CSSBaseline>test</CSSBaseline>);
+    render(<CssBaseline>test</CssBaseline>);
 
     expect(screen.getByText('test')).toBeInTheDocument();
   });
