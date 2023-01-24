@@ -3238,7 +3238,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+<<<<<<< HEAD
 "@project44-manifest/react-button@^1.0.2, @project44-manifest/react-button@workspace:packages/react-components/react-button":
+=======
+"@project44-manifest/react-button@^1.0.2, @project44-manifest/react-button@workspace:packages/react-button":
+>>>>>>> effc9e9 (fix: ci errors)
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-button@workspace:packages/react-components/react-button"
   dependencies:
@@ -3270,7 +3274,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-layout@*, @project44-manifest/react-layout@workspace:packages/react-layout":
+"@project44-manifest/react-layout@^1.0.1, @project44-manifest/react-layout@workspace:packages/react-layout":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-layout@workspace:packages/react-components/react-layout"
   dependencies:
@@ -3289,6 +3293,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-layout@workspace:packages/react-components/react-layout"
   dependencies:
+<<<<<<< HEAD
     "@project44-manifest/react-styles": ^1.0.1
     "@project44-manifest/react-types": ^0.2.1
     "@project44-manifest/react-utils": ^0.2.3
@@ -3304,6 +3309,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-popover@workspace:packages/react-components/react-popover"
   dependencies:
+=======
+>>>>>>> effc9e9 (fix: ci errors)
     "@project44-manifest/react-button": ^1.0.2
     "@project44-manifest/react-layout": ^1.0.1
     "@project44-manifest/react-styles": ^1.0.1

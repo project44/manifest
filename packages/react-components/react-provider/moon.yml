@@ -1,0 +1,15 @@
+type: 'library'
+
+tasks:
+  build:
+    outputs:
+      - 'esm'
+      - 'lib'
+
+dependsOn:
+  - id: 'react-css-baseline'
+    scope: 'development'
+  - id: 'react-styles'
+    scope: 'production'
+  - id: 'react-types'
+    scope: 'development'

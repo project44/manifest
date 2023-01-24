@@ -13,16 +13,16 @@
       "path": "../react-components/react-button"
     },
     {
-      "path": "../react-css-baseline"
+      "path": "../react-components/react-css-baseline"
     },
     {
-      "path": "../react-provider"
-    },
-    {
-      "path": "../react-styles"
+      "path": "../react-components/react-provider"
     },
     {
       "path": "../react-components/react-tooltip"
+    },
+    {
+      "path": "../react-styles"
     },
     {
       "path": "../system"
