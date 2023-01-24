@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { useLocale } from '@react-aria/i18n';
 import { useModalProvider } from '@react-aria/overlays';
-import { StyledProvider } from './styles';
 import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
+import { StyledProvider } from './styles';
 import type { ProviderElement, ProviderProps } from './types';
 
 /**
