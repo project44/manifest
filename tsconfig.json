@@ -30,9 +30,6 @@
       "path": "packages/react-components/react-typography"
     },
     {
-      "path": "packages/react-provider"
-    },
-    {
       "path": "packages/react-styles"
     },
     {
