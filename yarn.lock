@@ -3241,9 +3241,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-button@^1.0.2, @project44-manifest/react-button@workspace:packages/react-components/react-button":
+"@project44-manifest/react-button@^1.0.2, @project44-manifest/react-button@workspace:packages/button":
   version: 0.0.0-use.local
-  resolution: "@project44-manifest/react-button@workspace:packages/react-components/react-button"
+  resolution: "@project44-manifest/react-button@workspace:packages/button"
   dependencies:
     "@project44-manifest/react-layout": ^1.0.1
     "@project44-manifest/react-styles": ^1.0.1
@@ -3260,9 +3260,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-css-baseline@^0.0.0, @project44-manifest/react-css-baseline@workspace:packages/react-components/react-css-baseline":
+"@project44-manifest/react-css-baseline@^0.0.0, @project44-manifest/react-css-baseline@workspace:packages/css-baseline":
   version: 0.0.0-use.local
-  resolution: "@project44-manifest/react-css-baseline@workspace:packages/react-components/react-css-baseline"
+  resolution: "@project44-manifest/react-css-baseline@workspace:packages/css-baseline"
   dependencies:
     "@project44-manifest/react-styles": ^1.0.1
     react: ^18.1.0
@@ -3273,9 +3273,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-layout@^1.0.1, @project44-manifest/react-layout@workspace:packages/react-components/react-layout":
+"@project44-manifest/react-layout@^1.0.1, @project44-manifest/react-layout@workspace:packages/layout":
   version: 0.0.0-use.local
-  resolution: "@project44-manifest/react-layout@workspace:packages/react-components/react-layout"
+  resolution: "@project44-manifest/react-layout@workspace:packages/layout"
   dependencies:
     "@project44-manifest/react-styles": ^1.0.1
     "@project44-manifest/react-types": ^0.2.1
@@ -3288,9 +3288,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-popover@workspace:packages/react-components/react-popover":
+"@project44-manifest/react-popover@workspace:packages/popover":
   version: 0.0.0-use.local
-  resolution: "@project44-manifest/react-popover@workspace:packages/react-components/react-popover"
+  resolution: "@project44-manifest/react-popover@workspace:packages/popover"
   dependencies:
     "@project44-manifest/react-button": ^1.0.2
     "@project44-manifest/react-layout": ^1.0.1
@@ -3312,9 +3312,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-provider@^0.0.0, @project44-manifest/react-provider@workspace:packages/react-components/react-provider":
+"@project44-manifest/react-provider@^0.0.0, @project44-manifest/react-provider@workspace:packages/provider":
   version: 0.0.0-use.local
-  resolution: "@project44-manifest/react-provider@workspace:packages/react-components/react-provider"
+  resolution: "@project44-manifest/react-provider@workspace:packages/provider"
   dependencies:
     "@project44-manifest/react-css-baseline": ^0.0.0
     "@project44-manifest/react-styles": ^1.0.1
@@ -3329,9 +3329,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-styles@^1.0.1, @project44-manifest/react-styles@workspace:packages/react-styles":
+"@project44-manifest/react-styles@^1.0.1, @project44-manifest/react-styles@workspace:packages/styles":
   version: 0.0.0-use.local
-  resolution: "@project44-manifest/react-styles@workspace:packages/react-styles"
+  resolution: "@project44-manifest/react-styles@workspace:packages/styles"
   dependencies:
     "@project44-manifest/theme": ^1.0.1
     "@stitches/react": ^1.2.8
@@ -3344,9 +3344,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-tooltip@^1.0.1, @project44-manifest/react-tooltip@workspace:packages/react-components/react-tooltip":
+"@project44-manifest/react-tooltip@^1.0.1, @project44-manifest/react-tooltip@workspace:packages/tooltip":
   version: 0.0.0-use.local
-  resolution: "@project44-manifest/react-tooltip@workspace:packages/react-components/react-tooltip"
+  resolution: "@project44-manifest/react-tooltip@workspace:packages/tooltip"
   dependencies:
     "@project44-manifest/react-styles": ^1.0.1
     "@project44-manifest/react-types": ^0.2.1
@@ -3364,9 +3364,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-types@^0.2.1, @project44-manifest/react-types@workspace:packages/react-types":
+"@project44-manifest/react-types@^0.2.1, @project44-manifest/react-types@workspace:packages/types":
   version: 0.0.0-use.local
-  resolution: "@project44-manifest/react-types@workspace:packages/react-types"
+  resolution: "@project44-manifest/react-types@workspace:packages/types"
   dependencies:
     react: ^18.1.0
     react-dom: ^18.1.0
@@ -3376,9 +3376,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-typography@workspace:packages/react-components/react-typography":
+"@project44-manifest/react-typography@workspace:packages/typography":
   version: 0.0.0-use.local
-  resolution: "@project44-manifest/react-typography@workspace:packages/react-components/react-typography"
+  resolution: "@project44-manifest/react-typography@workspace:packages/typography"
   dependencies:
     "@project44-manifest/react-styles": ^1.0.1
     "@project44-manifest/react-types": ^0.2.1
@@ -3391,13 +3391,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-utils@^0.2.3, @project44-manifest/react-utils@workspace:packages/react-utils":
+"@project44-manifest/react-utils@^0.2.3, @project44-manifest/react-utils@workspace:packages/utils":
   version: 0.0.0-use.local
-  resolution: "@project44-manifest/react-utils@workspace:packages/react-utils"
+  resolution: "@project44-manifest/react-utils@workspace:packages/utils"
   dependencies:
-    "@project44-manifest/utils": ^1.0.1
     "@radix-ui/react-slot": ^1.0.1
+    "@types/lodash.isobject": ^3.0.7
     clsx: ^1.1.1
+    lodash.isobject: ^3.0.2
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
@@ -3485,18 +3486,21 @@ __metadata:
   dependencies:
     "@project44-manifest/design-tokens": ^1.2.1
     "@project44-manifest/utils": ^1.0.1
+    "@types/lodash.isobject": ^3.0.7
     "@types/lodash.kebabcase": ^4.1.7
     "@types/lodash.merge": ^4.6.7
+    lodash.isobject: ^3.0.2
     lodash.kebabcase: ^4.1.1
     lodash.merge: ^4.6.2
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/utils@^1.0.1, @project44-manifest/utils@workspace:packages/utils":
-  version: 0.0.0-use.local
-  resolution: "@project44-manifest/utils@workspace:packages/utils"
-  languageName: unknown
-  linkType: soft
+"@project44-manifest/utils@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@project44-manifest/utils@npm:1.0.1"
+  checksum: 6ce831067db27d327484ae0acc80c0212372e2a11c26d65560ab718d35cc94c2c902058c89fe1bb7eb8a4f25b37ae724e23c043e4383de5edccf1f9e495da2a5
+  languageName: node
+  linkType: hard
 
 "@radix-ui/react-compose-refs@npm:1.0.0":
   version: 1.0.0
@@ -5972,6 +5976,15 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: e009a2bfb50e90ca9b7c6e8f648f8464067271fd99116f881073fa6fa76dc8d0133181dd65e6614d5fb1220d671d67b0124aef7d97dc02d7e342ab143a47779d
+  languageName: node
+  linkType: hard
+
+"@types/lodash.isobject@npm:^3.0.7":
+  version: 3.0.7
+  resolution: "@types/lodash.isobject@npm:3.0.7"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: 0ee50208a4bc641172d4e79f497c8cd59e437ad6109f2118bfe45c4e8815ecd0e5ea563fb04f307580a1e8f34e6e364b45eac8097db0448f521c78a50a2ce0ab
   languageName: node
   linkType: hard
 
@@ -12876,6 +12889,13 @@ __metadata:
   version: 4.0.8
   resolution: "lodash.debounce@npm:4.0.8"
   checksum: a3f527d22c548f43ae31c861ada88b2637eb48ac6aa3eb56e82d44917971b8aa96fbb37aa60efea674dc4ee8c42074f90f7b1f772e9db375435f6c83a19b3bc6
+  languageName: node
+  linkType: hard
+
+"lodash.isobject@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "lodash.isobject@npm:3.0.2"
+  checksum: 6c1667cbc4494d0a13a3617a4b23278d6d02dac520311f2bbb43f16f2cf71d2e6eb9dec8057315b77459df4890c756a256a087d3f4baa44a79ab5d6c968b060e
   languageName: node
   linkType: hard
 

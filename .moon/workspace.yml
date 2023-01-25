@@ -1,19 +1,8 @@
 $schema: 'https://moonrepo.dev/schemas/workspace.json'
 
 projects:
-  globs:
-    - 'packages/react-components/*'
-    - 'tools/*'
-
-  sources:
-    design-tokens: 'packages/design-tokens'
-    react: 'packages/react'
-    react-styles: 'packages/react-styles'
-    react-types: 'packages/react-types'
-    react-utils: 'packages/react-utils'
-    system: 'packages/system'
-    theme: 'packages/theme'
-    utils: 'packages/utils'
+  - 'packages/*'
+  - 'tools/*'
 
 vcs:
   manager: 'git'

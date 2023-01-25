@@ -1,0 +1,19 @@
+type: 'library'
+
+tasks:
+  build:
+    outputs:
+      - 'esm'
+      - 'lib'
+
+dependsOn:
+  - id: 'button'
+    scope: 'development'
+  - id: 'layout'
+    scope: 'development'
+  - id: 'styles'
+    scope: 'production'
+  - id: 'types'
+    scope: 'development'
+  - id: 'utils'
+    scope: 'production'

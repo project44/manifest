@@ -7,9 +7,4 @@ tasks:
       - 'lib'
 
 dependsOn:
-  - 'button'
-  - 'css-baseline'
-  - 'provider'
   - 'styles'
-  - 'system'
-  - 'tooltip'
