@@ -3,13 +3,13 @@
   "files": [],
   "references": [
     {
-      "path": "packages/design-tokens"
-    },
-    {
       "path": "packages/button"
     },
     {
       "path": "packages/css-baseline"
+    },
+    {
+      "path": "packages/design-tokens"
     },
     {
       "path": "packages/layout"
@@ -40,6 +40,9 @@
     },
     {
       "path": "packages/typography"
+    },
+    {
+      "path": "packages/use-controlled-state"
     },
     {
       "path": "packages/utils"
