@@ -19,7 +19,8 @@
     "build-storybook": "sb build",
     "moon": "$(yarn bin moon) --color",
     "prepare": "husky install",
-    "release": "yarn moon run :build && yarn changeset publish",
+    "prerelease": "yarn run setup && yarn run moon run :build -u",
+    "release": "yarn run prerelease && yarn changeset publish",
     "setup": "packemon build",
     "version": "yarn changeset version",
     "storybook": "sb dev -p 6006"

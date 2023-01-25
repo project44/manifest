@@ -7,9 +7,4 @@ tasks:
       - 'lib'
 
 dependsOn:
-  - 'react-button'
-  - 'react-css-baseline'
-  - 'react-provider'
   - 'react-styles'
-  - 'react-tooltip'
-  - 'system'
