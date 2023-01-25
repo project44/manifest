@@ -3495,6 +3495,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@project44-manifest/use-controlled-state@workspace:packages/use-controlled-state":
+  version: 0.0.0-use.local
+  resolution: "@project44-manifest/use-controlled-state@workspace:packages/use-controlled-state"
+  dependencies:
+    react: ^18.1.0
+    react-dom: ^18.1.0
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+  languageName: unknown
+  linkType: soft
+
 "@project44-manifest/utils@npm:^1.0.1":
   version: 1.0.1
   resolution: "@project44-manifest/utils@npm:1.0.1"
