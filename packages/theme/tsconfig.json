@@ -12,9 +12,6 @@
       "path": "../design-tokens"
     },
     {
-      "path": "../utils"
-    },
-    {
       "path": "./tsconfig.build.json"
     }
   ]

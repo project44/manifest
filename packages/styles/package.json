@@ -1,13 +1,15 @@
 {
-  "name": "@project44-manifest/theme",
+  "name": "@project44-manifest/react-styles",
   "version": "1.0.1",
-  "description": "Manifest Design System themes",
+  "description": "Manifest Design System react styling tools",
   "license": "MIT",
   "author": "project44",
   "keywords": [
     "manifest",
     "design",
-    "system"
+    "system",
+    "react",
+    "components"
   ],
   "sideEffects": false,
   "main": "./lib/index.js",
@@ -22,22 +24,23 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:project-44/manifest.git",
-    "directory": "packages/theme"
+    "directory": "packages/styles"
   },
   "publishConfig": {
     "access": "public"
   },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  },
   "dependencies": {
-    "@project44-manifest/design-tokens": "^1.2.1",
-    "@project44-manifest/utils": "^1.0.1",
-    "lodash.isobject": "^3.0.2",
-    "lodash.kebabcase": "^4.1.1",
-    "lodash.merge": "^4.6.2"
+    "@project44-manifest/theme": "^1.0.1",
+    "@stitches/react": "^1.2.8",
+    "clsx": "^1.1.1"
   },
   "devDependencies": {
-    "@types/lodash.isobject": "^3.0.7",
-    "@types/lodash.kebabcase": "^4.1.7",
-    "@types/lodash.merge": "^4.6.7"
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
   },
   "packemon": {
     "platform": "browser"

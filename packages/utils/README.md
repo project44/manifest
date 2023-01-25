@@ -1,11 +1,4 @@
-# @project44-manifest/utils
+# @project44-manifest/react-dom-utils
 
-A collection of utilities used throughout the manifest codebase.
-
-> This is an internal utility, not intended for public usage.
-
-## Installation
-
-```bash
-yarn add @project44-manifest/utils
-```
+This package is part of [Manifest Design System](https://github.com/project44/manifest). Please see
+the repo for more details.

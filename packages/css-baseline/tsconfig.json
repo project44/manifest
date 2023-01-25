@@ -1,12 +1,16 @@
 {
   "extends": "../../tsconfig.options.json",
   "compilerOptions": {
-    "outDir": "../../.moon/cache/types/packages/utils"
+    "outDir": "../../.moon/cache/types/packages/css-baseline"
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "tests/**/*"
   ],
   "references": [
+    {
+      "path": "../styles"
+    },
     {
       "path": "./tsconfig.build.json"
     }

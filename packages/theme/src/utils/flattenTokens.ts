@@ -1,5 +1,5 @@
+import isObject from 'lodash.isobject';
 import kebabCase from 'lodash.kebabcase';
-import { isObject } from '@project44-manifest/utils';
 
 /**
  * Flatten a token object into an object of kebab-case keys for use within our style provider.
@@ -21,7 +21,7 @@ export function flattenTokens<K extends string = string>(
       if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
         result[fullKey] = value;
       } else if (isObject(value)) {
-        flatten(value, fullKey);
+        flatten(value as Record<string, unknown>, fullKey);
       }
     }
   }

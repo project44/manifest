@@ -1,0 +1,35 @@
+{
+  "name": "@project44-manifest/react-types",
+  "version": "0.2.1",
+  "description": "Manifest Design System react types",
+  "license": "MIT",
+  "author": "project44",
+  "keywords": [
+    "manifest",
+    "design",
+    "system",
+    "react",
+    "components"
+  ],
+  "sideEffects": false,
+  "types": "src/index.d.ts",
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:project-44/manifest.git",
+    "directory": "packages/types"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  },
+  "devDependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  }
+}

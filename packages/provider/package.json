@@ -1,13 +1,15 @@
 {
-  "name": "@project44-manifest/theme",
-  "version": "1.0.1",
-  "description": "Manifest Design System themes",
+  "name": "@project44-manifest/react-provider",
+  "version": "0.0.0",
+  "description": "Manifest Design System react provider component",
   "license": "MIT",
   "author": "project44",
   "keywords": [
     "manifest",
     "design",
-    "system"
+    "system",
+    "react",
+    "components"
   ],
   "sideEffects": false,
   "main": "./lib/index.js",
@@ -22,22 +24,25 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:project-44/manifest.git",
-    "directory": "packages/theme"
+    "directory": "packages/provider"
   },
   "publishConfig": {
     "access": "public"
   },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  },
   "dependencies": {
-    "@project44-manifest/design-tokens": "^1.2.1",
-    "@project44-manifest/utils": "^1.0.1",
-    "lodash.isobject": "^3.0.2",
-    "lodash.kebabcase": "^4.1.1",
-    "lodash.merge": "^4.6.2"
+    "@project44-manifest/react-css-baseline": "^0.0.0",
+    "@project44-manifest/react-styles": "^1.0.1",
+    "@react-aria/i18n": "^3.6.3",
+    "@react-aria/overlays": "^3.12.1"
   },
   "devDependencies": {
-    "@types/lodash.isobject": "^3.0.7",
-    "@types/lodash.kebabcase": "^4.1.7",
-    "@types/lodash.merge": "^4.6.7"
+    "@project44-manifest/react-types": "^0.2.1",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
   },
   "packemon": {
     "platform": "browser"

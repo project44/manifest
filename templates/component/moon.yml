@@ -7,6 +7,6 @@ tasks:
       - 'lib'
 
 dependsOn:
-  - 'react-styles'
-  - 'react-types'
-  - 'react-utils'
+  - 'styles'
+  - 'types'
+  - 'utils'
