@@ -3,11 +3,24 @@ $schema: 'https://moonrepo.dev/schemas/workspace.json'
 projects:
   - 'packages/*'
   - 'tools/*'
+  - 'website'
+
+runner:
+  inheritColorsForPipedTasks: true
+  implicitDeps:
+    - '^:build'
+  implicitInputs:
+    - 'package.json'
+    - '/.moon/project.yml'
+    - '/.moon/toolchain.yml'
+    - '/.moon/workspace.yml'
+    - '/packages/**/package.json'
+    - '/packages/**/tsconfig.json'
+    - '/packages/**/tsconfig.build.json'
+    - 'tsconfig.eslint.json'
+    - 'tsconfig.options.json'
+    - '**/moon.yml'
 
 vcs:
   manager: 'git'
   defaultBranch: 'main'
-
-runner:
-  implicitDeps:
-    - '^:build'
