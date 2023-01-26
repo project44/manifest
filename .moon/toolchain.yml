@@ -5,7 +5,7 @@ node:
   packageManager: 'yarn'
   yarn:
     version: '3.3.1'
-  addEnginesConstraint: false
+  addEnginesConstraint: true
   dedupeOnLockfileChange: true
   syncProjectWorkspaceDependencies: true
   syncVersionManagerConfig: 'nvm'
