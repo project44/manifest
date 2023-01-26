@@ -1,0 +1,18 @@
+type: 'library'
+language: 'typescript'
+
+tasks:
+  build:
+    outputs:
+      - 'esm'
+      - 'lib'
+
+dependsOn:
+  - id: 'layout'
+    scope: 'development'
+  - id: 'styles'
+    scope: 'production'
+  - id: 'types'
+    scope: 'development'
+  - id: 'utils'
+    scope: 'production'

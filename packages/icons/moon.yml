@@ -1,16 +1,44 @@
 type: 'library'
-
-workspace:
-  inheritedTasks:
-    exclude: ['build', 'format', 'lint', 'test', 'typecheck']
+language: 'typescript'
 
 tasks:
   build:
-    command: 'svgo'
-    args:
-      - '-f'
-      - 'src'
-      - '-o'
-      - 'lib'
     outputs:
+      - 'esm'
       - 'lib'
+
+  build-icons:
+    command: 'noop'
+    deps:
+      - '~:clean'
+      - '~:svg-to-react'
+      - '~:lint'
+      - '~:format-write'
+    options:
+      cache: false
+      runDepsInParallel: false
+      runInCI: false
+
+  clean:
+    command: 'rimraf'
+    args:
+      - './src'
+    options:
+      cache: false
+      runInCI: false
+
+  svg-to-react:
+    command: 'node'
+    args:
+      - '../../scripts/svg-to-react.mjs'
+    options:
+      cache: false
+      runInCI: false
+
+dependsOn:
+  - id: 'icon'
+    scope: 'production'
+  - id: 'layout'
+    scope: 'development'
+  - id: 'typography'
+    scope: 'development'

@@ -2,6 +2,7 @@
   "extends": "./tsconfig.options.json",
   "include": [
     "packages/**/*",
+    "scripts/*",
     "tests/*",
     "**/.eslintrc.js",
     "**/jest.config.js",

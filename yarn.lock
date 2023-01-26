@@ -3234,7 +3234,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@project44-manifest/icons@workspace:packages/icons"
   dependencies:
-    svgo: ^3.0.2
+    "@project44-manifest/react-icon": ^0.0.0
+    "@project44-manifest/react-layout": "workspace:^"
+    "@project44-manifest/react-typography": "workspace:^"
+    react: ^18.1.0
+    react-dom: ^18.1.0
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -3270,7 +3277,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-layout@^1.0.1, @project44-manifest/react-layout@workspace:packages/layout":
+"@project44-manifest/react-icon@^0.0.0, @project44-manifest/react-icon@workspace:packages/icon":
+  version: 0.0.0-use.local
+  resolution: "@project44-manifest/react-icon@workspace:packages/icon"
+  dependencies:
+    "@project44-manifest/react-layout": "workspace:^"
+    "@project44-manifest/react-styles": ^1.0.1
+    "@project44-manifest/react-types": ^0.2.1
+    "@project44-manifest/react-utils": ^0.2.3
+    react: ^18.1.0
+    react-dom: ^18.1.0
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+  languageName: unknown
+  linkType: soft
+
+"@project44-manifest/react-layout@^1.0.1, @project44-manifest/react-layout@workspace:^, @project44-manifest/react-layout@workspace:packages/layout":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-layout@workspace:packages/layout"
   dependencies:
@@ -3373,7 +3396,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-typography@workspace:packages/typography":
+"@project44-manifest/react-typography@workspace:^, @project44-manifest/react-typography@workspace:packages/typography":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-typography@workspace:packages/typography"
   dependencies:
@@ -7683,6 +7706,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"camelcase@npm:^7.0.1":
+  version: 7.0.1
+  resolution: "camelcase@npm:7.0.1"
+  checksum: 86ab8f3ebf08bcdbe605a211a242f00ed30d8bfb77dab4ebb744dd36efbc84432d1c4adb28975ba87a1b8be40a80fbd1e60e2f06565315918fa7350011a26d3d
+  languageName: node
+  linkType: hard
+
 "caniuse-lite@npm:^1.0.30001400":
   version: 1.0.30001441
   resolution: "caniuse-lite@npm:1.0.30001441"
@@ -7718,6 +7748,13 @@ __metadata:
     ansi-styles: ^4.1.0
     supports-color: ^7.1.0
   checksum: fe75c9d5c76a7a98d45495b91b2172fa3b7a09e0cc9370e5c8feb1c567b85c4288e2b3fded7cfdd7359ac28d6b3844feb8b82b8686842e93d23c827c417e83fc
+  languageName: node
+  linkType: hard
+
+"chalk@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "chalk@npm:5.2.0"
+  checksum: 03d8060277de6cf2fd567dc25fcf770593eb5bb85f460ce443e49255a30ff1242edd0c90a06a03803b0466ff0687a939b41db1757bec987113e83de89a003caa
   languageName: node
   linkType: hard
 
@@ -13239,6 +13276,8 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.49.0
     "@typescript-eslint/parser": ^5.49.0
     "@vitejs/plugin-react-swc": ^3.0.1
+    camelcase: ^7.0.1
+    chalk: ^5.2.0
     eslint: ^8.28.0
     eslint-config-airbnb-base: ^15.0.0
     eslint-config-prettier: ^8.6.0
@@ -13257,7 +13296,8 @@ __metadata:
     prettier: ^2.7.1
     react: ^18.2.0
     react-dom: ^18.2.0
-    rimraf: ^3.0.2
+    rimraf: ^4.1.2
+    svgo: ^3.0.2
     typescript: 4.7.4
     vercel: ^28.5.5
     vite: ^4.0.4
@@ -15611,6 +15651,15 @@ __metadata:
   bin:
     rimraf: bin.js
   checksum: 87f4164e396f0171b0a3386cc1877a817f572148ee13a7e113b238e48e8a9f2f31d009a92ec38a591ff1567d9662c6b67fd8818a2dbbaed74bc26a87a2a4a9a0
+  languageName: node
+  linkType: hard
+
+"rimraf@npm:^4.1.2":
+  version: 4.1.2
+  resolution: "rimraf@npm:4.1.2"
+  bin:
+    rimraf: dist/cjs/src/bin.js
+  checksum: 480b8147fd9bcbef3ac118f88a7b1169c3872977a3411a0c84df838bfc30e175a394c0db6f9619fc8b8a886a18c6d779d5e74f380a0075ecc710afaf81b3f50c
   languageName: node
   linkType: hard
 

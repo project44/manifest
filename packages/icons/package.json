@@ -1,18 +1,25 @@
 {
   "name": "@project44-manifest/icons",
   "version": "0.0.0",
-  "description": "Manifest Design System icon library",
+  "description": "Manifest Design System react icon library",
   "license": "MIT",
   "author": "project44",
   "keywords": [
     "manifest",
     "design",
     "system",
+    "react",
     "icons"
   ],
   "sideEffects": false,
+  "main": "./lib/index.js",
+  "module": "./esm/index.js",
+  "types": "./dts/index.d.ts",
   "files": [
-    "lib"
+    "dts/**/*.d.ts",
+    "esm/**/*.{js,map}",
+    "lib/**/*.{js,map}",
+    "src/**/*.{ts,tsx,json}"
   ],
   "repository": {
     "type": "git",
@@ -22,7 +29,32 @@
   "publishConfig": {
     "access": "public"
   },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  },
+  "dependencies": {
+    "@project44-manifest/react-icon": "^0.0.0"
+  },
   "devDependencies": {
-    "svgo": "^3.0.2"
+    "@project44-manifest/react-layout": "workspace:^",
+    "@project44-manifest/react-typography": "workspace:^",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "packemon": {
+    "platform": "browser"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dts/index.d.ts",
+      "browser": {
+        "module": "./esm/index.js",
+        "import": "./esm/index.js",
+        "default": "./lib/index.js"
+      },
+      "default": "./lib/index.js"
+    }
   }
 }
