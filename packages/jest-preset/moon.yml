@@ -9,13 +9,4 @@ workspace:
 tasks:
   build:
     outputs:
-      - 'esm'
       - 'lib'
-
-dependsOn:
-  - 'button'
-  - 'css-baseline'
-  - 'provider'
-  - 'styles'
-  - 'system'
-  - 'tooltip'

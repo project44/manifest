@@ -36,10 +36,21 @@ const config = {
       require.resolve('./fileMock.js'),
   },
   setupFilesAfterEnv,
-  testEnvironment: 'node',
+  testEnvironment: 'jest-environment-jsdom',
   testMatch: ['**/tests/**/*.test.{js,jsx,ts,tsx}'],
   transform: {
-    '^.+\\.(js|jsx|ts|tsx)?$': ['babel-jest', { rootMode: 'upward' }],
+    '^.+\\.(js|jsx|ts|tsx)?$': [
+      '@swc/jest',
+      {
+        jsc: {
+          transform: {
+            react: {
+              runtime: 'automatic',
+            },
+          },
+        },
+      },
+    ],
   },
 };
 

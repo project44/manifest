@@ -91,7 +91,7 @@ export const StyledButton = styled('button', {
         height: pxToRem(40),
         py: '$small',
 
-        [`> .material-icons`]: {
+        '> .material-icons': {
           fontSize: '$x-large',
         },
       },
@@ -99,7 +99,7 @@ export const StyledButton = styled('button', {
         height: pxToRem(32),
         py: pxToRem(6),
 
-        [`> .material-icons`]: {
+        '> .material-icons': {
           fontSize: pxToRem(18),
         },
       },

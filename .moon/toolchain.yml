@@ -8,8 +8,10 @@ node:
   addEnginesConstraint: true
   dedupeOnLockfileChange: true
   syncProjectWorkspaceDependencies: true
+  syncVersionManagerConfig: 'nvm'
 
 typescript:
+  createMissingConfig: true
   projectConfigFileName: 'tsconfig.json'
   rootConfigFileName: 'tsconfig.json'
   routeOutDirToCache: true

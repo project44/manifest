@@ -1,17 +1,18 @@
 $schema: 'https://moonrepo.dev/schemas/global-project.json'
 
 fileGroups:
-  app: []
   configs:
-    - '*.{js,json}'
+    - '*.{js,mjs,json}'
 
   sources:
-    - 'public/**/*'
     - 'src/**/*'
     - 'types/**/*'
 
   tests:
     - 'tests/**/*.test.*'
+
+  stories:
+    - 'stories/**/*.stories.*'
 
   assets:
     - 'assets/**/*'
@@ -27,7 +28,7 @@ fileGroups:
     - '/tsconfig.*.json'
 
 tasks:
-  build:
+  buildPackage:
     command: 'packemon'
     args:
       - 'build'
@@ -59,6 +60,7 @@ tasks:
       - '/.prettierrc.js'
       - '@globs(configs)'
       - '@globs(sources)'
+      - '@globs(stories)'
       - '@globs(tests)'
       - '**/*.{md,mdx,yml,yaml,json}'
 
@@ -72,11 +74,12 @@ tasks:
       - '--no-error-on-unmatched-pattern'
       - '--exit-on-fatal-error'
       - '--ignore-path'
-      - '@in(6)'
+      - '@in(7)'
       - '.'
     inputs:
       - '@globs(configs)'
       - '@globs(sources)'
+      - '@globs(stories)'
       - '@globs(tests)'
       - '@globs(typescript)'
       - '**/.eslintrc'
@@ -106,5 +109,6 @@ tasks:
       - '--pretty'
     inputs:
       - '@globs(sources)'
+      - '@globs(stories)'
       - '@globs(tests)'
       - '@globs(typescript)'
