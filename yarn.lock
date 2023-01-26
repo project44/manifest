@@ -3249,7 +3249,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-css-baseline@^0.1.0, @project44-manifest/react-css-baseline@workspace:packages/css-baseline":
+"@project44-manifest/react-css-baseline@^0.0.0, @project44-manifest/react-css-baseline@workspace:packages/css-baseline":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-css-baseline@workspace:packages/css-baseline"
   dependencies:
@@ -3262,7 +3262,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-icon@^0.1.0, @project44-manifest/react-icon@workspace:packages/icon":
+"@project44-manifest/react-icon@^0.0.0, @project44-manifest/react-icon@workspace:packages/icon":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-icon@workspace:packages/icon"
   dependencies:
@@ -3282,7 +3282,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-icons@workspace:packages/icons"
   dependencies:
-    "@project44-manifest/react-icon": ^0.1.0
+    "@project44-manifest/react-icon": ^0.0.0
     "@project44-manifest/react-layout": "workspace:^"
     "@project44-manifest/react-typography": "workspace:^"
     react: ^18.1.0
@@ -3332,11 +3332,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-provider@^0.1.0, @project44-manifest/react-provider@workspace:packages/provider":
+"@project44-manifest/react-provider@^0.0.0, @project44-manifest/react-provider@workspace:packages/provider":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-provider@workspace:packages/provider"
   dependencies:
-    "@project44-manifest/react-css-baseline": ^0.1.0
+    "@project44-manifest/react-css-baseline": ^0.0.0
     "@project44-manifest/react-styles": ^1.0.1
     "@project44-manifest/react-types": ^0.2.1
     "@react-aria/i18n": ^3.6.3
@@ -3433,8 +3433,8 @@ __metadata:
   dependencies:
     "@internationalized/date": ^3.0.0
     "@project44-manifest/react-button": ^1.0.2
-    "@project44-manifest/react-css-baseline": ^0.1.0
-    "@project44-manifest/react-provider": ^0.1.0
+    "@project44-manifest/react-css-baseline": ^0.0.0
+    "@project44-manifest/react-provider": ^0.0.0
     "@project44-manifest/react-styles": ^1.0.1
     "@project44-manifest/react-tooltip": ^1.0.1
     "@project44-manifest/system": ^0.1.5
