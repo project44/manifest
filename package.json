@@ -13,7 +13,7 @@
     "prerelease": "yarn run setup && yarn run moon run :build -u",
     "release": "yarn run prerelease && yarn changeset publish",
     "setup": "packemon build",
-    "version": "yarn changeset version",
+    "version": "yarn changeset version && yarn install --mode=update-lockfile",
     "storybook": "sb dev -p 6006"
   },
   "dependencies": {
