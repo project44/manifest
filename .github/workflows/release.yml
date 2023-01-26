@@ -3,9 +3,7 @@ name: Release
 on:
   push:
     paths:
-      - '.changeset/**'
       - 'packages/**'
-      - 'tools/**'
     branches:
       - main
 
