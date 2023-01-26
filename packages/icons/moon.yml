@@ -7,18 +7,6 @@ tasks:
       - 'esm'
       - 'lib'
 
-  build-icons:
-    command: 'noop'
-    deps:
-      - '~:clean'
-      - '~:svg-to-react'
-      - '~:lint'
-      - '~:format-write'
-    options:
-      cache: false
-      runDepsInParallel: false
-      runInCI: false
-
   clean:
     command: 'rimraf'
     args:
