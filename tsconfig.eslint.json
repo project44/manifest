@@ -3,8 +3,6 @@
   "include": [
     "packages/**/*",
     "tests/*",
-    "tools/**/*",
-    "website/**/*",
     "**/.eslintrc.js",
     "**/jest.config.js",
     "vite.config.ts"

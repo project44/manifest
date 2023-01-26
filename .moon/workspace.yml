@@ -2,8 +2,6 @@ $schema: 'https://moonrepo.dev/schemas/workspace.json'
 
 projects:
   - 'packages/*'
-  - 'tools/*'
-  - 'website'
 
 runner:
   inheritColorsForPipedTasks: true
