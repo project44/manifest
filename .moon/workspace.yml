@@ -14,7 +14,7 @@ runner:
     - '/.moon/workspace.yml'
     - '/packages/**/package.json'
     - '/packages/**/tsconfig.json'
-    - '/packages/**/tsconfig.build.json'
+    - '/packages/**/tsconfig.options.json'
     - 'tsconfig.eslint.json'
     - 'tsconfig.options.json'
     - '**/moon.yml'

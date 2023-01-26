@@ -1,0 +1,37 @@
+type: 'library'
+language: 'typescript'
+
+workspace:
+  inheritedTasks:
+    rename:
+      buildPackage: 'build'
+
+tasks:
+  build:
+    outputs:
+      - 'esm'
+      - 'lib'
+
+  clean:
+    command: 'rimraf'
+    args:
+      - './src'
+    options:
+      cache: false
+      runInCI: false
+
+  svg-to-react:
+    command: 'node'
+    args:
+      - '../../scripts/svg-to-react.mjs'
+    options:
+      cache: false
+      runInCI: false
+
+dependsOn:
+  - id: 'icon'
+    scope: 'production'
+  - id: 'layout'
+    scope: 'development'
+  - id: 'typography'
+    scope: 'development'

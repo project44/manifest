@@ -64,6 +64,25 @@ tasks:
       - '@globs(tests)'
       - '**/*.{md,mdx,yml,yaml,json}'
 
+  format-write:
+    command: 'prettier'
+    args:
+      - '--config'
+      - '@in(1)'
+      - '--ignore-path'
+      - '@in(0)'
+      - '--write'
+      - '.'
+    inputs:
+      - '/.prettierignore'
+      - '/.prettierrc.js'
+      - '@globs(configs)'
+      - '@globs(sources)'
+      - '@globs(tests)'
+      - '**/*.{md,mdx,yml,yaml,json}'
+    options:
+      runInCI: false
+
   lint:
     command: 'eslint'
     args:
