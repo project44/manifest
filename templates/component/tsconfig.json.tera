@@ -10,13 +10,13 @@
   ],
   "references": [
     {
-      "path": "../react-styles"
+      "path": "../styles"
     },
     {
-      "path": "../react-types"
+      "path": "../types"
     },
     {
-      "path": "../react-utils"
+      "path": "../utils"
     },
     {
       "path": "./tsconfig.build.json"

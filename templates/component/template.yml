@@ -7,11 +7,10 @@ variables:
     type: 'string'
     default: ''
     required: true
-    prompt:
-      'What is the component package name (do not include the package scope `@project44-manifest`)?'
+    prompt: 'What is the component name?'
     variables:
   description:
     type: 'string'
     default: ''
     required: true
-    prompt: 'What is the component package description?'
+    prompt: 'What is the component description?'
