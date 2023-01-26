@@ -3230,21 +3230,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/icons@workspace:packages/icons":
-  version: 0.0.0-use.local
-  resolution: "@project44-manifest/icons@workspace:packages/icons"
-  dependencies:
-    "@project44-manifest/react-icon": ^0.0.0
-    "@project44-manifest/react-layout": "workspace:^"
-    "@project44-manifest/react-typography": "workspace:^"
-    react: ^18.1.0
-    react-dom: ^18.1.0
-  peerDependencies:
-    react: ^17.0.0 || ^18.0.0
-    react-dom: ^17.0.0 || ^18.0.0
-  languageName: unknown
-  linkType: soft
-
 "@project44-manifest/react-button@^1.0.2, @project44-manifest/react-button@workspace:packages/button":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-button@workspace:packages/button"
@@ -3285,6 +3270,21 @@ __metadata:
     "@project44-manifest/react-styles": ^1.0.1
     "@project44-manifest/react-types": ^0.2.1
     "@project44-manifest/react-utils": ^0.2.3
+    react: ^18.1.0
+    react-dom: ^18.1.0
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+  languageName: unknown
+  linkType: soft
+
+"@project44-manifest/react-icons@workspace:packages/icons":
+  version: 0.0.0-use.local
+  resolution: "@project44-manifest/react-icons@workspace:packages/icons"
+  dependencies:
+    "@project44-manifest/react-icon": ^0.0.0
+    "@project44-manifest/react-layout": "workspace:^"
+    "@project44-manifest/react-typography": "workspace:^"
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
