@@ -6,5 +6,11 @@ workspace:
     rename:
       buildPackage: 'build'
 
+tasks:
+  build:
+    outputs:
+      - 'esm'
+      - 'lib'
+
 dependsOn:
   - 'theme'

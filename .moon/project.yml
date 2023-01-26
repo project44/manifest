@@ -43,8 +43,6 @@ tasks:
       - 'package.json'
     outputs:
       - 'dts'
-      - 'esm'
-      - 'lib'
     env:
       NODE_ENV: 'production'
 
