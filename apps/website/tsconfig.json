@@ -1,0 +1,23 @@
+{
+  "extends": "../../tsconfig.options.json",
+  "compilerOptions": {
+    "outDir": "../../.moon/cache/types/apps/website",
+    "rootDir": "."
+  },
+  "include": [
+    "src/**/*",
+    "types/**/*",
+    "../types/**/*"
+  ],
+  "references": [
+    {
+      "path": "../../packages/react/core"
+    },
+    {
+      "path": "../../packages/react/icons"
+    },
+    {
+      "path": "../../packages/system/tokens"
+    }
+  ]
+}

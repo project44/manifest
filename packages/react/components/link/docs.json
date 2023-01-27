@@ -1,10 +1,3 @@
 {
-  "Link": [
-    {
-      "name": "css",
-      "type": "CSS",
-      "required": false,
-      "description": "Theme aware style object"
-    }
-  ]
+  "Link": []
 }
