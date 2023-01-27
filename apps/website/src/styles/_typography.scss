@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
+
+:root {
+  --ifm-font-family-base: var(--font-family-text);
+  --ifm-font-family-monospace: var(--font-family-mono);
+}
+
+html {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-medium);
+}
+
+h1 {
+  font-family: var(--font-family-text);
+  font-size:  var(--font-size-xx-large);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-x-small);
+  line-height:  var(--line-height-xx-large);
+}
+
+h2 {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-x-large);
+  font-weight:  var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-small);
+  line-height: var(--line-height-x-large);
+}
+
+h3 {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-large);
+  font-weight:  var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-medium);
+  line-height: var(--line-height-large);
+}
+
+h4 {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-medium);
+  font-weight:  var(--font-weight-bold);
+  letter-spacing:  var(--letter-spacing-medium);
+  line-height: var(--line-height-medium);
+}
+
+p {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-medium);
+  font-weight:  var(--font-weight-regular);
+  letter-spacing:  var(--letter-spacing-medium);
+  line-height: var(--line-height-medium);
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+b,
+strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+
+.gradient-text {
+  background-image: var(--color-brand-gradient);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

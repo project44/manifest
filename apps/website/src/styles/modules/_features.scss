@@ -1,0 +1,25 @@
+.features {
+  display: flex;
+  align-items: center;
+  min-height: 540px;
+  padding-bottom: 64px;
+  padding-top: 64px;
+  position: relative;
+
+  .hero__title {
+    line-height: 1.25;
+    margin-bottom: var(--space-large);
+  }
+
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 48px;
+    background-repeat: repeat;
+    width: 100%;
+    height: 100%;
+    background-image: url("/static/img/nekker.svg");
+    z-index: -1;
+  }
+}

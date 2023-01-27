@@ -1,0 +1,38 @@
+.docs-card {
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--color-background-surface);
+  border: 1px solid var(--color-border-primary);
+  border-radius: var(--radius-small);
+  
+  height: 100%;
+  width: 100%;
+
+  transition: box-shadow 200ms cubic-bezier(0.4, 0.14, 0.3, 1);
+
+  &__container {
+    padding: var(--space-medium);
+  }
+
+  &__image {
+    height: auto;
+    width: 100%;
+  }
+
+  &__header {
+    margin-bottom: var(--space-small);
+  }
+
+  &__icon {
+    color: var(--color-primary-default);
+    margin-bottom: var(--space-small);
+  }
+
+  &--link {
+    &:hover {
+      box-shadow: var(--shadow-small);
+      text-decoration: none;
+    }
+  }
+}

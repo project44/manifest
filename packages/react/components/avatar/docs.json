@@ -8,7 +8,7 @@
     },
     {
       "name": "fallback",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "Name used as a fallback if src is not provided or image cannot be found."
     },
