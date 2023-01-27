@@ -3378,6 +3378,26 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@project44-manifest/react-menu@^0.0.0, @project44-manifest/react-menu@workspace:packages/react/components/menu":
+  version: 0.0.0-use.local
+  resolution: "@project44-manifest/react-menu@workspace:packages/react/components/menu"
+  dependencies:
+    "@project44-manifest/react-button": ^1.0.2
+    "@project44-manifest/react-icons": ^0.1.0
+    "@project44-manifest/react-styles": ^1.0.1
+    "@project44-manifest/react-transition": ^0.1.0
+    "@project44-manifest/react-types": ^0.2.1
+    "@project44-manifest/react-typography": ^1.0.1
+    "@project44-manifest/react-utils": ^0.2.3
+    "@project44-manifest/use-controlled-state": ^0.1.0
+    react: ^18.1.0
+    react-dom: ^18.1.0
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+  languageName: unknown
+  linkType: soft
+
 "@project44-manifest/react-overlay@^0.0.0, @project44-manifest/react-overlay@workspace:packages/react/components/overlay":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-overlay@workspace:packages/react/components/overlay"
@@ -3447,6 +3467,28 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@project44-manifest/react-side-navigation@^0.0.0, @project44-manifest/react-side-navigation@workspace:packages/react/components/side-navigation":
+  version: 0.0.0-use.local
+  resolution: "@project44-manifest/react-side-navigation@workspace:packages/react/components/side-navigation"
+  dependencies:
+    "@project44-manifest/react-button": ^1.0.2
+    "@project44-manifest/react-icons": ^0.1.0
+    "@project44-manifest/react-menu": ^0.0.0
+    "@project44-manifest/react-provider": ^0.1.0
+    "@project44-manifest/react-styles": ^1.0.1
+    "@project44-manifest/react-types": ^0.2.1
+    "@project44-manifest/react-typography": ^1.0.1
+    "@project44-manifest/react-utils": ^0.2.3
+    "@project44-manifest/use-controlled-state": ^0.1.0
+    "@react-types/shared": ^3.16.0
+    react: ^18.1.0
+    react-dom: ^18.1.0
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+  languageName: unknown
+  linkType: soft
+
 "@project44-manifest/react-styles@^1.0.1, @project44-manifest/react-styles@^1.1.0, @project44-manifest/react-styles@workspace:packages/react/styles":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-styles@workspace:packages/react/styles"
@@ -3502,6 +3544,19 @@ __metadata:
     react-dom: ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
+
+"@project44-manifest/react-transition@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "@project44-manifest/react-transition@npm:0.1.0"
+  dependencies:
+    "@project44-manifest/use-merged-ref": ^0.1.0
+    react-transition-group: ^4.4.5
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+  checksum: 0fadc06ebd11721ab976d7c341d8891b36e677cc12e885733310eaa3ecffde6747ae5cbe2c62c32a85454164e49a1a1fb00325141a07c7c10f89a49a1dba656a
+  languageName: node
+  linkType: hard
 
 "@project44-manifest/react-types@^0.2.1, @project44-manifest/react-types@workspace:packages/react/types":
   version: 0.0.0-use.local
@@ -3569,10 +3624,12 @@ __metadata:
     "@project44-manifest/react-css-baseline": ^0.1.0
     "@project44-manifest/react-dropdown": ^0.0.0
     "@project44-manifest/react-link": ^0.2.0
+    "@project44-manifest/react-menu": ^0.0.0
     "@project44-manifest/react-overlay": ^0.0.0
     "@project44-manifest/react-popover": ^0.1.2
     "@project44-manifest/react-portal": ^0.0.0
     "@project44-manifest/react-provider": ^0.1.0
+    "@project44-manifest/react-side-navigation": ^0.0.0
     "@project44-manifest/react-styles": ^1.1.0
     "@project44-manifest/react-tooltip": ^1.1.1
     "@project44-manifest/system": ^0.1.5
@@ -3644,7 +3701,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/use-controlled-state@workspace:packages/react/hooks/use-controlled-state":
+"@project44-manifest/use-controlled-state@^0.1.0, @project44-manifest/use-controlled-state@workspace:packages/react/hooks/use-controlled-state":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/use-controlled-state@workspace:packages/react/hooks/use-controlled-state"
   dependencies:
@@ -3668,7 +3725,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/use-merged-ref@^0.1.1, @project44-manifest/use-merged-ref@workspace:packages/react/hooks/use-merged-ref":
+"@project44-manifest/use-merged-ref@^0.1.0, @project44-manifest/use-merged-ref@^0.1.1, @project44-manifest/use-merged-ref@workspace:packages/react/hooks/use-merged-ref":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/use-merged-ref@workspace:packages/react/hooks/use-merged-ref"
   dependencies:

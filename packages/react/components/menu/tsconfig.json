@@ -1,0 +1,40 @@
+{
+  "extends": "../../tsconfig.options.json",
+  "compilerOptions": {
+    "outDir": "../../.moon/cache/types/packages/menu"
+  },
+  "include": [
+    "src/**/*",
+    "stories/**/*",
+    "tests/**/*"
+  ],
+  "references": [
+    {
+      "path": "../button"
+    },
+    {
+      "path": "../icons"
+    },
+    {
+      "path": "../styles"
+    },
+    {
+      "path": "../transition"
+    },
+    {
+      "path": "../types"
+    },
+    {
+      "path": "../typography"
+    },
+    {
+      "path": "../use-controlled-state"
+    },
+    {
+      "path": "../utils"
+    },
+    {
+      "path": "./tsconfig.build.json"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "extends": "../../tsconfig.options.json",
+  "compilerOptions": {
+    "outDir": "../../.moon/cache/types/packages/side-navigation"
+  },
+  "include": [
+    "src/**/*",
+    "stories/**/*",
+    "tests/**/*"
+  ],
+  "references": [
+    {
+      "path": "../button"
+    },
+    {
+      "path": "../icons"
+    },
+    {
+      "path": "../menu"
+    },
+    {
+      "path": "../provider"
+    },
+    {
+      "path": "../styles"
+    },
+    {
+      "path": "../types"
+    },
+    {
+      "path": "../typography"
+    },
+    {
+      "path": "../use-controlled-state"
+    },
+    {
+      "path": "../utils"
+    },
+    {
+      "path": "./tsconfig.build.json"
+    }
+  ]
+}
