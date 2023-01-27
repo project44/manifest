@@ -21,9 +21,6 @@ build/
 .contentlayer
 .vercel
 
-# ignore sitemap
-apps/**/sitemap.xml
-
 # Configs
 *.tsbuildinfo
 

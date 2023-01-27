@@ -1,0 +1,301 @@
+---
+title: Select
+description: Choose a single option from a collapsible list of options.
+---
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <Select aria-label="Status">
+    <SelectItem key="in_transit">In Transit</SelectItem>
+    <SelectItem key="completed">Completed</SelectItem>
+    <SelectItem key="at_stop">At Stop</SelectItem>
+    <SelectItem key="scheduled">Scheduled</SelectItem>
+    <SelectItem key="received">Received</SelectItem>
+    <SelectItem key="cancelled">Cancelled</SelectItem>
+    <SelectItem key="fulfilled">Fulfilled</SelectItem>
+    <SelectItem key="rejected">Rejected</SelectItem>
+  </Select>
+</Box>
+```
+
+## Examples
+
+The select follows the
+[Collection Components](https://react-spectrum.adobe.com/react-stately/collections.html) API,
+accepting both static and dynamic collections.
+
+### Label
+
+Attach a label to the select using the `label` prop.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <Select label="Status">
+    <SelectItem key="in_transit">In Transit</SelectItem>
+    <SelectItem key="completed">Completed</SelectItem>
+    <SelectItem key="at_stop">At Stop</SelectItem>
+    <SelectItem key="scheduled">Scheduled</SelectItem>
+    <SelectItem key="received">Received</SelectItem>
+    <SelectItem key="cancelled">Cancelled</SelectItem>
+    <SelectItem key="fulfilled">Fulfilled</SelectItem>
+    <SelectItem key="rejected">Rejected</SelectItem>
+  </Select>
+</Box>
+```
+
+### HelperText
+
+Add additional context as well as display error messages with the `helperText` prop.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <Select label="Status" helperText="Please select a status">
+    <SelectItem key="in_transit">In Transit</SelectItem>
+    <SelectItem key="completed">Completed</SelectItem>
+    <SelectItem key="at_stop">At Stop</SelectItem>
+    <SelectItem key="scheduled">Scheduled</SelectItem>
+    <SelectItem key="received">Received</SelectItem>
+    <SelectItem key="cancelled">Cancelled</SelectItem>
+    <SelectItem key="fulfilled">Fulfilled</SelectItem>
+    <SelectItem key="rejected">Rejected</SelectItem>
+  </Select>
+</Box>
+```
+
+### Small
+
+A small select is used when vertical spacing is limited.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <Select aria-label="status" size="small">
+    <SelectItem key="in_transit">In Transit</SelectItem>
+    <SelectItem key="completed">Completed</SelectItem>
+    <SelectItem key="at_stop">At Stop</SelectItem>
+    <SelectItem key="scheduled">Scheduled</SelectItem>
+    <SelectItem key="received">Received</SelectItem>
+    <SelectItem key="cancelled">Cancelled</SelectItem>
+    <SelectItem key="fulfilled">Fulfilled</SelectItem>
+    <SelectItem key="rejected">Rejected</SelectItem>
+  </Select>
+</Box>
+```
+
+### Start Icon
+
+Include an icon before the input text.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <Select aria-label="status" startIcon={<Icon icon="search" />}>
+    <SelectItem key="in_transit">In Transit</SelectItem>
+    <SelectItem key="completed">Completed</SelectItem>
+    <SelectItem key="at_stop">At Stop</SelectItem>
+    <SelectItem key="scheduled">Scheduled</SelectItem>
+    <SelectItem key="received">Received</SelectItem>
+    <SelectItem key="cancelled">Cancelled</SelectItem>
+    <SelectItem key="fulfilled">Fulfilled</SelectItem>
+    <SelectItem key="rejected">Rejected</SelectItem>
+  </Select>
+</Box>
+```
+
+### Sections
+
+Group items within a select using a section.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <Select aria-label="status" startIcon={<Icon icon="search" />}>
+    <SelectItem key="in_transit">In Transit</SelectItem>
+    <SelectItem key="completed">Completed</SelectItem>
+    <SelectItem key="at_stop">At Stop</SelectItem>
+    <SelectItem key="scheduled">Scheduled</SelectItem>
+    <SelectItem key="received">Received</SelectItem>
+    <SelectItem key="fulfilled">Fulfilled</SelectItem>
+
+    <SelectSection key="exceptions" title="Exceptions">
+      <SelectItem key="rejected">Rejected</SelectItem>
+      <SelectItem key="cancelled">Cancelled</SelectItem>
+    </SelectSection>
+  </Select>
+</Box>
+```
+
+### Item Icon
+
+Include an icon before the item label on each item.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <Select aria-label="status">
+    <SelectItem startIcon={<Icon icon="local_shipping" />} key="in_transit">
+      In Transit
+    </SelectItem>
+    <SelectItem startIcon={<Icon icon="check_circle" />} key="completed">
+      Completed
+    </SelectItem>
+    <SelectItem startIcon={<Icon icon="location_on" />} key="at_stop">
+      At Stop
+    </SelectItem>
+    <SelectItem startIcon={<Icon icon="content_paste" />} key="scheduled">
+      Scheduled
+    </SelectItem>
+    <SelectItem startIcon={<Icon icon="assignment_returned" />} key="received">
+      Received
+    </SelectItem>
+    <SelectItem startIcon={<Icon icon="close" />} key="cancelled">
+      Cancelled
+    </SelectItem>
+    <SelectItem startIcon={<Icon icon="done_all" />} key="fulfilled">
+      Fulfilled
+    </SelectItem>
+    <SelectItem startIcon={<Icon icon="undo" />} key="rejected">
+      Rejected
+    </SelectItem>
+  </Select>
+</Box>
+```
+
+### Dynamic
+
+Create items from an external data source.
+
+```jsx
+function DynamicExample() {
+  const data = [
+    { id: 1, name: 'In Transit' },
+    { id: 2, name: 'Completed' },
+    { id: 3, name: 'At Stop' },
+    { id: 4, name: 'Scheduled' },
+    { id: 5, name: 'Received' },
+    { id: 6, name: 'Cancelled' },
+    { id: 7, name: 'Fulfilled' },
+    { id: 8, name: 'Rejected' },
+  ];
+
+  return (
+    <Box css={{ maxWidth: '25ch' }}>
+      <Select aria-label="status" items={data}>
+        {(item) => <SelectItem>{item.name}</SelectItem>}
+      </Select>
+    </Box>
+  );
+}
+```
+
+### Controlled
+
+A select's state can be controlled using the `selectedKeys` prop and `onSelectionChange` handler.
+
+```jsx
+function ControlledExample() {
+  const [selected, setSelected] = React.useState('completed');
+
+  return (
+    <Box css={{ maxWidth: '25ch' }}>
+      <Select aria-label="status" onSelectionChange={setSelected} selectedKey={selected}>
+        <SelectItem key="in_transit">In Transit</SelectItem>
+        <SelectItem key="completed">Completed</SelectItem>
+        <SelectItem key="at_stop">At Stop</SelectItem>
+        <SelectItem key="scheduled">Scheduled</SelectItem>
+        <SelectItem key="received">Received</SelectItem>
+        <SelectItem key="cancelled">Cancelled</SelectItem>
+        <SelectItem key="fulfilled">Fulfilled</SelectItem>
+        <SelectItem key="rejected">Rejected</SelectItem>
+      </Select>
+    </Box>
+  );
+}
+```
+
+### Disabled State
+
+Set the `isDisabled` prop to prevent a user from interacting with the select.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <Select aria-label="status" isDisabled>
+    <SelectItem key="in_transit">In Transit</SelectItem>
+    <SelectItem key="completed">Completed</SelectItem>
+    <SelectItem key="at_stop">At Stop</SelectItem>
+    <SelectItem key="scheduled">Scheduled</SelectItem>
+    <SelectItem key="received">Received</SelectItem>
+    <SelectItem key="cancelled">Cancelled</SelectItem>
+    <SelectItem key="fulfilled">Fulfilled</SelectItem>
+    <SelectItem key="rejected">Rejected</SelectItem>
+  </Select>
+</Box>
+```
+
+### Disabled items
+
+Set the `disabledKeys` prop to disable certain items in the select list.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <Select aria-label="status" disabledKeys={['completed', 'fulfilled']}>
+    <SelectItem key="in_transit">In Transit</SelectItem>
+    <SelectItem key="completed">Completed</SelectItem>
+    <SelectItem key="at_stop">At Stop</SelectItem>
+    <SelectItem key="scheduled">Scheduled</SelectItem>
+    <SelectItem key="received">Received</SelectItem>
+    <SelectItem key="cancelled">Cancelled</SelectItem>
+    <SelectItem key="fulfilled">Fulfilled</SelectItem>
+    <SelectItem key="rejected">Rejected</SelectItem>
+  </Select>
+</Box>
+```
+
+### Invalid State
+
+Set the `validationState` prop to `invalid` to render the select in an invalid state.
+
+```jsx
+<Box css={{ maxWidth: '25ch' }}>
+  <Select aria-label="status" helperText="A selection is required" validationState="invalid">
+    <SelectItem key="in_transit">In Transit</SelectItem>
+    <SelectItem key="completed">Completed</SelectItem>
+    <SelectItem key="at_stop">At Stop</SelectItem>
+    <SelectItem key="scheduled">Scheduled</SelectItem>
+    <SelectItem key="received">Received</SelectItem>
+    <SelectItem key="cancelled">Cancelled</SelectItem>
+    <SelectItem key="fulfilled">Fulfilled</SelectItem>
+    <SelectItem key="rejected">Rejected</SelectItem>
+  </Select>
+</Box>
+```
+
+## Accessibility
+
+### Labeling
+
+If a visible label isn't specified, an aria-label must be provided to the select for accessibility.
+If the field is labeled by a separate element, an aria-labelledby prop must be provided using the id
+of the labeling element instead.
+
+## API
+
+### Import
+
+```js
+import { Select, SelectItem, SelectSection } from '@project44-manifest/react';
+```
+
+### Select Props
+
+Props of the native element are also available.
+
+<PropsTable of="Select" />
+
+### SelectItem Props
+
+Props of the native element are also available.
+
+<PropsTable of="SelectItem" />
+
+### SelectSection Props
+
+Props of the native element are also available.
+
+<PropsTable of="SelectSection" />

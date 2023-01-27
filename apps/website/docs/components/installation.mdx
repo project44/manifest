@@ -1,0 +1,50 @@
+# Installation
+
+Quickly build experiences leveraging the Manifest Design System.
+
+## Install the core package
+
+Before proceeding, make sure to have the following tools installed:
+
+- [Node.js](https://nodejs.org/en/download/)
+
+**Install with npm**
+
+```bash
+npm install @project44-manifest/react react react-dom
+```
+
+**Install with yarn**
+
+```bash
+yarn add @project44-manifest/react react react-dom
+```
+
+## Setup fonts
+
+Manifest Design System was designed leveraging the Inter font. Please be sure to include the font
+family link in the `<head>` of your application's HTML.
+
+```html
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+  rel="stylesheet"
+/>
+```
+
+## Setup Provider
+
+For Manifest Design System to work properly, make sure to setup the Provider at the root of your
+application.
+
+```tsx
+import { Provider } from '@project44-manifest/react';
+
+function MyApp() {
+  return (
+    <Provider>
+      <App />
+    </Provider>
+  );
+}
+```

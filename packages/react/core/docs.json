@@ -2,7 +2,7 @@
   "Box": [
     {
       "name": "children",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": ""
     },
@@ -22,7 +22,7 @@
   "Calendar": [
     {
       "name": "children",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": ""
     },
@@ -42,7 +42,7 @@
   "CalendarRange": [
     {
       "name": "children",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": ""
     },
@@ -82,7 +82,7 @@
   "Checkbox": [
     {
       "name": "children",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "The label for the element."
     },
@@ -108,7 +108,7 @@
     },
     {
       "name": "helperText",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "Helper text to append to the form control input element."
     },
@@ -120,7 +120,7 @@
     },
     {
       "name": "label",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "Label of the input element"
     },
@@ -226,7 +226,7 @@
   "Container": [
     {
       "name": "children",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": ""
     },
@@ -260,13 +260,13 @@
   "DatePicker": [
     {
       "name": "children",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": ""
     },
     {
       "name": "helperText",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "Helper text to append to the form control input element."
     },
@@ -278,7 +278,7 @@
     },
     {
       "name": "label",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "Label of the input element"
     },
@@ -344,13 +344,13 @@
   "DateRangePicker": [
     {
       "name": "children",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": ""
     },
     {
       "name": "helperText",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "Helper text to append to the form control input element."
     },
@@ -362,7 +362,7 @@
     },
     {
       "name": "label",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "Label of the input element"
     },
@@ -448,7 +448,7 @@
   "Flex": [
     {
       "name": "children",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": ""
     },
@@ -498,13 +498,13 @@
   "FormControl": [
     {
       "name": "children",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": ""
     },
     {
       "name": "helperText",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "Helper text appended to the input element."
     },
@@ -523,7 +523,7 @@
     },
     {
       "name": "label",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "The label for the form control input element."
     },
@@ -556,7 +556,7 @@
   "Grid": [
     {
       "name": "children",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": ""
     },
@@ -614,7 +614,7 @@
   "GridItem": [
     {
       "name": "children",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": ""
     },
@@ -737,7 +737,7 @@
     },
     {
       "name": "helperText",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "Helper text to append to the form control input element."
     },
@@ -749,7 +749,7 @@
     },
     {
       "name": "label",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "Label of the input element"
     },
@@ -894,7 +894,7 @@
     },
     {
       "name": "helperText",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "Helper text to append to the form control input element."
     },
@@ -906,7 +906,7 @@
     },
     {
       "name": "label",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "Label of the input element"
     },
@@ -995,7 +995,7 @@
   "Pagination": [
     {
       "name": "children",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": ""
     },
@@ -1068,7 +1068,7 @@
   "Pill": [
     {
       "name": "children",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": ""
     },
@@ -1081,7 +1081,7 @@
     },
     {
       "name": "icon",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "The icon to render in the pill."
     },
@@ -1094,7 +1094,7 @@
     },
     {
       "name": "label",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "The text label of the pill."
     },
@@ -1114,7 +1114,7 @@
   "Radio": [
     {
       "name": "children",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "The label for the Radio. Accepts any renderable node."
     },
@@ -1134,7 +1134,7 @@
   "RadioGroup": [
     {
       "name": "children",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": ""
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "name": "helperText",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "Helper text to append to the form control input element."
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "name": "label",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "Label of the input element"
     },
@@ -1285,7 +1285,7 @@
   "Separator": [
     {
       "name": "children",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": ""
     },
@@ -1312,7 +1312,7 @@
   "Stack": [
     {
       "name": "children",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": ""
     },
@@ -1342,30 +1342,11 @@
       "description": "Theme aware style object."
     }
   ],
-  "Switch": [
-    {
-      "name": "children",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
-      "required": false,
-      "description": "The content to render as the Switch's label."
-    },
-    {
-      "name": "as",
-      "type": "NonNullable<T>",
-      "required": false,
-      "description": ""
-    },
-    {
-      "name": "css",
-      "type": "CSS",
-      "required": false,
-      "description": "Theme aware style object."
-    }
-  ],
+  "Switch": [],
   "Tag": [
     {
       "name": "children",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": ""
     },
@@ -1397,7 +1378,7 @@
   "TextArea": [
     {
       "name": "children",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": ""
     },
@@ -1439,7 +1420,7 @@
     },
     {
       "name": "label",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "Label of the input element"
     },
@@ -1469,7 +1450,7 @@
     },
     {
       "name": "helperText",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "Helper text to append to the form control input element."
     },
@@ -1507,7 +1488,7 @@
   "TextField": [
     {
       "name": "children",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": ""
     },
@@ -1544,13 +1525,13 @@
     },
     {
       "name": "endIcon",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "Icon displayed at the end of the text field."
     },
     {
       "name": "helperText",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "Helper text to append to the form control input element."
     },
@@ -1592,7 +1573,7 @@
     },
     {
       "name": "label",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "Label of the input element"
     },
@@ -1610,7 +1591,7 @@
     },
     {
       "name": "startIcon",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "Icon displayed at the start of the text field."
     },
@@ -1657,7 +1638,7 @@
   "VisuallyHidden": [
     {
       "name": "children",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": ""
     },

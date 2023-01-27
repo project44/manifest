@@ -1,0 +1,51 @@
+---
+title: List Box
+description: Navigable component that allows a user to navigate between a range of pages.
+---
+
+```jsx
+<Pagination totalRowCount={100} />
+```
+
+## Examples
+
+### Arrow only
+
+Set the `showPageNumbers` props to `false` to display only the navigation arrows.
+
+```jsx
+<Pagination showPageNumbers={false} totalRowCount={100} />
+```
+
+### Ranges
+
+You can specify how many pages to show on side of the current page with the `siblings` and
+`boundaries` props.
+
+```jsx
+<Pagination boundaries={2} page={5} siblings={0} totalRowCount={100} />
+```
+
+### Controlled
+
+The pagination's state can be controlled using the `page` and `onChange` props.
+
+```jsx
+function ControlledExample() {
+  const [page, setPage] = React.useState(4);
+
+  return <Pagination page={page} onChange={setPage} totalRowCount={100} />;
+}
+```
+
+## API
+
+### Import
+
+```js
+import { Pagination } from '@project44-manifest/react';
+```
+
+All native element props are also available.
+
+<PropsTable of="Pagination" />

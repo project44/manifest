@@ -1,6 +1,5 @@
-.next/
+.docusaurus
 .cache/
-.contentlayer/
 node_modules/
 build/
 coverage/
@@ -8,6 +7,7 @@ dist/
 dts/
 esm/
 lib/
+generated/
 CHANGELOG.md
 *.d.ts
 *.d.cts
