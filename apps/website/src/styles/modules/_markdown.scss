@@ -1,0 +1,10 @@
+.markdown {
+  strong,
+  b {
+    font-weight: var(--font-weight-semibold);
+  }
+
+  ul, ol {
+    padding-left: var(--space-medium);
+  }
+}

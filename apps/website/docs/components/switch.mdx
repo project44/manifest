@@ -1,0 +1,65 @@
+---
+title: Switch
+description: A controlled boolean input.
+---
+
+```jsx
+<Switch aria-label="switch" />
+```
+
+## Examples
+
+### Label
+
+Pass in a `string` as a child to render a label for the switch.
+
+```jsx
+<Switch>Label</Switch>
+```
+
+### Controlled
+
+A switch's state can be controlled by a parent React component by setting the `isSelected` prop and
+passing a handler to the `onChange` prop.
+
+```jsx
+function ControlledExample() {
+  const [selected, setSelected] = React.useState(false);
+
+  const handleChange = (isSelected) => {
+    setSelected(isSelected);
+  };
+
+  return <Switch aria-label="switch" isSelected={selected} onChange={handleChange} />;
+}
+```
+
+### Disabled State
+
+Set the `isDisabled` prop to prevent a user from selecting a switch.
+
+```jsx
+<Switch isDisabled>Disabled</Switch>
+```
+
+## Accessibility
+
+### Labeling
+
+If a visible label isn't specified, an aria-label must be provided to the switch for accessibility.
+If the field is labeled by a separate element, an aria-labelledby prop must be provided using the id
+of the labeling element instead.
+
+## API
+
+### Import
+
+```js
+import { Switch } from '@project44-manifest/react';
+```
+
+### Props
+
+All native element props are also available.
+
+<PropsTable of="Switch" />
