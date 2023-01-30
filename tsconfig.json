@@ -45,6 +45,9 @@
       "path": "packages/tooltip"
     },
     {
+      "path": "packages/transition"
+    },
+    {
       "path": "packages/types"
     },
     {
@@ -52,6 +55,9 @@
     },
     {
       "path": "packages/use-controlled-state"
+    },
+    {
+      "path": "packages/use-merged-ref"
     },
     {
       "path": "packages/utils"

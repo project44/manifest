@@ -1,0 +1,21 @@
+type: 'library'
+language: 'typescript'
+
+workspace:
+  inheritedTasks:
+    rename:
+      buildPackage: 'build'
+
+tasks:
+  build:
+    outputs:
+      - 'esm'
+      - 'lib'
+
+dependsOn:
+  - id: 'button'
+    scope: 'development'
+  - id: 'layout'
+    scope: 'development'
+  - id: 'use-merged-ref'
+    scope: 'production'

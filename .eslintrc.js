@@ -217,7 +217,6 @@ module.exports = {
     '@typescript-eslint/prefer-function-type': 'error',
     '@typescript-eslint/prefer-includes': 'error',
     '@typescript-eslint/prefer-literal-enum-member': 'error',
-    '@typescript-eslint/prefer-nullish-coalescing': 'error',
     '@typescript-eslint/prefer-optional-chain': 'error',
     '@typescript-eslint/prefer-reduce-type-parameter': 'error',
     '@typescript-eslint/prefer-string-starts-ends-with': 'error',
