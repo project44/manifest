@@ -1,0 +1,61 @@
+{
+  "name": "@project44-manifest/react-transition",
+  "version": "0.0.0",
+  "description": "Manifest Design System react transition component",
+  "license": "MIT",
+  "author": "project44",
+  "keywords": [
+    "manifest",
+    "design",
+    "system",
+    "react",
+    "components"
+  ],
+  "sideEffects": false,
+  "main": "./lib/index.js",
+  "module": "./esm/index.js",
+  "types": "./dts/index.d.ts",
+  "files": [
+    "dts/**/*.d.ts",
+    "esm/**/*.{js,map}",
+    "lib/**/*.{js,map}",
+    "src/**/*.{ts,tsx,json}"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:project-44/manifest.git",
+    "directory": "packages/transition"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  },
+  "dependencies": {
+    "@project44-manifest/use-merged-ref": "^0.0.0",
+    "react-transition-group": "^4.4.5"
+  },
+  "devDependencies": {
+    "@project44-manifest/react-button": "^1.0.2",
+    "@project44-manifest/react-layout": "^1.0.1",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "packemon": {
+    "platform": "browser"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dts/index.d.ts",
+      "browser": {
+        "module": "./esm/index.js",
+        "import": "./esm/index.js",
+        "default": "./lib/index.js"
+      },
+      "default": "./lib/index.js"
+    }
+  }
+}

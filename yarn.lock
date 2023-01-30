@@ -3384,6 +3384,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@project44-manifest/react-transition@workspace:packages/transition":
+  version: 0.0.0-use.local
+  resolution: "@project44-manifest/react-transition@workspace:packages/transition"
+  dependencies:
+    "@project44-manifest/react-button": ^1.0.2
+    "@project44-manifest/react-layout": ^1.0.1
+    "@project44-manifest/use-merged-ref": ^0.0.0
+    react: ^18.1.0
+    react-dom: ^18.1.0
+    react-transition-group: ^4.4.5
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+  languageName: unknown
+  linkType: soft
+
 "@project44-manifest/react-types@^0.2.1, @project44-manifest/react-types@workspace:packages/types":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-types@workspace:packages/types"
@@ -3411,7 +3427,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-utils@^0.2.3, @project44-manifest/react-utils@workspace:packages/utils":
+"@project44-manifest/react-utils@^0.2.3, @project44-manifest/react-utils@workspace:^, @project44-manifest/react-utils@workspace:packages/utils":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-utils@workspace:packages/utils"
   dependencies:
@@ -3519,6 +3535,19 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@project44-manifest/use-controlled-state@workspace:packages/use-controlled-state"
   dependencies:
+    react: ^18.1.0
+    react-dom: ^18.1.0
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+  languageName: unknown
+  linkType: soft
+
+"@project44-manifest/use-merged-ref@^0.0.0, @project44-manifest/use-merged-ref@workspace:packages/use-merged-ref":
+  version: 0.0.0-use.local
+  resolution: "@project44-manifest/use-merged-ref@workspace:packages/use-merged-ref"
+  dependencies:
+    "@project44-manifest/react-utils": "workspace:^"
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
