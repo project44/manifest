@@ -1,6 +1,6 @@
 import { styled } from '@project44-manifest/react-styles';
 
-export const StyledTooltip = styled('div', {
+export const StyledTooltipContent = styled('div', {
   backgroundColor: '$palette-grey-700',
   borderRadius: '$small',
   boxSizing: 'border-box',

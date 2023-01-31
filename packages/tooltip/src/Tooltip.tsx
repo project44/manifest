@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { useOverlayPosition } from '@react-aria/overlays';
+import { useTooltipTrigger } from '@react-aria/tooltip';
+import { useTooltipTriggerState } from '@react-stately/tooltip';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
-import { mergeProps, mergeRefs, Slot } from '@project44-manifest/react-utils';
-import { TooltipContent } from './Tooltip.content';
-import { useTooltip } from './Tooltip.hook';
-import { useTooltipState } from './Tooltip.state';
+import { TooltipProvider } from './Tooltip.context';
 import type { TooltipElement, TooltipProps } from './Tooltip.types';
+import { TooltipContent } from './TooltipContent';
+import { TooltipTransition } from './TooltipTransition';
 
 export const Tooltip = React.forwardRef((props, forwardedRef) => {
   const {
@@ -21,29 +22,48 @@ export const Tooltip = React.forwardRef((props, forwardedRef) => {
     ...other
   } = props;
 
-  const state = useTooltipState({ defaultOpen, delay, isDisabled, isOpen, onOpenChange, trigger });
-  const { tooltipProps, tooltipRef, triggerProps, triggerRef } = useTooltip(state, {
+  const tooltipRef = React.useRef<HTMLDivElement>(null);
+  const triggerRef = React.useRef<HTMLElement>(null);
+
+  const state = useTooltipTriggerState({
     defaultOpen,
+    delay,
     isDisabled,
-    placement,
+    isOpen,
+    onOpenChange,
     trigger,
+  });
+
+  const { tooltipProps, triggerProps } = useTooltipTrigger(
+    { isDisabled, trigger },
+    state,
+    triggerRef,
+  );
+
+  const { overlayProps: positionProps } = useOverlayPosition({
+    isOpen: state?.isOpen,
+    offset: 4,
+    placement,
+    overlayRef: tooltipRef,
+    targetRef: triggerRef,
   });
 
   return (
     <>
-      <Slot {...triggerProps} ref={triggerRef}>
-        {children}
-      </Slot>
-      <AnimatePresence>
-        {state.isOpen && (
-          <TooltipContent
-            {...mergeProps(tooltipProps, other)}
-            ref={mergeRefs(tooltipRef, forwardedRef)}
-          >
+      {React.cloneElement(children, {
+        ...triggerProps,
+        ref: triggerRef,
+      })}
+
+      <TooltipProvider
+        value={{ tooltipProps: { ...tooltipProps, ...positionProps }, tooltipRef, state }}
+      >
+        <TooltipTransition in={state.isOpen}>
+          <TooltipContent {...other} ref={forwardedRef}>
             {title}
           </TooltipContent>
-        )}
-      </AnimatePresence>
+        </TooltipTransition>
+      </TooltipProvider>
     </>
   );
 }) as ForwardRefComponent<TooltipElement, TooltipProps>;

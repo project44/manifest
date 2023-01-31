@@ -3,6 +3,10 @@ import type { CSS } from '@project44-manifest/react-styles';
 export type TooltipElement = 'div';
 
 export interface TooltipProps {
+  /**
+   * A single child element.
+   */
+  children: React.ReactElement;
   /** Theme aware style object */
   css?: CSS;
   /** Whether the tooltip is open by default (uncontrolled). */

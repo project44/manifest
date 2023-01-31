@@ -1,10 +1,9 @@
 import { OverlayProvider } from '@react-aria/overlays';
 import { fireEvent, render, screen, within } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { Dropdown, DropdownItem, DropdownMenu, DropdownSection, Icon, IconButton } from '../src';
 
 describe('@project44-manifest/react - Dropdown', () => {
-  it('should render and support selection', async () => {
+  it('should render and support selection', () => {
     const onAction = jest.fn();
 
     render(
@@ -35,7 +34,7 @@ describe('@project44-manifest/react - Dropdown', () => {
     expect(menu).toBeVisible();
     expect(items).toHaveLength(4);
 
-    await userEvent.click(screen.getByText('Ardvark'));
+    fireEvent.click(screen.getByText('Ardvark'));
 
     expect(onAction).toHaveBeenCalled();
   });

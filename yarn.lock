@@ -3368,14 +3368,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-tooltip@workspace:packages/tooltip"
   dependencies:
+    "@project44-manifest/react-button": ^1.0.2
+    "@project44-manifest/react-layout": ^1.0.1
     "@project44-manifest/react-styles": ^1.0.1
+    "@project44-manifest/react-transition": ^0.0.0
     "@project44-manifest/react-types": ^0.2.1
     "@project44-manifest/react-utils": ^0.2.3
     "@react-aria/interactions": ^3.12.0
     "@react-aria/overlays": ^3.11.0
     "@react-aria/tooltip": ^3.3.2
     "@react-stately/tooltip": ^3.2.2
-    framer-motion: 6.2.9
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
@@ -3384,7 +3386,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-transition@workspace:packages/transition":
+"@project44-manifest/react-transition@^0.0.0, @project44-manifest/react-transition@workspace:packages/transition":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-transition@workspace:packages/transition"
   dependencies:

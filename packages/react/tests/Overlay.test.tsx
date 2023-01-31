@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { Overlay } from '../src';
 
 describe('@project44-manifest/react - Overlay', () => {
@@ -12,15 +12,13 @@ describe('@project44-manifest/react - Overlay', () => {
     expect(screen.queryByTestId('overlay')).toBeNull();
   });
 
-  it('should render if isOpen is true', async () => {
+  it('should render if isOpen is true', () => {
     render(
       <Overlay isOpen>
         <span data-testid="overlay">Overlay</span>
       </Overlay>,
     );
 
-    await waitFor(() => {
-      expect(screen.getByTestId('overlay')).not.toBeNull();
-    });
+    expect(screen.getByTestId('overlay')).not.toBeNull();
   });
 });
