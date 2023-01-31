@@ -5,6 +5,9 @@ import { useTooltipTrigger } from '@react-aria/tooltip';
 import { mergeProps } from '@project44-manifest/react-utils';
 import type { TooltipProps, TooltipState } from './Tooltip.types';
 
+/**
+ * @deprecated
+ */
 export function useTooltip(state: TooltipState, props: TooltipProps) {
   const { isDisabled, placement, trigger } = props;
 

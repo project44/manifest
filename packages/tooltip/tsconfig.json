@@ -11,7 +11,16 @@
   ],
   "references": [
     {
+      "path": "../button"
+    },
+    {
+      "path": "../layout"
+    },
+    {
       "path": "../styles"
+    },
+    {
+      "path": "../transition"
     },
     {
       "path": "../types"

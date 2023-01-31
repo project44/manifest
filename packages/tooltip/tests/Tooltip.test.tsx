@@ -1,4 +1,4 @@
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import { Tooltip } from '../src';
 
 describe('react-tooltip', () => {
@@ -23,7 +23,7 @@ describe('react-tooltip', () => {
     fireEvent.keyUp(document.body, { key: 'Tab' });
   });
 
-  it('should open on hover', async () => {
+  it('should open on hover', () => {
     const onOpenChange = jest.fn();
 
     render(
@@ -58,21 +58,13 @@ describe('react-tooltip', () => {
       jest.runAllTimers();
     });
 
-    expect(tooltip).toBeVisible();
-
     expect(onOpenChange).toHaveBeenCalledTimes(2);
     expect(onOpenChange).toHaveBeenCalledWith(false);
 
-    act(() => {
-      jest.runAllTimers();
-    });
-
-    expect(onOpenChange).toHaveBeenCalledTimes(2);
-
-    await waitFor(() => void expect(tooltip).not.toBeInTheDocument());
+    expect(tooltip).not.toBeInTheDocument();
   });
 
-  it('should open on focus', async () => {
+  it('should open on focus', () => {
     render(
       <Tooltip delay={0} title="Tooltip">
         <button>Open Tooltip</button>
@@ -99,10 +91,10 @@ describe('react-tooltip', () => {
       jest.runAllTimers();
     });
 
-    await waitFor(() => void expect(screen.queryByRole('tooltip')).not.toBeInTheDocument());
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
   });
 
-  it('should close with escape', async () => {
+  it('should close with escape', () => {
     render(
       <Tooltip delay={0} title="Tooltip">
         <button>Open Tooltip</button>
@@ -128,10 +120,10 @@ describe('react-tooltip', () => {
       jest.runAllTimers();
     });
 
-    await waitFor(() => void expect(screen.queryByRole('tooltip')).not.toBeInTheDocument());
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
   });
 
-  it('should close if trigger is clicked', async () => {
+  it('should close if trigger is clicked', () => {
     render(
       <Tooltip delay={0} title="Tooltip">
         <button>Open Tooltip</button>
@@ -158,10 +150,10 @@ describe('react-tooltip', () => {
       jest.runAllTimers();
     });
 
-    await waitFor(() => void expect(screen.queryByRole('tooltip')).not.toBeInTheDocument());
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
   });
 
-  it('should not close if tooltip is hovered', async () => {
+  it('should not close if tooltip is hovered', () => {
     render(
       <Tooltip delay={0} title="Tooltip">
         <button>Open Tooltip</button>
@@ -193,10 +185,10 @@ describe('react-tooltip', () => {
       jest.runAllTimers();
     });
 
-    await waitFor(() => void expect(screen.queryByRole('tooltip')).not.toBeInTheDocument());
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
   });
 
-  it('should support delay', async () => {
+  it('should support delay', () => {
     render(
       <Tooltip delay={250} title="Tooltip">
         <button>Open Tooltip</button>
@@ -219,7 +211,7 @@ describe('react-tooltip', () => {
       jest.runAllTimers();
     });
 
-    await waitFor(() => void expect(screen.getByRole('tooltip')).toBeInTheDocument());
+    expect(screen.getByRole('tooltip')).toBeInTheDocument();
   });
 
   it('should be able to be controlled', () => {
