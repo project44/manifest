@@ -1,7 +1,7 @@
 {% set component_name = name | pascal_case %}
 
 ---
-to: tests/{{ component_name }}.stories.tsx
+to: tests/{{ component_name }}.test.tsx
 ---
 
 import { render, screen } from '@testing-library/react';
