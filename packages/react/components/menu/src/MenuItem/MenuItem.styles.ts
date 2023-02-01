@@ -25,6 +25,7 @@ export const StyledMenuItem = styled('div', {
   variants: {
     isGrouped: {
       true: {
+        color: '$text-secondary',
         paddingLeft: pxToRem(52),
         paddingRight: '$medium',
       },
