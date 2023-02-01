@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Avatar } from '../src';
 
-describe('@project44-manifest/react - Avatar', () => {
+describe('react-avatar', () => {
   it('should render an image if a source is provided', () => {
     render(<Avatar src="http://localhost/some_image.png" />);
 

@@ -1,5 +1,3 @@
-export type { AvatarProps } from './components/Avatar';
-export { Avatar } from './components/Avatar';
 export type { BoxProps } from './components/Box';
 export { Box } from './components/Box';
 export type { CalendarProps } from './components/Calendar';
@@ -110,6 +108,7 @@ export type { VisuallyHiddenProps } from './components/VisuallyHidden';
 export { VisuallyHidden } from './components/VisuallyHidden';
 export * from './hooks';
 export * from './state';
+export * from '@project44-manifest/react-avatar';
 export * from '@project44-manifest/react-button';
 export * from '@project44-manifest/react-css-baseline';
 export * from '@project44-manifest/react-provider';

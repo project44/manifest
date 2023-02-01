@@ -13,10 +13,9 @@ tasks:
       - 'lib'
 
 dependsOn:
-  - 'avatar'
-  - 'button'
-  - 'css-baseline'
-  - 'provider'
-  - 'styles'
-  - 'system'
-  - 'tooltip'
+  - id: 'styles'
+    scope: 'production'
+  - id: 'types'
+    scope: 'development'
+  - id: 'utils'
+    scope: 'production'

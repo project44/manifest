@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.options.json",
   "compilerOptions": {
-    "outDir": "../../.moon/cache/types/packages/react"
+    "outDir": "../../.moon/cache/types/packages/avatar"
   },
   "include": [
     "src/**/*",
@@ -10,25 +10,13 @@
   ],
   "references": [
     {
-      "path": "../avatar"
-    },
-    {
-      "path": "../button"
-    },
-    {
-      "path": "../css-baseline"
-    },
-    {
-      "path": "../provider"
-    },
-    {
       "path": "../styles"
     },
     {
-      "path": "../system"
+      "path": "../types"
     },
     {
-      "path": "../tooltip"
+      "path": "../utils"
     },
     {
       "path": "./tsconfig.build.json"
