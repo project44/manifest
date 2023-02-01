@@ -11,10 +11,6 @@ jobs:
     name: Validate
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        index: [0, 1]
-
     steps:
       - name: Checkout branch
         uses: actions/checkout@v3
