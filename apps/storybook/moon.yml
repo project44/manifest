@@ -1,0 +1,26 @@
+type: 'application'
+
+workspace:
+  inheritedTasks:
+    exclude: ['buildPackage']
+
+tasks:
+  build:
+    command: 'build-storybook'
+    args:
+      - '-o'
+      - '@out(0)'
+    inputs:
+      - '@group(stories)'
+    outputs:
+      - 'build'
+
+  storybook:
+    local: true
+    command: 'start-storybook'
+    inputs:
+      - '@group(stories)'
+
+dependsOn:
+  - 'icons'
+  - 'react'

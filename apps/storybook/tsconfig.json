@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.options.json",
+  "include": [
+    "**/*"
+  ],
+  "references": [
+    {
+      "path": "../../packages/icons"
+    },
+    {
+      "path": "../../packages/react"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../.moon/cache/types/apps/storybook"
+  }
+}
