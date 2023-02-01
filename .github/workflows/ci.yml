@@ -11,6 +11,10 @@ jobs:
     name: Validate
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        index: [0, 1]
+
     steps:
       - name: Checkout branch
         uses: actions/checkout@v3
@@ -31,7 +35,7 @@ jobs:
         run: yarn setup
 
       - name: Run checks
-        run: yarn moon ci
+        run: yarn moon ci --job ${{ matrix.index }} --jobTotal 2
 
       - name: Report results
         uses: moonrepo/run-report-action@v1
