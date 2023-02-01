@@ -8,7 +8,7 @@ tasks:
   build:
     command: 'build-storybook'
     args:
-      - '--out-dir'
+      - '-o'
       - '@out(0)'
     inputs:
       - '@group(stories)'
