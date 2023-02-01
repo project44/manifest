@@ -10,7 +10,7 @@ export const StyledMenuItem = styled('div', {
   display: 'flex',
   flexGrow: 1,
   justifyContent: 'flex-start',
-  my: '$x-small',
+  my: pxToRem(2),
   position: 'relative',
   px: pxToRem(12),
   textAlign: 'left',
