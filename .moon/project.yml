@@ -12,6 +12,7 @@ fileGroups:
     - 'tests/**/*.test.*'
 
   stories:
+    - '.storybook/**/*'
     - 'stories/**/*.stories.*'
 
   assets:

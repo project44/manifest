@@ -1,0 +1,17 @@
+{
+  "name": "storybook",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@project44-manifest/react": "^2.7.0",
+    "@project44-manifest/react-icons": "^0.1.0",
+    "@storybook/addon-a11y": "^6.5.16",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/addon-links": "^6.5.16",
+    "@storybook/builder-webpack5": "^6.5.16",
+    "@storybook/manager-webpack5": "^6.5.16",
+    "@storybook/react": "^6.5.16",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
