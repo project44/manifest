@@ -1,4 +1,10 @@
-$schema: 'https://moonrepo.dev/schemas/global-project.json'
+$schema: 'https://moonrepo.dev/schemas/tasks.json'
+
+implicitDeps:
+  - '^:build'
+
+implicitInputs:
+  - 'package.json'
 
 fileGroups:
   configs:
@@ -29,24 +35,6 @@ fileGroups:
     - '/tsconfig.*.json'
 
 tasks:
-  buildPackage:
-    command: 'packemon'
-    args:
-      - 'build'
-      - '--addEngines'
-      - '--addExports'
-      - '--declaration'
-      - '--declarationConfig'
-      - 'tsconfig.build.json'
-    inputs:
-      - '@globs(sources)'
-      - '@globs(typescript)'
-      - 'package.json'
-    outputs:
-      - 'dts'
-    env:
-      NODE_ENV: 'production'
-
   format:
     command: 'prettier'
     args:
