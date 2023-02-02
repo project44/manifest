@@ -5,7 +5,12 @@ node:
   packageManager: 'yarn'
   yarn:
     version: '3.3.1'
-  addEnginesConstraint: true
+    plugins:
+      - 'interactive-tools'
+      - 'version'
+      - 'workspace-tools'
+
+  addEnginesConstraint: false
   dedupeOnLockfileChange: true
   dependencyVersionFormat: 'version-caret'
   syncProjectWorkspaceDependencies: true
@@ -13,7 +18,5 @@ node:
 
 typescript:
   createMissingConfig: true
-  projectConfigFileName: 'tsconfig.json'
-  rootConfigFileName: 'tsconfig.json'
   routeOutDirToCache: true
   syncProjectReferences: true

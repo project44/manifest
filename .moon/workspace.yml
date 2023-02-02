@@ -6,19 +6,6 @@ projects:
 
 runner:
   inheritColorsForPipedTasks: true
-  implicitDeps:
-    - '^:build'
-  implicitInputs:
-    - 'package.json'
-    - '/.moon/project.yml'
-    - '/.moon/toolchain.yml'
-    - '/.moon/workspace.yml'
-    - '/packages/**/package.json'
-    - '/packages/**/tsconfig.json'
-    - '/packages/**/tsconfig.options.json'
-    - 'tsconfig.eslint.json'
-    - 'tsconfig.options.json'
-    - '**/moon.yml'
 
 vcs:
   manager: 'git'
