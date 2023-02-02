@@ -2,4 +2,3 @@
 
 export * from "./{{ component_name }}";
 export * from "./{{ component_name }}.types";
-export * from "./use{{ component_name }}";
