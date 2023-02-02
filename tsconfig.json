@@ -33,6 +33,9 @@
       "path": "packages/react/components/link"
     },
     {
+      "path": "packages/react/components/menu"
+    },
+    {
       "path": "packages/react/components/overlay"
     },
     {
@@ -43,6 +46,9 @@
     },
     {
       "path": "packages/react/components/provider"
+    },
+    {
+      "path": "packages/react/components/side-navigation"
     },
     {
       "path": "packages/react/components/tooltip"

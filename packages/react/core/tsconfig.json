@@ -28,6 +28,9 @@
       "path": "../components/link"
     },
     {
+      "path": "../components/menu"
+    },
+    {
       "path": "../components/overlay"
     },
     {
@@ -38,6 +41,9 @@
     },
     {
       "path": "../components/provider"
+    },
+    {
+      "path": "../components/side-navigation"
     },
     {
       "path": "../components/tooltip"

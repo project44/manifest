@@ -1,7 +1,7 @@
 {
-  "extends": "../../tsconfig.options.json",
+  "extends": "../../../../tsconfig.options.json",
   "compilerOptions": {
-    "outDir": "../../.moon/cache/types/packages/menu"
+    "outDir": "../../../../.moon/cache/types/packages/react/components/menu"
   },
   "include": [
     "src/**/*",
@@ -13,25 +13,25 @@
       "path": "../button"
     },
     {
-      "path": "../icons"
+      "path": "../../icons"
     },
     {
-      "path": "../styles"
+      "path": "../../styles"
     },
     {
       "path": "../transition"
     },
     {
-      "path": "../types"
+      "path": "../../types"
     },
     {
       "path": "../typography"
     },
     {
-      "path": "../use-controlled-state"
+      "path": "../../hooks/use-controlled-state"
     },
     {
-      "path": "../utils"
+      "path": "../../utils"
     },
     {
       "path": "./tsconfig.build.json"

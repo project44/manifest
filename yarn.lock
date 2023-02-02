@@ -3280,7 +3280,6 @@ __metadata:
   resolution: "@project44-manifest/react-css-baseline@workspace:packages/react/components/css-baseline"
   dependencies:
     "@project44-manifest/react-styles": ^1.0.1
-    "@project44-manifest/react-utils": ^0.2.3
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:

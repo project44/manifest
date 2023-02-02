@@ -1,7 +1,7 @@
 {
-  "extends": "../../tsconfig.options.json",
+  "extends": "../../../../tsconfig.options.json",
   "compilerOptions": {
-    "outDir": "../../.moon/cache/types/packages/side-navigation"
+    "outDir": "../../../../.moon/cache/types/packages/react/components/side-navigation"
   },
   "include": [
     "src/**/*",
@@ -13,7 +13,7 @@
       "path": "../button"
     },
     {
-      "path": "../icons"
+      "path": "../../icons"
     },
     {
       "path": "../menu"
@@ -22,19 +22,19 @@
       "path": "../provider"
     },
     {
-      "path": "../styles"
+      "path": "../../styles"
     },
     {
-      "path": "../types"
+      "path": "../../types"
     },
     {
       "path": "../typography"
     },
     {
-      "path": "../use-controlled-state"
+      "path": "../../hooks/use-controlled-state"
     },
     {
-      "path": "../utils"
+      "path": "../../utils"
     },
     {
       "path": "./tsconfig.build.json"
