@@ -1,0 +1,27 @@
+type: 'library'
+language: 'typescript'
+
+workspace:
+  inheritedTasks:
+    rename:
+      buildPackage: 'build'
+
+tasks:
+  build:
+    outputs:
+      - 'esm'
+      - 'lib'
+
+dependsOn:
+  - id: 'icon'
+    scope: 'production'
+  - id: 'icons'
+    scope: 'production'
+  - id: 'link'
+    scope: 'production'
+  - id: 'styles'
+    scope: 'production'
+  - id: 'types'
+    scope: 'development'
+  - id: 'utils'
+    scope: 'production'

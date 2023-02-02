@@ -12,6 +12,9 @@
       "path": "packages/react/components/button"
     },
     {
+      "path": "packages/react/components/breadcrumb"
+    },
+    {
       "path": "packages/react/components/css-baseline"
     },
     {

@@ -42,3 +42,5 @@ export const Icon = React.forwardRef((props, forwardedRef) => {
     />
   );
 }) as ForwardRefComponent<IconElement, IconProps>;
+
+Icon.toString = () => '.manifest-icon';
