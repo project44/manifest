@@ -1,5 +1,19 @@
 # @manifest/react
 
+## 2.7.1
+
+### Patch Changes
+
+- [#227](https://github.com/project44/manifest/pull/227)
+  [`49c2a21`](https://github.com/project44/manifest/commit/49c2a21703d5f2e6fb84c841370f4f3d78b10100)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Upgrading react-aria overlay package
+  versions
+
+- Updated dependencies
+  [[`e3a989a`](https://github.com/project44/manifest/commit/e3a989aa9315356c460a3d4a6e23abb381a8a711),
+  [`49c2a21`](https://github.com/project44/manifest/commit/49c2a21703d5f2e6fb84c841370f4f3d78b10100)]:
+  - @project44-manifest/react-tooltip@1.1.0
+
 ## 2.7.0
 
 ### Minor Changes

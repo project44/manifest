@@ -1,5 +1,26 @@
 # @project44-manifest/react-tooltip
 
+## 1.1.0
+
+### Minor Changes
+
+- [#215](https://github.com/project44/manifest/pull/215)
+  [`e3a989a`](https://github.com/project44/manifest/commit/e3a989aa9315356c460a3d4a6e23abb381a8a711)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Updating tooltip to use react-transtion
+  package
+
+### Patch Changes
+
+- [#227](https://github.com/project44/manifest/pull/227)
+  [`49c2a21`](https://github.com/project44/manifest/commit/49c2a21703d5f2e6fb84c841370f4f3d78b10100)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Upgrading react-aria overlay package
+  versions
+
+- Updated dependencies
+  [[`345def0`](https://github.com/project44/manifest/commit/345def02dc7f66db38fff6a8716422121c1adf92)]:
+  - @project44-manifest/react-transition@0.1.0
+  - @project44-manifest/react-utils@0.2.4
+
 ## 1.0.1
 
 ### Patch Changes
