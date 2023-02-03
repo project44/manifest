@@ -19,6 +19,9 @@
       "path": "../css-baseline"
     },
     {
+      "path": "../link"
+    },
+    {
       "path": "../provider"
     },
     {

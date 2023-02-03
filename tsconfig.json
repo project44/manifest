@@ -30,6 +30,9 @@
       "path": "packages/layout"
     },
     {
+      "path": "packages/link"
+    },
+    {
       "path": "packages/popover"
     },
     {
