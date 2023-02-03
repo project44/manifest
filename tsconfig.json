@@ -6,6 +6,9 @@
       "path": "apps/storybook"
     },
     {
+      "path": "packages/avatar"
+    },
+    {
       "path": "packages/button"
     },
     {
