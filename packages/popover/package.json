@@ -39,7 +39,7 @@
     "@react-aria/button": "^3.6.2",
     "@react-aria/dialog": "^3.4.0",
     "@react-aria/focus": "^3.9.0",
-    "@react-aria/overlays": "^3.11.0",
+    "@react-aria/overlays": "^3.12.1",
     "@react-stately/overlays": "^3.4.2",
     "@react-stately/utils": "^3.5.1",
     "framer-motion": "6.2.9"

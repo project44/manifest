@@ -38,7 +38,7 @@
     "@project44-manifest/react-transition": "^0.0.0",
     "@project44-manifest/react-utils": "^0.2.3",
     "@react-aria/interactions": "^3.12.0",
-    "@react-aria/overlays": "^3.11.0",
+    "@react-aria/overlays": "^3.12.1",
     "@react-aria/tooltip": "^3.3.2",
     "@react-stately/tooltip": "^3.2.2"
   },
