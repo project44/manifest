@@ -28,19 +28,9 @@
   "publishConfig": {
     "access": "public"
   },
-  "packemon": {
-    "platform": "browser"
-  },
-  "exports": {
-    "./package.json": "./package.json",
-    ".": {
-      "types": "./dts/index.d.ts",
-      "browser": {
-        "module": "./esm/index.js",
-        "import": "./esm/index.js",
-        "default": "./lib/index.js"
-      },
-      "default": "./lib/index.js"
-    }
+  "devDependencies": {
+    "@types/lodash.camelcase": "^4.3.7",
+    "lodash.camelcase": "^4.3.0",
+    "style-dictionary": "^3.7.2"
   }
 }

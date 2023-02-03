@@ -1,0 +1,19 @@
+{
+  "size": {
+    "large": {
+      "value": "1400px"
+    },
+    "medium": {
+      "value": "1280px"
+    },
+    "small": {
+      "value": "960px"
+    },
+    "x-large": {
+      "value": "1920px"
+    },
+    "x-small": {
+      "value": "650px"
+    }
+  }
+}

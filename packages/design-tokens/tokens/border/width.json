@@ -1,0 +1,13 @@
+{
+  "border-width": {
+    "large": {
+      "value": "3px"
+    },
+    "medium": {
+      "value": "2px"
+    },
+    "small": {
+      "value": "1px"
+    }
+  }
+}

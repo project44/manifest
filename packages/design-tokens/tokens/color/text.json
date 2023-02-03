@@ -1,0 +1,30 @@
+{
+  "color": {
+    "text": {
+      "contrast": {
+        "value": "{color.palette.white.value}"
+      },
+      "danger": {
+        "value": "{color.palette.red.600.value}"
+      },
+      "disabled": {
+        "value": "{color.palette.grey.400.value}"
+      },
+      "primary": {
+        "value": "{color.palette.black.value}"
+      },
+      "secondary": {
+        "value": "{color.palette.grey.700.value}"
+      },
+      "success": {
+        "value": "{color.palette.green.600.value}"
+      },
+      "tertiary": {
+        "value": "{color.palette.grey.500.value}"
+      },
+      "warning": {
+        "value": "{color.palette.orange.600.value}"
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "radius": {
+    "full": {
+      "value": "999999px"
+    },
+    "small": {
+      "value": "2px"
+    }
+  }
+}

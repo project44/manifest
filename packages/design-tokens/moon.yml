@@ -3,11 +3,12 @@ language: 'typescript'
 
 workspace:
   inheritedTasks:
-    rename:
-      buildPackage: 'build'
+    exclude: ['buildPackage']
 
 tasks:
   build:
-    outputs:
-      - 'esm'
-      - 'lib'
+    command: 'ts-node'
+    args:
+      - './scripts/build.ts'
+      - '--project'
+      - 'tsconfig.json'

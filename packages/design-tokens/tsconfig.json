@@ -3,13 +3,12 @@
   "compilerOptions": {
     "outDir": "../../.moon/cache/types/packages/design-tokens"
   },
-  "include": [
-    "src/**/*",
-    "tests/**/*"
-  ],
-  "references": [
-    {
-      "path": "./tsconfig.build.json"
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
     }
+  },
+  "include": [
+    "scripts/**/*"
   ]
 }
