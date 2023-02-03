@@ -1,5 +1,13 @@
 # @project44-manifest/react-utils
 
+## 0.2.4
+
+### Patch Changes
+
+- [#213](https://github.com/project44/manifest/pull/213)
+  [`345def0`](https://github.com/project44/manifest/commit/345def02dc7f66db38fff6a8716422121c1adf92)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Adding react transition package
+
 ## 0.2.3
 
 ### Patch Changes
