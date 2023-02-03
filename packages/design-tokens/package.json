@@ -30,7 +30,27 @@
   },
   "devDependencies": {
     "@types/lodash.camelcase": "^4.3.7",
+    "@types/lodash.lowerfirst": "^4.3.7",
     "lodash.camelcase": "^4.3.0",
+    "lodash.lowerfirst": "^4.3.1",
     "style-dictionary": "^3.7.2"
+  },
+  "packemon": {
+    "platform": "browser"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dts/index.d.ts",
+      "browser": {
+        "module": "./esm/index.js",
+        "import": "./esm/index.js",
+        "default": "./lib/index.js"
+      },
+      "default": "./lib/index.js"
+    }
+  },
+  "dependencies": {
+    "rollup-plugin-copy": "^3.4.0"
   }
 }

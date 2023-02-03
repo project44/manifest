@@ -1,7 +1,7 @@
 {
   "radius": {
     "full": {
-      "value": "999999px"
+      "value": "999em"
     },
     "small": {
       "value": "2px"

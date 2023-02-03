@@ -16,3 +16,5 @@ CHANGELOG.md
 *.map
 *.snap
 *.hbs
+*.css
+*.scss
