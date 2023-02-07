@@ -66,6 +66,9 @@
       "path": "packages/use-controlled-state"
     },
     {
+      "path": "packages/use-debounced-state"
+    },
+    {
       "path": "packages/use-merged-ref"
     },
     {
