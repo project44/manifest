@@ -204,7 +204,7 @@ If you need to create a new component packages, we have provided a script that w
 new component package for you.
 
 ```
-moon generate component ./packages/<component-name>
+moon generate component ./packages/react/components/<component-name>
 ```
 
 ## Testing
