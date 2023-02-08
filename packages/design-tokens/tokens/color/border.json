@@ -1,0 +1,21 @@
+{
+  "color": {
+    "border": {
+      "danger": {
+        "value": "{color.palette.red.600.value}"
+      },
+      "disabled": {
+        "value": "{color.palette.grey.100.value}"
+      },
+      "primary": {
+        "value": "{color.palette.grey.200.value}"
+      },
+      "success": {
+        "value": "{color.palette.green.600.value}"
+      },
+      "warning": {
+        "value": "{color.palette.orange.600.value}"
+      }
+    }
+  }
+}

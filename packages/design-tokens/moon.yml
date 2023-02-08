@@ -8,6 +8,18 @@ workspace:
 
 tasks:
   build:
+    args:
+      - '--loadConfigs'
     outputs:
       - 'esm'
       - 'lib'
+    deps:
+      - '~:generate-tokens'
+
+  generate-tokens:
+    command: 'ts-node'
+    args:
+      - './scripts/build.ts'
+    options:
+      cache: false
+      runInCI: false

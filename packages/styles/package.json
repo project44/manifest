@@ -36,9 +36,13 @@
   "dependencies": {
     "@project44-manifest/theme": "^1.0.1",
     "@stitches/react": "^1.2.8",
-    "clsx": "^1.1.1"
+    "clsx": "^1.1.1",
+    "lodash.isobject": "^3.0.2",
+    "lodash.kebabcase": "^4.1.1"
   },
   "devDependencies": {
+    "@types/lodash.isobject": "^3.0.7",
+    "@types/lodash.kebabcase": "^4.1.7",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },

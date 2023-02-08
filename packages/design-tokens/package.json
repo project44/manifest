@@ -28,6 +28,10 @@
   "publishConfig": {
     "access": "public"
   },
+  "devDependencies": {
+    "rollup-plugin-copy": "^3.4.0",
+    "style-dictionary": "^3.7.2"
+  },
   "packemon": {
     "platform": "browser"
   },

@@ -1,0 +1,28 @@
+{
+  "zIndex": {
+    "dialog": {
+      "value": 6000
+    },
+    "dropdown": {
+      "value": 7000
+    },
+    "modal": {
+      "value": 9000
+    },
+    "overlay": {
+      "value": 8000
+    },
+    "popover": {
+      "value": 5000
+    },
+    "sticky": {
+      "value": 100
+    },
+    "toast": {
+      "value": 10000
+    },
+    "tooltip": {
+      "value": 6000
+    }
+  }
+}

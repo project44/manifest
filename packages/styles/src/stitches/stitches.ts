@@ -1,6 +1,7 @@
 import { lightTheme } from '@project44-manifest/theme';
 import type { CSS as StitchesCSS } from '@stitches/react';
 import { createStitches } from '@stitches/react';
+import { createStitchesTheme } from './createStitchesTheme';
 import { color, layout, space, typography } from './utils';
 
 export type CSS = StitchesCSS<typeof config>;
@@ -18,7 +19,7 @@ export const { styled, config, globalCss, getCssText, keyframes, theme, css } = 
     xl: `(min-width: ${lightTheme.sizes['x-large']})`,
     xs: `(min-width: ${lightTheme.sizes['x-small']})`,
   },
-  theme: lightTheme,
+  theme: createStitchesTheme(lightTheme),
   utils: {
     ...color,
     ...layout,

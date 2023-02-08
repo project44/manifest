@@ -8,11 +8,11 @@ describe('@project-manifest/theme - themes', () => {
     });
 
     it('should return theme specific colors', () => {
-      expect(lightTheme.colors['primary-default']).toBe(colorPrimaryDefault);
+      expect(lightTheme.colors.primary.default).toBe(colorPrimaryDefault);
     });
 
     it('should flatten nested color tokens', () => {
-      expect(lightTheme.colors['data-viz-danger-fill']).toBe(colorDataVizDangerFill);
+      expect(lightTheme.colors.dataViz.dangerFill).toBe(colorDataVizDangerFill);
     });
   });
 });

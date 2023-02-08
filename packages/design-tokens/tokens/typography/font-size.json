@@ -1,0 +1,22 @@
+{
+  "fontSize": {
+    "large": {
+      "value": "20px"
+    },
+    "medium": {
+      "value": "16px"
+    },
+    "small": {
+      "value": "14px"
+    },
+    "x-large": {
+      "value": "24px"
+    },
+    "x-small": {
+      "value": "12px"
+    },
+    "xx-large": {
+      "value": "32px"
+    }
+  }
+}
