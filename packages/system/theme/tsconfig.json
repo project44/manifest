@@ -1,0 +1,18 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/packages/system/theme"
+  },
+  "include": [
+    "src/**/*",
+    "tests/**/*"
+  ],
+  "references": [
+    {
+      "path": "../tokens"
+    },
+    {
+      "path": "./tsconfig.build.json"
+    }
+  ]
+}

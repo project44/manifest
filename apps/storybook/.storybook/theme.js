@@ -1,5 +1,5 @@
 import { create } from '@storybook/theming';
-import PackageJSON from '../../../packages/react/package.json';
+import PackageJSON from '../../../packages/react/core/package.json';
 
 export default create({
   base: 'light',

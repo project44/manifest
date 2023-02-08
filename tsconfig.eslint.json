@@ -4,6 +4,7 @@
     "apps/**/*",
     "packages/**/*",
     "scripts/*",
+    "tools/**/*",
     "tests/*",
     "**/.eslintrc.js",
     "**/jest.config.js",

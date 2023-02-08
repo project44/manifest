@@ -1,0 +1,34 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/packages/react/icons",
+    "paths": {
+      "@project44-manifest/react-icon": [
+        "../icon/src/index.ts"
+      ],
+      "@project44-manifest/react-icon/*": [
+        "../icon/src/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "references": [
+    {
+      "path": "../components/icon"
+    },
+    {
+      "path": "../components/layout"
+    },
+    {
+      "path": "../styles"
+    },
+    {
+      "path": "../components/typography"
+    },
+    {
+      "path": "./tsconfig.build.json"
+    }
+  ]
+}

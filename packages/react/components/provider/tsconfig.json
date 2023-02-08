@@ -1,0 +1,25 @@
+{
+  "extends": "../../../../tsconfig.options.json",
+  "compilerOptions": {
+    "outDir": "../../../../.moon/cache/types/packages/react/components/provider"
+  },
+  "include": [
+    "src/**/*",
+    "stories/**/*",
+    "tests/**/*"
+  ],
+  "references": [
+    {
+      "path": "../css-baseline"
+    },
+    {
+      "path": "../../styles"
+    },
+    {
+      "path": "../../types"
+    },
+    {
+      "path": "./tsconfig.build.json"
+    }
+  ]
+}

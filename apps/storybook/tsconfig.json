@@ -5,10 +5,10 @@
   ],
   "references": [
     {
-      "path": "../../packages/icons"
+      "path": "../../packages/react/icons"
     },
     {
-      "path": "../../packages/react"
+      "path": "../../packages/react/core"
     }
   ],
   "compilerOptions": {

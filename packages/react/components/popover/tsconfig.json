@@ -1,0 +1,32 @@
+{
+  "extends": "../../../../tsconfig.options.json",
+  "compilerOptions": {
+    "outDir": "../../../../.moon/cache/types/packages/react/components/popover"
+  },
+  "include": [
+    "src/**/*",
+    "stories/**/*",
+    "tests/**/*",
+    "../../../../types/**/*"
+  ],
+  "references": [
+    {
+      "path": "../button"
+    },
+    {
+      "path": "../layout"
+    },
+    {
+      "path": "../../styles"
+    },
+    {
+      "path": "../../types"
+    },
+    {
+      "path": "../../utils"
+    },
+    {
+      "path": "./tsconfig.build.json"
+    }
+  ]
+}

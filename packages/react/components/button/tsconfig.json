@@ -1,0 +1,28 @@
+{
+  "extends": "../../../../tsconfig.options.json",
+  "compilerOptions": {
+    "outDir": "../../../../.moon/cache/types/packages/react/components/button"
+  },
+  "include": [
+    "src/**/*",
+    "stories/**/*",
+    "tests/**/*"
+  ],
+  "references": [
+    {
+      "path": "../layout"
+    },
+    {
+      "path": "../../styles"
+    },
+    {
+      "path": "../../types"
+    },
+    {
+      "path": "../../utils"
+    },
+    {
+      "path": "./tsconfig.build.json"
+    }
+  ]
+}

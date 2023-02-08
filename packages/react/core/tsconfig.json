@@ -1,0 +1,40 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/packages/react/core"
+  },
+  "include": [
+    "src/**/*",
+    "stories/**/*",
+    "tests/**/*"
+  ],
+  "references": [
+    {
+      "path": "../components/avatar"
+    },
+    {
+      "path": "../components/button"
+    },
+    {
+      "path": "../components/css-baseline"
+    },
+    {
+      "path": "../components/link"
+    },
+    {
+      "path": "../components/provider"
+    },
+    {
+      "path": "../components/tooltip"
+    },
+    {
+      "path": "../styles"
+    },
+    {
+      "path": "../system"
+    },
+    {
+      "path": "./tsconfig.build.json"
+    }
+  ]
+}

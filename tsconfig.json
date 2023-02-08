@@ -6,73 +6,73 @@
       "path": "apps/storybook"
     },
     {
-      "path": "packages/avatar"
+      "path": "packages/react/components/avatar"
     },
     {
-      "path": "packages/button"
+      "path": "packages/react/components/button"
     },
     {
-      "path": "packages/css-baseline"
+      "path": "packages/react/components/css-baseline"
     },
     {
-      "path": "packages/design-tokens"
+      "path": "packages/system/tokens"
     },
     {
-      "path": "packages/icon"
+      "path": "packages/react/components/icon"
     },
     {
-      "path": "packages/icons"
+      "path": "packages/react/icons"
     },
     {
-      "path": "packages/jest-preset"
+      "path": "tools/jest-preset"
     },
     {
-      "path": "packages/layout"
+      "path": "packages/react/components/layout"
     },
     {
-      "path": "packages/link"
+      "path": "packages/react/components/link"
     },
     {
-      "path": "packages/popover"
+      "path": "packages/react/components/popover"
     },
     {
-      "path": "packages/provider"
+      "path": "packages/react/components/provider"
     },
     {
-      "path": "packages/react"
+      "path": "packages/react/core"
     },
     {
-      "path": "packages/styles"
+      "path": "packages/react/styles"
     },
     {
-      "path": "packages/system"
+      "path": "packages/react/system"
     },
     {
-      "path": "packages/theme"
+      "path": "packages/system/theme"
     },
     {
-      "path": "packages/tooltip"
+      "path": "packages/react/components/tooltip"
     },
     {
-      "path": "packages/transition"
+      "path": "packages/react/components/transition"
     },
     {
-      "path": "packages/types"
+      "path": "packages/react/types"
     },
     {
-      "path": "packages/typography"
+      "path": "packages/react/components/typography"
     },
     {
-      "path": "packages/use-controlled-state"
+      "path": "packages/react/hooks/use-controlled-state"
     },
     {
-      "path": "packages/use-debounced-state"
+      "path": "packages/react/hooks/use-debounced-state"
     },
     {
-      "path": "packages/use-merged-ref"
+      "path": "packages/react/hooks/use-merged-ref"
     },
     {
-      "path": "packages/utils"
+      "path": "packages/react/utils"
     }
   ]
 }
