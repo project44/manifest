@@ -1,6 +1,7 @@
 import { lightTheme } from '@project44-manifest/theme';
 import type * as Stitches from '@stitches/react';
-import { config, createStitchesTheme, VariantToken } from '../src';
+import { config, createStitchesTheme } from '../src';
+import { VariantToken } from '../src/stitches/utils/typography';
 
 describe('stitches', () => {
   it('should create stitches theme', () => {
