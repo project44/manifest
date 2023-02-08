@@ -3213,7 +3213,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@project44-manifest/design-tokens@^1.2.1, @project44-manifest/design-tokens@workspace:packages/system/tokens":
+"@project44-manifest/design-tokens@^2.0.0, @project44-manifest/design-tokens@workspace:packages/system/tokens":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/design-tokens@workspace:packages/system/tokens"
   dependencies:
@@ -3222,11 +3222,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-avatar@^0.0.0, @project44-manifest/react-avatar@workspace:packages/react/components/avatar":
+"@project44-manifest/react-avatar@^0.1.0, @project44-manifest/react-avatar@workspace:packages/react/components/avatar":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-avatar@workspace:packages/react/components/avatar"
   dependencies:
-    "@project44-manifest/react-styles": ^1.0.1
+    "@project44-manifest/react-styles": ^1.1.0
     "@project44-manifest/react-types": ^0.2.1
     "@project44-manifest/react-utils": ^0.2.3
     react: ^18.1.0
@@ -3315,11 +3315,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-link@^0.0.0, @project44-manifest/react-link@workspace:packages/react/components/link":
+"@project44-manifest/react-link@^0.1.0, @project44-manifest/react-link@workspace:packages/react/components/link":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-link@workspace:packages/react/components/link"
   dependencies:
-    "@project44-manifest/react-styles": ^1.0.1
+    "@project44-manifest/react-styles": ^1.1.0
     "@project44-manifest/react-types": ^0.2.1
     "@project44-manifest/react-typography": ^1.0.1
     "@project44-manifest/react-utils": ^0.2.3
@@ -3372,11 +3372,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-styles@^1.0.1, @project44-manifest/react-styles@workspace:packages/react/styles":
+"@project44-manifest/react-styles@^1.0.1, @project44-manifest/react-styles@^1.1.0, @project44-manifest/react-styles@workspace:packages/react/styles":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-styles@workspace:packages/react/styles"
   dependencies:
-    "@project44-manifest/theme": ^1.0.1
+    "@project44-manifest/theme": ^2.0.0
     "@stitches/react": ^1.2.8
     "@types/lodash.isobject": ^3.0.7
     "@types/lodash.kebabcase": ^4.1.7
@@ -3489,12 +3489,12 @@ __metadata:
   resolution: "@project44-manifest/react@workspace:packages/react/core"
   dependencies:
     "@internationalized/date": ^3.0.0
-    "@project44-manifest/react-avatar": ^0.0.0
+    "@project44-manifest/react-avatar": ^0.1.0
     "@project44-manifest/react-button": ^1.0.2
     "@project44-manifest/react-css-baseline": ^0.1.0
-    "@project44-manifest/react-link": ^0.0.0
+    "@project44-manifest/react-link": ^0.1.0
     "@project44-manifest/react-provider": ^0.1.0
-    "@project44-manifest/react-styles": ^1.0.1
+    "@project44-manifest/react-styles": ^1.1.0
     "@project44-manifest/react-tooltip": ^1.1.0
     "@project44-manifest/system": ^0.1.5
     "@radix-ui/react-slot": ^1.0.0
@@ -3559,11 +3559,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/theme@^1.0.1, @project44-manifest/theme@workspace:packages/system/theme":
+"@project44-manifest/theme@^2.0.0, @project44-manifest/theme@workspace:packages/system/theme":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/theme@workspace:packages/system/theme"
   dependencies:
-    "@project44-manifest/design-tokens": ^1.2.1
+    "@project44-manifest/design-tokens": ^2.0.0
   languageName: unknown
   linkType: soft
 

@@ -1,6 +1,6 @@
 {
   "name": "@project44-manifest/react-use-debounced-state",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "debounce hook",
   "license": "MIT",
   "author": "project44",
