@@ -3217,10 +3217,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@project44-manifest/design-tokens@workspace:packages/design-tokens"
   dependencies:
-    "@types/lodash.camelcase": ^4.3.7
-    "@types/lodash.lowerfirst": ^4.3.7
-    lodash.camelcase: ^4.3.0
-    lodash.lowerfirst: ^4.3.1
     rollup-plugin-copy: ^3.4.0
     style-dictionary: ^3.7.2
   languageName: unknown
@@ -6383,15 +6379,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash.camelcase@npm:^4.3.7":
-  version: 4.3.7
-  resolution: "@types/lodash.camelcase@npm:4.3.7"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: ef068b921ab439f7b1a2c0ebbd890ba64ba437fc6aeb5e3ac18d34da30f9054fceaac5ccfdfa9e12b2fc403e10910439d3ebf92ba2f93de03c2f02261adfc000
-  languageName: node
-  linkType: hard
-
 "@types/lodash.isobject@npm:^3.0.7":
   version: 3.0.7
   resolution: "@types/lodash.isobject@npm:3.0.7"
@@ -6407,15 +6394,6 @@ __metadata:
   dependencies:
     "@types/lodash": "*"
   checksum: 8c28dae574d0d15d316b8412f1edf7628398f0d1d34bec978af9d8b9f1286749492c23680817e74c6bd15e14b45b0006c79b320ebd260f9b8c0ac85668e0c409
-  languageName: node
-  linkType: hard
-
-"@types/lodash.lowerfirst@npm:^4.3.7":
-  version: 4.3.7
-  resolution: "@types/lodash.lowerfirst@npm:4.3.7"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: 467273573b757880efa5593e4c279dba5df0038063c59af0170b331df17f25376ce24d5db9a9eb3d7158c162aba042c9915b3eda9ecab947952bf5d559c5b56b
   languageName: node
   linkType: hard
 
@@ -14916,13 +14894,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.camelcase@npm:^4.3.0":
-  version: 4.3.0
-  resolution: "lodash.camelcase@npm:4.3.0"
-  checksum: cb9227612f71b83e42de93eccf1232feeb25e705bdb19ba26c04f91e885bfd3dd5c517c4a97137658190581d3493ea3973072ca010aab7e301046d90740393d1
-  languageName: node
-  linkType: hard
-
 "lodash.debounce@npm:^4.0.8":
   version: 4.0.8
   resolution: "lodash.debounce@npm:4.0.8"
@@ -14941,13 +14912,6 @@ __metadata:
   version: 4.1.1
   resolution: "lodash.kebabcase@npm:4.1.1"
   checksum: 5a6c59161914e1bae23438a298c7433e83d935e0f59853fa862e691164696bc07f6dfa4c313d499fbf41ba8d53314e9850416502376705a357d24ee6ca33af78
-  languageName: node
-  linkType: hard
-
-"lodash.lowerfirst@npm:^4.3.1":
-  version: 4.3.1
-  resolution: "lodash.lowerfirst@npm:4.3.1"
-  checksum: e1688e18873777d394db4994d150dfc14cf01bf450169cf8296af4d84ecd7c3c4ae4dab3746f77f8719a093e4fff58bee3ae73ae7e23ef508b7d970b189d9952
   languageName: node
   linkType: hard
 
