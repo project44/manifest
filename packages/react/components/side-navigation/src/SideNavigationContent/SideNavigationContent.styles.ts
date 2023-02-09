@@ -4,5 +4,5 @@ export const StyledSideNavigationContent = styled('div', {
   boxSizing: 'border-box',
   display: 'flex',
   flex: '1 1 auto',
-  px: '$x-small',
+  px: '$medium',
 });

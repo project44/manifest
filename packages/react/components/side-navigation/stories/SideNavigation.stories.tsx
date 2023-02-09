@@ -42,7 +42,7 @@ export default {
 
 export const Default = () => (
   <SideNavigation>
-    <SideNavigationHeader>
+    <SideNavigationHeader css={{ paddingLeft: '14px' }}>
       <Logo />
     </SideNavigationHeader>
     <SideNavigationContent>

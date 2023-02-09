@@ -10,9 +10,8 @@ export const StyledMenuItem = styled('div', {
   display: 'flex',
   flexGrow: 1,
   justifyContent: 'flex-start',
-  my: pxToRem(2),
   position: 'relative',
-  px: pxToRem(12),
+  px: '$small',
   textAlign: 'left',
   textDecoration: 'none',
   userSelect: 'none',
@@ -51,10 +50,10 @@ export const StyledMenuItemIcon = styled('div', {
   variants: {
     placement: {
       end: {
-        marginLeft: '$medium',
+        marginLeft: pxToRem(12),
       },
       start: {
-        marginRight: '$medium',
+        marginRight: pxToRem(12),
       },
     },
   },
