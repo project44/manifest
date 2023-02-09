@@ -15,3 +15,5 @@ export const Link = React.forwardRef((props, forwardedRef) => {
     </StyledLink>
   );
 }) as ForwardRefComponent<LinkElement, LinkProps>;
+
+Link.toString = () => '.manifest-link';
