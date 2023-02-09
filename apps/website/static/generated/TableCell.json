@@ -1,0 +1,1 @@
+[{"name":"css","type":"CSS","required":false,"description":"Theme aware style object"},{"name":"align","type":"Align","defaultValue":"'left'","required":false,"description":"Text alignment of the table cell."},{"name":"onMouseEnter","type":"(event: MouseEvent<HTMLTableCellElement, MouseEvent>) => void","required":false,"description":"Handler called on mouse enter."}]

@@ -1,0 +1,1 @@
+[{"name":"children","type":"ReactNode & CollectionChildren<object>","required":true,"description":"The contents of the collection."},{"name":"as","type":"NonNullable<T>","required":false,"description":""},{"name":"css","type":"CSS","required":false,"description":"Theme aware style object."}]

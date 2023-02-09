@@ -1,0 +1,15 @@
+{
+  "unversionedId": "components",
+  "id": "components",
+  "title": "components",
+  "description": "hello world",
+  "source": "@site/docs/components.md",
+  "sourceDirName": ".",
+  "slug": "/components",
+  "permalink": "/docs/components",
+  "draft": false,
+  "editUrl": "https://github.com/project44/manifest/tree/main/website/docs/components.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

@@ -1,0 +1,18 @@
+{
+  "unversionedId": "components/components",
+  "id": "components/components",
+  "title": "Components",
+  "description": "Hello world",
+  "source": "@site/docs/components/index.mdx",
+  "sourceDirName": "components",
+  "slug": "/components/",
+  "permalink": "/docs/components/",
+  "draft": false,
+  "editUrl": "https://github.com/project44/manifest/tree/main/website/docs/components/index.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Components",
+    "id": "components"
+  }
+}

@@ -1,0 +1,1 @@
+[{"name":"children","type":"ReactNode","required":false,"description":""},{"name":"as","type":"NonNullable<T>","required":false,"description":""},{"name":"css","type":"CSS","required":false,"description":"Theme aware style object."}]

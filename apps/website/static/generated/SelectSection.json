@@ -1,0 +1,1 @@
+[{"name":"as","type":"\"div\"","required":false,"description":""},{"name":"children","type":"ReactNode & (ItemElement<object> | ItemElement<object>[] | ItemRenderer<object>)","required":true,"description":"Static child items or a function to render children."},{"name":"css","type":"CSS","required":false,"description":"Theme aware style object."}]

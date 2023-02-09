@@ -21,6 +21,9 @@ fileGroups:
     - '.storybook/**/*'
     - 'stories/**/*.stories.*'
 
+  styles:
+    - '**/*.{scss,css}'
+
   assets:
     - 'assets/**/*'
     - 'images/**/*'
@@ -94,6 +97,21 @@ tasks:
       - '**/.eslintrc.*'
       - '/.eslintignore'
       - '/.eslintrc.*'
+    options:
+      affectedFiles: true
+
+  stylelint:
+    command: 'stylelint'
+    args:
+      - '--config'
+      - '@in(1)'
+      - '--ignore-path'
+      - '@in(0)'
+    inputs:
+      - '/.stylelintignore'
+      - '/.stylelintrc.js'
+      - '@globs(styles)'
+      - '**/*.{css,scss}'
     options:
       affectedFiles: true
 

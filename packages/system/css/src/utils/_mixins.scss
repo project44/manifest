@@ -1,0 +1,80 @@
+// Mixins for creating out typography rules
+@mixin display {
+  font-family: $font-family-text;
+  font-size: $font-size-xx-large;
+  font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing-x-small;
+  line-height: $line-height-xx-large;
+}
+
+@mixin heading {
+  font-family: $font-family-text;
+  font-size: $font-size-x-large;
+  font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing-small;
+  line-height: $line-height-x-large;
+}
+
+@mixin title {
+  font-family: $font-family-text;
+  font-size: $font-size-large;
+  font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing-medium;
+  line-height: $line-height-large;
+}
+
+@mixin subtitle {
+  font-family: $font-family-text;
+  font-size: $font-size-medium;
+  font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing-medium;
+  line-height: $line-height-medium;
+}
+
+@mixin body {
+  font-family: $font-family-text;
+  font-size: $font-size-medium;
+  font-weight: $font-weight-regular;
+  letter-spacing: $letter-spacing-medium;
+  line-height: $line-height-medium;
+}
+
+@mixin body-bold {
+  font-family: $font-family-text;
+  font-size: $font-size-medium;
+  font-weight: $font-weight-semibold;
+  letter-spacing: $letter-spacing-medium;
+  line-height: $line-height-medium;
+}
+
+@mixin subtext {
+  font-family: $font-family-text;
+  font-size: $font-size-small;
+  font-weight: $font-weight-regular;
+  letter-spacing: $letter-spacing-medium;
+  line-height: $line-height-small;
+}
+
+@mixin subtext-bold {
+  font-family: $font-family-text;
+  font-size: $font-size-small;
+  font-weight: $font-weight-semibold;
+  letter-spacing: $letter-spacing-medium;
+  line-height: $line-height-small;
+}
+
+@mixin caption {
+  font-family: $font-family-text;
+  font-size: $font-size-x-small;
+  font-weight: $font-weight-regular;
+  letter-spacing: $letter-spacing-medium;
+  line-height: $line-height-x-small;
+}
+
+@mixin caption-bold {
+  font-family: $font-family-text;
+  font-size: $font-size-x-small;
+  font-weight: $font-weight-semibold;
+  letter-spacing: $letter-spacing-medium;
+  line-height: $line-height-x-small;
+}

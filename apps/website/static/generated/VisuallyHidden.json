@@ -1,0 +1,1 @@
+[{"name":"children","type":"ReactNode","required":false,"description":""},{"name":"isFocusable","type":"boolean","required":false,"description":"Whether the element should become visible on focus, for example skip links."},{"name":"as","type":"NonNullable<T>","required":false,"description":""},{"name":"css","type":"CSS","required":false,"description":"Theme aware style object."}]

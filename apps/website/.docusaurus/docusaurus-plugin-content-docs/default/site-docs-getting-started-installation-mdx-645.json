@@ -1,0 +1,20 @@
+{
+  "unversionedId": "getting-started/installation",
+  "id": "getting-started/installation",
+  "title": "Installing Manifest",
+  "description": "Quickly build experiences leveraging the Manifest Design System.",
+  "source": "@site/docs/getting-started/installation.mdx",
+  "sourceDirName": "getting-started",
+  "slug": "/getting-started/installation",
+  "permalink": "/docs/getting-started/installation",
+  "draft": false,
+  "editUrl": "https://github.com/project44/manifest/tree/main/website/docs/getting-started/installation.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "We make supply chains work.",
+    "permalink": "/docs/getting-started/overview"
+  }
+}

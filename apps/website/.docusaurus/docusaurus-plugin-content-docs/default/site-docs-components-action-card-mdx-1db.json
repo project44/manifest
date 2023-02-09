@@ -1,0 +1,16 @@
+{
+  "unversionedId": "components/action-card",
+  "id": "components/action-card",
+  "title": "ActionCard",
+  "description": "An action card is used as a large call to action.",
+  "source": "@site/docs/components/action-card.mdx",
+  "sourceDirName": "components",
+  "slug": "/components/action-card",
+  "permalink": "/docs/components/action-card",
+  "draft": false,
+  "editUrl": "https://github.com/project44/manifest/tree/main/website/docs/components/action-card.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "components"
+}

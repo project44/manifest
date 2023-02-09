@@ -1,0 +1,61 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/docs",
+          "mainDocId": "index",
+          "docs": [
+            {
+              "id": "components",
+              "path": "/docs/components"
+            },
+            {
+              "id": "components/action-card",
+              "path": "/docs/components/action-card",
+              "sidebar": "components"
+            },
+            {
+              "id": "components/Avatar",
+              "path": "/docs/components/Avatar"
+            },
+            {
+              "id": "getting-started/installation",
+              "path": "/docs/getting-started/installation",
+              "sidebar": "docs"
+            },
+            {
+              "id": "getting-started/overview",
+              "path": "/docs/getting-started/overview",
+              "sidebar": "docs"
+            },
+            {
+              "id": "index",
+              "path": "/docs/"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "docs": {
+              "link": {
+                "path": "/docs/getting-started/overview",
+                "label": "getting-started/overview"
+              }
+            },
+            "components": {
+              "link": {
+                "path": "/docs/components/action-card",
+                "label": "components/action-card"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": false
+    }
+  }
+}

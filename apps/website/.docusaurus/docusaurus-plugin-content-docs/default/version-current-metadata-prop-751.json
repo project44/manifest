@@ -1,0 +1,85 @@
+{
+  "pluginId": "default",
+  "version": "current",
+  "label": "Next",
+  "banner": null,
+  "badge": false,
+  "noIndex": false,
+  "className": "docs-version-current",
+  "isLast": true,
+  "docsSidebars": {
+    "docs": [
+      {
+        "type": "category",
+        "label": "Getting Started",
+        "collapsed": false,
+        "items": [
+          {
+            "type": "link",
+            "label": "We make supply chains work.",
+            "href": "/docs/getting-started/overview",
+            "docId": "getting-started/overview"
+          },
+          {
+            "type": "link",
+            "label": "Installing Manifest",
+            "href": "/docs/getting-started/installation",
+            "docId": "getting-started/installation"
+          }
+        ],
+        "collapsible": true
+      }
+    ],
+    "components": [
+      {
+        "type": "category",
+        "label": "Actions",
+        "collapsed": false,
+        "items": [
+          {
+            "type": "link",
+            "label": "ActionCard",
+            "href": "/docs/components/action-card",
+            "docId": "components/action-card"
+          }
+        ],
+        "collapsible": true
+      }
+    ]
+  },
+  "docs": {
+    "components": {
+      "id": "components",
+      "title": "components",
+      "description": "hello world"
+    },
+    "components/action-card": {
+      "id": "components/action-card",
+      "title": "ActionCard",
+      "description": "An action card is used as a large call to action.",
+      "sidebar": "components"
+    },
+    "components/Avatar": {
+      "id": "components/Avatar",
+      "title": "Avatar",
+      "description": "An avatar is visual representation of a user or entity."
+    },
+    "getting-started/installation": {
+      "id": "getting-started/installation",
+      "title": "Installing Manifest",
+      "description": "Quickly build experiences leveraging the Manifest Design System.",
+      "sidebar": "docs"
+    },
+    "getting-started/overview": {
+      "id": "getting-started/overview",
+      "title": "We make supply chains work.",
+      "description": "Manifest Design System sets out to demonstrate just that through a collection of reusable",
+      "sidebar": "docs"
+    },
+    "index": {
+      "id": "index",
+      "title": "index",
+      "description": "hello world"
+    }
+  }
+}

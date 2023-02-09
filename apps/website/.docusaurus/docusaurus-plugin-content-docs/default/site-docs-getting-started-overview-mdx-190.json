@@ -1,0 +1,20 @@
+{
+  "unversionedId": "getting-started/overview",
+  "id": "getting-started/overview",
+  "title": "We make supply chains work.",
+  "description": "Manifest Design System sets out to demonstrate just that through a collection of reusable",
+  "source": "@site/docs/getting-started/overview.mdx",
+  "sourceDirName": "getting-started",
+  "slug": "/getting-started/overview",
+  "permalink": "/docs/getting-started/overview",
+  "draft": false,
+  "editUrl": "https://github.com/project44/manifest/tree/main/website/docs/getting-started/overview.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "next": {
+    "title": "Installing Manifest",
+    "permalink": "/docs/getting-started/installation"
+  }
+}

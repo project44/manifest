@@ -1,0 +1,1 @@
+[{"name":"css","type":"CSS","required":false,"description":"Theme aware style object"},{"name":"size","type":"\"small\" | \"large\"","defaultValue":"'large'","required":false,"description":"The size of the card image"},{"name":"src","type":"string","required":true,"description":"The source for the image"}]

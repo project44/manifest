@@ -1,0 +1,40 @@
+{
+  "name": "@project44-manifest/styles",
+  "version": "1.0.1",
+  "description": "Manifest Design System scss and css",
+  "license": "MIT",
+  "author": "project44",
+  "keywords": [
+    "manifest",
+    "design",
+    "system"
+  ],
+  "sideEffects": false,
+  "main": "./lib/index.js",
+  "module": "./esm/index.js",
+  "types": "./dts/index.d.ts",
+  "files": [
+    "dts/**/*.d.ts",
+    "esm/**/*.{js,map}",
+    "lib/**/*.{js,map}",
+    "src/**/*.{ts,tsx,json}"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:project-44/manifest.git",
+    "directory": "packages/system/styles"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@project44-manifest/design-tokens": "^1.2.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "cssnano": "^5.1.14",
+    "fs-extra": "^11.1.0",
+    "postcss": "^8.4.21",
+    "sass": "^1.58.0"
+  }
+}

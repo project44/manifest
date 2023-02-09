@@ -1,0 +1,15 @@
+{
+  "unversionedId": "components/Avatar",
+  "id": "components/Avatar",
+  "title": "Avatar",
+  "description": "An avatar is visual representation of a user or entity.",
+  "source": "@site/docs/components/Avatar.mdx",
+  "sourceDirName": "components",
+  "slug": "/components/Avatar",
+  "permalink": "/docs/components/Avatar",
+  "draft": false,
+  "editUrl": "https://github.com/project44/manifest/tree/main/website/docs/components/Avatar.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

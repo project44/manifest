@@ -1,0 +1,1 @@
+[{"name":"as","type":"\"div\"","required":false,"description":""},{"name":"css","type":"CSS","required":false,"description":"Theme aware style object."},{"name":"startIcon","type":"ReactElement<any, string | JSXElementConstructor<any>>","required":false,"description":"Icon added before the item text."}]
