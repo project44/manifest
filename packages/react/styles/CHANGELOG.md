@@ -1,5 +1,24 @@
 # @project44-manifest/react-styles
 
+## 1.1.0
+
+### Minor Changes
+
+- [#232](https://github.com/project44/manifest/pull/232)
+  [`fe20913`](https://github.com/project44/manifest/commit/fe2091337ab822fbde0f32bfcb28a3f617141990)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Updating design tokens package to be
+  include css, scss and json
+
+  Updating theme package to not flatten tokens by default
+
+  Updating styles package to flatten tokens into a stitches friendly config
+
+### Patch Changes
+
+- Updated dependencies
+  [[`fe20913`](https://github.com/project44/manifest/commit/fe2091337ab822fbde0f32bfcb28a3f617141990)]:
+  - @project44-manifest/theme@2.0.0
+
 ## 1.0.1
 
 ### Patch Changes
