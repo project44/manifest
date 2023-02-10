@@ -53,6 +53,6 @@
     }
   },
   "dependencies": {
-    "@project44-manifest/react-utils": "workspace:^"
+    "@project44-manifest/react-utils": "^0.2.4"
   }
 }
