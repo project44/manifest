@@ -45,7 +45,7 @@ export const MenuGroup = React.forwardRef((props, forwardedRef) => {
         startIcon={startIcon}
         onClick={handleExpand}
       />
-      {isExpanded && <MenuGroupProvider value={{ isGrouped: true }}>{children}</MenuGroupProvider>}
+      <MenuGroupProvider value={{ isGrouped: true }}>{children}</MenuGroupProvider>
     </StyledMenuGroup>
   );
 }) as ForwardRefComponent<MenuGroupElement, MenuGroupProps>;

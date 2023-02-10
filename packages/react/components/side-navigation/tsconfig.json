@@ -10,16 +10,10 @@
   ],
   "references": [
     {
-      "path": "../button"
+      "path": "../../hooks/use-controlled-state"
     },
     {
       "path": "../../icons"
-    },
-    {
-      "path": "../menu"
-    },
-    {
-      "path": "../provider"
     },
     {
       "path": "../../styles"
@@ -28,13 +22,22 @@
       "path": "../../types"
     },
     {
-      "path": "../typography"
-    },
-    {
-      "path": "../../hooks/use-controlled-state"
-    },
-    {
       "path": "../../utils"
+    },
+    {
+      "path": "../button"
+    },
+    {
+      "path": "../menu"
+    },
+    {
+      "path": "../provider"
+    },
+    {
+      "path": "../transition"
+    },
+    {
+      "path": "../typography"
     },
     {
       "path": "./tsconfig.build.json"

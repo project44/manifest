@@ -14,6 +14,7 @@ export const MenuItem = React.forwardRef((props, forwardedRef) => {
     endIcon,
     startIcon,
     label,
+    isSelected,
     ...other
   } = props;
 
@@ -29,13 +30,17 @@ export const MenuItem = React.forwardRef((props, forwardedRef) => {
       className={className}
       css={css}
       isGrouped={isGrouped}
+      isSelected={isSelected}
     >
       {startIcon && (
         <StyledMenuItemIcon className="manifest-menu-item__icon--start" placement="start">
           {startIcon}
         </StyledMenuItemIcon>
       )}
-      <StyledMenuItemLabel className="manifest-menu-item__label" variant="subtextBold">
+      <StyledMenuItemLabel
+        className="manifest-menu-item__label"
+        variant={isSelected ? 'subtextBold' : 'subtext'}
+      >
         {label}
       </StyledMenuItemLabel>
       {endIcon && (

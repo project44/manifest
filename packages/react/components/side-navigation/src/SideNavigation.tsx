@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { cx } from '@project44-manifest/react-styles';
+import { Transition } from '@project44-manifest/react-transition';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
 import { noop } from '@project44-manifest/react-utils';
 import { useControlledState } from '@project44-manifest/use-controlled-state';
 import { NavigationProvider } from './SideNavigation.context';
-import { StyledNavigation, StyledNavigationSurface } from './SideNavigation.styles';
+import { StyledNavigation } from './SideNavigation.styles';
 import type { NavigationElement, NavigationProps } from './SideNavigation.types';
 
 export const SideNavigation = React.forwardRef((props, forwardedRef) => {
@@ -35,19 +36,19 @@ export const SideNavigation = React.forwardRef((props, forwardedRef) => {
   });
 
   return (
-    <StyledNavigation
-      {...other}
-      ref={forwardedRef}
-      as={as}
-      className={className}
-      css={css}
-      isOpen={isOpen}
-    >
-      <NavigationProvider value={context}>
-        <StyledNavigationSurface className="manifest-navigation__surface" isOpen={isOpen}>
+    <NavigationProvider value={context}>
+      <Transition in={isOpen}>
+        <StyledNavigation
+          {...other}
+          ref={forwardedRef}
+          as={as}
+          className={className}
+          css={css}
+          isOpen={isOpen}
+        >
           {children}
-        </StyledNavigationSurface>
-      </NavigationProvider>
-    </StyledNavigation>
+        </StyledNavigation>
+      </Transition>
+    </NavigationProvider>
   );
 }) as ForwardRefComponent<NavigationElement, NavigationProps>;

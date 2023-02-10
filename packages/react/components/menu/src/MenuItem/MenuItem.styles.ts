@@ -14,6 +14,7 @@ export const StyledMenuItem = styled('div', {
   px: '$small',
   textAlign: 'left',
   textDecoration: 'none',
+  transition: 'background-color 100ms cubic-bezier(0.4, 0.14, 0.3, 1)',
   userSelect: 'none',
   width: '100%',
 
@@ -25,7 +26,7 @@ export const StyledMenuItem = styled('div', {
     isGrouped: {
       true: {
         color: '$text-secondary',
-        paddingLeft: pxToRem(52),
+        paddingLeft: pxToRem(44),
         paddingRight: '$medium',
       },
     },
@@ -35,6 +36,16 @@ export const StyledMenuItem = styled('div', {
       },
     },
   },
+
+  compoundVariants: [
+    {
+      isGrouped: true,
+      isSelected: true,
+      css: {
+        color: '$text-primary',
+      },
+    },
+  ],
 });
 
 export const StyledMenuItemLabel = styled(Typography, {
