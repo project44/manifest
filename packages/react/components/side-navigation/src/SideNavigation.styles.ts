@@ -6,7 +6,7 @@ export const StyledNavigation = styled('div', {
   borderRight: '1px solid $colors$border-primary',
   display: 'flex',
   flexDirection: 'column',
-  transition: 'width 250ms cubic-bezier(0.4, 0.14, 0.3, 1) 0ms',
+  transition: 'width 200ms cubic-bezier(0.4, 0.14, 0.3, 1) 0ms',
   width: pxToRem(56),
 
   variants: {

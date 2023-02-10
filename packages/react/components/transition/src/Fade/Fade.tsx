@@ -24,7 +24,7 @@ export const Fade = React.forwardRef<HTMLElement, FadeProps>((props, forwardedRe
     onEnter,
     onExit,
     style,
-    timeout = 250,
+    timeout = 200,
     ...other
   } = props;
 

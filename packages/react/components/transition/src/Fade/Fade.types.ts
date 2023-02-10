@@ -8,7 +8,7 @@ export interface FadeProps extends Omit<TransitionProps, 'children'> {
   /**
    * The animation duration in miliseconds.
    *
-   * @default 250
+   * @default 200
    */
   duration?: number;
 }

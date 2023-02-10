@@ -14,7 +14,7 @@ export const Collapse = React.forwardRef<HTMLElement, CollapseProps>((props, for
     onExit,
     onExiting,
     style,
-    timeout = 250,
+    timeout = 200,
     ...other
   } = props;
 
