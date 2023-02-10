@@ -37,8 +37,8 @@
     "@project44-manifest/react-icon": "^0.1.0"
   },
   "devDependencies": {
-    "@project44-manifest/react-layout": "workspace:^",
-    "@project44-manifest/react-typography": "workspace:^",
+    "@project44-manifest/react-layout": "^1.0.1",
+    "@project44-manifest/react-typography": "^1.0.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },

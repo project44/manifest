@@ -3291,7 +3291,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-icon@workspace:packages/react/components/icon"
   dependencies:
-    "@project44-manifest/react-layout": "workspace:^"
+    "@project44-manifest/react-layout": ^1.0.1
     "@project44-manifest/react-styles": ^1.0.1
     "@project44-manifest/react-types": ^0.2.1
     "@project44-manifest/react-utils": ^0.2.3
@@ -3308,8 +3308,8 @@ __metadata:
   resolution: "@project44-manifest/react-icons@workspace:packages/react/icons"
   dependencies:
     "@project44-manifest/react-icon": ^0.1.0
-    "@project44-manifest/react-layout": "workspace:^"
-    "@project44-manifest/react-typography": "workspace:^"
+    "@project44-manifest/react-layout": ^1.0.1
+    "@project44-manifest/react-typography": ^1.0.1
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
@@ -3318,7 +3318,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-layout@^1.0.1, @project44-manifest/react-layout@workspace:^, @project44-manifest/react-layout@workspace:packages/react/components/layout":
+"@project44-manifest/react-layout@^1.0.1, @project44-manifest/react-layout@workspace:packages/react/components/layout":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-layout@workspace:packages/react/components/layout"
   dependencies:
@@ -3459,7 +3459,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-typography@^1.0.1, @project44-manifest/react-typography@workspace:^, @project44-manifest/react-typography@workspace:packages/react/components/typography":
+"@project44-manifest/react-typography@^1.0.1, @project44-manifest/react-typography@workspace:packages/react/components/typography":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-typography@workspace:packages/react/components/typography"
   dependencies:
@@ -3486,7 +3486,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-utils@^0.2.3, @project44-manifest/react-utils@^0.2.4, @project44-manifest/react-utils@workspace:^, @project44-manifest/react-utils@workspace:packages/react/utils":
+"@project44-manifest/react-utils@^0.2.3, @project44-manifest/react-utils@^0.2.4, @project44-manifest/react-utils@workspace:packages/react/utils":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-utils@workspace:packages/react/utils"
   dependencies:
@@ -3601,7 +3601,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@project44-manifest/use-merged-ref@workspace:packages/react/hooks/use-merged-ref"
   dependencies:
-    "@project44-manifest/react-utils": "workspace:^"
+    "@project44-manifest/react-utils": ^0.2.4
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
