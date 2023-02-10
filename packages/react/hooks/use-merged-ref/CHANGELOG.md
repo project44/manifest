@@ -1,5 +1,14 @@
 # @project44-manifest/use-controlled-state
 
+## 0.1.1
+
+### Patch Changes
+
+- [#238](https://github.com/project44/manifest/pull/238)
+  [`f247e35`](https://github.com/project44/manifest/commit/f247e35a3056d714d8a21ed59ece6b418266332d)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Fixing issue with workspace dependency
+  format
+
 ## 0.1.0
 
 ### Minor Changes

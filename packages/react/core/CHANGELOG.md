@@ -1,5 +1,22 @@
 # @manifest/react
 
+## 2.9.0
+
+### Minor Changes
+
+- [#226](https://github.com/project44/manifest/pull/226)
+  [`c33b4d4`](https://github.com/project44/manifest/commit/c33b4d43b40121704c3237630a4c038df9a1ff69)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - added breadcrumb components
+
+### Patch Changes
+
+- Updated dependencies
+  [[`0bb6729`](https://github.com/project44/manifest/commit/0bb6729c70841e07a749bea7aae50277c84401fe),
+  [`c33b4d4`](https://github.com/project44/manifest/commit/c33b4d43b40121704c3237630a4c038df9a1ff69)]:
+  - @project44-manifest/react-tooltip@1.1.1
+  - @project44-manifest/react-avatar@0.2.0
+  - @project44-manifest/react-link@0.2.0
+
 ## 2.8.0
 
 ### Minor Changes
