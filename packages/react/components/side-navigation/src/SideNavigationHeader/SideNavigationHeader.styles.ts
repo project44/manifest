@@ -1,13 +1,24 @@
 import { IconButton } from '@project44-manifest/react-button';
 import { pxToRem, styled } from '@project44-manifest/react-styles';
 
-export const StyledLogo = styled('div', {
+export const StyledSideNavigationHeaderLogo = styled('div', {
+  alignItems: 'center',
+  boxSizing: 'border-box',
+  display: 'flex',
+  justifyContent: 'center',
+  left: 0,
+  position: 'absolute',
+  size: pxToRem(56),
+  top: 0,
+});
+
+export const StyledSideNavigationHeaderContent = styled('div', {
   boxSizing: 'border-box',
   display: 'flex',
   flex: '1 1 auto',
 });
 
-export const StyledIconButton = styled(IconButton, {
+export const StyledSideNavigationHeaderButton = styled(IconButton, {
   position: 'absolute',
   right: pxToRem(8),
   top: pxToRem(12),
@@ -19,12 +30,11 @@ export const StyledSideNavigationHeader = styled('div', {
   color: '$text-primary',
   display: 'flex',
   alignItems: 'center',
-  minHeight: pxToRem(64),
+  minHeight: pxToRem(56),
   position: 'relative',
-  paddingLeft: '$medium',
-  paddingRight: '$x-small',
+  px: '$x-small',
 
-  [`${StyledIconButton}`]: {
+  [`${StyledSideNavigationHeaderButton}`]: {
     backgroundColor: '$background-primary',
 
     '&:hover': {
@@ -35,13 +45,13 @@ export const StyledSideNavigationHeader = styled('div', {
   variants: {
     isOpen: {
       true: {
-        [`${StyledIconButton}`]: {
+        [`${StyledSideNavigationHeaderButton}`]: {
           opacity: 1,
           visibility: 'visible',
         },
       },
       false: {
-        [`${StyledIconButton}`]: {
+        [`${StyledSideNavigationHeaderButton}`]: {
           opacity: 0,
           visibility: 'hidden',
         },
@@ -57,7 +67,7 @@ export const StyledSideNavigationHeader = styled('div', {
       isHovered: true,
       isOpen: false,
       css: {
-        [`${StyledIconButton}`]: {
+        [`${StyledSideNavigationHeaderButton}`]: {
           opacity: 1,
           visibility: 'visible',
         },

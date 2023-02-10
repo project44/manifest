@@ -4,9 +4,10 @@ import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
 import { useNavigation } from '../SideNavigation.context';
 import {
-  StyledIconButton,
-  StyledLogo,
   StyledSideNavigationHeader,
+  StyledSideNavigationHeaderButton,
+  StyledSideNavigationHeaderContent,
+  StyledSideNavigationHeaderLogo,
 } from './SideNavigationHeader.styles';
 import type {
   SideNavigationHeaderElement,
@@ -14,7 +15,7 @@ import type {
 } from './SideNavigationHeader.types';
 
 export const SideNavigationHeader = React.forwardRef((props, forwardedRef) => {
-  const { as, children, className: classNameProp, css, ...other } = props;
+  const { as, children, className: classNameProp, css, logo, ...other } = props;
 
   const { isOpen, isHovered, onOpenChange } = useNavigation();
 
@@ -34,14 +35,19 @@ export const SideNavigationHeader = React.forwardRef((props, forwardedRef) => {
       isHovered={isHovered}
       isOpen={isOpen}
     >
-      <StyledLogo className="manifest-navigation-header__logo">{children}</StyledLogo>
-      <StyledIconButton
+      <StyledSideNavigationHeaderLogo className="manifest-navigation-header__logo">
+        {logo}
+      </StyledSideNavigationHeaderLogo>
+      <StyledSideNavigationHeaderContent className="manifest-navigation-header__content">
+        {children}
+      </StyledSideNavigationHeaderContent>
+      <StyledSideNavigationHeaderButton
         className="manifest-navigation-header__button"
         variant="tertiary"
         onClick={handleToggle}
       >
         {isOpen ? <Expanded /> : <Collapsed />}
-      </StyledIconButton>
+      </StyledSideNavigationHeaderButton>
     </StyledSideNavigationHeader>
   );
 }) as ForwardRefComponent<SideNavigationHeaderElement, SideNavigationHeaderProps>;

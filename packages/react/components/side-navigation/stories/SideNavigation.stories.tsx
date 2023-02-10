@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Carrier, Route } from '@project44-manifest/react-icons';
-import { Menu, MenuGroup, MenuItem } from '@project44-manifest/react-menu';
 import { Provider } from '@project44-manifest/react-provider';
 import { createTheme } from '@project44-manifest/react-styles';
 import {
@@ -54,9 +53,7 @@ export const Default = () => {
   return (
     <div style={{ width: 240, height: '100vh' }}>
       <SideNavigation css={{ height: '100%' }} isOpen={isOpen} onOpenChange={handleSetOpen}>
-        <SideNavigationHeader css={{ paddingLeft: '14px' }}>
-          <Logo />
-        </SideNavigationHeader>
+        <SideNavigationHeader logo={<Logo />} />
         <SideNavigationContent>
           <SideNavigationMenu>
             <SideNavigationMenuItem label="Track" startIcon={<Route />} />
@@ -76,17 +73,15 @@ export const Themed = () => (
   <Provider theme={indigo}>
     <div style={{ width: 240, height: '100vh' }}>
       <SideNavigation css={{ height: '100%' }}>
-        <SideNavigationHeader>
-          <Logo />
-        </SideNavigationHeader>
+        <SideNavigationHeader logo={<Logo />} />
         <SideNavigationContent>
-          <Menu>
-            <MenuItem label="Track" startIcon={<Route />} />
-            <MenuGroup label="Initiate" startIcon={<Carrier />}>
-              <MenuItem label="Shipments" />
-              <MenuItem label="Templates" />
-            </MenuGroup>
-          </Menu>
+          <SideNavigationMenu>
+            <SideNavigationMenuItem label="Track" startIcon={<Route />} />
+            <SideNavigationMenuGroup label="Initiate" startIcon={<Carrier />}>
+              <SideNavigationMenuItem label="Shipments" />
+              <SideNavigationMenuItem label="Templates" />
+            </SideNavigationMenuGroup>
+          </SideNavigationMenu>
         </SideNavigationContent>
         <SideNavigationFooter />
       </SideNavigation>

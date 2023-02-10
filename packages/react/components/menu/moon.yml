@@ -16,7 +16,7 @@ dependsOn:
   - id: 'button'
     scope: 'production'
   - id: 'icon'
-    scope: 'developmenet'
+    scope: 'development'
   - id: 'icons'
     scope: 'production'
   - id: 'styles'

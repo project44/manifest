@@ -28,6 +28,9 @@
       "path": "../button"
     },
     {
+      "path": "../icon"
+    },
+    {
       "path": "../transition"
     },
     {

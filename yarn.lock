@@ -3383,6 +3383,7 @@ __metadata:
   resolution: "@project44-manifest/react-menu@workspace:packages/react/components/menu"
   dependencies:
     "@project44-manifest/react-button": ^1.0.2
+    "@project44-manifest/react-icon": ^0.1.0
     "@project44-manifest/react-icons": ^0.1.0
     "@project44-manifest/react-styles": ^1.0.1
     "@project44-manifest/react-transition": ^0.1.0

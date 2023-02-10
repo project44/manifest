@@ -1,4 +1,3 @@
-import { Menu, MenuGroup, MenuItem } from '@project44-manifest/react-menu';
 import { fireEvent, render, screen } from '@testing-library/react';
 import {
   SideNavigation,

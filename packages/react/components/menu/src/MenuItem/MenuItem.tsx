@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
+import { TypographyProps } from '@project44-manifest/react-typography';
 import { useMenuGroup } from '../MenuGroup/MenuGroup.context';
 import { StyledMenuItem, StyledMenuItemIcon, StyledMenuItemLabel } from './MenuItem.styles';
 import type { MenuItemElement, MenuItemProps } from './MenuItem.types';
@@ -23,6 +24,12 @@ export const MenuItem = React.forwardRef((props, forwardedRef) => {
 
   const className = cx('manifest-menu-item', classNameProp);
 
+  let variant: TypographyProps['variant'] = isGrouped ? 'subtext' : 'subtextBold';
+
+  if (isGrouped && isSelected) {
+    variant = 'subtextBold';
+  }
+
   return (
     <StyledMenuItem
       {...other}
@@ -38,11 +45,7 @@ export const MenuItem = React.forwardRef((props, forwardedRef) => {
           {startIcon}
         </StyledMenuItemIcon>
       )}
-      <StyledMenuItemLabel
-        {...labelProps}
-        className="manifest-menu-item__label"
-        variant={isSelected ? 'subtextBold' : 'subtext'}
-      >
+      <StyledMenuItemLabel {...labelProps} className="manifest-menu-item__label" variant={variant}>
         {label}
       </StyledMenuItemLabel>
       {endIcon && (

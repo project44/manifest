@@ -43,6 +43,7 @@
     "@project44-manifest/use-controlled-state": "^0.1.0"
   },
   "devDependencies": {
+    "@project44-manifest/react-icon": "^0.1.0",
     "@project44-manifest/react-types": "^0.2.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
