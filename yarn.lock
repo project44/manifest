@@ -3243,7 +3243,7 @@ __metadata:
   dependencies:
     "@project44-manifest/react-icon": ^0.1.0
     "@project44-manifest/react-icons": ^0.1.0
-    "@project44-manifest/react-link": ^0.0.0
+    "@project44-manifest/react-link": ^0.1.0
     "@project44-manifest/react-styles": ^1.0.1
     "@project44-manifest/react-types": ^0.2.1
     "@project44-manifest/react-utils": ^0.2.3
@@ -3436,7 +3436,7 @@ __metadata:
   resolution: "@project44-manifest/react-transition@workspace:packages/react/components/transition"
   dependencies:
     "@project44-manifest/react-button": ^1.0.2
-    "@project44-manifest/react-layout": ^1.0.1
+    "@project44-manifest/react-styles": ^1.1.0
     "@project44-manifest/use-merged-ref": ^0.1.0
     react: ^18.1.0
     react-dom: ^18.1.0

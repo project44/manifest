@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { act, fireEvent, render, screen } from '@testing-library/react';
-import { Transition, TransitionProps } from '../src';
+import { Collapse, CollapseProps } from '../src';
 
-function TestComponent(props: Omit<TransitionProps, 'children'>) {
+function TestComponent(props: Omit<CollapseProps, 'children'>) {
   const [show, setShow] = React.useState(false);
 
   const toggle = () => void setShow((prevState) => !prevState);
@@ -10,14 +10,14 @@ function TestComponent(props: Omit<TransitionProps, 'children'>) {
   return (
     <div>
       <button onClick={toggle}>Toggle</button>
-      <Transition {...props} in={show}>
+      <Collapse {...props} in={show}>
         <div data-testid="test">Hello world</div>
-      </Transition>
+      </Collapse>
     </div>
   );
 }
 
-describe('transition', () => {
+describe('collapse', () => {
   beforeAll(() => {
     jest.useFakeTimers();
   });
@@ -37,40 +37,38 @@ describe('transition', () => {
   it('should render', () => {
     render(<TestComponent />);
 
-    expect(screen.getByTestId('test')).toHaveClass('manifest-transition--exited');
+    expect(screen.getByTestId('test')).toHaveStyle('height: 0px');
 
     fireEvent.click(screen.getByText('Toggle'));
-
-    expect(screen.getByTestId('test')).toHaveClass('manifest-transition--entering');
-
-    fireEvent.click(screen.getByText('Toggle'));
-
-    expect(screen.getByTestId('test')).toHaveClass('manifest-transition--exiting');
 
     act(() => {
       jest.runAllTimers();
     });
 
-    expect(screen.getByTestId('test')).toHaveClass('manifest-transition--exited');
+    expect(screen.getByTestId('test')).toHaveStyle('height: auto');
+
+    fireEvent.click(screen.getByText('Toggle'));
+
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(screen.getByTestId('test')).toHaveStyle('height: 0px');
   });
 
   it('should call each callback', () => {
-    const onAddEndListener = jest.fn();
     const onEnter = jest.fn();
     const onEntering = jest.fn();
     const onEntered = jest.fn();
     const onExit = jest.fn();
     const onExiting = jest.fn();
-    const onExited = jest.fn();
 
     render(
       <TestComponent
-        addEndListener={onAddEndListener}
         onEnter={onEnter}
         onEntered={onEntered}
         onEntering={onEntering}
         onExit={onExit}
-        onExited={onExited}
         onExiting={onExiting}
       />,
     );
@@ -85,18 +83,15 @@ describe('transition', () => {
     });
 
     expect(onEntered).toHaveBeenCalled();
-    expect(onAddEndListener).toHaveBeenCalled();
 
     fireEvent.click(screen.getByText('Toggle'));
 
     expect(onExit).toHaveBeenCalled();
-    expect(onExiting).toHaveBeenCalled();
 
     act(() => {
       jest.runAllTimers();
     });
 
-    expect(onExited).toHaveBeenCalled();
-    expect(onAddEndListener).toHaveBeenCalledTimes(2);
+    expect(onExiting).toHaveBeenCalled();
   });
 });

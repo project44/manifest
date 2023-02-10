@@ -36,7 +36,7 @@
   "dependencies": {
     "@project44-manifest/react-icon": "^0.1.0",
     "@project44-manifest/react-icons": "^0.1.0",
-    "@project44-manifest/react-link": "^0.0.0",
+    "@project44-manifest/react-link": "^0.1.0",
     "@project44-manifest/react-styles": "^1.0.1",
     "@project44-manifest/react-utils": "^0.2.3"
   },
