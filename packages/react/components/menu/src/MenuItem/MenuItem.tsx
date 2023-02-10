@@ -14,6 +14,7 @@ export const MenuItem = React.forwardRef((props, forwardedRef) => {
     endIcon,
     startIcon,
     label,
+    labelProps = {},
     isSelected,
     ...other
   } = props;
@@ -38,6 +39,7 @@ export const MenuItem = React.forwardRef((props, forwardedRef) => {
         </StyledMenuItemIcon>
       )}
       <StyledMenuItemLabel
+        {...labelProps}
         className="manifest-menu-item__label"
         variant={isSelected ? 'subtextBold' : 'subtext'}
       >

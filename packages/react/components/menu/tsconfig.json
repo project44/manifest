@@ -10,7 +10,7 @@
   ],
   "references": [
     {
-      "path": "../button"
+      "path": "../../hooks/use-controlled-state"
     },
     {
       "path": "../../icons"
@@ -22,13 +22,16 @@
       "path": "../../types"
     },
     {
-      "path": "../typography"
-    },
-    {
-      "path": "../../hooks/use-controlled-state"
-    },
-    {
       "path": "../../utils"
+    },
+    {
+      "path": "../button"
+    },
+    {
+      "path": "../transition"
+    },
+    {
+      "path": "../typography"
     },
     {
       "path": "./tsconfig.build.json"

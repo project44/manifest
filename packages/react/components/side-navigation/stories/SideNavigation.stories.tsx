@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { Carrier, Route } from '@project44-manifest/react-icons';
 import { Menu, MenuGroup, MenuItem } from '@project44-manifest/react-menu';
 import { Provider } from '@project44-manifest/react-provider';
@@ -7,6 +8,9 @@ import {
   SideNavigationContent,
   SideNavigationFooter,
   SideNavigationHeader,
+  SideNavigationMenu,
+  SideNavigationMenuGroup,
+  SideNavigationMenuItem,
 } from '../src';
 
 function Logo() {
@@ -40,23 +44,35 @@ export default {
   component: SideNavigation,
 };
 
-export const Default = () => (
-  <SideNavigation>
-    <SideNavigationHeader css={{ paddingLeft: '14px' }}>
-      <Logo />
-    </SideNavigationHeader>
-    <SideNavigationContent>
-      <Menu>
-        <MenuItem label="Track" startIcon={<Route />} />
-        <MenuGroup label="Initiate" startIcon={<Carrier />}>
-          <MenuItem label="Shipments" />
-          <MenuItem label="Templates" />
-        </MenuGroup>
-      </Menu>
-    </SideNavigationContent>
-    <SideNavigationFooter />
-  </SideNavigation>
-);
+export const Default = () => {
+  const [isOpen, setIsOpen] = React.useState(true);
+
+  const handleSetOpen = React.useCallback(() => {
+    setIsOpen((prevOpen) => !prevOpen);
+  }, [setIsOpen]);
+
+  return (
+    <Provider theme={indigo}>
+      <div style={{ width: 240 }}>
+        <SideNavigation isOpen={isOpen} onOpenChange={handleSetOpen}>
+          <SideNavigationHeader css={{ paddingLeft: '14px' }}>
+            <Logo />
+          </SideNavigationHeader>
+          <SideNavigationContent>
+            <SideNavigationMenu>
+              <SideNavigationMenuItem label="Track" startIcon={<Route />} />
+              <SideNavigationMenuGroup label="Initiate" startIcon={<Carrier />}>
+                <SideNavigationMenuItem label="Shipments" />
+                <SideNavigationMenuItem label="Templates" />
+              </SideNavigationMenuGroup>
+            </SideNavigationMenu>
+          </SideNavigationContent>
+          <SideNavigationFooter />
+        </SideNavigation>
+      </div>
+    </Provider>
+  );
+};
 
 export const Themed = () => (
   <Provider theme={indigo}>

@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { ChevronDown, ChevronUp } from '@project44-manifest/react-icons';
 import { cx } from '@project44-manifest/react-styles';
+import { Collapse } from '@project44-manifest/react-transition';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
 import { noop } from '@project44-manifest/react-utils';
 import { useControlledState } from '@project44-manifest/use-controlled-state';
 import { MenuItem } from '../MenuItem';
 import { MenuGroupProvider } from './MenuGroup.context';
-import { StyledMenuGroup } from './MenuGroup.styles';
+import { StyledIcon, StyledMenuGroup } from './MenuGroup.styles';
 import type { MenuGroupElement, MenuGroupProps } from './MenuGroup.types';
 
 export const MenuGroup = React.forwardRef((props, forwardedRef) => {
@@ -16,8 +16,11 @@ export const MenuGroup = React.forwardRef((props, forwardedRef) => {
     className: classNameProp,
     css,
     defaultExpanded,
+    iconProps = {},
     isExpanded: isExpandedProp,
+    itemProps = {},
     label,
+    labelProps,
     onExpandedChange = noop,
     startIcon,
     ...other
@@ -38,14 +41,18 @@ export const MenuGroup = React.forwardRef((props, forwardedRef) => {
   return (
     <StyledMenuGroup {...other} ref={forwardedRef} as={as} className={className} css={css}>
       <MenuItem
-        endIcon={
-          isExpanded ? <ChevronUp aria-label="collapse" /> : <ChevronDown aria-label="expand" />
-        }
+        {...itemProps}
+        endIcon={<StyledIcon {...iconProps} isExpanded={isExpanded} />}
         label={label}
+        labelProps={labelProps}
         startIcon={startIcon}
         onClick={handleExpand}
       />
-      <MenuGroupProvider value={{ isGrouped: true }}>{children}</MenuGroupProvider>
+      <MenuGroupProvider value={{ isGrouped: true }}>
+        <Collapse duration={100} in={isExpanded}>
+          <div className="manifest-menu-group__wrapper">{children}</div>
+        </Collapse>
+      </MenuGroupProvider>
     </StyledMenuGroup>
   );
 }) as ForwardRefComponent<MenuGroupElement, MenuGroupProps>;

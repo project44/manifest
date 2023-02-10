@@ -9,8 +9,10 @@ export const StyledContent = styled('div', {
 
 export const StyledButton = styled(IconButton, {
   position: 'absolute',
+  backgroundColor: '$background-primary',
   right: pxToRem(8),
   top: pxToRem(12),
+  transition: 'visibility 250ms ease 0ms',
 });
 
 export const StyledSideNavigationHeader = styled('div', {
@@ -27,16 +29,12 @@ export const StyledSideNavigationHeader = styled('div', {
     isOpen: {
       false: {
         [`& ${StyledButton}`]: {
-          display: 'none',
+          visibility: 'hidden',
         },
 
         '&:hover': {
-          [`& ${StyledContent}`]: {
-            display: 'none',
-          },
-
           [`& ${StyledButton}`]: {
-            display: 'inline-flex',
+            visibility: 'visible',
           },
         },
       },

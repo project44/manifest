@@ -15,9 +15,13 @@ tasks:
 dependsOn:
   - id: 'button'
     scope: 'production'
+  - id: 'icon'
+    scope: 'developmenet'
   - id: 'icons'
     scope: 'production'
   - id: 'styles'
+    scope: 'production'
+  - id: 'transition'
     scope: 'production'
   - id: 'typography'
     scope: 'production'
