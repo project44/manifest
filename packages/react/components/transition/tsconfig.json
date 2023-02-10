@@ -10,10 +10,7 @@
   ],
   "references": [
     {
-      "path": "../button"
-    },
-    {
-      "path": "../layout"
+      "path": "../../hooks/use-merged-ref"
     },
     {
       "path": "../../styles"
@@ -22,10 +19,10 @@
       "path": "../../types"
     },
     {
-      "path": "../../hooks/use-merged-ref"
+      "path": "../../utils"
     },
     {
-      "path": "../../utils"
+      "path": "../button"
     },
     {
       "path": "./tsconfig.build.json"
