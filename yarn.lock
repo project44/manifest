@@ -3481,6 +3481,7 @@ __metadata:
     "@project44-manifest/react-typography": ^1.0.1
     "@project44-manifest/react-utils": ^0.2.3
     "@project44-manifest/use-controlled-state": ^0.1.0
+    "@react-aria/interactions": ^3.13.1
     "@react-types/shared": ^3.16.0
     react: ^18.1.0
     react-dom: ^18.1.0

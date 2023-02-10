@@ -41,7 +41,8 @@
     "@project44-manifest/react-transition": "^0.1.0",
     "@project44-manifest/react-typography": "^1.0.1",
     "@project44-manifest/react-utils": "^0.2.3",
-    "@project44-manifest/use-controlled-state": "^0.1.0"
+    "@project44-manifest/use-controlled-state": "^0.1.0",
+    "@react-aria/interactions": "^3.13.1"
   },
   "devDependencies": {
     "@project44-manifest/react-menu": "^0.0.0",

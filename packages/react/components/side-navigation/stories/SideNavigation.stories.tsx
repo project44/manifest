@@ -52,44 +52,44 @@ export const Default = () => {
   }, [setIsOpen]);
 
   return (
-    <Provider theme={indigo}>
-      <div style={{ width: 240 }}>
-        <SideNavigation isOpen={isOpen} onOpenChange={handleSetOpen}>
-          <SideNavigationHeader css={{ paddingLeft: '14px' }}>
-            <Logo />
-          </SideNavigationHeader>
-          <SideNavigationContent>
-            <SideNavigationMenu>
-              <SideNavigationMenuItem label="Track" startIcon={<Route />} />
-              <SideNavigationMenuGroup label="Initiate" startIcon={<Carrier />}>
-                <SideNavigationMenuItem label="Shipments" />
-                <SideNavigationMenuItem label="Templates" />
-              </SideNavigationMenuGroup>
-            </SideNavigationMenu>
-          </SideNavigationContent>
-          <SideNavigationFooter />
-        </SideNavigation>
-      </div>
-    </Provider>
+    <div style={{ width: 240, height: '100vh' }}>
+      <SideNavigation css={{ height: '100%' }} isOpen={isOpen} onOpenChange={handleSetOpen}>
+        <SideNavigationHeader css={{ paddingLeft: '14px' }}>
+          <Logo />
+        </SideNavigationHeader>
+        <SideNavigationContent>
+          <SideNavigationMenu>
+            <SideNavigationMenuItem label="Track" startIcon={<Route />} />
+            <SideNavigationMenuGroup label="Initiate" startIcon={<Carrier />}>
+              <SideNavigationMenuItem label="Shipments" />
+              <SideNavigationMenuItem label="Templates" />
+            </SideNavigationMenuGroup>
+          </SideNavigationMenu>
+        </SideNavigationContent>
+        <SideNavigationFooter />
+      </SideNavigation>
+    </div>
   );
 };
 
 export const Themed = () => (
   <Provider theme={indigo}>
-    <SideNavigation>
-      <SideNavigationHeader>
-        <Logo />
-      </SideNavigationHeader>
-      <SideNavigationContent>
-        <Menu>
-          <MenuItem label="Track" startIcon={<Route />} />
-          <MenuGroup label="Initiate" startIcon={<Carrier />}>
-            <MenuItem label="Shipments" />
-            <MenuItem label="Templates" />
-          </MenuGroup>
-        </Menu>
-      </SideNavigationContent>
-      <SideNavigationFooter />
-    </SideNavigation>
+    <div style={{ width: 240, height: '100vh' }}>
+      <SideNavigation css={{ height: '100%' }}>
+        <SideNavigationHeader>
+          <Logo />
+        </SideNavigationHeader>
+        <SideNavigationContent>
+          <Menu>
+            <MenuItem label="Track" startIcon={<Route />} />
+            <MenuGroup label="Initiate" startIcon={<Carrier />}>
+              <MenuItem label="Shipments" />
+              <MenuItem label="Templates" />
+            </MenuGroup>
+          </Menu>
+        </SideNavigationContent>
+        <SideNavigationFooter />
+      </SideNavigation>
+    </div>
   </Provider>
 );

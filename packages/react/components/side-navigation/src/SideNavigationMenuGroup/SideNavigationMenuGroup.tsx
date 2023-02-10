@@ -17,10 +17,10 @@ export const SideNavigationMenuGroup = React.forwardRef((props, forwardedRef) =>
 
   return (
     <MenuGroup
-      defaultExpanded={isOpen ? undefined : false}
       {...other}
       ref={forwardedRef}
       className={className}
+      isExpanded={!isOpen ? false : undefined}
     />
   );
 }) as ForwardRefComponent<SideNavigationMenuGroupElement, SideNavigationMenuGroupProps>;

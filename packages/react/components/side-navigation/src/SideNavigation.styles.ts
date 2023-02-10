@@ -16,5 +16,9 @@ export const StyledNavigation = styled('div', {
       },
       false: {},
     },
+    isHovered: {
+      true: {},
+      false: {},
+    },
   },
 });

@@ -4,8 +4,8 @@ import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
 import { useNavigation } from '../SideNavigation.context';
 import {
-  StyledButton,
-  StyledContent,
+  StyledIconButton,
+  StyledLogo,
   StyledSideNavigationHeader,
 } from './SideNavigationHeader.styles';
 import type {
@@ -16,7 +16,7 @@ import type {
 export const SideNavigationHeader = React.forwardRef((props, forwardedRef) => {
   const { as, children, className: classNameProp, css, ...other } = props;
 
-  const { isOpen, onOpenChange } = useNavigation();
+  const { isOpen, isHovered, onOpenChange } = useNavigation();
 
   const handleToggle = React.useCallback(() => {
     onOpenChange(!isOpen);
@@ -31,17 +31,17 @@ export const SideNavigationHeader = React.forwardRef((props, forwardedRef) => {
       as={as}
       className={className}
       css={css}
+      isHovered={isHovered}
       isOpen={isOpen}
     >
-      <StyledContent className="manifest-navigation-header__content">{children}</StyledContent>
-      <StyledButton
-        aria-label={isOpen ? 'close' : 'open'}
+      <StyledLogo className="manifest-navigation-header__logo">{children}</StyledLogo>
+      <StyledIconButton
         className="manifest-navigation-header__button"
         variant="tertiary"
         onClick={handleToggle}
       >
         {isOpen ? <Expanded /> : <Collapsed />}
-      </StyledButton>
+      </StyledIconButton>
     </StyledSideNavigationHeader>
   );
 }) as ForwardRefComponent<SideNavigationHeaderElement, SideNavigationHeaderProps>;

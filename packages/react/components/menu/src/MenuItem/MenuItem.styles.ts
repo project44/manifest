@@ -27,7 +27,7 @@ export const StyledMenuItem = styled('div', {
     isGrouped: {
       true: {
         color: '$text-secondary',
-        paddingLeft: pxToRem(44),
+        paddingLeft: pxToRem(48),
         paddingRight: '$medium',
       },
     },
