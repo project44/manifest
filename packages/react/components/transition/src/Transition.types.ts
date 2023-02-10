@@ -26,17 +26,19 @@ export interface TransitionProps<RefElement extends HTMLElement | undefined = un
    */
   appear?: boolean | undefined;
   /**
-   * A single child element.
+   * An element or render function.
    */
-  children: React.ReactElement;
+  children:
+    | React.ReactNode
+    | ((status: TransitionStatus, props: Record<string, unknown>) => React.ReactNode);
+  /**
+   * Class name attaced to dom element.
+   */
+  className?: string;
   /**
    * Show the component; triggers the enter or exit states
    */
   in?: boolean;
-  /**
-   * Return the styles for a specific transition status.
-   */
-  getTransitionStyle?: (state: TransitionStatus) => React.CSSProperties;
   /**
    * By default the child component is mounted immediately along with the
    * parent Transition component. If you want to "lazy mount" the component on

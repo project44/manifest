@@ -61,6 +61,10 @@ describe('react-tooltip', () => {
     expect(onOpenChange).toHaveBeenCalledTimes(2);
     expect(onOpenChange).toHaveBeenCalledWith(false);
 
+    act(() => {
+      jest.runAllTimers();
+    });
+
     expect(tooltip).not.toBeInTheDocument();
   });
 
@@ -181,6 +185,11 @@ describe('react-tooltip', () => {
 
     fireEvent.mouseLeave(tooltip);
 
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    // Run exit cyle of fade animation.
     act(() => {
       jest.runAllTimers();
     });

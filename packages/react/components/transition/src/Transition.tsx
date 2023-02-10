@@ -1,23 +1,15 @@
 import * as React from 'react';
 import TransitionComponent from 'react-transition-group/Transition';
+import { cx } from '@project44-manifest/react-styles';
 import { useMergedRef } from '@project44-manifest/use-merged-ref';
 import type { TransitionProps, TransitionStatus } from './Transition.types';
 
-const defaultTransitionStyle = (status: TransitionStatus) => {
-  if (status === 'entered' || status === 'entering') {
-    return { opacity: 1 };
-  }
-
-  return {};
-};
-
 export const Transition = React.forwardRef<HTMLElement, TransitionProps>((props, forwardedRef) => {
   const {
-    appear = true,
     children,
+    className: classNameProp,
     in: inProp,
     addEndListener,
-    getTransitionStyle = defaultTransitionStyle,
     onEnter,
     onEntering,
     onEntered,
@@ -90,7 +82,6 @@ export const Transition = React.forwardRef<HTMLElement, TransitionProps>((props,
     <TransitionComponent
       {...other}
       addEndListener={handleAddEndLister}
-      appear={appear}
       in={inProp}
       timeout={timeout}
       onEnter={handleEnter}
@@ -100,18 +91,30 @@ export const Transition = React.forwardRef<HTMLElement, TransitionProps>((props,
       onExited={handleExited}
       onExiting={handleExiting}
     >
-      {(status: TransitionStatus) =>
-        React.cloneElement(children, {
-          ref: (element: HTMLElement) => void mergedRef(element),
-          style: {
-            opacity: 0,
-            transition: 'all 250ms ease-in-out',
-            visibility: status === 'exited' && !inProp ? 'hidden' : undefined,
-            ...getTransitionStyle(status),
-            ...(children.props as TransitionProps).style,
+      {(status: TransitionStatus) => {
+        const className = cx(
+          'manifest-transition',
+          {
+            'manifest-transition--entered': status === 'entered',
+            'manifest-transition--entering': status === 'entering',
+            'manifest-transition--exited': status === 'exited',
+            'manifest-transition--exiting': status === 'exiting',
           },
-        })
-      }
+          classNameProp,
+        );
+
+        if (typeof children === 'function') {
+          return children(status, {
+            className,
+            ref: (element: HTMLElement) => void mergedRef(element),
+          });
+        }
+
+        return React.cloneElement(children as React.ReactElement, {
+          className,
+          ref: (element: HTMLElement) => void mergedRef(element),
+        });
+      }}
     </TransitionComponent>
   );
 });

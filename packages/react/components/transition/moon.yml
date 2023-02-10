@@ -17,5 +17,7 @@ dependsOn:
     scope: 'development'
   - id: 'layout'
     scope: 'development'
+  - id: 'styles'
+    scope: 'production'
   - id: 'use-merged-ref'
     scope: 'production'

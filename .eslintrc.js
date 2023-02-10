@@ -53,6 +53,9 @@ module.exports = {
     'no-magic-numbers': 'off',
     'sort-keys': 'off',
 
+    // Does not play well with react nodes
+    'no-param-reassign': [2, { props: false }],
+
     // Prefer TypeScript annotations
     'default-param-last': 'off',
     'dot-notation': 'off',

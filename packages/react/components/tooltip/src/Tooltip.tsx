@@ -2,11 +2,11 @@ import * as React from 'react';
 import { useOverlayPosition } from '@react-aria/overlays';
 import { useTooltipTrigger } from '@react-aria/tooltip';
 import { useTooltipTriggerState } from '@react-stately/tooltip';
+import { Fade } from '@project44-manifest/react-transition';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
 import { TooltipProvider } from './Tooltip.context';
 import type { TooltipElement, TooltipProps } from './Tooltip.types';
 import { TooltipContent } from './TooltipContent';
-import { TooltipTransition } from './TooltipTransition';
 
 export const Tooltip = React.forwardRef((props, forwardedRef) => {
   const {
@@ -58,11 +58,11 @@ export const Tooltip = React.forwardRef((props, forwardedRef) => {
       <TooltipProvider
         value={{ tooltipProps: { ...tooltipProps, ...positionProps }, tooltipRef, state }}
       >
-        <TooltipTransition in={state.isOpen}>
+        <Fade appear mountOnEnter unmountOnExit in={state.isOpen}>
           <TooltipContent {...other} ref={forwardedRef}>
             {title}
           </TooltipContent>
-        </TooltipTransition>
+        </Fade>
       </TooltipProvider>
     </>
   );
