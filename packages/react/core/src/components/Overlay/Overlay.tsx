@@ -1,5 +1,5 @@
 import { CSSTransition } from 'react-transition-group';
-import { Portal, PortalProps } from '../Portal';
+import { Portal, PortalProps } from '@project44-manifest/react-portal';
 
 export interface OverlayProps extends PortalProps {
   /**

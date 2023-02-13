@@ -13,12 +13,4 @@ tasks:
       - 'lib'
 
 dependsOn:
-  - 'avatar'
-  - 'button'
-  - 'css-baseline'
-  - 'link'
-  - 'portal'
-  - 'provider'
-  - 'styles'
-  - 'system'
-  - 'tooltip'
+  - 'use-isomorphic-layout-effect'

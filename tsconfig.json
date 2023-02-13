@@ -30,6 +30,9 @@
       "path": "packages/react/components/popover"
     },
     {
+      "path": "packages/react/components/portal"
+    },
+    {
       "path": "packages/react/components/provider"
     },
     {

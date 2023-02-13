@@ -22,6 +22,9 @@
       "path": "../components/link"
     },
     {
+      "path": "../components/portal"
+    },
+    {
       "path": "../components/provider"
     },
     {

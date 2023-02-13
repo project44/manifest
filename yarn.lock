@@ -3373,6 +3373,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@project44-manifest/react-portal@^0.0.0, @project44-manifest/react-portal@workspace:packages/react/components/portal":
+  version: 0.0.0-use.local
+  resolution: "@project44-manifest/react-portal@workspace:packages/react/components/portal"
+  dependencies:
+    "@project44-manifest/use-isomorphic-layout-effect": ^0.0.0
+    react: ^18.1.0
+    react-dom: ^18.1.0
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+  languageName: unknown
+  linkType: soft
+
 "@project44-manifest/react-provider@^0.1.0, @project44-manifest/react-provider@workspace:packages/react/components/provider":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-provider@workspace:packages/react/components/provider"
@@ -3511,6 +3524,7 @@ __metadata:
     "@project44-manifest/react-button": ^1.0.2
     "@project44-manifest/react-css-baseline": ^0.1.0
     "@project44-manifest/react-link": ^0.2.0
+    "@project44-manifest/react-portal": ^0.0.0
     "@project44-manifest/react-provider": ^0.1.0
     "@project44-manifest/react-styles": ^1.1.0
     "@project44-manifest/react-tooltip": ^1.1.1
@@ -3597,7 +3611,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/use-isomorphic-layout-effect@workspace:packages/react/hooks/use-isomorphic-layout-effect":
+"@project44-manifest/use-isomorphic-layout-effect@^0.0.0, @project44-manifest/use-isomorphic-layout-effect@workspace:packages/react/hooks/use-isomorphic-layout-effect":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/use-isomorphic-layout-effect@workspace:packages/react/hooks/use-isomorphic-layout-effect"
   dependencies:
