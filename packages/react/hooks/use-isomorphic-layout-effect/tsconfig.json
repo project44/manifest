@@ -1,0 +1,15 @@
+{
+  "extends": "../../../../tsconfig.options.json",
+  "compilerOptions": {
+    "outDir": "../../../../.moon/cache/types/packages/react/hooks/use-isomorphic-layout-effect"
+  },
+  "include": [
+    "src/**/*",
+    "tests/**/*"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.build.json"
+    }
+  ]
+}

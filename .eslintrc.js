@@ -480,8 +480,6 @@ module.exports = {
       },
       rules: {
         // Prefer `it` over `test`
-        'jest/consistent-test-it': 'error',
-        'jest/require-top-level-describe': 'error',
         'jest/valid-describe-callback': 'error',
         'jest/valid-expect': 'error',
 

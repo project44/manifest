@@ -3597,6 +3597,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@project44-manifest/use-isomorphic-layout-effect@workspace:packages/react/hooks/use-isomorphic-layout-effect":
+  version: 0.0.0-use.local
+  resolution: "@project44-manifest/use-isomorphic-layout-effect@workspace:packages/react/hooks/use-isomorphic-layout-effect"
+  dependencies:
+    react: ^18.1.0
+    react-dom: ^18.1.0
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+  languageName: unknown
+  linkType: soft
+
 "@project44-manifest/use-merged-ref@^0.1.1, @project44-manifest/use-merged-ref@workspace:packages/react/hooks/use-merged-ref":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/use-merged-ref@workspace:packages/react/hooks/use-merged-ref"
