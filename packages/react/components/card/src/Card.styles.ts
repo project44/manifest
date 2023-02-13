@@ -1,6 +1,6 @@
-import { css } from '@project44-manifest/react-styles';
+import { styled } from '@project44-manifest/react-styles';
 
-export const useStyles = css({
+export const StyledCard = styled('div', {
   backgroundColor: '$background-surface',
   borderRadius: '$small',
   boxShadow: '$medium',
