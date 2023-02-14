@@ -37,12 +37,11 @@ afterAll(() => {
 
 it('should render', () => {
   const ref = React.createRef<HTMLDivElement>();
-  const nodeRef = React.createRef<HTMLDivElement>();
 
   const onEntered = jest.fn();
   const onExited = jest.fn();
 
-  render(<Component ref={ref} nodeRef={nodeRef} onEntered={onEntered} onExited={onExited} />);
+  render(<Component ref={ref} onEntered={onEntered} onExited={onExited} />);
 
   const button = screen.getByRole('button');
 
