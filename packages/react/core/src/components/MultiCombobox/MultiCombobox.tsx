@@ -6,6 +6,7 @@ import { useHover } from '@react-aria/interactions';
 import { useOverlayPosition } from '@react-aria/overlays';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import type { Placement } from '@react-types/overlays';
+import { Popover, PopoverContent, PopoverTrigger } from '@project44-manifest/react-popover';
 import { cx } from '@project44-manifest/react-styles';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import { useMultiCombobox } from '../../hooks';
@@ -14,8 +15,6 @@ import type { AriaMultiComboboxProps, StyleProps } from '../../types';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
 import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
-import { Overlay } from '../Overlay';
-import { Popover } from '../Popover';
 import { Stack } from '../Stack';
 import { Tag } from '../Tag';
 import { useStyles } from './MultiCombobox.styles';
@@ -95,9 +94,9 @@ export const MultiCombobox = createComponent<MultiComboboxOptions>((props, forwa
     label,
     labelProps: labelPropsProp = {},
     maxHeight,
-    offset = 4,
-    placement = 'bottom',
-    shouldFlip = true,
+    offset,
+    placement = 'bottom end',
+    shouldFlip,
     validationState,
     size = 'medium',
     startIcon,
@@ -206,18 +205,24 @@ export const MultiCombobox = createComponent<MultiComboboxOptions>((props, forwa
 
         <input {...inputProps} ref={inputRef} className="manifest-multi-combobox__input" />
 
-        <button {...buttonProps} ref={buttonRef} className="manifest-multi-combobox__button">
-          <Icon icon="expand_more" />
-        </button>
-
-        <Overlay isOpen={state.isOpen && !isDisabled}>
-          <Popover
+        <Popover
+          isOpen={state.isOpen && !isDisabled}
+          maxHeight={maxHeight}
+          offset={offset}
+          placement={placement}
+          shouldFlip={shouldFlip}
+          onClose={handleClose}
+        >
+          <PopoverTrigger ref={buttonRef}>
+            <button {...buttonProps} className="manifest-multi-combobox__button">
+              <Icon icon="expand_more" />
+            </button>
+          </PopoverTrigger>
+          <PopoverContent
             {...overlayProps}
             ref={popoverRef}
             className="manifest-multi-combobox__popover"
             css={{ left: containerDimensions?.left, width: containerDimensions?.width }}
-            isOpen={state.isOpen}
-            onClose={handleClose}
           >
             <ListBoxBase
               {...(listBoxProps as ListBoxBaseProps)}
@@ -226,8 +231,8 @@ export const MultiCombobox = createComponent<MultiComboboxOptions>((props, forwa
               className="manifest-multi-combobox__list-box"
               state={state}
             />
-          </Popover>
-        </Overlay>
+          </PopoverContent>
+        </Popover>
       </Comp>
     </FormControl>
   );

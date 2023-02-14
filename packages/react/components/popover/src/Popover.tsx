@@ -1,39 +1,98 @@
 import * as React from 'react';
-import { OverlayContainer } from '@react-aria/overlays';
+import { useOverlayPosition, useOverlayTrigger } from '@react-aria/overlays';
+import { useOverlayTriggerState } from '@react-stately/overlays';
+import { Overlay } from '@project44-manifest/react-overlay';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
-import { PopoverContent } from './Popover.content';
+import { PopoverProvider } from './Popover.context';
 import type { PopoverElement, PopoverProps } from './Popover.types';
 
 export const Popover = React.forwardRef((props, forwardedRef) => {
-  const { children, isOpen = false, onEntered, onExited, ...other } = props;
+  const {
+    children,
+    defaultOpen,
+    isDismissable = true,
+    isKeyboardDismissDisabled = false,
+    isNonModal,
+    isOpen,
+    maxHeight,
+    offset = 8,
+    onClose,
+    onEntered,
+    onExited,
+    onOpenChange,
+    placement = 'bottom',
+    scrollRef,
+    shouldCloseOnBlur = false,
+    shouldCloseOnInteractOutside,
+    shouldFlip = true,
+    shouldUpdatePosition = true,
+    type = 'dialog',
+  } = props;
 
-  const [isExited, setExited] = React.useState(!isOpen);
+  const [trigger, content] = React.Children.toArray(children) as [
+    React.ReactElement,
+    React.ReactElement,
+  ];
 
-  const handleEntered = React.useCallback(() => {
-    onEntered?.();
+  const overlayRef = React.useRef<HTMLDivElement>(null);
+  const triggerRef = React.useRef<HTMLButtonElement>(null);
 
-    setExited(false);
-  }, [onEntered, setExited]);
+  const state = useOverlayTriggerState({ defaultOpen, isOpen, onOpenChange });
+  const { triggerProps, overlayProps } = useOverlayTrigger({ type }, state, triggerRef);
+  const { overlayProps: positionProps } = useOverlayPosition({
+    isOpen: state.isOpen,
+    maxHeight,
+    offset,
+    overlayRef,
+    placement,
+    scrollRef,
+    shouldFlip,
+    shouldUpdatePosition,
+    targetRef: triggerRef,
+  });
 
-  const handleExited = React.useCallback(() => {
-    onExited?.();
+  const handleClose = React.useCallback(() => {
+    onClose?.();
 
-    setExited(true);
-  }, [onExited, setExited]);
+    state?.close();
+  }, [onClose, state]);
 
-  if (!(isOpen || !isExited)) return null;
+  const context = React.useMemo(
+    () => ({
+      isDismissable,
+      isKeyboardDismissDisabled,
+      isNonModal,
+      onClose: handleClose,
+      overlayProps: { ...overlayProps, ...positionProps },
+      overlayRef,
+      shouldCloseOnBlur,
+      shouldCloseOnInteractOutside,
+      state,
+      triggerProps,
+      triggerRef,
+    }),
+    [
+      isDismissable,
+      isKeyboardDismissDisabled,
+      isNonModal,
+      handleClose,
+      overlayProps,
+      overlayRef,
+      positionProps,
+      state,
+      shouldCloseOnBlur,
+      shouldCloseOnInteractOutside,
+      triggerProps,
+      triggerRef,
+    ],
+  );
 
   return (
-    <OverlayContainer>
-      <PopoverContent
-        ref={forwardedRef}
-        isOpen={isOpen}
-        onEntered={handleEntered}
-        onExited={handleExited}
-        {...other}
-      >
-        {children}
-      </PopoverContent>
-    </OverlayContainer>
+    <PopoverProvider value={context}>
+      {trigger}
+      <Overlay isOpen={state.isOpen} onEntered={onEntered} onExited={onExited}>
+        {content}
+      </Overlay>
+    </PopoverProvider>
   );
 }) as ForwardRefComponent<PopoverElement, PopoverProps>;

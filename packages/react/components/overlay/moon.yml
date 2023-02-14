@@ -13,9 +13,7 @@ tasks:
       - 'lib'
 
 dependsOn:
-  - id: 'css-baseline'
+  - id: 'provider'
     scope: 'production'
-  - id: 'types'
-    scope: 'development'
-  - id: 'utils'
+  - id: 'transition'
     scope: 'production'

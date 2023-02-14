@@ -1,73 +1,97 @@
+import * as React from 'react';
 import { Button } from '@project44-manifest/react-button';
-import { Box, Flex } from '@project44-manifest/react-layout';
-import { Popover, PopoverPlacement, usePopover, usePopoverState } from '../src';
+import { Box } from '@project44-manifest/react-layout';
+import { Meta, Story } from '@storybook/react';
+import { Popover, PopoverContent, PopoverProps, PopoverTrigger } from '../src';
 
-function PlacementComponent(props: { placement: PopoverPlacement }) {
-  const { placement } = props;
-
-  const state = usePopoverState({});
-  const { onClose, overlayProps, overlayRef, triggerProps, triggerRef } = usePopover(state, {
-    placement,
-  });
-
-  return (
-    <>
-      <Button {...triggerProps} ref={triggerRef}>
-        {placement}
-      </Button>
-      <Popover {...overlayProps} ref={overlayRef} isOpen={state.isOpen} onClose={onClose}>
-        <Box css={{ p: '$medium' }}>This is a popover</Box>
-      </Popover>
-    </>
-  );
-}
-
-export default {
-  component: Popover,
-  title: 'Components/Popover',
+const argTypes = {
+  offset: {
+    control: 'number',
+    defaultValue: 4,
+  },
+  isDismissable: {
+    control: 'boolean',
+    defaultValue: true,
+  },
+  isKeyboardDismissDisabled: {
+    control: 'boolean',
+    defaultValue: false,
+  },
+  maxHeight: {
+    control: 'number',
+  },
+  placement: {
+    defaultValue: 'bottom',
+    control: { type: 'select' },
+    options: [
+      'bottom end',
+      'bottom left',
+      'bottom right',
+      'bottom start',
+      'bottom',
+      'end bottom',
+      'end top',
+      'end',
+      'left bottom',
+      'left top',
+      'left',
+      'right bottom',
+      'right top',
+      'right',
+      'start bottom',
+      'start top',
+      'start',
+      'top end',
+      'top left',
+      'top right',
+      'top start',
+      'top',
+    ],
+  },
+  shouldCloseOnBlur: {
+    control: 'boolean',
+    defaultValue: false,
+  },
+  shouldFlip: {
+    control: 'boolean',
+    defaultValue: true,
+  },
 };
 
-export function Default() {
-  const state = usePopoverState({});
-  const { onClose, overlayProps, overlayRef, triggerProps, triggerRef } = usePopover(state, {});
+const meta: Meta<PopoverProps> = {
+  component: Popover,
+  title: 'Components/Popover',
+  argTypes,
+};
+
+export default meta;
+
+export const Default: Story<PopoverProps> = (props) => (
+  <Popover {...props}>
+    <PopoverTrigger>
+      <Button>Open Popover</Button>
+    </PopoverTrigger>
+    <PopoverContent>
+      <Box css={{ p: '$medium' }}>This is a popover</Box>
+    </PopoverContent>
+  </Popover>
+);
+
+export const Controlled: Story<PopoverProps> = (props) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const handleOpen = React.useCallback(() => {
+    setIsOpen((prevIsOpen) => !prevIsOpen);
+  }, []);
 
   return (
-    <>
-      <Button {...triggerProps} ref={triggerRef}>
-        Open Popover
-      </Button>
-      <Popover {...overlayProps} ref={overlayRef} isOpen={state.isOpen} onClose={onClose}>
-        <Box css={{ p: '$medium' }}>This is a popover</Box>
-      </Popover>
-    </>
+    <Popover {...props} isOpen={isOpen} onOpenChange={handleOpen}>
+      <PopoverTrigger>
+        <Button>Open Popover</Button>
+      </PopoverTrigger>
+      <PopoverContent>
+        <Box css={{ p: '$medium' }}>This is a controlled popover</Box>
+      </PopoverContent>
+    </Popover>
   );
-}
-
-export function Placement() {
-  return (
-    <Flex wrap css={{ px: '$large' }} gap="large" orientation="horizontal">
-      <PlacementComponent placement="bottom" />
-      <PlacementComponent placement="bottom end" />
-      <PlacementComponent placement="bottom left" />
-      <PlacementComponent placement="bottom right" />
-      <PlacementComponent placement="bottom start" />
-      <PlacementComponent placement="end" />
-      <PlacementComponent placement="end bottom" />
-      <PlacementComponent placement="end top" />
-      <PlacementComponent placement="left" />
-      <PlacementComponent placement="left bottom" />
-      <PlacementComponent placement="left top" />
-      <PlacementComponent placement="right" />
-      <PlacementComponent placement="right bottom" />
-      <PlacementComponent placement="right top" />
-      <PlacementComponent placement="start" />
-      <PlacementComponent placement="start bottom" />
-      <PlacementComponent placement="start top" />
-      <PlacementComponent placement="top" />
-      <PlacementComponent placement="top end" />
-      <PlacementComponent placement="top left" />
-      <PlacementComponent placement="top right" />
-      <PlacementComponent placement="top start" />
-    </Flex>
-  );
-}
+};

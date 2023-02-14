@@ -3,20 +3,18 @@ import { useButton } from '@react-aria/button';
 import { useDatePicker } from '@react-aria/datepicker';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
-import { useOverlayPosition } from '@react-aria/overlays';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useDatePickerState } from '@react-stately/datepicker';
 import type { DateValue } from '@react-types/calendar';
 import type { AriaDatePickerProps } from '@react-types/datepicker';
 import type { Placement } from '@react-types/overlays';
+import { Popover, PopoverContent, PopoverTrigger } from '@project44-manifest/react-popover';
 import { cx } from '@project44-manifest/react-styles';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import type { StyleProps } from '../../types';
 import { Calendar } from '../Calendar';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
-import { Overlay } from '../Overlay';
-import { Popover } from '../Popover';
 import { Typography } from '../Typography';
 import { useStyles } from './DatePicker.styles';
 
@@ -96,10 +94,10 @@ export const DatePicker = createComponent<DatePickerOptions>((props, forwardedRe
     isRequired,
     label,
     labelProps: labelPropsProp = {},
-    offset = 4,
+    offset,
     placeholder,
     placement = 'bottom start',
-    shouldFlip = true,
+    shouldFlip,
     size,
     startIcon,
     validationState,
@@ -120,16 +118,6 @@ export const DatePicker = createComponent<DatePickerOptions>((props, forwardedRe
     descriptionProps,
     errorMessageProps,
   } = useDatePicker(props, state, triggerRef);
-
-  const { overlayProps } = useOverlayPosition({
-    isOpen: state.isOpen,
-    offset,
-    onClose: () => void state.setOpen(false),
-    overlayRef: popoverRef,
-    placement,
-    shouldFlip,
-    targetRef: containerRef,
-  });
 
   const isInvalid = validationState === 'invalid';
 
@@ -186,29 +174,33 @@ export const DatePicker = createComponent<DatePickerOptions>((props, forwardedRe
           </span>
         )}
 
-        <button
-          {...mergeProps(buttonProps, focusProps, hoverProps)}
-          ref={triggerRef}
-          className="manifest-datepicker__input"
+        <Popover
+          isOpen={state.isOpen}
+          offset={offset}
+          placement={placement}
+          shouldFlip={shouldFlip}
+          onClose={handleClose}
         >
-          <Typography variant="subtext">{displayValue}</Typography>
-        </button>
+          <PopoverTrigger ref={triggerRef}>
+            <button
+              {...mergeProps(buttonProps, focusProps, hoverProps)}
+              className="manifest-datepicker__input"
+            >
+              <Typography variant="subtext">{displayValue}</Typography>
+            </button>
+          </PopoverTrigger>
+          <PopoverContent
+            {...dialogProps}
+            ref={popoverRef}
+            className="manifest-datepicker__popover"
+          >
+            <Calendar className="manifest-datepicker__calendar" {...calendarProps} />
+          </PopoverContent>
+        </Popover>
 
         <span className={cx('manifest-datepicker__icon', 'manifest-datepicker__icon--end')}>
           <Icon icon="calendar_month" />
         </span>
-
-        <Overlay isOpen={state.isOpen}>
-          <Popover
-            {...mergeProps(dialogProps, overlayProps)}
-            ref={popoverRef}
-            className="manifest-datepicker__popover"
-            isOpen={state.isOpen}
-            onClose={handleClose}
-          >
-            <Calendar className="manifest-datepicker__calendar" {...calendarProps} />
-          </Popover>
-        </Overlay>
       </Comp>
     </FormControl>
   );

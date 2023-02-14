@@ -9,14 +9,13 @@ import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useComboBoxState } from '@react-stately/combobox';
 import type { AriaComboBoxProps } from '@react-types/combobox';
 import type { Placement } from '@react-types/overlays';
+import { Popover, PopoverContent, PopoverTrigger } from '@project44-manifest/react-popover';
 import { cx } from '@project44-manifest/react-styles';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import type { StyleProps } from '../../types';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
 import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
-import { Overlay } from '../Overlay';
-import { Popover } from '../Popover';
 import { useStyles } from './Combobox.styles';
 
 export type ComboboxElement = 'div';
@@ -92,9 +91,9 @@ export const Combobox = createComponent<ComboboxOptions>((props, forwardedRef) =
     label,
     labelProps: labelPropsProp = {},
     maxHeight,
-    offset = 4,
-    placement = 'bottom',
-    shouldFlip = true,
+    offset,
+    placement = 'bottom end',
+    shouldFlip,
     validationState,
     size = 'medium',
     startIcon,
@@ -194,18 +193,24 @@ export const Combobox = createComponent<ComboboxOptions>((props, forwardedRef) =
 
         <input {...inputProps} ref={inputRef} className="manifest-combobox__input" />
 
-        <button {...buttonProps} ref={buttonRef} className="manifest-combobox__button">
-          <Icon icon="expand_more" />
-        </button>
-
-        <Overlay isOpen={state.isOpen && !isDisabled}>
-          <Popover
+        <Popover
+          isOpen={state.isOpen && !isDisabled}
+          maxHeight={maxHeight}
+          offset={offset}
+          placement={placement}
+          shouldFlip={shouldFlip}
+          onClose={handleClose}
+        >
+          <PopoverTrigger ref={buttonRef}>
+            <button {...buttonProps} ref={buttonRef} className="manifest-combobox__button">
+              <Icon icon="expand_more" />
+            </button>
+          </PopoverTrigger>
+          <PopoverContent
             {...overlayProps}
             ref={popoverRef}
             className="manifest-combobox__popover"
             css={{ left: containerDimensions?.left, width: containerDimensions?.width }}
-            isOpen={state.isOpen}
-            onClose={handleClose}
           >
             <ListBoxBase
               {...(listBoxProps as ListBoxBaseProps)}
@@ -214,8 +219,8 @@ export const Combobox = createComponent<ComboboxOptions>((props, forwardedRef) =
               className="manifest-combobox__list-box"
               state={state}
             />
-          </Popover>
-        </Overlay>
+          </PopoverContent>
+        </Popover>
       </Comp>
     </FormControl>
   );

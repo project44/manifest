@@ -1,7 +1,7 @@
 {
-  "name": "@project44-manifest/react-provider",
-  "version": "0.1.0",
-  "description": "Manifest Design System react provider component",
+  "name": "@project44-manifest/react-overlay",
+  "version": "0.0.0",
+  "description": "Manifest Design System react overlay component",
   "license": "MIT",
   "author": "project44",
   "keywords": [
@@ -24,7 +24,7 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:project-44/manifest.git",
-    "directory": "packages/provider"
+    "directory": "packages/react/components/overlay"
   },
   "publishConfig": {
     "access": "public"
@@ -33,12 +33,6 @@
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0"
   },
-  "dependencies": {
-    "@project44-manifest/react-css-baseline": "^0.1.0",
-    "@project44-manifest/react-utils": "^0.2.4",
-    "@react-aria/i18n": "^3.6.3",
-    "@react-aria/overlays": "^3.12.1"
-  },
   "devDependencies": {
     "@project44-manifest/react-types": "^0.2.1",
     "react": "^18.1.0",
@@ -46,6 +40,12 @@
   },
   "packemon": {
     "platform": "browser"
+  },
+  "dependencies": {
+    "@project44-manifest/react-provider": "^0.1.0",
+    "@project44-manifest/react-transition": "^1.0.0",
+    "@react-aria/interactions": "^3.13.1",
+    "@react-aria/overlays": "^3.12.1"
   },
   "exports": {
     "./package.json": "./package.json",

@@ -1,13 +1,10 @@
 import * as React from 'react';
 import { useMenuTrigger } from '@react-aria/menu';
-import { useOverlayPosition } from '@react-aria/overlays';
 import { mergeProps } from '@react-aria/utils';
 import { useMenuTriggerState } from '@react-stately/menu';
 import type { MenuTriggerType } from '@react-types/menu';
 import type { Placement } from '@react-types/overlays';
-import { Slot } from '@radix-ui/react-slot';
-import { Overlay } from '../Overlay';
-import { Popover } from '../Popover';
+import { Popover, PopoverContent, PopoverTrigger } from '@project44-manifest/react-popover';
 import { DropdownContext } from './Dropdown.context';
 
 export interface DropdownProps {
@@ -42,7 +39,9 @@ export interface DropdownProps {
    * @default 4
    */
   offset?: number;
-  /** Handler that is called when the overlay's open state changes. */
+  /**
+   * Handler that is called when the overlay's open state changes.
+   */
   onOpenChange?: (isOpen: boolean) => void;
   /**
    * The placement of the element with respect to its anchor element.
@@ -75,17 +74,15 @@ export function Dropdown(props: DropdownProps) {
   const {
     children,
     closeOnSelect = true,
-    offset = 4,
+    offset,
     placement = 'bottom start',
     shouldFlip,
     trigger = 'press',
     type = 'menu',
-    ...other
   } = props;
 
   const triggerRef = React.useRef<HTMLButtonElement>(null);
   const menuRef = React.useRef<HTMLUListElement>(null);
-  const popoverRef = React.useRef<HTMLDivElement>(null);
 
   const [menuTrigger, menu] = React.Children.toArray(children) as [
     React.ReactElement,
@@ -94,16 +91,6 @@ export function Dropdown(props: DropdownProps) {
 
   const state = useMenuTriggerState(props);
   const { menuTriggerProps, menuProps } = useMenuTrigger({ trigger, type }, state, triggerRef);
-
-  const { overlayProps } = useOverlayPosition({
-    isOpen: state.isOpen,
-    offset,
-    onClose: state.close,
-    overlayRef: popoverRef,
-    placement,
-    shouldFlip,
-    targetRef: triggerRef,
-  });
 
   const handleClose = React.useCallback(() => void state.close(), [state]);
 
@@ -118,20 +105,17 @@ export function Dropdown(props: DropdownProps) {
   );
 
   return (
-    <DropdownContext.Provider value={context}>
-      <Slot {...menuTriggerProps} ref={triggerRef}>
-        {menuTrigger}
-      </Slot>
-      <Overlay isOpen={state.isOpen}>
-        <Popover
-          {...mergeProps(overlayProps, other)}
-          ref={popoverRef}
-          isOpen={state.isOpen}
-          onClose={handleClose}
-        >
-          {menu}
-        </Popover>
-      </Overlay>
-    </DropdownContext.Provider>
+    <Popover
+      isOpen={state.isOpen}
+      offset={offset}
+      placement={placement}
+      shouldFlip={shouldFlip}
+      onClose={handleClose}
+    >
+      <PopoverTrigger {...menuTriggerProps}>{menuTrigger}</PopoverTrigger>
+      <PopoverContent>
+        <DropdownContext.Provider value={context}>{menu}</DropdownContext.Provider>
+      </PopoverContent>
+    </Popover>
   );
 }

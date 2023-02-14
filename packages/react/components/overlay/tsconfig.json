@@ -1,22 +1,18 @@
 {
   "extends": "../../../../tsconfig.options.json",
   "compilerOptions": {
-    "outDir": "../../../../.moon/cache/types/packages/react/components/provider"
+    "outDir": "../../../../.moon/cache/types/packages/react/components/overlay"
   },
   "include": [
     "src/**/*",
-    "stories/**/*",
     "tests/**/*"
   ],
   "references": [
     {
-      "path": "../../types"
+      "path": "../provider"
     },
     {
-      "path": "../../utils"
-    },
-    {
-      "path": "../css-baseline"
+      "path": "../transition"
     },
     {
       "path": "./tsconfig.build.json"

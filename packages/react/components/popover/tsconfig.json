@@ -11,10 +11,7 @@
   ],
   "references": [
     {
-      "path": "../button"
-    },
-    {
-      "path": "../layout"
+      "path": "../../hooks/use-merged-ref"
     },
     {
       "path": "../../styles"
@@ -24,6 +21,15 @@
     },
     {
       "path": "../../utils"
+    },
+    {
+      "path": "../button"
+    },
+    {
+      "path": "../layout"
+    },
+    {
+      "path": "../overlay"
     },
     {
       "path": "./tsconfig.build.json"

@@ -2,20 +2,18 @@ import * as React from 'react';
 import { useButton } from '@react-aria/button';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
-import { useOverlayPosition } from '@react-aria/overlays';
 import { HiddenSelect, useSelect } from '@react-aria/select';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useSelectState } from '@react-stately/select';
 import type { Placement } from '@react-types/overlays';
 import type { AriaSelectProps } from '@react-types/select';
+import { Popover, PopoverContent, PopoverTrigger } from '@project44-manifest/react-popover';
 import { cx } from '@project44-manifest/react-styles';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import type { StyleProps } from '../../types';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
 import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
-import { Overlay } from '../Overlay';
-import { Popover } from '../Popover';
 import { Typography } from '../Typography';
 import { useStyles } from './Select.styles';
 
@@ -98,10 +96,10 @@ export const Select = createComponent<SelectOptions>((props, forwardedRef) => {
     labelProps: labelPropsProp = {},
     name,
     maxHeight,
-    offset = 4,
+    offset,
     placeholder,
     placement = 'bottom start',
-    shouldFlip = true,
+    shouldFlip,
     validationState,
     size = 'medium',
     startIcon,
@@ -116,18 +114,6 @@ export const Select = createComponent<SelectOptions>((props, forwardedRef) => {
 
   const { labelProps, triggerProps, valueProps, menuProps, descriptionProps, errorMessageProps } =
     useSelect(props, state, triggerRef);
-
-  const { overlayProps } = useOverlayPosition({
-    isOpen: state.isOpen,
-    maxHeight,
-    offset,
-    onClose: state.close,
-    overlayRef: popoverRef,
-    placement,
-    shouldFlip,
-    scrollRef: listBoxRef,
-    targetRef: containerRef,
-  });
 
   const isInvalid = validationState === 'invalid';
 
@@ -186,28 +172,28 @@ export const Select = createComponent<SelectOptions>((props, forwardedRef) => {
           triggerRef={triggerRef}
         />
 
-        <button
-          {...mergeProps(buttonProps, focusProps, hoverProps)}
-          ref={triggerRef}
-          className="manifest-select__input"
+        <Popover
+          isOpen={state.isOpen && !isDisabled}
+          maxHeight={maxHeight}
+          offset={offset}
+          placement={placement}
+          shouldFlip={shouldFlip}
+          onClose={handleClose}
         >
-          <Typography {...valueProps} variant="subtext">
-            {state.selectedItem ? state.selectedItem.rendered : placeholder}
-          </Typography>
-        </button>
-
-        <span className={cx('manifest-select__icon', 'manifest-select__icon--end')}>
-          <Icon icon="expand_more" />
-        </span>
-
-        <Overlay isOpen={state.isOpen && !isDisabled}>
-          <Popover
-            {...overlayProps}
+          <PopoverTrigger ref={triggerRef}>
+            <button
+              {...mergeProps(buttonProps, focusProps, hoverProps)}
+              className="manifest-select__input"
+            >
+              <Typography {...valueProps} variant="subtext">
+                {state.selectedItem ? state.selectedItem.rendered : placeholder}
+              </Typography>
+            </button>
+          </PopoverTrigger>
+          <PopoverContent
             ref={popoverRef}
             className="manifest-combobox__popover"
             css={{ left: containerDimensions?.left, width: containerDimensions?.width }}
-            isOpen={state.isOpen}
-            onClose={handleClose}
           >
             <ListBoxBase
               {...(menuProps as ListBoxBaseProps)}
@@ -216,8 +202,12 @@ export const Select = createComponent<SelectOptions>((props, forwardedRef) => {
               className="manifest-select__list-box"
               state={state}
             />
-          </Popover>
-        </Overlay>
+          </PopoverContent>
+        </Popover>
+
+        <span className={cx('manifest-select__icon', 'manifest-select__icon--end')}>
+          <Icon icon="expand_more" />
+        </span>
       </Comp>
     </FormControl>
   );

@@ -1,5 +1,4 @@
 import type * as React from 'react';
-import type { CSS } from '@project44-manifest/react-styles';
 
 export type PopoverPlacement =
   | 'bottom end'
@@ -28,16 +27,16 @@ export type PopoverPlacement =
 export type PopoverElement = 'div';
 
 export interface PopoverProps {
-  /** Theme aware style object */
-  css?: CSS;
+  /**
+   * Whether the overlay is open by default (uncontrolled).
+   */
+  defaultOpen?: boolean;
   /**
    * Whether to close the popover when the user interacts outside it.
    *
    * @default true
    */
   isDismissable?: boolean;
-  /** Whether the popover is currently exited. */
-  isExited?: boolean;
   /**
    * Whether pressing the escape key to close the popover should be disabled.
    *
@@ -45,49 +44,14 @@ export interface PopoverProps {
    */
   isKeyboardDismissDisabled?: boolean;
   /**
-   * Whether pressing the escape key to close the popover should be disabled.
+   * Whether the popover is non-modal, i.e. elements outside the popover may be
+   * interacted with by assistive technologies.
    *
-   * @default false
+   * Most popovers should not use this option as it may negatively impact the screen
+   * reader experience. Only use with components such as combobox, which are designed
+   * to handle this situation carefully.
    */
-  /** Whether the popover is open by default (controlled). */
-  isOpen?: boolean;
-  /** Handler that is called when the popover should close. */
-  onClose?: () => void;
-  /** Handler that is called when the popover has finished entering. */
-  onEntered?: () => void;
-  /** Handler that is called when the popover has finished exiting. */
-  onExited?: () => void;
-  /**
-   * Whether the popover should close when focus is lost or moves outside it.
-   *
-   * @default false
-   */
-  shouldCloseOnBlur?: boolean;
-  /**
-   * When user interacts with the argument element outside of the popover ref,
-   * return true if onClose should be called.  This gives you a chance to filter
-   * out interaction with elements that should not dismiss the popover.
-   * By default, onClose will always be called on interaction outside the popover ref.
-   */
-  shouldCloseOnInteractOutside?: (element: Element) => boolean;
-}
-
-export interface PopoverState {
-  /** Whether the popover is currently open. */
-  readonly isOpen: boolean;
-  /** Sets whether the popover is open. */
-  setOpen: (isOpen: boolean) => void;
-  /** Closes the popover. */
-  close: () => void;
-  /** Opens the popover. */
-  open: () => void;
-  /** Toggles the popover's visibility. */
-  toggle: () => void;
-}
-
-export interface UsePopoverStateProps {
-  /** Whether the popover is open by default (uncontrolled). */
-  defaultOpen?: boolean;
+  isNonModal?: boolean;
   /**
    * Whether pressing the escape key to close the popover should be disabled.
    *
@@ -95,11 +59,6 @@ export interface UsePopoverStateProps {
    */
   /** Whether the popover is open by default (controlled). */
   isOpen?: boolean;
-  /** Handler that is called when the popover's open state changes. */
-  onOpenChange?: (isOpen: boolean) => void;
-}
-
-export interface UsePopoverProps {
   /**
    * The maxHeight specified for the popover element.
    *
@@ -113,8 +72,22 @@ export interface UsePopoverProps {
    * @default 4
    */
   offset?: number;
-  /** Handler that is called when the popover should close. */
+  /**
+   * Handler that is called when the popover should close.
+   */
   onClose?: () => void;
+  /**
+   * Handler that is called when the popover has finished entering.
+   */
+  onEntered?: () => void;
+  /**
+   * Handler that is called when the popover has finished exiting.
+   */
+  onExited?: () => void;
+  /**
+   * Handler that is called when the overlay's open state changes.
+   */
+  onOpenChange?: (isOpen: boolean) => void;
   /**
    * The placement of the element with respect to its anchor element.
    *
@@ -127,6 +100,19 @@ export interface UsePopoverProps {
    * @default overlayRef
    */
   scrollRef?: React.RefObject<Element>;
+  /**
+   * Whether the popover should close when focus is lost or moves outside it.
+   *
+   * @default false
+   */
+  shouldCloseOnBlur?: boolean;
+  /**
+   * When user interacts with the argument element outside of the popover ref,
+   * return true if onClose should be called.  This gives you a chance to filter
+   * out interaction with elements that should not dismiss the popover.
+   * By default, onClose will always be called on interaction outside the popover ref.
+   */
+  shouldCloseOnInteractOutside?: (element: Element) => boolean;
   /**
    * Whether the element should flip its orientation (e.g. top to bottom or left to right) when
    * there is insufficient room for it to render completely.

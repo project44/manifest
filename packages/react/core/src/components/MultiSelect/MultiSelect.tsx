@@ -2,9 +2,9 @@ import * as React from 'react';
 import { useButton } from '@react-aria/button';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
-import { useOverlayPosition } from '@react-aria/overlays';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import type { Placement } from '@react-types/overlays';
+import { Popover, PopoverContent, PopoverTrigger } from '@project44-manifest/react-popover';
 import { cx } from '@project44-manifest/react-styles';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import { useMultiSelect } from '../../hooks';
@@ -14,8 +14,6 @@ import { FormControl } from '../FormControl';
 import { HiddenMultiSelect } from '../HiddenMultiSelect';
 import { Icon } from '../Icon';
 import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
-import { Overlay } from '../Overlay';
-import { Popover } from '../Popover';
 import { Stack } from '../Stack';
 import { Tag } from '../Tag';
 import { Typography } from '../Typography';
@@ -94,10 +92,10 @@ export const MultiSelect = createComponent<MultiSelectOptions>((props, forwarded
     labelProps: labelPropsProp = {},
     name,
     maxHeight,
-    offset = 4,
+    offset,
     placeholder,
     placement = 'bottom start',
-    shouldFlip = true,
+    shouldFlip,
     validationState,
     startIcon,
   } = props;
@@ -111,18 +109,6 @@ export const MultiSelect = createComponent<MultiSelectOptions>((props, forwarded
 
   const { labelProps, triggerProps, valueProps, menuProps, descriptionProps, errorMessageProps } =
     useMultiSelect(props, state, triggerRef);
-
-  const { overlayProps } = useOverlayPosition({
-    isOpen: state.isOpen,
-    maxHeight,
-    offset,
-    onClose: state.close,
-    overlayRef: popoverRef,
-    placement,
-    shouldFlip,
-    scrollRef: listBoxRef,
-    targetRef: containerRef,
-  });
 
   const isInvalid = validationState === 'invalid';
 
@@ -181,38 +167,38 @@ export const MultiSelect = createComponent<MultiSelectOptions>((props, forwarded
           triggerRef={triggerRef}
         />
 
-        <button
-          {...mergeProps(buttonProps, focusProps, hoverProps, { autoFocus })}
-          ref={triggerRef}
-          className="manifest-multi-select__input"
+        <Popover
+          isOpen={state.isOpen && !isDisabled}
+          maxHeight={maxHeight}
+          offset={offset}
+          placement={placement}
+          shouldFlip={shouldFlip}
+          onClose={handleClose}
         >
-          {state.selectedItems.length > 0 ? (
-            <Stack css={{ flexWrap: 'wrap' }} gap="x-small" orientation="horizontal">
-              {state.selectedItems?.map((item) => (
-                <Tag key={item.key} isRemovable onRemove={handleRemove(item.key)}>
-                  {item.textValue}
-                </Tag>
-              ))}
-            </Stack>
-          ) : (
-            <Typography {...valueProps} variant="subtext">
-              {placeholder}
-            </Typography>
-          )}
-        </button>
-
-        <span className={cx('manifest-multi-select__icon', 'manifest-multi-select__icon--end')}>
-          <Icon icon="expand_more" />
-        </span>
-
-        <Overlay isOpen={state.isOpen && !isDisabled}>
-          <Popover
-            {...overlayProps}
+          <PopoverTrigger ref={triggerRef}>
+            <button
+              {...mergeProps(buttonProps, focusProps, hoverProps, { autoFocus })}
+              className="manifest-multi-select__input"
+            >
+              {state.selectedItems.length > 0 ? (
+                <Stack css={{ flexWrap: 'wrap' }} gap="x-small" orientation="horizontal">
+                  {state.selectedItems?.map((item) => (
+                    <Tag key={item.key} isRemovable onRemove={handleRemove(item.key)}>
+                      {item.textValue}
+                    </Tag>
+                  ))}
+                </Stack>
+              ) : (
+                <Typography {...valueProps} variant="subtext">
+                  {placeholder}
+                </Typography>
+              )}
+            </button>
+          </PopoverTrigger>
+          <PopoverContent
             ref={popoverRef}
             className="manifest-combobox__popover"
             css={{ left: containerDimensions?.left, width: containerDimensions?.width }}
-            isOpen={state.isOpen}
-            onClose={handleClose}
           >
             <ListBoxBase
               {...(menuProps as ListBoxBaseProps)}
@@ -221,8 +207,12 @@ export const MultiSelect = createComponent<MultiSelectOptions>((props, forwarded
               className="manifest-multi-select__list-box"
               state={state}
             />
-          </Popover>
-        </Overlay>
+          </PopoverContent>
+        </Popover>
+
+        <span className={cx('manifest-multi-select__icon', 'manifest-multi-select__icon--end')}>
+          <Icon icon="expand_more" />
+        </span>
       </Comp>
     </FormControl>
   );

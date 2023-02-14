@@ -1,222 +1,148 @@
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
-import {
-  Popover,
-  PopoverProps,
-  usePopover,
-  UsePopoverProps,
-  usePopoverState,
-  UsePopoverStateProps,
-} from '../src';
+import { Button } from '@project44-manifest/react-button';
+import { act, fireEvent, render, screen } from '@testing-library/react';
+import { Popover, PopoverContent, PopoverTrigger } from '../src';
 
-function Component(props: PopoverProps & UsePopoverProps & UsePopoverStateProps) {
-  const {
-    defaultOpen,
-    isOpen,
-    maxHeight,
-    offset,
-    onClose: onCloseProp,
-    onOpenChange,
-    placement,
-    scrollRef,
-    shouldFlip,
-    shouldUpdatePosition,
-    type = 'dialog',
-    ...other
-  } = props;
+beforeAll(() => {
+  jest.useFakeTimers();
+});
 
-  const state = usePopoverState({ defaultOpen, isOpen, onOpenChange });
-  const { onClose, overlayProps, overlayRef, triggerProps, triggerRef } = usePopover(state, {
-    maxHeight,
-    offset,
-    onClose: onCloseProp,
-    placement,
-    scrollRef,
-    shouldFlip,
-    shouldUpdatePosition,
-    type,
+afterEach(() => {
+  jest.clearAllMocks();
+
+  act(() => {
+    jest.runAllTimers();
   });
+});
 
-  return (
-    <>
-      <button {...triggerProps} ref={triggerRef}>
-        Open
-      </button>
-      <Popover
-        {...overlayProps}
-        ref={overlayRef}
-        isOpen={state.isOpen}
-        onClose={onClose}
-        {...other}
-      >
-        Popover
-      </Popover>
-    </>
+afterAll(() => {
+  jest.restoreAllMocks();
+});
+
+it('should render and support click events', () => {
+  render(
+    <Popover>
+      <PopoverTrigger>
+        <Button>Open</Button>
+      </PopoverTrigger>
+      <PopoverContent>
+        <div data-testid="test">Test</div>
+      </PopoverContent>
+    </Popover>,
   );
-}
 
-describe('react-popover', () => {
-  beforeAll(() => {
-    jest.useFakeTimers();
+  const button = screen.getByRole('button');
+
+  fireEvent.click(button);
+
+  act(() => {
+    jest.runAllTimers();
   });
 
-  afterEach(() => {
-    jest.clearAllMocks();
+  const popover = screen.getByRole('presentation');
 
-    act(() => {
-      jest.runAllTimers();
-    });
+  expect(popover).toBeInTheDocument();
+
+  fireEvent.mouseDown(document.body);
+  fireEvent.mouseUp(document.body);
+  fireEvent.click(document.body);
+
+  act(() => {
+    jest.runAllTimers();
   });
 
-  afterAll(() => {
-    jest.restoreAllMocks();
+  expect(popover).not.toBeInTheDocument();
+});
+
+it('should render and support keyboard events', () => {
+  render(
+    <Popover>
+      <PopoverTrigger>
+        <Button>Open</Button>
+      </PopoverTrigger>
+      <PopoverContent>
+        <div data-testid="test">Test</div>
+      </PopoverContent>
+    </Popover>,
+  );
+
+  const button = screen.getByRole('button');
+
+  fireEvent.keyDown(button, { key: 'Enter' });
+  fireEvent.keyUp(button, { key: 'Enter' });
+
+  act(() => {
+    jest.runAllTimers();
   });
 
-  it('should open on click', () => {
-    render(<Component />);
+  let popover = screen.getByRole('presentation');
 
-    const button = screen.getByRole('button');
+  expect(popover).toBeInTheDocument();
 
-    fireEvent.click(button);
+  fireEvent.keyDown(popover, { key: 'Escape' });
+  fireEvent.keyUp(popover, { key: 'Escape' });
 
-    const popover = screen.getByRole('dialog');
-
-    expect(popover).toBeInTheDocument();
+  act(() => {
+    jest.runAllTimers();
   });
 
-  it('should open on enter key press', () => {
-    render(<Component />);
+  expect(popover).not.toBeInTheDocument();
 
-    const button = screen.getByRole('button');
+  fireEvent.keyDown(button, { key: ' ' });
+  fireEvent.keyUp(button, { key: ' ' });
 
-    fireEvent.keyDown(button, { key: 'Enter' });
-    fireEvent.keyUp(button, { key: 'Enter' });
+  popover = screen.getByRole('presentation');
 
-    const popover = screen.getByRole('dialog');
+  expect(popover).toBeInTheDocument();
+});
 
-    expect(popover).toBeInTheDocument();
-  });
+it('should not close is isDismissable is false', () => {
+  render(
+    <Popover isKeyboardDismissDisabled isDismissable={false}>
+      <PopoverTrigger>
+        <Button>Open</Button>
+      </PopoverTrigger>
+      <PopoverContent>
+        <div data-testid="test">Test</div>
+      </PopoverContent>
+    </Popover>,
+  );
 
-  it('should open on space key press', () => {
-    render(<Component />);
+  const button = screen.getByRole('button');
 
-    const button = screen.getByRole('button');
+  fireEvent.click(button);
 
-    fireEvent.keyDown(button, { key: ' ' });
-    fireEvent.keyUp(button, { key: ' ' });
+  const popover = screen.getByRole('presentation');
 
-    const popover = screen.getByRole('dialog');
+  expect(popover).toBeInTheDocument();
 
-    expect(popover).toBeInTheDocument();
-  });
+  fireEvent.mouseDown(document.body);
+  fireEvent.mouseUp(document.body);
+  fireEvent.click(document.body);
 
-  it('should close on outside click', async () => {
-    render(<Component />);
+  expect(popover).toBeInTheDocument();
 
-    const button = screen.getByRole('button');
+  fireEvent.keyDown(popover, { key: 'Escape' });
+  fireEvent.keyUp(popover, { key: 'Escape' });
 
-    fireEvent.click(button);
+  expect(popover).toBeInTheDocument();
+});
 
-    const popover = screen.getByRole('dialog');
+it('should support being controlled', () => {
+  const onOpenChange = jest.fn();
+  render(
+    <Popover isOpen onOpenChange={onOpenChange}>
+      <PopoverTrigger>
+        <Button>Open</Button>
+      </PopoverTrigger>
+      <PopoverContent>
+        <div data-testid="test">Test</div>
+      </PopoverContent>
+    </Popover>,
+  );
 
-    expect(popover).toBeInTheDocument();
+  const button = screen.getAllByRole('button')[0];
 
-    fireEvent.mouseDown(document.body);
-    fireEvent.mouseUp(document.body);
-    fireEvent.click(document.body);
+  fireEvent.click(button);
 
-    act(() => {
-      jest.runAllTimers();
-    });
-
-    await waitFor(() => void expect(popover).not.toBeInTheDocument());
-  });
-
-  it('should close on escape key click', async () => {
-    render(<Component />);
-
-    const button = screen.getByRole('button');
-
-    fireEvent.click(button);
-
-    const popover = screen.getByRole('dialog');
-
-    expect(popover).toBeInTheDocument();
-
-    fireEvent.keyDown(popover, { key: 'Escape' });
-    fireEvent.keyUp(popover, { key: 'Escape' });
-
-    act(() => {
-      jest.runAllTimers();
-    });
-
-    await waitFor(() => void expect(popover).not.toBeInTheDocument());
-  });
-
-  it('should close on blur if shouldCloseOnBlur is true', async () => {
-    render(<Component shouldCloseOnBlur />);
-
-    const button = screen.getByRole('button');
-
-    fireEvent.click(button);
-
-    const popover = screen.getByRole('dialog');
-
-    expect(popover).toBeInTheDocument();
-
-    fireEvent.blur(popover);
-
-    act(() => {
-      jest.runAllTimers();
-    });
-
-    await waitFor(() => void expect(popover).not.toBeInTheDocument());
-  });
-
-  it('should not close is isDismissable is false', () => {
-    render(<Component isDismissable={false} />);
-
-    const button = screen.getByRole('button');
-
-    fireEvent.click(button);
-
-    const popover = screen.getByRole('dialog');
-
-    expect(popover).toBeInTheDocument();
-
-    fireEvent.mouseDown(document.body);
-    fireEvent.mouseUp(document.body);
-    fireEvent.click(document.body);
-
-    expect(popover).toBeInTheDocument();
-
-    fireEvent.keyDown(popover, { key: 'Escape' });
-    fireEvent.keyUp(popover, { key: 'Escape' });
-
-    expect(popover).toBeInTheDocument();
-  });
-
-  it('should focus the popover on mount if navigated to by keyboard', () => {
-    render(<Component />);
-
-    const button = screen.getByRole('button');
-
-    fireEvent.keyDown(button, { key: ' ' });
-    fireEvent.keyUp(button, { key: ' ' });
-
-    const popover = screen.getByRole('dialog');
-
-    expect(popover).toHaveAttribute('tabIndex', '-1');
-    expect(document.activeElement).toBe(popover);
-  });
-
-  it('should support being controlled', () => {
-    const onOpenChange = jest.fn();
-    render(<Component isOpen onOpenChange={onOpenChange} />);
-
-    const button = screen.getAllByRole('button')[0];
-
-    fireEvent.click(button);
-
-    expect(onOpenChange).toHaveBeenCalled();
-  });
+  expect(onOpenChange).toHaveBeenCalled();
 });
