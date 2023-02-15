@@ -7,7 +7,7 @@ export const Collapse = React.forwardRef<HTMLElement, CollapseProps>((props, for
   const {
     children,
     in: inProp,
-    duration = 250,
+    duration = 200,
     onEnter,
     onEntering,
     onEntered,

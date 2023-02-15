@@ -20,7 +20,7 @@ export const Fade = React.forwardRef<HTMLElement, FadeProps>((props, forwardedRe
   const {
     children,
     in: inProp,
-    duration = 250,
+    duration = 200,
     onEnter,
     onExit,
     style,

@@ -18,13 +18,10 @@ dependsOn:
   - 'css-baseline'
   - 'dropdown'
   - 'link'
-<<<<<<< HEAD
+  - 'menu'
   - 'overlay'
   - 'popover'
   - 'portal'
-=======
-  - 'menu'
->>>>>>> d0175ae (feat: adding side navigation component)
   - 'provider'
   - 'side-navigation'
   - 'styles'

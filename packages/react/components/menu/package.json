@@ -37,7 +37,7 @@
     "@project44-manifest/react-button": "^1.0.2",
     "@project44-manifest/react-icons": "^0.1.0",
     "@project44-manifest/react-styles": "^1.0.1",
-    "@project44-manifest/react-transition": "^0.1.0",
+    "@project44-manifest/react-transition": "^1.0.0",
     "@project44-manifest/react-typography": "^1.0.1",
     "@project44-manifest/react-utils": "^0.2.3",
     "@project44-manifest/use-controlled-state": "^0.1.0"
