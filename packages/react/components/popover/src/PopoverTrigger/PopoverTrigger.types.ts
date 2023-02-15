@@ -1,8 +1,27 @@
-export type PopoverTriggerElement = 'button';
+import type { PopoverProps } from '../Popover.types';
 
-export interface PopoverTriggerProps {
+export type PopoverTriggerElement = 'div';
+
+export interface PopoverTriggerProps extends PopoverProps {
   /**
-   * A single react button element.
+   * Whether the popover is open by default (uncontrolled).
    */
-  children?: React.ReactNode;
+  defaultOpen?: boolean;
+  /**
+   * Whether pressing the escape key to close the popover should be disabled.
+   *
+   * @default false
+   */
+  /** Whether the popover is open by default (controlled). */
+  isOpen?: boolean;
+  /**
+   * Handler that is called when the popover's open state changes.
+   */
+  onOpenChange?: (isOpen: boolean) => void;
+  /**
+   * Type of popover that is opened by the trigger.
+   *
+   * @default 'dialog'
+   */
+  type?: 'dialog' | 'grid' | 'listbox' | 'menu' | 'tree';
 }
