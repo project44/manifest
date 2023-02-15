@@ -44,7 +44,6 @@
   },
   "dependencies": {
     "@project44-manifest/react-portal": "^0.0.0",
-    "@project44-manifest/react-provider": "^0.1.0",
     "@project44-manifest/react-transition": "^1.0.0",
     "@react-aria/overlays": "^3.12.1",
     "@react-stately/overlays": "^3.4.4"

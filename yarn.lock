@@ -3354,7 +3354,6 @@ __metadata:
   resolution: "@project44-manifest/react-overlay@workspace:packages/react/components/overlay"
   dependencies:
     "@project44-manifest/react-portal": ^0.0.0
-    "@project44-manifest/react-provider": ^0.1.0
     "@project44-manifest/react-transition": ^1.0.0
     "@project44-manifest/react-types": ^0.2.1
     "@react-aria/overlays": ^3.12.1
@@ -3379,6 +3378,7 @@ __metadata:
     "@project44-manifest/react-types": ^0.2.1
     "@project44-manifest/react-utils": ^0.2.4
     "@project44-manifest/use-merged-ref": ^0.1.1
+    "@react-aria/focus": ^3.10.1
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:

@@ -37,7 +37,8 @@
     "@project44-manifest/react-overlay": "^0.0.0",
     "@project44-manifest/react-styles": "^1.0.1",
     "@project44-manifest/react-utils": "^0.2.4",
-    "@project44-manifest/use-merged-ref": "^0.1.1"
+    "@project44-manifest/use-merged-ref": "^0.1.1",
+    "@react-aria/focus": "^3.10.1"
   },
   "devDependencies": {
     "@project44-manifest/react-button": "^1.0.2",

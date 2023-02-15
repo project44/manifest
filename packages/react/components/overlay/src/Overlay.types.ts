@@ -35,14 +35,4 @@ export interface OverlayProps {
    * The ref of the element to append the children to.
    */
   containerRef?: React.RefObject<HTMLElement>;
-  /**
-   * Handler fired after the "entered" status is applied. An extra parameter
-   * isAppearing is supplied to indicate if the enter stage is occurring on
-   * the initial mount
-   */
-  onEntered?: (node: HTMLElement, isAppearing: boolean) => void;
-  /**
-   * Handler fired after the "exited" status is applied.
-   */
-  onExited?: (node: HTMLElement) => void;
 }

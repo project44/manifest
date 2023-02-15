@@ -13,5 +13,7 @@ tasks:
       - 'lib'
 
 dependsOn:
+  - id: 'portal'
+    scope: 'production'
   - id: 'transition'
     scope: 'production'

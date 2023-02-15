@@ -1,4 +1,6 @@
+import * as React from 'react';
 import { Button } from '@project44-manifest/react-button';
+import { Overlay, OverlayProvider } from '@project44-manifest/react-overlay';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import {
   Popover,
@@ -10,16 +12,17 @@ import {
 } from '../src';
 
 function Component(
-  props: Omit<PopoverProps, 'state' | 'triggerRef'> &
+  props: PopoverProps &
     PopoverTriggerProps &
-    PopoverTriggerStateProps,
+    PopoverTriggerStateProps & { children?: React.ReactNode },
 ) {
   const {
+    children,
     defaultOpen,
     isOpen,
     maxHeight,
     offset,
-    onClose: onCloseProp,
+    onClose,
     onOpenChange,
     placement,
     scrollRef,
@@ -43,17 +46,29 @@ function Component(
     state,
   );
 
+  const handleClose = React.useCallback(() => {
+    state.close();
+
+    onClose?.();
+  }, [state, onClose]);
+
   return (
-    <>
+    <OverlayProvider>
       <Button {...triggerProps} ref={triggerRef}>
         Open
       </Button>
-      <Popover {...overlayProps} ref={overlayRef} state={state} triggerRef={triggerRef} {...other}>
-        {/* eslint-disable-next-line jsx-a11y/no-autofocus */}
-        <button autoFocus>Button</button>
-        Popover
-      </Popover>
-    </>
+      <Overlay isOpen={state.isOpen}>
+        <Popover
+          {...overlayProps}
+          ref={overlayRef}
+          isOpen={state.isOpen}
+          onClose={handleClose}
+          {...other}
+        >
+          <div data-testid="popover">{children}</div>
+        </Popover>
+      </Overlay>
+    </OverlayProvider>
   );
 }
 
@@ -73,18 +88,14 @@ afterAll(() => {
   jest.restoreAllMocks();
 });
 
-it('should render and support mouse events', () => {
+it('should render and support click events', () => {
   render(<Component />);
 
   const button = screen.getByRole('button');
 
   fireEvent.click(button);
 
-  act(() => {
-    jest.runAllTimers();
-  });
-
-  const popover = screen.getByRole('presentation');
+  const popover = screen.getByTestId('popover');
 
   expect(popover).toBeInTheDocument();
 
@@ -107,11 +118,7 @@ it('should render and support keyboard events', () => {
   fireEvent.keyDown(button, { key: 'Enter' });
   fireEvent.keyUp(button, { key: 'Enter' });
 
-  act(() => {
-    jest.runAllTimers();
-  });
-
-  const popover = screen.getByRole('presentation');
+  const popover = screen.getByTestId('popover');
 
   expect(popover).toBeInTheDocument();
 
@@ -125,18 +132,19 @@ it('should render and support keyboard events', () => {
   expect(popover).not.toBeInTheDocument();
 });
 
-it('should render and support closing on blur when shouldCloseOnBlur is true', () => {
-  render(<Component shouldCloseOnBlur />);
+it('should close on blur if shouldCloseOnBlur is true', () => {
+  render(
+    <Component shouldCloseOnBlur>
+      {/* eslint-disable-next-line jsx-a11y/no-autofocus */}
+      <input autoFocus />
+    </Component>,
+  );
 
   const button = screen.getByRole('button');
 
   fireEvent.click(button);
 
-  act(() => {
-    jest.runAllTimers();
-  });
-
-  const popover = screen.getByRole('presentation');
+  const popover = screen.getByTestId('popover');
 
   expect(popover).toBeInTheDocument();
 
@@ -156,7 +164,7 @@ it('should not close is isDismissable is false', () => {
 
   fireEvent.click(button);
 
-  const popover = screen.getByRole('presentation');
+  const popover = screen.getByTestId('popover');
 
   expect(popover).toBeInTheDocument();
 

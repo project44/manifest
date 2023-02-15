@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { FocusScope } from '@react-aria/focus';
 import { DismissButton, useModal, useOverlay } from '@project44-manifest/react-overlay';
 import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
@@ -40,17 +41,19 @@ export const Popover = React.forwardRef((props, forwardedRef) => {
   const { modalProps } = useModal({ isDisabled: true });
 
   return (
-    <StyledPopover
-      {...mergeProps(overlayProps, modalProps, other)}
-      ref={mergedRef}
-      as={as}
-      className={cx('manifest-popover', classNameProp)}
-      css={css}
-      role="presentation"
-    >
-      <DismissButton onDismiss={onClose} />
-      {children}
-      <DismissButton onDismiss={onClose} />
-    </StyledPopover>
+    <FocusScope restoreFocus>
+      <StyledPopover
+        {...mergeProps(overlayProps, modalProps, other)}
+        ref={mergedRef}
+        as={as}
+        className={cx('manifest-popover', classNameProp)}
+        css={css}
+        role="presentation"
+      >
+        <DismissButton onDismiss={onClose} />
+        {children}
+        <DismissButton onDismiss={onClose} />
+      </StyledPopover>
+    </FocusScope>
   );
 }) as ForwardRefComponent<PopoverElement, PopoverProps>;
