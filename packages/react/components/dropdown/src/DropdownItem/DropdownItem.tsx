@@ -2,55 +2,18 @@ import * as React from 'react';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover, usePress } from '@react-aria/interactions';
 import { useMenuItem } from '@react-aria/menu';
-import { mergeProps, mergeRefs } from '@react-aria/utils';
-import type { TreeState } from '@react-stately/tree';
-import type { FocusableProps, ItemProps, Node } from '@react-types/shared';
 import { cx } from '@project44-manifest/react-styles';
-import { As, createComponent, Options, Props } from '@project44-manifest/system';
-import type { StyleProps } from '../../types';
-import { useDropdownContext } from '../Dropdown';
-import { Typography } from '../Typography';
-import { useStyles } from './DropdownItem.styles';
-
-export type DropdownItemElement = 'li';
-
-export interface DropdownItemOptions<T extends As = DropdownItemElement>
-  extends Options<T>,
-    FocusableProps,
-    StyleProps {
-  /**
-   * Icon added after the button text.
-   */
-  endIcon?: React.ReactElement;
-  /**
-   * Whether the item is virtualized.
-   */
-  isVirtualized?: boolean;
-  /**
-   * Item object in the collection.
-   */
-  item: Node<object>;
-  /**
-   * Icon added before the button text.
-   */
-  startIcon?: React.ReactElement;
-  /**
-   * Collection state.
-   */
-  state: TreeState<object>;
-  /**
-   * Callback executed on item select.
-   */
-  onAction?: (key: React.Key) => void;
-}
-
-export type DropdownItemProps<T extends As = DropdownItemElement> = ItemProps<object> &
-  Omit<Props<DropdownItemOptions<T>>, 'isVirtualized' | 'item' | 'state'>;
+import type { ForwardRefComponent } from '@project44-manifest/react-types';
+import { Typography } from '@project44-manifest/react-typography';
+import { mergeProps, mergeRefs } from '@project44-manifest/react-utils';
+import { useDropdownContext } from '../Dropdown.context';
+import { StyledDropdownItem } from './DropdownItem.styles';
+import type { DropdownItemElement, DropdownItemOptions } from './DropdownItem.types';
 
 /** @private */
-export const DropdownItem = createComponent<DropdownItemOptions>((props, forwardedRef) => {
+export const DropdownItem = React.forwardRef((props, forwardedRef) => {
   const {
-    as = 'li',
+    as,
     autoFocus,
     className: classNameProp,
     css,
@@ -62,9 +25,7 @@ export const DropdownItem = createComponent<DropdownItemOptions>((props, forward
   } = props;
 
   const { rendered, key } = item;
-  const itemProps = item.props as DropdownItemProps;
-
-  const Comp = itemProps.as ?? as;
+  const itemProps = item.props as typeof props;
 
   const itemRef = React.useRef<HTMLLIElement>(null);
 
@@ -108,16 +69,7 @@ export const DropdownItem = createComponent<DropdownItemOptions>((props, forward
       rendered
     );
 
-  const { className } = useStyles({
-    css: { ...css, ...itemProps.css },
-    isDisabled,
-    isFocused,
-    isHovered,
-    isPressed,
-    isSelected,
-  });
-
-  const classes = cx(className, classNameProp, itemProps.className, {
+  const classes = cx('manifest-dropdown-item', classNameProp, itemProps.className, {
     'manifest-dropdown-item': true,
     'manifest-dropdown-item--disabled': isDisabled,
     'manifest-dropdown-item--selected': isSelected,
@@ -125,10 +77,17 @@ export const DropdownItem = createComponent<DropdownItemOptions>((props, forward
   });
 
   return (
-    <Comp
+    <StyledDropdownItem
       {...mergeProps(menuItemProps, pressProps, focusProps, hoverProps)}
       ref={mergeRefs(itemRef, forwardedRef)}
+      as={as}
       className={classes}
+      css={{ ...css, ...itemProps.css }}
+      isDisabled={isDisabled}
+      isFocused={isFocused}
+      isHovered={isHovered}
+      isPressed={isPressed}
+      isSelected={isSelected}
     >
       {startIcon && (
         <span className={cx('manifest-dropdown-item__icon', 'manifest-dropdown-item__icon--start')}>
@@ -137,6 +96,6 @@ export const DropdownItem = createComponent<DropdownItemOptions>((props, forward
       )}
 
       {children}
-    </Comp>
+    </StyledDropdownItem>
   );
-});
+}) as ForwardRefComponent<DropdownItemElement, DropdownItemOptions>;

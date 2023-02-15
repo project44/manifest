@@ -39,6 +39,7 @@
     "@project44-manifest/react-button": "^1.0.2",
     "@project44-manifest/react-card": "^0.0.0",
     "@project44-manifest/react-css-baseline": "^0.1.0",
+    "@project44-manifest/react-dropdown": "^0.0.0",
     "@project44-manifest/react-link": "^0.2.0",
     "@project44-manifest/react-overlay": "^0.0.0",
     "@project44-manifest/react-popover": "^0.1.2",

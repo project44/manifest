@@ -22,6 +22,9 @@
       "path": "../components/css-baseline"
     },
     {
+      "path": "../components/dropdown"
+    },
+    {
       "path": "../components/link"
     },
     {

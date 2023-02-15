@@ -1,0 +1,40 @@
+{
+  "extends": "../../../../tsconfig.options.json",
+  "compilerOptions": {
+    "outDir": "../../../../.moon/cache/types/packages/react/components/dropdown"
+  },
+  "include": [
+    "src/**/*",
+    "stories/**/*",
+    "tests/**/*"
+  ],
+  "references": [
+    {
+      "path": "../../icons"
+    },
+    {
+      "path": "../../styles"
+    },
+    {
+      "path": "../../types"
+    },
+    {
+      "path": "../../utils"
+    },
+    {
+      "path": "../button"
+    },
+    {
+      "path": "../overlay"
+    },
+    {
+      "path": "../popover"
+    },
+    {
+      "path": "../typography"
+    },
+    {
+      "path": "./tsconfig.build.json"
+    }
+  ]
+}

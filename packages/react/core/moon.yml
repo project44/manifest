@@ -16,6 +16,7 @@ dependsOn:
   - 'avatar'
   - 'button'
   - 'css-baseline'
+  - 'dropdown'
   - 'link'
   - 'overlay'
   - 'popover'
