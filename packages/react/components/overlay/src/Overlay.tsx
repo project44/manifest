@@ -34,8 +34,8 @@ export const Overlay = React.forwardRef<HTMLDivElement, OverlayProps>((props, fo
   return (
     <ReactAriaOverlay portalContainer={containerRef?.current as Element}>
       <Provider ref={forwardedRef} style={{ background: 'transparent', isolation: 'isolate' }}>
-        <Fade {...other} appear in={isOpen} onEntered={handleEntered} onExited={handleExited}>
-          {children}
+        <Fade {...other} in={isOpen} onEntered={handleEntered} onExited={handleExited}>
+          <div>{children}</div>
         </Fade>
       </Provider>
     </ReactAriaOverlay>

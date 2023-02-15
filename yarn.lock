@@ -3356,8 +3356,9 @@ __metadata:
     "@project44-manifest/react-provider": ^0.1.0
     "@project44-manifest/react-transition": ^1.0.0
     "@project44-manifest/react-types": ^0.2.1
-    "@react-aria/interactions": ^3.13.1
     "@react-aria/overlays": ^3.12.1
+    "@react-stately/overlays": ^3.4.4
+    "@react-types/overlays": ^3.6.5
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
@@ -3377,10 +3378,6 @@ __metadata:
     "@project44-manifest/react-types": ^0.2.1
     "@project44-manifest/react-utils": ^0.2.4
     "@project44-manifest/use-merged-ref": ^0.1.1
-    "@react-aria/dialog": ^3.4.0
-    "@react-aria/focus": ^3.9.0
-    "@react-aria/overlays": ^3.12.1
-    "@react-stately/overlays": ^3.4.2
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
@@ -3548,6 +3545,7 @@ __metadata:
     "@project44-manifest/react-provider": ^0.1.0
     "@project44-manifest/react-styles": ^1.1.0
     "@project44-manifest/react-tooltip": ^1.1.1
+    "@project44-manifest/react-transition": ^1.0.0
     "@project44-manifest/system": ^0.1.5
     "@radix-ui/react-slot": ^1.0.0
     "@react-aria/button": ^3.5.1
@@ -3575,7 +3573,7 @@ __metadata:
     "@react-aria/visually-hidden": ^3.3.1
     "@react-stately/calendar": ^3.0.0
     "@react-stately/collections": ^3.4.1
-    "@react-stately/combobox": ^3.1.1
+    "@react-stately/combobox": ^3.3.1
     "@react-stately/data": ^3.6.1
     "@react-stately/datepicker": ^3.0.0
     "@react-stately/list": ^3.5.2
@@ -3787,7 +3785,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/dialog@npm:^3.2.1, @react-aria/dialog@npm:^3.4.0":
+"@react-aria/dialog@npm:^3.2.1":
   version: 3.4.2
   resolution: "@react-aria/dialog@npm:3.4.2"
   dependencies:
@@ -4193,7 +4191,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-stately/combobox@npm:^3.1.1, @react-stately/combobox@npm:^3.3.1":
+"@react-stately/combobox@npm:^3.3.1":
   version: 3.3.1
   resolution: "@react-stately/combobox@npm:3.3.1"
   dependencies:

@@ -37,6 +37,9 @@
       "path": "../components/tooltip"
     },
     {
+      "path": "../components/transition"
+    },
+    {
       "path": "../styles"
     },
     {

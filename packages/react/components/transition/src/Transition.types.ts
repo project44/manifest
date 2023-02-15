@@ -1,15 +1,20 @@
 import * as React from 'react';
-import type { TransitionStatus } from 'react-transition-group/Transition';
+import type {
+  EndHandler,
+  EnterHandler,
+  ExitHandler,
+  TransitionStatus,
+} from 'react-transition-group/Transition';
 
 export type { TransitionStatus };
 
-export interface TransitionProps {
+export interface TransitionProps<RefElement extends HTMLElement | undefined = undefined> {
   /**
    * Add a custom transition end trigger. Called with the transitioning DOM
    * node and a done callback. Allows for more fine grained transition end
    * logic. Note: Timeouts are still used as a fallback if provided.
    */
-  addEndListener?: (node: HTMLElement, done: () => void) => void;
+  addEndListener?: EndHandler<RefElement>;
   /**
    * Normally a component is not transitioned if it is shown when the
    * `<Transition>` component mounts. If you want to transition on the first
@@ -47,31 +52,38 @@ export interface TransitionProps {
    * parameter `isAppearing` is supplied to indicate if the enter stage is
    * occurring on the initial mount
    */
-  onEnter?: (node: HTMLElement, isAppearing: boolean) => void;
+  onEnter?: EnterHandler<RefElement>;
   /**
    * Handler fired after the "entering" status is applied. An extra parameter
    * isAppearing is supplied to indicate if the enter stage is occurring on
    * the initial mount
    */
-  onEntering?: (node: HTMLElement, isAppearing: boolean) => void;
+  onEntering?: EnterHandler<RefElement>;
   /**
    * Handler fired after the "entered" status is applied. An extra parameter
    * isAppearing is supplied to indicate if the enter stage is occurring on
    * the initial mount
    */
-  onEntered?: (node: HTMLElement, isAppearing: boolean) => void;
+  onEntered?: EnterHandler<RefElement>;
   /**
    * Handler fired before the "exiting" status is applied.
    */
-  onExit?: (node: HTMLElement) => void;
+  onExit?: ExitHandler<RefElement>;
   /**
    * Handler fired after the "exiting" status is applied.
    */
-  onExiting?: (node: HTMLElement) => void;
+  onExiting?: ExitHandler<RefElement>;
   /**
    * Handler fired after the "exited" status is applied.
    */
-  onExited?: (node: HTMLElement) => void;
+  onExited?: ExitHandler<RefElement>;
+  /**
+   * A React reference to DOM element that need to transition: https://stackoverflow.com/a/51127130/4671932
+   * When `nodeRef` prop is used, node is not passed to callback functions (e.g. onEnter) because user already has direct access to the node.
+   * When changing `key` prop of `Transition` in a `TransitionGroup` a new `nodeRef` need to be provided to `Transition` with changed `key`
+   * prop (@see https://github.com/reactjs/react-transition-group/blob/master/test/Transition-test.js).
+   */
+  nodeRef?: React.Ref<HTMLElement> | undefined;
   /**
    * Style object.
    */

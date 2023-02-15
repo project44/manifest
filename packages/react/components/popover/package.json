@@ -37,11 +37,7 @@
     "@project44-manifest/react-overlay": "^0.0.0",
     "@project44-manifest/react-styles": "^1.0.1",
     "@project44-manifest/react-utils": "^0.2.4",
-    "@project44-manifest/use-merged-ref": "^0.1.1",
-    "@react-aria/dialog": "^3.4.0",
-    "@react-aria/focus": "^3.9.0",
-    "@react-aria/overlays": "^3.12.1",
-    "@react-stately/overlays": "^3.4.2"
+    "@project44-manifest/use-merged-ref": "^0.1.1"
   },
   "devDependencies": {
     "@project44-manifest/react-button": "^1.0.2",

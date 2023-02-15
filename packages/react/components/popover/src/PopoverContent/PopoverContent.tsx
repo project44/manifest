@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DismissButton, useOverlay, useOverlayPosition } from '@react-aria/overlays';
+import { DismissButton, useOverlay, useOverlayPosition } from '@project44-manifest/react-overlay';
 import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
 import { mergeProps } from '@project44-manifest/react-utils';
@@ -72,7 +72,6 @@ export const PopoverContent = React.forwardRef((props, forwardedRef) => {
       css={css}
       role="presentation"
     >
-      <DismissButton onDismiss={handleClose} />
       {children}
       <DismissButton onDismiss={handleClose} />
     </StyledPopoverContent>
