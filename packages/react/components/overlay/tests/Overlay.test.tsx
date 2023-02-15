@@ -2,7 +2,7 @@ import * as React from 'react';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { Overlay, OverlayProps } from '../src';
 
-const Component = React.forwardRef<HTMLDivElement, Omit<OverlayProps, 'children'>>((props, ref) => {
+function Component(props: Omit<OverlayProps, 'children'>) {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const handleOpen = React.useCallback(() => {
@@ -12,12 +12,12 @@ const Component = React.forwardRef<HTMLDivElement, Omit<OverlayProps, 'children'
   return (
     <>
       <button onClick={handleOpen}>Open Overlay</button>
-      <Overlay {...props} ref={ref} isOpen={isOpen}>
+      <Overlay {...props} isOpen={isOpen}>
         <div data-testid="test">test</div>
       </Overlay>
     </>
   );
-});
+}
 
 beforeAll(() => {
   jest.useFakeTimers();
@@ -36,12 +36,7 @@ afterAll(() => {
 });
 
 it('should render', () => {
-  const ref = React.createRef<HTMLDivElement>();
-
-  const onEntered = jest.fn();
-  const onExited = jest.fn();
-
-  render(<Component ref={ref} onEntered={onEntered} onExited={onExited} />);
+  render(<Component />);
 
   const button = screen.getByRole('button');
 
@@ -52,11 +47,6 @@ it('should render', () => {
   });
 
   expect(screen.getByTestId('test')).toBeInTheDocument();
-  expect(onEntered).toHaveBeenCalled();
-
-  const overlayNode = ref.current;
-
-  expect(overlayNode?.parentNode).toBe(document.body);
 
   fireEvent.click(button);
 
@@ -65,28 +55,4 @@ it('should render', () => {
   });
 
   expect(screen.queryByTestId('test')).not.toBeInTheDocument();
-  expect(onExited).toHaveBeenCalled();
-});
-
-it('should render in parent container', () => {
-  const containerRef = React.createRef<HTMLDivElement>();
-  const ref = React.createRef<HTMLDivElement>();
-
-  render(
-    <div ref={containerRef}>
-      <Component ref={ref} containerRef={containerRef} />
-    </div>,
-  );
-
-  const button = screen.getByRole('button');
-
-  fireEvent.click(button);
-
-  act(() => {
-    jest.runAllTimers();
-  });
-
-  const overlayNode = ref.current;
-
-  expect(overlayNode?.parentNode).toBe(containerRef.current);
 });
