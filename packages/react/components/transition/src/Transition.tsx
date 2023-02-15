@@ -21,7 +21,7 @@ export const Transition = React.forwardRef<HTMLElement, TransitionProps>((props,
     ...other
   } = props;
 
-  const nodeRef = React.useRef<HTMLElement>(null);
+  const nodeRef = React.useRef<HTMLDivElement>(null);
   const mergedRef = useMergedRef(nodeRef, forwardedRef);
 
   const handleEnter = React.useCallback(
@@ -83,6 +83,7 @@ export const Transition = React.forwardRef<HTMLElement, TransitionProps>((props,
       {...other}
       addEndListener={handleAddEndLister}
       in={inProp}
+      nodeRef={nodeRef}
       timeout={timeout}
       onEnter={handleEnter}
       onEntered={handleEntered}
@@ -106,13 +107,13 @@ export const Transition = React.forwardRef<HTMLElement, TransitionProps>((props,
         if (typeof children === 'function') {
           return children(status, {
             className,
-            ref: (element: HTMLElement) => void mergedRef(element),
+            ref: mergedRef,
           });
         }
 
         return React.cloneElement(children as React.ReactElement, {
           className,
-          ref: (element: HTMLElement) => void mergedRef(element),
+          ref: mergedRef,
         });
       }}
     </TransitionComponent>

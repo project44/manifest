@@ -1,43 +1,19 @@
-import type * as React from 'react';
+import type { Placement } from '@project44-manifest/react-overlay';
 import type { CSS } from '@project44-manifest/react-styles';
-
-export type PopoverPlacement =
-  | 'bottom end'
-  | 'bottom left'
-  | 'bottom right'
-  | 'bottom start'
-  | 'bottom'
-  | 'end bottom'
-  | 'end top'
-  | 'end'
-  | 'left bottom'
-  | 'left top'
-  | 'left'
-  | 'right bottom'
-  | 'right top'
-  | 'right'
-  | 'start bottom'
-  | 'start top'
-  | 'start'
-  | 'top end'
-  | 'top left'
-  | 'top right'
-  | 'top start'
-  | 'top';
 
 export type PopoverElement = 'div';
 
 export interface PopoverProps {
-  /** Theme aware style object */
+  /**
+   * Theme aware style object
+   */
   css?: CSS;
   /**
-   * Whether to close the popover when the user interacts outside it.
+   * Whether to close the overlay when the user interacts outside it.
    *
    * @default true
    */
   isDismissable?: boolean;
-  /** Whether the popover is currently exited. */
-  isExited?: boolean;
   /**
    * Whether pressing the escape key to close the popover should be disabled.
    *
@@ -45,61 +21,35 @@ export interface PopoverProps {
    */
   isKeyboardDismissDisabled?: boolean;
   /**
-   * Whether pressing the escape key to close the popover should be disabled.
-   *
-   * @default false
+   *  Whether the popover is currently open.
    */
-  /** Whether the popover is open by default (controlled). */
   isOpen?: boolean;
-  /** Handler that is called when the popover should close. */
-  onClose?: () => void;
-  /** Handler that is called when the popover has finished entering. */
-  onEntered?: () => void;
-  /** Handler that is called when the popover has finished exiting. */
-  onExited?: () => void;
   /**
-   * Whether the popover should close when focus is lost or moves outside it.
-   *
-   * @default false
+   * Handler that is called when the popover should close.
+   */
+  onClose?: () => void;
+  /**
+   * Whether the overlay should close when focus is lost or moves outside it.
    */
   shouldCloseOnBlur?: boolean;
   /**
-   * When user interacts with the argument element outside of the popover ref,
+   * When user interacts with the argument element outside of the overlay ref,
    * return true if onClose should be called.  This gives you a chance to filter
-   * out interaction with elements that should not dismiss the popover.
-   * By default, onClose will always be called on interaction outside the popover ref.
+   * out interaction with elements that should not dismiss the overlay.
+   * By default, onClose will always be called on interaction outside the overlay ref.
    */
   shouldCloseOnInteractOutside?: (element: Element) => boolean;
 }
 
-export interface PopoverState {
-  /** Whether the popover is currently open. */
-  readonly isOpen: boolean;
-  /** Sets whether the popover is open. */
-  setOpen: (isOpen: boolean) => void;
-  /** Closes the popover. */
-  close: () => void;
-  /** Opens the popover. */
-  open: () => void;
-  /** Toggles the popover's visibility. */
-  toggle: () => void;
-}
-
-export interface UsePopoverStateProps {
-  /** Whether the popover is open by default (uncontrolled). */
+export interface PopoverTriggerProps {
+  /**
+   * Whether the popover is open by default (uncontrolled).
+   */
   defaultOpen?: boolean;
   /**
-   * Whether pressing the escape key to close the popover should be disabled.
-   *
-   * @default false
+   *  Whether the popover is open by default (controlled).
    */
-  /** Whether the popover is open by default (controlled). */
   isOpen?: boolean;
-  /** Handler that is called when the popover's open state changes. */
-  onOpenChange?: (isOpen: boolean) => void;
-}
-
-export interface UsePopoverProps {
   /**
    * The maxHeight specified for the popover element.
    *
@@ -113,14 +63,16 @@ export interface UsePopoverProps {
    * @default 4
    */
   offset?: number;
-  /** Handler that is called when the popover should close. */
-  onClose?: () => void;
+  /**
+   * Handler that is called when the popover's open state changes.
+   */
+  onOpenChange?: (isOpen: boolean) => void;
   /**
    * The placement of the element with respect to its anchor element.
    *
    * @default 'bottom'
    */
-  placement?: PopoverPlacement;
+  placement?: Placement;
   /**
    * A ref for the scrollable region within the popover.
    *
@@ -146,4 +98,33 @@ export interface UsePopoverProps {
    * @default 'dialog'
    */
   type?: 'dialog' | 'grid' | 'listbox' | 'menu' | 'tree';
+}
+
+export interface PopoverTriggerState {
+  /** Whether the popover is currently open. */
+  readonly isOpen: boolean;
+  /** Sets whether the popover is open. */
+  setOpen: (isOpen: boolean) => void;
+  /** Closes the popover. */
+  close: () => void;
+  /** Opens the popover. */
+  open: () => void;
+  /** Toggles the popover's visibility. */
+  toggle: () => void;
+}
+
+export interface PopoverTriggerStateProps {
+  /** Whether the popover is open by default (uncontrolled). */
+  defaultOpen?: boolean;
+  /**
+   * Whether pressing the escape key to close the popover should be disabled.
+   *
+   * @default false
+   */
+  /**
+   * Whether the popover is open by default (controlled).
+   */
+  isOpen?: boolean;
+  /** Handler that is called when the popover's open state changes. */
+  onOpenChange?: (isOpen: boolean) => void;
 }

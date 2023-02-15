@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Transition } from '../Transition';
-import type { TransitionStatus } from '../Transition.types';
 import { reflow } from '../utils';
 import type { CollapseProps } from './Collapse.types';
 
@@ -9,13 +8,11 @@ export const Collapse = React.forwardRef<HTMLElement, CollapseProps>((props, for
     children,
     in: inProp,
     duration = 250,
-    addEndListener,
     onEnter,
     onEntering,
     onEntered,
     onExit,
     onExiting,
-    onExited,
     style,
     timeout = 250,
     ...other
@@ -86,7 +83,7 @@ export const Collapse = React.forwardRef<HTMLElement, CollapseProps>((props, for
       onExit={handleExit}
       onExiting={handleExiting}
     >
-      {(status: TransitionStatus, childrenProps: Record<string, unknown>) =>
+      {(_, childrenProps: Record<string, unknown>) =>
         React.cloneElement(children, {
           ...childrenProps,
           style: {

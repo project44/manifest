@@ -1,20 +1,15 @@
 import * as React from 'react';
-import type {
-  EndHandler,
-  EnterHandler,
-  ExitHandler,
-  TransitionStatus,
-} from 'react-transition-group/Transition';
+import type { TransitionStatus } from 'react-transition-group/Transition';
 
 export type { TransitionStatus };
 
-export interface TransitionProps<RefElement extends HTMLElement | undefined = undefined> {
+export interface TransitionProps {
   /**
    * Add a custom transition end trigger. Called with the transitioning DOM
    * node and a done callback. Allows for more fine grained transition end
    * logic. Note: Timeouts are still used as a fallback if provided.
    */
-  addEndListener?: EndHandler<RefElement>;
+  addEndListener?: (node: HTMLElement, done: () => void) => void;
   /**
    * Normally a component is not transitioned if it is shown when the
    * `<Transition>` component mounts. If you want to transition on the first
@@ -52,31 +47,31 @@ export interface TransitionProps<RefElement extends HTMLElement | undefined = un
    * parameter `isAppearing` is supplied to indicate if the enter stage is
    * occurring on the initial mount
    */
-  onEnter?: EnterHandler<RefElement>;
+  onEnter?: (node: HTMLElement, isAppearing: boolean) => void;
   /**
    * Handler fired after the "entering" status is applied. An extra parameter
    * isAppearing is supplied to indicate if the enter stage is occurring on
    * the initial mount
    */
-  onEntering?: EnterHandler<RefElement>;
+  onEntering?: (node: HTMLElement, isAppearing: boolean) => void;
   /**
    * Handler fired after the "entered" status is applied. An extra parameter
    * isAppearing is supplied to indicate if the enter stage is occurring on
    * the initial mount
    */
-  onEntered?: EnterHandler<RefElement>;
+  onEntered?: (node: HTMLElement, isAppearing: boolean) => void;
   /**
    * Handler fired before the "exiting" status is applied.
    */
-  onExit?: ExitHandler<RefElement>;
+  onExit?: (node: HTMLElement) => void;
   /**
    * Handler fired after the "exiting" status is applied.
    */
-  onExiting?: ExitHandler<RefElement>;
+  onExiting?: (node: HTMLElement) => void;
   /**
    * Handler fired after the "exited" status is applied.
    */
-  onExited?: ExitHandler<RefElement>;
+  onExited?: (node: HTMLElement) => void;
   /**
    * Style object.
    */

@@ -13,14 +13,7 @@ tasks:
       - 'lib'
 
 dependsOn:
-  - 'avatar'
-  - 'button'
-  - 'css-baseline'
-  - 'link'
-  - 'overlay'
-  - 'popover'
-  - 'portal'
-  - 'provider'
-  - 'styles'
-  - 'system'
-  - 'tooltip'
+  - id: 'portal'
+    scope: 'production'
+  - id: 'transition'
+    scope: 'production'

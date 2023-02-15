@@ -1,13 +1,11 @@
 import * as React from 'react';
-import { useButton } from '@react-aria/button';
-import { useOverlayPosition, useOverlayTrigger } from '@react-aria/overlays';
-import type { PopoverState, UsePopoverProps } from './Popover.types';
+import { useOverlayPosition, useOverlayTrigger } from '@project44-manifest/react-overlay';
+import { PopoverTriggerProps, PopoverTriggerState } from './Popover.types';
 
-export function usePopover(state: PopoverState, props: UsePopoverProps) {
+export function usePopoverTrigger(props: PopoverTriggerProps, state: PopoverTriggerState) {
   const {
     maxHeight,
-    offset = 8,
-    onClose,
+    offset = 4,
     placement = 'bottom',
     scrollRef,
     shouldFlip = true,
@@ -19,10 +17,11 @@ export function usePopover(state: PopoverState, props: UsePopoverProps) {
   const triggerRef = React.useRef<HTMLButtonElement>(null);
 
   const { triggerProps, overlayProps } = useOverlayTrigger({ type }, state, triggerRef);
-  const { overlayProps: positionProps, updatePosition } = useOverlayPosition({
+  const { overlayProps: positionProps } = useOverlayPosition({
     isOpen: state.isOpen,
     maxHeight,
     offset,
+    onClose: state.close,
     overlayRef,
     placement,
     scrollRef,
@@ -31,29 +30,11 @@ export function usePopover(state: PopoverState, props: UsePopoverProps) {
     targetRef: triggerRef,
   });
 
-  const { buttonProps } = useButton({ onPress: state?.toggle, ...triggerProps }, triggerRef);
-
-  const handleClose = React.useCallback(() => {
-    onClose?.();
-
-    state?.close();
-  }, [onClose, state]);
-
-  React.useLayoutEffect(() => {
-    if (state.isOpen) {
-      requestAnimationFrame(() => {
-        updatePosition();
-      });
-    }
-  }, [state, updatePosition]);
-
   return {
-    onClose: handleClose,
     overlayRef,
     overlayProps: { ...overlayProps, ...positionProps },
+    state,
     triggerRef,
-    triggerProps: buttonProps,
+    triggerProps,
   };
 }
-
-export type UsePopoverReturn = ReturnType<typeof usePopover>;

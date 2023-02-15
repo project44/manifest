@@ -1,39 +1,59 @@
 import * as React from 'react';
-import { OverlayContainer } from '@react-aria/overlays';
+import { FocusScope } from '@react-aria/focus';
+import { DismissButton, useModal, useOverlay } from '@project44-manifest/react-overlay';
+import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
-import { PopoverContent } from './Popover.content';
+import { mergeProps } from '@project44-manifest/react-utils';
+import { useMergedRef } from '@project44-manifest/use-merged-ref';
+import { StyledPopover } from './Popover.styles';
 import type { PopoverElement, PopoverProps } from './Popover.types';
 
 export const Popover = React.forwardRef((props, forwardedRef) => {
-  const { children, isOpen = false, onEntered, onExited, ...other } = props;
+  const {
+    as,
+    children,
+    className: classNameProp,
+    css,
+    isDismissable = true,
+    isKeyboardDismissDisabled = false,
+    isOpen,
+    onClose,
+    shouldCloseOnBlur = false,
+    shouldCloseOnInteractOutside,
+    ...other
+  } = props;
 
-  const [isExited, setExited] = React.useState(!isOpen);
+  const overlayRef = React.useRef<HTMLDivElement>(null);
+  const mergedRef = useMergedRef(overlayRef, forwardedRef);
 
-  const handleEntered = React.useCallback(() => {
-    onEntered?.();
+  const { overlayProps } = useOverlay(
+    {
+      isDismissable: isDismissable && isOpen,
+      isKeyboardDismissDisabled,
+      isOpen,
+      onClose,
+      shouldCloseOnBlur,
+      shouldCloseOnInteractOutside,
+    },
+    overlayRef,
+  );
 
-    setExited(false);
-  }, [onEntered, setExited]);
-
-  const handleExited = React.useCallback(() => {
-    onExited?.();
-
-    setExited(true);
-  }, [onExited, setExited]);
-
-  if (!(isOpen || !isExited)) return null;
+  const { modalProps } = useModal({ isDisabled: true });
 
   return (
-    <OverlayContainer>
-      <PopoverContent
-        ref={forwardedRef}
-        isOpen={isOpen}
-        onEntered={handleEntered}
-        onExited={handleExited}
-        {...other}
+    <FocusScope restoreFocus>
+      <StyledPopover
+        {...mergeProps(overlayProps, modalProps, other)}
+        ref={mergedRef}
+        as={as}
+        className={cx('manifest-popover', classNameProp)}
+        css={css}
+        role="presentation"
       >
+        <DismissButton onDismiss={onClose} />
         {children}
-      </PopoverContent>
-    </OverlayContainer>
+        <DismissButton onDismiss={onClose} />
+      </StyledPopover>
+    </FocusScope>
   );
 }) as ForwardRefComponent<PopoverElement, PopoverProps>;

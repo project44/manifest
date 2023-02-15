@@ -30,6 +30,9 @@
       "path": "packages/react/components/link"
     },
     {
+      "path": "packages/react/components/overlay"
+    },
+    {
       "path": "packages/react/components/popover"
     },
     {

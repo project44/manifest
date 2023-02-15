@@ -1,20 +1,28 @@
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import * as React from 'react';
+import { Button } from '@project44-manifest/react-button';
+import { Overlay, OverlayProvider } from '@project44-manifest/react-overlay';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import {
   Popover,
   PopoverProps,
-  usePopover,
-  UsePopoverProps,
-  usePopoverState,
-  UsePopoverStateProps,
+  PopoverTriggerProps,
+  PopoverTriggerStateProps,
+  usePopoverTrigger,
+  usePopoverTriggerState,
 } from '../src';
 
-function Component(props: PopoverProps & UsePopoverProps & UsePopoverStateProps) {
+function Component(
+  props: PopoverProps &
+    PopoverTriggerProps &
+    PopoverTriggerStateProps & { children?: React.ReactNode },
+) {
   const {
+    children,
     defaultOpen,
     isOpen,
     maxHeight,
     offset,
-    onClose: onCloseProp,
+    onClose,
     onOpenChange,
     placement,
     scrollRef,
@@ -24,199 +32,162 @@ function Component(props: PopoverProps & UsePopoverProps & UsePopoverStateProps)
     ...other
   } = props;
 
-  const state = usePopoverState({ defaultOpen, isOpen, onOpenChange });
-  const { onClose, overlayProps, overlayRef, triggerProps, triggerRef } = usePopover(state, {
-    maxHeight,
-    offset,
-    onClose: onCloseProp,
-    placement,
-    scrollRef,
-    shouldFlip,
-    shouldUpdatePosition,
-    type,
-  });
+  const state = usePopoverTriggerState({ defaultOpen, isOpen, onOpenChange });
+  const { overlayProps, overlayRef, triggerProps, triggerRef } = usePopoverTrigger(
+    {
+      maxHeight,
+      offset,
+      placement,
+      scrollRef,
+      shouldFlip,
+      shouldUpdatePosition,
+      type,
+    },
+    state,
+  );
+
+  const handleClose = React.useCallback(() => {
+    state.close();
+
+    onClose?.();
+  }, [state, onClose]);
 
   return (
-    <>
-      <button {...triggerProps} ref={triggerRef}>
+    <OverlayProvider>
+      <Button {...triggerProps} ref={triggerRef}>
         Open
-      </button>
-      <Popover
-        {...overlayProps}
-        ref={overlayRef}
-        isOpen={state.isOpen}
-        onClose={onClose}
-        {...other}
-      >
-        Popover
-      </Popover>
-    </>
+      </Button>
+      <Overlay isOpen={state.isOpen}>
+        <Popover
+          {...overlayProps}
+          ref={overlayRef}
+          isOpen={state.isOpen}
+          onClose={handleClose}
+          {...other}
+        >
+          <div data-testid="popover">{children}</div>
+        </Popover>
+      </Overlay>
+    </OverlayProvider>
   );
 }
 
-describe('react-popover', () => {
-  beforeAll(() => {
-    jest.useFakeTimers();
+beforeAll(() => {
+  jest.useFakeTimers();
+});
+
+afterEach(() => {
+  jest.clearAllMocks();
+
+  act(() => {
+    jest.runAllTimers();
+  });
+});
+
+afterAll(() => {
+  jest.restoreAllMocks();
+});
+
+it('should render and support click events', () => {
+  render(<Component />);
+
+  const button = screen.getByRole('button');
+
+  fireEvent.click(button);
+
+  const popover = screen.getByTestId('popover');
+
+  expect(popover).toBeInTheDocument();
+
+  fireEvent.mouseDown(document.body);
+  fireEvent.mouseUp(document.body);
+  fireEvent.click(document.body);
+
+  act(() => {
+    jest.runAllTimers();
   });
 
-  afterEach(() => {
-    jest.clearAllMocks();
+  expect(popover).not.toBeInTheDocument();
+});
 
-    act(() => {
-      jest.runAllTimers();
-    });
+it('should render and support keyboard events', () => {
+  render(<Component />);
+
+  const button = screen.getByRole('button');
+
+  fireEvent.keyDown(button, { key: 'Enter' });
+  fireEvent.keyUp(button, { key: 'Enter' });
+
+  const popover = screen.getByTestId('popover');
+
+  expect(popover).toBeInTheDocument();
+
+  fireEvent.keyDown(popover, { key: 'Escape' });
+  fireEvent.keyUp(popover, { key: 'Escape' });
+
+  act(() => {
+    jest.runAllTimers();
   });
 
-  afterAll(() => {
-    jest.restoreAllMocks();
+  expect(popover).not.toBeInTheDocument();
+});
+
+it('should close on blur if shouldCloseOnBlur is true', () => {
+  render(
+    <Component shouldCloseOnBlur>
+      {/* eslint-disable-next-line jsx-a11y/no-autofocus */}
+      <input autoFocus />
+    </Component>,
+  );
+
+  const button = screen.getByRole('button');
+
+  fireEvent.click(button);
+
+  const popover = screen.getByTestId('popover');
+
+  expect(popover).toBeInTheDocument();
+
+  fireEvent.blur(popover);
+
+  act(() => {
+    jest.runAllTimers();
   });
 
-  it('should open on click', () => {
-    render(<Component />);
+  expect(popover).not.toBeInTheDocument();
+});
 
-    const button = screen.getByRole('button');
+it('should not close is isDismissable is false', () => {
+  render(<Component isKeyboardDismissDisabled isDismissable={false} />);
 
-    fireEvent.click(button);
+  const button = screen.getByRole('button');
 
-    const popover = screen.getByRole('dialog');
+  fireEvent.click(button);
 
-    expect(popover).toBeInTheDocument();
-  });
+  const popover = screen.getByTestId('popover');
 
-  it('should open on enter key press', () => {
-    render(<Component />);
+  expect(popover).toBeInTheDocument();
 
-    const button = screen.getByRole('button');
+  fireEvent.mouseDown(document.body);
+  fireEvent.mouseUp(document.body);
+  fireEvent.click(document.body);
 
-    fireEvent.keyDown(button, { key: 'Enter' });
-    fireEvent.keyUp(button, { key: 'Enter' });
+  expect(popover).toBeInTheDocument();
 
-    const popover = screen.getByRole('dialog');
+  fireEvent.keyDown(popover, { key: 'Escape' });
+  fireEvent.keyUp(popover, { key: 'Escape' });
 
-    expect(popover).toBeInTheDocument();
-  });
+  expect(popover).toBeInTheDocument();
+});
 
-  it('should open on space key press', () => {
-    render(<Component />);
+it('should support being controlled', () => {
+  const onOpenChange = jest.fn();
 
-    const button = screen.getByRole('button');
+  render(<Component isOpen onOpenChange={onOpenChange} />);
 
-    fireEvent.keyDown(button, { key: ' ' });
-    fireEvent.keyUp(button, { key: ' ' });
+  const button = screen.getAllByRole('button')[0];
 
-    const popover = screen.getByRole('dialog');
+  fireEvent.click(button);
 
-    expect(popover).toBeInTheDocument();
-  });
-
-  it('should close on outside click', async () => {
-    render(<Component />);
-
-    const button = screen.getByRole('button');
-
-    fireEvent.click(button);
-
-    const popover = screen.getByRole('dialog');
-
-    expect(popover).toBeInTheDocument();
-
-    fireEvent.mouseDown(document.body);
-    fireEvent.mouseUp(document.body);
-    fireEvent.click(document.body);
-
-    act(() => {
-      jest.runAllTimers();
-    });
-
-    await waitFor(() => void expect(popover).not.toBeInTheDocument());
-  });
-
-  it('should close on escape key click', async () => {
-    render(<Component />);
-
-    const button = screen.getByRole('button');
-
-    fireEvent.click(button);
-
-    const popover = screen.getByRole('dialog');
-
-    expect(popover).toBeInTheDocument();
-
-    fireEvent.keyDown(popover, { key: 'Escape' });
-    fireEvent.keyUp(popover, { key: 'Escape' });
-
-    act(() => {
-      jest.runAllTimers();
-    });
-
-    await waitFor(() => void expect(popover).not.toBeInTheDocument());
-  });
-
-  it('should close on blur if shouldCloseOnBlur is true', async () => {
-    render(<Component shouldCloseOnBlur />);
-
-    const button = screen.getByRole('button');
-
-    fireEvent.click(button);
-
-    const popover = screen.getByRole('dialog');
-
-    expect(popover).toBeInTheDocument();
-
-    fireEvent.blur(popover);
-
-    act(() => {
-      jest.runAllTimers();
-    });
-
-    await waitFor(() => void expect(popover).not.toBeInTheDocument());
-  });
-
-  it('should not close is isDismissable is false', () => {
-    render(<Component isDismissable={false} />);
-
-    const button = screen.getByRole('button');
-
-    fireEvent.click(button);
-
-    const popover = screen.getByRole('dialog');
-
-    expect(popover).toBeInTheDocument();
-
-    fireEvent.mouseDown(document.body);
-    fireEvent.mouseUp(document.body);
-    fireEvent.click(document.body);
-
-    expect(popover).toBeInTheDocument();
-
-    fireEvent.keyDown(popover, { key: 'Escape' });
-    fireEvent.keyUp(popover, { key: 'Escape' });
-
-    expect(popover).toBeInTheDocument();
-  });
-
-  it('should focus the popover on mount if navigated to by keyboard', () => {
-    render(<Component />);
-
-    const button = screen.getByRole('button');
-
-    fireEvent.keyDown(button, { key: ' ' });
-    fireEvent.keyUp(button, { key: ' ' });
-
-    const popover = screen.getByRole('dialog');
-
-    expect(popover).toHaveAttribute('tabIndex', '-1');
-    expect(document.activeElement).toBe(popover);
-  });
-
-  it('should support being controlled', () => {
-    const onOpenChange = jest.fn();
-    render(<Component isOpen onOpenChange={onOpenChange} />);
-
-    const button = screen.getAllByRole('button')[0];
-
-    fireEvent.click(button);
-
-    expect(onOpenChange).toHaveBeenCalled();
-  });
+  expect(onOpenChange).toHaveBeenCalled();
 });

@@ -1,13 +1,11 @@
 import * as React from 'react';
 import { useMenuTrigger } from '@react-aria/menu';
-import { useOverlayPosition } from '@react-aria/overlays';
 import { mergeProps } from '@react-aria/utils';
 import { useMenuTriggerState } from '@react-stately/menu';
 import type { MenuTriggerType } from '@react-types/menu';
-import type { Placement } from '@react-types/overlays';
+import { Overlay, Placement, useOverlayPosition } from '@project44-manifest/react-overlay';
+import { Popover } from '@project44-manifest/react-popover';
 import { Slot } from '@radix-ui/react-slot';
-import { Overlay } from '../Overlay';
-import { Popover } from '../Popover';
 import { DropdownContext } from './Dropdown.context';
 
 export interface DropdownProps {
@@ -74,7 +72,7 @@ export interface DropdownProps {
 export function Dropdown(props: DropdownProps) {
   const {
     children,
-    closeOnSelect = true,
+    closeOnSelect,
     offset = 4,
     placement = 'bottom start',
     shouldFlip,
