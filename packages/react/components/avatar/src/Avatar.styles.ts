@@ -35,14 +35,20 @@ export const StyledAvatar = styled('div', {
   variants: {
     size: {
       medium: {
+        minHeight: pxToRem(40),
+        minWidth: pxToRem(40),
         size: pxToRem(40),
+
         [`& ${StyledAvatarFallback}`]: {
           fontSize: '$small',
           lineHeight: '$medium',
         },
       },
       small: {
+        minHeight: pxToRem(28),
+        minWidth: pxToRem(28),
         size: pxToRem(28),
+
         [`& ${StyledAvatarFallback}`]: {
           fontSize: '$x-small',
           lineHeight: pxToRem(14),

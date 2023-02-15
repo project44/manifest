@@ -5,7 +5,6 @@
   },
   "include": [
     "src/**/*",
-    "stories/**/*",
     "tests/**/*"
   ],
   "references": [

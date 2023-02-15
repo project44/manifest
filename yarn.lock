@@ -3485,7 +3485,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-side-navigation@workspace:packages/react/components/side-navigation"
   dependencies:
+    "@project44-manifest/react-avatar": ^0.2.0
     "@project44-manifest/react-button": ^1.0.2
+    "@project44-manifest/react-dropdown": ^0.0.0
     "@project44-manifest/react-icons": ^0.1.0
     "@project44-manifest/react-menu": ^0.0.0
     "@project44-manifest/react-provider": ^0.1.0

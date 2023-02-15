@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { Carrier, Route } from '@project44-manifest/react-icons';
+import { Carrier, Person, Route, Settings } from '@project44-manifest/react-icons';
 import { Provider } from '@project44-manifest/react-provider';
 import { createTheme } from '@project44-manifest/react-styles';
 import {
   SideNavigation,
   SideNavigationContent,
-  SideNavigationFooter,
+  SideNavigationFooterMenu,
+  SideNavigationFooterMenuItem,
   SideNavigationHeader,
   SideNavigationMenu,
   SideNavigationMenuGroup,
@@ -51,7 +52,7 @@ export const Default = () => {
   }, [setIsOpen]);
 
   return (
-    <div style={{ width: 240, height: '100vh' }}>
+    <div style={{ width: 240, height: '40vh' }}>
       <SideNavigation css={{ height: '100%' }} isOpen={isOpen} onOpenChange={handleSetOpen}>
         <SideNavigationHeader logo={<Logo />} />
         <SideNavigationContent>
@@ -62,16 +63,28 @@ export const Default = () => {
               <SideNavigationMenuItem label="Templates" />
             </SideNavigationMenuGroup>
           </SideNavigationMenu>
+          <SideNavigationMenu>
+            <SideNavigationMenuItem label="Settings" startIcon={<Settings />} />
+          </SideNavigationMenu>
         </SideNavigationContent>
-        <SideNavigationFooter />
+        <SideNavigationFooterMenu
+          avatarProps={{ fallback: 'BC' }}
+          subTitle="Brandon Clark"
+          title="Manifest Design"
+        >
+          <SideNavigationFooterMenuItem key="profile" startIcon={<Person />}>
+            Profile
+          </SideNavigationFooterMenuItem>
+        </SideNavigationFooterMenu>
       </SideNavigation>
     </div>
   );
 };
 
 export const Themed = () => (
+  // @ts-expect-error: need to fix this
   <Provider theme={indigo}>
-    <div style={{ width: 240, height: '100vh' }}>
+    <div style={{ width: 240, height: '40vh' }}>
       <SideNavigation css={{ height: '100%' }}>
         <SideNavigationHeader logo={<Logo />} />
         <SideNavigationContent>
@@ -82,8 +95,19 @@ export const Themed = () => (
               <SideNavigationMenuItem label="Templates" />
             </SideNavigationMenuGroup>
           </SideNavigationMenu>
+          <SideNavigationMenu>
+            <SideNavigationMenuItem label="Settings" startIcon={<Settings />} />
+          </SideNavigationMenu>
         </SideNavigationContent>
-        <SideNavigationFooter />
+        <SideNavigationFooterMenu
+          avatarProps={{ fallback: 'BC' }}
+          subTitle="Brandon Clark"
+          title="Manifest Design"
+        >
+          <SideNavigationFooterMenuItem key="profile" startIcon={<Person />}>
+            Profile
+          </SideNavigationFooterMenuItem>
+        </SideNavigationFooterMenu>
       </SideNavigation>
     </div>
   </Provider>

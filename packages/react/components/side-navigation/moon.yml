@@ -13,7 +13,11 @@ tasks:
       - 'lib'
 
 dependsOn:
+  - id: 'avatar'
+    scope: 'production'
   - id: 'button'
+    scope: 'production'
+  - id: 'dropdown'
     scope: 'production'
   - id: 'icons'
     scope: 'production'
