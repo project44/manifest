@@ -5,7 +5,7 @@ import { PopoverTriggerProps, PopoverTriggerState } from './Popover.types';
 export function usePopoverTrigger(props: PopoverTriggerProps, state: PopoverTriggerState) {
   const {
     maxHeight,
-    offset = 8,
+    offset = 4,
     placement = 'bottom',
     scrollRef,
     shouldFlip = true,
@@ -17,7 +17,7 @@ export function usePopoverTrigger(props: PopoverTriggerProps, state: PopoverTrig
   const triggerRef = React.useRef<HTMLButtonElement>(null);
 
   const { triggerProps, overlayProps } = useOverlayTrigger({ type }, state, triggerRef);
-  const { overlayProps: positionProps, updatePosition } = useOverlayPosition({
+  const { overlayProps: positionProps } = useOverlayPosition({
     isOpen: state.isOpen,
     maxHeight,
     offset,
@@ -30,17 +30,10 @@ export function usePopoverTrigger(props: PopoverTriggerProps, state: PopoverTrig
     targetRef: triggerRef,
   });
 
-  React.useLayoutEffect(() => {
-    if (state.isOpen) {
-      requestAnimationFrame(() => {
-        updatePosition();
-      });
-    }
-  }, [state, updatePosition]);
-
   return {
     overlayRef,
     overlayProps: { ...overlayProps, ...positionProps },
+    state,
     triggerRef,
     triggerProps,
   };

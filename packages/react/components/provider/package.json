@@ -35,8 +35,7 @@
   },
   "dependencies": {
     "@project44-manifest/react-css-baseline": "^0.1.0",
-    "@project44-manifest/react-styles": "^1.1.0",
-    "@project44-manifest/react-utils": "^0.2.4",
+    "@project44-manifest/react-styles": "^1.0.1",
     "@react-aria/i18n": "^3.6.3",
     "@react-aria/overlays": "^3.12.1"
   },

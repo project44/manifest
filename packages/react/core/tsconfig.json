@@ -16,10 +16,19 @@
       "path": "../components/button"
     },
     {
+      "path": "../components/card"
+    },
+    {
       "path": "../components/css-baseline"
     },
     {
       "path": "../components/link"
+    },
+    {
+      "path": "../components/overlay"
+    },
+    {
+      "path": "../components/popover"
     },
     {
       "path": "../components/portal"

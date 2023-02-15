@@ -3353,6 +3353,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-overlay@workspace:packages/react/components/overlay"
   dependencies:
+    "@project44-manifest/react-portal": ^0.0.0
     "@project44-manifest/react-provider": ^0.1.0
     "@project44-manifest/react-transition": ^1.0.0
     "@project44-manifest/react-types": ^0.2.1
@@ -3367,7 +3368,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-popover@workspace:packages/react/components/popover":
+"@project44-manifest/react-popover@^0.1.2, @project44-manifest/react-popover@workspace:packages/react/components/popover":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-popover@workspace:packages/react/components/popover"
   dependencies:
@@ -3404,9 +3405,8 @@ __metadata:
   resolution: "@project44-manifest/react-provider@workspace:packages/react/components/provider"
   dependencies:
     "@project44-manifest/react-css-baseline": ^0.1.0
-    "@project44-manifest/react-styles": ^1.1.0
+    "@project44-manifest/react-styles": ^1.0.1
     "@project44-manifest/react-types": ^0.2.1
-    "@project44-manifest/react-utils": ^0.2.4
     "@react-aria/i18n": ^3.6.3
     "@react-aria/overlays": ^3.12.1
     react: ^18.1.0
@@ -3539,6 +3539,8 @@ __metadata:
     "@project44-manifest/react-card": ^0.0.0
     "@project44-manifest/react-css-baseline": ^0.1.0
     "@project44-manifest/react-link": ^0.2.0
+    "@project44-manifest/react-overlay": ^0.0.0
+    "@project44-manifest/react-popover": ^0.1.2
     "@project44-manifest/react-portal": ^0.0.0
     "@project44-manifest/react-provider": ^0.1.0
     "@project44-manifest/react-styles": ^1.1.0

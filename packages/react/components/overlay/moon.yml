@@ -13,7 +13,5 @@ tasks:
       - 'lib'
 
 dependsOn:
-  - id: 'provider'
-    scope: 'production'
   - id: 'transition'
     scope: 'production'

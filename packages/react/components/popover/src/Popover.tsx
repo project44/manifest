@@ -1,60 +1,56 @@
 import * as React from 'react';
-import { Overlay } from '@project44-manifest/react-overlay';
+import { DismissButton, useModal, useOverlay } from '@project44-manifest/react-overlay';
+import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
-import { PopoverProvider } from './Popover.context';
+import { mergeProps } from '@project44-manifest/react-utils';
+import { useMergedRef } from '@project44-manifest/use-merged-ref';
+import { StyledPopover } from './Popover.styles';
 import type { PopoverElement, PopoverProps } from './Popover.types';
-import { PopoverContent } from './PopoverContent';
 
 export const Popover = React.forwardRef((props, forwardedRef) => {
   const {
+    as,
     children,
+    className: classNameProp,
+    css,
     isDismissable = true,
     isKeyboardDismissDisabled = false,
-    maxHeight,
-    offset = 4,
+    isOpen,
     onClose,
-    onEntered,
-    onExited,
-    placement = 'bottom',
-    scrollRef,
     shouldCloseOnBlur = false,
     shouldCloseOnInteractOutside,
-    shouldFlip = true,
-    shouldUpdatePosition = true,
-    state,
-    triggerRef,
     ...other
   } = props;
 
-  const context = React.useMemo(
-    () => ({
-      state,
-      triggerRef,
-    }),
-    [state, triggerRef],
+  const overlayRef = React.useRef<HTMLDivElement>(null);
+  const mergedRef = useMergedRef(overlayRef, forwardedRef);
+
+  const { overlayProps } = useOverlay(
+    {
+      isDismissable: isDismissable && isOpen,
+      isKeyboardDismissDisabled,
+      isOpen,
+      onClose,
+      shouldCloseOnBlur,
+      shouldCloseOnInteractOutside,
+    },
+    overlayRef,
   );
 
+  const { modalProps } = useModal({ isDisabled: true });
+
   return (
-    <PopoverProvider value={context}>
-      <Overlay isOpen={state.isOpen} onEntered={onEntered} onExited={onExited}>
-        <PopoverContent
-          {...other}
-          ref={forwardedRef}
-          isDismissable={isDismissable}
-          isKeyboardDismissDisabled={isKeyboardDismissDisabled}
-          maxHeight={maxHeight}
-          offset={offset}
-          placement={placement}
-          scrollRef={scrollRef}
-          shouldCloseOnBlur={shouldCloseOnBlur}
-          shouldCloseOnInteractOutside={shouldCloseOnInteractOutside}
-          shouldFlip={shouldFlip}
-          shouldUpdatePosition={shouldUpdatePosition}
-          onClose={onClose}
-        >
-          {children}
-        </PopoverContent>
-      </Overlay>
-    </PopoverProvider>
+    <StyledPopover
+      {...mergeProps(overlayProps, modalProps, other)}
+      ref={mergedRef}
+      as={as}
+      className={cx('manifest-popover', classNameProp)}
+      css={css}
+      role="presentation"
+    >
+      <DismissButton onDismiss={onClose} />
+      {children}
+      <DismissButton onDismiss={onClose} />
+    </StyledPopover>
   );
 }) as ForwardRefComponent<PopoverElement, PopoverProps>;

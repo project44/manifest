@@ -45,8 +45,6 @@ describe('@project44-manifest/react - DatePicker', () => {
 
     expect(selectedDate).toHaveTextContent('12');
 
-    fireEvent.mouseDown(screen.getByText('13'));
-    fireEvent.mouseUp(screen.getByText('13'));
     fireEvent.click(screen.getByText('13'));
 
     act(() => {
@@ -84,8 +82,6 @@ describe('@project44-manifest/react - DatePicker', () => {
 
     expect(selectedDate).toHaveTextContent('12');
 
-    fireEvent.mouseDown(screen.getByText('13'));
-    fireEvent.mouseUp(screen.getByText('13'));
     fireEvent.click(screen.getByText('13'));
 
     act(() => {
