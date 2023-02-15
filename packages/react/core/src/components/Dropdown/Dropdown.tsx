@@ -72,7 +72,10 @@ export interface DropdownProps {
 export function Dropdown(props: DropdownProps) {
   const {
     children,
-    closeOnSelect = true,
+    defaultOpen,
+    closeOnSelect,
+    isOpen,
+    onOpenChange,
     placement = 'bottom start',
     shouldFlip,
     trigger = 'press',
@@ -88,7 +91,7 @@ export function Dropdown(props: DropdownProps) {
     React.ReactNode,
   ];
 
-  const state = useMenuTriggerState(props);
+  const state = useMenuTriggerState({ defaultOpen, isOpen, onOpenChange, shouldFlip, trigger });
   const { menuTriggerProps, menuProps } = useMenuTrigger({ trigger, type }, state, triggerRef);
 
   const handleClose = React.useCallback(() => void state.close(), [state]);
