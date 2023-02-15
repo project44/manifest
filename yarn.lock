@@ -3287,7 +3287,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-dropdown@workspace:packages/react/components/dropdown":
+"@project44-manifest/react-dropdown@^0.0.0, @project44-manifest/react-dropdown@workspace:packages/react/components/dropdown":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-dropdown@workspace:packages/react/components/dropdown"
   dependencies:
@@ -3566,6 +3566,7 @@ __metadata:
     "@project44-manifest/react-button": ^1.0.2
     "@project44-manifest/react-card": ^0.0.0
     "@project44-manifest/react-css-baseline": ^0.1.0
+    "@project44-manifest/react-dropdown": ^0.0.0
     "@project44-manifest/react-link": ^0.2.0
     "@project44-manifest/react-overlay": ^0.0.0
     "@project44-manifest/react-popover": ^0.1.2
