@@ -1,9 +1,13 @@
 import * as React from 'react';
 import { useMenuTrigger } from '@react-aria/menu';
+import { useOverlayPosition } from '@react-aria/overlays';
 import { mergeProps } from '@react-aria/utils';
 import { useMenuTriggerState } from '@react-stately/menu';
 import type { MenuTriggerType } from '@react-types/menu';
-import { Popover, PopoverPlacement } from '@project44-manifest/react-popover';
+import type { Placement } from '@react-types/overlays';
+import { Slot } from '@radix-ui/react-slot';
+import { Overlay } from '../Overlay';
+import { Popover } from '../Popover';
 import { DropdownContext } from './Dropdown.context';
 
 export interface DropdownProps {
@@ -38,16 +42,14 @@ export interface DropdownProps {
    * @default 4
    */
   offset?: number;
-  /**
-   * Handler that is called when the overlay's open state changes.
-   */
+  /** Handler that is called when the overlay's open state changes. */
   onOpenChange?: (isOpen: boolean) => void;
   /**
    * The placement of the element with respect to its anchor element.
    *
    * @default 'bottom'
    */
-  placement?: PopoverPlacement;
+  placement?: Placement;
   /**
    * Whether the element should flip its orientation (e.g. top to bottom or left to right) when
    * there is insufficient room for it to render completely.
@@ -72,10 +74,8 @@ export interface DropdownProps {
 export function Dropdown(props: DropdownProps) {
   const {
     children,
-    defaultOpen,
-    closeOnSelect,
-    isOpen,
-    onOpenChange,
+    closeOnSelect = true,
+    offset = 4,
     placement = 'bottom start',
     shouldFlip,
     trigger = 'press',
@@ -85,14 +85,25 @@ export function Dropdown(props: DropdownProps) {
 
   const triggerRef = React.useRef<HTMLButtonElement>(null);
   const menuRef = React.useRef<HTMLUListElement>(null);
+  const popoverRef = React.useRef<HTMLDivElement>(null);
 
   const [menuTrigger, menu] = React.Children.toArray(children) as [
     React.ReactElement,
     React.ReactNode,
   ];
 
-  const state = useMenuTriggerState({ defaultOpen, isOpen, onOpenChange, shouldFlip, trigger });
+  const state = useMenuTriggerState(props);
   const { menuTriggerProps, menuProps } = useMenuTrigger({ trigger, type }, state, triggerRef);
+
+  const { overlayProps } = useOverlayPosition({
+    isOpen: state.isOpen,
+    offset,
+    onClose: state.close,
+    overlayRef: popoverRef,
+    placement,
+    shouldFlip,
+    targetRef: triggerRef,
+  });
 
   const handleClose = React.useCallback(() => void state.close(), [state]);
 
@@ -108,20 +119,19 @@ export function Dropdown(props: DropdownProps) {
 
   return (
     <DropdownContext.Provider value={context}>
-      {React.cloneElement(menuTrigger, {
-        ...menuTriggerProps,
-        ref: triggerRef,
-      })}
-      <Popover
-        {...other}
-        placement={placement}
-        shouldFlip={shouldFlip}
-        state={state}
-        triggerRef={triggerRef}
-        onClose={handleClose}
-      >
-        {menu}
-      </Popover>
+      <Slot {...menuTriggerProps} ref={triggerRef}>
+        {menuTrigger}
+      </Slot>
+      <Overlay isOpen={state.isOpen}>
+        <Popover
+          {...mergeProps(overlayProps, other)}
+          ref={popoverRef}
+          isOpen={state.isOpen}
+          onClose={handleClose}
+        >
+          {menu}
+        </Popover>
+      </Overlay>
     </DropdownContext.Provider>
   );
 }

@@ -22,12 +22,6 @@
       "path": "../components/link"
     },
     {
-      "path": "../components/overlay"
-    },
-    {
-      "path": "../components/popover"
-    },
-    {
       "path": "../components/portal"
     },
     {
@@ -35,9 +29,6 @@
     },
     {
       "path": "../components/tooltip"
-    },
-    {
-      "path": "../components/transition"
     },
     {
       "path": "../styles"

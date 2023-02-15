@@ -2,17 +2,20 @@ import * as React from 'react';
 import { useButton } from '@react-aria/button';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
+import { useOverlayPosition } from '@react-aria/overlays';
 import { HiddenSelect, useSelect } from '@react-aria/select';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useSelectState } from '@react-stately/select';
+import type { Placement } from '@react-types/overlays';
 import type { AriaSelectProps } from '@react-types/select';
-import { Popover, PopoverPlacement } from '@project44-manifest/react-popover';
 import { cx } from '@project44-manifest/react-styles';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import type { StyleProps } from '../../types';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
 import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
+import { Overlay } from '../Overlay';
+import { Popover } from '../Popover';
 import { Typography } from '../Typography';
 import { useStyles } from './Select.styles';
 
@@ -55,7 +58,7 @@ export interface SelectOptions<T extends As = SelectElement>
    *
    * @default 'bottom'
    */
-  placement?: PopoverPlacement;
+  placement?: Placement;
   /**
    * Whether the element should flip its orientation (e.g. top to bottom or left to right) when
    * there is insufficient room for it to render completely.
@@ -95,10 +98,10 @@ export const Select = createComponent<SelectOptions>((props, forwardedRef) => {
     labelProps: labelPropsProp = {},
     name,
     maxHeight,
-    offset,
+    offset = 4,
     placeholder,
     placement = 'bottom start',
-    shouldFlip,
+    shouldFlip = true,
     validationState,
     size = 'medium',
     startIcon,
@@ -113,6 +116,18 @@ export const Select = createComponent<SelectOptions>((props, forwardedRef) => {
 
   const { labelProps, triggerProps, valueProps, menuProps, descriptionProps, errorMessageProps } =
     useSelect(props, state, triggerRef);
+
+  const { overlayProps } = useOverlayPosition({
+    isOpen: state.isOpen,
+    maxHeight,
+    offset,
+    onClose: state.close,
+    overlayRef: popoverRef,
+    placement,
+    shouldFlip,
+    scrollRef: listBoxRef,
+    targetRef: containerRef,
+  });
 
   const isInvalid = validationState === 'invalid';
 
@@ -172,8 +187,8 @@ export const Select = createComponent<SelectOptions>((props, forwardedRef) => {
         />
 
         <button
-          ref={triggerRef}
           {...mergeProps(buttonProps, focusProps, hoverProps)}
+          ref={triggerRef}
           className="manifest-select__input"
         >
           <Typography {...valueProps} variant="subtext">
@@ -185,27 +200,24 @@ export const Select = createComponent<SelectOptions>((props, forwardedRef) => {
           <Icon icon="expand_more" />
         </span>
 
-        <Popover
-          ref={popoverRef}
-          className="manifest-combobox__popover"
-          css={{ left: containerDimensions?.left, width: containerDimensions?.width }}
-          maxHeight={maxHeight}
-          offset={offset}
-          placement={placement}
-          scrollRef={listBoxRef}
-          shouldFlip={shouldFlip}
-          state={state}
-          triggerRef={containerRef}
-          onClose={handleClose}
-        >
-          <ListBoxBase
-            {...(menuProps as ListBoxBaseProps)}
-            ref={listBoxRef}
-            disallowEmptySelection
-            className="manifest-select__list-box"
-            state={state}
-          />
-        </Popover>
+        <Overlay isOpen={state.isOpen && !isDisabled}>
+          <Popover
+            {...overlayProps}
+            ref={popoverRef}
+            className="manifest-combobox__popover"
+            css={{ left: containerDimensions?.left, width: containerDimensions?.width }}
+            isOpen={state.isOpen}
+            onClose={handleClose}
+          >
+            <ListBoxBase
+              {...(menuProps as ListBoxBaseProps)}
+              ref={listBoxRef}
+              disallowEmptySelection
+              className="manifest-select__list-box"
+              state={state}
+            />
+          </Popover>
+        </Overlay>
       </Comp>
     </FormControl>
   );

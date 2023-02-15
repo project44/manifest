@@ -3,11 +3,12 @@ import { useButton } from '@react-aria/button';
 import { useDateRangePicker } from '@react-aria/datepicker';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
+import { useOverlayPosition } from '@react-aria/overlays';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useDateRangePickerState } from '@react-stately/datepicker';
 import type { DateValue } from '@react-types/calendar';
 import type { AriaDateRangePickerProps } from '@react-types/datepicker';
-import { Popover, PopoverPlacement, PopoverTriggerState } from '@project44-manifest/react-popover';
+import type { Placement } from '@react-types/overlays';
 import { cx } from '@project44-manifest/react-styles';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import type { StyleProps } from '../../types';
@@ -16,6 +17,8 @@ import { DefinedRange } from '../CalendarRanges';
 import { useStyles } from '../DatePicker/DatePicker.styles';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
+import { Overlay } from '../Overlay';
+import { Popover } from '../Popover';
 import { Typography } from '../Typography';
 
 export type DateRangePickerElement = 'div';
@@ -50,9 +53,9 @@ export interface DateRangePickerOptions<T extends As = DateRangePickerElement>
   /**
    * The placement of the element with respect to its anchor element.
    *
-   * @default 'bottom start'
+   * @default 'bottom'
    */
-  placement?: PopoverPlacement;
+  placement?: Placement;
   /**
    * Temporary text that occupies the text input when it is empty.
    */
@@ -122,10 +125,10 @@ export const DateRangePicker = createComponent<DateRangePickerOptions>((props, f
     showRanges = false,
     label,
     labelProps: labelPropsProp = {},
-    offset,
+    offset = 4,
     placeholder,
     placement = 'bottom start',
-    shouldFlip,
+    shouldFlip = true,
     size,
     startIcon,
     validationState,
@@ -146,6 +149,16 @@ export const DateRangePicker = createComponent<DateRangePickerOptions>((props, f
     descriptionProps,
     errorMessageProps,
   } = useDateRangePicker(props, state, triggerRef);
+
+  const { overlayProps } = useOverlayPosition({
+    isOpen: state.isOpen,
+    offset,
+    onClose: () => void state.setOpen(false),
+    overlayRef: popoverRef,
+    placement,
+    shouldFlip,
+    targetRef: containerRef,
+  });
 
   const isInvalid = validationState === 'invalid';
 
@@ -219,25 +232,23 @@ export const DateRangePicker = createComponent<DateRangePickerOptions>((props, f
           <Icon icon="calendar_month" />
         </span>
 
-        <Popover
-          {...dialogProps}
-          ref={popoverRef}
-          className="manifest-datepicker__popover"
-          offset={offset}
-          placement={placement}
-          shouldFlip={shouldFlip}
-          state={state as unknown as PopoverTriggerState}
-          triggerRef={containerRef}
-          onClose={handleClose}
-        >
-          <CalendarRange
-            className="manifest-datepicker__calendar"
-            {...calendarProps}
-            ranges={ranges}
-            showCalendar={showCalendar}
-            showRanges={showRanges}
-          />
-        </Popover>
+        <Overlay isOpen={state.isOpen}>
+          <Popover
+            {...mergeProps(dialogProps, overlayProps)}
+            ref={popoverRef}
+            className="manifest-datepicker__popover"
+            isOpen={state.isOpen}
+            onClose={handleClose}
+          >
+            <CalendarRange
+              className="manifest-datepicker__calendar"
+              {...calendarProps}
+              ranges={ranges}
+              showCalendar={showCalendar}
+              showRanges={showRanges}
+            />
+          </Popover>
+        </Overlay>
       </Comp>
     </FormControl>
   );

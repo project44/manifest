@@ -70,7 +70,7 @@ SingleSelection.decorators = [
       <IconButton variant="primary">
         <Icon icon="expand_more" />
       </IconButton>
-      <DropdownMenu selectionMode="single">
+      <DropdownMenu defaultSelectedKeys={['Profile']} selectionMode="single">
         <DropdownItem key="Profile">Profile</DropdownItem>
         <DropdownItem key="Search">Search</DropdownItem>
       </DropdownMenu>

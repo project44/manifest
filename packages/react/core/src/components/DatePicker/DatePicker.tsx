@@ -3,17 +3,20 @@ import { useButton } from '@react-aria/button';
 import { useDatePicker } from '@react-aria/datepicker';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
+import { useOverlayPosition } from '@react-aria/overlays';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useDatePickerState } from '@react-stately/datepicker';
 import type { DateValue } from '@react-types/calendar';
 import type { AriaDatePickerProps } from '@react-types/datepicker';
-import { Popover, PopoverPlacement, PopoverTriggerState } from '@project44-manifest/react-popover';
+import type { Placement } from '@react-types/overlays';
 import { cx } from '@project44-manifest/react-styles';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import type { StyleProps } from '../../types';
 import { Calendar } from '../Calendar';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
+import { Overlay } from '../Overlay';
+import { Popover } from '../Popover';
 import { Typography } from '../Typography';
 import { useStyles } from './DatePicker.styles';
 
@@ -51,7 +54,7 @@ export interface DatePickerOptions<T extends As = DatePickerElement>
    *
    * @default 'bottom'
    */
-  placement?: PopoverPlacement;
+  placement?: Placement;
   /**
    * Temporary text that occupies the text input when it is empty.
    */
@@ -93,10 +96,10 @@ export const DatePicker = createComponent<DatePickerOptions>((props, forwardedRe
     isRequired,
     label,
     labelProps: labelPropsProp = {},
-    offset,
+    offset = 4,
     placeholder,
     placement = 'bottom start',
-    shouldFlip,
+    shouldFlip = true,
     size,
     startIcon,
     validationState,
@@ -117,6 +120,16 @@ export const DatePicker = createComponent<DatePickerOptions>((props, forwardedRe
     descriptionProps,
     errorMessageProps,
   } = useDatePicker(props, state, triggerRef);
+
+  const { overlayProps } = useOverlayPosition({
+    isOpen: state.isOpen,
+    offset,
+    onClose: () => void state.setOpen(false),
+    overlayRef: popoverRef,
+    placement,
+    shouldFlip,
+    targetRef: containerRef,
+  });
 
   const isInvalid = validationState === 'invalid';
 
@@ -185,19 +198,17 @@ export const DatePicker = createComponent<DatePickerOptions>((props, forwardedRe
           <Icon icon="calendar_month" />
         </span>
 
-        <Popover
-          {...dialogProps}
-          ref={popoverRef}
-          className="manifest-datepicker__popover"
-          offset={offset}
-          placement={placement}
-          shouldFlip={shouldFlip}
-          state={state as unknown as PopoverTriggerState}
-          triggerRef={containerRef}
-          onClose={handleClose}
-        >
-          <Calendar className="manifest-datepicker__calendar" {...calendarProps} />
-        </Popover>
+        <Overlay isOpen={state.isOpen}>
+          <Popover
+            {...mergeProps(dialogProps, overlayProps)}
+            ref={popoverRef}
+            className="manifest-datepicker__popover"
+            isOpen={state.isOpen}
+            onClose={handleClose}
+          >
+            <Calendar className="manifest-datepicker__calendar" {...calendarProps} />
+          </Popover>
+        </Overlay>
       </Comp>
     </FormControl>
   );
