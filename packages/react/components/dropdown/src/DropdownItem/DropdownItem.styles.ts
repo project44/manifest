@@ -1,6 +1,6 @@
-import { css, pxToRem } from '@project44-manifest/react-styles';
+import { pxToRem, styled } from '@project44-manifest/react-styles';
 
-export const useStyles = css({
+export const StyledDropdownItem = styled('li', {
   $$backgroundColor: 'transparent',
 
   alignItems: 'center',

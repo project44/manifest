@@ -1,24 +1,17 @@
 import * as React from 'react';
 import { useMenu } from '@react-aria/menu';
-import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useTreeState } from '@react-stately/tree';
-import type { AriaMenuProps } from '@react-types/menu';
 import { cx } from '@project44-manifest/react-styles';
-import { As, createComponent, Options, Props } from '@project44-manifest/system';
-import type { StyleProps } from '../../types';
-import { useDropdownContext } from '../Dropdown/Dropdown.context';
+import type { ForwardRefComponent } from '@project44-manifest/react-types';
+import { mergeProps, mergeRefs } from '@project44-manifest/react-utils';
+import { useDropdownContext } from '../Dropdown.context';
 import { DROPDOWN_ITEM } from '../DropdownItem';
 import { DROPDOWN_SECTION } from '../DropdownSection';
-import { useStyles } from './DropdownMenu.styles';
+import { StyledDropdownMenu } from './DropdownMenu.styles';
+import type { DropdownMenuElement, DropdownMenuProps } from './DropdownMenu.types';
 
-export type DropdownMenuElement = 'ul';
-export type DropdownMenuOptions<T extends As = DropdownMenuElement> = AriaMenuProps<object> &
-  Options<T> &
-  StyleProps;
-export type DropdownMenuProps<T extends As = DropdownMenuElement> = Props<DropdownMenuOptions<T>>;
-
-export const DropdownMenu = createComponent<DropdownMenuOptions>((props, forwardedRef) => {
-  const { as: Comp = 'ul', className: classNameProp, css, ...other } = props;
+export const DropdownMenu = React.forwardRef((props, forwardedRef) => {
+  const { as, className: classNameProp, css, ...other } = props;
 
   const { menuRef, menuProps: contextProps } = useDropdownContext()!;
 
@@ -30,8 +23,6 @@ export const DropdownMenu = createComponent<DropdownMenuOptions>((props, forward
   const state = useTreeState(completeProps);
   const { menuProps } = useMenu(completeProps, state, menuRef);
 
-  const { className } = useStyles({ css });
-
   const handleAction = React.useCallback(
     (key: React.Key) => {
       completeProps.onAction?.(key);
@@ -40,10 +31,12 @@ export const DropdownMenu = createComponent<DropdownMenuOptions>((props, forward
   );
 
   return (
-    <Comp
+    <StyledDropdownMenu
       {...menuProps}
       ref={mergeRefs(menuRef, forwardedRef)}
-      className={cx(className, classNameProp, 'manifest-dropdown')}
+      as={as}
+      className={cx('manifest-dropdown', classNameProp)}
+      css={css}
     >
       {[...state.collection].map((item) => {
         if (item.type === 'section') {
@@ -54,6 +47,6 @@ export const DropdownMenu = createComponent<DropdownMenuOptions>((props, forward
 
         return <DROPDOWN_ITEM key={item.key} item={item} state={state} onAction={handleAction} />;
       })}
-    </Comp>
+    </StyledDropdownMenu>
   );
-});
+}) as ForwardRefComponent<DropdownMenuElement, DropdownMenuProps>;

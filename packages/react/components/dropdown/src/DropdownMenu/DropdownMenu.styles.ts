@@ -1,6 +1,6 @@
-import { css } from '@project44-manifest/react-styles';
+import { styled } from '@project44-manifest/react-styles';
 
-export const useStyles = css({
+export const StyledDropdownMenu = styled('ul', {
   boxSizing: 'border-box',
   display: 'inline-block',
   listStyleType: 'none',

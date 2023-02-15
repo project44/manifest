@@ -21,6 +21,9 @@
       "path": "packages/react/components/css-baseline"
     },
     {
+      "path": "packages/react/components/dropdown"
+    },
+    {
       "path": "packages/react/components/icon"
     },
     {
