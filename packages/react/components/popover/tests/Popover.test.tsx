@@ -1,6 +1,61 @@
 import { Button } from '@project44-manifest/react-button';
 import { act, fireEvent, render, screen } from '@testing-library/react';
-import { Popover, PopoverContent, PopoverTrigger } from '../src';
+import {
+  Popover,
+  PopoverProps,
+  PopoverTriggerProps,
+  PopoverTriggerStateProps,
+  usePopoverTrigger,
+  usePopoverTriggerState,
+} from '../src';
+
+function Component(
+  props: Omit<PopoverProps, 'state' | 'triggerRef'> &
+    PopoverTriggerProps &
+    PopoverTriggerStateProps,
+) {
+  const {
+    defaultOpen,
+    isOpen,
+    maxHeight,
+    offset,
+    onClose: onCloseProp,
+    onOpenChange,
+    placement,
+    scrollRef,
+    shouldFlip,
+    shouldUpdatePosition,
+    type = 'dialog',
+    ...other
+  } = props;
+
+  const state = usePopoverTriggerState({ defaultOpen, isOpen, onOpenChange });
+  const { overlayProps, overlayRef, triggerProps, triggerRef } = usePopoverTrigger(
+    {
+      maxHeight,
+      offset,
+      placement,
+      scrollRef,
+      shouldFlip,
+      shouldUpdatePosition,
+      type,
+    },
+    state,
+  );
+
+  return (
+    <>
+      <Button {...triggerProps} ref={triggerRef}>
+        Open
+      </Button>
+      <Popover {...overlayProps} ref={overlayRef} state={state} triggerRef={triggerRef} {...other}>
+        {/* eslint-disable-next-line jsx-a11y/no-autofocus */}
+        <button autoFocus>Button</button>
+        Popover
+      </Popover>
+    </>
+  );
+}
 
 beforeAll(() => {
   jest.useFakeTimers();
@@ -18,17 +73,8 @@ afterAll(() => {
   jest.restoreAllMocks();
 });
 
-it('should render and support click events', () => {
-  render(
-    <Popover>
-      <PopoverTrigger>
-        <Button>Open</Button>
-      </PopoverTrigger>
-      <PopoverContent>
-        <div data-testid="test">Test</div>
-      </PopoverContent>
-    </Popover>,
-  );
+it('should render and support mouse events', () => {
+  render(<Component />);
 
   const button = screen.getByRole('button');
 
@@ -54,16 +100,7 @@ it('should render and support click events', () => {
 });
 
 it('should render and support keyboard events', () => {
-  render(
-    <Popover>
-      <PopoverTrigger>
-        <Button>Open</Button>
-      </PopoverTrigger>
-      <PopoverContent>
-        <div data-testid="test">Test</div>
-      </PopoverContent>
-    </Popover>,
-  );
+  render(<Component />);
 
   const button = screen.getByRole('button');
 
@@ -74,7 +111,7 @@ it('should render and support keyboard events', () => {
     jest.runAllTimers();
   });
 
-  let popover = screen.getByRole('presentation');
+  const popover = screen.getByRole('presentation');
 
   expect(popover).toBeInTheDocument();
 
@@ -86,26 +123,34 @@ it('should render and support keyboard events', () => {
   });
 
   expect(popover).not.toBeInTheDocument();
+});
 
-  fireEvent.keyDown(button, { key: ' ' });
-  fireEvent.keyUp(button, { key: ' ' });
+it('should render and support closing on blur when shouldCloseOnBlur is true', () => {
+  render(<Component shouldCloseOnBlur />);
 
-  popover = screen.getByRole('presentation');
+  const button = screen.getByRole('button');
+
+  fireEvent.click(button);
+
+  act(() => {
+    jest.runAllTimers();
+  });
+
+  const popover = screen.getByRole('presentation');
 
   expect(popover).toBeInTheDocument();
+
+  fireEvent.blur(popover);
+
+  act(() => {
+    jest.runAllTimers();
+  });
+
+  expect(popover).not.toBeInTheDocument();
 });
 
 it('should not close is isDismissable is false', () => {
-  render(
-    <Popover isKeyboardDismissDisabled isDismissable={false}>
-      <PopoverTrigger>
-        <Button>Open</Button>
-      </PopoverTrigger>
-      <PopoverContent>
-        <div data-testid="test">Test</div>
-      </PopoverContent>
-    </Popover>,
-  );
+  render(<Component isKeyboardDismissDisabled isDismissable={false} />);
 
   const button = screen.getByRole('button');
 
@@ -129,16 +174,8 @@ it('should not close is isDismissable is false', () => {
 
 it('should support being controlled', () => {
   const onOpenChange = jest.fn();
-  render(
-    <Popover isOpen onOpenChange={onOpenChange}>
-      <PopoverTrigger>
-        <Button>Open</Button>
-      </PopoverTrigger>
-      <PopoverContent>
-        <div data-testid="test">Test</div>
-      </PopoverContent>
-    </Popover>,
-  );
+
+  render(<Component isOpen onOpenChange={onOpenChange} />);
 
   const button = screen.getAllByRole('button')[0];
 

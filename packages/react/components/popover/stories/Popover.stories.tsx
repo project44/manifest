@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button } from '@project44-manifest/react-button';
 import { Box } from '@project44-manifest/react-layout';
 import { Meta, Story } from '@storybook/react';
-import { Popover, PopoverContent, PopoverProps, PopoverTrigger } from '../src';
+import { Popover, PopoverProps, usePopoverTrigger, usePopoverTriggerState } from '../src';
 
 const argTypes = {
   offset: {
@@ -66,32 +66,37 @@ const meta: Meta<PopoverProps> = {
 
 export default meta;
 
-export const Default: Story<PopoverProps> = (props) => (
-  <Popover {...props}>
-    <PopoverTrigger>
-      <Button>Open Popover</Button>
-    </PopoverTrigger>
-    <PopoverContent>
-      <Box css={{ p: '$medium' }}>This is a popover</Box>
-    </PopoverContent>
-  </Popover>
-);
-
-export const Controlled: Story<PopoverProps> = (props) => {
-  const [isOpen, setIsOpen] = React.useState(false);
-
-  const handleOpen = React.useCallback(() => {
-    setIsOpen((prevIsOpen) => !prevIsOpen);
-  }, []);
+export const Default: Story<Omit<PopoverProps, 'state' | 'triggerRef'>> = (props) => {
+  const state = usePopoverTriggerState({});
+  const { overlayProps, overlayRef, triggerProps, triggerRef } = usePopoverTrigger({}, state);
 
   return (
-    <Popover {...props} isOpen={isOpen} onOpenChange={handleOpen}>
-      <PopoverTrigger>
-        <Button>Open Popover</Button>
-      </PopoverTrigger>
-      <PopoverContent>
-        <Box css={{ p: '$medium' }}>This is a controlled popover</Box>
-      </PopoverContent>
-    </Popover>
+    <>
+      <Button {...triggerProps} ref={triggerRef}>
+        Open Popover
+      </Button>
+      <Popover {...overlayProps} ref={overlayRef} state={state} triggerRef={triggerRef} {...props}>
+        <Box css={{ p: '$medium' }}>This is a popover</Box>
+      </Popover>
+    </>
   );
 };
+
+// export const Controlled: Story<PopoverProps> = (props) => {
+//   const [isOpen, setIsOpen] = React.useState(false);
+
+//   const handleOpen = React.useCallback(() => {
+//     setIsOpen((prevIsOpen) => !prevIsOpen);
+//   }, []);
+
+//   return (
+//     <Popover {...props} isOpen={isOpen} onOpenChange={handleOpen}>
+//       <PopoverTrigger>
+//         <Button>Open Popover</Button>
+//       </PopoverTrigger>
+//       <PopoverContent>
+//         <Box css={{ p: '$medium' }}>This is a controlled popover</Box>
+//       </PopoverContent>
+//     </Popover>
+//   );
+// };

@@ -3,10 +3,8 @@ import { useButton } from '@react-aria/button';
 import { useFocusRing } from '@react-aria/focus';
 import { useFilter } from '@react-aria/i18n';
 import { useHover } from '@react-aria/interactions';
-import { useOverlayPosition } from '@react-aria/overlays';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
-import type { Placement } from '@react-types/overlays';
-import { Popover, PopoverContent, PopoverTrigger } from '@project44-manifest/react-popover';
+import { Popover, PopoverPlacement } from '@project44-manifest/react-popover';
 import { cx } from '@project44-manifest/react-styles';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import { useMultiCombobox } from '../../hooks';
@@ -56,9 +54,9 @@ export interface MultiComboboxOptions<T extends As = MultiComboboxElement>
   /**
    * The placement of the element with respect to its anchor element.
    *
-   * @default 'bottom'
+   * @default 'bottom end'
    */
-  placement?: Placement;
+  placement?: PopoverPlacement;
   /**
    * Whether the element should flip its orientation (e.g. top to bottom or left to right) when
    * there is insufficient room for it to render completely.
@@ -135,18 +133,6 @@ export const MultiCombobox = createComponent<MultiComboboxOptions>((props, forwa
     state,
   );
 
-  const { overlayProps } = useOverlayPosition({
-    isOpen: state.isOpen,
-    maxHeight,
-    offset,
-    onClose: state.close,
-    overlayRef: popoverRef,
-    placement,
-    shouldFlip,
-    scrollRef: listBoxRef,
-    targetRef: containerRef,
-  });
-
   const { buttonProps } = useButton(triggerProps, buttonRef);
   const { hoverProps, isHovered } = useHover({ isDisabled });
   const { isFocusVisible, isFocused, focusProps } = useFocusRing({
@@ -205,33 +191,30 @@ export const MultiCombobox = createComponent<MultiComboboxOptions>((props, forwa
 
         <input {...inputProps} ref={inputRef} className="manifest-multi-combobox__input" />
 
+        <button {...buttonProps} ref={buttonRef} className="manifest-multi-combobox__button">
+          <Icon icon="expand_more" />
+        </button>
+
         <Popover
-          isOpen={state.isOpen && !isDisabled}
+          ref={popoverRef}
+          className="manifest-multi-combobox__popover"
+          css={{ left: containerDimensions?.left, width: containerDimensions?.width }}
           maxHeight={maxHeight}
           offset={offset}
           placement={placement}
+          scrollRef={listBoxRef}
           shouldFlip={shouldFlip}
+          state={state}
+          triggerRef={containerRef}
           onClose={handleClose}
         >
-          <PopoverTrigger ref={buttonRef}>
-            <button {...buttonProps} className="manifest-multi-combobox__button">
-              <Icon icon="expand_more" />
-            </button>
-          </PopoverTrigger>
-          <PopoverContent
-            {...overlayProps}
-            ref={popoverRef}
-            className="manifest-multi-combobox__popover"
-            css={{ left: containerDimensions?.left, width: containerDimensions?.width }}
-          >
-            <ListBoxBase
-              {...(listBoxProps as ListBoxBaseProps)}
-              ref={listBoxRef}
-              disallowEmptySelection
-              className="manifest-multi-combobox__list-box"
-              state={state}
-            />
-          </PopoverContent>
+          <ListBoxBase
+            {...(listBoxProps as ListBoxBaseProps)}
+            ref={listBoxRef}
+            disallowEmptySelection
+            className="manifest-multi-combobox__list-box"
+            state={state}
+          />
         </Popover>
       </Comp>
     </FormControl>

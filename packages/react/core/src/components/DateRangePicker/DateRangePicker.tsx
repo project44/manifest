@@ -7,8 +7,7 @@ import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useDateRangePickerState } from '@react-stately/datepicker';
 import type { DateValue } from '@react-types/calendar';
 import type { AriaDateRangePickerProps } from '@react-types/datepicker';
-import type { Placement } from '@react-types/overlays';
-import { Popover, PopoverContent, PopoverTrigger } from '@project44-manifest/react-popover';
+import { Popover, PopoverPlacement, PopoverTriggerState } from '@project44-manifest/react-popover';
 import { cx } from '@project44-manifest/react-styles';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import type { StyleProps } from '../../types';
@@ -51,9 +50,9 @@ export interface DateRangePickerOptions<T extends As = DateRangePickerElement>
   /**
    * The placement of the element with respect to its anchor element.
    *
-   * @default 'bottom'
+   * @default 'bottom start'
    */
-  placement?: Placement;
+  placement?: PopoverPlacement;
   /**
    * Temporary text that occupies the text input when it is empty.
    */
@@ -208,40 +207,37 @@ export const DateRangePicker = createComponent<DateRangePickerOptions>((props, f
           </span>
         )}
 
-        <Popover
-          isOpen={state.isOpen}
-          offset={offset}
-          placement={placement}
-          shouldFlip={shouldFlip}
-          onClose={handleClose}
+        <button
+          {...mergeProps(buttonProps, focusProps, hoverProps)}
+          ref={triggerRef}
+          className="manifest-datepicker__input"
         >
-          <PopoverTrigger ref={triggerRef}>
-            <button
-              {...mergeProps(buttonProps, focusProps, hoverProps)}
-              ref={triggerRef}
-              className="manifest-datepicker__input"
-            >
-              <Typography variant="subtext">{getDisplayValue()}</Typography>
-            </button>
-          </PopoverTrigger>
-          <PopoverContent
-            {...dialogProps}
-            ref={popoverRef}
-            className="manifest-datepicker__popover"
-          >
-            <CalendarRange
-              className="manifest-datepicker__calendar"
-              {...calendarProps}
-              ranges={ranges}
-              showCalendar={showCalendar}
-              showRanges={showRanges}
-            />
-          </PopoverContent>
-        </Popover>
+          <Typography variant="subtext">{getDisplayValue()}</Typography>
+        </button>
 
         <span className={cx('manifest-datepicker__icon', 'manifest-datepicker__icon--end')}>
           <Icon icon="calendar_month" />
         </span>
+
+        <Popover
+          {...dialogProps}
+          ref={popoverRef}
+          className="manifest-datepicker__popover"
+          offset={offset}
+          placement={placement}
+          shouldFlip={shouldFlip}
+          state={state as unknown as PopoverTriggerState}
+          triggerRef={containerRef}
+          onClose={handleClose}
+        >
+          <CalendarRange
+            className="manifest-datepicker__calendar"
+            {...calendarProps}
+            ranges={ranges}
+            showCalendar={showCalendar}
+            showRanges={showRanges}
+          />
+        </Popover>
       </Comp>
     </FormControl>
   );

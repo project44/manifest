@@ -5,9 +5,8 @@ import { useHover } from '@react-aria/interactions';
 import { HiddenSelect, useSelect } from '@react-aria/select';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useSelectState } from '@react-stately/select';
-import type { Placement } from '@react-types/overlays';
 import type { AriaSelectProps } from '@react-types/select';
-import { Popover, PopoverContent, PopoverTrigger } from '@project44-manifest/react-popover';
+import { Popover, PopoverPlacement } from '@project44-manifest/react-popover';
 import { cx } from '@project44-manifest/react-styles';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import type { StyleProps } from '../../types';
@@ -56,7 +55,7 @@ export interface SelectOptions<T extends As = SelectElement>
    *
    * @default 'bottom'
    */
-  placement?: Placement;
+  placement?: PopoverPlacement;
   /**
    * Whether the element should flip its orientation (e.g. top to bottom or left to right) when
    * there is insufficient room for it to render completely.
@@ -172,42 +171,41 @@ export const Select = createComponent<SelectOptions>((props, forwardedRef) => {
           triggerRef={triggerRef}
         />
 
-        <Popover
-          isOpen={state.isOpen && !isDisabled}
-          maxHeight={maxHeight}
-          offset={offset}
-          placement={placement}
-          shouldFlip={shouldFlip}
-          onClose={handleClose}
+        <button
+          ref={triggerRef}
+          {...mergeProps(buttonProps, focusProps, hoverProps)}
+          className="manifest-select__input"
         >
-          <PopoverTrigger ref={triggerRef}>
-            <button
-              {...mergeProps(buttonProps, focusProps, hoverProps)}
-              className="manifest-select__input"
-            >
-              <Typography {...valueProps} variant="subtext">
-                {state.selectedItem ? state.selectedItem.rendered : placeholder}
-              </Typography>
-            </button>
-          </PopoverTrigger>
-          <PopoverContent
-            ref={popoverRef}
-            className="manifest-combobox__popover"
-            css={{ left: containerDimensions?.left, width: containerDimensions?.width }}
-          >
-            <ListBoxBase
-              {...(menuProps as ListBoxBaseProps)}
-              ref={listBoxRef}
-              disallowEmptySelection
-              className="manifest-select__list-box"
-              state={state}
-            />
-          </PopoverContent>
-        </Popover>
+          <Typography {...valueProps} variant="subtext">
+            {state.selectedItem ? state.selectedItem.rendered : placeholder}
+          </Typography>
+        </button>
 
         <span className={cx('manifest-select__icon', 'manifest-select__icon--end')}>
           <Icon icon="expand_more" />
         </span>
+
+        <Popover
+          ref={popoverRef}
+          className="manifest-combobox__popover"
+          css={{ left: containerDimensions?.left, width: containerDimensions?.width }}
+          maxHeight={maxHeight}
+          offset={offset}
+          placement={placement}
+          scrollRef={listBoxRef}
+          shouldFlip={shouldFlip}
+          state={state}
+          triggerRef={containerRef}
+          onClose={handleClose}
+        >
+          <ListBoxBase
+            {...(menuProps as ListBoxBaseProps)}
+            ref={listBoxRef}
+            disallowEmptySelection
+            className="manifest-select__list-box"
+            state={state}
+          />
+        </Popover>
       </Comp>
     </FormControl>
   );

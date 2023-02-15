@@ -3563,7 +3563,6 @@ __metadata:
     "@react-aria/link": ^3.3.1
     "@react-aria/listbox": ^3.5.1
     "@react-aria/menu": ^3.7.1
-    "@react-aria/overlays": ^3.12.1
     "@react-aria/radio": ^3.2.1
     "@react-aria/select": ^3.8.4
     "@react-aria/selection": ^3.10.1
@@ -3580,8 +3579,7 @@ __metadata:
     "@react-stately/data": ^3.6.1
     "@react-stately/datepicker": ^3.0.0
     "@react-stately/list": ^3.5.2
-    "@react-stately/menu": ^3.3.1
-    "@react-stately/overlays": ^3.3.1
+    "@react-stately/menu": ^3.4.4
     "@react-stately/radio": ^3.4.1
     "@react-stately/select": ^3.2.1
     "@react-stately/toggle": ^3.3.1
@@ -4286,7 +4284,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-stately/menu@npm:^3.3.1, @react-stately/menu@npm:^3.4.4":
+"@react-stately/menu@npm:^3.4.4":
   version: 3.4.4
   resolution: "@react-stately/menu@npm:3.4.4"
   dependencies:
@@ -4301,7 +4299,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-stately/overlays@npm:^3.3.1, @react-stately/overlays@npm:^3.4.0, @react-stately/overlays@npm:^3.4.2, @react-stately/overlays@npm:^3.4.4":
+"@react-stately/overlays@npm:^3.4.0, @react-stately/overlays@npm:^3.4.2, @react-stately/overlays@npm:^3.4.4":
   version: 3.4.4
   resolution: "@react-stately/overlays@npm:3.4.4"
   dependencies:

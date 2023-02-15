@@ -3,8 +3,7 @@ import { useButton } from '@react-aria/button';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
-import type { Placement } from '@react-types/overlays';
-import { Popover, PopoverContent, PopoverTrigger } from '@project44-manifest/react-popover';
+import { Popover, PopoverPlacement } from '@project44-manifest/react-popover';
 import { cx } from '@project44-manifest/react-styles';
 import { As, createComponent, Options, Props } from '@project44-manifest/system';
 import { useMultiSelect } from '../../hooks';
@@ -56,9 +55,9 @@ export interface MultiSelectOptions<T extends As = MultiSelectElement>
   /**
    * The placement of the element with respect to its anchor element.
    *
-   * @default 'bottom'
+   * @default 'bottom start'
    */
-  placement?: Placement;
+  placement?: PopoverPlacement;
   /**
    * Whether the element should flip its orientation (e.g. top to bottom or left to right) when
    * there is insufficient room for it to render completely.
@@ -167,52 +166,51 @@ export const MultiSelect = createComponent<MultiSelectOptions>((props, forwarded
           triggerRef={triggerRef}
         />
 
-        <Popover
-          isOpen={state.isOpen && !isDisabled}
-          maxHeight={maxHeight}
-          offset={offset}
-          placement={placement}
-          shouldFlip={shouldFlip}
-          onClose={handleClose}
+        <button
+          ref={triggerRef}
+          {...mergeProps(buttonProps, focusProps, hoverProps, { autoFocus })}
+          className="manifest-multi-select__input"
         >
-          <PopoverTrigger ref={triggerRef}>
-            <button
-              {...mergeProps(buttonProps, focusProps, hoverProps, { autoFocus })}
-              className="manifest-multi-select__input"
-            >
-              {state.selectedItems.length > 0 ? (
-                <Stack css={{ flexWrap: 'wrap' }} gap="x-small" orientation="horizontal">
-                  {state.selectedItems?.map((item) => (
-                    <Tag key={item.key} isRemovable onRemove={handleRemove(item.key)}>
-                      {item.textValue}
-                    </Tag>
-                  ))}
-                </Stack>
-              ) : (
-                <Typography {...valueProps} variant="subtext">
-                  {placeholder}
-                </Typography>
-              )}
-            </button>
-          </PopoverTrigger>
-          <PopoverContent
-            ref={popoverRef}
-            className="manifest-combobox__popover"
-            css={{ left: containerDimensions?.left, width: containerDimensions?.width }}
-          >
-            <ListBoxBase
-              {...(menuProps as ListBoxBaseProps)}
-              ref={listBoxRef}
-              disallowEmptySelection
-              className="manifest-multi-select__list-box"
-              state={state}
-            />
-          </PopoverContent>
-        </Popover>
+          {state.selectedItems.length > 0 ? (
+            <Stack css={{ flexWrap: 'wrap' }} gap="x-small" orientation="horizontal">
+              {state.selectedItems?.map((item) => (
+                <Tag key={item.key} isRemovable onRemove={handleRemove(item.key)}>
+                  {item.textValue}
+                </Tag>
+              ))}
+            </Stack>
+          ) : (
+            <Typography {...valueProps} variant="subtext">
+              {placeholder}
+            </Typography>
+          )}
+        </button>
 
         <span className={cx('manifest-multi-select__icon', 'manifest-multi-select__icon--end')}>
           <Icon icon="expand_more" />
         </span>
+
+        <Popover
+          ref={popoverRef}
+          className="manifest-combobox__popover"
+          css={{ left: containerDimensions?.left, width: containerDimensions?.width }}
+          maxHeight={maxHeight}
+          offset={offset}
+          placement={placement}
+          scrollRef={listBoxRef}
+          shouldFlip={shouldFlip}
+          state={state}
+          triggerRef={containerRef}
+          onClose={handleClose}
+        >
+          <ListBoxBase
+            {...(menuProps as ListBoxBaseProps)}
+            ref={listBoxRef}
+            disallowEmptySelection
+            className="manifest-multi-select__list-box"
+            state={state}
+          />
+        </Popover>
       </Comp>
     </FormControl>
   );

@@ -3,8 +3,7 @@ import { useMenuTrigger } from '@react-aria/menu';
 import { mergeProps } from '@react-aria/utils';
 import { useMenuTriggerState } from '@react-stately/menu';
 import type { MenuTriggerType } from '@react-types/menu';
-import type { Placement } from '@react-types/overlays';
-import { Popover, PopoverContent, PopoverTrigger } from '@project44-manifest/react-popover';
+import { Popover, PopoverPlacement } from '@project44-manifest/react-popover';
 import { DropdownContext } from './Dropdown.context';
 
 export interface DropdownProps {
@@ -48,7 +47,7 @@ export interface DropdownProps {
    *
    * @default 'bottom'
    */
-  placement?: Placement;
+  placement?: PopoverPlacement;
   /**
    * Whether the element should flip its orientation (e.g. top to bottom or left to right) when
    * there is insufficient room for it to render completely.
@@ -74,11 +73,11 @@ export function Dropdown(props: DropdownProps) {
   const {
     children,
     closeOnSelect = true,
-    offset,
     placement = 'bottom start',
     shouldFlip,
     trigger = 'press',
     type = 'menu',
+    ...other
   } = props;
 
   const triggerRef = React.useRef<HTMLButtonElement>(null);
@@ -105,17 +104,21 @@ export function Dropdown(props: DropdownProps) {
   );
 
   return (
-    <Popover
-      isOpen={state.isOpen}
-      offset={offset}
-      placement={placement}
-      shouldFlip={shouldFlip}
-      onClose={handleClose}
-    >
-      <PopoverTrigger {...menuTriggerProps}>{menuTrigger}</PopoverTrigger>
-      <PopoverContent>
-        <DropdownContext.Provider value={context}>{menu}</DropdownContext.Provider>
-      </PopoverContent>
-    </Popover>
+    <DropdownContext.Provider value={context}>
+      {React.cloneElement(menuTrigger, {
+        ...menuTriggerProps,
+        ref: triggerRef,
+      })}
+      <Popover
+        {...other}
+        placement={placement}
+        shouldFlip={shouldFlip}
+        state={state}
+        triggerRef={triggerRef}
+        onClose={handleClose}
+      >
+        {menu}
+      </Popover>
+    </DropdownContext.Provider>
   );
 }
