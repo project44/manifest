@@ -13,4 +13,6 @@ tasks:
       - 'lib'
 
 dependsOn:
-  - 'theme'
+  - 'css-baseline'
+  - 'tokens'
+  - 'utils'

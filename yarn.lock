@@ -2823,17 +2823,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@moonrepo/cli@npm:^0.23.2":
-  version: 0.23.2
-  resolution: "@moonrepo/cli@npm:0.23.2"
+"@moonrepo/cli@npm:^0.24.1":
+  version: 0.24.1
+  resolution: "@moonrepo/cli@npm:0.24.1"
   dependencies:
-    "@moonrepo/core-linux-arm64-gnu": ^0.23.2
-    "@moonrepo/core-linux-arm64-musl": ^0.23.2
-    "@moonrepo/core-linux-x64-gnu": ^0.23.2
-    "@moonrepo/core-linux-x64-musl": ^0.23.2
-    "@moonrepo/core-macos-arm64": ^0.23.2
-    "@moonrepo/core-macos-x64": ^0.23.2
-    "@moonrepo/core-windows-x64-msvc": ^0.23.2
+    "@moonrepo/core-linux-arm64-gnu": ^0.24.1
+    "@moonrepo/core-linux-arm64-musl": ^0.24.1
+    "@moonrepo/core-linux-x64-gnu": ^0.24.1
+    "@moonrepo/core-linux-x64-musl": ^0.24.1
+    "@moonrepo/core-macos-arm64": ^0.24.1
+    "@moonrepo/core-macos-x64": ^0.24.1
+    "@moonrepo/core-windows-x64-msvc": ^0.24.1
     detect-libc: ^2.0.1
   dependenciesMeta:
     "@moonrepo/core-linux-arm64-gnu":
@@ -2852,55 +2852,55 @@ __metadata:
       optional: true
   bin:
     moon: moon
-  checksum: c951c2fba67d9a27a3bf91c32710afe60795a5992807ca118a157716be22bb359d644da5d2c5a8cc393b1dbe08e08c993cdaf3fc09e37c479ac1a58eb6975cda
+  checksum: 9222f6eaa947c18da192a70a046a47d778ba98d10ff740b422edc3342cbcf3d93e9a27245c27e46231fb69397448f17bc43b869acaabc8d32e3f79ce24c41a78
   languageName: node
   linkType: hard
 
-"@moonrepo/core-linux-arm64-gnu@npm:^0.23.2":
-  version: 0.23.2
-  resolution: "@moonrepo/core-linux-arm64-gnu@npm:0.23.2"
+"@moonrepo/core-linux-arm64-gnu@npm:^0.24.1":
+  version: 0.24.1
+  resolution: "@moonrepo/core-linux-arm64-gnu@npm:0.24.1"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@moonrepo/core-linux-arm64-musl@npm:^0.23.2":
-  version: 0.23.2
-  resolution: "@moonrepo/core-linux-arm64-musl@npm:0.23.2"
+"@moonrepo/core-linux-arm64-musl@npm:^0.24.1":
+  version: 0.24.1
+  resolution: "@moonrepo/core-linux-arm64-musl@npm:0.24.1"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@moonrepo/core-linux-x64-gnu@npm:^0.23.2":
-  version: 0.23.2
-  resolution: "@moonrepo/core-linux-x64-gnu@npm:0.23.2"
+"@moonrepo/core-linux-x64-gnu@npm:^0.24.1":
+  version: 0.24.1
+  resolution: "@moonrepo/core-linux-x64-gnu@npm:0.24.1"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@moonrepo/core-linux-x64-musl@npm:^0.23.2":
-  version: 0.23.2
-  resolution: "@moonrepo/core-linux-x64-musl@npm:0.23.2"
+"@moonrepo/core-linux-x64-musl@npm:^0.24.1":
+  version: 0.24.1
+  resolution: "@moonrepo/core-linux-x64-musl@npm:0.24.1"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@moonrepo/core-macos-arm64@npm:^0.23.2":
-  version: 0.23.2
-  resolution: "@moonrepo/core-macos-arm64@npm:0.23.2"
+"@moonrepo/core-macos-arm64@npm:^0.24.1":
+  version: 0.24.1
+  resolution: "@moonrepo/core-macos-arm64@npm:0.24.1"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@moonrepo/core-macos-x64@npm:^0.23.2":
-  version: 0.23.2
-  resolution: "@moonrepo/core-macos-x64@npm:0.23.2"
+"@moonrepo/core-macos-x64@npm:^0.24.1":
+  version: 0.24.1
+  resolution: "@moonrepo/core-macos-x64@npm:0.24.1"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@moonrepo/core-windows-x64-msvc@npm:^0.23.2":
-  version: 0.23.2
-  resolution: "@moonrepo/core-windows-x64-msvc@npm:0.23.2"
+"@moonrepo/core-windows-x64-msvc@npm:^0.24.1":
+  version: 0.24.1
+  resolution: "@moonrepo/core-windows-x64-msvc@npm:0.24.1"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -3449,13 +3449,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-styles@workspace:packages/react/styles"
   dependencies:
+    "@project44-manifest/design-tokens": ^2.0.0
+    "@project44-manifest/react-utils": ^0.2.4
     "@project44-manifest/theme": ^2.0.0
     "@stitches/react": ^1.2.8
-    "@types/lodash.isobject": ^3.0.7
-    "@types/lodash.kebabcase": ^4.1.7
+    "@types/lodash.merge": ^4.6.7
     clsx: ^1.1.1
-    lodash.isobject: ^3.0.2
-    lodash.kebabcase: ^4.1.1
+    lodash.merge: ^4.6.2
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
@@ -6521,12 +6521,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash.kebabcase@npm:^4.1.7":
-  version: 4.1.7
-  resolution: "@types/lodash.kebabcase@npm:4.1.7"
+"@types/lodash.merge@npm:^4.6.7":
+  version: 4.6.7
+  resolution: "@types/lodash.merge@npm:4.6.7"
   dependencies:
     "@types/lodash": "*"
-  checksum: 8c28dae574d0d15d316b8412f1edf7628398f0d1d34bec978af9d8b9f1286749492c23680817e74c6bd15e14b45b0006c79b320ebd260f9b8c0ac85668e0c409
+  checksum: 94cd6fb8e606756a28f45d63c658aacfbce11a151f7fa322c4a3e87aa50d8bf26e0ae8cba0250070a7c5a6792fc51f79abf4c648bbb1850692be386cd76cd0ca
   languageName: node
   linkType: hard
 
@@ -15005,13 +15005,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.kebabcase@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "lodash.kebabcase@npm:4.1.1"
-  checksum: 5a6c59161914e1bae23438a298c7433e83d935e0f59853fa862e691164696bc07f6dfa4c313d499fbf41ba8d53314e9850416502376705a357d24ee6ca33af78
-  languageName: node
-  linkType: hard
-
 "lodash.merge@npm:^4.6.2":
   version: 4.6.2
   resolution: "lodash.merge@npm:4.6.2"
@@ -15211,7 +15204,7 @@ __metadata:
     "@changesets/cli": ^2.22.0
     "@commitlint/cli": ^17.0.0
     "@commitlint/config-conventional": ^17.0.0
-    "@moonrepo/cli": ^0.23.2
+    "@moonrepo/cli": ^0.24.1
     "@percy/cli": ^1.16.0
     "@percy/storybook": ^4.3.4
     "@swc/core": ^1.3.29
