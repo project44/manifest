@@ -9,5 +9,5 @@ it('should create a theme', () => {
     },
   });
 
-  expect(theme.colors?.['background-primary']).toBe('pink');
+  expect(theme.colors?.['background-primary'].value).toBe('pink');
 });
