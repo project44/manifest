@@ -8,8 +8,8 @@ export default {
 };
 
 export const Default = () => (
-  <Tooltip delay={10_000} title="Tooltip">
-    <Button>10 second delay</Button>
+  <Tooltip title="Tooltip">
+    <Button>Hover Me</Button>
   </Tooltip>
 );
 
