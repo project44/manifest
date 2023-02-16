@@ -1,4 +1,4 @@
-import { css } from '../../stitches';
+import { css } from '../stitches';
 
 export const card = css({
   backgroundColor: '$background-surface',

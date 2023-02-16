@@ -1,7 +1,19 @@
-import { pxToRem } from '../src';
+import { card, focus, focusWithin } from '../src';
 
-describe('styles', () => {
-  it('convert px value to rem', () => {
-    expect(pxToRem(24)).toBe('1.5rem');
-  });
+it('should return a css object for card styles', () => {
+  const styles = card();
+
+  expect(typeof styles === 'object').toBeTruthy();
+});
+
+it('should return an css object for focus styles', () => {
+  const styles = focus();
+
+  expect(typeof styles === 'object').toBeTruthy();
+});
+
+it('should return an css object for focusWithin styles', () => {
+  const styles = focusWithin();
+
+  expect(typeof styles === 'object').toBeTruthy();
 });

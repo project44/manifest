@@ -1,4 +1,4 @@
-import { css } from '../../stitches';
+import { css } from '../stitches';
 
 export const focus = css({
   variants: {

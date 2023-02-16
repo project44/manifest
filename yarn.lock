@@ -2824,16 +2824,16 @@ __metadata:
   linkType: hard
 
 "@moonrepo/cli@npm:^0.23.2":
-  version: 0.23.2
-  resolution: "@moonrepo/cli@npm:0.23.2"
+  version: 0.23.4
+  resolution: "@moonrepo/cli@npm:0.23.4"
   dependencies:
-    "@moonrepo/core-linux-arm64-gnu": ^0.23.2
-    "@moonrepo/core-linux-arm64-musl": ^0.23.2
-    "@moonrepo/core-linux-x64-gnu": ^0.23.2
-    "@moonrepo/core-linux-x64-musl": ^0.23.2
-    "@moonrepo/core-macos-arm64": ^0.23.2
-    "@moonrepo/core-macos-x64": ^0.23.2
-    "@moonrepo/core-windows-x64-msvc": ^0.23.2
+    "@moonrepo/core-linux-arm64-gnu": ^0.23.4
+    "@moonrepo/core-linux-arm64-musl": ^0.23.4
+    "@moonrepo/core-linux-x64-gnu": ^0.23.4
+    "@moonrepo/core-linux-x64-musl": ^0.23.4
+    "@moonrepo/core-macos-arm64": ^0.23.4
+    "@moonrepo/core-macos-x64": ^0.23.4
+    "@moonrepo/core-windows-x64-msvc": ^0.23.4
     detect-libc: ^2.0.1
   dependenciesMeta:
     "@moonrepo/core-linux-arm64-gnu":
@@ -2852,55 +2852,55 @@ __metadata:
       optional: true
   bin:
     moon: moon
-  checksum: c951c2fba67d9a27a3bf91c32710afe60795a5992807ca118a157716be22bb359d644da5d2c5a8cc393b1dbe08e08c993cdaf3fc09e37c479ac1a58eb6975cda
+  checksum: c238236fed264ab87d10a14f13172a6cf03358c079a42158fb6185d28569dba2da529bf39311212a36dabf37f13d4b88ed98c6fecaa8d776e5520247f7f9fa42
   languageName: node
   linkType: hard
 
-"@moonrepo/core-linux-arm64-gnu@npm:^0.23.2":
-  version: 0.23.2
-  resolution: "@moonrepo/core-linux-arm64-gnu@npm:0.23.2"
+"@moonrepo/core-linux-arm64-gnu@npm:^0.23.4":
+  version: 0.23.4
+  resolution: "@moonrepo/core-linux-arm64-gnu@npm:0.23.4"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@moonrepo/core-linux-arm64-musl@npm:^0.23.2":
-  version: 0.23.2
-  resolution: "@moonrepo/core-linux-arm64-musl@npm:0.23.2"
+"@moonrepo/core-linux-arm64-musl@npm:^0.23.4":
+  version: 0.23.4
+  resolution: "@moonrepo/core-linux-arm64-musl@npm:0.23.4"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@moonrepo/core-linux-x64-gnu@npm:^0.23.2":
-  version: 0.23.2
-  resolution: "@moonrepo/core-linux-x64-gnu@npm:0.23.2"
+"@moonrepo/core-linux-x64-gnu@npm:^0.23.4":
+  version: 0.23.4
+  resolution: "@moonrepo/core-linux-x64-gnu@npm:0.23.4"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@moonrepo/core-linux-x64-musl@npm:^0.23.2":
-  version: 0.23.2
-  resolution: "@moonrepo/core-linux-x64-musl@npm:0.23.2"
+"@moonrepo/core-linux-x64-musl@npm:^0.23.4":
+  version: 0.23.4
+  resolution: "@moonrepo/core-linux-x64-musl@npm:0.23.4"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@moonrepo/core-macos-arm64@npm:^0.23.2":
-  version: 0.23.2
-  resolution: "@moonrepo/core-macos-arm64@npm:0.23.2"
+"@moonrepo/core-macos-arm64@npm:^0.23.4":
+  version: 0.23.4
+  resolution: "@moonrepo/core-macos-arm64@npm:0.23.4"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@moonrepo/core-macos-x64@npm:^0.23.2":
-  version: 0.23.2
-  resolution: "@moonrepo/core-macos-x64@npm:0.23.2"
+"@moonrepo/core-macos-x64@npm:^0.23.4":
+  version: 0.23.4
+  resolution: "@moonrepo/core-macos-x64@npm:0.23.4"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@moonrepo/core-windows-x64-msvc@npm:^0.23.2":
-  version: 0.23.2
-  resolution: "@moonrepo/core-windows-x64-msvc@npm:0.23.2"
+"@moonrepo/core-windows-x64-msvc@npm:^0.23.4":
+  version: 0.23.4
+  resolution: "@moonrepo/core-windows-x64-msvc@npm:0.23.4"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -3432,7 +3432,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-provider@workspace:packages/react/components/provider"
   dependencies:
-    "@project44-manifest/react-css-baseline": ^0.1.0
+    "@project44-manifest/react-button": ^1.0.2
     "@project44-manifest/react-styles": ^1.0.1
     "@project44-manifest/react-types": ^0.2.1
     "@react-aria/i18n": ^3.6.3
@@ -3449,13 +3449,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-styles@workspace:packages/react/styles"
   dependencies:
-    "@project44-manifest/theme": ^2.0.0
+    "@project44-manifest/design-tokens": ^2.0.0
+    "@project44-manifest/react-utils": ^0.2.4
     "@stitches/react": ^1.2.8
-    "@types/lodash.isobject": ^3.0.7
-    "@types/lodash.kebabcase": ^4.1.7
+    "@types/lodash.merge": ^4.6.7
     clsx: ^1.1.1
-    lodash.isobject: ^3.0.2
-    lodash.kebabcase: ^4.1.1
+    lodash.merge: ^4.6.2
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
@@ -3635,7 +3634,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/theme@^2.0.0, @project44-manifest/theme@workspace:packages/system/theme":
+"@project44-manifest/theme@workspace:packages/system/theme":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/theme@workspace:packages/system/theme"
   dependencies:
@@ -6521,12 +6520,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash.kebabcase@npm:^4.1.7":
-  version: 4.1.7
-  resolution: "@types/lodash.kebabcase@npm:4.1.7"
+"@types/lodash.merge@npm:^4.6.7":
+  version: 4.6.7
+  resolution: "@types/lodash.merge@npm:4.6.7"
   dependencies:
     "@types/lodash": "*"
-  checksum: 8c28dae574d0d15d316b8412f1edf7628398f0d1d34bec978af9d8b9f1286749492c23680817e74c6bd15e14b45b0006c79b320ebd260f9b8c0ac85668e0c409
+  checksum: 94cd6fb8e606756a28f45d63c658aacfbce11a151f7fa322c4a3e87aa50d8bf26e0ae8cba0250070a7c5a6792fc51f79abf4c648bbb1850692be386cd76cd0ca
   languageName: node
   linkType: hard
 
@@ -15002,13 +15001,6 @@ __metadata:
   version: 3.0.2
   resolution: "lodash.isobject@npm:3.0.2"
   checksum: 6c1667cbc4494d0a13a3617a4b23278d6d02dac520311f2bbb43f16f2cf71d2e6eb9dec8057315b77459df4890c756a256a087d3f4baa44a79ab5d6c968b060e
-  languageName: node
-  linkType: hard
-
-"lodash.kebabcase@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "lodash.kebabcase@npm:4.1.1"
-  checksum: 5a6c59161914e1bae23438a298c7433e83d935e0f59853fa862e691164696bc07f6dfa4c313d499fbf41ba8d53314e9850416502376705a357d24ee6ca33af78
   languageName: node
   linkType: hard
 

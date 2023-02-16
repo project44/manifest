@@ -10,13 +10,13 @@
   ],
   "references": [
     {
-      "path": "../css-baseline"
-    },
-    {
       "path": "../../styles"
     },
     {
       "path": "../../types"
+    },
+    {
+      "path": "../button"
     },
     {
       "path": "./tsconfig.build.json"
