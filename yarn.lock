@@ -3206,6 +3206,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@project44-manifest/react-action-card@^0.0.0, @project44-manifest/react-action-card@workspace:packages/react/components/action-card":
+  version: 0.0.0-use.local
+  resolution: "@project44-manifest/react-action-card@workspace:packages/react/components/action-card"
+  dependencies:
+    "@project44-manifest/react-icons": ^0.1.1
+    "@project44-manifest/react-styles": ^1.0.1
+    "@project44-manifest/react-types": ^0.2.1
+    "@project44-manifest/react-utils": ^0.2.3
+    react: ^18.1.0
+    react-dom: ^18.1.0
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+  languageName: unknown
+  linkType: soft
+
 "@project44-manifest/react-avatar@^0.2.1, @project44-manifest/react-avatar@workspace:packages/react/components/avatar":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-avatar@workspace:packages/react/components/avatar"
@@ -3605,11 +3621,26 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@project44-manifest/react-utils@npm:^0.2.3":
+  version: 0.2.4
+  resolution: "@project44-manifest/react-utils@npm:0.2.4"
+  dependencies:
+    "@radix-ui/react-slot": ^1.0.1
+    clsx: ^1.1.1
+    lodash.isobject: ^3.0.2
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+  checksum: 2f549f36abcf89291190128d6301f57d733752517afd81f7d5e1985cdcc69fd92af93257af6c6bd44df185ceaa3d7dea3d48403b40844bb3e396ad8e0f4fdd3f
+  languageName: node
+  linkType: hard
+
 "@project44-manifest/react@^2.7.0, @project44-manifest/react@workspace:packages/react/core":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react@workspace:packages/react/core"
   dependencies:
     "@internationalized/date": ^3.0.0
+    "@project44-manifest/react-action-card": ^0.0.0
     "@project44-manifest/react-avatar": ^0.2.1
     "@project44-manifest/react-button": ^1.1.0
     "@project44-manifest/react-card": ^0.1.0

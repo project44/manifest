@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "@internationalized/date": "^3.0.0",
+    "@project44-manifest/react-action-card": "^0.0.0",
     "@project44-manifest/react-avatar": "^0.2.1",
     "@project44-manifest/react-button": "^1.1.0",
     "@project44-manifest/react-card": "^0.1.0",

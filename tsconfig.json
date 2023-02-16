@@ -6,6 +6,9 @@
       "path": "apps/storybook"
     },
     {
+      "path": "packages/react/components/action-card"
+    },
+    {
       "path": "packages/react/components/avatar"
     },
     {

@@ -13,6 +13,7 @@ tasks:
       - 'lib'
 
 dependsOn:
+  - 'action-card'
   - 'avatar'
   - 'button'
   - 'css-baseline'

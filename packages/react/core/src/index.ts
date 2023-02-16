@@ -84,6 +84,7 @@ export type { VisuallyHiddenProps } from './components/VisuallyHidden';
 export { VisuallyHidden } from './components/VisuallyHidden';
 export * from './hooks';
 export * from './state';
+export * from '@project44-manifest/react-action-card';
 export * from '@project44-manifest/react-avatar';
 export * from '@project44-manifest/react-button';
 export * from '@project44-manifest/react-card';
