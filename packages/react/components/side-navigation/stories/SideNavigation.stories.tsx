@@ -27,15 +27,18 @@ function Logo() {
   );
 }
 
-const indigo = createTheme('indigo', {
-  colors: {
-    'background-primary': '#021C6B',
-    'background-secondary': 'rgba(199, 204, 240, 0.15)',
-    'border-primary': '#33488C',
-    'palette-grey-100': '#20367F',
-    'palette-grey-300': '#20367F',
-    'text-primary': '#FFFFFF',
-    'text-secondary': '#C7CCF0',
+const indigo = createTheme({
+  className: 'indigo',
+  theme: {
+    colors: {
+      'background-primary': '#021C6B',
+      'background-secondary': 'rgba(199, 204, 240, 0.15)',
+      'border-primary': '#33488C',
+      'palette-grey-100': '#20367F',
+      'palette-grey-300': '#20367F',
+      'text-primary': '#FFFFFF',
+      'text-secondary': '#C7CCF0',
+    },
   },
 });
 
@@ -82,7 +85,6 @@ export const Default = () => {
 };
 
 export const Themed = () => (
-  // @ts-expect-error: need to fix this
   <Provider theme={indigo}>
     <div style={{ width: 240, height: '40vh' }}>
       <SideNavigation css={{ height: '100%' }}>

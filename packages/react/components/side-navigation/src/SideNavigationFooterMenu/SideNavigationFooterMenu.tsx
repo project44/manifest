@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Avatar } from '@project44-manifest/react-avatar';
-import { Dropdown, DropdownMenu } from '@project44-manifest/react-dropdown';
+import { Dropdown, DropdownMenu, DropdownMenuProps } from '@project44-manifest/react-dropdown';
 import { ChevronDown } from '@project44-manifest/react-icons';
 import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
@@ -29,9 +29,8 @@ export const SideNavigationFooterMenu = React.forwardRef((props, forwardedRef) =
   const className = cx('manifest-navigation-footer', classNameProp);
 
   return (
-    <Dropdown placement="right bottom">
+    <Dropdown {...(other as DropdownMenuProps)} placement="right bottom">
       <StyledSideNavigationFooterMenu
-        {...other}
         ref={forwardedRef}
         as={as}
         className={className}
