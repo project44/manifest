@@ -13,8 +13,8 @@ tasks:
       - 'lib'
 
 dependsOn:
-  - id: 'css-baseline'
-    scope: 'production'
+  - id: 'button'
+    scope: 'development'
   - id: 'styles'
     scope: 'production'
   - id: 'types'

@@ -3,15 +3,10 @@ import { useLocale } from '@react-aria/i18n';
 import { useModalProvider } from '@react-aria/overlays';
 import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
-import { StyledProvider } from './styles';
-import type { ProviderElement, ProviderProps } from './types';
+import { StyledProviderContent } from './ProviderContent.styles';
+import type { ProviderContentElement, ProviderContentProps } from './ProviderContent.types';
 
-/**
- * Wrapper for the children within a provider, sets the user language and direction of the content.
- *
- * @private
- */
-export const ProviderWrapper = React.forwardRef((props, forwardedRef) => {
+export const ProviderContent = React.forwardRef((props, forwardedRef) => {
   const { as, children, className: classNameProp, css, ...other } = props;
 
   const { locale, direction } = useLocale();
@@ -20,7 +15,7 @@ export const ProviderWrapper = React.forwardRef((props, forwardedRef) => {
   const classnames = cx('manifest-provider', classNameProp);
 
   return (
-    <StyledProvider
+    <StyledProviderContent
       {...other}
       {...modalProviderProps}
       ref={forwardedRef}
@@ -31,6 +26,6 @@ export const ProviderWrapper = React.forwardRef((props, forwardedRef) => {
       lang={locale}
     >
       {children}
-    </StyledProvider>
+    </StyledProviderContent>
   );
-}) as ForwardRefComponent<ProviderElement, ProviderProps>;
+}) as ForwardRefComponent<ProviderContentElement, ProviderContentProps>;

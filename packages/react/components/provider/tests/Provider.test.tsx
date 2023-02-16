@@ -1,16 +1,34 @@
+import { createTheme } from '@project44-manifest/react-styles';
 import { render, screen } from '@testing-library/react';
 import { Provider } from '../src';
 
-describe('react-provider', () => {
-  it('should render', () => {
-    render(<Provider>test</Provider>);
+const indigo = createTheme({
+  className: 'indigo',
+  theme: {},
+});
 
-    expect(screen.getByText('test')).toBeInTheDocument();
-  });
+it('should render', () => {
+  render(<Provider>test</Provider>);
 
-  it('should render pass props to wrapper', () => {
-    render(<Provider data-testid="test">test</Provider>);
+  expect(screen.getByText('test')).toBeInTheDocument();
+});
 
-    expect(screen.getByTestId('test')).toBeInTheDocument();
-  });
+it('should support theming', () => {
+  render(<Provider data-testid="test" theme={indigo} />);
+
+  expect(screen.getByTestId('test').parentElement?.classList.contains('indigo')).toBeTruthy();
+});
+
+it('should support nested theming', () => {
+  render(
+    <Provider data-testid="test">
+      test
+      <Provider data-testid="nested" theme={indigo}>
+        test
+      </Provider>
+    </Provider>,
+  );
+
+  expect(screen.getByTestId('test').classList.contains('manifest-provider')).toBeTruthy();
+  expect(screen.getByTestId('nested').parentElement?.classList.contains('indigo')).toBeTruthy();
 });

@@ -1,4 +1,4 @@
-import type { StitchesTheme } from '../stitches';
+import type { CreateTheme } from '../stitches';
 
 export interface ThemeProviderProps {
   children: React.ReactNode;
@@ -11,5 +11,5 @@ export interface ThemeProviderProps {
   /**
    * Theme to apply to children elements.
    */
-  theme?: StitchesTheme;
+  theme?: CreateTheme;
 }

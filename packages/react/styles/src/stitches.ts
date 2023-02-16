@@ -1,4 +1,4 @@
-import type * as Stitches from '@stitches/react';
+import type { CSS as StitchesCSS } from '@stitches/react';
 import { createStitches } from '@stitches/react';
 import { defaultTheme } from './theme';
 
@@ -9,12 +9,9 @@ export const createStitchesTheme = createTheme;
 
 export { config, css, getCssText, globalCss, keyframes, styled, theme };
 
-export type StitchesConfig = typeof config;
+export type CreateTheme = ReturnType<typeof createStitchesTheme>;
+export type CSS = StitchesCSS<typeof config>;
+export type Media = typeof config.media;
 export type StitchesTheme = typeof theme;
-
-export type CSS = Stitches.CSS<typeof config>;
-export type CSSProperties = Stitches.CSSProperties;
-
-export type ScaleValue<T> = Stitches.ScaleValue<T>;
-export type PropertyValue<T extends keyof Stitches.CSSProperties> = Stitches.PropertyValue<T>;
-export type VariantProps<T> = Stitches.VariantProps<T>;
+export type ThemeMap = typeof config.themeMap;
+export type Utils = typeof config.utils;

@@ -26,11 +26,7 @@ declare namespace ConfigType {
   };
 }
 
-export type BaseTheme = ConfigType.Theme;
-export type ThemeType = 'dark' | 'light';
-
 export interface Theme {
   className?: string;
-  theme?: BaseTheme;
-  type?: ThemeType;
+  theme?: ConfigType.Theme;
 }

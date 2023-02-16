@@ -1,16 +1,9 @@
-import type { CSS } from '@project44-manifest/react-styles';
+import type { CreateTheme } from '@project44-manifest/react-styles';
+import type { ProviderContentElement, ProviderContentProps } from './ProviderContent';
 
-export type ProviderElement = 'div';
+export type ProviderElement = ProviderContentElement;
 
-export interface ProviderProps {
-  /**
-   * Content to be wrapped by the provider.
-   */
-  children: React.ReactNode;
-  /**
-   * Theme aware style object
-   */
-  css?: CSS;
+export interface ProviderProps extends ProviderContentProps {
   /**
    * Whether to disable the baseline css.
    *
@@ -27,5 +20,5 @@ export interface ProviderProps {
   /**
    * The theme of children rendered within the provider
    */
-  theme?: 'grey' | 'indigo' | 'white';
+  theme?: CreateTheme;
 }

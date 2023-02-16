@@ -4,7 +4,7 @@ import { defaultTheme } from '../theme';
 import type { Theme } from '../types';
 
 export function createTheme(overrides: Theme) {
-  const { className, theme, type } = overrides;
+  const { className, theme } = overrides;
 
-  return createStitchesTheme(className || `${type}-theme`, merge(defaultTheme.theme, theme));
+  return createStitchesTheme(className || '', merge(defaultTheme.theme, theme));
 }
