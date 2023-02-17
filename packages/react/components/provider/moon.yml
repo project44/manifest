@@ -19,3 +19,5 @@ dependsOn:
     scope: 'production'
   - id: 'types'
     scope: 'development'
+  - id: 'utils'
+    scope: 'production'

@@ -7,12 +7,12 @@ import { StyledProviderContent } from './ProviderContent.styles';
 import type { ProviderContentElement, ProviderContentProps } from './ProviderContent.types';
 
 export const ProviderContent = React.forwardRef((props, forwardedRef) => {
-  const { as, children, className: classNameProp, css, ...other } = props;
+  const { as, children, className: classNameProp, css, theme, ...other } = props;
 
   const { locale, direction } = useLocale();
   const { modalProviderProps } = useModalProvider();
 
-  const classnames = cx('manifest-provider', classNameProp);
+  const classnames = cx('manifest-provider', theme?.className, classNameProp);
 
   return (
     <StyledProviderContent

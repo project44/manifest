@@ -1,4 +1,3 @@
-import type { CreateTheme } from '@project44-manifest/react-styles';
 import type { ProviderContentElement, ProviderContentProps } from './ProviderContent';
 
 export type ProviderElement = ProviderContentElement;
@@ -17,8 +16,4 @@ export interface ProviderProps extends ProviderContentProps {
    * @default 'en-US'
    */
   locale?: string;
-  /**
-   * The theme of children rendered within the provider
-   */
-  theme?: CreateTheme;
 }

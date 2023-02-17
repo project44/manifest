@@ -3435,6 +3435,7 @@ __metadata:
     "@project44-manifest/react-button": ^1.0.2
     "@project44-manifest/react-styles": ^1.0.1
     "@project44-manifest/react-types": ^0.2.1
+    "@project44-manifest/react-utils": ^0.2.4
     "@react-aria/i18n": ^3.6.3
     "@react-aria/overlays": ^3.12.1
     react: ^18.1.0
