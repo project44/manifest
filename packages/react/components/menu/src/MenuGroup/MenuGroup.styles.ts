@@ -15,6 +15,7 @@ export const StyledIcon = styled(ChevronDown, {
   variants: {
     isExpanded: {
       true: {
+        color: '$text-primary',
         transform: 'rotate(180deg)',
       },
     },

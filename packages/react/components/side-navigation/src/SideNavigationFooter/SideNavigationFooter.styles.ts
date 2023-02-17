@@ -43,6 +43,7 @@ export const StyledSideNavigationFooter = styled('button', {
     backgroundColor: '$background-secondary',
 
     [`& ${StyledSideNavigationFooterIcon}`]: {
+      color: '$text-primary',
       transform: 'rotate(180deg)',
     },
   },
