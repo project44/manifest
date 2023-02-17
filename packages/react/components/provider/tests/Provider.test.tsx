@@ -16,7 +16,7 @@ it('should render', () => {
 it('should support theming', () => {
   render(<Provider data-testid="test" theme={indigo} />);
 
-  expect(screen.getByTestId('test').parentElement?.classList.contains('indigo')).toBeTruthy();
+  expect(screen.getByTestId('test').classList.contains('indigo')).toBeTruthy();
 });
 
 it('should support nested theming', () => {
@@ -30,5 +30,5 @@ it('should support nested theming', () => {
   );
 
   expect(screen.getByTestId('test').classList.contains('manifest-provider')).toBeTruthy();
-  expect(screen.getByTestId('nested').parentElement?.classList.contains('indigo')).toBeTruthy();
+  expect(screen.getByTestId('nested').classList.contains('indigo')).toBeTruthy();
 });
