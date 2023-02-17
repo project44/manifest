@@ -1,4 +1,3 @@
-import { Button } from '@project44-manifest/react-button';
 import { pxToRem, styled } from '@project44-manifest/react-styles';
 
 export const StyledSideNavigationFooterMenu = styled('button', {
