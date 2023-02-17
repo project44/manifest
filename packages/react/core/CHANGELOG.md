@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 2.10.1
+
+### Patch Changes
+
+- [#249](https://github.com/project44/manifest/pull/249)
+  [`57f173f`](https://github.com/project44/manifest/commit/57f173f196729d2335074974e7283b109bd10f38)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Export dropdown package
+
 ## 2.10.0
 
 ### Minor Changes
