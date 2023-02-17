@@ -5,11 +5,9 @@ import { defaultTheme } from './theme';
 const { styled, config, createTheme, globalCss, getCssText, keyframes, theme, css } =
   createStitches(defaultTheme);
 
-export const createStitchesTheme = createTheme;
+export { config, createTheme, css, getCssText, globalCss, keyframes, styled, theme };
 
-export { config, css, getCssText, globalCss, keyframes, styled, theme };
-
-export type CreateTheme = ReturnType<typeof createStitchesTheme>;
+export type CreateTheme = ReturnType<typeof createTheme>;
 export type CSS = StitchesCSS<typeof config>;
 export type Media = typeof config.media;
 export type StitchesTheme = typeof theme;

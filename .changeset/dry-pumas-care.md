@@ -1,6 +1,6 @@
 ---
+'@project44-manifest/react-avatar': patch
 '@project44-manifest/react-menu': minor
-'@project44-manifest/react-provider': minor
 '@project44-manifest/react': minor
 '@project44-manifest/react-side-navigation': minor
 '@project44-manifest/react-styles': minor

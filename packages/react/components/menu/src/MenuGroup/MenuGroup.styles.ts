@@ -9,6 +9,7 @@ export const StyledMenuGroup = styled('div', {
 });
 
 export const StyledIcon = styled(ChevronDown, {
+  color: '$text-secondary',
   transition: 'transform 100ms cubic-bezier(0.4, 0.14, 0.3, 1) 0ms',
 
   variants: {

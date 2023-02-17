@@ -19,6 +19,7 @@ export const StyledSideNavigationHeaderContent = styled('div', {
 });
 
 export const StyledSideNavigationHeaderButton = styled(IconButton, {
+  color: '$text-secondary',
   position: 'absolute',
   right: pxToRem(8),
   top: pxToRem(8),

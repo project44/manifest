@@ -1,12 +1,12 @@
 import * as React from 'react';
+import { Dropdown, DropdownItem, DropdownMenu } from '@project44-manifest/react-dropdown';
 import { Carrier, Person, Route, Settings } from '@project44-manifest/react-icons';
 import { Provider } from '@project44-manifest/react-provider';
 import { createTheme } from '@project44-manifest/react-styles';
 import {
   SideNavigation,
   SideNavigationContent,
-  SideNavigationFooterMenu,
-  SideNavigationFooterMenuItem,
+  SideNavigationFooter,
   SideNavigationHeader,
   SideNavigationMenu,
   SideNavigationMenuGroup,
@@ -26,21 +26,6 @@ function Logo() {
     </svg>
   );
 }
-
-const indigo = createTheme({
-  className: 'indigo',
-  theme: {
-    colors: {
-      'background-primary': '#021C6B',
-      'background-secondary': 'rgba(199, 204, 240, 0.15)',
-      'border-primary': '#33488C',
-      'palette-grey-100': '#20367F',
-      'palette-grey-300': '#20367F',
-      'text-primary': '#FFFFFF',
-      'text-secondary': '#C7CCF0',
-    },
-  },
-});
 
 export default {
   title: 'Components/SideNavigation',
@@ -70,47 +55,72 @@ export const Default = () => {
             <SideNavigationMenuItem label="Settings" startIcon={<Settings />} />
           </SideNavigationMenu>
         </SideNavigationContent>
-        <SideNavigationFooterMenu
-          avatarProps={{ fallback: 'BC' }}
-          subTitle="Brandon Clark"
-          title="Manifest Design"
-        >
-          <SideNavigationFooterMenuItem key="profile" startIcon={<Person />}>
-            Profile
-          </SideNavigationFooterMenuItem>
-        </SideNavigationFooterMenu>
+        <Dropdown placement="right bottom">
+          <SideNavigationFooter
+            avatarProps={{
+              fallback: 'BC',
+            }}
+            subTitle="Brandon Clark"
+            title="Manifest Design"
+          />
+          <DropdownMenu>
+            <DropdownItem key="profile" startIcon={<Person />}>
+              Profile
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
       </SideNavigation>
     </div>
   );
 };
 
-export const Themed = () => (
-  <Provider theme={indigo}>
-    <div style={{ width: 240, height: '40vh' }}>
-      <SideNavigation css={{ height: '100%' }}>
-        <SideNavigationHeader logo={<Logo />} />
-        <SideNavigationContent>
-          <SideNavigationMenu>
-            <SideNavigationMenuItem label="Track" startIcon={<Route />} />
-            <SideNavigationMenuGroup label="Initiate" startIcon={<Carrier />}>
-              <SideNavigationMenuItem label="Shipments" />
-              <SideNavigationMenuItem label="Templates" />
-            </SideNavigationMenuGroup>
-          </SideNavigationMenu>
-          <SideNavigationMenu>
-            <SideNavigationMenuItem label="Settings" startIcon={<Settings />} />
-          </SideNavigationMenu>
-        </SideNavigationContent>
-        <SideNavigationFooterMenu
-          avatarProps={{ fallback: 'BC' }}
-          subTitle="Brandon Clark"
-          title="Manifest Design"
-        >
-          <SideNavigationFooterMenuItem key="profile" startIcon={<Person />}>
-            Profile
-          </SideNavigationFooterMenuItem>
-        </SideNavigationFooterMenu>
-      </SideNavigation>
-    </div>
-  </Provider>
-);
+export const Themed = () => {
+  const indigo = createTheme({
+    colors: {
+      'background-primary': '#021C6B',
+      'background-secondary': 'rgba(199, 204, 240, 0.15)',
+      'border-primary': '#33488C',
+      'palette-grey-100': '#20367F',
+      'palette-grey-300': '#20367F',
+      'text-primary': '#FFFFFF',
+      'text-secondary': '#C7CCF0',
+    },
+  });
+
+  return (
+    <Provider theme={indigo}>
+      <div style={{ width: 240, height: '40vh' }}>
+        <SideNavigation css={{ height: '100%' }}>
+          <SideNavigationHeader logo={<Logo />} />
+          <SideNavigationContent>
+            <SideNavigationMenu>
+              <SideNavigationMenuItem label="Track" startIcon={<Route />} />
+              <SideNavigationMenuGroup label="Initiate" startIcon={<Carrier />}>
+                <SideNavigationMenuItem label="Shipments" />
+                <SideNavigationMenuItem label="Templates" />
+              </SideNavigationMenuGroup>
+            </SideNavigationMenu>
+            <SideNavigationMenu>
+              <SideNavigationMenuItem label="Settings" startIcon={<Settings />} />
+            </SideNavigationMenu>
+          </SideNavigationContent>
+          <Dropdown placement="right bottom">
+            <SideNavigationFooter
+              avatarProps={{
+                css: { backgroundColor: '$palette-blue-100', color: '$palette-blue-600' },
+                fallback: 'BC',
+              }}
+              subTitle="Brandon Clark"
+              title="Manifest Design"
+            />
+            <DropdownMenu>
+              <DropdownItem key="profile" startIcon={<Person />}>
+                Profile
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+        </SideNavigation>
+      </div>
+    </Provider>
+  );
+};

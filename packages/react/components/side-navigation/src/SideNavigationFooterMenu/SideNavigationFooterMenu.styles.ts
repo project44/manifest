@@ -1,7 +1,7 @@
 import { Button } from '@project44-manifest/react-button';
 import { pxToRem, styled } from '@project44-manifest/react-styles';
 
-export const StyledSideNavigationFooterMenu = styled(Button, {
+export const StyledSideNavigationFooterMenu = styled('button', {
   justifyContent: 'flex-start',
   borderTop: '1px solid $colors$border-primary',
   minHeight: pxToRem(64),
