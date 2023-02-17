@@ -1,4 +1,4 @@
-import type { ButtonElement, ButtonProps } from './Button.types';
+import type { ButtonElement, ButtonProps } from '../Button';
 
 export type IconButtonElement = ButtonElement;
 
