@@ -10,8 +10,12 @@ export function useControlledState<T>(
 ): [T, (value: T, ...args: any[]) => void] {
   const [stateValue, setStateValue] = React.useState(defaultValue);
 
-  const { current: isControlled } = React.useRef(value !== undefined);
+  const ref = React.useRef(value !== undefined);
   const prevValueRef = React.useRef(stateValue);
+
+  const isControlled = value !== undefined;
+
+  ref.current = isControlled;
 
   const handleChange = React.useCallback(
     (nextValue: T, ...args: any[]) => {

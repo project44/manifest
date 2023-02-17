@@ -95,7 +95,7 @@ export interface TransitionProps {
    * - enter defaults to `0`
    * - exit defaults to `0`
    *
-   * @default 250
+   * @default 200
    */
   timeout?: number | { appear?: number; enter?: number; exit?: number };
   /**

@@ -11,7 +11,7 @@ export const StyledAvatarImage = styled('img', {
 
 export const StyledAvatarFallback = styled('span', {
   alignItems: 'center',
-  color: '$text-secondary',
+  color: 'inherit',
   display: 'flex',
   fontFamily: '$text',
   fontWeight: '$semibold',
@@ -26,6 +26,7 @@ export const StyledAvatar = styled('div', {
   backgroundColor: '$background-secondary',
   borderRadius: '$full',
   boxSizing: 'border-box',
+  color: '$text-secondary',
   display: 'flex',
   justifyContent: 'center',
   outline: 'none',
@@ -35,14 +36,20 @@ export const StyledAvatar = styled('div', {
   variants: {
     size: {
       medium: {
+        minHeight: pxToRem(40),
+        minWidth: pxToRem(40),
         size: pxToRem(40),
+
         [`& ${StyledAvatarFallback}`]: {
           fontSize: '$small',
           lineHeight: '$medium',
         },
       },
       small: {
+        minHeight: pxToRem(28),
+        minWidth: pxToRem(28),
         size: pxToRem(28),
+
         [`& ${StyledAvatarFallback}`]: {
           fontSize: '$x-small',
           lineHeight: pxToRem(14),

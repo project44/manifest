@@ -18,14 +18,11 @@ export const Default: Story<ProviderProps> = () => (
 
 export const Theme: Story<ProviderProps> = () => {
   const purple = createTheme({
-    className: 'purple',
-    theme: {
-      colors: {
-        'primary-default': '#8C18E2',
-        'primary-active': '#6500CE',
-        'primary-hover': '#7300D3',
-        'text-primary': '#FFFFFF',
-      },
+    colors: {
+      'primary-default': '#8C18E2',
+      'primary-active': '#6500CE',
+      'primary-hover': '#7300D3',
+      'text-primary': '#FFFFFF',
     },
   });
 
@@ -37,34 +34,20 @@ export const Theme: Story<ProviderProps> = () => {
 };
 
 export const NestedThemes: Story<ProviderProps> = () => {
-  const purple = createTheme({
-    className: 'purple',
-    theme: {
-      colors: {
-        'primary-default': '#8C18E2',
-        'primary-active': '#6500CE',
-        'primary-hover': '#7300D3',
-        'text-primary': '#FFFFFF',
-      },
-    },
-  });
-
   const green = createTheme({
-    className: 'green',
-    theme: {
-      colors: {
-        'primary-default': '#0E864C',
-        'primary-active': '#06361E',
-        'primary-hover': '#095731',
-        'text-primary': '#FFFFFF',
-      },
+    colors: {
+      'background-primary': '#FAFAFA',
+      'primary-default': '#0E864C',
+      'primary-active': '#06361E',
+      'primary-hover': '#095731',
+      'text-primary': '#FFFFFF',
     },
   });
 
   return (
-    <Provider theme={purple}>
+    <Provider css={{ backgroundColor: '$background-primary', padding: 64 }}>
       <Button>Button</Button>
-      <Provider theme={green}>
+      <Provider css={{ backgroundColor: '$background-primary', padding: 64 }} theme={green}>
         <Button>Button</Button>
       </Provider>
     </Provider>

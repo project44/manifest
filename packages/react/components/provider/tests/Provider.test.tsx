@@ -2,21 +2,12 @@ import { createTheme } from '@project44-manifest/react-styles';
 import { render, screen } from '@testing-library/react';
 import { Provider } from '../src';
 
-const indigo = createTheme({
-  className: 'indigo',
-  theme: {},
-});
+const indigo = createTheme({});
 
 it('should render', () => {
   render(<Provider>test</Provider>);
 
   expect(screen.getByText('test')).toBeInTheDocument();
-});
-
-it('should support theming', () => {
-  render(<Provider data-testid="test" theme={indigo} />);
-
-  expect(screen.getByTestId('test').classList.contains('indigo')).toBeTruthy();
 });
 
 it('should support nested theming', () => {
@@ -29,6 +20,5 @@ it('should support nested theming', () => {
     </Provider>,
   );
 
-  expect(screen.getByTestId('test').classList.contains('manifest-provider')).toBeTruthy();
-  expect(screen.getByTestId('nested').classList.contains('indigo')).toBeTruthy();
+  expect(screen.getAllByText('test')).toHaveLength(2);
 });
