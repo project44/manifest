@@ -1,5 +1,13 @@
 # @project44-manifest/use-controlled-state
 
+## 0.1.0
+
+### Minor Changes
+
+- [`527f515`](https://github.com/project44/manifest/commit/527f51571cd4ed760dcbf87d1bbc6751f44b7b98)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Adding useIsomorhpicLayoutEffect hook
+  package
+
 ## 0.1.1
 
 ### Patch Changes

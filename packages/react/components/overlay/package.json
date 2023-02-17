@@ -1,6 +1,6 @@
 {
   "name": "@project44-manifest/react-overlay",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Manifest Design System react overlay component",
   "license": "MIT",
   "author": "project44",
@@ -43,8 +43,8 @@
     "platform": "browser"
   },
   "dependencies": {
-    "@project44-manifest/react-portal": "^0.0.0",
-    "@project44-manifest/react-transition": "^1.0.0",
+    "@project44-manifest/react-portal": "^0.1.0",
+    "@project44-manifest/react-transition": "^1.1.0",
     "@react-aria/overlays": "^3.12.1",
     "@react-stately/overlays": "^3.4.4"
   },

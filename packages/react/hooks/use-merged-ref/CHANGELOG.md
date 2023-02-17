@@ -1,5 +1,13 @@
 # @project44-manifest/use-controlled-state
 
+## 0.1.2
+
+### Patch Changes
+
+- Updated dependencies
+  [[`089c286`](https://github.com/project44/manifest/commit/089c286124c5895478cd51fa22646aa8493da8c2)]:
+  - @project44-manifest/react-utils@0.3.0
+
 ## 0.1.1
 
 ### Patch Changes

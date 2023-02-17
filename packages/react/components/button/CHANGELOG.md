@@ -1,5 +1,23 @@
 # @project44-manifest/react-button
 
+## 1.1.0
+
+### Minor Changes
+
+- [#248](https://github.com/project44/manifest/pull/248)
+  [`8ae0457`](https://github.com/project44/manifest/commit/8ae04572bf3389d7ff2c655279b46786d5e04a38)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Adding react-aria hooks to export
+
+### Patch Changes
+
+- Updated dependencies
+  [[`27e4e7a`](https://github.com/project44/manifest/commit/27e4e7aa0c2f96300fde25f7f62d7f5b50bf329b),
+  [`089c286`](https://github.com/project44/manifest/commit/089c286124c5895478cd51fa22646aa8493da8c2),
+  [`a5c80dd`](https://github.com/project44/manifest/commit/a5c80dd546e8732907d00c3ca2e8dc4bb3488aca),
+  [`5a5cb11`](https://github.com/project44/manifest/commit/5a5cb110c69ef3abb44cb705eb816ec8ca04cf0b)]:
+  - @project44-manifest/react-styles@1.2.0
+  - @project44-manifest/react-utils@0.3.0
+
 ## 1.0.2
 
 ### Patch Changes

@@ -3206,13 +3206,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-avatar@^0.2.0, @project44-manifest/react-avatar@workspace:packages/react/components/avatar":
+"@project44-manifest/react-avatar@^0.2.1, @project44-manifest/react-avatar@workspace:packages/react/components/avatar":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-avatar@workspace:packages/react/components/avatar"
   dependencies:
-    "@project44-manifest/react-styles": ^1.1.0
+    "@project44-manifest/react-styles": ^1.2.0
     "@project44-manifest/react-types": ^0.2.1
-    "@project44-manifest/react-utils": ^0.2.3
+    "@project44-manifest/react-utils": ^0.3.0
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
@@ -3225,12 +3225,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-breadcrumb@workspace:packages/react/components/breadcrumb"
   dependencies:
-    "@project44-manifest/react-icon": ^0.2.0
+    "@project44-manifest/react-icon": ^0.2.1
     "@project44-manifest/react-icons": ^0.1.1
-    "@project44-manifest/react-link": ^0.2.0
-    "@project44-manifest/react-styles": ^1.0.1
+    "@project44-manifest/react-link": ^0.2.1
+    "@project44-manifest/react-styles": ^1.2.0
     "@project44-manifest/react-types": ^0.2.1
-    "@project44-manifest/react-utils": ^0.2.3
+    "@project44-manifest/react-utils": ^0.3.0
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
@@ -3239,14 +3239,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-button@^1.0.2, @project44-manifest/react-button@workspace:packages/react/components/button":
+"@project44-manifest/react-button@^1.1.0, @project44-manifest/react-button@workspace:packages/react/components/button":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-button@workspace:packages/react/components/button"
   dependencies:
-    "@project44-manifest/react-layout": ^1.0.1
-    "@project44-manifest/react-styles": ^1.0.1
+    "@project44-manifest/react-layout": ^1.0.2
+    "@project44-manifest/react-styles": ^1.2.0
     "@project44-manifest/react-types": ^0.2.1
-    "@project44-manifest/react-utils": ^0.2.3
+    "@project44-manifest/react-utils": ^0.3.0
     "@react-aria/button": ^3.6.2
     "@react-aria/focus": ^3.9.0
     "@react-aria/interactions": ^3.12.0
@@ -3259,14 +3259,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-card@^0.0.0, @project44-manifest/react-card@workspace:packages/react/components/card":
+"@project44-manifest/react-card@^0.1.0, @project44-manifest/react-card@workspace:packages/react/components/card":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-card@workspace:packages/react/components/card"
   dependencies:
-    "@project44-manifest/react-button": ^1.0.2
-    "@project44-manifest/react-styles": ^1.0.1
+    "@project44-manifest/react-button": ^1.1.0
+    "@project44-manifest/react-styles": ^1.2.0
     "@project44-manifest/react-types": ^0.2.1
-    "@project44-manifest/react-utils": ^0.2.3
+    "@project44-manifest/react-utils": ^0.3.0
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
@@ -3288,18 +3288,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-dropdown@^0.0.0, @project44-manifest/react-dropdown@workspace:packages/react/components/dropdown":
+"@project44-manifest/react-dropdown@^0.1.0, @project44-manifest/react-dropdown@workspace:packages/react/components/dropdown":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-dropdown@workspace:packages/react/components/dropdown"
   dependencies:
-    "@project44-manifest/react-button": ^1.0.2
+    "@project44-manifest/react-button": ^1.1.0
     "@project44-manifest/react-icons": ^0.1.1
-    "@project44-manifest/react-overlay": ^0.0.0
-    "@project44-manifest/react-popover": ^0.1.2
-    "@project44-manifest/react-styles": ^1.0.1
+    "@project44-manifest/react-overlay": ^0.1.0
+    "@project44-manifest/react-popover": ^1.0.0
+    "@project44-manifest/react-styles": ^1.2.0
     "@project44-manifest/react-types": ^0.2.1
-    "@project44-manifest/react-typography": ^1.0.1
-    "@project44-manifest/react-utils": ^0.2.3
+    "@project44-manifest/react-typography": ^1.0.2
+    "@project44-manifest/react-utils": ^0.3.0
     "@react-aria/focus": ^3.10.1
     "@react-aria/interactions": ^3.13.1
     "@react-aria/menu": ^3.7.1
@@ -3316,14 +3316,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-icon@^0.2.0, @project44-manifest/react-icon@workspace:packages/react/components/icon":
+"@project44-manifest/react-icon@^0.2.0, @project44-manifest/react-icon@^0.2.1, @project44-manifest/react-icon@workspace:packages/react/components/icon":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-icon@workspace:packages/react/components/icon"
   dependencies:
-    "@project44-manifest/react-layout": ^1.0.1
-    "@project44-manifest/react-styles": ^1.0.1
+    "@project44-manifest/react-layout": ^1.0.2
+    "@project44-manifest/react-styles": ^1.2.0
     "@project44-manifest/react-types": ^0.2.1
-    "@project44-manifest/react-utils": ^0.2.3
+    "@project44-manifest/react-utils": ^0.3.0
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
@@ -3331,19 +3331,6 @@ __metadata:
     react-dom: ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
-
-"@project44-manifest/react-icon@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "@project44-manifest/react-icon@npm:0.1.0"
-  dependencies:
-    "@project44-manifest/react-styles": ^1.0.1
-    "@project44-manifest/react-utils": ^0.2.3
-  peerDependencies:
-    react: ^17.0.0 || ^18.0.0
-    react-dom: ^17.0.0 || ^18.0.0
-  checksum: 0dacf0a3a491282a3667a2c829301cfedb37d48e052ad4288865803e718e228460ea5ee32fa660cf500ebfa793fc70ce24f7f7086dbff8ae28b6460f28a479bf
-  languageName: node
-  linkType: hard
 
 "@project44-manifest/react-icons@^0.1.0, @project44-manifest/react-icons@^0.1.1, @project44-manifest/react-icons@workspace:packages/react/icons":
   version: 0.0.0-use.local
@@ -3360,13 +3347,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-layout@^1.0.1, @project44-manifest/react-layout@workspace:packages/react/components/layout":
+"@project44-manifest/react-layout@^1.0.1, @project44-manifest/react-layout@^1.0.2, @project44-manifest/react-layout@workspace:packages/react/components/layout":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-layout@workspace:packages/react/components/layout"
   dependencies:
-    "@project44-manifest/react-styles": ^1.0.1
+    "@project44-manifest/react-styles": ^1.2.0
     "@project44-manifest/react-types": ^0.2.1
-    "@project44-manifest/react-utils": ^0.2.3
+    "@project44-manifest/react-utils": ^0.3.0
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
@@ -3375,14 +3362,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-link@^0.2.0, @project44-manifest/react-link@workspace:packages/react/components/link":
+"@project44-manifest/react-link@^0.2.1, @project44-manifest/react-link@workspace:packages/react/components/link":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-link@workspace:packages/react/components/link"
   dependencies:
-    "@project44-manifest/react-styles": ^1.1.0
+    "@project44-manifest/react-styles": ^1.2.0
     "@project44-manifest/react-types": ^0.2.1
-    "@project44-manifest/react-typography": ^1.0.1
-    "@project44-manifest/react-utils": ^0.2.3
+    "@project44-manifest/react-typography": ^1.0.2
+    "@project44-manifest/react-utils": ^0.3.0
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
@@ -3391,18 +3378,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-menu@^0.0.0, @project44-manifest/react-menu@workspace:packages/react/components/menu":
+"@project44-manifest/react-menu@^0.1.0, @project44-manifest/react-menu@workspace:packages/react/components/menu":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-menu@workspace:packages/react/components/menu"
   dependencies:
-    "@project44-manifest/react-button": ^1.0.2
-    "@project44-manifest/react-icon": ^0.1.0
+    "@project44-manifest/react-button": ^1.1.0
+    "@project44-manifest/react-icon": ^0.2.1
     "@project44-manifest/react-icons": ^0.1.0
-    "@project44-manifest/react-styles": ^1.0.1
-    "@project44-manifest/react-transition": ^1.0.0
+    "@project44-manifest/react-styles": ^1.2.0
+    "@project44-manifest/react-transition": ^1.1.0
     "@project44-manifest/react-types": ^0.2.1
-    "@project44-manifest/react-typography": ^1.0.1
-    "@project44-manifest/react-utils": ^0.2.3
+    "@project44-manifest/react-typography": ^1.0.2
+    "@project44-manifest/react-utils": ^0.3.0
     "@project44-manifest/use-controlled-state": ^0.1.0
     react: ^18.1.0
     react-dom: ^18.1.0
@@ -3412,12 +3399,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-overlay@^0.0.0, @project44-manifest/react-overlay@workspace:packages/react/components/overlay":
+"@project44-manifest/react-overlay@^0.1.0, @project44-manifest/react-overlay@workspace:packages/react/components/overlay":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-overlay@workspace:packages/react/components/overlay"
   dependencies:
-    "@project44-manifest/react-portal": ^0.0.0
-    "@project44-manifest/react-transition": ^1.0.0
+    "@project44-manifest/react-portal": ^0.1.0
+    "@project44-manifest/react-transition": ^1.1.0
     "@project44-manifest/react-types": ^0.2.1
     "@react-aria/overlays": ^3.12.1
     "@react-stately/overlays": ^3.4.4
@@ -3430,17 +3417,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-popover@^0.1.2, @project44-manifest/react-popover@workspace:packages/react/components/popover":
+"@project44-manifest/react-popover@^1.0.0, @project44-manifest/react-popover@workspace:packages/react/components/popover":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-popover@workspace:packages/react/components/popover"
   dependencies:
-    "@project44-manifest/react-button": ^1.0.2
-    "@project44-manifest/react-layout": ^1.0.1
-    "@project44-manifest/react-overlay": ^0.0.0
-    "@project44-manifest/react-styles": ^1.0.1
+    "@project44-manifest/react-button": ^1.1.0
+    "@project44-manifest/react-layout": ^1.0.2
+    "@project44-manifest/react-overlay": ^0.1.0
+    "@project44-manifest/react-styles": ^1.2.0
     "@project44-manifest/react-types": ^0.2.1
-    "@project44-manifest/react-utils": ^0.2.4
-    "@project44-manifest/use-merged-ref": ^0.1.1
+    "@project44-manifest/react-utils": ^0.3.0
+    "@project44-manifest/use-merged-ref": ^0.1.2
     "@react-aria/focus": ^3.10.1
     react: ^18.1.0
     react-dom: ^18.1.0
@@ -3450,11 +3437,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-portal@^0.0.0, @project44-manifest/react-portal@workspace:packages/react/components/portal":
+"@project44-manifest/react-portal@^0.1.0, @project44-manifest/react-portal@workspace:packages/react/components/portal":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-portal@workspace:packages/react/components/portal"
   dependencies:
-    "@project44-manifest/use-isomorphic-layout-effect": ^0.0.0
+    "@project44-manifest/use-isomorphic-layout-effect": ^0.1.0
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
@@ -3463,14 +3450,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-provider@^0.1.0, @project44-manifest/react-provider@workspace:packages/react/components/provider":
+"@project44-manifest/react-provider@^0.2.0, @project44-manifest/react-provider@workspace:packages/react/components/provider":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-provider@workspace:packages/react/components/provider"
   dependencies:
-    "@project44-manifest/react-button": ^1.0.2
-    "@project44-manifest/react-styles": ^1.0.1
+    "@project44-manifest/react-button": ^1.1.0
+    "@project44-manifest/react-styles": ^1.2.0
     "@project44-manifest/react-types": ^0.2.1
-    "@project44-manifest/react-utils": ^0.2.4
+    "@project44-manifest/react-utils": ^0.3.0
     "@react-aria/i18n": ^3.6.3
     "@react-aria/overlays": ^3.12.1
     react: ^18.1.0
@@ -3481,21 +3468,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-side-navigation@^0.0.0, @project44-manifest/react-side-navigation@workspace:packages/react/components/side-navigation":
+"@project44-manifest/react-side-navigation@^0.1.0, @project44-manifest/react-side-navigation@workspace:packages/react/components/side-navigation":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-side-navigation@workspace:packages/react/components/side-navigation"
   dependencies:
-    "@project44-manifest/react-avatar": ^0.2.0
-    "@project44-manifest/react-button": ^1.0.2
-    "@project44-manifest/react-dropdown": ^0.0.0
+    "@project44-manifest/react-avatar": ^0.2.1
+    "@project44-manifest/react-button": ^1.1.0
+    "@project44-manifest/react-dropdown": ^0.1.0
     "@project44-manifest/react-icons": ^0.1.0
-    "@project44-manifest/react-menu": ^0.0.0
-    "@project44-manifest/react-provider": ^0.1.0
-    "@project44-manifest/react-styles": ^1.0.1
-    "@project44-manifest/react-transition": ^1.0.0
+    "@project44-manifest/react-menu": ^0.1.0
+    "@project44-manifest/react-provider": ^0.2.0
+    "@project44-manifest/react-styles": ^1.2.0
+    "@project44-manifest/react-transition": ^1.1.0
     "@project44-manifest/react-types": ^0.2.1
-    "@project44-manifest/react-typography": ^1.0.1
-    "@project44-manifest/react-utils": ^0.2.3
+    "@project44-manifest/react-typography": ^1.0.2
+    "@project44-manifest/react-utils": ^0.3.0
     "@project44-manifest/use-controlled-state": ^0.1.0
     "@react-aria/interactions": ^3.13.1
     "@react-types/shared": ^3.16.0
@@ -3507,12 +3494,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-styles@^1.0.1, @project44-manifest/react-styles@^1.1.0, @project44-manifest/react-styles@workspace:packages/react/styles":
+"@project44-manifest/react-styles@^1.0.1, @project44-manifest/react-styles@^1.2.0, @project44-manifest/react-styles@workspace:packages/react/styles":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-styles@workspace:packages/react/styles"
   dependencies:
     "@project44-manifest/design-tokens": ^2.0.0
-    "@project44-manifest/react-utils": ^0.2.4
+    "@project44-manifest/react-utils": ^0.3.0
     "@stitches/react": ^1.2.8
     "@types/lodash.merge": ^4.6.7
     clsx: ^1.1.1
@@ -3525,16 +3512,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-tooltip@^1.1.1, @project44-manifest/react-tooltip@workspace:packages/react/components/tooltip":
+"@project44-manifest/react-tooltip@^1.1.2, @project44-manifest/react-tooltip@workspace:packages/react/components/tooltip":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-tooltip@workspace:packages/react/components/tooltip"
   dependencies:
-    "@project44-manifest/react-button": ^1.0.2
-    "@project44-manifest/react-layout": ^1.0.1
-    "@project44-manifest/react-styles": ^1.0.1
-    "@project44-manifest/react-transition": ^1.0.0
+    "@project44-manifest/react-button": ^1.1.0
+    "@project44-manifest/react-layout": ^1.0.2
+    "@project44-manifest/react-styles": ^1.2.0
+    "@project44-manifest/react-transition": ^1.1.0
     "@project44-manifest/react-types": ^0.2.1
-    "@project44-manifest/react-utils": ^0.2.4
+    "@project44-manifest/react-utils": ^0.3.0
     "@react-aria/interactions": ^3.12.0
     "@react-aria/overlays": ^3.12.1
     "@react-aria/tooltip": ^3.3.2
@@ -3547,13 +3534,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-transition@^1.0.0, @project44-manifest/react-transition@workspace:packages/react/components/transition":
+"@project44-manifest/react-transition@^1.1.0, @project44-manifest/react-transition@workspace:packages/react/components/transition":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-transition@workspace:packages/react/components/transition"
   dependencies:
-    "@project44-manifest/react-button": ^1.0.2
-    "@project44-manifest/react-styles": ^1.1.0
-    "@project44-manifest/use-merged-ref": ^0.1.1
+    "@project44-manifest/react-button": ^1.1.0
+    "@project44-manifest/react-styles": ^1.2.0
+    "@project44-manifest/use-merged-ref": ^0.1.2
     react: ^18.1.0
     react-dom: ^18.1.0
     react-transition-group: ^4.4.5
@@ -3575,13 +3562,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-typography@^1.0.1, @project44-manifest/react-typography@workspace:packages/react/components/typography":
+"@project44-manifest/react-typography@^1.0.1, @project44-manifest/react-typography@^1.0.2, @project44-manifest/react-typography@workspace:packages/react/components/typography":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-typography@workspace:packages/react/components/typography"
   dependencies:
-    "@project44-manifest/react-styles": ^1.0.1
+    "@project44-manifest/react-styles": ^1.2.0
     "@project44-manifest/react-types": ^0.2.1
-    "@project44-manifest/react-utils": ^0.2.3
+    "@project44-manifest/react-utils": ^0.3.0
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
@@ -3602,7 +3589,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-utils@^0.2.3, @project44-manifest/react-utils@^0.2.4, @project44-manifest/react-utils@workspace:packages/react/utils":
+"@project44-manifest/react-utils@^0.3.0, @project44-manifest/react-utils@workspace:packages/react/utils":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-utils@workspace:packages/react/utils"
   dependencies:
@@ -3623,20 +3610,20 @@ __metadata:
   resolution: "@project44-manifest/react@workspace:packages/react/core"
   dependencies:
     "@internationalized/date": ^3.0.0
-    "@project44-manifest/react-avatar": ^0.2.0
-    "@project44-manifest/react-button": ^1.0.2
-    "@project44-manifest/react-card": ^0.0.0
+    "@project44-manifest/react-avatar": ^0.2.1
+    "@project44-manifest/react-button": ^1.1.0
+    "@project44-manifest/react-card": ^0.1.0
     "@project44-manifest/react-css-baseline": ^0.1.0
-    "@project44-manifest/react-dropdown": ^0.0.0
-    "@project44-manifest/react-link": ^0.2.0
-    "@project44-manifest/react-menu": ^0.0.0
-    "@project44-manifest/react-overlay": ^0.0.0
-    "@project44-manifest/react-popover": ^0.1.2
-    "@project44-manifest/react-portal": ^0.0.0
-    "@project44-manifest/react-provider": ^0.1.0
-    "@project44-manifest/react-side-navigation": ^0.0.0
-    "@project44-manifest/react-styles": ^1.1.0
-    "@project44-manifest/react-tooltip": ^1.1.1
+    "@project44-manifest/react-dropdown": ^0.1.0
+    "@project44-manifest/react-link": ^0.2.1
+    "@project44-manifest/react-menu": ^0.1.0
+    "@project44-manifest/react-overlay": ^0.1.0
+    "@project44-manifest/react-popover": ^1.0.0
+    "@project44-manifest/react-portal": ^0.1.0
+    "@project44-manifest/react-provider": ^0.2.0
+    "@project44-manifest/react-side-navigation": ^0.1.0
+    "@project44-manifest/react-styles": ^1.2.0
+    "@project44-manifest/react-tooltip": ^1.1.2
     "@project44-manifest/system": ^0.1.5
     "@radix-ui/react-slot": ^1.0.0
     "@react-aria/button": ^3.5.1
@@ -3718,7 +3705,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/use-isomorphic-layout-effect@^0.0.0, @project44-manifest/use-isomorphic-layout-effect@workspace:packages/react/hooks/use-isomorphic-layout-effect":
+"@project44-manifest/use-isomorphic-layout-effect@^0.1.0, @project44-manifest/use-isomorphic-layout-effect@workspace:packages/react/hooks/use-isomorphic-layout-effect":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/use-isomorphic-layout-effect@workspace:packages/react/hooks/use-isomorphic-layout-effect"
   dependencies:
@@ -3730,11 +3717,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/use-merged-ref@^0.1.1, @project44-manifest/use-merged-ref@workspace:packages/react/hooks/use-merged-ref":
+"@project44-manifest/use-merged-ref@^0.1.2, @project44-manifest/use-merged-ref@workspace:packages/react/hooks/use-merged-ref":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/use-merged-ref@workspace:packages/react/hooks/use-merged-ref"
   dependencies:
-    "@project44-manifest/react-utils": ^0.2.4
+    "@project44-manifest/react-utils": ^0.3.0
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
