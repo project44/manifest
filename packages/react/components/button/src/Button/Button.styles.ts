@@ -189,3 +189,30 @@ export const StyledButton = styled('button', {
     variant: 'primary',
   },
 });
+
+export const StyledButtonIcon = styled('span', {
+  alignSelf: 'center',
+  display: 'inline-flex',
+  flexShrink: 0,
+
+  variants: {
+    placement: {
+      end: {
+        marginLeft: '$small',
+        marginRight: '-$x-small',
+      },
+      start: {
+        marginLeft: '-$x-small',
+        marginRight: '$small',
+      },
+    },
+    size: {
+      medium: {
+        fontSize: '$x-large',
+      },
+      small: {
+        fontSize: pxToRem(18),
+      },
+    },
+  },
+});

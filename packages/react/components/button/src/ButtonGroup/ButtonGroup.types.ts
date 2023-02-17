@@ -1,5 +1,5 @@
 import type { CSS } from '@project44-manifest/react-styles';
-import type { ButtonSize, ButtonVariant } from './Button.types';
+import type { ButtonSize, ButtonVariant } from '../types';
 
 export type ButtonGroupElement = 'div';
 

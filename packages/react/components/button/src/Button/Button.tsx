@@ -6,10 +6,9 @@ import { useHover } from '@react-aria/interactions';
 import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
 import { mergeProps, mergeRefs } from '@project44-manifest/react-utils';
-import { ButtonIcon } from './Button.icon';
-import { StyledButton } from './Button.styles';
+import { useButtonGroup } from '../ButtonGroup';
+import { StyledButton, StyledButtonIcon } from './Button.styles';
 import type { ButtonElement, ButtonProps } from './Button.types';
-import { useButtonGroup } from './ButtonGroup.context';
 
 export const Button = React.forwardRef((props, forwardedRef) => {
   const group = useButtonGroup();
@@ -82,23 +81,23 @@ export const Button = React.forwardRef((props, forwardedRef) => {
       variant={variant}
     >
       {startIcon && (
-        <ButtonIcon
+        <StyledButtonIcon
           className={cx('manifest-button__icon', 'manifest-button__icon--start')}
           placement="start"
           size={size}
         >
           {startIcon}
-        </ButtonIcon>
+        </StyledButtonIcon>
       )}
       {children}
       {endIcon && (
-        <ButtonIcon
+        <StyledButtonIcon
           className={cx('manifest-button__icon', 'manifest-button__icon--end')}
           placement="end"
           size={size}
         >
           {endIcon}
-        </ButtonIcon>
+        </StyledButtonIcon>
       )}
     </StyledButton>
   );

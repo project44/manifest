@@ -1,13 +1,10 @@
+import type { FocusableProps, PressEvents } from '@react-types/shared';
 import type { CSS } from '@project44-manifest/react-styles';
-import type { PressEvent } from '@project44-manifest/react-types';
-
-export type ButtonSize = 'medium' | 'small';
-
-export type ButtonVariant = 'brand' | 'danger' | 'primary' | 'secondary' | 'tertiary';
+import type { ButtonSize, ButtonVariant } from '../types';
 
 export type ButtonElement = 'button';
 
-export interface ButtonProps {
+export interface ButtonProps extends PressEvents, FocusableProps {
   /** Whether the element should receive focus on render. */
   autoFocus?: boolean;
   /** Theme aware style object */
@@ -16,24 +13,15 @@ export interface ButtonProps {
   endIcon?: React.ReactElement;
   /** A URL to link to if as="a". */
   href?: string;
+  /**
+   * Whether to exclude the element from the sequential tab order. If true,
+   * the element will not be focusable via the keyboard by tabbing. This should
+   * be avoided except in rare scenarios where an alternative means of accessing
+   * the element or its functionality via the keyboard is available.
+   */
+  excludeFromTabOrder?: boolean;
   /** Whether the button is disabled. */
   isDisabled?: boolean;
-  /** Handler that is called when the press is released over the target. */
-  onPress?: (e: PressEvent) => void;
-  /** Handler that is called when a press interaction starts. */
-  onPressStart?: (e: PressEvent) => void;
-  /**
-   * Handler that is called when a press interaction ends, either
-   * over the target or when the pointer leaves the target.
-   */
-  onPressEnd?: (e: PressEvent) => void;
-  /** Handler that is called when the press state changes. */
-  onPressChange?: (isPressed: boolean) => void;
-  /**
-   * Handler that is called when a press is released over the target, regardless of
-   * whether it started on the target or not.
-   */
-  onPressUp?: (e: PressEvent) => void;
   /** The relationship between the linked resource and the current page. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel). */
   rel?: string;
   /**
@@ -58,3 +46,5 @@ export interface ButtonProps {
    */
   variant?: ButtonVariant;
 }
+
+export type { FocusableProps, PressEvents };

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { cx, pxToRem } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
-import { Button } from './Button';
+import { Button } from '../Button';
 import type { IconButtonElement, IconButtonProps } from './IconButton.types';
 
 export const IconButton = React.forwardRef((props, forwardedRef) => {

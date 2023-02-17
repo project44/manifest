@@ -3250,6 +3250,7 @@ __metadata:
     "@react-aria/button": ^3.6.2
     "@react-aria/focus": ^3.9.0
     "@react-aria/interactions": ^3.12.0
+    "@react-types/shared": ^3.16.0
     react: ^18.1.0
     react-dom: ^18.1.0
   peerDependencies:
