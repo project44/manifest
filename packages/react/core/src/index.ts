@@ -88,6 +88,7 @@ export * from '@project44-manifest/react-avatar';
 export * from '@project44-manifest/react-button';
 export * from '@project44-manifest/react-card';
 export * from '@project44-manifest/react-css-baseline';
+export * from '@project44-manifest/react-dropdown';
 export * from '@project44-manifest/react-link';
 export * from '@project44-manifest/react-menu';
 export * from '@project44-manifest/react-overlay';
