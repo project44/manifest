@@ -1,5 +1,19 @@
 # @project44-manifest/react-utils
 
+## 0.3.0
+
+### Minor Changes
+
+- [#211](https://github.com/project44/manifest/pull/211)
+  [`089c286`](https://github.com/project44/manifest/commit/089c286124c5895478cd51fa22646aa8493da8c2)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Adding menu component
+
+  Adding navigation component
+
+  Updating provider to support theming
+
+  Updated theme types in the style package
+
 ## 0.2.4
 
 ### Patch Changes

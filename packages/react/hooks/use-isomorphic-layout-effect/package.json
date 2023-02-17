@@ -1,6 +1,6 @@
 {
   "name": "@project44-manifest/use-isomorphic-layout-effect",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Manifest Design System react hook for a ssr safe useEffect",
   "license": "MIT",
   "author": "project44",

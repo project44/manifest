@@ -1,6 +1,6 @@
 {
   "name": "@project44-manifest/react-portal",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Manifest Design System react portal component",
   "license": "MIT",
   "author": "project44",
@@ -41,7 +41,7 @@
     "platform": "browser"
   },
   "dependencies": {
-    "@project44-manifest/use-isomorphic-layout-effect": "^0.0.0"
+    "@project44-manifest/use-isomorphic-layout-effect": "^0.1.0"
   },
   "exports": {
     "./package.json": "./package.json",

@@ -1,5 +1,39 @@
 # @project44-manifest/react-styles
 
+## 1.2.0
+
+### Minor Changes
+
+- [#245](https://github.com/project44/manifest/pull/245)
+  [`27e4e7a`](https://github.com/project44/manifest/commit/27e4e7aa0c2f96300fde25f7f62d7f5b50bf329b)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Updating styles and provider to support
+  theming
+
+* [#211](https://github.com/project44/manifest/pull/211)
+  [`089c286`](https://github.com/project44/manifest/commit/089c286124c5895478cd51fa22646aa8493da8c2)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Adding menu component
+
+  Adding navigation component
+
+  Updating provider to support theming
+
+  Updated theme types in the style package
+
+- [#242](https://github.com/project44/manifest/pull/242)
+  [`a5c80dd`](https://github.com/project44/manifest/commit/a5c80dd546e8732907d00c3ca2e8dc4bb3488aca)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - refactored card styles to shared
+  styles
+
+### Patch Changes
+
+- [#247](https://github.com/project44/manifest/pull/247)
+  [`5a5cb11`](https://github.com/project44/manifest/commit/5a5cb110c69ef3abb44cb705eb816ec8ca04cf0b)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Moving theme logic into app provider
+
+- Updated dependencies
+  [[`089c286`](https://github.com/project44/manifest/commit/089c286124c5895478cd51fa22646aa8493da8c2)]:
+  - @project44-manifest/react-utils@0.3.0
+
 ## 1.1.0
 
 ### Minor Changes

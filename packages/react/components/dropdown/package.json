@@ -1,6 +1,6 @@
 {
   "name": "@project44-manifest/react-dropdown",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Manifest Design System react dropdown component",
   "license": "MIT",
   "author": "project44",
@@ -34,11 +34,11 @@
     "react-dom": "^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@project44-manifest/react-overlay": "^0.0.0",
-    "@project44-manifest/react-popover": "^0.1.2",
-    "@project44-manifest/react-styles": "^1.0.1",
-    "@project44-manifest/react-typography": "^1.0.1",
-    "@project44-manifest/react-utils": "^0.2.3",
+    "@project44-manifest/react-overlay": "^0.1.0",
+    "@project44-manifest/react-popover": "^1.0.0",
+    "@project44-manifest/react-styles": "^1.2.0",
+    "@project44-manifest/react-typography": "^1.0.2",
+    "@project44-manifest/react-utils": "^0.3.0",
     "@react-aria/focus": "^3.10.1",
     "@react-aria/interactions": "^3.13.1",
     "@react-aria/menu": "^3.7.1",
@@ -48,7 +48,7 @@
     "@react-stately/tree": "^3.4.1"
   },
   "devDependencies": {
-    "@project44-manifest/react-button": "^1.0.2",
+    "@project44-manifest/react-button": "^1.1.0",
     "@project44-manifest/react-icons": "^0.1.1",
     "@project44-manifest/react-types": "^0.2.1",
     "@react-types/shared": "^3.16.0",
