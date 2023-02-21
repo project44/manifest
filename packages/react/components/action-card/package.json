@@ -1,6 +1,6 @@
 {
   "name": "@project44-manifest/react-action-card",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "card with call to action",
   "license": "MIT",
   "author": "project44",
@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@project44-manifest/react-icons": "^0.1.1",
-    "@project44-manifest/react-styles": "^1.0.1",
+    "@project44-manifest/react-styles": "^1.3.0",
     "@project44-manifest/react-utils": "^0.2.3"
   },
   "devDependencies": {
