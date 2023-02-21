@@ -19,6 +19,7 @@ export const StyledSideNavigationFooter = styled('button', {
   alignItems: 'center',
   appearance: 'none',
   backgroundColor: 'transparent',
+  border: 'none',
   borderTop: '1px solid $colors$border-primary',
   boxSizing: 'border-box',
   color: '$text-primary',
