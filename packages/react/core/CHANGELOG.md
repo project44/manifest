@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 2.11.1
+
+### Patch Changes
+
+- [#260](https://github.com/project44/manifest/pull/260)
+  [`e69ee64`](https://github.com/project44/manifest/commit/e69ee64dff6099216db16341b6193c90ff4909a1)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Updating provider version
+
 ## 2.11.0
 
 ### Minor Changes
