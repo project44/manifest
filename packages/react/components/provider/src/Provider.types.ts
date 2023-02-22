@@ -1,8 +1,12 @@
-import type { ProviderContentElement, ProviderContentProps } from './ProviderContent';
+import type { CreateTheme, CSS } from '@project44-manifest/react-styles';
 
-export type ProviderElement = ProviderContentElement;
+export type ProviderElement = 'div';
 
-export interface ProviderProps extends ProviderContentProps {
+export interface ProviderProps {
+  /**
+   * Theme aware style object
+   */
+  css?: CSS;
   /**
    * Whether to disable the baseline css.
    *
@@ -16,4 +20,8 @@ export interface ProviderProps extends ProviderContentProps {
    * @default 'en-US'
    */
   locale?: string;
+  /**
+   * The theme of children rendered within the provider
+   */
+  theme?: CreateTheme;
 }
