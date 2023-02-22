@@ -1,5 +1,13 @@
 # @project44-manifest/react-provider
 
+## 0.3.1
+
+### Patch Changes
+
+- [#256](https://github.com/project44/manifest/pull/256)
+  [`08173dc`](https://github.com/project44/manifest/commit/08173dc874277a52855fca6b850576234b1d6fc9)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Useing cssbaseline component in provider
+
 ## 0.3.0
 
 ### Minor Changes
