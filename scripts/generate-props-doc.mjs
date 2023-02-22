@@ -2,6 +2,7 @@ import fs from 'fs-extra';
 import path from 'path';
 import prettier from 'prettier';
 import ts from 'typescript';
+import * as yargs from 'yargs';
 
 function getSourceFileName(symbol) {
   const declarations = symbol.getDeclarations();
@@ -121,7 +122,7 @@ function getTypeExports(code) {
  *
  * https://github.com/chakra-ui/chakra-ui/blob/main/scripts/generate-type-docs.ts
  */
-export async function generatePropsDoc(componentName) {
+async function handler(argv) {
   const srcPath = path.join('src', 'index.ts');
   const tsconfigPath = path.resolve('tsconfig.build.json');
   const fileSource = await fs.readFile(srcPath, 'utf8');
@@ -153,9 +154,17 @@ export async function generatePropsDoc(componentName) {
   const isEmpty = Object.keys(typeExports).length === 0;
 
   if (!isEmpty) {
-    fs.writeFileSync(
-      `docs/${componentName}.docs.json`,
-      prettier.format(JSON.stringify(typeExports), { parser: 'json' }),
-    );
+    fs.writeFileSync('docs.json', prettier.format(JSON.stringify(typeExports), { parser: 'json' }));
   }
 }
+
+await yargs
+  .command({
+    command: '$0',
+    describe: 'Generate a component props doc json file',
+    handler,
+  })
+  .help()
+  .strict(true)
+  .version(false)
+  .parse();
