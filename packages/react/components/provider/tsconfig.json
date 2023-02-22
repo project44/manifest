@@ -22,6 +22,9 @@
       "path": "../button"
     },
     {
+      "path": "../css-baseline"
+    },
+    {
       "path": "./tsconfig.build.json"
     }
   ]
