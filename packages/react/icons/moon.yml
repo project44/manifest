@@ -20,10 +20,10 @@ tasks:
       cache: false
       runInCI: false
 
-  svg-to-react:
+  generate-icons:
     command: 'node'
     args:
-      - '../../scripts/svg-to-react.mjs'
+      - 'scripts/generate-icons.mjs'
     options:
       cache: false
       runInCI: false

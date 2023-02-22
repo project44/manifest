@@ -61,7 +61,8 @@ async function handler() {
 
       const component = await svgToReact(result.data, componentName);
 
-      await fs.ensureDirSync(OUT_DIR);
+      void fs.ensureDirSync(OUT_DIR);
+
       await fs.writeFile(path.join(OUT_DIR, `${componentName}.tsx`), component, 'utf-8');
 
       componentNames.add(componentName);
