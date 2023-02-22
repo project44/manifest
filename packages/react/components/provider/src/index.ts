@@ -1,2 +1,2 @@
-export * from './Provider';
-export * from './Provider.types';
+export { Provider } from './Provider';
+export type { ProviderElement, ProviderProps } from './Provider.types';

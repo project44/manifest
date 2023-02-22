@@ -10,8 +10,8 @@ import type { OverlayTriggerState } from '@react-stately/overlays';
 import { useOverlayTriggerState } from '@react-stately/overlays';
 import type { OverlayTriggerProps } from '@react-types/overlays';
 
-export * from './Overlay';
-export * from './Overlay.types';
+export { Overlay } from './Overlay';
+export type { OverlayProps, Placement } from './Overlay.types';
 export {
   DismissButton,
   OverlayProvider,
