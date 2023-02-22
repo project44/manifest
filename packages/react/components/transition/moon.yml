@@ -12,6 +12,12 @@ tasks:
       - 'esm'
       - 'lib'
 
+  props-doc:
+    args:
+      - '../../../../scripts/propsDoc.mjs'
+    options:
+      mergeArgs: 'replace'
+
 dependsOn:
   - id: 'button'
     scope: 'development'

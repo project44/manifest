@@ -22,11 +22,12 @@ tasks:
   props-doc:
     command: 'node'
     args:
-      - '../../../../scripts/generate-props-doc.mjs'
+      - './scripts/propsDoc.mjs'
     inputs:
       - '@globs(sources)'
       - '@globs(typescript)'
+      - 'package.json'
     outputs:
-      - 'docs'
+      - 'docs.json'
     options:
       runInCI: false

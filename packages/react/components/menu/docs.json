@@ -1,0 +1,104 @@
+{
+  "Menu": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    }
+  ],
+  "MenuGroup": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    },
+    {
+      "name": "defaultExpanded",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the menu group is open by default (uncontrolled)."
+    },
+    {
+      "name": "iconProps",
+      "type": "IconProps",
+      "required": false,
+      "description": "Props pass to the end icon."
+    },
+    {
+      "name": "isExpanded",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the menu group is expanded by default (controlled)."
+    },
+    {
+      "name": "itemProps",
+      "type": "MenuItemProps",
+      "required": false,
+      "description": "Props passed to the root menu item."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "The text for the menu group label."
+    },
+    {
+      "name": "labelProps",
+      "type": "TypographyProps",
+      "required": false,
+      "description": "Props passed to the label component."
+    },
+    {
+      "name": "onExpandedChange",
+      "type": "(isOpen: boolean) => void",
+      "required": false,
+      "description": "Handler that is called when the menu group's open state changes."
+    },
+    {
+      "name": "startIcon",
+      "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Icon added before the button text."
+    }
+  ],
+  "MenuItem": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    },
+    {
+      "name": "endIcon",
+      "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Icon added after the item text."
+    },
+    {
+      "name": "isSelected",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the menu item is selected."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "The text for the menu list label."
+    },
+    {
+      "name": "labelProps",
+      "type": "TypographyProps",
+      "required": false,
+      "description": "Props passed to the label component."
+    },
+    {
+      "name": "startIcon",
+      "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Icon added before the button text."
+    }
+  ]
+}
