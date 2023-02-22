@@ -83,17 +83,18 @@ export const Collapse = React.forwardRef<HTMLElement, CollapseProps>((props, for
       onExit={handleExit}
       onExiting={handleExiting}
     >
-      {(_, childrenProps: Record<string, unknown>) =>
-        React.cloneElement(children, {
-          ...childrenProps,
-          style: {
+      {(_, childrenProps: Record<string, unknown>) => (
+        <div
+          {...childrenProps}
+          style={{
             overflow: 'hidden',
             height: 0,
             ...style,
-            ...(children.props as CollapseProps).style,
-          },
-        })
-      }
+          }}
+        >
+          {children}
+        </div>
+      )}
     </Transition>
   );
 });

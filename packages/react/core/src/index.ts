@@ -63,6 +63,7 @@ export * from '@project44-manifest/react-avatar';
 export * from '@project44-manifest/react-button';
 export * from '@project44-manifest/react-card';
 export * from '@project44-manifest/react-css-baseline';
+export * from '@project44-manifest/react-dialog';
 export * from '@project44-manifest/react-dropdown';
 export * from '@project44-manifest/react-layout';
 export * from '@project44-manifest/react-link';

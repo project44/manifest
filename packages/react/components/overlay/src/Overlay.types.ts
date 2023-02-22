@@ -28,11 +28,21 @@ export interface OverlayProps {
    */
   children: React.ReactNode;
   /**
+   * The ref of the element to append the children to.
+   */
+  containerRef?: React.RefObject<HTMLElement>;
+  /**
    * Whether the overlay is open.
    */
   isOpen?: boolean;
   /**
-   * The ref of the element to append the children to.
+   * Handler fired after the "entered" status is applied. An extra parameter
+   * isAppearing is supplied to indicate if the enter stage is occurring on
+   * the initial mount
    */
-  containerRef?: React.RefObject<HTMLElement>;
+  onEntered?: (node: HTMLElement, isAppearing: boolean) => void;
+  /**
+   * Handler fired after the "exited" status is applied.
+   */
+  onExited?: (node: HTMLElement) => void;
 }

@@ -2,9 +2,9 @@ import type { TransitionProps } from '../Transition.types';
 
 export interface CollapseProps extends Omit<TransitionProps, 'children'> {
   /**
-   * A single child element.
+   * Content of the transitioned element.
    */
-  children: React.ReactElement;
+  children: React.ReactNode;
   /**
    * The animation duration in miliseconds.
    *

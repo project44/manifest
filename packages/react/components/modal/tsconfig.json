@@ -1,0 +1,34 @@
+{
+  "extends": "../../../../tsconfig.options.json",
+  "compilerOptions": {
+    "outDir": "../../../../.moon/cache/types/packages/react/components/modal"
+  },
+  "include": [
+    "src/**/*",
+    "stories/**/*",
+    "tests/**/*"
+  ],
+  "references": [
+    {
+      "path": "../../hooks/use-merged-ref"
+    },
+    {
+      "path": "../../styles"
+    },
+    {
+      "path": "../../utils"
+    },
+    {
+      "path": "../button"
+    },
+    {
+      "path": "../layout"
+    },
+    {
+      "path": "../overlay"
+    },
+    {
+      "path": "./tsconfig.build.json"
+    }
+  ]
+}

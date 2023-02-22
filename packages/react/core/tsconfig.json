@@ -25,6 +25,9 @@
       "path": "../components/css-baseline"
     },
     {
+      "path": "../components/dialog"
+    },
+    {
       "path": "../components/dropdown"
     },
     {
@@ -35,6 +38,9 @@
     },
     {
       "path": "../components/menu"
+    },
+    {
+      "path": "../components/modal"
     },
     {
       "path": "../components/overlay"
