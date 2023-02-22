@@ -3466,7 +3466,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-provider@^0.3.0, @project44-manifest/react-provider@workspace:packages/react/components/provider":
+"@project44-manifest/react-provider@^0.3.0, @project44-manifest/react-provider@^0.3.1, @project44-manifest/react-provider@workspace:packages/react/components/provider":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-provider@workspace:packages/react/components/provider"
   dependencies:
@@ -3652,7 +3652,7 @@ __metadata:
     "@project44-manifest/react-overlay": ^0.1.0
     "@project44-manifest/react-popover": ^1.0.0
     "@project44-manifest/react-portal": ^0.1.0
-    "@project44-manifest/react-provider": ^0.3.0
+    "@project44-manifest/react-provider": ^0.3.1
     "@project44-manifest/react-side-navigation": ^0.1.1
     "@project44-manifest/react-styles": ^1.3.0
     "@project44-manifest/react-tooltip": ^1.1.2
