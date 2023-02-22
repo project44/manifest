@@ -1,12 +1,6 @@
-export type { BoxElement, BoxProps } from './Box';
-export { Box } from './Box';
-export type { ContainerElement, ContainerProps } from './Container';
-export { Container } from './Container';
-export type { FlexElement, FlexProps } from './Flex';
-export { Flex } from './Flex';
-export type { GridElement, GridProps } from './Grid';
-export { Grid } from './Grid';
-export type { GridItemElement, GridItemProps } from './GridItem';
-export { GridItem } from './GridItem';
-export type { StackElement, StackProps } from './Stack';
-export { Stack } from './Stack';
+export * from './Box';
+export * from './Container';
+export * from './Flex';
+export * from './Grid';
+export * from './GridItem';
+export * from './Stack';

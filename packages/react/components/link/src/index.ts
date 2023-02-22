@@ -1,2 +1,2 @@
-export { Link } from './Link';
-export type { LinkProps } from './Link.types';
+export * from './Link';
+export * from './Link.types';
