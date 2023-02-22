@@ -1,5 +1,13 @@
 # @project44-manifest/react-layout
 
+## 1.0.3
+
+### Patch Changes
+
+- [#255](https://github.com/project44/manifest/pull/255)
+  [`1eeaf82`](https://github.com/project44/manifest/commit/1eeaf82ec53c9e229c1dc91d9d88f2dcc6f8e391)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Updating package exports
+
 ## 1.0.2
 
 ### Patch Changes

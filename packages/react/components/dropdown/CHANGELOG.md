@@ -1,5 +1,19 @@
 # @project44-manifest/react-dropdown
 
+## 0.1.1
+
+### Patch Changes
+
+- [#255](https://github.com/project44/manifest/pull/255)
+  [`1eeaf82`](https://github.com/project44/manifest/commit/1eeaf82ec53c9e229c1dc91d9d88f2dcc6f8e391)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Updating package exports
+
+- Updated dependencies
+  [[`1eeaf82`](https://github.com/project44/manifest/commit/1eeaf82ec53c9e229c1dc91d9d88f2dcc6f8e391)]:
+  - @project44-manifest/react-overlay@0.1.1
+  - @project44-manifest/react-popover@1.0.1
+  - @project44-manifest/react-typography@1.0.3
+
 ## 0.1.0
 
 ### Minor Changes
