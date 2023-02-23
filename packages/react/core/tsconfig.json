@@ -28,6 +28,9 @@
       "path": "../components/dropdown"
     },
     {
+      "path": "../components/layout"
+    },
+    {
       "path": "../components/link"
     },
     {

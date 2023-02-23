@@ -24,6 +24,7 @@ dependsOn:
   - 'button'
   - 'css-baseline'
   - 'dropdown'
+  - 'layout'
   - 'link'
   - 'menu'
   - 'overlay'
