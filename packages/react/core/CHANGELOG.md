@@ -1,5 +1,39 @@
 # @manifest/react
 
+## 2.12.0
+
+### Minor Changes
+
+- [#263](https://github.com/project44/manifest/pull/263)
+  [`bce52ff`](https://github.com/project44/manifest/commit/bce52ff8fdf64861131d46ca81351ca8ef986589)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - refactored table to top-level
+  package
+
+### Patch Changes
+
+- [#266](https://github.com/project44/manifest/pull/266)
+  [`d56b8eb`](https://github.com/project44/manifest/commit/d56b8ebf158fab0bfd246510313e257a64854a03)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Exporting layout package from react-core
+
+- Updated dependencies
+  [[`56499ce`](https://github.com/project44/manifest/commit/56499ce5991e543557dd43e4ce40f827fcbf380f),
+  [`d3a0acd`](https://github.com/project44/manifest/commit/d3a0acd1898fffc2c45c39a065794e70ff8bf2d5)]:
+  - @project44-manifest/react-action-card@0.1.1
+  - @project44-manifest/react-avatar@0.2.2
+  - @project44-manifest/react-button@1.1.1
+  - @project44-manifest/react-card@0.2.1
+  - @project44-manifest/react-dropdown@0.1.1
+  - @project44-manifest/react-layout@1.0.3
+  - @project44-manifest/react-link@0.2.2
+  - @project44-manifest/react-menu@0.1.1
+  - @project44-manifest/react-overlay@0.1.1
+  - @project44-manifest/react-popover@1.0.1
+  - @project44-manifest/react-portal@0.1.1
+  - @project44-manifest/react-provider@0.3.2
+  - @project44-manifest/react-side-navigation@0.1.2
+  - @project44-manifest/react-tooltip@1.1.3
+  - @project44-manifest/react-table@1.0.0
+
 ## 2.11.1
 
 ### Patch Changes

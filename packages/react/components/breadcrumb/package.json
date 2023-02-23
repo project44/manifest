@@ -1,6 +1,6 @@
 {
   "name": "@project44-manifest/react-breadcrumb",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "site navigation breadcrumb links",
   "license": "MIT",
   "author": "project44",
@@ -34,9 +34,9 @@
     "react-dom": "^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@project44-manifest/react-icon": "^0.2.1",
+    "@project44-manifest/react-icon": "^0.2.2",
     "@project44-manifest/react-icons": "^0.1.1",
-    "@project44-manifest/react-link": "^0.2.1",
+    "@project44-manifest/react-link": "^0.2.2",
     "@project44-manifest/react-styles": "^1.2.0",
     "@project44-manifest/react-utils": "^0.3.0"
   },
