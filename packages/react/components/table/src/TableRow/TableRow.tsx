@@ -27,7 +27,7 @@ export const TableRow = React.forwardRef((props, forwardedRef) => {
     setIsHovered(true);
   }, [setIsHovered, showHover]);
 
-  const className = cx('manifestui-table-row', classNameProp);
+  const className = cx('manifest-table-row', classNameProp);
 
   return (
     <StyledTableRow
