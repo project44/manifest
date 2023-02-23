@@ -12,5 +12,11 @@ tasks:
       - 'esm'
       - 'lib'
 
+  props-doc:
+    args:
+      - '../../../../scripts/propsDoc.mjs'
+    options:
+      mergeArgs: 'replace'
+
 dependsOn:
   - 'styles'

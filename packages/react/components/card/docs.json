@@ -1,0 +1,34 @@
+{
+  "Card": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    }
+  ],
+  "CardBody": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    }
+  ],
+  "CardFooter": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    }
+  ],
+  "CardHeader": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    }
+  ]
+}

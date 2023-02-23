@@ -1,0 +1,24 @@
+{
+  "Breadcrumb": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    }
+  ],
+  "BreadcrumbItem": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    },
+    {
+      "name": "href",
+      "type": "string",
+      "required": true,
+      "description": "Breadcrumb item link href"
+    }
+  ]
+}

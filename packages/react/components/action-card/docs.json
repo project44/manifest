@@ -1,0 +1,53 @@
+{
+  "ActionCard": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    },
+    {
+      "name": "href",
+      "type": "string",
+      "required": true,
+      "description": "The href link to navigate to when the card is clicked"
+    }
+  ],
+  "ActionCardBody": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    }
+  ],
+  "ActionCardHeader": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    }
+  ],
+  "ActionCardImage": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    },
+    {
+      "name": "size",
+      "type": "\"small\" | \"large\"",
+      "defaultValue": "'large'",
+      "required": false,
+      "description": "The size of the card image"
+    },
+    {
+      "name": "src",
+      "type": "string",
+      "required": true,
+      "description": "The source for the image"
+    }
+  ]
+}

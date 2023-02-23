@@ -1,0 +1,16 @@
+{
+  "Portal": [
+    {
+      "name": "children",
+      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "required": false,
+      "description": "The content of the portal."
+    },
+    {
+      "name": "containerRef",
+      "type": "RefObject<HTMLElement>",
+      "required": false,
+      "description": "The ref of the element to append the children to."
+    }
+  ]
+}

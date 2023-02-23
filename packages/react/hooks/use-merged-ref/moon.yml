@@ -5,6 +5,7 @@ workspace:
   inheritedTasks:
     rename:
       buildPackage: 'build'
+    exclude: ['props-doc']
 
 tasks:
   build:

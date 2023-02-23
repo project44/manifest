@@ -1,0 +1,178 @@
+{
+  "Navigation": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the navigation is open by default (uncontrolled)."
+    },
+    {
+      "name": "isOpen",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the navigation is expanded by default (controlled)."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(isOpen: boolean) => void",
+      "required": false,
+      "description": "Handler that is called when the navigation's open state changes."
+    }
+  ],
+  "SideNavigationContent": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    }
+  ],
+  "SideNavigationFooterMenu": [
+    {
+      "name": "avatarProps",
+      "type": "AvatarProps",
+      "required": true,
+      "description": "Props passed to the avatar component"
+    },
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "The title of the footer menu"
+    },
+    {
+      "name": "subTitle",
+      "type": "string",
+      "required": false,
+      "description": "The subt title of the footer menu"
+    }
+  ],
+  "SideNavigationHeader": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    },
+    {
+      "name": "logo",
+      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "required": false,
+      "description": "The logo of the application."
+    }
+  ],
+  "SideNavigationMenu": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    }
+  ],
+  "SideNavigationMenuGroup": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    },
+    {
+      "name": "defaultExpanded",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the menu group is open by default (uncontrolled)."
+    },
+    {
+      "name": "iconProps",
+      "type": "IconProps",
+      "required": false,
+      "description": "Props pass to the end icon."
+    },
+    {
+      "name": "isExpanded",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the menu group is expanded by default (controlled)."
+    },
+    {
+      "name": "itemProps",
+      "type": "MenuItemProps",
+      "required": false,
+      "description": "Props passed to the root menu item."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "The text for the menu group label."
+    },
+    {
+      "name": "labelProps",
+      "type": "TypographyProps",
+      "required": false,
+      "description": "Props passed to the label component."
+    },
+    {
+      "name": "onExpandedChange",
+      "type": "(isOpen: boolean) => void",
+      "required": false,
+      "description": "Handler that is called when the menu group's open state changes."
+    },
+    {
+      "name": "startIcon",
+      "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Icon added before the button text."
+    }
+  ],
+  "SideNavigationMenuItem": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    },
+    {
+      "name": "endIcon",
+      "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Icon added after the item text."
+    },
+    {
+      "name": "isSelected",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the menu item is selected."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "The text for the menu list label."
+    },
+    {
+      "name": "labelProps",
+      "type": "TypographyProps",
+      "required": false,
+      "description": "Props passed to the label component."
+    },
+    {
+      "name": "startIcon",
+      "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Icon added before the button text."
+    }
+  ]
+}

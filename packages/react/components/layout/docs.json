@@ -1,0 +1,193 @@
+{
+  "Box": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    }
+  ],
+  "Container": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    },
+    {
+      "name": "fixed",
+      "type": "boolean",
+      "defaultValue": "true",
+      "required": false,
+      "description": "Whether the container should adjust its max-width based on the current screen size."
+    },
+    {
+      "name": "maxWidth",
+      "type": "\"small\" | \"large\" | \"medium\" | \"x-large\" | \"x-small\"",
+      "defaultValue": "'large'",
+      "required": false,
+      "description": "The max-width of the container."
+    }
+  ],
+  "Flex": [
+    {
+      "name": "align",
+      "type": "\"baseline\" | \"center\" | \"end\" | \"start\"",
+      "required": false,
+      "description": "The alignment of the container's children."
+    },
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    },
+    {
+      "name": "gap",
+      "type": "\"small\" | \"large\" | \"medium\" | \"x-large\" | \"x-small\"",
+      "required": false,
+      "description": "The gap between rows and columns."
+    },
+    {
+      "name": "justify",
+      "type": "\"center\" | \"end\" | \"start\" | \"around\" | \"between\"",
+      "required": false,
+      "description": "The justification of the container's children."
+    },
+    {
+      "name": "orientation",
+      "type": "\"horizontal\" | \"vertical\"",
+      "required": false,
+      "description": "The orientation of the container's children."
+    },
+    {
+      "name": "wrap",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the container's should wrap when overflown."
+    }
+  ],
+  "Grid": [
+    {
+      "name": "columnGap",
+      "type": "\"small\" | \"large\" | \"medium\" | \"x-large\" | \"x-small\"",
+      "required": false,
+      "description": "The gap between columns"
+    },
+    {
+      "name": "columns",
+      "type": "GridTemplateColumns<0 | (string & {})>",
+      "defaultValue": "'auto'",
+      "required": false,
+      "description": "Shorthand for the gridTemplateColumns css property."
+    },
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    },
+    {
+      "name": "flow",
+      "type": "GridAutoFlow",
+      "required": false,
+      "description": "Shorthand for the gridAutoFlow css property."
+    },
+    {
+      "name": "gap",
+      "type": "\"small\" | \"large\" | \"medium\" | \"x-large\" | \"x-small\"",
+      "required": false,
+      "description": "The gap between rows and columns."
+    },
+    {
+      "name": "rowGap",
+      "type": "\"small\" | \"large\" | \"medium\" | \"x-large\" | \"x-small\"",
+      "required": false,
+      "description": "The gap between rows"
+    },
+    {
+      "name": "rows",
+      "type": "GridTemplateRows<0 | (string & {})>",
+      "defaultValue": "'auto'",
+      "required": false,
+      "description": "Shorthand for the gridTemplateRows css property."
+    }
+  ],
+  "GridItem": [
+    {
+      "name": "area",
+      "type": "GridArea",
+      "required": false,
+      "description": "Shorthand for the gridArea css property."
+    },
+    {
+      "name": "column",
+      "type": "GridColumn",
+      "required": false,
+      "description": "Shorthand for the gridColumn css property."
+    },
+    {
+      "name": "columnEnd",
+      "type": "GridColumnEnd",
+      "required": false,
+      "description": "Shorthand for the gridColumnEnd css property."
+    },
+    {
+      "name": "columnStart",
+      "type": "GridColumnStart",
+      "required": false,
+      "description": "Shorthand for the gridColumnStart css property."
+    },
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    },
+    {
+      "name": "order",
+      "type": "Order",
+      "required": false,
+      "description": "Shorthand for the order css property."
+    },
+    {
+      "name": "row",
+      "type": "GridRow",
+      "required": false,
+      "description": "Shorthand for the gridRow css property."
+    },
+    {
+      "name": "rowEnd",
+      "type": "GridRowEnd",
+      "required": false,
+      "description": "Shorthand for the gridRowEnd css property."
+    },
+    {
+      "name": "rowStart",
+      "type": "GridRowStart",
+      "required": false,
+      "description": "Shorthand for the gridRowStart css property."
+    }
+  ],
+  "Stack": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    },
+    {
+      "name": "gap",
+      "type": "\"small\" | \"large\" | \"medium\" | \"x-large\" | \"x-small\"",
+      "required": false,
+      "description": "The gap between elements in the stack."
+    },
+    {
+      "name": "orientation",
+      "type": "\"horizontal\" | \"vertical\"",
+      "defaultValue": "'vertical'",
+      "required": false,
+      "description": "The layout orientation  of the stack."
+    }
+  ]
+}

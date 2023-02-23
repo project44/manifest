@@ -27,7 +27,7 @@ function getComponentProps(typeExport, sourceFile, checker) {
   );
 
   for (const typeStatement of typeStatements) {
-    const props = {};
+    const props = [];
 
     const type = checker.getTypeAtLocation(typeStatement);
     const properties = type.getProperties();
@@ -65,7 +65,7 @@ function getComponentProps(typeExport, sourceFile, checker) {
           description,
         };
 
-        props[propName] = propRecord;
+        props.push(propRecord);
       }
     }
 
@@ -121,7 +121,7 @@ function getTypeExports(code) {
  *
  * https://github.com/chakra-ui/chakra-ui/blob/main/scripts/generate-type-docs.ts
  */
-export async function generatePropsDoc(componentName) {
+export async function propsDoc() {
   const srcPath = path.join('src', 'index.ts');
   const tsconfigPath = path.resolve('tsconfig.build.json');
   const fileSource = await fs.readFile(srcPath, 'utf8');
@@ -153,9 +153,14 @@ export async function generatePropsDoc(componentName) {
   const isEmpty = Object.keys(typeExports).length === 0;
 
   if (!isEmpty) {
-    fs.writeFileSync(
-      `docs/${componentName}.docs.json`,
-      prettier.format(JSON.stringify(typeExports), { parser: 'json' }),
-    );
+    fs.writeFileSync('docs.json', prettier.format(JSON.stringify(typeExports), { parser: 'json' }));
   }
+}
+
+try {
+  await propsDoc();
+} catch (error) {
+  console.log(error);
+
+  process.exit(1);
 }
