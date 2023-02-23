@@ -4,6 +4,7 @@ import { useFocusRing } from '@react-aria/focus';
 import { useFilter } from '@react-aria/i18n';
 import { useHover } from '@react-aria/interactions';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
+import { Stack } from '@project44-manifest/react-layout';
 import { Overlay, Placement, useOverlayPosition } from '@project44-manifest/react-overlay';
 import { Popover } from '@project44-manifest/react-popover';
 import { cx } from '@project44-manifest/react-styles';
@@ -14,7 +15,6 @@ import type { AriaMultiComboboxProps, StyleProps } from '../../types';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
 import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
-import { Stack } from '../Stack';
 import { Tag } from '../Tag';
 import { useStyles } from './MultiCombobox.styles';
 
