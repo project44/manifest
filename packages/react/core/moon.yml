@@ -27,4 +27,5 @@ dependsOn:
   - 'side-navigation'
   - 'styles'
   - 'system'
+  - 'table'
   - 'tooltip'

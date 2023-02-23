@@ -49,6 +49,9 @@
       "path": "../components/side-navigation"
     },
     {
+      "path": "../components/table"
+    },
+    {
       "path": "../components/tooltip"
     },
     {
