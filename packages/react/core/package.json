@@ -49,6 +49,7 @@
     "@project44-manifest/react-provider": "^0.3.1",
     "@project44-manifest/react-side-navigation": "^0.1.1",
     "@project44-manifest/react-styles": "^1.3.0",
+    "@project44-manifest/react-table": "^0.0.0",
     "@project44-manifest/react-tooltip": "^1.1.2",
     "@project44-manifest/system": "^0.1.5",
     "@radix-ui/react-slot": "^1.0.0",

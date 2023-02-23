@@ -1,0 +1,14 @@
+export { Table } from './Table';
+export type { TableElement, TableProps } from './Table.types';
+export type { TableBodyElement, TableBodyProps } from './TableBody';
+export { TableBody } from './TableBody';
+export type { TableCellElement, TableCellProps } from './TableCell';
+export { TableCell } from './TableCell';
+export type { TableColumnElement, TableColumnProps } from './TableColumn';
+export { TableColumn } from './TableColumn';
+export type { TableFooterElement, TableFooterProps } from './TableFooter';
+export { TableFooter } from './TableFooter';
+export type { TableHeaderElement, TableHeaderProps } from './TableHeader';
+export { TableHeader } from './TableHeader';
+export type { TableRowElement, TableRowProps } from './TableRow';
+export { TableRow } from './TableRow';
