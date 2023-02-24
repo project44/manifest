@@ -1,5 +1,18 @@
 # @project44-manifest/react-overlay
 
+## 0.1.1
+
+### Patch Changes
+
+- [#261](https://github.com/project44/manifest/pull/261)
+  [`56499ce`](https://github.com/project44/manifest/commit/56499ce5991e543557dd43e4ce40f827fcbf380f)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Updating package exports
+
+- Updated dependencies
+  [[`56499ce`](https://github.com/project44/manifest/commit/56499ce5991e543557dd43e4ce40f827fcbf380f)]:
+  - @project44-manifest/react-portal@0.1.1
+  - @project44-manifest/react-transition@1.2.1
+
 ## 0.1.0
 
 ### Minor Changes

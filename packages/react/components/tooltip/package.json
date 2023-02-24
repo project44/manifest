@@ -1,6 +1,6 @@
 {
   "name": "@project44-manifest/react-tooltip",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Manifest Design System react tooltip component",
   "license": "MIT",
   "author": "project44",
@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@project44-manifest/react-styles": "^1.2.0",
-    "@project44-manifest/react-transition": "^1.1.0",
+    "@project44-manifest/react-transition": "^1.2.1",
     "@project44-manifest/react-utils": "^0.3.0",
     "@react-aria/interactions": "^3.12.0",
     "@react-aria/overlays": "^3.12.1",
@@ -43,8 +43,8 @@
     "@react-stately/tooltip": "^3.2.2"
   },
   "devDependencies": {
-    "@project44-manifest/react-button": "^1.1.0",
-    "@project44-manifest/react-layout": "^1.0.2",
+    "@project44-manifest/react-button": "^1.1.1",
+    "@project44-manifest/react-layout": "^1.0.3",
     "@project44-manifest/react-types": "^0.2.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
