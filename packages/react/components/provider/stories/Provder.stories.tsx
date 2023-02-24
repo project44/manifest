@@ -27,8 +27,10 @@ export const Theme: Story<ProviderProps> = () => {
   });
 
   return (
-    <Provider theme={purple}>
-      <Button>Button</Button>
+    <Provider>
+      <div className={purple}>
+        <Button>Button</Button>
+      </div>
     </Provider>
   );
 };
@@ -47,9 +49,11 @@ export const NestedThemes: Story<ProviderProps> = () => {
   return (
     <Provider css={{ backgroundColor: '$background-primary', padding: 64 }}>
       <Button>Button</Button>
-      <Provider css={{ backgroundColor: '$background-primary', padding: 64 }} theme={green}>
-        <Button>Button</Button>
-      </Provider>
+      <div className={green}>
+        <Provider css={{ backgroundColor: '$background-primary', padding: 64 }}>
+          <Button>Button</Button>
+        </Provider>
+      </div>
     </Provider>
   );
 };

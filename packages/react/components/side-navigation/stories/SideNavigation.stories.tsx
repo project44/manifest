@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Dropdown, DropdownItem, DropdownMenu } from '@project44-manifest/react-dropdown';
 import { Carrier, Person, Route, Settings } from '@project44-manifest/react-icons';
-import { Provider } from '@project44-manifest/react-provider';
 import { createTheme } from '@project44-manifest/react-styles';
 import {
   SideNavigation,
@@ -88,39 +87,37 @@ export const Themed = () => {
   });
 
   return (
-    <Provider theme={indigo}>
-      <div style={{ width: 240, height: '40vh' }}>
-        <SideNavigation css={{ height: '100%' }}>
-          <SideNavigationHeader logo={<Logo />} />
-          <SideNavigationContent>
-            <SideNavigationMenu>
-              <SideNavigationMenuItem label="Track" startIcon={<Route />} />
-              <SideNavigationMenuGroup label="Initiate" startIcon={<Carrier />}>
-                <SideNavigationMenuItem label="Shipments" />
-                <SideNavigationMenuItem label="Templates" />
-              </SideNavigationMenuGroup>
-            </SideNavigationMenu>
-            <SideNavigationMenu>
-              <SideNavigationMenuItem label="Settings" startIcon={<Settings />} />
-            </SideNavigationMenu>
-          </SideNavigationContent>
-          <Dropdown placement="right bottom">
-            <SideNavigationFooter
-              avatarProps={{
-                css: { backgroundColor: '$palette-blue-100', color: '$palette-blue-600' },
-                fallback: 'BC',
-              }}
-              subTitle="Brandon Clark"
-              title="Manifest Design"
-            />
-            <DropdownMenu>
-              <DropdownItem key="profile" startIcon={<Person />}>
-                Profile
-              </DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
-        </SideNavigation>
-      </div>
-    </Provider>
+    <div className={indigo} style={{ width: 240, height: '40vh' }}>
+      <SideNavigation css={{ height: '100%' }}>
+        <SideNavigationHeader logo={<Logo />} />
+        <SideNavigationContent>
+          <SideNavigationMenu>
+            <SideNavigationMenuItem label="Track" startIcon={<Route />} />
+            <SideNavigationMenuGroup label="Initiate" startIcon={<Carrier />}>
+              <SideNavigationMenuItem label="Shipments" />
+              <SideNavigationMenuItem label="Templates" />
+            </SideNavigationMenuGroup>
+          </SideNavigationMenu>
+          <SideNavigationMenu>
+            <SideNavigationMenuItem label="Settings" startIcon={<Settings />} />
+          </SideNavigationMenu>
+        </SideNavigationContent>
+        <Dropdown placement="right bottom">
+          <SideNavigationFooter
+            avatarProps={{
+              css: { backgroundColor: '$palette-blue-100', color: '$palette-blue-600' },
+              fallback: 'BC',
+            }}
+            subTitle="Brandon Clark"
+            title="Manifest Design"
+          />
+          <DropdownMenu>
+            <DropdownItem key="profile" startIcon={<Person />}>
+              Profile
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+      </SideNavigation>
+    </div>
   );
 };
