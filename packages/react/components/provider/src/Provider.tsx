@@ -4,17 +4,16 @@ import { ModalProvider, useModalProvider } from '@react-aria/overlays';
 import { CssBaseline } from '@project44-manifest/react-css-baseline';
 import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
-import { ProviderContextProvider, useProvider } from './Provider.context';
 import { StyledProvider } from './Provider.styles';
 import type { ProviderElement, ProviderProps } from './Provider.types';
 
 const ProviderImpl = React.forwardRef((props, forwardedRef) => {
-  const { as, children, className: classNameProp, css, theme, ...other } = props;
+  const { as, children, className: classNameProp, css, ...other } = props;
 
   const { locale, direction } = useLocale();
   const { modalProviderProps } = useModalProvider();
 
-  const classnames = cx('manifest-provider', theme?.className, classNameProp);
+  const classnames = cx('manifest-provider', classNameProp);
 
   return (
     <StyledProvider
@@ -33,43 +32,18 @@ const ProviderImpl = React.forwardRef((props, forwardedRef) => {
 }) as ForwardRefComponent<ProviderElement, ProviderProps>;
 
 export const Provider = React.forwardRef((props, forwardedRef) => {
-  const prevContext = useProvider();
   const { locale: prevLocale } = useLocale();
 
-  const {
-    children: childrenProp,
-    locale = prevLocale,
-    disableCSSBaseline,
-    theme = prevContext?.theme,
-    style,
-    ...other
-  } = props;
-
-  const context = React.useMemo(() => ({ theme }), [theme]);
-
-  let children = childrenProp;
-
-  if (!prevContext || props.locale || theme !== prevContext.theme) {
-    children = (
-      <ProviderImpl
-        {...other}
-        ref={forwardedRef}
-        style={{ isolation: !prevContext ? 'isolate' : undefined, ...style }}
-        theme={theme}
-      >
-        {children}
-      </ProviderImpl>
-    );
-  }
+  const { children, locale = prevLocale, disableCSSBaseline, style, ...other } = props;
 
   return (
-    <ProviderContextProvider value={context}>
-      <I18nProvider locale={locale}>
-        <ModalProvider>
-          {!disableCSSBaseline && <CssBaseline />}
+    <I18nProvider locale={locale}>
+      <ModalProvider>
+        {!disableCSSBaseline && <CssBaseline />}
+        <ProviderImpl {...other} ref={forwardedRef}>
           {children}
-        </ModalProvider>
-      </I18nProvider>
-    </ProviderContextProvider>
+        </ProviderImpl>
+      </ModalProvider>
+    </I18nProvider>
   );
 }) as ForwardRefComponent<ProviderElement, ProviderProps>;

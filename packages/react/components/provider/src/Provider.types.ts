@@ -1,4 +1,4 @@
-import type { CreateTheme, CSS } from '@project44-manifest/react-styles';
+import type { CSS } from '@project44-manifest/react-styles';
 
 export type ProviderElement = 'div';
 
@@ -20,8 +20,4 @@ export interface ProviderProps {
    * @default 'en-US'
    */
   locale?: string;
-  /**
-   * The theme of children rendered within the provider
-   */
-  theme?: CreateTheme;
 }
