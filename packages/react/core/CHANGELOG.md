@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 2.12.1
+
+### Patch Changes
+
+- Updated dependencies
+  [[`d91c2d2`](https://github.com/project44/manifest/commit/d91c2d2549970825e8d45fda4384aed72e2083f5)]:
+  - @project44-manifest/react-provider@0.3.3
+
 ## 2.12.0
 
 ### Minor Changes

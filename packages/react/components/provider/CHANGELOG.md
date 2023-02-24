@@ -1,5 +1,13 @@
 # @project44-manifest/react-provider
 
+## 0.3.3
+
+### Patch Changes
+
+- [#268](https://github.com/project44/manifest/pull/268)
+  [`d91c2d2`](https://github.com/project44/manifest/commit/d91c2d2549970825e8d45fda4384aed72e2083f5)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Reverting theme logic
+
 ## 0.3.2
 
 ### Patch Changes
