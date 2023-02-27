@@ -1,5 +1,13 @@
 # @project44-manifest/react-popover
 
+## 1.0.2
+
+### Patch Changes
+
+- Updated dependencies
+  [[`667ffdb`](https://github.com/project44/manifest/commit/667ffdb8a97c165b2c16cb8dd834db7412855cb2)]:
+  - @project44-manifest/react-overlay@0.1.2
+
 ## 1.0.1
 
 ### Patch Changes

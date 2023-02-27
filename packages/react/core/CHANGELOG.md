@@ -1,5 +1,18 @@
 # @manifest/react
 
+## 2.12.2
+
+### Patch Changes
+
+- Updated dependencies
+  [[`667ffdb`](https://github.com/project44/manifest/commit/667ffdb8a97c165b2c16cb8dd834db7412855cb2)]:
+  - @project44-manifest/react-menu@0.1.2
+  - @project44-manifest/react-overlay@0.1.2
+  - @project44-manifest/react-side-navigation@0.1.3
+  - @project44-manifest/react-dropdown@0.1.2
+  - @project44-manifest/react-popover@1.0.2
+  - @project44-manifest/react-tooltip@1.1.4
+
 ## 2.12.1
 
 ### Patch Changes
