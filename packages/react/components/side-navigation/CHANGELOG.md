@@ -1,5 +1,15 @@
 # @project44-manifest/react-side-navigation
 
+## 0.1.3
+
+### Patch Changes
+
+- Updated dependencies
+  [[`667ffdb`](https://github.com/project44/manifest/commit/667ffdb8a97c165b2c16cb8dd834db7412855cb2)]:
+  - @project44-manifest/react-menu@0.1.2
+  - @project44-manifest/react-transition@1.2.2
+  - @project44-manifest/react-dropdown@0.1.2
+
 ## 0.1.2
 
 ### Patch Changes

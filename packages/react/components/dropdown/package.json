@@ -1,6 +1,6 @@
 {
   "name": "@project44-manifest/react-dropdown",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Manifest Design System react dropdown component",
   "license": "MIT",
   "author": "project44",
@@ -34,8 +34,8 @@
     "react-dom": "^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@project44-manifest/react-overlay": "^0.1.1",
-    "@project44-manifest/react-popover": "^1.0.1",
+    "@project44-manifest/react-overlay": "^0.1.2",
+    "@project44-manifest/react-popover": "^1.0.2",
     "@project44-manifest/react-styles": "^1.2.0",
     "@project44-manifest/react-typography": "^1.0.3",
     "@project44-manifest/react-utils": "^0.3.0",

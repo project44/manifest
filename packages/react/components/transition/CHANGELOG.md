@@ -1,5 +1,14 @@
 # @project44-manifest/react-transition
 
+## 1.2.2
+
+### Patch Changes
+
+- [#271](https://github.com/project44/manifest/pull/271)
+  [`667ffdb`](https://github.com/project44/manifest/commit/667ffdb8a97c165b2c16cb8dd834db7412855cb2)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - [Menu] ensuring MenuGroup displays on
+  isExpanded by default [Overlay] Reverting back to CSSTransition [Transition] export CSSTransition
+
 ## 1.2.1
 
 ### Patch Changes
