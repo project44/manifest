@@ -24,7 +24,7 @@ tasks:
   generate-icons:
     command: 'node'
     args:
-      - '../../../../scripts/generate-icons.mjs'
+      - './scripts/generate-icons.mjs'
     options:
       cache: false
       runInCI: false
