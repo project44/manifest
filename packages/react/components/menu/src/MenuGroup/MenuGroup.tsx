@@ -49,7 +49,7 @@ export const MenuGroup = React.forwardRef((props, forwardedRef) => {
         onClick={handleExpand}
       />
       <MenuGroupProvider value={{ isGrouped: true }}>
-        <Collapse duration={100} in={isExpanded}>
+        <Collapse appear unmountOnExit duration={100} in={isExpanded}>
           <div className="manifest-menu-group__wrapper">{children}</div>
         </Collapse>
       </MenuGroupProvider>
