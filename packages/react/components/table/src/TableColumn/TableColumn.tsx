@@ -18,8 +18,6 @@ export const TableColumn = React.forwardRef((props, forwardedRef) => {
     ...other
   } = props;
 
-  const [isHovered, setIsHovered] = React.useState(false);
-
   const className = cx(classNameProp, {
     'manifest-table-column': true,
     [`manifest-table-column--${align}`]: align,
@@ -31,18 +29,6 @@ export const TableColumn = React.forwardRef((props, forwardedRef) => {
     ariaSort = sortDirection === 'asc' ? 'ascending' : 'descending';
   }
 
-  const handleMouseEnter = React.useCallback(() => {
-    if (!isSortable) return;
-
-    setIsHovered(true);
-  }, [isSortable]);
-
-  const handleMouseLeave = React.useCallback(() => {
-    if (!isSortable) return;
-
-    setIsHovered(false);
-  }, [isSortable]);
-
   return (
     <StyledTableColumn
       {...other}
@@ -53,10 +39,7 @@ export const TableColumn = React.forwardRef((props, forwardedRef) => {
       className={className}
       css={css}
       isActive={isActive}
-      isHovered={isHovered}
       isSortable={isSortable}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
       {children}
       {isSortable && isActive && (

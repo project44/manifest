@@ -14,8 +14,4 @@ export interface TableCellProps {
    * @default 'left'
    */
   align?: Align;
-  /**
-   * Handler called on mouse enter.
-   */
-  onMouseEnter?: (event: React.MouseEvent<HTMLTableCellElement>) => void;
 }

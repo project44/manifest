@@ -1,9 +1,7 @@
 import * as React from 'react';
 
 export interface TableContext {
-  showHover?: boolean;
-  onMouseEnter?: (event: React.MouseEvent) => void;
-  onMouseLeave?: (event: React.MouseEvent) => void;
+  isDense?: boolean;
 }
 
 export const TableContext = React.createContext<TableContext>({});

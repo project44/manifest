@@ -4,6 +4,7 @@ import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
 import { StyledTableCell } from './TableCell.styles';
 import type { TableCellElement, TableCellProps } from './TableCell.types';
+import { useTableContext } from '../Table.context';
 
 export const TableCell = React.forwardRef((props, forwardedRef) => {
   const {
@@ -21,6 +22,8 @@ export const TableCell = React.forwardRef((props, forwardedRef) => {
   const cellRef = React.useRef<HTMLTableCellElement>(null);
 
   const [isOverflown, setIsOverflown] = React.useState(false);
+
+  const { isDense } = useTableContext();
 
   const className = cx('manifest-table-cell', classNameProp, {
     'manifest-table-cell': true,
@@ -43,6 +46,7 @@ export const TableCell = React.forwardRef((props, forwardedRef) => {
       as={as}
       className={className}
       css={css}
+      isDense={isDense}
       title={isOverflown ? title : undefined}
       onMouseEnter={chain(handleMouseEnter, onMouseEnter)}
     >
