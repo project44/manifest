@@ -32,6 +32,7 @@ dependsOn:
   - 'portal'
   - 'provider'
   - 'side-navigation'
+  - 'spinner'
   - 'styles'
   - 'system'
   - 'table'

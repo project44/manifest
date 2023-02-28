@@ -22,6 +22,7 @@ export * from './Clock';
 export * from './Close';
 export * from './Collapsed';
 export * from './CopyAll';
+export * from './Cube';
 export * from './Download';
 export * from './ExclamationPoint';
 export * from './Expanded';

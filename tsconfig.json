@@ -54,6 +54,9 @@
       "path": "packages/react/components/side-navigation"
     },
     {
+      "path": "packages/react/components/spinner"
+    },
+    {
       "path": "packages/react/components/table"
     },
     {
