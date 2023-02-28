@@ -39,4 +39,5 @@ dependsOn:
   - 'styles'
   - 'system'
   - 'table'
+  - 'toast'
   - 'tooltip'
