@@ -40,9 +40,6 @@
       "path": "../components/menu"
     },
     {
-      "path": "../components/modal"
-    },
-    {
       "path": "../components/overlay"
     },
     {
