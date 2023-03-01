@@ -1,6 +1,6 @@
 import * as React from 'react';
+import { useDialog } from '@react-aria/dialog';
 import { Modal } from '@project44-manifest/react-modal';
-import { useDialog } from '@project44-manifest/react-overlay';
 import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
 import { mergeProps } from '@project44-manifest/react-utils';
