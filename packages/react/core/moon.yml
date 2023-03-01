@@ -28,7 +28,6 @@ dependsOn:
   - 'layout'
   - 'link'
   - 'menu'
-  - 'modal'
   - 'overlay'
   - 'popover'
   - 'portal'

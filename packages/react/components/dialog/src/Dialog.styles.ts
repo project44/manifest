@@ -10,6 +10,6 @@ export const StyledDialog = styled('div', {
   maxHeight: `calc(100% - ${pxToRem(52)})`,
   maxWidth: pxToRem(442),
   outline: 0,
-  padding: '$medium',
+  padding: '$large',
   position: 'relative',
 });
