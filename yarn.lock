@@ -3206,11 +3206,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-action-card@^0.1.1, @project44-manifest/react-action-card@workspace:packages/react/components/action-card":
+"@project44-manifest/react-action-card@^0.1.2, @project44-manifest/react-action-card@workspace:packages/react/components/action-card":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-action-card@workspace:packages/react/components/action-card"
   dependencies:
-    "@project44-manifest/react-icons": ^0.1.1
+    "@project44-manifest/react-icons": ^0.2.0
     "@project44-manifest/react-styles": ^1.3.0
     "@project44-manifest/react-types": ^0.2.1
     "@project44-manifest/react-utils": ^0.2.3
@@ -3242,7 +3242,7 @@ __metadata:
   resolution: "@project44-manifest/react-breadcrumb@workspace:packages/react/components/breadcrumb"
   dependencies:
     "@project44-manifest/react-icon": ^0.2.2
-    "@project44-manifest/react-icons": ^0.1.1
+    "@project44-manifest/react-icons": ^0.2.0
     "@project44-manifest/react-link": ^0.2.2
     "@project44-manifest/react-styles": ^1.2.0
     "@project44-manifest/react-types": ^0.2.1
@@ -3309,7 +3309,7 @@ __metadata:
   resolution: "@project44-manifest/react-dropdown@workspace:packages/react/components/dropdown"
   dependencies:
     "@project44-manifest/react-button": ^1.1.1
-    "@project44-manifest/react-icons": ^0.1.1
+    "@project44-manifest/react-icons": ^0.2.0
     "@project44-manifest/react-overlay": ^0.1.2
     "@project44-manifest/react-popover": ^1.0.2
     "@project44-manifest/react-styles": ^1.2.0
@@ -3348,7 +3348,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-icons@^0.1.0, @project44-manifest/react-icons@^0.1.1, @project44-manifest/react-icons@workspace:packages/react/icons":
+"@project44-manifest/react-icons@^0.2.0, @project44-manifest/react-icons@workspace:packages/react/icons":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-icons@workspace:packages/react/icons"
   dependencies:
@@ -3394,13 +3394,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-menu@^0.1.2, @project44-manifest/react-menu@workspace:packages/react/components/menu":
+"@project44-manifest/react-menu@^0.1.3, @project44-manifest/react-menu@workspace:packages/react/components/menu":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-menu@workspace:packages/react/components/menu"
   dependencies:
     "@project44-manifest/react-button": ^1.1.1
     "@project44-manifest/react-icon": ^0.2.2
-    "@project44-manifest/react-icons": ^0.1.0
+    "@project44-manifest/react-icons": ^0.2.0
     "@project44-manifest/react-styles": ^1.2.0
     "@project44-manifest/react-transition": ^1.2.2
     "@project44-manifest/react-types": ^0.2.1
@@ -3484,15 +3484,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-side-navigation@^0.1.3, @project44-manifest/react-side-navigation@workspace:packages/react/components/side-navigation":
+"@project44-manifest/react-side-navigation@^0.1.4, @project44-manifest/react-side-navigation@workspace:packages/react/components/side-navigation":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-side-navigation@workspace:packages/react/components/side-navigation"
   dependencies:
     "@project44-manifest/react-avatar": ^0.2.2
     "@project44-manifest/react-button": ^1.1.1
     "@project44-manifest/react-dropdown": ^0.1.2
-    "@project44-manifest/react-icons": ^0.1.0
-    "@project44-manifest/react-menu": ^0.1.2
+    "@project44-manifest/react-icons": ^0.2.0
+    "@project44-manifest/react-menu": ^0.1.3
     "@project44-manifest/react-provider": ^0.3.3
     "@project44-manifest/react-styles": ^1.3.0
     "@project44-manifest/react-transition": ^1.2.2
@@ -3510,11 +3510,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-spinner@^0.0.0, @project44-manifest/react-spinner@workspace:packages/react/components/spinner":
+"@project44-manifest/react-spinner@^0.1.0, @project44-manifest/react-spinner@workspace:packages/react/components/spinner":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-spinner@workspace:packages/react/components/spinner"
   dependencies:
-    "@project44-manifest/react-icons": ^0.1.1
+    "@project44-manifest/react-icons": ^0.2.0
     "@project44-manifest/react-styles": ^1.0.1
     "@project44-manifest/react-types": ^0.2.1
     "@project44-manifest/react-utils": ^0.2.3
@@ -3544,11 +3544,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-table@^1.0.0, @project44-manifest/react-table@workspace:packages/react/components/table":
+"@project44-manifest/react-table@^1.0.1, @project44-manifest/react-table@workspace:packages/react/components/table":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-table@workspace:packages/react/components/table"
   dependencies:
-    "@project44-manifest/react-icons": ^0.1.1
+    "@project44-manifest/react-icons": ^0.2.0
     "@project44-manifest/react-styles": ^1.0.1
     "@project44-manifest/react-types": ^0.2.1
     "@project44-manifest/react-utils": ^0.2.3
@@ -3668,12 +3668,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@project44-manifest/react@^2.12.2, @project44-manifest/react@workspace:packages/react/core":
+"@project44-manifest/react@^2.13.0, @project44-manifest/react@workspace:packages/react/core":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react@workspace:packages/react/core"
   dependencies:
     "@internationalized/date": ^3.0.0
-    "@project44-manifest/react-action-card": ^0.1.1
+    "@project44-manifest/react-action-card": ^0.1.2
     "@project44-manifest/react-avatar": ^0.2.2
     "@project44-manifest/react-button": ^1.1.1
     "@project44-manifest/react-card": ^0.2.1
@@ -3681,15 +3681,15 @@ __metadata:
     "@project44-manifest/react-dropdown": ^0.1.2
     "@project44-manifest/react-layout": ^1.0.3
     "@project44-manifest/react-link": ^0.2.2
-    "@project44-manifest/react-menu": ^0.1.2
+    "@project44-manifest/react-menu": ^0.1.3
     "@project44-manifest/react-overlay": ^0.1.2
     "@project44-manifest/react-popover": ^1.0.2
     "@project44-manifest/react-portal": ^0.1.1
     "@project44-manifest/react-provider": ^0.3.3
-    "@project44-manifest/react-side-navigation": ^0.1.3
-    "@project44-manifest/react-spinner": ^0.0.0
+    "@project44-manifest/react-side-navigation": ^0.1.4
+    "@project44-manifest/react-spinner": ^0.1.0
     "@project44-manifest/react-styles": ^1.3.0
-    "@project44-manifest/react-table": ^1.0.0
+    "@project44-manifest/react-table": ^1.0.1
     "@project44-manifest/react-tooltip": ^1.1.4
     "@project44-manifest/system": ^0.1.5
     "@radix-ui/react-slot": ^1.0.0
@@ -19375,8 +19375,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "storybook@workspace:apps/storybook"
   dependencies:
-    "@project44-manifest/react": ^2.12.2
-    "@project44-manifest/react-icons": ^0.1.0
+    "@project44-manifest/react": ^2.13.0
+    "@project44-manifest/react-icons": ^0.2.0
     "@storybook/addon-a11y": ^6.5.16
     "@storybook/addon-essentials": ^6.5.16
     "@storybook/addon-links": ^6.5.16
