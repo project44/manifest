@@ -74,3 +74,4 @@ export * from './Wifi';
 export * from './WifiEmpty';
 export * from './WifiError';
 export * from './WifiFilled';
+export * from './WifiQuestion';
