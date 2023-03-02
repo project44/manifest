@@ -1,5 +1,23 @@
 # @manifest/react
 
+## 2.13.0
+
+### Minor Changes
+
+- [#276](https://github.com/project44/manifest/pull/276)
+  [`fce34cd`](https://github.com/project44/manifest/commit/fce34cd2432ee95a64525d568cfa71eb53cbe093)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - add loading spinner
+
+### Patch Changes
+
+- Updated dependencies
+  [[`fce34cd`](https://github.com/project44/manifest/commit/fce34cd2432ee95a64525d568cfa71eb53cbe093)]:
+  - @project44-manifest/react-spinner@0.1.0
+  - @project44-manifest/react-action-card@0.1.2
+  - @project44-manifest/react-menu@0.1.3
+  - @project44-manifest/react-side-navigation@0.1.4
+  - @project44-manifest/react-table@1.0.1
+
 ## 2.12.2
 
 ### Patch Changes
