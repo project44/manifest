@@ -25,6 +25,9 @@
       "path": "../components/css-baseline"
     },
     {
+      "path": "../components/dialog"
+    },
+    {
       "path": "../components/dropdown"
     },
     {

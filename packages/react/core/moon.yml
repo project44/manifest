@@ -23,6 +23,7 @@ dependsOn:
   - 'avatar'
   - 'button'
   - 'css-baseline'
+  - 'dialog'
   - 'dropdown'
   - 'layout'
   - 'link'

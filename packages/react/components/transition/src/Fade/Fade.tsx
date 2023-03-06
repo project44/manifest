@@ -57,18 +57,19 @@ export const Fade = React.forwardRef<HTMLElement, FadeProps>((props, forwardedRe
       onEnter={handleEnter}
       onExit={handleExit}
     >
-      {(status: TransitionStatus, childrenProps: Record<string, unknown>) =>
-        React.cloneElement(children, {
-          ...childrenProps,
-          style: {
+      {(status: TransitionStatus, childrenProps: Record<string, unknown>) => (
+        <div
+          {...childrenProps}
+          style={{
             opacity: 0,
             visibility: status === 'exited' && !inProp ? 'hidden' : undefined,
             ...styles[status],
             ...style,
-            ...(children.props as FadeProps).style,
-          },
-        })
-      }
+          }}
+        >
+          {children}
+        </div>
+      )}
     </Transition>
   );
 });

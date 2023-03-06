@@ -37,7 +37,7 @@ describe('collapse', () => {
   it('should render', () => {
     render(<TestComponent />);
 
-    expect(screen.getByTestId('test')).toHaveStyle('height: 0px');
+    expect(screen.getByTestId('test').parentElement).toHaveStyle('height: 0px');
 
     fireEvent.click(screen.getByText('Toggle'));
 
@@ -45,7 +45,7 @@ describe('collapse', () => {
       jest.runAllTimers();
     });
 
-    expect(screen.getByTestId('test')).toHaveStyle('height: auto');
+    expect(screen.getByTestId('test').parentElement).toHaveStyle('height: auto');
 
     fireEvent.click(screen.getByText('Toggle'));
 
@@ -53,7 +53,7 @@ describe('collapse', () => {
       jest.runAllTimers();
     });
 
-    expect(screen.getByTestId('test')).toHaveStyle('height: 0px');
+    expect(screen.getByTestId('test').parentElement).toHaveStyle('height: 0px');
   });
 
   it('should call each callback', () => {

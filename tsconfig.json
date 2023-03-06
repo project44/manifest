@@ -24,6 +24,9 @@
       "path": "packages/react/components/css-baseline"
     },
     {
+      "path": "packages/react/components/dialog"
+    },
+    {
       "path": "packages/react/components/dropdown"
     },
     {
@@ -37,6 +40,9 @@
     },
     {
       "path": "packages/react/components/menu"
+    },
+    {
+      "path": "packages/react/components/modal"
     },
     {
       "path": "packages/react/components/overlay"
