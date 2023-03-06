@@ -3423,6 +3423,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@project44-manifest/react-icons@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "@project44-manifest/react-icons@npm:0.1.1"
+  dependencies:
+    "@project44-manifest/react-icon": ^0.2.0
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+  checksum: 65430a8c1b1f0be5514d732e1525d98648ed75986b287ac6ba3fc4462794b329bfdea4216727bacf289b3b343964cd24e1af0637d12d4af456adb94849681efd
+  languageName: node
+  linkType: hard
+
 "@project44-manifest/react-layout@^1.0.1, @project44-manifest/react-layout@^1.0.2, @project44-manifest/react-layout@^1.0.3, @project44-manifest/react-layout@workspace:packages/react/components/layout":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-layout@workspace:packages/react/components/layout"
