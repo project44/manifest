@@ -44,7 +44,9 @@ const ModalImpl = React.forwardRef((props, forwardedRef) => {
     overlayRef,
   );
 
-  const className = cx('manifest-modal', classNameProp);
+  const className = cx('manifest-modal', classNameProp, {
+    'manifest-modal--open': isOpen,
+  });
 
   usePreventScroll({ isDisabled: !isOpen });
 
@@ -52,14 +54,15 @@ const ModalImpl = React.forwardRef((props, forwardedRef) => {
 
   return (
     <>
-      <StyledUnderlay {...underlayProps} className="manifest-underlay" />
-      <StyledModalWrapper className="manifest-modal-wrapper">
+      <StyledUnderlay {...underlayProps} className="manifest-underlay" isOpen={isOpen} />
+      <StyledModalWrapper className="manifest-modal-wrapper" isOpen={isOpen}>
         <StyledModal
           {...mergeProps(overlayProps, other)}
           ref={mergedRef}
           as={as}
           className={className}
           css={css}
+          isOpen={isOpen}
         >
           {children}
         </StyledModal>
