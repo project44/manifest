@@ -42,11 +42,6 @@ export const StyledTableColumn = styled('th', {
         color: '$primary',
       },
     },
-    isHovered: {
-      true: {
-        backgroundColor: '$colors$palette-grey-50',
-      },
-    },
     isSortable: {
       true: {
         cursor: 'pointer',

@@ -6,23 +6,11 @@ import { StyledTable } from './Table.styles';
 import type { TableElement, TableProps } from './Table.types';
 
 export const Table = React.forwardRef((props, forwardedRef) => {
-  const {
-    as,
-    children,
-    className: classNameProp,
-    css,
-    showHover = false,
-    onMouseEnter,
-    onMouseLeave,
-    ...other
-  } = props;
+  const { as, children, className: classNameProp, css, isDense = false, ...other } = props;
 
   const className = cx('manifest-table', classNameProp);
 
-  const context = React.useMemo(
-    () => ({ onMouseEnter, onMouseLeave, showHover }),
-    [onMouseEnter, onMouseLeave, showHover],
-  );
+  const context = React.useMemo(() => ({ isDense }), [isDense]);
 
   return (
     <StyledTable {...other} ref={forwardedRef} as={as} className={className} css={css}>

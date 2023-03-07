@@ -98,11 +98,11 @@ Default.decorators = [
   },
 ];
 
-export const RowHover = Template.bind({});
+export const Dense = Template.bind({});
 
-RowHover.decorators = [
+Dense.decorators = [
   () => (
-    <Table showHover>
+    <Table isDense>
       <TableHeader>
         <TableRow>
           <TableColumn>No.</TableColumn>
