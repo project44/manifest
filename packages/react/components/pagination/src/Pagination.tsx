@@ -1,65 +1,14 @@
 import * as React from 'react';
-import { Fragment, useMemo } from 'react';
 import { useControlledState } from '@react-stately/utils';
+import { ChevronLeft, ChevronRight } from '@project44-manifest/react-icons';
 import { cx } from '@project44-manifest/react-styles';
-import { As, createComponent, Options, Props } from '@project44-manifest/system';
-import type { StyleProps } from '../../types';
-import { Icon } from '../Icon';
-import { PaginationItem } from '../PaginationItem';
-import { Typography } from '../Typography';
-import { useStyles } from './Pagination.styles';
+import type { ForwardRefComponent } from '@project44-manifest/react-types';
+import { Typography } from '@project44-manifest/react-typography';
+import { StyledPagination } from './Pagination.styles';
+import type { PaginationElement, PaginationProps } from './Pagination.types';
+import { PaginationItem } from './PaginationItem';
 
 type PageType = number | 'dots' | 'next' | 'previous';
-type PaginationElement = 'div';
-
-export interface PaginationOptions<T extends As = PaginationElement>
-  extends Options<T>,
-    StyleProps {
-  /**
-   * The outer visible boundaries of the pagination list.
-   *
-   * @default 1
-   */
-  boundaries?: number;
-  /**
-   * The default page number (uncontrolled).
-   *
-   * @default 1
-   */
-  defaultPage?: number;
-  /**
-   * The current page (controlled).
-   */
-  page?: number;
-  /**
-   * The number of rows rendered per page.
-   *
-   * @default 10
-   */
-  rowsPerPage?: number;
-  /**
-   * Whether to show page numbers buttons.
-   *
-   * @default true
-   */
-  showPageNumbers?: boolean;
-  /**
-   * The number of pages to display before and after the current selected page.
-   *
-   * @default 1
-   */
-  siblings?: number;
-  /**
-   * The total number of rows in the table.
-   */
-  totalRowCount?: number;
-  /**
-   * Callback executed on page change.
-   */
-  onChange?: (page: number) => void;
-}
-
-export type PaginationProps<T extends As = PaginationElement> = Props<PaginationOptions<T>>;
 
 const range = (start: number, end: number) => {
   const length = end - start + 1;
@@ -67,10 +16,11 @@ const range = (start: number, end: number) => {
   return Array.from({ length }, (_, i) => start + i);
 };
 
-export const Pagination = createComponent<PaginationOptions>((props, forwardedRef) => {
+export const Pagination = React.forwardRef((props, forwardedRef) => {
   const {
-    as: Comp = 'div',
+    as,
     boundaries = 1,
+    children,
     className: classNameProp,
     css,
     defaultPage = 1,
@@ -89,7 +39,7 @@ export const Pagination = createComponent<PaginationOptions>((props, forwardedRe
 
   const pageCount = Math.ceil(totalRowCount / rowsPerPage);
 
-  const pages = useMemo((): PageType[] => {
+  const pages = React.useMemo((): PageType[] => {
     const startRange = range(1, Math.min(boundaries, pageCount));
     const endRange = range(Math.max(pageCount - boundaries + 1, boundaries + 1), pageCount);
 
@@ -135,26 +85,22 @@ export const Pagination = createComponent<PaginationOptions>((props, forwardedRe
   );
   const setPage = (pageNumber: number) => () => void setActivePage(pageNumber);
 
-  const { className } = useStyles({ css });
+  const className = cx('manifest-pagination', classNameProp);
 
   return (
-    <Comp
-      {...other}
-      ref={forwardedRef}
-      className={cx(className, classNameProp, 'manifest-pagination')}
-    >
+    <StyledPagination {...other} ref={forwardedRef} as={as} className={className} css={css}>
       <PaginationItem
         aria-label="go to previous page"
         isDisabled={activePage === 1}
         onPress={previous}
       >
-        <Icon className="manifest-pagination-item__icon--start" icon="keyboard_arrow_left" />
+        <ChevronLeft aria-hidden className="manifest-pagination-item__icon--start" />
         <Typography variant="subtextBold">Previous</Typography>
       </PaginationItem>
 
       {showPageNumbers &&
         pages.map((item, index) => (
-          <Fragment key={item}>
+          <React.Fragment key={item}>
             {item === 'dots' && (
               <div aria-hidden className="manifest-pagination__ellipsis">
                 <Typography variant="subtextBold">...</Typography>
@@ -170,7 +116,7 @@ export const Pagination = createComponent<PaginationOptions>((props, forwardedRe
                 <Typography variant="subtextBold">{item.toString()}</Typography>
               </PaginationItem>
             )}
-          </Fragment>
+          </React.Fragment>
         ))}
 
       <PaginationItem
@@ -179,8 +125,8 @@ export const Pagination = createComponent<PaginationOptions>((props, forwardedRe
         onPress={next}
       >
         <Typography variant="subtextBold">Next</Typography>
-        <Icon className="manifest-pagination-item__icon--end" icon="keyboard_arrow_right" />
+        <ChevronRight aria-hidden className="manifest-pagination-item__icon--end" />
       </PaginationItem>
-    </Comp>
+    </StyledPagination>
   );
-});
+}) as ForwardRefComponent<PaginationElement, PaginationProps>;

@@ -28,6 +28,7 @@ dependsOn:
   - 'link'
   - 'menu'
   - 'overlay'
+  - 'pagination'
   - 'popover'
   - 'portal'
   - 'provider'

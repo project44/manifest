@@ -42,6 +42,9 @@
       "path": "packages/react/components/overlay"
     },
     {
+      "path": "packages/react/components/pagination"
+    },
+    {
       "path": "packages/react/components/popover"
     },
     {
