@@ -43,6 +43,9 @@
       "path": "../components/overlay"
     },
     {
+      "path": "../components/pagination"
+    },
+    {
       "path": "../components/popover"
     },
     {
