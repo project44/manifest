@@ -107,7 +107,6 @@ $button-border-width: $border-width-medium !default;
 $button-box-shadow: $shadow-small !default;
 $button-box-shadow-active: inset 0px 1px 1px rgba(5, 10, 26, 0.25) !default;
 $button-disabled-opacity: 0.57 !default;
-$button-font-family: $font-family-text !default;
 $button-font-size: $font-size-small !default;
 $button-font-weight: $font-weight-semibold !default;
 $button-letter-spacing: $letter-spacing-medium !default;
@@ -122,15 +121,25 @@ $button-padding-y-small: 0.375rem !default;
 $table-background-color: transparent !default;
 $table-border-color: $color-border-primary !default;
 $table-color: $color-text-primary !default;
+$table-border-width: $border-width-small !default;
 $table-hover-background-color: transparent !default;
 $table-hover-color: $table-color !default;
 $table-border-width: $border-width-small !default;
 
-$table-caption-color: $color-text-secondary !default;
+$table-td-color: $color-text-primary !default;
+$table-td-font-size: $subtext-font-size !default;
+$table-td-font-weight: $subtext-font-weight !default;
+$table-td-letter-spacing: $subtext-letter-spacing !default;
+$table-td-line-height: $subtext-line-height !default;
 
-$table-th-font-weight: $font-weight-semibold !default;
+$table-th-color: $color-text-secondary !default;
+$table-th-font-size: $subtext-bold-font-size !default;
+$table-th-font-weight: $subtext-bold-font-weight !default;
+$table-th-letter-spacing: $subtext-bold-letter-spacing !default;
+$table-th-line-height: $subtext-bold-line-height !default;
 
-// Table cell
-$table-cell-padding-y: $space-medium !default;
-$table-cell-padding-x: $space-medium !default;
-$table-cell-vertical-align: top !default;
+$table-td-padding-x: $space-medium !default;
+$table-td-padding-y: 1.25rem !default;
+
+$table-th-padding-x: $space-medium !default;
+$table-th-padding-y: 1.125rem !default;

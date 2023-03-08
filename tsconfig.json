@@ -111,6 +111,9 @@
       "path": "packages/react/utils"
     },
     {
+      "path": "packages/system/css"
+    },
+    {
       "path": "packages/system/theme"
     },
     {
