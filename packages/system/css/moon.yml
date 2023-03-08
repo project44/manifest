@@ -21,7 +21,7 @@ tasks:
       - '--source-map'
       - '--embed-sources'
       - '--no-error-css'
-      - 'scss/:lib/css/'
+      - 'scss/:css/'
 
   postcss:
     command: 'postcss'
@@ -29,8 +29,8 @@ tasks:
       - '--config'
       - 'postcss.config.js'
       - '--replace'
-      - 'lib/css/*.css'
-      - '!lib/css/*.min.css'
+      - 'css/*.css'
+      - '!css/*.min.css'
     deps:
       - '~:sass'
 
@@ -44,12 +44,12 @@ tasks:
       - '--source-map'
       - '--source-map-inline-sources'
       - '--output'
-      - 'lib/css/'
+      - 'css/'
       - '--batch'
       - '--batch-suffix'
       - '.min'
-      - 'lib/css/*.css'
-      - '!lib/css/*.min.css'
+      - 'css/*.css'
+      - '!css/*.min.css'
     deps:
       - '~:postcss'
 
