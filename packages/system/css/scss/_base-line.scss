@@ -45,7 +45,7 @@ a {
 
 b,
 strong {
-  font-weight: $font-weight-semibold;
+  font-weight: var(--font-weight-semibold);
 }
 
 table {

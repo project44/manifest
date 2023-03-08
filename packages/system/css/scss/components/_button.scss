@@ -86,15 +86,15 @@
 }
 
 .#{$prefix}button--primary {
-  --#{$prefix}button-color: #{$color-palette-white};
-  --#{$prefix}button-background-color: #{$color-primary-default};
-  --#{$prefix}button-border-color: #{$color-primary-default};
-  --#{$prefix}button-hover-color: #{$color-palette-white};
-  --#{$prefix}button-hover-background-color: #{$color-primary-hover};
-  --#{$prefix}button-hover-border-color: #{$color-primary-hover};
-  --#{$prefix}button-active-color: #{$color-palette-white};
-  --#{$prefix}button-active-background-color: #{$color-primary-active};
-  --#{$prefix}button-active-border-color: #{$color-primary-active};
+  --#{$prefix}button-color: #{var(--color-palette-white)};
+  --#{$prefix}button-background-color: #{var(--color-primary-default)};
+  --#{$prefix}button-border-color: #{var(--color-primary-default)};
+  --#{$prefix}button-hover-color: #{var(--color-palette-white)};
+  --#{$prefix}button-hover-background-color: #{var(--color-primary-hover)};
+  --#{$prefix}button-hover-border-color: #{var(--color-primary-hover)};
+  --#{$prefix}button-active-color: #{var(--color-palette-white)};
+  --#{$prefix}button-active-background-color: #{var(--color-primary-active)};
+  --#{$prefix}button-active-border-color: #{var(--color-primary-active)};
 
   box-shadow: var(--#{$prefix}button-box-shadow);
 
@@ -104,15 +104,15 @@
 }
 
 .#{$prefix}button--secondary {
-  --#{$prefix}button-color: #{$color-text-primary};
-  --#{$prefix}button-background-color: #{$color-palette-white};
-  --#{$prefix}button-border-color: #{$color-palette-white};
-  --#{$prefix}button-hover-color: #{$color-text-primary};
-  --#{$prefix}button-hover-background-color: #{$color-palette-grey-100};
-  --#{$prefix}button-hover-border-color: #{$color-palette-grey-100};
-  --#{$prefix}button-active-color: #{$color-text-primary};
-  --#{$prefix}button-active-background-color: #{$color-palette-grey-300};
-  --#{$prefix}button-active-border-color: #{$color-palette-grey-300};
+  --#{$prefix}button-color: #{var(--color-text-primary)};
+  --#{$prefix}button-background-color: #{var(--color-palette-white)};
+  --#{$prefix}button-border-color: #{var(--color-palette-white)};
+  --#{$prefix}button-hover-color: #{var(--color-text-primary)};
+  --#{$prefix}button-hover-background-color: #{var(--color-palette-grey-100)};
+  --#{$prefix}button-hover-border-color: #{var(--color-palette-grey-100)};
+  --#{$prefix}button-active-color: #{var(--color-text-primary)};
+  --#{$prefix}button-active-background-color: #{var(--color-palette-grey-300)};
+  --#{$prefix}button-active-border-color: #{var(--color-palette-grey-300)};
 
   box-shadow: var(--#{$prefix}button-box-shadow);
 
@@ -122,60 +122,60 @@
 }
 
 .#{$prefix}button--tertiary {
-  --#{$prefix}button-color: #{$color-text-primary};
+  --#{$prefix}button-color: #{var(--color-text-primary)};
   --#{$prefix}button-background-color: transparent;
   --#{$prefix}button-border-color: transparent;
-  --#{$prefix}button-hover-color: #{$color-text-primary};
-  --#{$prefix}button-hover-background-color: #{$color-palette-grey-100};
-  --#{$prefix}button-hover-border-color: #{$color-palette-grey-100};
-  --#{$prefix}button-active-color: #{$color-text-primary};
-  --#{$prefix}button-active-background-color: #{$color-palette-grey-300};
-  --#{$prefix}button-active-border-color: #{$color-palette-grey-300};
+  --#{$prefix}button-hover-color: #{var(--color-text-primary)};
+  --#{$prefix}button-hover-background-color: #{var(--color-palette-grey-100)};
+  --#{$prefix}button-hover-border-color: #{var(--color-palette-grey-100)};
+  --#{$prefix}button-active-color: #{var(--color-text-primary)};
+  --#{$prefix}button-active-background-color: #{var(--color-palette-grey-300)};
+  --#{$prefix}button-active-border-color: #{var(--color-palette-grey-300)};
 }
 
 .#{$prefix}button--danger {
-  --#{$prefix}button-color: #{$color-palette-white};
-  --#{$prefix}button-background-color: #{$color-palette-red-500};
-  --#{$prefix}button-border-color: #{$color-palette-red-500};
-  --#{$prefix}button-hover-color: #{$color-palette-white};
+  --#{$prefix}button-color: #{var(--color-palette-white)};
+  --#{$prefix}button-background-color: #{var(--color-palette-red-500)};
+  --#{$prefix}button-border-color: #{var(--color-palette-red-500)};
+  --#{$prefix}button-hover-color: #{var(--color-palette-white)};
   --#{$prefix}button-hover-background-color: transparent;
   --#{$prefix}button-hover-border-color: transparent;
-  --#{$prefix}button-active-color: #{$color-palette-white};
+  --#{$prefix}button-active-color: #{var(--color-palette-white)};
   --#{$prefix}button-active-background-color: transparent;
   --#{$prefix}button-active-border-color: transparent;
 
   box-shadow: var(--#{$prefix}button-box-shadow);
 
   &:hover {
-    background: linear-gradient(0deg, rgba(9, 21, 33, 0.15), rgba(9, 21, 33, 0.15)), $color-palette-red-500;
+    background: linear-gradient(0deg, rgba(9, 21, 33, 0.15), rgba(9, 21, 33, 0.15)), var(--color-palette-red-500);
   }
 
   &:active {
-    background: linear-gradient(0deg, rgba(9, 21, 33, 0.3), rgba(9, 21, 33, 0.3)), $color-palette-red-500;
+    background: linear-gradient(0deg, rgba(9, 21, 33, 0.3), rgba(9, 21, 33, 0.3)), var(--color-palette-red-500);
     box-shadow: var(--#{$prefix}button-box-shadow-active);
   }
 }
 
 .#{$prefix}button--brand {
-  --#{$prefix}button-color: #{$color-palette-white};
+  --#{$prefix}button-color: #{var(--color-palette-white)};
   --#{$prefix}button-background-color: transparent;
   --#{$prefix}button-border-color: transparent;
-  --#{$prefix}button-hover-color: #{$color-palette-white};
+  --#{$prefix}button-hover-color: #{var(--color-palette-white)};
   --#{$prefix}button-hover-background-color: transparent;
   --#{$prefix}button-hover-border-color: transparent;
-  --#{$prefix}button-active-color: #{$color-palette-white};
+  --#{$prefix}button-active-color: #{var(--color-palette-white)};
   --#{$prefix}button-active-background-color: transparent;
   --#{$prefix}button-active-border-color: transparent;
 
-  background: $color-brand-gradient;
+  background: var(--color-brand-gradient);
   box-shadow: var(--#{$prefix}button-box-shadow);
 
   &:hover {
-    background: $color-brand-hover;
+    background: var(--color-brand-hover);
   }
 
   &:active {
-    background: $color-brand-active;
+    background: var(--color-brand-active);
     box-shadow: var(--#{$prefix}button-box-shadow-active);
   }
 }
@@ -193,15 +193,15 @@
 .#{$prefix}button__icon {
   align-self: center;
   display: inline-flex;
-  font-size: $font-size-x-large;
+  font-size: var(--font-size-x-large);
   flex-shrink: 0;
 
   &--end {
-    margin-left: $space-small;
+    margin-left: var(--space-small);
   }
 
   &--start {
-    margin-right: $space-small;
+    margin-right: var(--space-small);
   }
 }
 
@@ -210,5 +210,5 @@
 }
 
 .#{$prefix}button__icon--medium {
-  font-size: $font-size-x-large;
+  font-size: var(--font-size-x-large);
 }
