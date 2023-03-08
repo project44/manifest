@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@project44-manifest/react-button": "^1.1.1",
-    "@project44-manifest/react-icons": "^0.1.1",
+    "@project44-manifest/react-icons": "^0.3.0",
     "@project44-manifest/react-styles": "^1.0.1",
     "@project44-manifest/react-typography": "^1.0.3",
     "@project44-manifest/react-utils": "^0.2.3",

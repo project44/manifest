@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {
   BackslashCircleFilled,
-  CheckCirlceFilled,
+  CheckCircleFilled,
   Close,
   ExclamationPointTriangleFilled,
-  InfoCircledFilled,
+  InfoCircleFilled,
 } from '@project44-manifest/react-icons';
 import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
@@ -21,10 +21,10 @@ import {
 import type { ToastElement, ToastProps } from './Toast.types';
 
 const variantIcon: Record<ToastVariant, React.ElementType | null> = {
-  info: InfoCircledFilled,
+  info: InfoCircleFilled,
   warning: ExclamationPointTriangleFilled,
   error: BackslashCircleFilled,
-  success: CheckCirlceFilled,
+  success: CheckCircleFilled,
   default: null,
 };
 
