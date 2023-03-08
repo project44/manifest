@@ -1,0 +1,136 @@
+@import "@project44-manifest/design-tokens/lib/tokens.scss";
+
+// Class and variable prefix
+$prefix: manifest- !default;
+
+// Breakpoints
+$screen-breakpoints: (x-small: 0,
+  small: $size-x-small,
+  medium: $size-small,
+  large: $size-medium,
+  x-large: $size-large,
+  xx-large: $size-x-large,
+) !default;
+
+// Body 
+$body-color: $color-text-primary !default;
+$body-background-color: $color-background-primary !default;
+
+// Link
+$link-color: $color-text-primary !default;
+$link-decoration: underline !default;
+$link-hover-color: $color-text-primary !default;
+
+// Borders
+$border-style: solid !default;
+$border-color: $color-border-primary !default;
+$border-radius-full: $radius-full !default;
+$border-radius-small: $radius-small !default;
+
+// Box shadows
+$box-shadow-large: $shadow-large !default;
+$box-shadow-medium: $shadow-medium !default;
+$box-shadow-small: $shadow-small !default;
+
+// Focus ring
+$focus-ring-color: $color-palette-indigo-200 !default;
+$focus-ring-radius: 4px !default;
+$focus-ring-width: $border-width-medium !default;
+$focus-ring-offset: -4px;
+
+// Typography
+$font-family: $font-family-text !default;
+$font-family-code: $font-family-mono !default;
+
+$base-font-size: 16px;
+
+$display-font-size: $font-size-xx-large !default;
+$display-font-weight: $font-weight-bold !default;
+$display-letter-spacing: $letter-spacing-x-small !default;
+$display-line-height: $line-height-xx-large !default;
+
+$heading-font-size: $font-size-x-large !default;
+$heading-font-weight: $font-weight-bold !default;
+$heading-letter-spacing: $letter-spacing-small !default;
+$heading-line-height: $line-height-x-large !default;
+
+$title-font-size: $font-size-large !default;
+$title-font-weight: $font-weight-bold !default;
+$title-letter-spacing: $letter-spacing-medium !default;
+$title-line-height: $line-height-large !default;
+
+$subtitle-font-size: $font-size-medium !default;
+$subtitle-font-weight: $font-weight-bold !default;
+$subtitle-letter-spacing: $letter-spacing-medium !default;
+$subtitle-line-height: $line-height-medium !default;
+
+$body-font-size: $font-size-medium !default;
+$body-font-weight: $font-weight-regular !default;
+$body-letter-spacing: $letter-spacing-medium !default;
+$body-line-height: $line-height-medium !default;
+
+$body-bold-font-size: $font-size-medium !default;
+$body-bold-font-weight: $font-weight-semibold !default;
+$body-bold-letter-spacing: $letter-spacing-medium !default;
+$body-bold-line-height: $line-height-medium !default;
+
+$subtext-font-size: $font-size-small !default;
+$subtext-font-weight: $font-weight-regular !default;
+$subtext-letter-spacing: $letter-spacing-medium !default;
+$subtext-line-height: $line-height-small !default;
+
+$subtext-bold-font-size: $font-size-small !default;
+$subtext-bold-font-weight: $font-weight-semibold !default;
+$subtext-bold-letter-spacing: $letter-spacing-medium !default;
+$subtext-bold-line-height: $line-height-small !default;
+
+$caption-font-size: $font-size-x-small !default;
+$caption-font-weight: $font-weight-regular !default;
+$caption-letter-spacing: $letter-spacing-medium !default;
+$caption-line-height: $line-height-x-small !default;
+
+$caption-bold-font-size: $font-size-x-small !default;
+$caption-bold-font-weight: $font-weight-semibold !default;
+$caption-bold-letter-spacing: $letter-spacing-medium !default;
+$caption-bold-line-height: $line-height-x-small !default;
+
+// Button
+$button-background-color: transparent !default;
+$button-border-color: transparent !default;
+$button-color: $color-text-primary !default;
+$button-hover-background-color: transparent !default;
+$button-hover-border-color: transparent !default;
+$button-hover-color: transparent !default;
+$button-focus-border-color: $color-palette-indigo-200 !default;
+$button-border-radius: $radius-small !default;
+$button-border-width: $border-width-medium !default;
+$button-box-shadow: $shadow-small !default;
+$button-box-shadow-active: inset 0px 1px 1px rgba(5, 10, 26, 0.25) !default;
+$button-disabled-opacity: 0.57 !default;
+$button-font-family: $font-family-text !default;
+$button-font-size: $font-size-small !default;
+$button-font-weight: $font-weight-semibold !default;
+$button-letter-spacing: $letter-spacing-medium !default;
+$button-line-height: $line-height-small !default;
+
+$button-padding-x: 0.75rem !default;
+$button-padding-x-small: 0.75rem !default;
+$button-padding-y: 0.625rem !default;
+$button-padding-y-small: 0.375rem !default;
+
+// Table
+$table-background-color: transparent !default;
+$table-border-color: $color-border-primary !default;
+$table-color: $color-text-primary !default;
+$table-hover-background-color: transparent !default;
+$table-hover-color: $table-color !default;
+$table-border-width: $border-width-small !default;
+
+$table-caption-color: $color-text-secondary !default;
+
+$table-th-font-weight: $font-weight-semibold !default;
+
+// Table cell
+$table-cell-padding-y: $space-medium !default;
+$table-cell-padding-x: $space-medium !default;
+$table-cell-vertical-align: top !default;

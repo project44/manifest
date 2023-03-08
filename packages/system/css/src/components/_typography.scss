@@ -1,0 +1,86 @@
+.#{$prefix}typography {
+  --#{$prefix}typography-color: #{$body-color};
+  --#{$prefix}typography-font-family: #{$font-family};
+  --#{$prefix}typography-font-size:  #{$body-font-size};
+  --#{$prefix}typography-font-weight: #{$body-font-weight};
+  --#{$prefix}typography-letter-spacing: #{$body-letter-spacing};
+  --#{$prefix}typography-line-height:  #{$body-line-height};
+
+
+  color: var(--#{$prefix}typography-color);
+  font-family: var(--#{$prefix}typography-font-family);
+  font-size: var(--#{$prefix}typography-font-size);
+  font-weight: var(--#{$prefix}typography-font-weight);
+  letter-spacing: var(--#{$prefix}typography-letter-spacing);
+  line-height: var(--#{$prefix}typography-line-height);
+}
+
+.#{$prefix}typography--display {
+  --#{$prefix}typography-font-size:  #{$display-font-size};
+  --#{$prefix}typography-font-weight: #{$display-font-weight};
+  --#{$prefix}typography-letter-spacing: #{$display-letter-spacing};
+  --#{$prefix}typography-line-height:  #{$display-line-height};
+}
+
+.#{$prefix}typography--heading {
+  --#{$prefix}typography-font-size:  #{$heading-font-size};
+  --#{$prefix}typography-font-weight: #{$heading-font-weight};
+  --#{$prefix}typography-letter-spacing: #{$heading-letter-spacing};
+  --#{$prefix}typography-line-height:  #{$heading-line-height};
+}
+
+.#{$prefix}typography--title {
+  --#{$prefix}typography-font-size:  #{$title-font-size};
+  --#{$prefix}typography-font-weight: #{$title-font-weight};
+  --#{$prefix}typography-letter-spacing: #{$title-letter-spacing};
+  --#{$prefix}typography-line-height:  #{$title-line-height};
+}
+
+.#{$prefix}typography--subtitle {
+  --#{$prefix}typography-font-size:  #{$subtitle-font-size};
+  --#{$prefix}typography-font-weight: #{$subtitle-font-weight};
+  --#{$prefix}typography-letter-spacing: #{$subtitle-letter-spacing};
+  --#{$prefix}typography-line-height:  #{$subtitle-line-height};
+}
+
+.#{$prefix}typography--body {
+  --#{$prefix}typography-font-size:  #{$body-font-size};
+  --#{$prefix}typography-font-weight: #{$body-font-weight};
+  --#{$prefix}typography-letter-spacing: #{$body-letter-spacing};
+  --#{$prefix}typography-line-height:  #{$body-line-height};
+}
+
+.#{$prefix}typography--body-bold {
+  --#{$prefix}typography-font-size:  #{$body-bold-font-size};
+  --#{$prefix}typography-font-weight: #{$body-bold-font-weight};
+  --#{$prefix}typography-letter-spacing: #{$body-bold-letter-spacing};
+  --#{$prefix}typography-line-height:  #{$body-bold-line-height};
+}
+
+.#{$prefix}typography--subtext {
+  --#{$prefix}typography-font-size:  #{$subtext-font-size};
+  --#{$prefix}typography-font-weight: #{$subtext-font-weight};
+  --#{$prefix}typography-letter-spacing: #{$subtext-letter-spacing};
+  --#{$prefix}typography-line-height:  #{$subtext-line-height};
+}
+
+.#{$prefix}typography--subtext-bold {
+  --#{$prefix}typography-font-size:  #{$subtext-bold-font-size};
+  --#{$prefix}typography-font-weight: #{$subtext-bold-font-weight};
+  --#{$prefix}typography-letter-spacing: #{$subtext-bold-letter-spacing};
+  --#{$prefix}typography-line-height:  #{$subtext-bold-line-height};
+}
+
+.#{$prefix}typography--caption {
+  --#{$prefix}typography-font-size:  #{$caption-font-size};
+  --#{$prefix}typography-font-weight: #{$caption-font-weight};
+  --#{$prefix}typography-letter-spacing: #{$caption-letter-spacing};
+  --#{$prefix}typography-line-height:  #{$caption-line-height};
+}
+
+.#{$prefix}typography--caption-bold {
+  --#{$prefix}typography-font-size:  #{$caption-bold-font-size};
+  --#{$prefix}typography-font-weight: #{$caption-bold-font-weight};
+  --#{$prefix}typography-letter-spacing: #{$caption-bold-letter-spacing};
+  --#{$prefix}typography-line-height:  #{$caption-bold-line-height};
+}
