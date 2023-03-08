@@ -1,5 +1,14 @@
 # @project44-manifest/react-dropdown
 
+## 0.1.3
+
+### Patch Changes
+
+- Updated dependencies
+  [[`61eeed8`](https://github.com/project44/manifest/commit/61eeed8157b5b024e73e970762803dcd3361bcb5)]:
+  - @project44-manifest/react-overlay@0.1.3
+  - @project44-manifest/react-popover@1.0.3
+
 ## 0.1.2
 
 ### Patch Changes

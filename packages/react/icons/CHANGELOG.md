@@ -1,5 +1,13 @@
 # @project44-manifest/react-icons
 
+## 0.3.0
+
+### Minor Changes
+
+- [#283](https://github.com/project44/manifest/pull/283)
+  [`bcfe223`](https://github.com/project44/manifest/commit/bcfe22313dd5fe0cca692af09f05b4f20575e485)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Adding filled icons
+
 ## 0.2.0
 
 ### Minor Changes

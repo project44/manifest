@@ -1,5 +1,13 @@
 # @project44-manifest/react-tooltip
 
+## 1.1.5
+
+### Patch Changes
+
+- Updated dependencies
+  [[`61eeed8`](https://github.com/project44/manifest/commit/61eeed8157b5b024e73e970762803dcd3361bcb5)]:
+  - @project44-manifest/react-transition@1.2.3
+
 ## 1.1.4
 
 ### Patch Changes

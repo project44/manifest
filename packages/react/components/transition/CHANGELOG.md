@@ -1,5 +1,13 @@
 # @project44-manifest/react-transition
 
+## 1.2.3
+
+### Patch Changes
+
+- [#254](https://github.com/project44/manifest/pull/254)
+  [`61eeed8`](https://github.com/project44/manifest/commit/61eeed8157b5b024e73e970762803dcd3361bcb5)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Adding modal and dialog packages
+
 ## 1.2.2
 
 ### Patch Changes
