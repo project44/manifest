@@ -8,7 +8,7 @@ Get started by including Manifest's CSS via CDN
 
 ```html
 <link
-  href="https://unpkg.com/@project44-manifest/styles@1.1.0/lib/styles.min.css"
+  href="https://unpkg.com/@project44-manifest/css@1.1.0/lib/styles.min.css"
   rel="stylesheet"
   crossorigin="anonymous"
 />

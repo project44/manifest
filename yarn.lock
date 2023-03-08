@@ -3234,6 +3234,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@project44-manifest/css@workspace:packages/system/css":
+  version: 0.0.0-use.local
+  resolution: "@project44-manifest/css@workspace:packages/system/css"
+  dependencies:
+    "@project44-manifest/design-tokens": ^1.2.1
+    autoprefixer: ^10.4.13
+    cssnano: ^5.1.14
+    fs-extra: ^11.1.0
+    postcss: ^8.4.21
+    sass: ^1.58.0
+  languageName: unknown
+  linkType: soft
+
 "@project44-manifest/design-tokens@^2.0.0, @project44-manifest/design-tokens@workspace:packages/system/tokens":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/design-tokens@workspace:packages/system/tokens"
@@ -3864,19 +3877,6 @@ __metadata:
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
-  languageName: unknown
-  linkType: soft
-
-"@project44-manifest/styles@workspace:packages/system/css":
-  version: 0.0.0-use.local
-  resolution: "@project44-manifest/styles@workspace:packages/system/css"
-  dependencies:
-    "@project44-manifest/design-tokens": ^1.2.1
-    autoprefixer: ^10.4.13
-    cssnano: ^5.1.14
-    fs-extra: ^11.1.0
-    postcss: ^8.4.21
-    sass: ^1.58.0
   languageName: unknown
   linkType: soft
 
