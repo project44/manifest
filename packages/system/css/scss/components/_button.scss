@@ -4,10 +4,10 @@
   --#{$prefix}button-color: #{$button-color};
   --#{$prefix}button-hover-background-color: #{$button-hover-background-color};
   --#{$prefix}button-hover-border-color: #{$button-hover-border-color};
-  --#{$prefix}button-hover-color: {$button-hover-color};
-  --#{$prefix}button-active-background-color: {$button-active-background-color};
-  --#{$prefix}button-active-border-color: {$button-active-border-color};
-  --#{$prefix}button-active-color: {$button-active-color};
+  --#{$prefix}button-hover-color: #{$button-hover-color};
+  --#{$prefix}button-active-background-color: #{$button-active-background-color};
+  --#{$prefix}button-active-border-color: #{$button-active-border-color};
+  --#{$prefix}button-active-color: #{$button-active-color};
   --#{$prefix}button-focus-ring-border-color: #{$button-focus-border-color};
   --#{$prefix}button-focus-ring-border-radius: #{$focus-ring-radius};
   --#{$prefix}button-focus-ring-border-width: #{$focus-ring-width};
