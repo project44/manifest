@@ -58,6 +58,9 @@
       "path": "../components/side-navigation"
     },
     {
+      "path": "../components/skeleton"
+    },
+    {
       "path": "../components/spinner"
     },
     {

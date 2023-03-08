@@ -72,6 +72,7 @@ export * from '@project44-manifest/react-popover';
 export * from '@project44-manifest/react-portal';
 export * from '@project44-manifest/react-provider';
 export * from '@project44-manifest/react-side-navigation';
+export * from '@project44-manifest/react-skeleton';
 export * from '@project44-manifest/react-spinner';
 export * from '@project44-manifest/react-styles';
 export * from '@project44-manifest/react-table';
