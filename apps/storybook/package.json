@@ -1,13 +1,13 @@
 {
   "name": "storybook",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": true,
   "scripts": {
     "build": "build-storybook -c .storybook -o ./build"
   },
   "dependencies": {
-    "@project44-manifest/react": "^2.14.0",
-    "@project44-manifest/react-icons": "^0.3.0",
+    "@project44-manifest/react": "^2.14.1",
+    "@project44-manifest/react-icons": "^0.3.1",
     "@storybook/addon-a11y": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
     "@storybook/addon-links": "^6.5.16",

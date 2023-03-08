@@ -1,5 +1,12 @@
 # @project44-manifest/react-overlay
 
+## 0.1.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @project44-manifest/react-transition@1.2.4
+
 ## 0.1.3
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # storybook
 
+## 0.0.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @project44-manifest/react@2.14.1
+  - @project44-manifest/react-icons@0.3.1
+
 ## 0.0.4
 
 ### Patch Changes

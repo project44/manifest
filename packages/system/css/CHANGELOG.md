@@ -1,5 +1,13 @@
 # @project44-manifest/styles
 
+## 0.1.2
+
+### Patch Changes
+
+- [#293](https://github.com/project44/manifest/pull/293)
+  [`9664567`](https://github.com/project44/manifest/commit/9664567c5b2cdff9d3275806504c2f93445f2e41)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Fixing tokens
+
 ## 0.1.1
 
 ### Patch Changes
