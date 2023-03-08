@@ -17,7 +17,6 @@
   --#{$prefix}button-box-shadow: #{$button-box-shadow};
   --#{$prefix}button-box-shadow-active: #{$button-box-shadow-active};
   --#{$prefix}button-disabled-opacity: #{$button-disabled-opacity};
-  --#{$prefix}button-font-family: #{$button-font-family};
   --#{$prefix}button-font-size: #{$button-font-size};
   --#{$prefix}button-font-weight: #{$button-font-weight};
   --#{$prefix}button-letter-spacing: #{$button-letter-spacing};
@@ -35,7 +34,6 @@
   border-radius: var(--#{$prefix}button-border-radius);
   color: var(--#{$prefix}button-color);
 
-  font-family: var(--#{$prefix}button-font-family);
   font-size: var(--#{$prefix}button-font-size);
   font-weight: var(--#{$prefix}button-font-weight);
   letter-spacing: var(--#{$prefix}button-letter-spacing);
@@ -193,18 +191,16 @@
 }
 
 .#{$prefix}button__icon {
-  align-self: 'center';
-  display: 'inline-flex';
+  align-self: center;
+  display: inline-flex;
   font-size: $font-size-x-large;
   flex-shrink: 0;
 
   &--end {
     margin-left: $space-small;
-    margin-right: calc(($space-small) * -1);
   }
 
   &--start {
-    margin-left: calc(($space-small) * -1);
     margin-right: $space-small;
   }
 }

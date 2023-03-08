@@ -1,28 +1,89 @@
 .#{$prefix}table {
   --#{$prefix}table-background-color: #{$table-background-color};
   --#{$prefix}table-border-color: #{$table-border-color};
-  --#{$prefix}table-color: #{$table-color};
+  --#{$prefix}table-border-width: #{$table-border-width};
   --#{$prefix}table-hover-background-color: #{$table-hover-background-color};
   --#{$prefix}table-hover-color: #{$table-hover-color};
+  --#{$prefix}table-td-color: #{$table-td-color};
+  --#{$prefix}table-td-font-size: #{$table-td-font-size};
+  --#{$prefix}table-td-font-weight: #{$table-td-font-weight};
+  --#{$prefix}table-td-letter-spacing: #{$table-td-letter-spacing};
+  --#{$prefix}table-td-line-height: #{$table-td-line-height};
+  --#{$prefix}table-th-color: #{$table-th-color};
+  --#{$prefix}table-th-font-size: #{$table-th-font-size};
+  --#{$prefix}table-th-font-weight: #{$table-th-font-weight};
+  --#{$prefix}table-th-letter-spacing: #{$table-th-letter-spacing};
+  --#{$prefix}table-th-line-height: #{$table-th-line-height};
 
-  border-color: var(--#{$prefix}table-border-color);
-  color: var(--#{$prefix}table-color);
-  vertical-align: $table-cell-vertical-align;
+  display: table;
   width: 100%;
 
-  > :not(caption) > * > * {
-    background-color: var(--#{$prefix}table-background-color);
-    border-bottom-width: $table-border-width;
-    box-shadow: inset 0 0 0 9999px var(--#{$prefix}table-hover-background-color);
-    padding: $table-cell-padding-y $table-cell-padding-x;
+  thead {
+    display: table-header-group;
   }
-}
 
+  tbody {
+    display: table-row-group;
+  }
 
-.#{$prefix}table-hover {
-  > tbody > tr:hover > * {
-    --#{$prefix}table-hover-background-color: var(--color-palette-grey-50);
+  tr {
+    color: inherit;
 
-    color: var(--#{$prefix}table-hover-color);
+    display: table-row;
+    vertical-align: middle;
+
+    outline: 0px;
+    overflow: visible;
+
+    &:hover {
+      td {
+        background-color: var(--#{$prefix}table-hover-background-color);
+        color: var(--#{$prefix}table-hover-color);
+      }
+    }
+  }
+
+  td {
+    border-bottom-color: var(--#{$prefix}table-border-color);
+    border-bottom-style: solid;
+    border-bottom-width: var(--#{$prefix}table-border-width);
+    color: var(--#{$prefix}table-td-color);
+
+    font-size: var(--#{$prefix}table-td-font-size);
+    font-weight: var(--#{$prefix}table-td-font-weight);
+    letter-spacing: var(--#{$prefix}table-td-letter-spacing);
+    line-height: var(--#{$prefix}table-td-line-height);
+
+    display: table-cell;
+    vertical-align: inherit;
+
+    padding: $table-td-padding-y $table-td-padding-x;
+
+    position: relative;
+
+    overflow: hidden;
+    user-select: none;
+    white-space: nowrap;
+  }
+
+  th {
+    border-bottom-color: var(--#{$prefix}table-border-color);
+    border-bottom-style: solid;
+    border-bottom-width: var(--#{$prefix}table-border-width);
+    color: var(--#{$prefix}table-th-color);
+
+    font-size: var(--#{$prefix}table-th-font-size);
+    font-weight: var(--#{$prefix}table-th-font-weight);
+    letter-spacing: var(--#{$prefix}table-th-letter-spacing);
+    line-height: var(--#{$prefix}table-th-line-height);
+
+    display: table-cell;
+    vertical-align: inherit;
+
+    padding: $table-th-padding-y $table-th-padding-x;
+
+    position: relative;
+
+    user-select: none;
   }
 }
