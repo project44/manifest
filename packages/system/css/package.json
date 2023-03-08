@@ -10,19 +10,16 @@
     "system"
   ],
   "sideEffects": false,
-  "main": "./lib/index.js",
-  "module": "./esm/index.js",
-  "types": "./dts/index.d.ts",
+  "sass": "scss/bootstrap.scss",
+  "style": "lib/css/manifest.css",
   "files": [
-    "dts/**/*.d.ts",
-    "esm/**/*.{js,map}",
-    "lib/**/*.{js,map}",
-    "src/**/*.{ts,tsx,json}"
+    "lib/css/*.{css,map}",
+    "scss/**/*.scss"
   ],
   "repository": {
     "type": "git",
     "url": "git@github.com:project-44/manifest.git",
-    "directory": "packages/system/styles"
+    "directory": "packages/system/css"
   },
   "publishConfig": {
     "access": "public"
@@ -32,9 +29,10 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
-    "cssnano": "^5.1.14",
+    "clean-css-cli": "^5.6.2",
     "fs-extra": "^11.1.0",
     "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0",
     "sass": "^1.58.0"
   }
 }

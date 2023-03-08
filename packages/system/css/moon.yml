@@ -7,9 +7,51 @@ workspace:
 
 tasks:
   build:
-    command: 'node'
+    command: 'noop'
+    deps:
+      - '~:minify'
+
+  sass:
+    command: 'sass'
     args:
-      - './scripts/build.mjs'
+      - '--load-path'
+      - '../../../node_modules/'
+      - '--style'
+      - 'expanded'
+      - '--source-map'
+      - '--embed-sources'
+      - '--no-error-css'
+      - 'scss/:lib/css/'
+
+  postcss:
+    command: 'postcss'
+    args:
+      - '--config'
+      - 'postcss.config.js'
+      - '--replace'
+      - 'lib/css/*.css'
+      - '!lib/css/*.min.css'
+    deps:
+      - '~:sass'
+
+  minify:
+    command: 'cleancss'
+    args:
+      - '-O1'
+      - '--format'
+      - 'breakWith=lf'
+      - '--with-rebase'
+      - '--source-map'
+      - '--source-map-inline-sources'
+      - '--output'
+      - 'lib/css/'
+      - '--batch'
+      - '--batch-suffix'
+      - '.min'
+      - 'lib/css/*.css'
+      - '!lib/css/*.min.css'
+    deps:
+      - '~:postcss'
 
 dependsOn:
   - 'tokens'
