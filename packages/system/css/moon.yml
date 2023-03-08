@@ -1,0 +1,15 @@
+type: 'library'
+language: 'typescript'
+
+workspace:
+  inheritedTasks:
+    exclude: ['buildPackage', 'format', 'format-write', 'lint', 'props-doc', 'test', 'typecheck']
+
+tasks:
+  build:
+    command: 'node'
+    args:
+      - './scripts/build.mjs'
+
+dependsOn:
+  - 'tokens'
