@@ -32,7 +32,7 @@ export const StyledToast = styled('div', {
 
   '> .manifest-toast__icon': {
     color: '$$toastVariantColor',
-    marginRight: '$large',
+    marginRight: pxToRem(20),
     size: pxToRem(32),
   },
 
