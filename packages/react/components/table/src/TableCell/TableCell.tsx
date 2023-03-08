@@ -2,9 +2,9 @@ import * as React from 'react';
 import { chain, mergeRefs } from '@react-aria/utils';
 import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
+import { useTableContext } from '../Table.context';
 import { StyledTableCell } from './TableCell.styles';
 import type { TableCellElement, TableCellProps } from './TableCell.types';
-import { useTableContext } from '../Table.context';
 
 export const TableCell = React.forwardRef((props, forwardedRef) => {
   const {
