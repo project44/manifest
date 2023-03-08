@@ -7,9 +7,9 @@ workspace:
 
 tasks:
   build:
-    command: 'node'
-    args:
-      - './scripts/build.mjs'
+    command: 'noop'
+    deps:
+      - '~:minify'
 
   sass:
     command: 'sass'
