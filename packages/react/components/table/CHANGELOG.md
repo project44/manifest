@@ -1,5 +1,19 @@
 # @project44-manifest/react-table
 
+## 1.1.0
+
+### Minor Changes
+
+- [#270](https://github.com/project44/manifest/pull/270)
+  [`76a55f2`](https://github.com/project44/manifest/commit/76a55f20e4bcb27a6819885b608ca6006a60346d)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - updated table styles
+
+### Patch Changes
+
+- Updated dependencies
+  [[`bcfe223`](https://github.com/project44/manifest/commit/bcfe22313dd5fe0cca692af09f05b4f20575e485)]:
+  - @project44-manifest/react-icons@0.3.0
+
 ## 1.0.1
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @project44-manifest/react-action-card
 
+## 0.1.3
+
+### Patch Changes
+
+- Updated dependencies
+  [[`bcfe223`](https://github.com/project44/manifest/commit/bcfe22313dd5fe0cca692af09f05b4f20575e485)]:
+  - @project44-manifest/react-icons@0.3.0
+
 ## 0.1.2
 
 ### Patch Changes

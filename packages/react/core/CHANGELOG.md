@@ -1,5 +1,37 @@
 # @manifest/react
 
+## 2.14.0
+
+### Minor Changes
+
+- [#285](https://github.com/project44/manifest/pull/285)
+  [`5051b30`](https://github.com/project44/manifest/commit/5051b3070c5a440656d6e75c03021e8e8480853b)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - refactored pagination to package
+
+### Patch Changes
+
+- [#254](https://github.com/project44/manifest/pull/254)
+  [`61eeed8`](https://github.com/project44/manifest/commit/61eeed8157b5b024e73e970762803dcd3361bcb5)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Adding modal and dialog packages
+
+- Updated dependencies
+  [[`5051b30`](https://github.com/project44/manifest/commit/5051b3070c5a440656d6e75c03021e8e8480853b),
+  [`18681cf`](https://github.com/project44/manifest/commit/18681cf91ceb2aa67819b6cdb1dffea6c846b5c9),
+  [`76a55f2`](https://github.com/project44/manifest/commit/76a55f20e4bcb27a6819885b608ca6006a60346d),
+  [`61eeed8`](https://github.com/project44/manifest/commit/61eeed8157b5b024e73e970762803dcd3361bcb5)]:
+  - @project44-manifest/react-pagination@0.1.0
+  - @project44-manifest/react-skeleton@0.1.0
+  - @project44-manifest/react-table@1.1.0
+  - @project44-manifest/react-overlay@0.1.3
+  - @project44-manifest/react-dialog@0.0.1
+  - @project44-manifest/react-action-card@0.1.3
+  - @project44-manifest/react-dropdown@0.1.3
+  - @project44-manifest/react-menu@0.1.4
+  - @project44-manifest/react-side-navigation@0.1.5
+  - @project44-manifest/react-spinner@0.1.1
+  - @project44-manifest/react-popover@1.0.3
+  - @project44-manifest/react-tooltip@1.1.5
+
 ## 2.13.0
 
 ### Minor Changes
