@@ -1,5 +1,13 @@
 # @project44-manifest/styles
 
+## 0.1.0
+
+### Minor Changes
+
+- [#288](https://github.com/project44/manifest/pull/288)
+  [`820d6e1`](https://github.com/project44/manifest/commit/820d6e1e69ba89ac95119e081ca76393c4a4308b)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Adding css package
+
 ## 1.1.0
 
 ### Minor Changes
