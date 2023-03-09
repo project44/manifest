@@ -1,5 +1,12 @@
 # @project44-manifest/react-icons
 
+## 0.3.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @project44-manifest/react-icon@0.2.3
+
 ## 0.3.0
 
 ### Minor Changes

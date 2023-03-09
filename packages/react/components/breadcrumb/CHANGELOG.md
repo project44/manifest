@@ -1,5 +1,16 @@
 # @project44-manifest/react-breadcrumb
 
+## 0.1.5
+
+### Patch Changes
+
+- Updated dependencies
+  [[`67ae509`](https://github.com/project44/manifest/commit/67ae5097f56fe269b9925ddb4d17dcac755284c2)]:
+  - @project44-manifest/react-styles@1.4.0
+  - @project44-manifest/react-icon@0.2.3
+  - @project44-manifest/react-link@0.2.3
+  - @project44-manifest/react-icons@0.3.1
+
 ## 0.1.4
 
 ### Patch Changes

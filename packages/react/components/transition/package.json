@@ -1,6 +1,6 @@
 {
   "name": "@project44-manifest/react-transition",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Manifest Design System react transition component",
   "license": "MIT",
   "author": "project44",
@@ -34,12 +34,12 @@
     "react-dom": "^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@project44-manifest/react-styles": "^1.3.0",
+    "@project44-manifest/react-styles": "^1.4.0",
     "@project44-manifest/use-merged-ref": "^0.1.2",
     "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
-    "@project44-manifest/react-button": "^1.1.1",
+    "@project44-manifest/react-button": "^1.1.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },

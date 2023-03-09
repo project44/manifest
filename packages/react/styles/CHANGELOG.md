@@ -1,5 +1,14 @@
 # @project44-manifest/react-styles
 
+## 1.4.0
+
+### Minor Changes
+
+- [#292](https://github.com/project44/manifest/pull/292)
+  [`67ae509`](https://github.com/project44/manifest/commit/67ae5097f56fe269b9925ddb4d17dcac755284c2)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - refactored table styles to shared
+  styles package
+
 ## 1.3.0
 
 ### Minor Changes

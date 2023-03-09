@@ -1,6 +1,6 @@
 {
   "name": "@project44-manifest/react-popover",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Manifest Design System react popover component",
   "license": "MIT",
   "author": "project44",
@@ -34,15 +34,15 @@
     "react-dom": "^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@project44-manifest/react-overlay": "^0.1.3",
-    "@project44-manifest/react-styles": "^1.2.0",
+    "@project44-manifest/react-overlay": "^0.1.4",
+    "@project44-manifest/react-styles": "^1.4.0",
     "@project44-manifest/react-utils": "^0.3.0",
     "@project44-manifest/use-merged-ref": "^0.1.2",
     "@react-aria/focus": "^3.10.1"
   },
   "devDependencies": {
-    "@project44-manifest/react-button": "^1.1.1",
-    "@project44-manifest/react-layout": "^1.0.3",
+    "@project44-manifest/react-button": "^1.1.2",
+    "@project44-manifest/react-layout": "^1.0.4",
     "@project44-manifest/react-types": "^0.2.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"

@@ -1,5 +1,14 @@
 # @project44-manifest/react-provider
 
+## 0.3.4
+
+### Patch Changes
+
+- Updated dependencies
+  [[`67ae509`](https://github.com/project44/manifest/commit/67ae5097f56fe269b9925ddb4d17dcac755284c2)]:
+  - @project44-manifest/react-styles@1.4.0
+  - @project44-manifest/react-css-baseline@0.1.1
+
 ## 0.3.3
 
 ### Patch Changes

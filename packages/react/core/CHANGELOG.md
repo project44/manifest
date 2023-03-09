@@ -1,5 +1,32 @@
 # @manifest/react
 
+## 2.14.1
+
+### Patch Changes
+
+- Updated dependencies
+  [[`67ae509`](https://github.com/project44/manifest/commit/67ae5097f56fe269b9925ddb4d17dcac755284c2)]:
+  - @project44-manifest/react-table@1.2.0
+  - @project44-manifest/react-styles@1.4.0
+  - @project44-manifest/react-action-card@0.1.4
+  - @project44-manifest/react-avatar@0.2.3
+  - @project44-manifest/react-button@1.1.2
+  - @project44-manifest/react-card@0.2.2
+  - @project44-manifest/react-css-baseline@0.1.1
+  - @project44-manifest/react-dialog@0.0.2
+  - @project44-manifest/react-dropdown@0.1.4
+  - @project44-manifest/react-layout@1.0.4
+  - @project44-manifest/react-link@0.2.3
+  - @project44-manifest/react-menu@0.1.5
+  - @project44-manifest/react-pagination@0.1.1
+  - @project44-manifest/react-popover@1.0.4
+  - @project44-manifest/react-provider@0.3.4
+  - @project44-manifest/react-side-navigation@0.1.6
+  - @project44-manifest/react-skeleton@0.1.1
+  - @project44-manifest/react-spinner@0.1.2
+  - @project44-manifest/react-tooltip@1.1.6
+  - @project44-manifest/react-overlay@0.1.4
+
 ## 2.14.0
 
 ### Minor Changes
