@@ -96,13 +96,7 @@ const sidebars = {
       type: 'category',
       label: 'Layout',
       collapsed: false,
-      items: [
-        'components/box',
-        'components/container',
-        'components/flex',
-        'components/grid',
-        'components/stack',
-      ],
+      items: ['components/container', 'components/flex', 'components/grid', 'components/stack'],
     },
     {
       type: 'category',
