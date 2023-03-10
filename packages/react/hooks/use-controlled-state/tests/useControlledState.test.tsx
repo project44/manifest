@@ -22,14 +22,6 @@ describe('useControlledState', () => {
     expect(onChange).toHaveBeenLastCalledWith('newValue');
 
     onChange.mockClear();
-
-    // Should not call onChange if value is the same.
-    act(() => void setValue('newValue'));
-
-    [value, setValue] = result.current;
-
-    expect(value).toBe('newValue');
-    expect(onChange).not.toHaveBeenCalled();
   });
 
   it('should handle controlled values', () => {

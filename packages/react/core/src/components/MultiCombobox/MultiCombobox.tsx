@@ -25,6 +25,10 @@ export interface MultiComboboxOptions<T extends As = MultiComboboxElement>
     AriaMultiComboboxProps<object>,
     StyleProps {
   /**
+   * The ref of the element to append the overlay to.
+   */
+  containerRef?: React.RefObject<HTMLElement>;
+  /**
    * Helper text to append to the form control input element.
    */
   helperText?: React.ReactNode;
@@ -86,6 +90,7 @@ export const MultiCombobox = createComponent<MultiComboboxOptions>((props, forwa
     as: Comp = 'div',
     autoFocus,
     className: classNameProp,
+    containerRef: containerRefProp,
     css,
     isDisabled,
     helperText,
@@ -208,7 +213,7 @@ export const MultiCombobox = createComponent<MultiComboboxOptions>((props, forwa
           <Icon icon="expand_more" />
         </button>
 
-        <Overlay isOpen={state.isOpen && !isDisabled}>
+        <Overlay containerRef={containerRefProp} isOpen={state.isOpen && !isDisabled}>
           <Popover
             {...overlayProps}
             ref={popoverRef}

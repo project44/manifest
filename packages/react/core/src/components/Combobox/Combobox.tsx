@@ -24,6 +24,10 @@ export interface ComboboxOptions<T extends As = ComboboxElement>
     AriaComboBoxProps<object>,
     StyleProps {
   /**
+   * The ref of the element to append the overlay to.
+   */
+  containerRef?: React.RefObject<HTMLElement>;
+  /**
    * Helper text to append to the form control input element.
    */
   helperText?: React.ReactNode;
@@ -83,6 +87,7 @@ export const Combobox = createComponent<ComboboxOptions>((props, forwardedRef) =
     as: Comp = 'div',
     autoFocus,
     className: classNameProp,
+    containerRef: containerRefProp,
     css,
     isDisabled,
     helperText,
@@ -196,7 +201,7 @@ export const Combobox = createComponent<ComboboxOptions>((props, forwardedRef) =
           <Icon icon="expand_more" />
         </button>
 
-        <Overlay isOpen={state.isOpen && !isDisabled}>
+        <Overlay containerRef={containerRefProp} isOpen={state.isOpen && !isDisabled}>
           <Popover
             {...overlayProps}
             ref={popoverRef}

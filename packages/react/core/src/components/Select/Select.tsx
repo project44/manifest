@@ -24,6 +24,10 @@ export interface SelectOptions<T extends As = SelectElement>
     AriaSelectProps<object>,
     StyleProps {
   /**
+   * The ref of the element to append the overlay to.
+   */
+  containerRef?: React.RefObject<HTMLElement>;
+  /**
    * Helper text to append to the form control input element.
    */
   helperText?: React.ReactNode;
@@ -87,6 +91,7 @@ export const Select = createComponent<SelectOptions>((props, forwardedRef) => {
     autoComplete,
     autoFocus,
     className: classNameProp,
+    containerRef: containerRefProp,
     css,
     isDisabled,
     isRequired,
@@ -198,7 +203,7 @@ export const Select = createComponent<SelectOptions>((props, forwardedRef) => {
           <Icon icon="expand_more" />
         </span>
 
-        <Overlay isOpen={state.isOpen && !isDisabled}>
+        <Overlay containerRef={containerRefProp} isOpen={state.isOpen && !isDisabled}>
           <Popover
             {...overlayProps}
             ref={popoverRef}

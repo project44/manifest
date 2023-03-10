@@ -25,6 +25,10 @@ export interface DatePickerOptions<T extends As = DatePickerElement>
     AriaDatePickerProps<DateValue>,
     StyleProps {
   /**
+   * The ref of the element to append the overlay to.
+   */
+  containerRef?: React.RefObject<HTMLElement>;
+  /**
    * Helper text to append to the form control input element.
    */
   helperText?: React.ReactNode;
@@ -86,6 +90,7 @@ export const DatePicker = createComponent<DatePickerOptions>((props, forwardedRe
     as: Comp = 'div',
     autoFocus,
     className: classNameProp,
+    containerRef: containerRefProp,
     css,
     helperText,
     helperTextProps = {},
@@ -196,7 +201,7 @@ export const DatePicker = createComponent<DatePickerOptions>((props, forwardedRe
           <Icon icon="calendar_month" />
         </span>
 
-        <Overlay isOpen={state.isOpen}>
+        <Overlay containerRef={containerRefProp} isOpen={state.isOpen}>
           <Popover
             {...mergeProps(dialogProps, overlayProps)}
             ref={popoverRef}
