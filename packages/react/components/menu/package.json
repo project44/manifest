@@ -1,6 +1,6 @@
 {
   "name": "@project44-manifest/react-menu",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Manifest Design System react menu components.",
   "license": "MIT",
   "author": "project44",
@@ -40,7 +40,7 @@
     "@project44-manifest/react-transition": "^1.2.4",
     "@project44-manifest/react-typography": "^1.0.4",
     "@project44-manifest/react-utils": "^0.3.0",
-    "@project44-manifest/use-controlled-state": "^0.1.0"
+    "@project44-manifest/use-controlled-state": "^0.1.1"
   },
   "devDependencies": {
     "@project44-manifest/react-icon": "^0.2.3",

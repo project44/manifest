@@ -1,5 +1,14 @@
 # @project44-manifest/react-side-navigation
 
+## 0.1.7
+
+### Patch Changes
+
+- Updated dependencies
+  [[`ecc0cae`](https://github.com/project44/manifest/commit/ecc0caefd5b2ace1d34184bdf38d98d38906f761)]:
+  - @project44-manifest/use-controlled-state@0.1.1
+  - @project44-manifest/react-menu@0.1.6
+
 ## 0.1.6
 
 ### Patch Changes
