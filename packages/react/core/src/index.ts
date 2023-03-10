@@ -59,6 +59,7 @@ export * from './state';
 export * from '@project44-manifest/react-action-card';
 export * from '@project44-manifest/react-avatar';
 export * from '@project44-manifest/react-button';
+export * from '@project44-manifest/react-breadcrumb';
 export * from '@project44-manifest/react-card';
 export * from '@project44-manifest/react-css-baseline';
 export * from '@project44-manifest/react-dialog';

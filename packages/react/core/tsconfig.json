@@ -16,6 +16,9 @@
       "path": "../components/avatar"
     },
     {
+      "path": "../components/breadcrumb"
+    },
+    {
       "path": "../components/button"
     },
     {
