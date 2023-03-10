@@ -3,11 +3,9 @@ title: IconButton
 description: Clickable elements that communicate actions that users can take.
 ---
 
-```jsx
-<IconButton>
-  <Icon icon="add" />
-</IconButton>
-```
+Clickable elements that communicate actions that users can take.
+
+<Demo fileName="icon-button.tsx" />
 
 ## Examples
 
@@ -15,62 +13,38 @@ description: Clickable elements that communicate actions that users can take.
 
 Primary buttons are used to indicate the highest priority action a user can perform.
 
-```jsx
-<IconButton variant="primary">
-  <Icon icon="add" />
-</IconButton>
-```
+<Demo fileName="icon-button-primary.tsx" />
 
 ### Secondary
 
 Secondary buttons are second in priority to primary buttons and are used for important actions that
 aren't the primary action.
 
-```jsx
-<IconButton variant="secondary">
-  <Icon icon="add" />
-</IconButton>
-```
+<Demo fileName="icon-button-secondary.tsx" />
 
 ### Tertiary
 
 Tertiary buttons are the lowest priority actions and should be used for less commonly used actions.
 
-```jsx
-<IconButton variant="tertiary">
-  <Icon icon="add" />
-</IconButton>
-```
+<Demo fileName="icon-button-tertiary.tsx" />
 
 ### Destructive
 
 Destructive buttons are used to indicate an action that is destructive and cannot be undone.
 
-```jsx
-<IconButton variant="danger">
-  <Icon icon="add" />
-</IconButton>
-```
+<Demo fileName="icon-button-danger.tsx" />
 
 ### Brand
 
 Brand buttons are used for project44 specific marketing moments and should be use sparingly.
 
-```jsx
-<IconButton variant="brand">
-  <Icon icon="add" />
-</IconButton>
-```
+<Demo fileName="icon-button-brand.tsx" />
 
 ### Small
 
-Small icon buttons are used when vertical spacing is limited.
+Small buttons are used when vertical spacing is limited.
 
-```jsx
-<IconButton size="small">
-  <Icon icon="add" />
-</IconButton>
-```
+<Demo fileName="icon-button-small.tsx" />
 
 ### Disabled State
 
@@ -96,16 +70,6 @@ Set the `isDisabled` prop to prevent a user from pressing a button.
 </Stack>
 ```
 
-## API
+## Props
 
-### Import
-
-```js
-import { Button } from '@project44-manifest/react';
-```
-
-### Props
-
-Props of the native element are also available.
-
-<PropsTable of="Button" />
+<PropsTable component="IconButton" />
