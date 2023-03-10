@@ -1,5 +1,13 @@
 # storybook
 
+## 0.0.7
+
+### Patch Changes
+
+- Updated dependencies
+  [[`3039b8e`](https://github.com/project44/manifest/commit/3039b8e12a5652c9bb928d379d58c84fb9039edc)]:
+  - @project44-manifest/react@2.16.0
+
 ## 0.0.6
 
 ### Patch Changes
