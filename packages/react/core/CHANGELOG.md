@@ -1,5 +1,20 @@
 # @manifest/react
 
+## 2.15.0
+
+### Minor Changes
+
+- [#298](https://github.com/project44/manifest/pull/298)
+  [`ecc0cae`](https://github.com/project44/manifest/commit/ecc0caefd5b2ace1d34184bdf38d98d38906f761)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - [react] adding container ref support to
+  overlay elements [use-controlled-state] updating state to change on root state change
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @project44-manifest/react-menu@0.1.6
+  - @project44-manifest/react-side-navigation@0.1.7
+
 ## 2.14.1
 
 ### Patch Changes
