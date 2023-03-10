@@ -67,6 +67,9 @@
       "path": "../components/table"
     },
     {
+      "path": "../components/toast"
+    },
+    {
       "path": "../components/tooltip"
     },
     {

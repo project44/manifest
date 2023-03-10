@@ -72,6 +72,9 @@
       "path": "packages/react/components/table"
     },
     {
+      "path": "packages/react/components/toast"
+    },
+    {
       "path": "packages/react/components/tooltip"
     },
     {

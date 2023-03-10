@@ -3275,7 +3275,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-button@^1.1.2, @project44-manifest/react-button@workspace:packages/react/components/button":
+"@project44-manifest/react-button@^1.1.1, @project44-manifest/react-button@^1.1.2, @project44-manifest/react-button@workspace:packages/react/components/button":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-button@workspace:packages/react/components/button"
   dependencies:
@@ -3391,7 +3391,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-icons@^0.3.1, @project44-manifest/react-icons@workspace:packages/react/icons":
+"@project44-manifest/react-icons@^0.3.0, @project44-manifest/react-icons@^0.3.1, @project44-manifest/react-icons@workspace:packages/react/icons":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-icons@workspace:packages/react/icons"
   dependencies:
@@ -3626,7 +3626,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-styles@^1.4.0, @project44-manifest/react-styles@workspace:packages/react/styles":
+"@project44-manifest/react-styles@^1.0.1, @project44-manifest/react-styles@^1.4.0, @project44-manifest/react-styles@workspace:packages/react/styles":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-styles@workspace:packages/react/styles"
   dependencies:
@@ -3655,6 +3655,25 @@ __metadata:
     "@react-aria/utils": ^3.14.2
     react: ^18.1.0
     react-dom: ^18.1.0
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+  languageName: unknown
+  linkType: soft
+
+"@project44-manifest/react-toast@^0.0.0, @project44-manifest/react-toast@workspace:packages/react/components/toast":
+  version: 0.0.0-use.local
+  resolution: "@project44-manifest/react-toast@workspace:packages/react/components/toast"
+  dependencies:
+    "@project44-manifest/react-button": ^1.1.1
+    "@project44-manifest/react-icons": ^0.3.0
+    "@project44-manifest/react-styles": ^1.0.1
+    "@project44-manifest/react-types": ^0.2.1
+    "@project44-manifest/react-typography": ^1.0.3
+    "@project44-manifest/react-utils": ^0.2.3
+    react: ^18.1.0
+    react-dom: ^18.1.0
+    react-hot-toast: ^2.4.0
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
@@ -3711,7 +3730,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-typography@^1.0.4, @project44-manifest/react-typography@workspace:packages/react/components/typography":
+"@project44-manifest/react-typography@^1.0.3, @project44-manifest/react-typography@^1.0.4, @project44-manifest/react-typography@workspace:packages/react/components/typography":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-typography@workspace:packages/react/components/typography"
   dependencies:
@@ -3793,6 +3812,7 @@ __metadata:
     "@project44-manifest/react-spinner": ^0.1.2
     "@project44-manifest/react-styles": ^1.4.0
     "@project44-manifest/react-table": ^1.2.0
+    "@project44-manifest/react-toast": ^0.0.0
     "@project44-manifest/react-tooltip": ^1.1.6
     "@project44-manifest/system": ^0.1.5
     "@radix-ui/react-slot": ^1.0.0
@@ -12659,6 +12679,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"goober@npm:^2.1.10":
+  version: 2.1.12
+  resolution: "goober@npm:2.1.12"
+  peerDependencies:
+    csstype: ^3.0.10
+  checksum: 5945cbe92413031b8859d9087d125a744149e237c8bcf6c15db1998ee3d1b6d680ee4a47dd420f95684b76f72eebc34e98155e8a1cb06748d00cbdc05ede186d
+  languageName: node
+  linkType: hard
+
 "gopd@npm:^1.0.1":
   version: 1.0.1
   resolution: "gopd@npm:1.0.1"
@@ -18074,6 +18103,18 @@ __metadata:
     react: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1
     react-dom: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1
   checksum: 42bcd4423f12e9ee21b2d3f0c2a28805ff4953bd82b6be4c1f5b5f9a371115aafa36a6f3d82726d43b4912179b79e99550c2b9a772c7fe6a5cd8f7e93ff34ceb
+  languageName: node
+  linkType: hard
+
+"react-hot-toast@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "react-hot-toast@npm:2.4.0"
+  dependencies:
+    goober: ^2.1.10
+  peerDependencies:
+    react: ">=16"
+    react-dom: ">=16"
+  checksum: 910214496d6821af8e643c5f7087eff6c76f1395756f3d6cf1fc07a599c582c443cbb5a4cadfc58205acf0845b77a2a10a4ca49b385e772b72edc57dfd38d016
   languageName: node
   linkType: hard
 

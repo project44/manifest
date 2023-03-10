@@ -76,5 +76,6 @@ export * from '@project44-manifest/react-skeleton';
 export * from '@project44-manifest/react-spinner';
 export * from '@project44-manifest/react-styles';
 export * from '@project44-manifest/react-table';
+export * from '@project44-manifest/react-toast';
 export * from '@project44-manifest/react-tooltip';
 export { useAsyncList, useTreeData } from '@react-stately/data';
