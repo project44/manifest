@@ -4079,7 +4079,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-breadcrumb@workspace:packages/react/components/breadcrumb":
+"@project44-manifest/react-breadcrumb@^0.1.5, @project44-manifest/react-breadcrumb@workspace:packages/react/components/breadcrumb":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-breadcrumb@workspace:packages/react/components/breadcrumb"
   dependencies:
@@ -4628,6 +4628,7 @@ __metadata:
     "@internationalized/date": ^3.0.0
     "@project44-manifest/react-action-card": ^0.1.4
     "@project44-manifest/react-avatar": ^0.2.3
+    "@project44-manifest/react-breadcrumb": ^0.1.5
     "@project44-manifest/react-button": ^1.1.2
     "@project44-manifest/react-card": ^0.2.2
     "@project44-manifest/react-css-baseline": ^0.1.1

@@ -101,6 +101,12 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Navigation',
+      collapsed: false,
+      items: ['components/breadcrumb', 'components/pagination'],
+    },
+    {
+      type: 'category',
       label: 'Overlays',
       collapsed: false,
       items: ['components/dropdown', 'components/popover', 'components/tooltip'],

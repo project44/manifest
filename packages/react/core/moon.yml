@@ -21,6 +21,7 @@ tasks:
 dependsOn:
   - 'action-card'
   - 'avatar'
+  - 'breadcrumb'
   - 'button'
   - 'css-baseline'
   - 'dialog'
