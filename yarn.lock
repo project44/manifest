@@ -3661,7 +3661,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-toast@^0.1.0, @project44-manifest/react-toast@workspace:packages/react/components/toast":
+"@project44-manifest/react-toast@^0.0.0, @project44-manifest/react-toast@workspace:packages/react/components/toast":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-toast@workspace:packages/react/components/toast"
   dependencies:
@@ -3787,7 +3787,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@project44-manifest/react@^2.16.0, @project44-manifest/react@workspace:packages/react/core":
+"@project44-manifest/react@^2.15.0, @project44-manifest/react@workspace:packages/react/core":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react@workspace:packages/react/core"
   dependencies:
@@ -3812,7 +3812,7 @@ __metadata:
     "@project44-manifest/react-spinner": ^0.1.2
     "@project44-manifest/react-styles": ^1.4.0
     "@project44-manifest/react-table": ^1.2.0
-    "@project44-manifest/react-toast": ^0.1.0
+    "@project44-manifest/react-toast": ^0.0.0
     "@project44-manifest/react-tooltip": ^1.1.6
     "@project44-manifest/system": ^0.1.5
     "@radix-ui/react-slot": ^1.0.0
@@ -19698,7 +19698,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "storybook@workspace:apps/storybook"
   dependencies:
-    "@project44-manifest/react": ^2.16.0
+    "@project44-manifest/react": ^2.15.0
     "@project44-manifest/react-icons": ^0.3.1
     "@storybook/addon-a11y": ^6.5.16
     "@storybook/addon-essentials": ^6.5.16
