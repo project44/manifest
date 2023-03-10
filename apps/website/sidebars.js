@@ -63,6 +63,7 @@ const sidebars = {
         'components/avatar',
         'components/card',
         'components/separator',
+        'components/skeleton',
         'components/typography',
       ],
     },
