@@ -1,58 +1,20 @@
 ---
-title: Grid
-description: A polymorphic component used for quickly creating stacked layouts.
+title: Stack
+description: A layout container for created stacked layouts.
 ---
 
-```jsx
-<Stack gap="medium">
-  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-</Stack>
-```
+A layout container for created stacked layouts.
+
+<Demo fileName="stack.tsx" />
 
 ## Examples
 
-### Orientation
+### Horizontal
 
-Set the `orientation` prop to adjust the layout of the stacks's children.
+Stack elements horizontally using the `orientation` prop set to `horizontal`.
 
-```jsx
-<Stack gap="medium" orientation="horizontal">
-  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-</Stack>
-```
+<Demo fileName="stack-horizontal.tsx" />
 
-### Gap
+## Props
 
-Set the `gap` prop to control the spacing between the stacks's children.
-
-```jsx
-<Stack gap="small" orientation="horizontal">
-  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-</Stack>
-```
-
-## API
-
-### Import
-
-```js
-import { Stack } from '@project44-manifest/react';
-```
-
-### Props
-
-All native element props are also available.
-
-<PropsTable of="Stack" />
+<PropsTable component="Stack" />

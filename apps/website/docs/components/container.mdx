@@ -1,59 +1,26 @@
 ---
 title: Container
-description: An element that centers content horizontally.
+description: A layout container that centers content horizontally.
 ---
 
-```jsx
-<Container>
-  <Typography>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-    laboris nisi ut aliquip ex ea commodo consequat.
-  </Typography>
-</Container>
-```
+A layout container that centers content horizontally.
+
+<Demo fileName="container.tsx" />
 
 ## Examples
 
 ### Max width
 
-Set the `maxWidth` prop to limited the maximum width the container can stretch to.
+The maximum width of the container can be set using the `maxWidth` prop.
 
-```jsx
-<Container maxWidth="small">
-  <Typography>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-    laboris nisi ut aliquip ex ea commodo consequat.
-  </Typography>
-</Container>
-```
+<Demo fileName="container-max-width.tsx" />
 
 ### Fixed
 
-Set the `fixed` prop to ensure the container's max-width matches the min-width of the current
-breakpoint.
+To ensure the container's max-width matches the current breakpoint, use the `fixed` prop.
 
-```jsx
-<Container fixed>
-  <Typography>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-    laboris nisi ut aliquip ex ea commodo consequat.
-  </Typography>
-</Container>
-```
+<Demo fileName="container-fixed.tsx" />
 
-## API
+## Props
 
-### Import
-
-```js
-import { Container } from '@project44-manifest/react';
-```
-
-### Props
-
-Props of the native element are also available.
-
-<PropsTable of="Container" />
+<PropsTable component="Container" />
