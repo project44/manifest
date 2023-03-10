@@ -10,40 +10,25 @@ export function useControlledState<T>(
 ): [T, (value: T, ...args: any[]) => void] {
   const [stateValue, setStateValue] = React.useState(defaultValue);
 
-  const ref = React.useRef(value !== undefined);
-  const prevValueRef = React.useRef(stateValue);
-
   const isControlled = value !== undefined;
 
-  ref.current = isControlled;
+  const currentValue = isControlled ? value : stateValue;
 
   const handleChange = React.useCallback(
-    (nextValue: T, ...args: any[]) => {
-      if (prevValueRef.current !== nextValue) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-        onChange?.(nextValue, ...args);
-      }
+    (next: React.SetStateAction<T>) => {
+      const setter = next as (prevState?: T) => T;
+      const nextValue = typeof next === 'function' ? setter(value) : next;
+
+      if (value === nextValue) return;
 
       if (!isControlled) {
-        prevValueRef.current = nextValue;
+        setStateValue(nextValue);
       }
+
+      onChange(nextValue);
     },
-    [isControlled, onChange, prevValueRef],
+    [isControlled, onChange, value],
   );
 
-  const handleSetValue = React.useCallback(
-    (nextValue: T, ...args: any[]) => {
-      if (!isControlled) setStateValue(nextValue);
-
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-      handleChange(nextValue, ...args);
-    },
-    [handleChange, isControlled],
-  );
-
-  if (isControlled) {
-    prevValueRef.current = value;
-  }
-
-  return [isControlled ? value : stateValue, handleSetValue];
+  return [currentValue, handleChange] as [T, React.Dispatch<React.SetStateAction<T>>];
 }
