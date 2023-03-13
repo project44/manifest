@@ -115,7 +115,7 @@ const sidebars = {
       type: 'category',
       label: 'Utilities',
       collapsed: false,
-      items: ['components/box', 'components/visually-hidden'],
+      items: ['components/box', 'components/portal', 'components/visually-hidden'],
     },
   ],
   tokens: [
