@@ -1,0 +1,17 @@
+{
+  "Spinner": [
+    {
+      "name": "css",
+      "type": "any",
+      "required": false,
+      "description": "Theme aware style object"
+    },
+    {
+      "name": "size",
+      "type": "SpinnerSize",
+      "defaultValue": "'large'",
+      "required": false,
+      "description": "The size of the spinner"
+    }
+  ]
+}
