@@ -103,7 +103,7 @@ const sidebars = {
       type: 'category',
       label: 'Navigation',
       collapsed: false,
-      items: ['components/breadcrumb', 'components/pagination'],
+      items: ['components/breadcrumb', 'components/pagination', 'components/side-navigation'],
     },
     {
       type: 'category',
