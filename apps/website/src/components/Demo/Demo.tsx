@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
-import styles from './styles.module.scss';
 
 export interface DemoProps {
   fileName: string;
@@ -57,10 +56,10 @@ export function Demo(props: DemoProps) {
   }, [fileName]);
 
   return (
-    <div className={styles.demo}>
-      <div className={styles.demo__preview}>
+    <div className="demo">
+      <div className="demo__preview">
         <iframe
-          className={styles.demo__iframe}
+          className="demo__iframe"
           height={iframeHeight}
           id="demo-preview"
           src={`/demos/${fileName.replace('.tsx', '')}`}
@@ -68,7 +67,7 @@ export function Demo(props: DemoProps) {
           onLoad={handleExampleLoad}
         />
       </div>
-      <div className={styles.demo__code}>
+      <div className="demo__code">
         <Highlight {...defaultProps} code={code.trim()} language="tsx">
           {({ className, tokens, getLineProps, getTokenProps }) => (
             <pre className={className}>

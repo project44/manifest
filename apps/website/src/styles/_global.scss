@@ -1,0 +1,16 @@
+// Reset because manifest css is overriding values
+html {
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  font-family: var(--ifm-font-family-base);
+  font-size: var(--ifm-font-size-base);
+  line-height: var(--ifm-line-height-base);
+}
+
+body {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-medium);
+  font-weight:  var(--font-weight-regular);
+  letter-spacing:  var(--letter-spacing-medium);
+  line-height: var(--line-height-medium);
+}
