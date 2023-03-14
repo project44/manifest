@@ -87,7 +87,7 @@ export const useStyles = css({
   variants: {
     hasStartIcon: {
       true: {
-        '.manifest-multi-combobox__input': {
+        '.manifest-multi-combobox__wrapper': {
           paddingLeft: pxToRem(40),
         },
       },

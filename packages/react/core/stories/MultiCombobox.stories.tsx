@@ -1,3 +1,4 @@
+import { Search } from '@project44-manifest/react-icons';
 import type { ComponentStory } from '@storybook/react';
 import { MultiCombobox, SelectItem, SelectSection } from '../src';
 
@@ -21,4 +22,11 @@ export const Default = Template.bind({});
 
 Default.args = {
   placeholder: 'Select time...',
+};
+
+export const WithStartIcon = Template.bind({});
+
+WithStartIcon.args = {
+  placeholder: 'Select time...',
+  startIcon: <Search />,
 };
