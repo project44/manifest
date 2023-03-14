@@ -1,5 +1,14 @@
 # @manifest/react
 
+## 2.17.0
+
+### Minor Changes
+
+- [#311](https://github.com/project44/manifest/pull/311)
+  [`93fc9b0`](https://github.com/project44/manifest/commit/93fc9b0b98c92d53455f613a5d8618c0ed51968a)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - fix MultiCombobox start icon
+  layout issue
+
 ## 2.16.0
 
 ### Minor Changes

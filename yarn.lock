@@ -3787,7 +3787,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@project44-manifest/react@^2.16.0, @project44-manifest/react@workspace:packages/react/core":
+"@project44-manifest/react@^2.17.0, @project44-manifest/react@workspace:packages/react/core":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react@workspace:packages/react/core"
   dependencies:
@@ -19698,7 +19698,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "storybook@workspace:apps/storybook"
   dependencies:
-    "@project44-manifest/react": ^2.16.0
+    "@project44-manifest/react": ^2.17.0
     "@project44-manifest/react-icons": ^0.3.1
     "@storybook/addon-a11y": ^6.5.16
     "@storybook/addon-essentials": ^6.5.16
