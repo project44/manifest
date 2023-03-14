@@ -109,7 +109,13 @@ const sidebars = {
       type: 'category',
       label: 'Overlays',
       collapsed: false,
-      items: ['components/dropdown', 'components/menu', 'components/popover', 'components/tooltip'],
+      items: [
+        'components/dialog',
+        'components/dropdown',
+        'components/menu',
+        'components/popover',
+        'components/tooltip',
+      ],
     },
     {
       type: 'category',
