@@ -58,7 +58,7 @@ export const Tooltip = React.forwardRef((props, forwardedRef) => {
       <TooltipProvider
         value={{ tooltipProps: { ...tooltipProps, ...positionProps }, tooltipRef, state }}
       >
-        <Fade appear mountOnEnter unmountOnExit in={state.isOpen}>
+        <Fade appear mountOnEnter unmountOnExit in={state.isOpen} style={{ position: 'absolute' }}>
           <TooltipContent {...other} ref={forwardedRef}>
             {title}
           </TooltipContent>
