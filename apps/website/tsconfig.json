@@ -2,12 +2,20 @@
   "extends": "../../tsconfig.options.json",
   "compilerOptions": {
     "outDir": "../../.moon/cache/types/apps/website",
-    "rootDir": "."
+    "baseUrl": ".",
+    "types": [
+      "node",
+      "@docusaurus/module-type-aliases",
+      "@docusaurus/theme-classic"
+    ],
+    "paths": {
+      "@site/*": [
+        "./*"
+      ]
+    }
   },
   "include": [
-    "src/**/*",
-    "types/**/*",
-    "../types/**/*"
+    "src/**/*"
   ],
   "references": [
     {

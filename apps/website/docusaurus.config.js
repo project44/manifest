@@ -23,6 +23,7 @@ const config = {
           breadcrumbs: false,
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/project44/manifest/tree/main/website',
+          routeBasePath: '/',
         },
         blog: {
           showReadingTime: true,
@@ -37,7 +38,6 @@ const config = {
       }),
     ],
   ],
-  themes: ['@docusaurus/theme-live-codeblock'],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -47,90 +47,11 @@ const config = {
           alt: 'Manifest Design System',
           src: 'img/logo.svg',
         },
-        items: [
-          {
-            type: 'doc',
-            docId: 'foundations/overview',
-            label: 'Foundations',
-            position: 'left',
-          },
-          {
-            type: 'doc',
-            docId: 'components/overview',
-            label: 'Components',
-            position: 'left',
-          },
-          {
-            type: 'doc',
-            docId: 'tokens/overview',
-            label: 'Tokens',
-            position: 'left',
-          },
-          {
-            href: 'https://github.com/project44/manifest',
-            label: 'GitHub',
-            position: 'right',
-          },
-        ],
       },
-      footer: {
-        style: 'dark',
-        links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Foundations',
-                to: 'docs/foundations/overview',
-              },
-              {
-                label: 'Components',
-                to: 'docs/components/overview',
-              },
-              {
-                label: 'Tokens',
-                to: 'docs/tokens/overview',
-              },
-            ],
-          },
-          {
-            title: 'Resources',
-            items: [
-              {
-                label: 'Figma',
-                href: 'https://www.figma.com/file/2vyIjgJEhVc1spMWwkgzQ5/Manifest-Design-System',
-              },
-            ],
-          },
-          {
-            title: 'Development',
-            items: [
-              {
-                label: 'Report a bug',
-                href: 'https://github.com/project44/manifest/issues/',
-              },
-              {
-                label: 'Discussions',
-                href: 'https://github.com/project44/manifest/discussions',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'project44',
-                href: 'https://www.project44.com',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/project44/manifest',
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} project44`,
+      colorMode: {
+        disableSwitch: true,
       },
+      footer: {},
     }),
 };
 
