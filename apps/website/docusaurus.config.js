@@ -1,4 +1,6 @@
-/** @type {import('@docusaurus/types').Config} */
+const lightCodeTheme = require('prism-react-renderer/themes/github');
+const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+
 const config = {
   title: 'Manifest Design System',
   tagline: 'Manifesting experiences through design',
@@ -9,50 +11,49 @@ const config = {
   projectName: 'manifest',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
+  stylesheets: ['https://fonts.googleapis.com/icon?family=Material+Icons'],
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
-  plugins: ['docusaurus-plugin-sass'],
+  plugins: ['@docusaurus/theme-live-codeblock', 'docusaurus-plugin-sass'],
   presets: [
     [
       'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      {
         docs: {
           breadcrumbs: false,
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/project44/manifest/tree/main/website',
           routeBasePath: '/',
         },
-        blog: {
-          showReadingTime: true,
-          editUrl: 'https://github.com/project44/manifest/tree/main/website',
-        },
+        blog: false,
         theme: {
           customCss: [
             require.resolve('../../node_modules/normalize.css/normalize.css'),
             require.resolve('./src/styles/custom.scss'),
           ],
         },
-      }),
+      },
     ],
   ],
-  themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-      navbar: {
-        title: 'Manifest Design System',
-        logo: {
-          alt: 'Manifest Design System',
-          src: 'img/logo.svg',
-        },
+  themeConfig: {
+    navbar: {
+      title: 'Manifest Design System',
+      logo: {
+        alt: 'Manifest Design System',
+        src: 'img/logo.svg',
       },
-      colorMode: {
-        disableSwitch: true,
-      },
-      footer: {},
-    }),
+    },
+    colorMode: {
+      disableSwitch: true,
+    },
+    footer: {},
+    prism: {
+      theme: lightCodeTheme,
+      darkTheme: darkCodeTheme,
+    },
+  },
 };
 
 module.exports = config;

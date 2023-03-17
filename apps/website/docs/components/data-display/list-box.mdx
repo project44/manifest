@@ -3,146 +3,137 @@ title: List Box
 description: A list of options that can allow selection of one or more.
 ---
 
-```jsx
-<ListBox aria-label="admin">
-  <ListBoxItem key="profile">Profile</ListBoxItem>
-  <ListBoxItem key="account">Account</ListBoxItem>
+A list of options that can allow selection of one or more.
+
+```jsx live
+<ListBox aria-label="Country Select">
+  <ListBoxItem>United States</ListBoxItem>
+  <ListBoxItem>Canada</ListBoxItem>
+  <ListBoxItem>Mexico</ListBoxItem>
 </ListBox>
 ```
 
-## Examples
+## Usage
 
-### Start Icon
+### Selection
 
-Include an icon before the input text.
+The listbox components supports either no selection, single and multiple selection modes using the
+`selectionMode` prop.
 
-```jsx
-<ListBox aria-label="admin">
-  <ListBoxItem startIcon={<Icon icon="person" />} key="profile">
-    Profile
-  </ListBoxItem>
-  <ListBoxItem startIcon={<Icon icon="account_balance" />} key="account">
-    Account
-  </ListBoxItem>
-</ListBox>
+```jsx live
+function Selection() {
+  const options = [
+    { id: 1, name: 'United States' },
+    { id: 2, name: 'Canada' },
+    { id: 3, name: 'Mexico' },
+    { id: 4, name: 'United Kingdom' },
+    { id: 5, name: 'France' },
+    { id: 6, name: 'China' },
+    { id: 7, name: 'India' },
+    { id: 8, name: 'Turkey' },
+  ];
+
+  const [selected, setSelected] = React.useState(new Set(['Turkey']));
+
+  return (
+    <ListBox
+      aria-label="Country Select"
+      selectedKeys={selected}
+      selectionMode="multiple"
+      onSelectionChange={setSelected}
+    >
+      {options.map((item) => (
+        <ListBoxItem key={item.name}>{item.name}</ListBoxItem>
+      ))}
+    </ListBox>
+  );
+}
 ```
 
 ### Sections
 
 Group items within a dropdown using a section.
 
-```jsx
-<ListBox aria-label="admin">
-  <ListBoxItem startIcon={<Icon icon="person" />} key="profile">
-    Profile
-  </ListBoxItem>
-  <ListBoxItem startIcon={<Icon icon="account_balance" />} key="account">
-    Account
-  </ListBoxItem>
-  <ListBoxSection aria-label="admin" key="admin">
-    <ListBoxItem startIcon={<Icon icon="edit" />} key="edit">
-      Edit
-    </ListBoxItem>
-    <ListBoxItem startIcon={<Icon icon="logout" />} key="sign_out">
-      Sign Out
-    </ListBoxItem>
+```jsx live
+<ListBox aria-label="Country Select">
+  <ListBoxSection title="North America">
+    <ListBoxItem>United States</ListBoxItem>
+    <ListBoxItem>Canada</ListBoxItem>
+    <ListBoxItem>Mexico</ListBoxItem>
+  </ListBoxSection>
+  <ListBoxSection title="Europe">
+    <ListBoxItem>United Kingdom</ListBoxItem>
+    <ListBoxItem>France</ListBoxItem>
+  </ListBoxSection>
+  <ListBoxSection title="Asia">
+    <ListBoxItem>China</ListBoxItem>
+    <ListBoxItem>India</ListBoxItem>
   </ListBoxSection>
 </ListBox>
 ```
 
-### Dynamic
+### Async
 
-Create items from an external data source.
+Items can be loaded asynchronously use the `useAsyncData` hook. It also supports infinite scrolling
+to load more data on demand as the user scrolls, via the onLoadMore prop.
 
-```jsx
-function DynamicExample() {
-  const data = [
-    { id: 1, name: 'Profile' },
-    { id: 2, name: 'Account' },
-  ];
+```jsx live
+function Async() {
+  const list = useAsyncList({
+    async load({ signal }) {
+      const res = await fetch('https://restcountries.com/v3.1/alpha?codes=US,CA,MX,GB,FR,CN,IN', {
+        signal,
+      });
+
+      const items = await res.json();
+
+      return { items };
+    },
+  });
 
   return (
-    <ListBox aria-label="admin" items={data}>
-      {(item) => <ListBoxItem>{item.name}</ListBoxItem>}
+    <ListBox aria-label="Country Select" items={list.items}>
+      {(item) => <ListBoxItem key={item.name.common}>{item.name.common}</ListBoxItem>}
     </ListBox>
   );
 }
 ```
 
-### Selection
+### Start Icon
 
-By default the dropdown has no selection mode, this can be set using the `selectionMode` prop.
+Items can be adorned with starting icons.
 
-```jsx
-function ControlledExample() {
-  const [selected, setSelected] = React.useState(new Set(['profile']));
-
-  return (
-    <ListBox
-      aria-label="admin"
-      onSelectionChange={setSelected}
-      selectedKeys={selected}
-      selectionMode="single"
-    >
-      <ListBoxItem key="profile">Profile</ListBoxItem>
-      <ListBoxItem key="account">Account</ListBoxItem>
-    </ListBox>
-  );
-}
-```
-
-To select multiple items, set the `selectionMode` to `multiple`.
-
-```jsx
-function ControlledExample() {
-  const [selected, setSelected] = React.useState(new Set(['profile', 'Account']));
-
-  return (
-    <ListBox
-      aria-label="admin"
-      onSelectionChange={setSelected}
-      selectedKeys={selected}
-      selectionMode="multiple"
-    >
-      <ListBoxItem key="profile">Profile</ListBoxItem>
-      <ListBoxItem key="account">Account</ListBoxItem>
-    </ListBox>
-  );
-}
+```jsx live
+<ListBox aria-label="Transportation Mode">
+  <ListBoxItem startIcon={<Truck />}>Truck</ListBoxItem>
+  <ListBoxItem startIcon={<Train />}>Train</ListBoxItem>
+  <ListBoxItem startIcon={<Airplane />}>Airplane</ListBoxItem>
+  <ListBoxItem startIcon={<Boat />}>Ship</ListBoxItem>
+</ListBox>
 ```
 
 ### Disabled items
 
 Set the `disabledKeys` prop to disable certain items in the dropdown list.
 
-```jsx
-<ListBox aria-label="admin" disabledKeys={['account']}>
-  <ListBoxItem key="profile">Profile</ListBoxItem>
-  <ListBoxItem key="account">Account</ListBoxItem>
+```jsx live
+<ListBox aria-label="Country Select" disabledKeys={['canada']}>
+  <ListBoxItem key="united_states">United States</ListBoxItem>
+  <ListBoxItem key="canada">Canada</ListBoxItem>
+  <ListBoxItem key="mexico">Mexico</ListBoxItem>
 </ListBox>
 ```
 
-## Accessibility
-
-The list box should be labeled using the aria-label prop. If the ListBox is labeled by a separate
-element, an aria-labelledby prop must be provided using the id of the labeling element instead.
-
-## API
-
-### Import
-
-```js
-import { ListBox, ListBoxItem, ListBoxSection } from '@project44-manifest/react';
-```
+## Props
 
 ### ListBox Props
 
-<PropsTable of="ListBox" />
+<PropsTable component="ListBox" />
 
 ### ListBoxItem Props
 
-<PropsTable of="ListBoxItem" />
+<PropsTable component="ListBoxItem" />
 
 ### ListBoxSection Props
 
-<PropsTable of="ListBoxSection" />
+<PropsTable component="ListBoxSection" />

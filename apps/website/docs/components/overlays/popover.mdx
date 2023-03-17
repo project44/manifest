@@ -3,42 +3,21 @@ title: Popover
 description: Used to display some content on top of another.
 ---
 
-> The popover component is an internal utility component and requires additional components and
-> hooks to function properly.
+Used to display some content on top of another.
 
-```jsx
-function PopoverExample() {
-  const overlayRef = React.useRef(null);
-  const targetRef = React.useRef(null);
-
-  const [isOpen, setIsOpen] = React.useState(false);
-
-  const { overlayProps } = useOverlayPosition({
-    isOpen,
-    onClose: () => setIsOpen(false),
-    overlayRef,
-    targetRef,
-  });
+```jsx live
+function Basic() {
+  const state = usePopoverTriggerState({});
+  const { overlayProps, overlayRef, triggerProps, triggerRef } = usePopoverTrigger({}, state);
 
   return (
     <>
-      <Button onPress={() => setIsOpen(true)} ref={targetRef}>
+      <Button {...triggerProps} ref={triggerRef}>
         Open Popover
       </Button>
-      <Overlay isOpen={isOpen}>
-        <Popover
-          {...overlayProps}
-          isOpen={isOpen}
-          onClose={() => setIsOpen(false)}
-          ref={overlayRef}
-        >
-          <Box css={{ maxWidth: 300, padding: '$medium' }}>
-            <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </Typography>
-          </Box>
+      <Overlay isOpen={state.isOpen}>
+        <Popover {...overlayProps} ref={overlayRef} isOpen={state.isOpen} onClose={state.close}>
+          <Box css={{ p: '$medium' }}>This is a popover</Box>
         </Popover>
       </Overlay>
     </>
@@ -46,14 +25,36 @@ function PopoverExample() {
 }
 ```
 
-## API
+## Usage
 
-### Import
+### Placement
 
-```js
-import { Popover } from '@project44-manifest/react';
+The popovers's placement with respect to its trigger element can be adjusted using the placement
+`prop`.
+
+```jsx live
+function Placment() {
+  const state = usePopoverTriggerState({});
+  const { overlayProps, overlayRef, triggerProps, triggerRef } = usePopoverTrigger(
+    { placement: 'right' },
+    state,
+  );
+
+  return (
+    <>
+      <Button {...triggerProps} ref={triggerRef}>
+        Open Popover
+      </Button>
+      <Overlay isOpen={state.isOpen}>
+        <Popover {...overlayProps} ref={overlayRef} isOpen={state.isOpen} onClose={state.close}>
+          <Box css={{ p: '$medium' }}>This is a popover</Box>
+        </Popover>
+      </Overlay>
+    </>
+  );
+}
 ```
 
-All native element props are also available.
+## Props
 
-<PropsTable of="Popover" />
+<PropsTable component="Popover" />

@@ -14,3 +14,7 @@ body {
   letter-spacing:  var(--letter-spacing-medium);
   line-height: var(--line-height-medium);
 }
+
+table thead tr {
+  border: none;
+}

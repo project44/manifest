@@ -1,16 +1,16 @@
 ---
-title: Combobox
+title: MultiCombobox
 description: An autocomplete input that allows a user to filter a list of selectable options.
 ---
 
 An autocomplete input that allows a user to filter a list of selectable options.
 
 ```jsx live live
-<Combobox aria-label="Country Select">
+<MultiCombobox aria-label="Country Select">
   <ComboboxItem>United States</ComboboxItem>
   <ComboboxItem>Canada</ComboboxItem>
   <ComboboxItem>Mexico</ComboboxItem>
-</Combobox>
+</MultiCombobox>
 ```
 
 ## Usage
@@ -32,14 +32,18 @@ function Selection() {
     { id: 8, name: 'Turkey' },
   ];
 
-  const [selected, setSelected] = React.useState('Turkey');
+  const [selected, setSelected] = React.useState(new Set(['Turkey']));
 
   return (
-    <Combobox aria-label="Country Select" selectedKey={selected} onSelectionChange={setSelected}>
+    <MultiCombobox
+      aria-label="Country Select"
+      selectedKeys={selected}
+      onSelectionChange={setSelected}
+    >
       {options.map((item) => (
         <ComboboxItem key={item.name}>{item.name}</ComboboxItem>
       ))}
-    </Combobox>
+    </MultiCombobox>
   );
 }
 ```
@@ -49,7 +53,7 @@ function Selection() {
 Group items within a dropdown using a section.
 
 ```jsx live
-<Combobox aria-label="Country Select">
+<MultiCombobox aria-label="Country Select">
   <ComboboxSection title="North America">
     <ComboboxItem>United States</ComboboxItem>
     <ComboboxItem>Canada</ComboboxItem>
@@ -63,7 +67,7 @@ Group items within a dropdown using a section.
     <ComboboxItem>China</ComboboxItem>
     <ComboboxItem>India</ComboboxItem>
   </ComboboxSection>
-</Combobox>
+</MultiCombobox>
 ```
 
 ### Async
@@ -86,9 +90,9 @@ function Async() {
   });
 
   return (
-    <Combobox aria-label="Country Select" items={list.items}>
+    <MultiCombobox aria-label="Country Select" items={list.items}>
       {(item) => <ComboboxItem key={item.name.common}>{item.name.common}</ComboboxItem>}
-    </Combobox>
+    </MultiCombobox>
   );
 }
 ```
@@ -98,11 +102,11 @@ function Async() {
 Attach a label to the combobox using the `label` prop.
 
 ```jsx live
-<Combobox label="Country">
+<MultiCombobox label="Country">
   <ComboboxItem>United States</ComboboxItem>
   <ComboboxItem>Canada</ComboboxItem>
   <ComboboxItem>Mexico</ComboboxItem>
-</Combobox>
+</MultiCombobox>
 ```
 
 ### HelperText
@@ -110,11 +114,11 @@ Attach a label to the combobox using the `label` prop.
 Add additional context as well as display error messages with the `helperText` prop.
 
 ```jsx live
-<Combobox label="Country" helperText="Please select a country">
+<MultiCombobox label="Country" helperText="Please select a country">
   <ComboboxItem>United States</ComboboxItem>
   <ComboboxItem>Canada</ComboboxItem>
   <ComboboxItem>Mexico</ComboboxItem>
-</Combobox>
+</MultiCombobox>
 ```
 
 ### Small
@@ -122,11 +126,11 @@ Add additional context as well as display error messages with the `helperText` p
 A small combobox is used when vertical spacing is limited.
 
 ```jsx live
-<Combobox aria-label="Country Select" size="small">
+<MultiCombobox aria-label="Country Select" size="small">
   <ComboboxItem>United States</ComboboxItem>
   <ComboboxItem>Canada</ComboboxItem>
   <ComboboxItem>Mexico</ComboboxItem>
-</Combobox>
+</MultiCombobox>
 ```
 
 ### Start Icon
@@ -134,11 +138,11 @@ A small combobox is used when vertical spacing is limited.
 Include an icon before the input text.
 
 ```jsx live
-<Combobox aria-label="status" startIcon={<Search />}>
+<MultiCombobox aria-label="status" startIcon={<Search />}>
   <ComboboxItem>United States</ComboboxItem>
   <ComboboxItem>Canada</ComboboxItem>
   <ComboboxItem>Mexico</ComboboxItem>
-</Combobox>
+</MultiCombobox>
 ```
 
 ### Item Icon
@@ -146,12 +150,12 @@ Include an icon before the input text.
 Include an icon before the item label on each item.
 
 ```jsx live
-<Combobox aria-label="status">
+<MultiCombobox aria-label="status">
   <ComboboxItem startIcon={<Truck />}>Truck</ComboboxItem>
   <ComboboxItem startIcon={<Train />}>Train</ComboboxItem>
   <ComboboxItem startIcon={<Airplane />}>Airplane</ComboboxItem>
   <ComboboxItem startIcon={<Boat />}>Ship</ComboboxItem>
-</Combobox>
+</MultiCombobox>
 ```
 
 ### Controlled
@@ -179,31 +183,33 @@ function ControlledExample() {
         case 'INPUT_CHANGE':
           return {
             inputValue: action.payload,
-            selectedId: action.payload === '' ? null : state.selectedId,
+            selectedKeys: action.payload === '' ? new Set(['']) : state.selectedKeys,
           };
         case 'SELECTION_CHANGE':
           return {
             inputValue: action.payload ? list.getItem(action.payload).value.name : '',
-            selectedKey: action.payload,
+            selectedKeys: action.payload,
           };
         default:
           throw new Error();
       }
     },
-    { inputValue: '', selectedKey: null },
+    { inputValue: '', selectedKeys: new Set(['Turkey']) },
   );
 
+  console.log(state.selectedKeys);
+
   return (
-    <Combobox
+    <MultiCombobox
       aria-label="status"
       defaultItems={list.items}
       inputValue={state.inputValue}
       onInputChange={(value) => dispatch({ type: 'INPUT_CHANGE', payload: value })}
-      onSelectionChange={(key) => dispatch({ type: 'SELECTION_CHANGE', payload: key })}
-      selectedKey={state.selectedKey}
+      onSelectionChange={(keys) => dispatch({ type: 'SELECTION_CHANGE', payload: keys })}
+      selectedKeys={state.selectedKeys}
     >
-      {(item) => <ComboboxItem>{item.value.name}</ComboboxItem>}
-    </Combobox>
+      {(item) => <ComboboxItem key={item.value.name}>{item.value.name}</ComboboxItem>}
+    </MultiCombobox>
   );
 }
 ```
@@ -225,7 +231,7 @@ Set the `isDisabled` prop to prevent a user from interacting with the combobox.
 Set the `disabledKeys` prop to disable certain items in the combobox list.
 
 ```jsx live
-<Combobox aria-label="status" disabledKeys={['canada']}>
+<Combobox aria-label="status" disabledKeys={['completed', 'fulfilled']}>
   <ComboboxItem key="united_states">United States</ComboboxItem>
   <ComboboxItem key="canada">Canada</ComboboxItem>
   <ComboboxItem key="mexico">Mexico</ComboboxItem>
@@ -238,17 +244,17 @@ Set the `validationState` prop to `invalid` to render the combobox in an invalid
 
 ```jsx live
 <Combobox aria-label="status" helperText="A selection is required" validationState="invalid">
-  <ComboboxItem>United States</ComboboxItem>
-  <ComboboxItem>Canada</ComboboxItem>
-  <ComboboxItem>Mexico</ComboboxItem>
+  <SelectItem>United States</SelectItem>
+  <SelectItem>Canada</SelectItem>
+  <SelectItem>Mexico</SelectItem>
 </Combobox>
 ```
 
 ## Props
 
-### Combobox Props
+### MultiCombobox Props
 
-<PropsTable component="Combobox" />
+<PropsTable component="MultiCombobox" />
 
 ### ComboboxItem Props
 

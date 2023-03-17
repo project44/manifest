@@ -3,7 +3,19 @@ title: Dropdown
 description: Render a list of actions or selectable options.
 ---
 
-<Demo fileName="dropdown.tsx" />
+Render a list of actions or selectable options.
+
+```jsx live
+<Dropdown>
+  <IconButton variant="primary">
+    <Icon icon="expand_more" />
+  </IconButton>
+  <DropdownMenu>
+    <DropdownItem key="profile">Profile</DropdownItem>
+    <DropdownItem key="account">Account</DropdownItem>
+  </DropdownMenu>
+</Dropdown>
+```
 
 ## Examples
 
@@ -11,7 +23,7 @@ description: Render a list of actions or selectable options.
 
 Include an icon before the item label on each item.
 
-```jsx
+```jsx live
 <Dropdown>
   <IconButton variant="primary">
     <Icon icon="expand_more" />
@@ -31,7 +43,7 @@ Include an icon before the item label on each item.
 
 Group items within a dropdown using a section.
 
-```jsx
+```jsx live
 <Dropdown>
   <IconButton variant="primary">
     <Icon icon="expand_more" />
@@ -59,7 +71,7 @@ Group items within a dropdown using a section.
 
 Create items from an external data source.
 
-```jsx
+```jsx live
 function DynamicExample() {
   const data = [
     { id: 1, name: 'Profile' },
@@ -81,7 +93,7 @@ function DynamicExample() {
 
 An `onAction` callback can be called when an item is pressed.
 
-```jsx
+```jsx live
 function ActionExample() {
   const [action, setAction] = React.useState('');
 
@@ -108,7 +120,7 @@ function ActionExample() {
 
 By default the dropdown has no selection mode, this can be set using the `selectionMode` prop.
 
-```jsx
+```jsx live
 function ControlledExample() {
   const [selected, setSelected] = React.useState(new Set(['profile']));
 
@@ -128,7 +140,7 @@ function ControlledExample() {
 
 To select multiple items, set the `selectionMode` to `multiple`.
 
-```jsx
+```jsx live
 function ControlledExample() {
   const [selected, setSelected] = React.useState(new Set(['profile', 'Account']));
 
@@ -154,7 +166,7 @@ function ControlledExample() {
 
 Set the `disabledKeys` prop to disable certain items in the dropdown list.
 
-```jsx
+```jsx live
 <Dropdown>
   <IconButton variant="primary">
     <Icon icon="expand_more" />
@@ -170,26 +182,20 @@ Set the `disabledKeys` prop to disable certain items in the dropdown list.
 
 Sections without a title must provide an aria-label for accessibility.
 
-## API
-
-### Import
-
-```js
-import { Dropdown, DropdownItem, DropdownMenu, DropdownSection } from '@project44-manifest/react';
-```
+## Props
 
 ### Dropdown Props
 
-<PropsTable of="Dropdown" />
+<PropsTable component="Dropdown" />
 
 ### DropdownMenu Props
 
-<PropsTable of="DropdownMenu" />
+<PropsTable component="DropdownMenu" />
 
 ### DropdownItem Props
 
-<PropsTable of="DropdownItem" />
+<PropsTable component="DropdownItem" />
 
 ### DropdownSection Props
 
-<PropsTable of="DropdownSection" />
+<PropsTable component="DropdownSection" />

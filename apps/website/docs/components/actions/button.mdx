@@ -3,64 +3,86 @@ title: Button
 description: Clickable elements that communicate actions that users can take.
 ---
 
-<Demo fileName="button.tsx" />
+Clickable elements that communicate actions that users can take.
 
-## Examples
+```jsx live
+<Button>Button</Button>
+```
+
+## Usage
 
 ### Primary
 
 Primary buttons are used to indicate the highest priority action a user can perform.
 
-<Demo fileName="button-primary.tsx" />
+```jsx live
+<Button variant="primary">Primary</Button>
+```
 
 ### Secondary
 
 Secondary buttons are second in priority to primary buttons and are used for important actions that
 aren't the primary action.
 
-<Demo fileName="button-secondary.tsx" />
+```jsx live
+<Button variant="secondary">Secondary</Button>
+```
 
 ### Tertiary
 
 Tertiary buttons are the lowest priority actions and should be used for less commonly used actions.
 
-<Demo fileName="button-tertiary.tsx" />
+```jsx live
+<Button variant="tertiary">Tertiary</Button>
+```
 
 ### Destructive
 
 Destructive buttons are used to indicate an action that is destructive and cannot be undone.
 
-<Demo fileName="button-danger.tsx" />
+```jsx live
+<Button variant="danger">Danger</Button>
+```
 
 ### Brand
 
 Brand buttons are used for project44 specific marketing moments and should be use sparingly.
 
-<Demo fileName="button-brand.tsx" />
+```jsx live
+<Button variant="brand">Brand</Button>
+```
 
 ### Small
 
 Small buttons are used when vertical spacing is limited.
 
-<Demo fileName="button-small.tsx" />
+```jsx live
+<Button size="small">Button</Button>
+```
 
 ### Start Icon
 
 Include an icon before the button label.
 
-<Demo fileName="button-start-icon.tsx" />
+```jsx live
+<Button startIcon={<Add />}>Button</Button>
+```
 
 ### End Icon
 
 Include an icon after the button label.
 
-<Demo fileName="button-end-icon.tsx" />
+```jsx live
+<Button endIcon={<Add />}>Button</Button>
+```
 
 ### Disabled State
 
 Set the `isDisabled` prop to prevent a user from pressing a button.
 
-<Demo fileName="button-disabled.tsx" />
+```jsx live
+<Button isDisabled>Button</Button>
+```
 
 ## Props
 

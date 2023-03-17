@@ -1,25 +1,36 @@
 ---
 title: Box
-description: A polymorphic component used for theme aware styling.
+description: A polymorphic component used for access theme aware styling.
 ---
 
-<Demo fileName="box.tsx" />
+A polymorphic component used for access theme aware styling.
 
-## Examples
+```jsx live
+<Box css={{ backgroundColor: '$background-secondary', size: 300 }} />
+```
 
-### CSS prop
-
-All components support a `css` prop. It’s like the `style` attribute, but it supports tokens, media
-queries, nesting and token-aware values.
-
-<Demo fileName="box-css-prop.tsx" />
+## Usage
 
 ### As prop
 
-All components support a polymorphic `as` prop. This prop is useful for changing the rendering
-element of a component. You can also use the as prop to render another component.
+All components a polymorphic `as` prop. This prop is useful for changing the rendering element of a
+component. You can also use the as prop to render another component.
 
-<Demo fileName="box-as-prop.tsx" />
+```jsx live
+<Box
+  as="button"
+  css={{
+    all: 'unset',
+    backgroundColor: '$palette-indigo-500',
+    color: '$palette-white',
+    borderRadius: '$full',
+    px: '$medium',
+    py: '$small',
+  }}
+>
+  Button
+</Box>
+```
 
 ## Props
 

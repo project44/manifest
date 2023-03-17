@@ -3,17 +3,19 @@ title: Text Field
 description: Allows users to enter and edit information.
 ---
 
-```jsx
+Allows users to enter and edit information.
+
+```jsx live
 <TextField aria-label="name" placeholder="Enter name..." />
 ```
 
-## Examples
+## Usage
 
 ### Label
 
 Attach a label to the select using the `label` prop.
 
-```jsx
+```jsx live
 <TextField label="Name" />
 ```
 
@@ -21,7 +23,7 @@ Attach a label to the select using the `label` prop.
 
 Add additional context as well as display error messages with the `helperText` prop.
 
-```jsx
+```jsx live
 <TextField label="Name" helperText="Please enter a name" />
 ```
 
@@ -30,7 +32,7 @@ Add additional context as well as display error messages with the `helperText` p
 A text area's state can be controlled by a parent React component by setting the `value` prop and
 passing a handler to the `onChange` prop.
 
-```jsx
+```jsx live
 function ControlledExample() {
   const [value, setValue] = React.useState('Lorem ipsum');
 
@@ -42,7 +44,7 @@ function ControlledExample() {
 
 Set the `isDisabled` prop to prevent a user from inputting text.
 
-```jsx
+```jsx live
 <TextField aria-label="name" isDisabled />
 ```
 
@@ -52,16 +54,6 @@ If a visible label isn't specified, an aria-label must be provided to the text a
 accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be
 provided using the id of the labeling element instead.
 
-## API
+## Props
 
-### Import
-
-```js
-import { TextField } from '@project44-manifest/react';
-```
-
-### Props
-
-All native element props are also available.
-
-<PropsTable of="TextField" />
+<PropsTable component="TextField" />

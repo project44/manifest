@@ -1,0 +1,71 @@
+---
+title: Menu
+description: A dropdown menu
+---
+
+A dropdown menu
+
+```jsx live
+<Menu>
+  <MenuItem label="Track" startIcon={<Route />} />
+  <MenuGroup label="Initiate" startIcon={<Carrier />}>
+    <MenuItem label="Shipments" />
+    <MenuItem label="Templates" />
+  </MenuGroup>
+</Menu>
+```
+
+## Usage
+
+### Controlled
+
+A menu group's state can be fully controlled.
+
+```jsx live
+function Controlled() {
+  const [isExpanded, setIsExpanded] = React.useState(true);
+
+  return (
+    <Menu>
+      <MenuItem label="Track" startIcon={<Route />} />
+      <MenuGroup
+        isExpanded={isExpanded}
+        label="Initiate"
+        startIcon={<Carrier />}
+        onExpandedChange={setIsExpanded}
+      >
+        <MenuItem label="Shipments" />
+        <MenuItem label="Templates" />
+      </MenuGroup>
+    </Menu>
+  );
+}
+```
+
+### Selected
+
+Display a selected state on a menu item.
+
+```jsx live
+<Menu>
+  <MenuItem label="Track" startIcon={<Route />} />
+  <MenuGroup label="Initiate" startIcon={<Carrier />}>
+    <MenuItem label="Shipments" />
+    <MenuItem isSelected label="Templates" />
+  </MenuGroup>
+</Menu>
+```
+
+## Props
+
+### Menu Props
+
+<PropsTable component="Menu" />
+
+### MenuItem Props
+
+<PropsTable component="MenuItem" />
+
+### MenuGroup Props
+
+<PropsTable component="MenuGroup" />

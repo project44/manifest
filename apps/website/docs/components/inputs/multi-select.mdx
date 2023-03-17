@@ -1,16 +1,16 @@
 ---
-title: Select
-description: Choose a single option from a collapsible list of options.
+title: MultiSelect
+description: Choose multiple options from a collapsible list of options.
 ---
 
-Choose a single option from a collapsible list of options.
+Choose multiple options from a collapsible list of options.
 
 ```jsx live
-<Select aria-label="Country Select">
+<MultiSelect aria-label="Country Select">
   <SelectItem>United States</SelectItem>
   <SelectItem>Canada</SelectItem>
   <SelectItem>Mexico</SelectItem>
-</Select>
+</MultiSelect>
 ```
 
 ## Usage
@@ -33,14 +33,18 @@ function Selection() {
     { id: 8, name: 'Turkey' },
   ];
 
-  const [selected, setSelected] = React.useState('Turkey');
+  const [selected, setSelected] = React.useState(new Set(['Turkey']));
 
   return (
-    <Select aria-label="Country Select" selectedKey={selected} onSelectionChange={setSelected}>
+    <MultiSelect
+      aria-label="Country Select"
+      selectedKeys={selected}
+      onSelectionChange={setSelected}
+    >
       {options.map((item) => (
         <SelectItem key={item.name}>{item.name}</SelectItem>
       ))}
-    </Select>
+    </MultiSelect>
   );
 }
 ```
@@ -50,7 +54,7 @@ function Selection() {
 Group items within a dropdown using a section.
 
 ```jsx live
-<Select aria-label="Country Select">
+<MultiSelect aria-label="Country Select">
   <SelectSection title="North America">
     <SelectItem>United States</SelectItem>
     <SelectItem>Canada</SelectItem>
@@ -64,7 +68,7 @@ Group items within a dropdown using a section.
     <SelectItem>China</SelectItem>
     <SelectItem>India</SelectItem>
   </SelectSection>
-</Select>
+</MultiSelect>
 ```
 
 ### Async
@@ -87,9 +91,9 @@ function Async() {
   });
 
   return (
-    <Select aria-label="Country Select" items={list.items}>
+    <MultiSelect aria-label="Country Select" items={list.items}>
       {(item) => <SelectItem key={item.name.common}>{item.name.common}</SelectItem>}
-    </Select>
+    </MultiSelect>
   );
 }
 ```
@@ -99,11 +103,11 @@ function Async() {
 Attach a label to the combobox using the `label` prop.
 
 ```jsx live
-<Select label="Country">
+<MultiSelect label="Country">
   <SelectItem>United States</SelectItem>
   <SelectItem>Canada</SelectItem>
   <SelectItem>Mexico</SelectItem>
-</Select>
+</MultiSelect>
 ```
 
 ### HelperText
@@ -111,11 +115,11 @@ Attach a label to the combobox using the `label` prop.
 Add additional context as well as display error messages with the `helperText` prop.
 
 ```jsx live
-<Select label="Country" helperText="Please select a country">
+<MultiSelect label="Country" helperText="Please select a country">
   <SelectItem>United States</SelectItem>
   <SelectItem>Canada</SelectItem>
   <SelectItem>Mexico</SelectItem>
-</Select>
+</MultiSelect>
 ```
 
 ### Small
@@ -123,11 +127,11 @@ Add additional context as well as display error messages with the `helperText` p
 A small select is used when vertical spacing is limited.
 
 ```jsx live
-<Select aria-label="Country Select" size="small">
+<MultiSelect aria-label="Country Select" size="small">
   <SelectItem>United States</SelectItem>
   <SelectItem>Canada</SelectItem>
   <SelectItem>Mexico</SelectItem>
-</Select>
+</MultiSelect>
 ```
 
 ### Start Icon
@@ -135,11 +139,11 @@ A small select is used when vertical spacing is limited.
 Include an icon before the input text.
 
 ```jsx live
-<Select aria-label="status" startIcon={<Search />}>
+<MultiSelect aria-label="status" startIcon={<Search />}>
   <SelectItem>United States</SelectItem>
   <SelectItem>Canada</SelectItem>
   <SelectItem>Mexico</SelectItem>
-</Select>
+</MultiSelect>
 ```
 
 ### Item Icon
@@ -147,12 +151,12 @@ Include an icon before the input text.
 Include an icon before the item label on each item.
 
 ```jsx live
-<Select aria-label="status">
+<MultiSelect aria-label="status">
   <SelectItem startIcon={<Truck />}>Truck</SelectItem>
   <SelectItem startIcon={<Train />}>Train</SelectItem>
   <SelectItem startIcon={<Airplane />}>Airplane</SelectItem>
   <SelectItem startIcon={<Boat />}>Ship</SelectItem>
-</Select>
+</MultiSelect>
 ```
 
 ### Controlled
@@ -172,12 +176,17 @@ function ControlledExample() {
     { id: 8, name: 'Turkey' },
   ];
 
-  const [selected, setSelected] = React.useState('Turkey');
+  const [selected, setSelected] = React.useState(new Set(['Turkey']));
 
   return (
-    <Select aria-label="status" items={data} onSelectionChange={setSelected} selectedKey={selected}>
+    <MultiSelect
+      aria-label="status"
+      items={data}
+      onSelectionChange={setSelected}
+      selectedKeys={selected}
+    >
       {(item) => <SelectItem key={item.name}>{item.name}</SelectItem>}
-    </Select>
+    </MultiSelect>
   );
 }
 ```
@@ -187,11 +196,11 @@ function ControlledExample() {
 Set the `isDisabled` prop to prevent a user from interacting with the select.
 
 ```jsx live
-<Select aria-label="status" isDisabled>
+<MultiSelect aria-label="status" isDisabled>
   <SelectItem>United States</SelectItem>
   <SelectItem>Canada</SelectItem>
   <SelectItem>Mexico</SelectItem>
-</Select>
+</MultiSelect>
 ```
 
 ### Disabled items
@@ -199,11 +208,11 @@ Set the `isDisabled` prop to prevent a user from interacting with the select.
 Set the `disabledKeys` prop to disable certain items in the select list.
 
 ```jsx live
-<Select aria-label="status" disabledKeys={['canada']}>
+<MultiSelect aria-label="status" disabledKeys={['canada']}>
   <SelectItem key="united_states">United States</SelectItem>
   <SelectItem key="canada">Canada</SelectItem>
   <SelectItem key="mexico">Mexico</SelectItem>
-</Select>
+</MultiSelect>
 ```
 
 ### Invalid State
@@ -211,18 +220,26 @@ Set the `disabledKeys` prop to disable certain items in the select list.
 Set the `validationState` prop to `invalid` to render the select in an invalid state.
 
 ```jsx live
-<Select aria-label="status" helperText="A selection is required" validationState="invalid">
+<MultiSelect aria-label="status" helperText="A selection is required" validationState="invalid">
   <SelectItem>United States</SelectItem>
   <SelectItem>Canada</SelectItem>
   <SelectItem>Mexico</SelectItem>
-</Select>
+</MultiSelect>
 ```
+
+## Accessibility
+
+### Labeling
+
+If a visible label isn't specified, an aria-label must be provided to the select for accessibility.
+If the field is labeled by a separate element, an aria-labelledby prop must be provided using the id
+of the labeling element instead.
 
 ## Props
 
-### Select Props
+### MultiSelect Props
 
-<PropsTable component="Select" />
+<PropsTable component="MultiSelect" />
 
 ### SelectItem Props
 

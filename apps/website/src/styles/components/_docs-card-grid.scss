@@ -1,9 +1,0 @@
-.docs-card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  grid-gap: 1.35rem;
-
-  .docs-card {
-    max-width: none;
-  }
-}
