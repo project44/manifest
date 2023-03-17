@@ -5,11 +5,13 @@ description: A navigation pattern that helps users understand the hierarchy of a
 
 A navigation pattern that helps users understand the hierarchy of a website.
 
-<Demo fileName="breadcrumb.tsx" />
-
-## Usage
-
-Pass an array of `BreadcrumbItem` components with `href` to the `Breadcrumb` component.
+```jsx live
+<Breadcrumb>
+  <BreadcrumbItem href="#home">Home</BreadcrumbItem>
+  <BreadcrumbItem href="#catalog">Catalog</BreadcrumbItem>
+  <BreadcrumbItem href="#products">Products</BreadcrumbItem>
+</Breadcrumb>
+```
 
 ## Props
 

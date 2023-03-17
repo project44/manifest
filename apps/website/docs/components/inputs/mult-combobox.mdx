@@ -1,0 +1,265 @@
+---
+title: MultiCombobox
+description: An autocomplete input that allows a user to filter a list of selectable options.
+---
+
+An autocomplete input that allows a user to filter a list of selectable options.
+
+```jsx live live
+<MultiCombobox aria-label="Country Select">
+  <ComboboxItem>United States</ComboboxItem>
+  <ComboboxItem>Canada</ComboboxItem>
+  <ComboboxItem>Mexico</ComboboxItem>
+</MultiCombobox>
+```
+
+## Usage
+
+### Selection
+
+Setting a selected option can be done by using the `defaultSelectedKey` or `selectedKey` prop
+
+```jsx live
+function Selection() {
+  const options = [
+    { id: 1, name: 'United States' },
+    { id: 2, name: 'Canada' },
+    { id: 3, name: 'Mexico' },
+    { id: 4, name: 'United Kingdom' },
+    { id: 5, name: 'France' },
+    { id: 6, name: 'China' },
+    { id: 7, name: 'India' },
+    { id: 8, name: 'Turkey' },
+  ];
+
+  const [selected, setSelected] = React.useState(new Set(['Turkey']));
+
+  return (
+    <MultiCombobox
+      aria-label="Country Select"
+      selectedKeys={selected}
+      onSelectionChange={setSelected}
+    >
+      {options.map((item) => (
+        <ComboboxItem key={item.name}>{item.name}</ComboboxItem>
+      ))}
+    </MultiCombobox>
+  );
+}
+```
+
+### Sections
+
+Group items within a dropdown using a section.
+
+```jsx live
+<MultiCombobox aria-label="Country Select">
+  <ComboboxSection title="North America">
+    <ComboboxItem>United States</ComboboxItem>
+    <ComboboxItem>Canada</ComboboxItem>
+    <ComboboxItem>Mexico</ComboboxItem>
+  </ComboboxSection>
+  <ComboboxSection title="Europe">
+    <ComboboxItem>United Kingdom</ComboboxItem>
+    <ComboboxItem>France</ComboboxItem>
+  </ComboboxSection>
+  <ComboboxSection title="Asia">
+    <ComboboxItem>China</ComboboxItem>
+    <ComboboxItem>India</ComboboxItem>
+  </ComboboxSection>
+</MultiCombobox>
+```
+
+### Async
+
+Items can be loaded asynchronously use the `useAsyncData` hook. It also supports infinite scrolling
+to load more data on demand as the user scrolls, via the onLoadMore prop.
+
+```jsx live
+function Async() {
+  const list = useAsyncList({
+    async load({ signal }) {
+      const res = await fetch('https://restcountries.com/v3.1/alpha?codes=US,CA,MX,GB,FR,CN,IN', {
+        signal,
+      });
+
+      const items = await res.json();
+
+      return { items };
+    },
+  });
+
+  return (
+    <MultiCombobox aria-label="Country Select" items={list.items}>
+      {(item) => <ComboboxItem key={item.name.common}>{item.name.common}</ComboboxItem>}
+    </MultiCombobox>
+  );
+}
+```
+
+### Label
+
+Attach a label to the combobox using the `label` prop.
+
+```jsx live
+<MultiCombobox label="Country">
+  <ComboboxItem>United States</ComboboxItem>
+  <ComboboxItem>Canada</ComboboxItem>
+  <ComboboxItem>Mexico</ComboboxItem>
+</MultiCombobox>
+```
+
+### HelperText
+
+Add additional context as well as display error messages with the `helperText` prop.
+
+```jsx live
+<MultiCombobox label="Country" helperText="Please select a country">
+  <ComboboxItem>United States</ComboboxItem>
+  <ComboboxItem>Canada</ComboboxItem>
+  <ComboboxItem>Mexico</ComboboxItem>
+</MultiCombobox>
+```
+
+### Small
+
+A small combobox is used when vertical spacing is limited.
+
+```jsx live
+<MultiCombobox aria-label="Country Select" size="small">
+  <ComboboxItem>United States</ComboboxItem>
+  <ComboboxItem>Canada</ComboboxItem>
+  <ComboboxItem>Mexico</ComboboxItem>
+</MultiCombobox>
+```
+
+### Start Icon
+
+Include an icon before the input text.
+
+```jsx live
+<MultiCombobox aria-label="status" startIcon={<Search />}>
+  <ComboboxItem>United States</ComboboxItem>
+  <ComboboxItem>Canada</ComboboxItem>
+  <ComboboxItem>Mexico</ComboboxItem>
+</MultiCombobox>
+```
+
+### Item Icon
+
+Include an icon before the item label on each item.
+
+```jsx live
+<MultiCombobox aria-label="status">
+  <ComboboxItem startIcon={<Truck />}>Truck</ComboboxItem>
+  <ComboboxItem startIcon={<Train />}>Train</ComboboxItem>
+  <ComboboxItem startIcon={<Airplane />}>Airplane</ComboboxItem>
+  <ComboboxItem startIcon={<Boat />}>Ship</ComboboxItem>
+</MultiCombobox>
+```
+
+### Controlled
+
+A combobox's state can be fully controlled including both the text input and item selection.
+
+```jsx live
+function ControlledExample() {
+  const data = [
+    { id: 1, name: 'United States' },
+    { id: 2, name: 'Canada' },
+    { id: 3, name: 'Mexico' },
+    { id: 4, name: 'United Kingdom' },
+    { id: 5, name: 'France' },
+    { id: 6, name: 'China' },
+    { id: 7, name: 'India' },
+    { id: 8, name: 'Turkey' },
+  ];
+
+  const list = useTreeData({ initialItems: data });
+
+  const [state, dispatch] = React.useReducer(
+    (state, action) => {
+      switch (action.type) {
+        case 'INPUT_CHANGE':
+          return {
+            inputValue: action.payload,
+            selectedKeys: action.payload === '' ? new Set(['']) : state.selectedKeys,
+          };
+        case 'SELECTION_CHANGE':
+          return {
+            inputValue: action.payload ? list.getItem(action.payload).value.name : '',
+            selectedKeys: action.payload,
+          };
+        default:
+          throw new Error();
+      }
+    },
+    { inputValue: '', selectedKeys: new Set(['Turkey']) },
+  );
+
+  console.log(state.selectedKeys);
+
+  return (
+    <MultiCombobox
+      aria-label="status"
+      defaultItems={list.items}
+      inputValue={state.inputValue}
+      onInputChange={(value) => dispatch({ type: 'INPUT_CHANGE', payload: value })}
+      onSelectionChange={(keys) => dispatch({ type: 'SELECTION_CHANGE', payload: keys })}
+      selectedKeys={state.selectedKeys}
+    >
+      {(item) => <ComboboxItem key={item.value.name}>{item.value.name}</ComboboxItem>}
+    </MultiCombobox>
+  );
+}
+```
+
+### Disabled State
+
+Set the `isDisabled` prop to prevent a user from interacting with the combobox.
+
+```jsx live
+<Combobox aria-label="status" isDisabled>
+  <SelectItem>United States</SelectItem>
+  <SelectItem>Canada</SelectItem>
+  <SelectItem>Mexico</SelectItem>
+</Combobox>
+```
+
+### Disabled items
+
+Set the `disabledKeys` prop to disable certain items in the combobox list.
+
+```jsx live
+<Combobox aria-label="status" disabledKeys={['completed', 'fulfilled']}>
+  <ComboboxItem key="united_states">United States</ComboboxItem>
+  <ComboboxItem key="canada">Canada</ComboboxItem>
+  <ComboboxItem key="mexico">Mexico</ComboboxItem>
+</Combobox>
+```
+
+### Invalid State
+
+Set the `validationState` prop to `invalid` to render the combobox in an invalid state.
+
+```jsx live
+<Combobox aria-label="status" helperText="A selection is required" validationState="invalid">
+  <SelectItem>United States</SelectItem>
+  <SelectItem>Canada</SelectItem>
+  <SelectItem>Mexico</SelectItem>
+</Combobox>
+```
+
+## Props
+
+### MultiCombobox Props
+
+<PropsTable component="MultiCombobox" />
+
+### ComboboxItem Props
+
+<PropsTable component="ComboboxItem" />
+
+### ComboboxSection Props
+
+<PropsTable component="ComboboxSection" />

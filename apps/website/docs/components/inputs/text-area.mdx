@@ -3,17 +3,19 @@ title: Text Area
 description: Allows users to enter and edit long form information.
 ---
 
-```jsx
+Allows users to enter and edit long form information.
+
+```jsx live
 <TextArea aria-label="description" placeholder="Enter description..." />
 ```
 
-## Examples
+## Usage
 
 ### Label
 
 Attach a label to the select using the `label` prop.
 
-```jsx
+```jsx live
 <TextArea label="Description" />
 ```
 
@@ -21,7 +23,7 @@ Attach a label to the select using the `label` prop.
 
 Add additional context as well as display error messages with the `helperText` prop.
 
-```jsx
+```jsx live
 <TextArea label="Description" helperText="Please enter a description" />
 ```
 
@@ -30,7 +32,7 @@ Add additional context as well as display error messages with the `helperText` p
 A text area's state can be controlled by a parent React component by setting the `value` prop and
 passing a handler to the `onChange` prop.
 
-```jsx
+```jsx live
 function ControlledExample() {
   const [value, setValue] = React.useState(
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
@@ -44,26 +46,10 @@ function ControlledExample() {
 
 Set the `isDisabled` prop to prevent a user from inputting text.
 
-```jsx
+```jsx live
 <TextArea aria-label="description" isDisabled />
 ```
 
-## Accessibility
+## Props
 
-If a visible label isn't specified, an aria-label must be provided to the text area for
-accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be
-provided using the id of the labeling element instead.
-
-## API
-
-### Import
-
-```js
-import { TextArea } from '@project44-manifest/react';
-```
-
-### Props
-
-All native element props are also available.
-
-<PropsTable of="TextArea" />
+<PropsTable component="TextArea" />

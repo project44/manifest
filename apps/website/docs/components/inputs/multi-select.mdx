@@ -1,0 +1,250 @@
+---
+title: MultiSelect
+description: Choose multiple options from a collapsible list of options.
+---
+
+Choose multiple options from a collapsible list of options.
+
+```jsx live
+<MultiSelect aria-label="Country Select">
+  <SelectItem>United States</SelectItem>
+  <SelectItem>Canada</SelectItem>
+  <SelectItem>Mexico</SelectItem>
+</MultiSelect>
+```
+
+## Usage
+
+### Selection
+
+The listbox components supports either no selection, single and multiple selection modes using the
+`selectionMode` prop.
+
+```jsx live
+function Selection() {
+  const options = [
+    { id: 1, name: 'United States' },
+    { id: 2, name: 'Canada' },
+    { id: 3, name: 'Mexico' },
+    { id: 4, name: 'United Kingdom' },
+    { id: 5, name: 'France' },
+    { id: 6, name: 'China' },
+    { id: 7, name: 'India' },
+    { id: 8, name: 'Turkey' },
+  ];
+
+  const [selected, setSelected] = React.useState(new Set(['Turkey']));
+
+  return (
+    <MultiSelect
+      aria-label="Country Select"
+      selectedKeys={selected}
+      onSelectionChange={setSelected}
+    >
+      {options.map((item) => (
+        <SelectItem key={item.name}>{item.name}</SelectItem>
+      ))}
+    </MultiSelect>
+  );
+}
+```
+
+### Sections
+
+Group items within a dropdown using a section.
+
+```jsx live
+<MultiSelect aria-label="Country Select">
+  <SelectSection title="North America">
+    <SelectItem>United States</SelectItem>
+    <SelectItem>Canada</SelectItem>
+    <SelectItem>Mexico</SelectItem>
+  </SelectSection>
+  <SelectSection title="Europe">
+    <SelectItem>United Kingdom</SelectItem>
+    <SelectItem>France</SelectItem>
+  </SelectSection>
+  <SelectSection title="Asia">
+    <SelectItem>China</SelectItem>
+    <SelectItem>India</SelectItem>
+  </SelectSection>
+</MultiSelect>
+```
+
+### Async
+
+Items can be loaded asynchronously use the `useAsyncData` hook. It also supports infinite scrolling
+to load more data on demand as the user scrolls, via the onLoadMore prop.
+
+```jsx live
+function Async() {
+  const list = useAsyncList({
+    async load({ signal }) {
+      const res = await fetch('https://restcountries.com/v3.1/alpha?codes=US,CA,MX,GB,FR,CN,IN', {
+        signal,
+      });
+
+      const items = await res.json();
+
+      return { items };
+    },
+  });
+
+  return (
+    <MultiSelect aria-label="Country Select" items={list.items}>
+      {(item) => <SelectItem key={item.name.common}>{item.name.common}</SelectItem>}
+    </MultiSelect>
+  );
+}
+```
+
+### Label
+
+Attach a label to the combobox using the `label` prop.
+
+```jsx live
+<MultiSelect label="Country">
+  <SelectItem>United States</SelectItem>
+  <SelectItem>Canada</SelectItem>
+  <SelectItem>Mexico</SelectItem>
+</MultiSelect>
+```
+
+### HelperText
+
+Add additional context as well as display error messages with the `helperText` prop.
+
+```jsx live
+<MultiSelect label="Country" helperText="Please select a country">
+  <SelectItem>United States</SelectItem>
+  <SelectItem>Canada</SelectItem>
+  <SelectItem>Mexico</SelectItem>
+</MultiSelect>
+```
+
+### Small
+
+A small select is used when vertical spacing is limited.
+
+```jsx live
+<MultiSelect aria-label="Country Select" size="small">
+  <SelectItem>United States</SelectItem>
+  <SelectItem>Canada</SelectItem>
+  <SelectItem>Mexico</SelectItem>
+</MultiSelect>
+```
+
+### Start Icon
+
+Include an icon before the input text.
+
+```jsx live
+<MultiSelect aria-label="status" startIcon={<Search />}>
+  <SelectItem>United States</SelectItem>
+  <SelectItem>Canada</SelectItem>
+  <SelectItem>Mexico</SelectItem>
+</MultiSelect>
+```
+
+### Item Icon
+
+Include an icon before the item label on each item.
+
+```jsx live
+<MultiSelect aria-label="status">
+  <SelectItem startIcon={<Truck />}>Truck</SelectItem>
+  <SelectItem startIcon={<Train />}>Train</SelectItem>
+  <SelectItem startIcon={<Airplane />}>Airplane</SelectItem>
+  <SelectItem startIcon={<Boat />}>Ship</SelectItem>
+</MultiSelect>
+```
+
+### Controlled
+
+A select's state can be controlled using the `selectedKeys` prop and `onSelectionChange` handler.
+
+```jsx live
+function ControlledExample() {
+  const data = [
+    { id: 1, name: 'United States' },
+    { id: 2, name: 'Canada' },
+    { id: 3, name: 'Mexico' },
+    { id: 4, name: 'United Kingdom' },
+    { id: 5, name: 'France' },
+    { id: 6, name: 'China' },
+    { id: 7, name: 'India' },
+    { id: 8, name: 'Turkey' },
+  ];
+
+  const [selected, setSelected] = React.useState(new Set(['Turkey']));
+
+  return (
+    <MultiSelect
+      aria-label="status"
+      items={data}
+      onSelectionChange={setSelected}
+      selectedKeys={selected}
+    >
+      {(item) => <SelectItem key={item.name}>{item.name}</SelectItem>}
+    </MultiSelect>
+  );
+}
+```
+
+### Disabled State
+
+Set the `isDisabled` prop to prevent a user from interacting with the select.
+
+```jsx live
+<MultiSelect aria-label="status" isDisabled>
+  <SelectItem>United States</SelectItem>
+  <SelectItem>Canada</SelectItem>
+  <SelectItem>Mexico</SelectItem>
+</MultiSelect>
+```
+
+### Disabled items
+
+Set the `disabledKeys` prop to disable certain items in the select list.
+
+```jsx live
+<MultiSelect aria-label="status" disabledKeys={['canada']}>
+  <SelectItem key="united_states">United States</SelectItem>
+  <SelectItem key="canada">Canada</SelectItem>
+  <SelectItem key="mexico">Mexico</SelectItem>
+</MultiSelect>
+```
+
+### Invalid State
+
+Set the `validationState` prop to `invalid` to render the select in an invalid state.
+
+```jsx live
+<MultiSelect aria-label="status" helperText="A selection is required" validationState="invalid">
+  <SelectItem>United States</SelectItem>
+  <SelectItem>Canada</SelectItem>
+  <SelectItem>Mexico</SelectItem>
+</MultiSelect>
+```
+
+## Accessibility
+
+### Labeling
+
+If a visible label isn't specified, an aria-label must be provided to the select for accessibility.
+If the field is labeled by a separate element, an aria-labelledby prop must be provided using the id
+of the labeling element instead.
+
+## Props
+
+### MultiSelect Props
+
+<PropsTable component="MultiSelect" />
+
+### SelectItem Props
+
+<PropsTable component="SelectItem" />
+
+### SelectSection Props
+
+<PropsTable component="SelectSection" />

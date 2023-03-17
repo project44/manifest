@@ -5,34 +5,59 @@ description: Group related buttons.
 
 Group related buttons.
 
-<Demo fileName="button-group.tsx" />
+```jsx live
+<ButtonGroup>
+  <Button>Button</Button>
+  <Button>Button</Button>
+</ButtonGroup>
+```
 
-## Examples
+## Usage
 
 ### Variant
 
 The button group can control the variant for all buttons within the group.
 
-<Demo fileName="button-group-variant.tsx" />
+```jsx live
+<ButtonGroup variant="secondary">
+  <Button>Button</Button>
+  <Button>Button</Button>
+</ButtonGroup>
+```
 
 ### Small
 
 Small buttons are used when vertical spacing is limited.
 
-<Demo fileName="button-group-small.tsx" />
+```jsx live
+<ButtonGroup size="small">
+  <Button>Button</Button>
+  <Button>Button</Button>
+</ButtonGroup>
+```
 
 ### Attached
 
 All buttons within a button group can be attached to each other.
 
-<Demo fileName="button-group-attached.tsx" />
+```jsx live
+<ButtonGroup isAttached>
+  <Button>Button</Button>
+  <Button>Button</Button>
+</ButtonGroup>
+```
 
 ### Disabled state
 
 All buttons within a button group can be disabled to prevent a user from taking action on all
 buttons within the group.
 
-<Demo fileName="button-group-disabled.tsx" />
+```jsx live
+<ButtonGroup isDisabled>
+  <Button>Button</Button>
+  <Button>Button</Button>
+</ButtonGroup>
+```
 
 ## Props
 

@@ -1,4 +1,2 @@
-export * from './Demo';
-export * from './DocsCard';
-export * from './DocsCardGrid';
+export * from './BrowserWindow';
 export * from './PropsTable';

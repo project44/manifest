@@ -3,10 +3,10 @@ title: Date Picker
 description: Choose a date from a visual calendar.
 ---
 
-```jsx
-<Box css={{ maxWidth: '25ch' }}>
-  <DatePicker aria-label="delivery date" />
-</Box>
+Choose a date from a visual calendar.
+
+```jsx live
+<DatePicker aria-label="delivery date" />
 ```
 
 ## Examples
@@ -15,40 +15,32 @@ description: Choose a date from a visual calendar.
 
 Attach a label to the datepicker using the `label` prop.
 
-```jsx
-<Box css={{ maxWidth: '25ch' }}>
-  <DatePicker label="Estimated Delivery Date" />
-</Box>
+```jsx live
+<DatePicker label="Estimated Delivery Date" />
 ```
 
 ### HelperText
 
 Add additional context as well as display error messages with the `helperText` prop.
 
-```jsx
-<Box css={{ maxWidth: '25ch' }}>
-  <DatePicker label="Estimated Delivery Date" helperText="Please select a delivery date." />
-</Box>
+```jsx live
+<DatePicker label="Estimated Delivery Date" helperText="Please select a delivery date." />
 ```
 
 ### Small
 
 A small datepicker is used when vertical spacing is limited.
 
-```jsx
-<Box css={{ maxWidth: '25ch' }}>
-  <DatePicker aria-label="delivery date" size="small" />
-</Box>
+```jsx live
+<DatePicker aria-label="delivery date" size="small" />
 ```
 
 ### Start Icon
 
 Include an icon before the input text.
 
-```jsx
-<Box css={{ maxWidth: '25ch' }}>
-  <DatePicker aria-label="delivery date" startIcon={<Icon icon="search" />} />
-</Box>
+```jsx live
+<DatePicker aria-label="delivery date" startIcon={<Icon icon="search" />} />
 ```
 
 ### Controlled
@@ -56,20 +48,20 @@ Include an icon before the input text.
 A datepickers's state can be controlled by a parent React component by setting the `value` prop and
 passing a handler to the `onChange` prop.
 
-> Date values are provided using objects in the
-> [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date) package. This
-> library handles correct international date manipulation across calendars, time zones, and other
-> localization concerns.
+:::info
 
-```jsx
-function ControlledExample() {
+Date values are provided using objects in the
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date) package. This
+library handles correct international date manipulation across calendars, time zones, and other
+localization concerns.
+
+:::
+
+```jsx live
+function Controlled() {
   const [value, setValue] = React.useState(new CalendarDate(2022, 7, 12));
 
-  return (
-    <Box css={{ maxWidth: '25ch' }}>
-      <DatePicker aria-label="delivery date" onChange={setValue} value={value} />
-    </Box>
-  );
+  return <DatePicker aria-label="delivery date" value={value} onChange={setValue} />;
 }
 ```
 
@@ -77,16 +69,12 @@ function ControlledExample() {
 
 Set the `isDateUnavailable` handler prop to make certain dates unavailable for selection.
 
-```jsx
-function UnavailableExample() {
+```jsx live
+function Unavailable() {
   const { locale } = useLocale();
-  const isDateUnavailable = (date) => isWeekend(date, locale);
+  const isDateUnavailable = React.useCallback((date) => isWeekend(date, locale), [locale]);
 
-  return (
-    <Box css={{ maxWidth: '25ch' }}>
-      <DatePicker aria-label="delivery date" isDateUnavailable={isDateUnavailable} />
-    </Box>
-  );
+  return <DatePicker aria-label="delivery date" isDateUnavailable={isDateUnavailable} />;
 }
 ```
 
@@ -94,44 +82,22 @@ function UnavailableExample() {
 
 Set the `isDisabled` prop to prevent a user from interacting with the datepicker.
 
-```jsx
-<Box css={{ maxWidth: '25ch' }}>
-  <DatePicker aria-label="delivery date" isDisabled />
-</Box>
+```jsx live
+<DatePicker aria-label="delivery date" isDisabled />
 ```
 
 ### Invalid State
 
 Set the `validationState` prop to `invalid` to render the datepicker in an invalid state.
 
-```jsx
-<Box css={{ maxWidth: '25ch' }}>
-  <DatePicker
-    aria-label="delivery date"
-    helperText="A selection is required"
-    validationState="invalid"
-  />
-</Box>
+```jsx live
+<DatePicker
+  aria-label="delivery date"
+  helperText="A selection is required"
+  validationState="invalid"
+/>
 ```
 
-## Accessibility
+## Props
 
-### Labeling
-
-If a visible label isn't specified, an aria-label must be provided to the datepicker for
-accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be
-provided using the id of the labeling element instead.
-
-## API
-
-### Import
-
-```js
-import { DatePicker } from '@project44-manifest/react';
-```
-
-### Props
-
-Props of the native element are also available.
-
-<PropsTable of="DatePicker" />
+<PropsTable component="DatePicker" />

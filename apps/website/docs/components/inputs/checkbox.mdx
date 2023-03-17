@@ -3,7 +3,9 @@ title: Checkbox
 description: An input which allows users to select one or more options from a list of options.
 ---
 
-```jsx
+An input which allows users to select one or more options from a list of options.
+
+```jsx live
 <Checkbox aria-label="checkbox" />
 ```
 
@@ -13,7 +15,7 @@ description: An input which allows users to select one or more options from a li
 
 Pass in a `string` as a child to render a label for the checkbox.
 
-```jsx
+```jsx live
 <Checkbox>Label</Checkbox>
 ```
 
@@ -22,7 +24,7 @@ Pass in a `string` as a child to render a label for the checkbox.
 A checkbox's state can be controlled by a parent React component by setting the `isSelected` prop
 and passing a handler to the `onChange` prop.
 
-```jsx
+```jsx live
 function ControlledExample() {
   const [selected, setSelected] = React.useState(false);
 
@@ -38,7 +40,7 @@ function ControlledExample() {
 
 Set the `isIndeterminate` prop to render the checkbox in an indeterminate state.
 
-```jsx
+```jsx live
 function IndeterminateExample() {
   const [selected, setSelected] = React.useState([false, false]);
 
@@ -80,28 +82,10 @@ function IndeterminateExample() {
 
 Set the `isDisabled` prop to prevent a user from selecting a checkbox.
 
-```jsx
+```jsx live
 <Checkbox isDisabled>Disabled</Checkbox>
 ```
 
-## Accessibility
+## Props
 
-### Labeling
-
-If a visible label isn't specified, an aria-label must be provided to the checkbox for
-accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be
-provided using the id of the labeling element instead.
-
-## API
-
-### Import
-
-```js
-import { Checkbox } from '@project44-manifest/react';
-```
-
-### Props
-
-All native element props are also available.
-
-<PropsTable of="Checkbox" />
+<PropsTable component="Checkbox" />

@@ -1,44 +1,91 @@
 ---
 title: Flex
-description: A layout container using flexbox.
+description: A polymorphic component used quickly creating flex layouts.
 ---
 
-A layout container using flexbox.
+A polymorphic component used quickly creating flex layouts.
 
-<Demo fileName="flex.tsx" />
+```jsx live
+<Flex gap="small">
+  <Box css={{ backgroundColor: '$background-secondary', height: 300, width: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', width: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', flex: 1 }} />
+</Flex>
+```
 
-## Examples
-
-### Vertical
-
-Stack elements vertically using the `orientation` prop set to `vertical`.
-
-<Demo fileName="flex-vertical.tsx" />
-
-### Nested
-
-Nested flex components can be used to create complex layouts.
-
-<Demo fileName="flex-nested.tsx" />
-
-### Wrapping
-
-Wrap elements within the flex container using the `wrap` prop.
-
-<Demo fileName="flex-wrap.tsx" />
+## Usage
 
 ### Align
 
-The `align` prop can be used to align content along the rendered axis.
+Set the `align` prop to control the alignment of the flex's children.
 
-<Demo fileName="flex-align.tsx" />
+```jsx live
+<Flex align="center" css={{ height: 200 }} gap="small">
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+</Flex>
+```
 
 ### Justify
 
-The `justify` prop can be used to justify content along the rendered axis.
+Set the `justify` prop to control the justification of the flex's children.
 
-<Demo fileName="flex-justify.tsx" />
+```jsx live
+<Flex justify="end" gap="small">
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+</Flex>
+```
+
+### Gap
+
+Set the `gap` prop to control the spacing between the flex's children.
+
+```jsx live
+<Flex gap="large">
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+</Flex>
+```
+
+### Orientation
+
+Set the `orientation` prop to adjust the layout of the flex's children.
+
+```jsx live
+<Flex gap="small" orientation="vertical">
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+</Flex>
+```
+
+### Wrap
+
+Set the `wrap` prop to force children to wrap if the horizontal spacing is limited.
+
+```jsx live
+<Flex gap="small" wrap>
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+</Flex>
+```
 
 ## Props
+
+All native element props are also available.
 
 <PropsTable component="Flex" />

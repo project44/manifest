@@ -3,7 +3,9 @@ title: Table
 description: A component that displays rows of organized data.
 ---
 
-```jsx
+A component that displays rows of organized data.
+
+```jsx live
 <Table>
   <TableHeader>
     <TableRow>
@@ -61,14 +63,14 @@ description: A component that displays rows of organized data.
 </Table>
 ```
 
-## Examples
+## Usage
 
-### Row Hover
+### Dense
 
-Set the `showHover` prop to display the hover state on table rows.
+Render a dense table with space is limited using the `isDense` prop.
 
-```jsx
-<Table showHover>
+```jsx live
+<Table isDense>
   <TableHeader>
     <TableRow>
       <TableColumn>No.</TableColumn>
@@ -129,8 +131,8 @@ Set the `showHover` prop to display the hover state on table rows.
 
 Table columns support displaying a visual indicator of sorting.
 
-```jsx
-function SortExample() {
+```jsx live
+function Sort() {
   const [sortDirection, setSortDirection] = React.useState('asc');
   const [sortedColumn, setSortedColumn] = React.useState('name');
 
@@ -215,53 +217,28 @@ function SortExample() {
 }
 ```
 
-## API
-
-### Import
-
-```js
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableColumn,
-  TableFooter,
-  TableHeader,
-} from '@project44-manifest/react';
-```
+## Props
 
 ### Table Props
 
-All native element props are also available.
-
-<PropsTable of="Table" />
+<PropsTable component="Table" />
 
 ### TableBody Props
 
-All native element props are also available.
-
-<PropsTable of="TableBody" />
+<PropsTable component="TableBody" />
 
 ### TableCell Props
 
-All native element props are also available.
-
-<PropsTable of="TableCell" />
+<PropsTable component="TableCell" />
 
 ### TableColumn Props
 
-All native element props are also available.
-
-<PropsTable of="TableColumn" />
+<PropsTable component="TableColumn" />
 
 ### TableFooter Props
 
-All native element props are also available.
-
-<PropsTable of="TableFooter" />
+<PropsTable component="TableFooter" />
 
 ### TableHeader Props
 
-All native element props are also available.
-
-<PropsTable of="TableHeader" />
+<PropsTable component="TableHeader" />
