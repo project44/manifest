@@ -1,0 +1,8 @@
+.elevation {
+  background-color: var(--color-background-surface);
+  padding: var(--space-large);
+
+  &:not(:last-of-type) {
+    margin-bottom: var(--space-large);
+  }
+}

@@ -1,0 +1,54 @@
+---
+title: Typography
+---
+
+Type hierarchy and scales
+
+import { BrowserWindow } from '@site/src/components';
+
+## Type face
+
+The Manifest Design System type hierarchy and scale is designed leveraging the
+[Inter](https://rsms.me/inter/) type face.
+
+![Inter Type Face](https://rsms.me/inter/samples/img/a-z-regular.svg)
+
+## Type scale
+
+The system provides the following type scales to create our type hierarchy.
+
+<BrowserWindow>
+  <Stack gap="medium">
+    <Typography variant="display">Display</Typography>
+    <Typography variant="heading">Heading</Typography>
+    <Typography variant="title">Title</Typography>
+    <Typography variant="subtitle">Subtitle</Typography>
+    <Typography variant="body">Body</Typography>
+    <Typography variant="bodyBold">Body Body</Typography>
+    <Typography variant="subtext">Subtext</Typography>
+    <Typography variant="subtextBold">Subtext Bold</Typography>
+    <Typography variant="caption">Caption</Typography>
+    <Typography variant="captionBold">Caption Bold</Typography>
+  </Stack>
+</BrowserWindow>
+
+| Name                                                 | Size | Weight | Line Height | Letter Spacing |
+| ---------------------------------------------------- | ---- | ------ | ----------- | -------------- |
+| <Typography variant="display">Display</Typography>   | 32px | 700    | 42px        | -0.03em        |
+| <Typography variant="heading">Heading</Typography>   | 24px | 700    | 32px        | -0.02em        |
+| <Typography variant="title">Title</Typography>       | 20px | 700    | 30px        | -0.01em        |
+| <Typography variant="subtitle">Subtitle</Typography> | 16px | 700    | 24px        | -0.01em        |
+| <Typography variant="body">Body</Typography>         | 16px | 400    | 24px        | -0.01em        |
+| <Typography variant="subtext">Subtext</Typography>   | 14px | 400    | 20px        | -0.01em        |
+| <Typography variant="caption">Caption</Typography>   | 12px | 400    | 18px        | -0.01em        |
+
+## CDN
+
+Please be sure to include the font family link in the `<head>` of your application's HTML.
+
+```html
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+  rel="stylesheet"
+/>
+```

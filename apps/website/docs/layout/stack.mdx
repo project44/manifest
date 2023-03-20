@@ -1,0 +1,50 @@
+---
+title: Stack
+description: A polymorphic component used for quickly creating stacked layouts.
+---
+
+A polymorphic component used for quickly creating stacked layouts.
+
+```jsx live
+<Stack gap="medium">
+  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+</Stack>
+```
+
+## Usage
+
+### Orientation
+
+Set the `orientation` prop to adjust the layout of the stacks's children.
+
+```jsx live
+<Stack gap="medium" orientation="horizontal">
+  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+</Stack>
+```
+
+### Gap
+
+Set the `gap` prop to control the spacing between the stacks's children.
+
+```jsx live
+<Stack gap="small" orientation="horizontal">
+  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+</Stack>
+```
+
+## Props
+
+<PropsTable component="Stack" />

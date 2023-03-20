@@ -1,0 +1,11 @@
+.navbar {
+  &__brand {
+    font-weight: var(--font-weight-regular);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+} 

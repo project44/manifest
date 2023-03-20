@@ -6,6 +6,7 @@
     "scripts/*",
     "tools/**/*",
     "tests/*",
+    "website/**/*",
     "**/.eslintrc.js",
     "**/jest.config.js",
     "vite.config.ts"

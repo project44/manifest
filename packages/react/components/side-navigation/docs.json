@@ -68,7 +68,7 @@
     },
     {
       "name": "logo",
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+      "type": "ReactNode",
       "required": false,
       "description": "The logo of the application."
     }

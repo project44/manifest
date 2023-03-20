@@ -1,0 +1,91 @@
+---
+title: Checkbox
+description: An input which allows users to select one or more options from a list of options.
+---
+
+An input which allows users to select one or more options from a list of options.
+
+```jsx live
+<Checkbox aria-label="checkbox" />
+```
+
+## Examples
+
+### Label
+
+Pass in a `string` as a child to render a label for the checkbox.
+
+```jsx live
+<Checkbox>Label</Checkbox>
+```
+
+### Controlled
+
+A checkbox's state can be controlled by a parent React component by setting the `isSelected` prop
+and passing a handler to the `onChange` prop.
+
+```jsx live
+function ControlledExample() {
+  const [selected, setSelected] = React.useState(false);
+
+  const handleChange = (isSelected) => {
+    setSelected(isSelected);
+  };
+
+  return <Checkbox aria-label="checkbox" isSelected={selected} onChange={handleChange} />;
+}
+```
+
+### Indeterminate
+
+Set the `isIndeterminate` prop to render the checkbox in an indeterminate state.
+
+```jsx live
+function IndeterminateExample() {
+  const [selected, setSelected] = React.useState([false, false]);
+
+  const handleParentChange = (isSelected) => {
+    setSelected([isSelected, isSelected]);
+  };
+
+  const handleFirstChange = (isSelected) => {
+    setSelected([isSelected, selected[1]]);
+  };
+
+  const handleSecondChange = (isSelected) => {
+    setSelected([selected[0], isSelected]);
+  };
+
+  return (
+    <Stack gap="small">
+      <Checkbox
+        isIndeterminate={selected[0] !== selected[1]}
+        isSelected={selected[0] && selected[1]}
+        onChange={handleParentChange}
+      >
+        Parent Checkbox
+      </Checkbox>
+      <Stack css={{ paddingLeft: '$small' }} gap="small">
+        <Checkbox isSelected={selected[0]} onChange={handleFirstChange}>
+          Child Checkbox 1
+        </Checkbox>
+        <Checkbox isSelected={selected[1]} onChange={handleSecondChange}>
+          Child Checkbox 2
+        </Checkbox>
+      </Stack>
+    </Stack>
+  );
+}
+```
+
+### Disabled State
+
+Set the `isDisabled` prop to prevent a user from selecting a checkbox.
+
+```jsx live
+<Checkbox isDisabled>Disabled</Checkbox>
+```
+
+## Props
+
+<PropsTable component="Checkbox" />

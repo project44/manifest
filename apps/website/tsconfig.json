@@ -1,0 +1,32 @@
+{
+  "extends": "../../tsconfig.options.json",
+  "compilerOptions": {
+    "outDir": "../../.moon/cache/types/apps/website",
+    "baseUrl": ".",
+    "resolveJsonModule": true,
+    "types": [
+      "node",
+      "@docusaurus/module-type-aliases",
+      "@docusaurus/theme-classic"
+    ],
+    "paths": {
+      "@site/*": [
+        "./*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "references": [
+    {
+      "path": "../../packages/react/core"
+    },
+    {
+      "path": "../../packages/react/icons"
+    },
+    {
+      "path": "../../packages/system/tokens"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+---
+title: Card
+description: A container that groups related content and actions.
+---
+
+A container that groups related content and actions.
+
+```jsx live
+<Box css={{ maxWidth: 400 }}>
+  <Card>
+    <CardBody>
+      <Typography>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat.
+      </Typography>
+    </CardBody>
+  </Card>
+</Box>
+```
+
+## Usage
+
+### Header
+
+Use a header to provide more context of the cards purpose.
+
+```jsx live
+<Box css={{ maxWidth: 400 }}>
+  <Card>
+    <CardHeader>Title</CardHeader>
+    <CardBody>
+      <Typography>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat.
+      </Typography>
+    </CardBody>
+  </Card>
+</Box>
+```
+
+### Footer
+
+Cards can contain actions for a user to perform.
+
+```jsx live
+<Box css={{ maxWidth: 400 }}>
+  <Card>
+    <CardHeader>Title</CardHeader>
+    <CardBody>
+      <Typography>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat.
+      </Typography>
+    </CardBody>
+    <CardFooter>
+      <ButtonGroup>
+        <Button variant="secondary">Cancel</Button>
+        <Button variant="primary">Submit</Button>
+      </ButtonGroup>
+    </CardFooter>
+  </Card>
+</Box>
+```
+
+## Props
+
+### Card Props
+
+<PropsTable component="Card" />
+
+### CardBody Props
+
+<PropsTable component="CardBody" />
+
+### CardFooter Props
+
+<PropsTable component="CardFooter" />
+
+### CardHeader Props
+
+<PropsTable component="CardHeader" />

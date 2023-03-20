@@ -1,0 +1,51 @@
+---
+title: Container
+description: An element that centers content horizontally.
+---
+
+An element that centers content horizontally.
+
+```jsx live
+<Container>
+  <Typography>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+    laboris nisi ut aliquip ex ea commodo consequat.
+  </Typography>
+</Container>
+```
+
+## Usage
+
+### Max width
+
+Set the `maxWidth` prop to limited the maximum width the container can stretch to.
+
+```jsx live
+<Container maxWidth="small">
+  <Typography>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+    laboris nisi ut aliquip ex ea commodo consequat.
+  </Typography>
+</Container>
+```
+
+### Fixed
+
+Set the `fixed` prop to ensure the container's max-width matches the min-width of the current
+breakpoint.
+
+```jsx live
+<Container fixed>
+  <Typography>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+    laboris nisi ut aliquip ex ea commodo consequat.
+  </Typography>
+</Container>
+```
+
+## Props
+
+<PropsTable component="Container" />

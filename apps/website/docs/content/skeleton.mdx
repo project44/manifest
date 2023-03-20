@@ -1,0 +1,26 @@
+---
+title: Skeleton
+description: A visual placeholder for an element that is loading.
+---
+
+A visual placeholder for an element that is loading.
+
+```jsx live
+<Skeleton height={334} width="100%">
+  <rect height="180" rx="4" ry="4" width="100%" x="0" y="0" />
+  <rect height="15" rx="0" ry="0" width="90%" x="0" y="200" />
+  <rect height="15" rx="0" ry="0" width="90%" x="0" y="225" />
+</Skeleton>
+```
+
+## Usage
+
+When you need to prevent Cumulative Layout Shift (CLS) or provide a visual placeholder for an
+element that is loading.
+
+Create desired `rect` shapes using the [SkeletonReact tool](https://skeletonreact.com/) then pass it
+as a child to the `Skeleton` component.
+
+## Props
+
+<PropsTable component="Skeleton" />

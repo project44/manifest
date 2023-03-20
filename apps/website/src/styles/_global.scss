@@ -1,0 +1,64 @@
+// Reset because manifest css is overriding values
+html {
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  font-family: var(--ifm-font-family-base);
+  font-size: var(--ifm-font-size-base);
+  line-height: var(--ifm-line-height-base);
+}
+
+body {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-medium);
+  font-weight:  var(--font-weight-regular);
+  letter-spacing:  var(--letter-spacing-medium);
+  line-height: var(--line-height-medium);
+}
+
+.table-of-contents__link {
+  color: var(--ifm-font-color-base);
+
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-small);
+  font-weight:  var(--font-weight-regular);
+  letter-spacing:  var(--letter-spacing-medium);
+  line-height: var(--line-height-small);
+}
+
+table {
+  display: table;
+  width: 100%;
+}
+
+thead {
+  border-bottom: 2px solid var(--ifm-toc-border-color);
+
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-small);
+  font-weight:  var(--font-weight-semibold);
+  letter-spacing:  var(--letter-spacing-medium);
+  line-height: var(--line-height-small);
+}
+
+table th, table td {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding: 1.25rem var(--space-medium);
+}
+
+td {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-small);
+  font-weight:  var(--font-weight-regular);
+  letter-spacing:  var(--letter-spacing-medium);
+  line-height: var(--line-height-small);
+}
+
+th {
+  text-align: start;
+}
+
+table thead tr {
+  border: none;
+}

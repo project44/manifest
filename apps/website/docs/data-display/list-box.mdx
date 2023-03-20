@@ -1,0 +1,139 @@
+---
+title: List Box
+description: A list of options that can allow selection of one or more.
+---
+
+A list of options that can allow selection of one or more.
+
+```jsx live
+<ListBox aria-label="Country Select">
+  <ListBoxItem>United States</ListBoxItem>
+  <ListBoxItem>Canada</ListBoxItem>
+  <ListBoxItem>Mexico</ListBoxItem>
+</ListBox>
+```
+
+## Usage
+
+### Selection
+
+The listbox components supports either no selection, single and multiple selection modes using the
+`selectionMode` prop.
+
+```jsx live
+function Selection() {
+  const options = [
+    { id: 1, name: 'United States' },
+    { id: 2, name: 'Canada' },
+    { id: 3, name: 'Mexico' },
+    { id: 4, name: 'United Kingdom' },
+    { id: 5, name: 'France' },
+    { id: 6, name: 'China' },
+    { id: 7, name: 'India' },
+    { id: 8, name: 'Turkey' },
+  ];
+
+  const [selected, setSelected] = React.useState(new Set(['Turkey']));
+
+  return (
+    <ListBox
+      aria-label="Country Select"
+      selectedKeys={selected}
+      selectionMode="multiple"
+      onSelectionChange={setSelected}
+    >
+      {options.map((item) => (
+        <ListBoxItem key={item.name}>{item.name}</ListBoxItem>
+      ))}
+    </ListBox>
+  );
+}
+```
+
+### Sections
+
+Group items within a dropdown using a section.
+
+```jsx live
+<ListBox aria-label="Country Select">
+  <ListBoxSection title="North America">
+    <ListBoxItem>United States</ListBoxItem>
+    <ListBoxItem>Canada</ListBoxItem>
+    <ListBoxItem>Mexico</ListBoxItem>
+  </ListBoxSection>
+  <ListBoxSection title="Europe">
+    <ListBoxItem>United Kingdom</ListBoxItem>
+    <ListBoxItem>France</ListBoxItem>
+  </ListBoxSection>
+  <ListBoxSection title="Asia">
+    <ListBoxItem>China</ListBoxItem>
+    <ListBoxItem>India</ListBoxItem>
+  </ListBoxSection>
+</ListBox>
+```
+
+### Async
+
+Items can be loaded asynchronously use the `useAsyncData` hook. It also supports infinite scrolling
+to load more data on demand as the user scrolls, via the onLoadMore prop.
+
+```jsx live
+function Async() {
+  const list = useAsyncList({
+    async load({ signal }) {
+      const res = await fetch('https://restcountries.com/v3.1/alpha?codes=US,CA,MX,GB,FR,CN,IN', {
+        signal,
+      });
+
+      const items = await res.json();
+
+      return { items };
+    },
+  });
+
+  return (
+    <ListBox aria-label="Country Select" items={list.items}>
+      {(item) => <ListBoxItem key={item.name.common}>{item.name.common}</ListBoxItem>}
+    </ListBox>
+  );
+}
+```
+
+### Start Icon
+
+Items can be adorned with starting icons.
+
+```jsx live
+<ListBox aria-label="Transportation Mode">
+  <ListBoxItem startIcon={<Truck />}>Truck</ListBoxItem>
+  <ListBoxItem startIcon={<Train />}>Train</ListBoxItem>
+  <ListBoxItem startIcon={<Airplane />}>Airplane</ListBoxItem>
+  <ListBoxItem startIcon={<Boat />}>Ship</ListBoxItem>
+</ListBox>
+```
+
+### Disabled items
+
+Set the `disabledKeys` prop to disable certain items in the dropdown list.
+
+```jsx live
+<ListBox aria-label="Country Select" disabledKeys={['canada']}>
+  <ListBoxItem key="united_states">United States</ListBoxItem>
+  <ListBoxItem key="canada">Canada</ListBoxItem>
+  <ListBoxItem key="mexico">Mexico</ListBoxItem>
+</ListBox>
+```
+
+## Props
+
+### ListBox Props
+
+<PropsTable component="ListBox" />
+
+### ListBoxItem Props
+
+<PropsTable component="ListBoxItem" />
+
+### ListBoxSection Props
+
+<PropsTable component="ListBoxSection" />

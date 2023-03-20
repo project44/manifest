@@ -1,0 +1,35 @@
+---
+title: Avatar
+description: A visual representation of a user or entity.
+---
+
+An avatar is visual representation of a user or entity.
+
+```jsx live
+<Avatar src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" />
+```
+
+## Usage
+
+### Size
+
+Sizes are predefined and can be adjusted via the `size` prop.
+
+```jsx live
+<Flex align="center" gap="medium">
+  <Avatar size="medium" src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" />
+  <Avatar size="small" src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" />
+</Flex>
+```
+
+### Fallback
+
+Fallback text can be rendered if a `src` prop is not defined or if the image `url` does not load.
+
+```jsx live
+<Avatar fallback="MD" />
+```
+
+## Props
+
+<PropsTable component="Avatar" />

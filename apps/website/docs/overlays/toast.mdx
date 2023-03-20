@@ -1,0 +1,159 @@
+---
+title: Toast
+description: Display brief, temporary notifications in an application.
+---
+
+Display brief, temporary notifications in an application.
+
+```jsx live
+function Basic() {
+  const handlePress = React.useCallback(() => {
+    toast('Lorem ipsum dolor');
+  }, []);
+
+  return <Button onPress={handlePress}>Open Toast</Button>;
+}
+```
+
+## Usage
+
+Before calling the `toast` function be sure to include the `Toaster` component in the root of your
+application.
+
+```jsx
+import { Toaster } from '@project44-manifest/react';
+
+function App({ children }) {
+  return (
+    <>
+      <Toaster />
+      {children}
+    </>
+  );
+}
+```
+
+### Duration
+
+To adjust the time the toast appears on screen, use the `duration` prop.
+
+```jsx live
+function Duration() {
+  const handlePress = React.useCallback(() => {
+    toast('Lorem ipsum dolor', {
+      description:
+        'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      duration: 5000,
+    });
+  }, []);
+
+  return <Button onPress={handlePress}>Open Toast</Button>;
+}
+```
+
+### Description
+
+Add additional information to a toast using the `description` prop.
+
+```jsx live
+function Description() {
+  const handlePress = React.useCallback(() => {
+    toast('Lorem ipsum dolor', {
+      description:
+        'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    });
+  }, []);
+
+  return <Button onPress={handlePress}>Open Toast</Button>;
+}
+```
+
+### Actions
+
+Include additional actions for a user to perform within a toast.
+
+```jsx live
+function Actions() {
+  const handlePress = React.useCallback(() => {
+    toast('Lorem ipsum dolor', {
+      action: <Button>Refresh Page</Button>,
+      description:
+        'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    });
+  }, []);
+
+  return <Button onPress={handlePress}>Open Toast</Button>;
+}
+```
+
+### Info
+
+Create an informational toast using the `info` method.
+
+```jsx live
+function Info() {
+  const handlePress = React.useCallback(() => {
+    toast.info('Lorem ipsum dolor', {
+      description:
+        'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    });
+  }, []);
+
+  return <Button onPress={handlePress}>Open Toast</Button>;
+}
+```
+
+### Success
+
+Create an success toast using the `success` method.
+
+```jsx live
+function Success() {
+  const handlePress = React.useCallback(() => {
+    toast.success('Lorem ipsum dolor', {
+      description:
+        'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    });
+  }, []);
+
+  return <Button onPress={handlePress}>Open Toast</Button>;
+}
+```
+
+### Warning
+
+Create an warning toast using the `warning` method.
+
+```jsx live
+function Warning() {
+  const handlePress = React.useCallback(() => {
+    toast.warning('Lorem ipsum dolor', {
+      description:
+        'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    });
+  }, []);
+
+  return <Button onPress={handlePress}>Open Toast</Button>;
+}
+```
+
+### Error
+
+Create an error toast using the `error` method.
+
+```jsx live
+function Error() {
+  const handlePress = React.useCallback(() => {
+    toast.error('Lorem ipsum dolor', {
+      description:
+        'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    });
+  }, []);
+
+  return <Button onPress={handlePress}>Open Toast</Button>;
+}
+```
+
+## Props
+
+<PropsTable component="Toaster" />

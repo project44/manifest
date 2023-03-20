@@ -1,0 +1,201 @@
+---
+title: Dropdown
+description: Render a list of actions or selectable options.
+---
+
+Render a list of actions or selectable options.
+
+```jsx live
+<Dropdown>
+  <IconButton variant="primary">
+    <Icon icon="expand_more" />
+  </IconButton>
+  <DropdownMenu>
+    <DropdownItem key="profile">Profile</DropdownItem>
+    <DropdownItem key="account">Account</DropdownItem>
+  </DropdownMenu>
+</Dropdown>
+```
+
+## Examples
+
+### Icons
+
+Include an icon before the item label on each item.
+
+```jsx live
+<Dropdown>
+  <IconButton variant="primary">
+    <Icon icon="expand_more" />
+  </IconButton>
+  <DropdownMenu>
+    <DropdownItem startIcon={<Icon icon="person" />} key="profile">
+      Profile
+    </DropdownItem>
+    <DropdownItem startIcon={<Icon icon="account_balance" />} key="account">
+      Account
+    </DropdownItem>
+  </DropdownMenu>
+</Dropdown>
+```
+
+### Sections
+
+Group items within a dropdown using a section.
+
+```jsx live
+<Dropdown>
+  <IconButton variant="primary">
+    <Icon icon="expand_more" />
+  </IconButton>
+  <DropdownMenu>
+    <DropdownItem startIcon={<Icon icon="person" />} key="profile">
+      Profile
+    </DropdownItem>
+    <DropdownItem startIcon={<Icon icon="account_balance" />} key="account">
+      Account
+    </DropdownItem>
+    <DropdownSection aria-label="admin" key="admin">
+      <DropdownItem startIcon={<Icon icon="edit" />} key="edit">
+        Edit
+      </DropdownItem>
+      <DropdownItem startIcon={<Icon icon="logout" />} key="sign_out">
+        Sign Out
+      </DropdownItem>
+    </DropdownSection>
+  </DropdownMenu>
+</Dropdown>
+```
+
+### Dynamic
+
+Create items from an external data source.
+
+```jsx live
+function DynamicExample() {
+  const data = [
+    { id: 1, name: 'Profile' },
+    { id: 2, name: 'Account' },
+  ];
+
+  return (
+    <Dropdown>
+      <IconButton variant="primary">
+        <Icon icon="expand_more" />
+      </IconButton>
+      <DropdownMenu items={data}>{(item) => <DropdownItem>{item.name}</DropdownItem>}</DropdownMenu>
+    </Dropdown>
+  );
+}
+```
+
+### Action
+
+An `onAction` callback can be called when an item is pressed.
+
+```jsx live
+function ActionExample() {
+  const [action, setAction] = React.useState('');
+
+  return (
+    <Stack gap="medium">
+      <Box>
+        <Dropdown>
+          <IconButton variant="primary">
+            <Icon icon="expand_more" />
+          </IconButton>
+          <DropdownMenu onAction={setAction}>
+            <DropdownItem key="profile">Profile</DropdownItem>
+            <DropdownItem key="account">Account</DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+      </Box>
+      <Typography>action: {action}</Typography>
+    </Stack>
+  );
+}
+```
+
+### Selection
+
+By default the dropdown has no selection mode, this can be set using the `selectionMode` prop.
+
+```jsx live
+function ControlledExample() {
+  const [selected, setSelected] = React.useState(new Set(['profile']));
+
+  return (
+    <Dropdown>
+      <IconButton variant="primary">
+        <Icon icon="expand_more" />
+      </IconButton>
+      <DropdownMenu onSelectionChange={setSelected} selectedKeys={selected} selectionMode="single">
+        <DropdownItem key="profile">Profile</DropdownItem>
+        <DropdownItem key="account">Account</DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+  );
+}
+```
+
+To select multiple items, set the `selectionMode` to `multiple`.
+
+```jsx live
+function ControlledExample() {
+  const [selected, setSelected] = React.useState(new Set(['profile', 'Account']));
+
+  return (
+    <Dropdown>
+      <IconButton variant="primary">
+        <Icon icon="expand_more" />
+      </IconButton>
+      <DropdownMenu
+        onSelectionChange={setSelected}
+        selectedKeys={selected}
+        selectionMode="multiple"
+      >
+        <DropdownItem key="profile">Profile</DropdownItem>
+        <DropdownItem key="account">Account</DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+  );
+}
+```
+
+### Disabled items
+
+Set the `disabledKeys` prop to disable certain items in the dropdown list.
+
+```jsx live
+<Dropdown>
+  <IconButton variant="primary">
+    <Icon icon="expand_more" />
+  </IconButton>
+  <DropdownMenu disabledKeys={['account']}>
+    <DropdownItem key="profile">Profile</DropdownItem>
+    <DropdownItem key="account">Account</DropdownItem>
+  </DropdownMenu>
+</Dropdown>
+```
+
+## Accessibility
+
+Sections without a title must provide an aria-label for accessibility.
+
+## Props
+
+### Dropdown Props
+
+<PropsTable component="Dropdown" />
+
+### DropdownMenu Props
+
+<PropsTable component="DropdownMenu" />
+
+### DropdownItem Props
+
+<PropsTable component="DropdownItem" />
+
+### DropdownSection Props
+
+<PropsTable component="DropdownSection" />

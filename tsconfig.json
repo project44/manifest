@@ -6,6 +6,9 @@
       "path": "apps/storybook"
     },
     {
+      "path": "apps/website"
+    },
+    {
       "path": "packages/react/components/action-card"
     },
     {
@@ -13,6 +16,9 @@
     },
     {
       "path": "packages/react/components/breadcrumb"
+    },
+    {
+      "path": "packages/react/components/button"
     },
     {
       "path": "packages/react/components/button"

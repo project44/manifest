@@ -1,0 +1,244 @@
+---
+title: Table
+description: A component that displays rows of organized data.
+---
+
+A component that displays rows of organized data.
+
+```jsx live
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableColumn>No.</TableColumn>
+      <TableColumn>Company name</TableColumn>
+      <TableColumn>Country</TableColumn>
+      <TableColumn>State</TableColumn>
+      <TableColumn>Status</TableColumn>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>001</TableCell>
+      <TableCell>Starbucks</TableCell>
+      <TableCell>United States</TableCell>
+      <TableCell>Washington</TableCell>
+      <TableCell>Active</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>002</TableCell>
+      <TableCell>Nike</TableCell>
+      <TableCell>Canada</TableCell>
+      <TableCell>Ottawa</TableCell>
+      <TableCell>Active</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>003</TableCell>
+      <TableCell>09</TableCell>
+      <TableCell>The Netherlands</TableCell>
+      <TableCell>Eindhoven</TableCell>
+      <TableCell>Active</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>004</TableCell>
+      <TableCell>02</TableCell>
+      <TableCell>United Kingdom</TableCell>
+      <TableCell>London</TableCell>
+      <TableCell>Pending</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>005</TableCell>
+      <TableCell>Paystack</TableCell>
+      <TableCell>Kenya</TableCell>
+      <TableCell>Nairobi</TableCell>
+      <TableCell>Pending</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>006</TableCell>
+      <TableCell>ING</TableCell>
+      <TableCell>Poland</TableCell>
+      <TableCell>Warsaw</TableCell>
+      <TableCell>Deactivated</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+## Usage
+
+### Dense
+
+Render a dense table with space is limited using the `isDense` prop.
+
+```jsx live
+<Table isDense>
+  <TableHeader>
+    <TableRow>
+      <TableColumn>No.</TableColumn>
+      <TableColumn>Company name</TableColumn>
+      <TableColumn>Country</TableColumn>
+      <TableColumn>State</TableColumn>
+      <TableColumn>Status</TableColumn>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>001</TableCell>
+      <TableCell>Starbucks</TableCell>
+      <TableCell>United States</TableCell>
+      <TableCell>Washington</TableCell>
+      <TableCell>Active</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>002</TableCell>
+      <TableCell>Nike</TableCell>
+      <TableCell>Canada</TableCell>
+      <TableCell>Ottawa</TableCell>
+      <TableCell>Active</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>003</TableCell>
+      <TableCell>09</TableCell>
+      <TableCell>The Netherlands</TableCell>
+      <TableCell>Eindhoven</TableCell>
+      <TableCell>Active</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>004</TableCell>
+      <TableCell>02</TableCell>
+      <TableCell>United Kingdom</TableCell>
+      <TableCell>London</TableCell>
+      <TableCell>Pending</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>005</TableCell>
+      <TableCell>Paystack</TableCell>
+      <TableCell>Kenya</TableCell>
+      <TableCell>Nairobi</TableCell>
+      <TableCell>Pending</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>006</TableCell>
+      <TableCell>ING</TableCell>
+      <TableCell>Poland</TableCell>
+      <TableCell>Warsaw</TableCell>
+      <TableCell>Deactivated</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+### Sort
+
+Table columns support displaying a visual indicator of sorting.
+
+```jsx live
+function Sort() {
+  const [sortDirection, setSortDirection] = React.useState('asc');
+  const [sortedColumn, setSortedColumn] = React.useState('name');
+
+  const handleSort = (column) => {
+    const isAsc = sortedColumn === column && sortDirection === 'asc';
+
+    setSortDirection(isAsc ? 'desc' : 'asc');
+    setSortedColumn(column);
+  };
+
+  return (
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableColumn>No.</TableColumn>
+          <TableColumn
+            isActive={sortedColumn === 'name'}
+            isSortable
+            onClick={() => handleSort('name')}
+            sortDirection={sortDirection}
+          >
+            Company name
+          </TableColumn>
+          <TableColumn>Country</TableColumn>
+          <TableColumn>State</TableColumn>
+          <TableColumn
+            isActive={sortedColumn === 'status'}
+            isSortable
+            onClick={() => handleSort('status')}
+            sortDirection={sortDirection}
+          >
+            Status
+          </TableColumn>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        <TableRow>
+          <TableCell>001</TableCell>
+          <TableCell>Starbucks</TableCell>
+          <TableCell>United States</TableCell>
+          <TableCell>Washington</TableCell>
+          <TableCell>Active</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>002</TableCell>
+          <TableCell>Nike</TableCell>
+          <TableCell>Canada</TableCell>
+          <TableCell>Ottawa</TableCell>
+          <TableCell>Active</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>003</TableCell>
+          <TableCell>09</TableCell>
+          <TableCell>The Netherlands</TableCell>
+          <TableCell>Eindhoven</TableCell>
+          <TableCell>Active</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>004</TableCell>
+          <TableCell>02</TableCell>
+          <TableCell>United Kingdom</TableCell>
+          <TableCell>London</TableCell>
+          <TableCell>Pending</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>005</TableCell>
+          <TableCell>Paystack</TableCell>
+          <TableCell>Kenya</TableCell>
+          <TableCell>Nairobi</TableCell>
+          <TableCell>Pending</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>006</TableCell>
+          <TableCell>ING</TableCell>
+          <TableCell>Poland</TableCell>
+          <TableCell>Warsaw</TableCell>
+          <TableCell>Deactivated</TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
+  );
+}
+```
+
+## Props
+
+### Table Props
+
+<PropsTable component="Table" />
+
+### TableBody Props
+
+<PropsTable component="TableBody" />
+
+### TableCell Props
+
+<PropsTable component="TableCell" />
+
+### TableColumn Props
+
+<PropsTable component="TableColumn" />
+
+### TableFooter Props
+
+<PropsTable component="TableFooter" />
+
+### TableHeader Props
+
+<PropsTable component="TableHeader" />

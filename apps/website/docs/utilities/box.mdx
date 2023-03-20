@@ -1,0 +1,37 @@
+---
+title: Box
+description: A polymorphic component used for access theme aware styling.
+---
+
+A polymorphic component used for access theme aware styling.
+
+```jsx live
+<Box css={{ backgroundColor: '$background-secondary', size: 300 }} />
+```
+
+## Usage
+
+### As prop
+
+All components a polymorphic `as` prop. This prop is useful for changing the rendering element of a
+component. You can also use the as prop to render another component.
+
+```jsx live
+<Box
+  as="button"
+  css={{
+    all: 'unset',
+    backgroundColor: '$palette-indigo-500',
+    color: '$palette-white',
+    borderRadius: '$full',
+    px: '$medium',
+    py: '$small',
+  }}
+>
+  Button
+</Box>
+```
+
+## Props
+
+<PropsTable component="Box" />

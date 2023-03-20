@@ -1,0 +1,45 @@
+---
+title: Pagination
+description: Navigable component that allows a user to navigate between a range of pages.
+---
+
+Navigable component that allows a user to navigate between a range of pages.
+
+```jsx
+<Pagination totalRowCount={100} />
+```
+
+## Usage
+
+### Arrow only
+
+Set the `showPageNumbers` props to `false` to display only the navigation arrows.
+
+```jsx live
+<Pagination showPageNumbers={false} totalRowCount={100} />
+```
+
+### Ranges
+
+You can specify how many pages to show on side of the current page with the `siblings` and
+`boundaries` props.
+
+```jsx live
+<Pagination boundaries={2} page={5} siblings={0} totalRowCount={100} />
+```
+
+### Controlled
+
+The pagination's state can be controlled using the `page` and `onChange` props.
+
+```jsx live
+function ControlledExample() {
+  const [page, setPage] = React.useState(4);
+
+  return <Pagination page={page} onChange={setPage} totalRowCount={100} />;
+}
+```
+
+## Props
+
+<PropsTable component="Pagination" />

@@ -1,0 +1,89 @@
+---
+title: Icon Button
+description: Clickable elements that communicate actions that users can take.
+---
+
+Clickable elements that communicate actions that users can take.
+
+```jsx live
+<IconButton>
+  <Add />
+</IconButton>
+```
+
+## Usage
+
+### Primary
+
+Primary buttons are used to indicate the highest priority action a user can perform.
+
+```jsx live
+<IconButton variant="primary">
+  <Add />
+</IconButton>
+```
+
+### Secondary
+
+Secondary buttons are second in priority to primary buttons and are used for important actions that
+aren't the primary action.
+
+```jsx live
+<IconButton variant="secondary">
+  <Add />
+</IconButton>
+```
+
+### Tertiary
+
+Tertiary buttons are the lowest priority actions and should be used for less commonly used actions.
+
+```jsx live
+<IconButton variant="tertiary">
+  <Add />
+</IconButton>
+```
+
+### Destructive
+
+Destructive buttons are used to indicate an action that is destructive and cannot be undone.
+
+```jsx live
+<IconButton variant="danger">
+  <Add />
+</IconButton>
+```
+
+### Brand
+
+Brand buttons are used for project44 specific marketing moments and should be use sparingly.
+
+```jsx live
+<IconButton variant="brand">
+  <Add />
+</IconButton>
+```
+
+### Small
+
+Small buttons are used when vertical spacing is limited.
+
+```jsx live
+<IconButton size="small">
+  <Add />
+</IconButton>
+```
+
+### Disabled State
+
+Set the `isDisabled` prop to prevent a user from pressing a button.
+
+```jsx live
+<IconButton isDisabled>
+  <Add />
+</IconButton>
+```
+
+## Props
+
+<PropsTable component="IconButton" />

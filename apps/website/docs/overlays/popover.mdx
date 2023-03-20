@@ -1,0 +1,60 @@
+---
+title: Popover
+description: Used to display some content on top of another.
+---
+
+Used to display some content on top of another.
+
+```jsx live
+function Basic() {
+  const state = usePopoverTriggerState({});
+  const { overlayProps, overlayRef, triggerProps, triggerRef } = usePopoverTrigger({}, state);
+
+  return (
+    <>
+      <Button {...triggerProps} ref={triggerRef}>
+        Open Popover
+      </Button>
+      <Overlay isOpen={state.isOpen}>
+        <Popover {...overlayProps} ref={overlayRef} isOpen={state.isOpen} onClose={state.close}>
+          <Box css={{ p: '$medium' }}>This is a popover</Box>
+        </Popover>
+      </Overlay>
+    </>
+  );
+}
+```
+
+## Usage
+
+### Placement
+
+The popovers's placement with respect to its trigger element can be adjusted using the placement
+`prop`.
+
+```jsx live
+function Placment() {
+  const state = usePopoverTriggerState({});
+  const { overlayProps, overlayRef, triggerProps, triggerRef } = usePopoverTrigger(
+    { placement: 'right' },
+    state,
+  );
+
+  return (
+    <>
+      <Button {...triggerProps} ref={triggerRef}>
+        Open Popover
+      </Button>
+      <Overlay isOpen={state.isOpen}>
+        <Popover {...overlayProps} ref={overlayRef} isOpen={state.isOpen} onClose={state.close}>
+          <Box css={{ p: '$medium' }}>This is a popover</Box>
+        </Popover>
+      </Overlay>
+    </>
+  );
+}
+```
+
+## Props
+
+<PropsTable component="Popover" />

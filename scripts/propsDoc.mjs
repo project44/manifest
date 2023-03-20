@@ -3,6 +3,17 @@ import path from 'path';
 import prettier from 'prettier';
 import ts from 'typescript';
 
+function formatType(type) {
+  if (
+    type ===
+    'string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal'
+  ) {
+    return 'ReactNode';
+  }
+
+  return type;
+}
+
 function getSourceFileName(symbol) {
   const declarations = symbol.getDeclarations();
 
@@ -59,7 +70,7 @@ function getComponentProps(typeExport, sourceFile, checker) {
 
         const propRecord = {
           name: propName,
-          type: typeName,
+          type: formatType(typeName),
           defaultValue,
           required,
           description,

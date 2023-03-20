@@ -1,0 +1,114 @@
+---
+title: Date Range Picker
+description: Choose a date range from a visual calendar.
+---
+
+Choose a date range from a visual calendar.
+
+```jsx live
+<DateRangePicker aria-label="date range picker" />
+```
+
+## Examples
+
+### Label
+
+Attach a label to the datepicker using the `label` prop.
+
+```jsx live
+<DateRangePicker label="Estimated Delivery Date" />
+```
+
+### HelperText
+
+Add additional context as well as display error messages with the `helperText` prop.
+
+```jsx live
+<DateRangePicker label="Estimated Delivery Date" helperText="Please select a delivery date." />
+```
+
+### Small
+
+A small datepicker is used when vertical spacing is limited.
+
+```jsx live
+<DateRangePicker aria-label="delivery date" size="small" />
+```
+
+### Start Icon
+
+Include an icon before the input text.
+
+```jsx live
+<DateRangePicker aria-label="delivery date" startIcon={<Icon icon="search" />} />
+```
+
+### Relative Ranges
+
+Set the `showRanges` prop to display a pre-set list of relative date ranges.
+
+```jsx live
+<DateRangePicker aria-label="delivery date" showRanges />
+```
+
+### Controlled
+
+A datepickers's state can be controlled by a parent React component by setting the `value` prop and
+passing a handler to the `onChange` prop.
+
+:::info
+
+Date values are provided using objects in the
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date) package. This
+library handles correct international date manipulation across calendars, time zones, and other
+localization concerns.
+
+:::
+
+```jsx live
+function ControlledExample() {
+  const [value, setValue] = React.useState({
+    start: new CalendarDate(2022, 7, 2),
+    end: new CalendarDate(2022, 7, 12),
+  });
+
+  return <DateRangePicker aria-label="delivery date" onChange={setValue} value={value} />;
+}
+```
+
+### Unavailable Dates
+
+Set the `isDateUnavailable` handler prop to make certain dates unavailable for selection.
+
+```jsx live
+function UnavailableExample() {
+  const { locale } = useLocale();
+  const isDateUnavailable = (date) => isWeekend(date, locale);
+
+  return <DateRangePicker aria-label="delivery date" isDateUnavailable={isDateUnavailable} />;
+}
+```
+
+### Disabled State
+
+Set the `isDisabled` prop to prevent a user from interacting with the datepicker.
+
+```jsx live
+<DateRangePicker aria-label="delivery date" isDisabled />
+```
+
+### Invalid State
+
+Set the `validationState` prop to `invalid` to render the datepicker in an invalid state.
+
+```jsx live
+<DateRangePicker
+  aria-label="delivery date"
+  helperText="A selection is required"
+  validationState="invalid"
+/>
+```
+
+## Props
+
+<PropsTable component="DateRangePicker" />

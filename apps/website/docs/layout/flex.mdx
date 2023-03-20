@@ -1,0 +1,91 @@
+---
+title: Flex
+description: A polymorphic component used quickly creating flex layouts.
+---
+
+A polymorphic component used quickly creating flex layouts.
+
+```jsx live
+<Flex gap="small">
+  <Box css={{ backgroundColor: '$background-secondary', height: 300, width: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', width: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', flex: 1 }} />
+</Flex>
+```
+
+## Usage
+
+### Align
+
+Set the `align` prop to control the alignment of the flex's children.
+
+```jsx live
+<Flex align="center" css={{ height: 200 }} gap="small">
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+</Flex>
+```
+
+### Justify
+
+Set the `justify` prop to control the justification of the flex's children.
+
+```jsx live
+<Flex justify="end" gap="small">
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+</Flex>
+```
+
+### Gap
+
+Set the `gap` prop to control the spacing between the flex's children.
+
+```jsx live
+<Flex gap="large">
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+</Flex>
+```
+
+### Orientation
+
+Set the `orientation` prop to adjust the layout of the flex's children.
+
+```jsx live
+<Flex gap="small" orientation="vertical">
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+</Flex>
+```
+
+### Wrap
+
+Set the `wrap` prop to force children to wrap if the horizontal spacing is limited.
+
+```jsx live
+<Flex gap="small" wrap>
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+  <Box css={{ backgroundColor: '$background-secondary', size: 100 }} />
+</Flex>
+```
+
+## Props
+
+All native element props are also available.
+
+<PropsTable component="Flex" />

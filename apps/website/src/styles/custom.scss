@@ -1,0 +1,70 @@
+@import "@project44-manifest/css/scss/manifest";
+
+:root {
+  /** Font settings */
+  --ifm-font-color-base: var(--color-palette-black);
+  --ifm-font-family-base: var(--font-family-text);
+  --ifm-font-family-monospace: var(--font-family-mono);
+  --ifm-font-size-base: var(--font-size-medium);
+  --ifm-line-height-base: var(--line-height-medium);
+
+  /** Color settings */
+  --ifm-color-primary: var(--color-palette-indigo-500);
+  --ifm-color-primary-dark: var(--color-palette-indigo-700);
+  --ifm-color-primary-darker: var(--color-palette-indigo-800);
+  --ifm-color-primary-darkest:  var(--color-palette-indigo-900);
+  --ifm-color-primary-light: var(--color-palette-indigo-300);
+  --ifm-color-primary-lighter: var(--color-palette-indigo-200);
+  --ifm-color-primary-lightest: var(--color-palette-indigo-100);
+  --ifm-link-hover-color: inherit;
+  --ifm-background-color: var(--color-background-primary);
+  --ifm-background-surface-color: var(--color-background-surface);
+  --ifm-heading-color: var(--color-palette-black);
+
+  --ifm-color-emphasis-300: var(--color-palette-grey-200);
+  
+  /** Footer settings */
+  --ifm-footer-background-color: var(--color-palette-grey-900);
+
+  /** Button settings */
+  --ifm-button-padding-horizontal: 0.75rem;
+  --ifm-button-padding-vertical: .5rem;
+
+  /** Border settings */
+  --ifm-toc-border-color: var(--color-border-primary);
+  --ifm-global-radius: var(--radius-small);
+
+  /** Navbar setting */
+  --ifm-navbar-background-color: var(--color-background-primary);
+  --ifm-navbar-link-hover-color: var(--color-text-primary);
+  --ifm-navbar-shadow: 0 1px 0 0 var(--color-border-primary);
+  --ifm-navbar-height: 3.5rem;
+
+  /** Sidebar **/
+  --ifm-sidebar-background-color: var(--color-palette-white);
+  
+  /** Menu settings */
+  --ifm-menu-color: var(--color-text-primary);
+  --ifm-menu-link-sublist-icon: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.76677 10.9603C7.11824 10.6088 7.68809 10.6088 8.03956 10.9603L11.9996 14.9203L15.9596 10.9603C16.3111 10.6088 16.881 10.6088 17.2324 10.9603C17.5839 11.3118 17.5839 11.8816 17.2324 12.2331L12.636 16.8295C12.2845 17.181 11.7147 17.181 11.3632 16.8295L6.76677 12.2331C6.4153 11.8816 6.4153 11.3118 6.76677 10.9603Z"/></svg>');
+  --ifm-menu-link-padding-vertical: 0.5rem;
+  --ifm-menu-link-padding-horizontal: 0.75rem;
+
+  /** Box shadow settings */
+  --ifm-global-shadow-lw: none;
+
+  /** Tabel settings */
+  --ifm-table-stripe-background: transparent;
+  --ifm-table-head-background: transparent;
+  --ifm-table-background: transparent;
+  --ifm-table-border-width: 1px;
+  --ifm-table-border-color: var(--ifm-toc-border-color);
+
+  /** Pagination settings */
+  --ifm-pagination-nav-color-hover: var(--ifm-color-emphasis-300);
+}
+
+@import "fonts";
+@import "typography";
+@import "global";
+@import 'docs';
+@import 'components';

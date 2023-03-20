@@ -1,0 +1,21 @@
+.tokens {
+  table-layout: fixed;
+}
+
+.token {
+
+  &__preview {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  &__value {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

@@ -1,0 +1,22 @@
+.hero {
+  .hero__title {
+    line-height: 1.25;
+    margin-bottom: var(--space-large);
+  }
+
+  .hero__subtitle {
+    font-family: var(--font-family-text);
+    font-size: var(--font-size-medium);
+    font-weight:  var(--font-weight-regular);
+    letter-spacing:  var(--letter-spacing-medium);
+    line-height: var(--line-height-medium);
+  }
+}
+
+@media (max-width: 996px) {
+  .hero {
+    .hero__image {
+      display: none;
+    }
+  }
+}
