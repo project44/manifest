@@ -44,9 +44,10 @@ strong {
 }
 
 a {
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: none;
-  }
+  color: var(--ifm-font-color-base);
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-medium);
+  font-weight:  var(--font-weight-semibold);
+  letter-spacing:  var(--letter-spacing-medium);
+  line-height: var(--line-height-medium);
 }

@@ -1,3 +1,65 @@
 ---
+title: Overview
+description: Manifest Design System
 slug: /
+sidebar_position: 1
+hide_title: true
+hide_table_of_contents: true
 ---
+
+import { Person, Grow, Route, Search } from '@project44-manifest/react-icons';
+
+<div className="hero">
+  <div className="container">
+    <div className="row">
+      <div className="col col--6 margin-bottom--xl">
+        <div className="col-demo">
+          <h1 className="hero__title">Manifesting experiences through design</h1>
+          <p className="hero__subtitle">
+            A shared design language for designing and building products at project44.
+          </p>
+        </div>
+      </div>
+      <div className="col col--6">
+        <div className="col-demo">
+          <img
+            src="/img/hero.svg"
+            width="498"
+            height="356"
+            loading="eager"
+            alt="Manifest Design System Documentation"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div className="container">
+  <div className="row margin-vert--xl">
+    <div className="col col--6 margin-vert--md">
+      <DocsCard icon={<Search />} title="Optimize for clarity">
+        We choose to have an opinion about where to direct attention – optimize for clarity. Display
+        elements and content only when needed and use hierarchy to drive focus.
+      </DocsCard>
+    </div>
+    <div className="col col--6 margin-vert--md">
+      <DocsCard icon={<Grow />} title="Prefer adaptability">
+        Our users need different experiences depending on the task at hand. Design with adaptability
+        in mind, enabling role-based customization.
+      </DocsCard>
+    </div>
+    <div className="col col--6 margin-vert--md">
+      <DocsCard icon={<Route />} title="Lean on consistency">
+        We opt for consistency in the details so we can focus on the higher-level UX challenges.
+        This frees us to innovate toward the best solution for our users in a more efficient way.
+      </DocsCard>
+    </div>
+    <div className="col col--6 margin-vert--md">
+      <DocsCard icon={<Person />} title="Think inclusively">
+        All users deserve an accessible and ethical experience within our products. The system is
+        built with accessibility in mind, not as the last step.
+      </DocsCard>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+.table-of-contents {
+  &__link {
+  text-decoration: none;
+
+    &:hover {
+      color: inherit;
+      font-weight: var(--font-weight-semibold);
+      text-decoration: none;
+    }
+  }
+
+  &__link--active {
+    font-weight: var(--font-weight-semibold);
+  }
+}

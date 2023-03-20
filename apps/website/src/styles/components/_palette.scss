@@ -1,0 +1,24 @@
+.palette {
+  &__header {
+    border-top-right-radius: var(--radius-small);
+    border-top-right-radius: var(--radius-small);
+    
+    height: 7.5rem;
+
+    padding: var(--space-medium);
+  }
+
+  &__text {
+    color: inherit;
+  }
+
+  &__scale-shade {
+    height: 2.5rem;
+    padding: 0 var(--space-medium);
+
+    &:last-of-type {
+      border-bottom-right-radius: var(--radius-small);
+      border-bottom-right-radius: var(--radius-small);
+    }
+  }
+}

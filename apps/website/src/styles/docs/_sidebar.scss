@@ -16,6 +16,11 @@
 @include sidebar-item-link-padding(2);
 @include sidebar-item-link-padding(3);
 
+.theme-doc-sidebar-container {
+  background-color: var(--color-palette-grey-50);
+  z-index: 300;
+}
+
 .theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible {
   pointer-events: none;
 }
@@ -34,12 +39,15 @@
     letter-spacing:  var(--letter-spacing-medium);
     line-height: var(--line-height-small);
 
+    text-decoration: none;
+
     &--active {
       color: var(--ifm-menu-color);
       font-weight: var(--font-weight-semibold);
 
       &:hover {
         color: var(--ifm-menu-color);
+        text-decoration: none;
       }
     }
   }

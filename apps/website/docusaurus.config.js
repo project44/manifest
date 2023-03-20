@@ -26,6 +26,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/project44/manifest/tree/main/website',
           routeBasePath: '/',
+          remarkPlugins: [[require('@docusaurus/remark-plugin-npm2yarn'), { sync: true }]],
         },
         blog: false,
         theme: {

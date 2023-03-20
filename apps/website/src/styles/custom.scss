@@ -20,6 +20,8 @@
   --ifm-background-color: var(--color-background-primary);
   --ifm-background-surface-color: var(--color-background-surface);
   --ifm-heading-color: var(--color-palette-black);
+
+  --ifm-color-emphasis-300: var(--color-palette-grey-200);
   
   /** Footer settings */
   --ifm-footer-background-color: var(--color-palette-grey-900);
@@ -54,8 +56,11 @@
   --ifm-table-stripe-background: transparent;
   --ifm-table-head-background: transparent;
   --ifm-table-background: transparent;
-  --ifm-table-border-width: 0;
-  --ifm-table-border-color: transparent;
+  --ifm-table-border-width: 1px;
+  --ifm-table-border-color: var(--ifm-toc-border-color);
+
+  /** Pagination settings */
+  --ifm-pagination-nav-color-hover: var(--ifm-color-emphasis-300);
 }
 
 @import "fonts";

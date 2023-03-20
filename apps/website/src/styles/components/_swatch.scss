@@ -1,0 +1,12 @@
+.swatch {
+  &__color {
+    border: 1px solid var( --ifm-toc-border-color);
+    border-radius: var(--radius-full);
+    box-sizing: border-box;
+    
+    margin-right: var(--space-medium);
+
+    height: 40px;
+    width: 40px;
+  }
+}
