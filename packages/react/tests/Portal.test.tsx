@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Portal } from '../src/components/Portal';
+import { Portal } from '../src';
 
 function Component({ container }: { container: HTMLElement }) {
   const ref = React.useRef<HTMLElement>(null);

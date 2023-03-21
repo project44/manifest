@@ -1,9 +1,5 @@
 import { act, fireEvent, render, screen } from '@testing-library/react';
-import { Button } from '../src/components/Button';
-import { Dialog } from '../src/components/Dialog';
-import { DialogContent } from '../src/components/DialogContent';
-import { DialogFooter } from '../src/components/DialogFooter';
-import { DialogHeader } from '../src/components/DialogHeader';
+import { Button, Dialog, DialogContent, DialogFooter, DialogHeader } from '../src';
 
 beforeAll(() => {
   jest.useFakeTimers();

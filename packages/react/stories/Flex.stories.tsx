@@ -1,4 +1,4 @@
-import { Box, Flex } from '../src/components/Layout';
+import { Box, Flex } from '../src';
 
 export default {
   title: 'Components/Flex',

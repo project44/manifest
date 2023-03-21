@@ -1,5 +1,4 @@
-import { Breadcrumb } from '../src/components/Breadcrumb';
-import { BreadcrumbItem } from '../src/components/BreadcrumbItem';
+import { Breadcrumb, BreadcrumbItem } from '../src';
 
 export default {
   title: 'Components/Breadcrumb',

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { act, fireEvent, render, screen, within } from '@testing-library/react';
-import { Button } from '../src/components/Button';
-import { toast, Toaster, ToastOptions } from '../src/components/Toast';
+import { Button, toast, Toaster, ToastOptions } from '../src';
 
 function Component(props: Omit<ToastOptions, 'message'> = {}) {
   const handlePress = React.useCallback(() => {

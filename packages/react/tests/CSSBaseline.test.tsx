@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { CssBaseline } from '../src/components/CSSBaseline';
+import { CssBaseline } from '../src';
 
 describe('react-css-baseline', () => {
   it('should render', () => {

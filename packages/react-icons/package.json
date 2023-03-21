@@ -38,8 +38,6 @@
     "@project44-manifest/react-styles": "^1.4.0"
   },
   "devDependencies": {
-    "@project44-manifest/react-layout": "^1.0.4",
-    "@project44-manifest/react-typography": "^1.0.4",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },

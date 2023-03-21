@@ -1,10 +1,6 @@
 import * as React from 'react';
-import { Button } from '@project44-manifest/react-button';
 import { Meta, Story } from '@storybook/react';
-import { Dialog, DialogProps } from '../src/components/Dialog';
-import { DialogContent } from '../src/components/DialogContent';
-import { DialogFooter } from '../src/components/DialogFooter';
-import { DialogHeader } from '../src/components/DialogHeader';
+import { Button, Dialog, DialogContent, DialogFooter, DialogHeader, DialogProps } from '../src';
 
 const meta: Meta<DialogProps> = {
   component: Dialog,

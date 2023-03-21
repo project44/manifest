@@ -1,6 +1,6 @@
 import { Icon } from '@project44-manifest/react-icons';
-import { Link } from '@project44-manifest/react-link';
 import { styled } from '@project44-manifest/react-styles';
+import { Link } from '../Link';
 
 export const StyledBreadcrumbItem = styled('li', {
   d: 'flex',

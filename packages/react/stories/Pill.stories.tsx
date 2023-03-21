@@ -1,7 +1,5 @@
 import type { ComponentStory } from '@storybook/react';
-import { Icon } from '../src/components/Icon';
-import { Flex } from '../src/components/Layout';
-import { Pill } from '../src/components/Pill';
+import { Flex, Icon, Pill } from '../src';
 
 export default {
   title: 'Components/Pill',

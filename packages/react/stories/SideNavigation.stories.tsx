@@ -1,16 +1,18 @@
 import * as React from 'react';
 import { Carrier, Person, Route, Settings } from '@project44-manifest/react-icons';
 import { createTheme } from '@project44-manifest/react-styles';
-import { Dropdown } from '../src/components/Dropdown';
-import { DropdownItem } from '../src/components/DropdownItem';
-import { DropdownMenu } from '../src/components/DropdownMenu';
-import { SideNavigation } from '../src/components/SideNavigation';
-import { SideNavigationContent } from '../src/components/SideNavigationContent';
-import { SideNavigationFooter } from '../src/components/SideNavigationFooter';
-import { SideNavigationHeader } from '../src/components/SideNavigationHeader';
-import { SideNavigationMenu } from '../src/components/SideNavigationMenu';
-import { SideNavigationMenuGroup } from '../src/components/SideNavigationMenuGroup';
-import { SideNavigationMenuItem } from '../src/components/SideNavigationMenuItem';
+import {
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  SideNavigation,
+  SideNavigationContent,
+  SideNavigationFooter,
+  SideNavigationHeader,
+  SideNavigationMenu,
+  SideNavigationMenuGroup,
+  SideNavigationMenuItem,
+} from '../src';
 
 function Logo() {
   return (

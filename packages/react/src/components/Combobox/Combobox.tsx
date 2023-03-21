@@ -7,14 +7,14 @@ import { useHover } from '@react-aria/interactions';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useComboBoxState } from '@react-stately/combobox';
 import type { AriaComboBoxProps } from '@react-types/combobox';
-import { Overlay, Placement, useOverlayPosition } from '@project44-manifest/react-overlay';
-import { Popover } from '@project44-manifest/react-popover';
 import { cx } from '@project44-manifest/react-styles';
 import { As, createComponent, Options, Props } from '../../system';
 import type { StyleProps } from '../../types';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
 import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
+import { Overlay, Placement, useOverlayPosition } from '../Overlay';
+import { Popover } from '../Popover';
 import { useStyles } from './Combobox.styles';
 
 export type ComboboxElement = 'div';

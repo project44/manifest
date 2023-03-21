@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { ComponentStory } from '@storybook/react';
-import { Pagination } from '../src/components/Pagination';
+import { Pagination } from '../src';
 
 export default {
   title: 'Components/Pagination',

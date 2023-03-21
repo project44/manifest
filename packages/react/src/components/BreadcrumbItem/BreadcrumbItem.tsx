@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { ChevronRight } from '@project44-manifest/react-icons';
-import { Link } from '@project44-manifest/react-link';
 import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
+import { Link } from '../Link';
 import { StyledBreadcrumbItem } from './BreadcrumbItem.styles';
 import type { BreadcrumbItemElement, BreadcrumbItemProps } from './BreadcrumbItem.types';
 

@@ -1,5 +1,4 @@
-import { Typography } from '@project44-manifest/react-typography';
-import { Link } from '../src';
+import { Link, Typography } from '../src';
 
 export default {
   title: 'Components/Link',

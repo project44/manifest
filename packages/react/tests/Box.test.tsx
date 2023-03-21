@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Box } from '../src/components/Layout';
+import { Box } from '../src';
 
 describe('react-layout - Box', () => {
   it('should render correctly', () => {

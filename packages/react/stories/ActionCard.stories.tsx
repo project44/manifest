@@ -1,9 +1,5 @@
 import type { StoryFn } from '@storybook/react';
-import { ActionCard } from '../src/components/ActionCard';
-import { ActionCardBody } from '../src/components/ActionCardBody';
-import { ActionCardHeader } from '../src/components/ActionCardHeader';
-import { ActionCardImage } from '../src/components/ActionCardImage';
-import { Box, Stack } from '../src/components/Layout';
+import { ActionCard, ActionCardBody, ActionCardHeader, ActionCardImage, Box, Stack } from '../src';
 
 export default {
   title: 'Components/ActionCard',

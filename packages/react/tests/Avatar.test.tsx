@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { Avatar } from '../src/components/Avatar';
+import { Avatar } from '../src';
 
 describe('react-avatar', () => {
   it('should render an image if a source is provided', () => {

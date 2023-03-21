@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { GridItem } from '../src/components/Layout';
+import { GridItem } from '../src';
 
 describe('react-layout - GridItem', () => {
   it('should render correctly', () => {

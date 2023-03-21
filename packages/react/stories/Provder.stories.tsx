@@ -1,7 +1,6 @@
-import { Button } from '@project44-manifest/react-button';
 import { createTheme } from '@project44-manifest/react-styles';
 import { Meta, Story } from '@storybook/react';
-import { Provider, ProviderProps } from '../src/components/Provider';
+import { Button, Provider, ProviderProps } from '../src';
 
 const meta: Meta<ProviderProps> = {
   component: Provider,

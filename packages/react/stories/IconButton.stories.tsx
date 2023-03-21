@@ -1,5 +1,5 @@
 import type { ComponentStory } from '@storybook/react';
-import { IconButton } from '../src/components/IconButton';
+import { IconButton } from '../src';
 
 export default {
   title: 'Components/IconButton',

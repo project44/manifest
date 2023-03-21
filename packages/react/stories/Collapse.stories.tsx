@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { Button } from '@project44-manifest/react-button';
-import { Collapse } from '../src';
+import { Button, Collapse } from '../src';
 
 export default {
   title: 'Components/Collapse',

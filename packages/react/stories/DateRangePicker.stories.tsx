@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { CalendarDate, DateValue, endOfMonth, startOfMonth } from '@internationalized/date';
 import type { ComponentStory } from '@storybook/react';
+import type { RangeValue } from '../src';
 import { DateRangePicker, Flex, Icon } from '../src';
-import type { RangeValue } from '../src/components/CalendarRange';
 import {
   addMonths,
   createCalendarDate,

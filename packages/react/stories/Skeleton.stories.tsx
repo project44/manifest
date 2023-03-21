@@ -1,5 +1,4 @@
-import { Grid, GridItem } from '../src/components/Layout';
-import { Skeleton } from '../src/components/Skeleton';
+import { Grid, GridItem, Skeleton } from '../src';
 
 export default {
   title: 'Components/Skeleton',

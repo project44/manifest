@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Grid } from '../src/components/Layout';
+import { Grid } from '../src';
 
 describe('react-layout - Grid', () => {
   it('should render correctly', () => {

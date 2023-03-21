@@ -1,14 +1,16 @@
 import * as React from 'react';
-import { Box, Flex } from '@project44-manifest/react-layout';
 import { Meta, Story } from '@storybook/react';
-import { Button } from '../src/components/Button';
-import { Overlay, Placement as PopoverPlacement } from '../src/components/Overlay';
 import {
+  Box,
+  Button,
+  Flex,
+  Overlay,
+  Placement as PopoverPlacement,
   Popover,
   PopoverProps,
   usePopoverTrigger,
   usePopoverTriggerState,
-} from '../src/components/Popover';
+} from '../src';
 
 function PlacementComponent(props: { placement: PopoverPlacement }) {
   const { placement } = props;

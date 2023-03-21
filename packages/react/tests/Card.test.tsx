@@ -1,8 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Card } from '../src/components/Card';
-import { CardBody } from '../src/components/CardBody';
-import { CardFooter } from '../src/components/CardFooter';
-import { CardHeader } from '../src/components/CardHeader';
+import { Card, CardBody, CardFooter, CardHeader } from '../src';
 
 describe('card', () => {
   it('should render', () => {

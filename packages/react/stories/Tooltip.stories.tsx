@@ -1,6 +1,4 @@
-import { Button } from '@project44-manifest/react-button';
-import { Stack } from '@project44-manifest/react-layout';
-import { Tooltip } from '../src';
+import { Button, Stack, Tooltip } from '../src';
 
 export default {
   title: 'Components/Tooltip',

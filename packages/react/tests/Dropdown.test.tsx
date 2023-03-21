@@ -1,8 +1,7 @@
 import { OverlayProvider } from '@react-aria/overlays';
-import { IconButton } from '@project44-manifest/react-button';
 import { Collapsed } from '@project44-manifest/react-icons';
 import { fireEvent, render, screen, within } from '@testing-library/react';
-import { Dropdown, DropdownItem, DropdownMenu, DropdownSection } from '../src';
+import { Dropdown, DropdownItem, DropdownMenu, DropdownSection, IconButton } from '../src';
 
 it('should render and support selection', () => {
   const onAction = jest.fn();

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Provider } from '../src/components/Provider';
+import { Provider } from '../src';
 
 it('should render', () => {
   render(<Provider>test</Provider>);

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { act, fireEvent, render, screen } from '@testing-library/react';
-import { Overlay, OverlayProps } from '../src/components/Overlay';
+import { Overlay, OverlayProps } from '../src';
 
 function Component(props: Omit<OverlayProps, 'children'>) {
   const [isOpen, setIsOpen] = React.useState(false);

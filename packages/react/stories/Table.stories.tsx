@@ -1,11 +1,6 @@
 import * as React from 'react';
 import type { ComponentStory } from '@storybook/react';
-import { Table } from '../src/components/Table';
-import { TableBody } from '../src/components/TableBody';
-import { TableCell } from '../src/components/TableCell';
-import { TableColumn } from '../src/components/TableColumn';
-import { TableHeader } from '../src/components/TableHeader';
-import { TableRow } from '../src/components/TableRow';
+import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '../src';
 
 export default {
   title: 'Components/Table',

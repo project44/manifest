@@ -1,4 +1,4 @@
-import { Box, Stack } from '../src/components/Layout';
+import { Box, Stack } from '../src';
 
 export default {
   title: 'Components/Stack',

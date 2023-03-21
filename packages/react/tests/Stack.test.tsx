@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Stack } from '../src/components/Layout';
+import { Stack } from '../src';
 
 describe('react-layout - Stack', () => {
   it('should render correctly', () => {

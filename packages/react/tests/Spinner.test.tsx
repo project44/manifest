@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Spinner } from '../src/components/Spinner';
+import { Spinner } from '../src';
 
 describe('spinner', () => {
   it('should render', () => {

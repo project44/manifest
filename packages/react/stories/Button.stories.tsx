@@ -1,6 +1,5 @@
-import { Stack } from '@project44-manifest/react-layout';
 import { StoryFn } from '@storybook/react';
-import { Button } from '../src/components/Button';
+import { Button, Stack } from '../src';
 
 export default {
   title: 'Components/Button',

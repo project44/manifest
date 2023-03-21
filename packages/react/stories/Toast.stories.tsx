@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { Button } from '../src/components/Button';
-import { toast, Toaster } from '../src/components/Toast';
+import { Button, toast, Toaster } from '../src';
 
 export default {
   title: 'Components/Toast',

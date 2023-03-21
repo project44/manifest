@@ -6,14 +6,14 @@ import { HiddenSelect, useSelect } from '@react-aria/select';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useSelectState } from '@react-stately/select';
 import type { AriaSelectProps } from '@react-types/select';
-import { Overlay, Placement, useOverlayPosition } from '@project44-manifest/react-overlay';
-import { Popover } from '@project44-manifest/react-popover';
 import { cx } from '@project44-manifest/react-styles';
 import { As, createComponent, Options, Props } from '../../system';
 import type { StyleProps } from '../../types';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
 import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
+import { Overlay, Placement, useOverlayPosition } from '../Overlay';
+import { Popover } from '../Popover';
 import { Typography } from '../Typography';
 import { useStyles } from './Select.styles';
 

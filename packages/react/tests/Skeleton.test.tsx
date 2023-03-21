@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Skeleton } from '../src/components/Skeleton';
+import { Skeleton } from '../src';
 
 describe('skeleton', () => {
   it('should render', () => {

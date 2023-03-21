@@ -1,6 +1,6 @@
-import type { AvatarProps } from '@project44-manifest/react-avatar';
-import type { DropdownMenuProps } from '@project44-manifest/react-dropdown';
 import type { CSS } from '@project44-manifest/react-styles';
+import type { AvatarProps } from '../Avatar';
+import type { DropdownMenuProps } from '../DropdownMenu';
 
 export type SideNavigationFooterMenuElement = 'button';
 

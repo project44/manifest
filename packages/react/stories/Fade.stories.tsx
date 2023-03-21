@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { Button } from '@project44-manifest/react-button';
-import { Fade } from '../src';
+import { Button, Fade } from '../src';
 
 export default {
   title: 'Components/Fade',

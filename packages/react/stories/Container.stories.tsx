@@ -1,4 +1,4 @@
-import { Container } from '../src/components/Layout';
+import { Container } from '../src';
 
 export default {
   title: 'Components/Container',

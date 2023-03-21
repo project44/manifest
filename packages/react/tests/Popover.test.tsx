@@ -1,15 +1,16 @@
 import * as React from 'react';
 import { act, fireEvent, render, screen } from '@testing-library/react';
-import { Button } from '../src/components/Button';
-import { Overlay, OverlayProvider } from '../src/components/Overlay';
 import {
+  Button,
+  Overlay,
+  OverlayProvider,
   Popover,
   PopoverProps,
   PopoverTriggerProps,
   PopoverTriggerStateProps,
   usePopoverTrigger,
   usePopoverTriggerState,
-} from '../src/components/Popover';
+} from '../src';
 
 function Component(
   props: PopoverProps &

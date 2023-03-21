@@ -1,9 +1,4 @@
-import { Button } from '../src/components/Button';
-import { ButtonGroup } from '../src/components/ButtonGroup';
-import { Card } from '../src/components/Card';
-import { CardBody } from '../src/components/CardBody';
-import { CardFooter } from '../src/components/CardFooter';
-import { CardHeader } from '../src/components/CardHeader';
+import { Button, ButtonGroup, Card, CardBody, CardFooter, CardHeader } from '../src';
 
 export default {
   title: 'Components/Card',

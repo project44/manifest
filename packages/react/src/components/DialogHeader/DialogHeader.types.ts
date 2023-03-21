@@ -1,6 +1,6 @@
 import type { CSS } from '@project44-manifest/react-styles';
-import type { Typography } from '@project44-manifest/react-typography';
 import type { IconButton } from '../IconButton';
+import type { Typography } from '../Typography';
 
 export type DialogHeaderElement = 'div';
 

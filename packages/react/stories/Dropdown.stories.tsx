@@ -1,11 +1,14 @@
 import * as React from 'react';
-import { IconButton } from '@project44-manifest/react-button';
 import { Collapsed, Person, Search } from '@project44-manifest/react-icons';
 import type { Meta, Story } from '@storybook/react';
-import { Dropdown, DropdownProps } from '../src/components/Dropdown';
-import { DropdownItem } from '../src/components/DropdownItem';
-import { DropdownMenu } from '../src/components/DropdownMenu';
-import { DropdownSection } from '../src/components/DropdownSection';
+import {
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownProps,
+  DropdownSection,
+  IconButton,
+} from '../src';
 
 const meta: Meta<DropdownProps> = {
   title: 'Components/Dropdown',

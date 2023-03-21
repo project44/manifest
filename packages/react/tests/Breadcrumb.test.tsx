@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Breadcrumb } from '../src/components/Breadcrumb';
-import { BreadcrumbItem } from '../src/components/BreadcrumbItem';
+import { Breadcrumb, BreadcrumbItem } from '../src';
 
 describe('breadcrumb', () => {
   it('should render crumb links', () => {

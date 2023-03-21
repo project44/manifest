@@ -1,4 +1,4 @@
-import { Portal } from '@project44-manifest/react-portal';
+import { Portal } from '../Portal';
 import { CSSTransition } from '../Transition';
 import type { OverlayProps } from './Overlay.types';
 

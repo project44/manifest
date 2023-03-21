@@ -1,4 +1,4 @@
-import { Grid, GridItem } from '../src/components/Layout';
+import { Grid, GridItem } from '../src';
 
 export default {
   title: 'Components/Grid',

@@ -1,8 +1,7 @@
 import { OverlayProvider } from '@react-aria/overlays';
 import { CalendarDate, endOfMonth, startOfMonth } from '@internationalized/date';
 import { act, fireEvent, render, screen } from '@testing-library/react';
-import { DateRangePicker } from '../src';
-import { DefinedRange } from '../src/components/CalendarRanges';
+import { DateRangePicker, DefinedRange } from '../src';
 import {
   addMonths,
   createCalendarDate,

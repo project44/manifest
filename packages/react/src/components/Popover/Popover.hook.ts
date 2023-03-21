@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useOverlayPosition, useOverlayTrigger } from '@project44-manifest/react-overlay';
+import { useOverlayPosition, useOverlayTrigger } from '../Overlay';
 import { PopoverTriggerProps, PopoverTriggerState } from './Popover.types';
 
 export function usePopoverTrigger(props: PopoverTriggerProps, state: PopoverTriggerState) {

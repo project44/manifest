@@ -7,14 +7,14 @@ import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useDatePickerState } from '@react-stately/datepicker';
 import type { DateValue } from '@react-types/calendar';
 import type { AriaDatePickerProps } from '@react-types/datepicker';
-import { Overlay, Placement, useOverlayPosition } from '@project44-manifest/react-overlay';
-import { Popover } from '@project44-manifest/react-popover';
 import { cx } from '@project44-manifest/react-styles';
 import { As, createComponent, Options, Props } from '../../system';
 import type { StyleProps } from '../../types';
 import { Calendar } from '../Calendar';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
+import { Overlay, Placement, useOverlayPosition } from '../Overlay';
+import { Popover } from '../Popover';
 import { Typography } from '../Typography';
 import { useStyles } from './DatePicker.styles';
 

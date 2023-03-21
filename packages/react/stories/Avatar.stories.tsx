@@ -1,6 +1,5 @@
 import type { StoryFn } from '@storybook/react';
-import { Avatar } from '../src/components/Avatar';
-import { Stack } from '../src/components/Layout';
+import { Avatar, Stack } from '../src';
 
 export default {
   title: 'Components/Avatar',

@@ -15,7 +15,7 @@ export type { CalendarProps } from './components/Calendar';
 export { Calendar } from './components/Calendar';
 export * from './components/CalendarCell';
 export * from './components/CalendarHeader';
-export type { CalendarRangeProps } from './components/CalendarRange';
+export type { CalendarRangeProps, RangeValue } from './components/CalendarRange';
 export { CalendarRange } from './components/CalendarRange';
 export * from './components/CalendarRanges';
 export * from './components/CalendarTable';

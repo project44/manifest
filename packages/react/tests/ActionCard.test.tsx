@@ -1,8 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { ActionCard } from '../src/components/ActionCard';
-import { ActionCardBody } from '../src/components/ActionCardBody';
-import { ActionCardHeader } from '../src/components/ActionCardHeader';
-import { ActionCardImage } from '../src/components/ActionCardImage';
+import { ActionCard, ActionCardBody, ActionCardHeader, ActionCardImage } from '../src';
 
 describe('action-card', () => {
   it('should render', () => {
