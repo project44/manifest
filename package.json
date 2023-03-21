@@ -5,15 +5,7 @@
   "license": "MIT",
   "workspaces": [
     "apps/*",
-    "packages/react/components/*",
-    "packages/react/hooks/*",
-    "packages/react/core",
-    "packages/react/icons",
-    "packages/react/styles",
-    "packages/react/system",
-    "packages/react/types",
-    "packages/react/utils",
-    "packages/system/*",
+    "packages/*",
     "tools/*"
   ],
   "scripts": {

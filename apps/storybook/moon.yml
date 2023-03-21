@@ -22,5 +22,5 @@ tasks:
       - '@group(stories)'
 
 dependsOn:
-  - 'icons'
-  - 'core'
+  - 'react-icons'
+  - 'react'

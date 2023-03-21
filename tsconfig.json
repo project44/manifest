@@ -9,124 +9,22 @@
       "path": "apps/website"
     },
     {
-      "path": "packages/react/components/action-card"
+      "path": "packages/css"
     },
     {
-      "path": "packages/react/components/avatar"
+      "path": "packages/design-tokens"
     },
     {
-      "path": "packages/react/components/breadcrumb"
+      "path": "packages/react"
     },
     {
-      "path": "packages/react/components/button"
+      "path": "packages/react-icons"
     },
     {
-      "path": "packages/react/components/button"
+      "path": "packages/react-styles"
     },
     {
-      "path": "packages/react/components/card"
-    },
-    {
-      "path": "packages/react/components/css-baseline"
-    },
-    {
-      "path": "packages/react/components/dialog"
-    },
-    {
-      "path": "packages/react/components/dropdown"
-    },
-    {
-      "path": "packages/react/components/icon"
-    },
-    {
-      "path": "packages/react/components/layout"
-    },
-    {
-      "path": "packages/react/components/link"
-    },
-    {
-      "path": "packages/react/components/menu"
-    },
-    {
-      "path": "packages/react/components/modal"
-    },
-    {
-      "path": "packages/react/components/overlay"
-    },
-    {
-      "path": "packages/react/components/pagination"
-    },
-    {
-      "path": "packages/react/components/popover"
-    },
-    {
-      "path": "packages/react/components/portal"
-    },
-    {
-      "path": "packages/react/components/provider"
-    },
-    {
-      "path": "packages/react/components/side-navigation"
-    },
-    {
-      "path": "packages/react/components/skeleton"
-    },
-    {
-      "path": "packages/react/components/spinner"
-    },
-    {
-      "path": "packages/react/components/table"
-    },
-    {
-      "path": "packages/react/components/toast"
-    },
-    {
-      "path": "packages/react/components/tooltip"
-    },
-    {
-      "path": "packages/react/components/transition"
-    },
-    {
-      "path": "packages/react/components/typography"
-    },
-    {
-      "path": "packages/react/core"
-    },
-    {
-      "path": "packages/react/hooks/use-controlled-state"
-    },
-    {
-      "path": "packages/react/hooks/use-debounced-state"
-    },
-    {
-      "path": "packages/react/hooks/use-isomorphic-layout-effect"
-    },
-    {
-      "path": "packages/react/hooks/use-merged-ref"
-    },
-    {
-      "path": "packages/react/icons"
-    },
-    {
-      "path": "packages/react/styles"
-    },
-    {
-      "path": "packages/react/system"
-    },
-    {
-      "path": "packages/react/types"
-    },
-    {
-      "path": "packages/react/utils"
-    },
-    {
-      "path": "packages/system/css"
-    },
-    {
-      "path": "packages/system/theme"
-    },
-    {
-      "path": "packages/system/tokens"
+      "path": "packages/theme"
     },
     {
       "path": "tools/jest-preset"

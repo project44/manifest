@@ -20,13 +20,13 @@
   ],
   "references": [
     {
-      "path": "../../packages/react/core"
+      "path": "../../packages/react"
     },
     {
-      "path": "../../packages/react/icons"
+      "path": "../../packages/react-icons"
     },
     {
-      "path": "../../packages/system/tokens"
+      "path": "../../packages/design-tokens"
     }
   ]
 }
