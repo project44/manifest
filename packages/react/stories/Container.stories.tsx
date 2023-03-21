@@ -1,0 +1,36 @@
+import { Container } from '../src/components/Layout';
+
+export default {
+  title: 'Components/Container',
+  component: Container,
+};
+
+export function Default() {
+  return (
+    <Container>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+      laboris nisi ut aliquip ex ea commodo consequat.
+    </Container>
+  );
+}
+
+export function MaxWidth() {
+  return (
+    <Container maxWidth="small">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+      laboris nisi ut aliquip ex ea commodo consequat.
+    </Container>
+  );
+}
+
+export function Fixed() {
+  return (
+    <Container fixed>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+      laboris nisi ut aliquip ex ea commodo consequat.
+    </Container>
+  );
+}

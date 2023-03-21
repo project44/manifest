@@ -1,0 +1,25 @@
+type: 'library'
+language: 'typescript'
+
+workspace:
+  inheritedTasks:
+    rename:
+      buildPackage: 'build'
+
+tasks:
+  build:
+    outputs:
+      - 'esm'
+      - 'lib'
+
+  props-doc:
+    args:
+      - '../../../scripts/propsDoc.mjs'
+    options:
+      mergeArgs: 'replace'
+
+dependsOn:
+  - 'react-icons'
+  - 'react-styles'
+  - 'react-types'
+  - 'theme'

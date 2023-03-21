@@ -1,0 +1,34 @@
+type: 'library'
+language: 'typescript'
+
+workspace:
+  inheritedTasks:
+    rename:
+      buildPackage: 'build'
+    exclude: ['props-doc']
+
+tasks:
+  build:
+    outputs:
+      - 'esm'
+      - 'lib'
+
+  clean:
+    command: 'rimraf'
+    args:
+      - './src'
+    options:
+      cache: false
+      runInCI: false
+
+  generate-icons:
+    command: 'node'
+    args:
+      - './scripts/generate-icons.mjs'
+    options:
+      cache: false
+      runInCI: false
+
+dependsOn:
+  - id: 'react-styles'
+    scope: 'production'
