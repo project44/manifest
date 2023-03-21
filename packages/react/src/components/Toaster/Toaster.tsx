@@ -2,8 +2,8 @@ import * as React from 'react';
 import { useToaster } from 'react-hot-toast/headless';
 import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
+import type { ToastOptions } from '../Toast';
 import { Toast } from '../Toast';
-import type { ToastOptions } from '../types';
 import { StyledToaster } from './Toaster.styles';
 import type { ToasterElement, ToasterProps } from './Toaster.types';
 

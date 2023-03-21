@@ -1,5 +1,5 @@
+import { CSSTransition } from 'react-transition-group';
 import { Portal } from '../Portal';
-import { CSSTransition } from '../Transition';
 import type { OverlayProps } from './Overlay.types';
 
 export function Overlay(props: OverlayProps) {

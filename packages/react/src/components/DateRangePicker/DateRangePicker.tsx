@@ -3,6 +3,7 @@ import { useButton } from '@react-aria/button';
 import { useDateRangePicker } from '@react-aria/datepicker';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
+import { useOverlayPosition } from '@react-aria/overlays';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useDateRangePickerState } from '@react-stately/datepicker';
 import type { DateValue } from '@react-types/calendar';
@@ -15,7 +16,7 @@ import { DefinedRange } from '../CalendarRanges';
 import { useStyles } from '../DatePicker/DatePicker.styles';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
-import { Overlay, Placement, useOverlayPosition } from '../Overlay';
+import { Overlay, Placement } from '../Overlay';
 import { Popover } from '../Popover';
 import { Typography } from '../Typography';
 

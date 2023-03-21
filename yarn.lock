@@ -4150,7 +4150,6 @@ __metadata:
     "@project44-manifest/react-styles": ^1.4.0
     "@project44-manifest/react-types": ^0.2.1
     "@project44-manifest/theme": ^2.0.0
-    "@radix-ui/react-slot": ^1.0.0
     "@react-aria/button": ^3.5.1
     "@react-aria/calendar": ^3.0.0
     "@react-aria/checkbox": ^3.4.1
@@ -4225,7 +4224,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-slot@npm:^1.0.0, @radix-ui/react-slot@npm:^1.0.1":
+"@radix-ui/react-slot@npm:^1.0.1":
   version: 1.0.1
   resolution: "@radix-ui/react-slot@npm:1.0.1"
   dependencies:

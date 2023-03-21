@@ -3,8 +3,8 @@ import { useOverlayPosition } from '@react-aria/overlays';
 import { useTooltipTrigger } from '@react-aria/tooltip';
 import { useTooltipTriggerState } from '@react-stately/tooltip';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
+import { Fade } from '../Fade';
 import { TooltipContent } from '../TooltipContent';
-import { Fade } from '../Transition';
 import { TooltipProvider } from './Tooltip.context';
 import type { TooltipElement, TooltipProps } from './Tooltip.types';
 

@@ -8,9 +8,7 @@ import {
 } from '@project44-manifest/react-icons';
 import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
-import { Typography } from '../../Typography';
-import type { ToastVariant } from '../types';
-import { toast } from '../utils';
+import { Typography } from '../Typography';
 import {
   StyledToast,
   StyledToastActions,
@@ -18,7 +16,8 @@ import {
   StyledToastDescription,
   StyledToastDismissButton,
 } from './Toast.styles';
-import type { ToastElement, ToastProps } from './Toast.types';
+import type { ToastElement, ToastProps, ToastVariant } from './Toast.types';
+import { toast } from './utils';
 
 const variantIcon: Record<ToastVariant, React.ElementType | null> = {
   info: InfoCircleFilled,

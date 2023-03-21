@@ -1,1 +1,1 @@
-export * from './CSSBaseline';
+export { CssBaseline } from './CSSBaseline';
