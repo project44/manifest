@@ -33,6 +33,6 @@ tasks:
       runInCI: false
 
 dependsOn:
-  - 'tokens'
-  - 'icons'
-  - 'core'
+  - 'design-tokens'
+  - 'react-icons'
+  - 'react'
