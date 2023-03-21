@@ -14,7 +14,7 @@ tasks:
 
   props-doc:
     args:
-      - '../../../scripts/propsDoc.mjs'
+      - '../../scripts/propsDoc.mjs'
     options:
       mergeArgs: 'replace'
 
