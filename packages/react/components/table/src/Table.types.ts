@@ -8,4 +8,8 @@ export interface TableProps extends TableContext {
    * Theme aware style object
    */
   css?: CSS;
+  /**
+   * Visually compact vertical spacing. Defaults to false
+   */
+  isDense?: boolean;
 }
