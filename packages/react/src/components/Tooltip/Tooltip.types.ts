@@ -47,3 +47,16 @@ export interface TooltipProps {
    */
   trigger?: 'focus';
 }
+
+export interface TooltipState {
+  /** Whether the tooltip is currently showing. */
+  readonly isOpen: boolean;
+  /**
+   * Shows the tooltip. By default, the tooltip becomes visible after a delay
+   * depending on a global warmup timer. The `immediate` option shows the
+   * tooltip immediately instead.
+   */
+  open: (immediate?: boolean) => void;
+  /** Hides the tooltip. */
+  close: (immediate?: boolean) => void;
+}

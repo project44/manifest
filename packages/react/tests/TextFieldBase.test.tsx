@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { TextFieldBase } from '../src';
+import { TextFieldBase } from '../src/components/TextFieldBase';
 
 describe('@project44-manifest/components - TextFieldBase', () => {
   it('should render', () => {

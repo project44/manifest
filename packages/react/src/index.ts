@@ -101,8 +101,13 @@ export type { PaginationElement, PaginationProps } from './components/Pagination
 export { Pagination } from './components/Pagination';
 export type { PillProps } from './components/Pill';
 export { Pill } from './components/Pill';
-export type { PopoverProps } from './components/Popover';
-export { Popover } from './components/Popover';
+export type {
+  PopoverProps,
+  PopoverTriggerProps,
+  PopoverTriggerState,
+  PopoverTriggerStateProps,
+} from './components/Popover';
+export { Popover, usePopoverTrigger, usePopoverTriggerState } from './components/Popover';
 export type { PortalProps } from './components/Portal';
 export { Portal } from './components/Portal';
 export type { ProviderElement, ProviderProps } from './components/Provider';
@@ -165,8 +170,8 @@ export type { ToastOptions, ToastVariant } from './components/Toast';
 export { toast } from './components/Toast';
 export type { ToasterProps } from './components/Toaster';
 export { Toaster } from './components/Toaster';
-export type { TooltipProps } from './components/Tooltip';
-export { Tooltip } from './components/Tooltip';
+export type { TooltipProps, TooltipState } from './components/Tooltip';
+export { Tooltip, useTooltip, useTooltipState } from './components/Tooltip';
 export type { TransitionProps, TransitionStatus } from './components/Transition';
 export { Transition } from './components/Transition';
 export type { TypographyProps } from './components/Typography';

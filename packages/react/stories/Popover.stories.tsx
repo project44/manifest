@@ -8,26 +8,20 @@ import {
   Placement as PopoverPlacement,
   Popover,
   PopoverProps,
-  useOverlayPosition,
-  useOverlayTrigger,
-  useOverlayTriggerState,
+  usePopoverTrigger,
+  usePopoverTriggerState,
 } from '../src';
 
 function PlacementComponent(props: { placement: PopoverPlacement }) {
   const { placement } = props;
 
-  const overlayRef = React.useRef<HTMLDivElement>(null);
-  const triggerRef = React.useRef<HTMLButtonElement>(null);
-
-  const state = useOverlayTriggerState({});
-  const { triggerProps, overlayProps } = useOverlayTrigger({ type: 'dialog' }, state, triggerRef);
-  const { overlayProps: positionProps } = useOverlayPosition({
-    isOpen: state.isOpen,
-    onClose: state.close,
-    overlayRef,
-    placement,
-    targetRef: triggerRef,
-  });
+  const state = usePopoverTriggerState({});
+  const { overlayProps, overlayRef, triggerProps, triggerRef } = usePopoverTrigger(
+    {
+      placement,
+    },
+    state,
+  );
 
   const handleClose = React.useCallback(() => {
     state.close();
@@ -39,13 +33,7 @@ function PlacementComponent(props: { placement: PopoverPlacement }) {
         {placement}
       </Button>
       <Overlay isOpen={state.isOpen}>
-        <Popover
-          {...overlayProps}
-          {...positionProps}
-          ref={overlayRef}
-          isOpen={state.isOpen}
-          onClose={handleClose}
-        >
+        <Popover {...overlayProps} ref={overlayRef} isOpen={state.isOpen} onClose={handleClose}>
           <Box css={{ p: '$medium' }}>This is a popover</Box>
         </Popover>
       </Overlay>
@@ -61,17 +49,8 @@ const meta: Meta<PopoverProps> = {
 export default meta;
 
 export const Default: Story<PopoverProps> = (props) => {
-  const overlayRef = React.useRef<HTMLDivElement>(null);
-  const triggerRef = React.useRef<HTMLButtonElement>(null);
-
-  const state = useOverlayTriggerState({});
-  const { triggerProps, overlayProps } = useOverlayTrigger({ type: 'dialog' }, state, triggerRef);
-  const { overlayProps: positionProps } = useOverlayPosition({
-    isOpen: state.isOpen,
-    onClose: state.close,
-    overlayRef,
-    targetRef: triggerRef,
-  });
+  const state = usePopoverTriggerState({});
+  const { overlayProps, overlayRef, triggerProps, triggerRef } = usePopoverTrigger({}, state);
 
   const handleClose = React.useCallback(() => {
     state.close();
@@ -83,13 +62,7 @@ export const Default: Story<PopoverProps> = (props) => {
         Open Popover
       </Button>
       <Overlay isOpen={state.isOpen}>
-        <Popover
-          {...overlayProps}
-          {...positionProps}
-          ref={overlayRef}
-          isOpen={state.isOpen}
-          onClose={handleClose}
-        >
+        <Popover {...overlayProps} ref={overlayRef} isOpen={state.isOpen} onClose={handleClose}>
           <Box css={{ p: '$medium' }}>This is a popover</Box>
         </Popover>
       </Overlay>

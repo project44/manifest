@@ -1,9 +1,9 @@
 import * as React from 'react';
+import { OverlayProvider } from '@react-aria/overlays';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import {
   Button,
   Overlay,
-  OverlayProvider,
   Popover,
   PopoverProps,
   PopoverTriggerProps,
