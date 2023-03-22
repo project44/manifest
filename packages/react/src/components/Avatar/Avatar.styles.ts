@@ -13,7 +13,6 @@ export const StyledAvatarFallback = styled('span', {
   alignItems: 'center',
   color: 'inherit',
   display: 'flex',
-  fontFamily: '$text',
   fontWeight: '$semibold',
   letterSpacing: '$medium',
   height: '100%',

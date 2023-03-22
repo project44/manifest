@@ -25,7 +25,6 @@ export const StyledSideNavigationFooter = styled('button', {
   color: '$text-primary',
   cursor: 'pointer',
   display: 'inline-flex',
-  fontFamily: '$text',
   fontSize: '$small',
   fontWeight: '$semibold',
   justifyContent: 'flex-start',

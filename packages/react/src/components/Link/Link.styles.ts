@@ -4,7 +4,6 @@ export const StyledLink = styled('a', {
   alignItems: 'baseline',
   color: '$text-primary',
   display: 'inline-flex',
-  fontFamily: '$text',
   fontSize: '$medium',
   fontWeight: '$semibold',
   letterSpacing: '$medium',
