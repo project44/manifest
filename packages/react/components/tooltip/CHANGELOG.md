@@ -1,5 +1,13 @@
 # @project44-manifest/react-tooltip
 
+## 1.2.0
+
+### Minor Changes
+
+- [#323](https://github.com/project44/manifest/pull/323)
+  [`1275f63`](https://github.com/project44/manifest/commit/1275f637cb8475a2bd5558d6ca9b36f21bc852e8)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - fix tooltip layout shift
+
 ## 1.1.6
 
 ### Patch Changes
