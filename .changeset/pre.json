@@ -1,0 +1,17 @@
+{
+  "mode": "pre",
+  "tag": "data-table",
+  "initialVersions": {
+    "storybook": "0.0.9",
+    "website": "0.0.1",
+    "@project44-manifest/css": "0.1.2",
+    "@project44-manifest/design-tokens": "2.0.0",
+    "@project44-manifest/react": "3.2.1",
+    "@project44-manifest/react-icons": "1.0.1",
+    "@project44-manifest/react-styles": "2.0.0",
+    "@project44-manifest/react-types": "0.2.1",
+    "@project44-manifest/theme": "2.0.0",
+    "jest-preset-manifest": "0.0.0"
+  },
+  "changesets": []
+}

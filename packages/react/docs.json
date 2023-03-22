@@ -590,6 +590,56 @@
       "description": "The max-width of the container."
     }
   ],
+  "DataTable": [
+    {
+      "name": "columns",
+      "type": "DataTableColumn[]",
+      "required": true,
+      "description": "Column definitions for the table"
+    },
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    },
+    {
+      "name": "currentPage",
+      "type": "number",
+      "required": true,
+      "description": "Current page number"
+    },
+    {
+      "name": "isDense",
+      "type": "boolean",
+      "required": false,
+      "description": "Visually compact vertical spacing. Defaults to false"
+    },
+    {
+      "name": "onPageChange",
+      "type": "(page: number) => void",
+      "required": true,
+      "description": "Callback for when the page changes"
+    },
+    {
+      "name": "onSort",
+      "type": "(column: string, isAscending: boolean) => void",
+      "required": true,
+      "description": "Callback for when the sort order changes"
+    },
+    {
+      "name": "rows",
+      "type": "Record<string, ReactNode>[]",
+      "required": true,
+      "description": "Rows data for the table"
+    },
+    {
+      "name": "totalRowCount",
+      "type": "number",
+      "required": true,
+      "description": "Total number of rows in the data set. Used for pagination"
+    }
+  ],
   "DatePicker": [
     {
       "name": "children",

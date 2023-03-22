@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../../.moon/cache/types/packages/system/css"
+    "outDir": "../../.moon/cache/types/packages/css"
   },
   "include": [
     "src/**/*"

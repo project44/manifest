@@ -144,3 +144,5 @@ export const Pagination = React.forwardRef((props, forwardedRef) => {
     </StyledPagination>
   );
 }) as ForwardRefComponent<PaginationElement, PaginationProps>;
+
+Pagination.toString = () => '.manifest-pagination';
