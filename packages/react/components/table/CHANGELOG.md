@@ -1,5 +1,13 @@
 # @project44-manifest/react-table
 
+## 1.3.0
+
+### Minor Changes
+
+- [#314](https://github.com/project44/manifest/pull/314)
+  [`3f6785f`](https://github.com/project44/manifest/commit/3f6785fdc8c9c7560a3683a2bdf48b371b93b592)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - fix table dense variant types
+
 ## 1.2.0
 
 ### Minor Changes
