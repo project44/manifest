@@ -29,3 +29,20 @@ export const Placement = () => (
     </Tooltip>
   </Stack>
 );
+
+export const IsOpen = () => (
+  <Stack css={{ marginTop: 56 }} gap="x-large" orientation="horizontal">
+    <Tooltip isOpen placement="bottom" title="bottom">
+      <Button>Hover Me</Button>
+    </Tooltip>
+    <Tooltip isOpen placement="left" title="left">
+      <Button>Hover Me</Button>
+    </Tooltip>
+    <Tooltip isOpen placement="right" title="right">
+      <Button>Hover Me</Button>
+    </Tooltip>
+    <Tooltip isOpen placement="top" title="top">
+      <Button>Hover Me</Button>
+    </Tooltip>
+  </Stack>
+);
