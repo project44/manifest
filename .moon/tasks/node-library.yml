@@ -18,16 +18,3 @@ tasks:
       - 'dts'
     env:
       NODE_ENV: 'production'
-
-  props-doc:
-    command: 'node'
-    args:
-      - './scripts/propsDoc.mjs'
-    inputs:
-      - '@globs(sources)'
-      - '@globs(typescript)'
-      - 'package.json'
-    outputs:
-      - 'docs.json'
-    options:
-      runInCI: false
