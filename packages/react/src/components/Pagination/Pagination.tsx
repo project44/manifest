@@ -3,6 +3,7 @@ import { useControlledState } from '@react-stately/utils';
 import { ChevronLeft, ChevronRight } from '@project44-manifest/react-icons';
 import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
+import { noop } from '../../utils';
 import { PaginationItem } from '../PaginationItem';
 import { Typography } from '../Typography';
 import { StyledPagination } from './Pagination.styles';
@@ -16,6 +17,18 @@ const range = (start: number, end: number) => {
   return Array.from({ length }, (_, i) => start + i);
 };
 
+function defaultGetItemAriaLabel(
+  type: 'next' | 'page' | 'previous',
+  page?: number,
+  isActive?: boolean,
+) {
+  if (type === 'page') {
+    return `${isActive ? '' : 'Go to '}page ${page}`;
+  }
+
+  return `Go to ${type} page`;
+}
+
 export const Pagination = React.forwardRef((props, forwardedRef) => {
   const {
     as,
@@ -24,10 +37,11 @@ export const Pagination = React.forwardRef((props, forwardedRef) => {
     className: classNameProp,
     css,
     defaultPage = 1,
-    onChange = () => {
-      // noop
-    },
+    getItemAriaLabel = defaultGetItemAriaLabel,
+    onChange = noop,
+    nextLabel = 'Next',
     page = 1,
+    previousLabel = 'Previous',
     rowsPerPage = 10,
     siblings = 1,
     showPageNumbers = true,
@@ -90,12 +104,12 @@ export const Pagination = React.forwardRef((props, forwardedRef) => {
   return (
     <StyledPagination {...other} ref={forwardedRef} as={as} className={className} css={css}>
       <PaginationItem
-        aria-label="go to previous page"
+        aria-label={getItemAriaLabel('previous')}
         isDisabled={activePage === 1}
         onPress={previous}
       >
         <ChevronLeft aria-hidden className="manifest-pagination-item__icon--start" />
-        <Typography variant="subtextBold">Previous</Typography>
+        <Typography variant="subtextBold">{previousLabel}</Typography>
       </PaginationItem>
 
       {showPageNumbers &&
@@ -109,7 +123,7 @@ export const Pagination = React.forwardRef((props, forwardedRef) => {
             {item !== 'dots' && (
               <PaginationItem
                 aria-current={item === activePage ? 'true' : undefined}
-                aria-label={`${item === activePage ? '' : 'go to '}page ${String(item)}`}
+                aria-label={getItemAriaLabel('page', item as number, item === activePage)}
                 isActive={item === activePage}
                 onPress={setPage(item as number)}
               >
@@ -120,11 +134,11 @@ export const Pagination = React.forwardRef((props, forwardedRef) => {
         ))}
 
       <PaginationItem
-        aria-label="go to next page"
+        aria-label={defaultGetItemAriaLabel('next')}
         isDisabled={activePage === pageCount}
         onPress={next}
       >
-        <Typography variant="subtextBold">Next</Typography>
+        <Typography variant="subtextBold">{nextLabel}</Typography>
         <ChevronRight aria-hidden className="manifest-pagination-item__icon--end" />
       </PaginationItem>
     </StyledPagination>

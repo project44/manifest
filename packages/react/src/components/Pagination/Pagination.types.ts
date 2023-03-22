@@ -20,9 +20,29 @@ export interface PaginationProps {
    */
   css?: CSS;
   /**
+   * Generate screen reader friendly aria-labels for pagination items, used for internationalized strings.
+   */
+  getItemAriaLabel?: (
+    type: 'next' | 'page' | 'previous',
+    page?: number,
+    isActive?: boolean,
+  ) => string;
+  /**
+   * The label to render in the next button, used for internationalized strings.
+   *
+   * @default 'Next'
+   */
+  nextLabel?: string;
+  /**
    * The current page (controlled).
    */
   page?: number;
+  /**
+   * The label to render in the previous button, used for internationalized strings.
+   *
+   * @default 'Previous'
+   */
+  previousLabel?: string;
   /**
    * The number of rows rendered per page.
    *

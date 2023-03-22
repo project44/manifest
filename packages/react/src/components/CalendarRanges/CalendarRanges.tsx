@@ -5,7 +5,7 @@ import { Selection } from '@react-types/shared';
 import { CalendarDate } from '@internationalized/date';
 import { cx } from '@project44-manifest/react-styles';
 import { RangeValue } from '../CalendarRange';
-import { ListBox } from '../ListBox';
+import { ListBox, ListBoxProps } from '../ListBox';
 import { ListBoxItem } from '../ListBoxItem';
 import { useStyles } from './CalendarRanges.styles';
 import { getDefaultRanges } from './defaultDefinedRanges';
@@ -18,10 +18,13 @@ export interface DefinedRange {
 
 export interface CalendarRangesProps {
   /**
+   * Props passed to the listbox component
+   */
+  listBoxProps?: ListBoxProps;
+  /**
    *  The ranges provided
    */
   ranges?: DefinedRange[];
-
   /**
    * function to handle the change on Ranges
    */
@@ -30,8 +33,10 @@ export interface CalendarRangesProps {
 
 /* @private */
 export function CalendarRanges(props: CalendarRangesProps) {
-  const { onRangeChange, ranges = getDefaultRanges() } = props;
+  const { listBoxProps = {}, onRangeChange, ranges = getDefaultRanges() } = props;
   const { className } = useStyles();
+
+  const ariaLabel = (listBoxProps as ListBoxProps)?.['aria-label'] || 'listbox';
 
   const handleSelectionChange = React.useCallback(
     (key: Selection) => {
@@ -45,7 +50,8 @@ export function CalendarRanges(props: CalendarRangesProps) {
   return (
     <div className={cx(className, 'manifest-calendar-ranges')}>
       <ListBox
-        aria-label="listbox"
+        {...listBoxProps}
+        aria-label={ariaLabel}
         selectionMode="single"
         onSelectionChange={handleSelectionChange}
       >
