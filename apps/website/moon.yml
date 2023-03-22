@@ -11,13 +11,13 @@ tasks:
       - '.docusaurus'
       - 'build'
     deps:
-      - 'props-doc'
+      - '~:props-doc'
 
   dev:
     command: 'docusaurus start'
     local: true
     deps:
-      - 'props-doc'
+      - '~:props-doc'
 
   props-doc:
     command: 'node'

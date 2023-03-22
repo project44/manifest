@@ -3,7 +3,7 @@ language: 'typescript'
 
 workspace:
   inheritedTasks:
-    exclude: ['buildPackage', 'format', 'format-write', 'lint', 'props-doc', 'test', 'typecheck']
+    exclude: ['buildPackage', 'format', 'format-write', 'lint', 'test', 'typecheck']
 
 tasks:
   build:

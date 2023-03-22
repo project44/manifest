@@ -5,4 +5,4 @@ toolchain:
 
 workspace:
   inheritedTasks:
-    exclude: ['buildPackage', 'props-doc']
+    exclude: ['buildPackage']

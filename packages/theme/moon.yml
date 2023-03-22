@@ -5,19 +5,12 @@ workspace:
   inheritedTasks:
     rename:
       buildPackage: 'build'
-    exclude: ['props-doc']
 
 tasks:
   build:
     outputs:
       - 'esm'
       - 'lib'
-
-  props-doc:
-    args:
-      - '../../../../scripts/propsDoc.mjs'
-    options:
-      mergeArgs: 'replace'
 
 dependsOn:
   - 'design-tokens'
