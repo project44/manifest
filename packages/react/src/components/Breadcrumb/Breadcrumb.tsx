@@ -10,14 +10,7 @@ export const Breadcrumb = React.forwardRef((props, forwardedRef) => {
   const className = cx('manifest-breadcrumb', classNameProp);
 
   return (
-    <StyledBreadcrumb
-      {...other}
-      ref={forwardedRef}
-      aria-label="Breadcrumb"
-      as={as}
-      className={className}
-      css={css}
-    >
+    <StyledBreadcrumb {...other} ref={forwardedRef} as={as} className={className} css={css}>
       <StyledBreadcrumbList className="manifest-breadcrumb__list">{children}</StyledBreadcrumbList>
     </StyledBreadcrumb>
   );

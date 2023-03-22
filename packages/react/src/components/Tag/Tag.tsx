@@ -1,13 +1,17 @@
 import { cx } from '@project44-manifest/react-styles';
 import { As, createComponent, Options, Props } from '../../system';
 import type { StyleProps } from '../../types';
-import { Icon } from '../Icon';
+import { Icon, IconProps } from '../Icon';
 import { Typography } from '../Typography';
 import { useStyles } from './Tag.styles';
 
 export type TagElement = 'div';
 
 export interface TagOptions<T extends As = TagElement> extends Options<T>, StyleProps {
+  /**
+   * Props passed to the icon component
+   */
+  iconProps?: IconProps;
   /**
    * Whether the tag is removeable.
    */
@@ -26,6 +30,7 @@ export const Tag = createComponent<TagOptions>((props, forwardedRef) => {
     children,
     className: classNameProp,
     css,
+    iconProps = {},
     isRemovable,
     onRemove,
     ...other
@@ -39,7 +44,7 @@ export const Tag = createComponent<TagOptions>((props, forwardedRef) => {
         {children}
       </Typography>
       {isRemovable && (
-        <Icon aria-label="remove" className="manifest-tag__icon" icon="clear" onClick={onRemove} />
+        <Icon {...iconProps} className="manifest-tag__icon" icon="clear" onClick={onRemove} />
       )}
     </Comp>
   );
