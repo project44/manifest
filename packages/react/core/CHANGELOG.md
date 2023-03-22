@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 2.18.0
+
+### Minor Changes
+
+- [#325](https://github.com/project44/manifest/pull/325)
+  [`643163e`](https://github.com/project44/manifest/commit/643163ef289512c5eee2932f53c6ca104fa8b70d)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Bumping tooltip and table versions
+
 ## 2.17.0
 
 ### Minor Changes
