@@ -1,6 +1,6 @@
 import * as React from 'react';
+import { reflow } from '../../utils';
 import { Transition } from '../Transition';
-import { reflow } from '../utils';
 import type { CollapseProps } from './Collapse.types';
 
 export const Collapse = React.forwardRef<HTMLElement, CollapseProps>((props, forwardedRef) => {

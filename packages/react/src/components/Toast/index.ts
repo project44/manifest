@@ -1,4 +1,3 @@
-export type { ToasterProps } from './Toaster';
-export { Toaster } from './Toaster';
-export type { ToastOptions, ToastVariant } from './types';
+export { Toast } from './Toast';
+export type { ToastOptions, ToastProps, ToastVariant } from './Toast.types';
 export { toast } from './utils';

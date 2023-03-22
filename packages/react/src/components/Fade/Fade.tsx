@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { reflow } from '../../utils';
+import type { TransitionStatus } from '../Transition';
 import { Transition } from '../Transition';
-import type { TransitionStatus } from '../Transition.types';
-import { reflow } from '../utils';
 import type { FadeProps } from './Fade.types';
 
 const styles: Record<TransitionStatus, React.CSSProperties> = {

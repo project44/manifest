@@ -1,6 +1,6 @@
-import type { TransitionProps } from '../Transition.types';
+import type { TransitionProps } from '../Transition';
 
-export interface CollapseProps extends Omit<TransitionProps, 'children'> {
+export interface FadeProps extends Omit<TransitionProps, 'children'> {
   /**
    * Content of the transitioned element.
    */

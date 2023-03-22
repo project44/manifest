@@ -1,6 +1,6 @@
 import type { ToastOptions as HotToastOptions } from 'react-hot-toast';
 import hotToast from 'react-hot-toast/headless';
-import type { ToastOptions, ToastVariant } from './types';
+import type { ToastOptions, ToastVariant } from './Toast.types';
 
 type ToastHandler = (message: string, options?: Omit<ToastOptions, 'message'>) => string;
 

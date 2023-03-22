@@ -1,9 +1,10 @@
 import * as React from 'react';
+import { useOverlay, useOverlayFocusContain, usePreventScroll } from '@react-aria/overlays';
 import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
 import { useMergedRef } from '../../hooks';
 import { mergeProps } from '../../utils';
-import { Overlay, useOverlay, useOverlayFocusContain, usePreventScroll } from '../Overlay';
+import { Overlay } from '../Overlay';
 import { StyledModal, StyledModalWrapper, StyledUnderlay } from './Modal.styles';
 import type { ModalElement, ModalProps } from './Modal.types';
 

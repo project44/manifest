@@ -1,4 +1,4 @@
 export { Tooltip } from './Tooltip';
-export * from './Tooltip.hook';
-export * from './Tooltip.state';
+export { useTooltip } from './Tooltip.hook';
+export { useTooltipState } from './Tooltip.state';
 export type { TooltipElement, TooltipProps, TooltipState } from './Tooltip.types';

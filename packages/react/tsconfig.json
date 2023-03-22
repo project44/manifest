@@ -4,7 +4,9 @@
     "outDir": "../../.moon/cache/types/packages/react"
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "stories/**/*",
+    "tests/**/*"
   ],
   "references": [
     {

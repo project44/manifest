@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { useMenuTrigger } from '@react-aria/menu';
+import { useOverlayPosition } from '@react-aria/overlays';
 import { useMenuTriggerState } from '@react-stately/menu';
 import { mergeProps, mergeRefs } from '../../utils';
-import { Overlay, useOverlayPosition } from '../Overlay';
+import { Overlay } from '../Overlay';
 import { Popover } from '../Popover';
 import { DropdownProvider } from './Dropdown.context';
 import type { DropdownProps } from './Dropdown.types';

@@ -1,6 +1,7 @@
 import { CalendarDate, endOfMonth, startOfMonth } from '@internationalized/date';
 import { render, screen } from '@testing-library/react';
-import { CalendarRange, DefinedRange } from '../src';
+import { CalendarRange } from '../src';
+import { DefinedRange } from '../src/components/CalendarRanges';
 import {
   addMonths,
   createCalendarDate,

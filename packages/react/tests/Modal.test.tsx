@@ -1,5 +1,5 @@
 import { act, fireEvent, render, screen } from '@testing-library/react';
-import { Modal } from '../src';
+import { Modal } from '../src/components/Modal';
 
 beforeAll(() => {
   jest.useFakeTimers();

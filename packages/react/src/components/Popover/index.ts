@@ -1,6 +1,6 @@
 export { Popover } from './Popover';
-export * from './Popover.hook';
-export * from './Popover.state';
+export { usePopoverTrigger } from './Popover.hook';
+export { usePopoverTriggerState } from './Popover.state';
 export type {
   PopoverElement,
   PopoverProps,

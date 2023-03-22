@@ -27,6 +27,7 @@ export const DialogHeader = React.forwardRef((props, forwardedRef) => {
     <StyledDialogHeader {...other} ref={forwardedRef} as={as} className={className} css={css}>
       <Typography
         className="manifest-dialog-header__typography"
+        role="heading"
         variant="title"
         {...(mergeProps(titleProps, typographyProps) as TypographyProps)} // TODO remove casting
       >

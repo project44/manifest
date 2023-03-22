@@ -1,11 +1,11 @@
 import * as React from 'react';
+import { useOverlayPosition } from '@react-aria/overlays';
 import { useTooltip, useTooltipTrigger } from '@react-aria/tooltip';
 import { mergeProps } from '@react-aria/utils';
 import { useTooltipTriggerState } from '@react-stately/tooltip';
 import { cx } from '@project44-manifest/react-styles';
 import { As, createComponent, Options, Props } from '../../system';
 import type { StyleProps } from '../../types';
-import { useOverlayPosition } from '../Overlay';
 import { Typography } from '../Typography';
 import { useStyles } from './Pill.styles';
 

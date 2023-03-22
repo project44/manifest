@@ -4,6 +4,7 @@ import { useComboBox } from '@react-aria/combobox';
 import { useFocusRing } from '@react-aria/focus';
 import { useFilter } from '@react-aria/i18n';
 import { useHover } from '@react-aria/interactions';
+import { useOverlayPosition } from '@react-aria/overlays';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useComboBoxState } from '@react-stately/combobox';
 import type { AriaComboBoxProps } from '@react-types/combobox';
@@ -13,7 +14,7 @@ import type { StyleProps } from '../../types';
 import { FormControl } from '../FormControl';
 import { Icon } from '../Icon';
 import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
-import { Overlay, Placement, useOverlayPosition } from '../Overlay';
+import { Overlay, Placement } from '../Overlay';
 import { Popover } from '../Popover';
 import { useStyles } from './Combobox.styles';
 

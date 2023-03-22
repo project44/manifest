@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { FocusScope } from '@react-aria/focus';
+import { DismissButton, useModal, useOverlay } from '@react-aria/overlays';
 import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
 import { useMergedRef } from '../../hooks';
 import { mergeProps } from '../../utils';
-import { DismissButton, useModal, useOverlay } from '../Overlay';
 import { StyledPopover } from './Popover.styles';
 import type { PopoverElement, PopoverProps } from './Popover.types';
 

@@ -1,58 +1,24 @@
-import * as React from 'react';
-import { act, fireEvent, render, screen } from '@testing-library/react';
-import { Overlay, OverlayProps } from '../src';
+import { render, screen } from '@testing-library/react';
+import { Overlay } from '../src';
 
-function Component(props: Omit<OverlayProps, 'children'>) {
-  const [isOpen, setIsOpen] = React.useState(false);
+describe('@project44-manifest/react - Overlay', () => {
+  it('should render nothing if isOpen is false', () => {
+    render(
+      <Overlay>
+        <span data-testid="overlay">Overlay</span>
+      </Overlay>,
+    );
 
-  const handleOpen = React.useCallback(() => {
-    setIsOpen((prevOpen) => !prevOpen);
-  }, []);
-
-  return (
-    <>
-      <button onClick={handleOpen}>Open Overlay</button>
-      <Overlay {...props} isOpen={isOpen}>
-        <div data-testid="test">test</div>
-      </Overlay>
-    </>
-  );
-}
-
-beforeAll(() => {
-  jest.useFakeTimers();
-});
-
-afterEach(() => {
-  jest.clearAllMocks();
-
-  act(() => {
-    jest.runAllTimers();
-  });
-});
-
-afterAll(() => {
-  jest.restoreAllMocks();
-});
-
-it('should render', () => {
-  render(<Component />);
-
-  const button = screen.getByRole('button');
-
-  fireEvent.click(button);
-
-  act(() => {
-    jest.runAllTimers();
+    expect(screen.queryByTestId('overlay')).toBeNull();
   });
 
-  expect(screen.getByTestId('test')).toBeInTheDocument();
+  it('should render if isOpen is true', () => {
+    render(
+      <Overlay isOpen>
+        <span data-testid="overlay">Overlay</span>
+      </Overlay>,
+    );
 
-  fireEvent.click(button);
-
-  act(() => {
-    jest.runAllTimers();
+    expect(screen.getByTestId('overlay')).not.toBeNull();
   });
-
-  expect(screen.queryByTestId('test')).not.toBeInTheDocument();
 });
