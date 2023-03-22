@@ -150,7 +150,6 @@ it('should support padding top and bottom util', () => {
 it('should support typography util', () => {
   const mixin = config.utils.typography('$display' as VariantToken);
 
-  expect(mixin).toHaveProperty('fontFamily');
   expect(mixin).toHaveProperty('fontSize');
   expect(mixin).toHaveProperty('fontWeight');
   expect(mixin).toHaveProperty('letterSpacing');

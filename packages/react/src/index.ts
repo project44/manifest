@@ -42,7 +42,6 @@ export type { ComboboxSectionProps } from './components/ComboboxSection';
 export { ComboboxSection } from './components/ComboboxSection';
 export type { ContainerProps } from './components/Container';
 export { Container } from './components/Container';
-export { CssBaseline } from './components/CSSBaseline';
 export type { DatePickerProps } from './components/DatePicker';
 export { DatePicker } from './components/DatePicker';
 export type { DateRangePickerProps } from './components/DateRangePicker';
