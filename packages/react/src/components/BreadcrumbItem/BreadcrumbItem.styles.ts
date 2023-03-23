@@ -1,4 +1,3 @@
-import { Icon } from '@project44-manifest/react-icons';
 import { styled } from '@project44-manifest/react-styles';
 import { Link } from '../Link';
 
@@ -13,7 +12,7 @@ export const StyledBreadcrumbItem = styled('li', {
     textDecoration: 'none',
   },
 
-  [`&:last-child ${Icon}`]: {
+  '&:last-child .manifest-icon': {
     display: 'none',
   },
 });
