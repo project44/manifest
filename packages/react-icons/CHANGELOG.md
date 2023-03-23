@@ -1,5 +1,13 @@
 # @project44-manifest/react-icons
 
+## 1.0.1
+
+### Patch Changes
+
+- [#331](https://github.com/project44/manifest/pull/331)
+  [`a575c56`](https://github.com/project44/manifest/commit/a575c560414bcd43109b85d4c62a07071e2256eb)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Removing icon and utils export
+
 ## 1.0.0
 
 ### Major Changes
