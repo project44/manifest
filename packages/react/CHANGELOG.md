@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 3.1.0
+
+### Minor Changes
+
+- [#334](https://github.com/project44/manifest/pull/334)
+  [`a8157c1`](https://github.com/project44/manifest/commit/a8157c1c86d079b9c0db9f5fffdff3c64c3d5f98)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Wrapping overlay in a provider
+
 ## 3.0.0
 
 ### Major Changes
