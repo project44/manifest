@@ -1,5 +1,13 @@
 # @project44-manifest/react-styles
 
+## 2.0.0
+
+### Major Changes
+
+- [#328](https://github.com/project44/manifest/pull/328)
+  [`afd42fb`](https://github.com/project44/manifest/commit/afd42fbb4ea3598655ceac7d414e2cf203940c02)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Adding character based language support
+
 ## 1.4.0
 
 ### Minor Changes

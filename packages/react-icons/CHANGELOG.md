@@ -1,5 +1,20 @@
 # @project44-manifest/react-icons
 
+## 1.0.0
+
+### Major Changes
+
+- [#324](https://github.com/project44/manifest/pull/324)
+  [`e9c9c62`](https://github.com/project44/manifest/commit/e9c9c62559f91e18d1dc8794cbfd3f08edbfa064)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Migration react packages into single
+  package
+
+### Patch Changes
+
+- Updated dependencies
+  [[`afd42fb`](https://github.com/project44/manifest/commit/afd42fbb4ea3598655ceac7d414e2cf203940c02)]:
+  - @project44-manifest/react-styles@2.0.0
+
 ## 0.3.1
 
 ### Patch Changes
