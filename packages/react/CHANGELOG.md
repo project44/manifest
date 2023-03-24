@@ -1,5 +1,24 @@
 # @manifest/react
 
+## 3.2.0
+
+### Minor Changes
+
+- [#337](https://github.com/project44/manifest/pull/337)
+  [`dfd93ca`](https://github.com/project44/manifest/commit/dfd93ca4bfa9808164f2b3a2e423bf8dc9c78a9b)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Rendering the tooltip inside an overlay
+
+### Patch Changes
+
+- [#338](https://github.com/project44/manifest/pull/338)
+  [`12d4ecc`](https://github.com/project44/manifest/commit/12d4ecc8552769e794c0d2eb1a6587d84d41031b)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Fixing `onPress` console warning on
+  pagination item
+
+* [#340](https://github.com/project44/manifest/pull/340)
+  [`d2cbd74`](https://github.com/project44/manifest/commit/d2cbd74771a5d8554b649e8c4ca47c68318b6553)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Fix toast text overflow on dismiss button
+
 ## 3.1.0
 
 ### Minor Changes
