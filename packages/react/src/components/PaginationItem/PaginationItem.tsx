@@ -23,7 +23,7 @@ export const PaginationItem = React.forwardRef((props, forwardedRef) => {
   const itemRef = React.useRef<HTMLButtonElement>(null);
 
   const { buttonProps, isPressed } = useButton(
-    { ...props, elementType: 'button', isDisabled },
+    { ...other, elementType: 'button', isDisabled },
     itemRef,
   );
   const { isFocusVisible, focusProps } = useFocusRing({ autoFocus });
@@ -38,7 +38,6 @@ export const PaginationItem = React.forwardRef((props, forwardedRef) => {
     <StyledPaginationItem
       {...mergeProps(buttonProps, focusProps, hoverProps)}
       ref={mergeRefs(itemRef, forwardedRef)}
-      {...other}
       as={as}
       className={className}
       css={css}
