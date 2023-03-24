@@ -68,6 +68,7 @@ export const StyledToast = styled('div', {
 export const StyledToastContainer = styled('div', {
   display: 'flex',
   flexDirection: 'column',
+  marginRight: '$x-large',
 });
 
 export const StyledToastActions = styled('div', {
