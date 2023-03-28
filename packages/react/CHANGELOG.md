@@ -1,5 +1,14 @@
 # @manifest/react
 
+## 3.2.1
+
+### Patch Changes
+
+- [#341](https://github.com/project44/manifest/pull/341)
+  [`0fb3328`](https://github.com/project44/manifest/commit/0fb332807cf760d71553693df9b804823677481a)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Adding back feature for configurable hover
+  on table
+
 ## 3.2.0
 
 ### Minor Changes
