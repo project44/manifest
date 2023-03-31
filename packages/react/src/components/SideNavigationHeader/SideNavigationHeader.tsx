@@ -44,7 +44,7 @@ export const SideNavigationHeader = React.forwardRef((props, forwardedRef) => {
       <StyledSideNavigationHeaderButton
         className="manifest-navigation-header__button"
         variant="tertiary"
-        onClick={handleToggle}
+        onPress={handleToggle}
       >
         {isOpen ? <Expanded /> : <Collapsed />}
       </StyledSideNavigationHeaderButton>
