@@ -6,7 +6,7 @@ import { noop } from '../../utils';
 import { Collapse } from '../Collapse';
 import { MenuItem } from '../MenuItem';
 import { MenuGroupProvider } from './MenuGroup.context';
-import { StyledIcon, StyledMenuGroup } from './MenuGroup.styles';
+import { StyledIcon, StyledMenuGroup, StyledMenuGroupWrapper } from './MenuGroup.styles';
 import type { MenuGroupElement, MenuGroupProps } from './MenuGroup.types';
 
 export const MenuGroup = React.forwardRef((props, forwardedRef) => {
@@ -50,7 +50,9 @@ export const MenuGroup = React.forwardRef((props, forwardedRef) => {
       />
       <MenuGroupProvider value={{ isGrouped: true }}>
         <Collapse appear unmountOnExit duration={100} in={isExpanded}>
-          <div className="manifest-menu-group__wrapper">{children}</div>
+          <StyledMenuGroupWrapper className="manifest-menu-group__wrapper">
+            {children}
+          </StyledMenuGroupWrapper>
         </Collapse>
       </MenuGroupProvider>
     </StyledMenuGroup>

@@ -12,6 +12,7 @@ export const StyledMenuItem = styled('div', {
   justifyContent: 'flex-start',
   overflow: 'hidden',
   position: 'relative',
+  my: pxToRem(2),
   px: pxToRem(12),
   textAlign: 'left',
   textDecoration: 'none',

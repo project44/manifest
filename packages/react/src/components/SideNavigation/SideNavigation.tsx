@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { useHover } from '@react-aria/interactions';
 import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
 import { useControlledState } from '../../hooks';
-import { mergeProps, noop } from '../../utils';
+import { noop } from '../../utils';
 import { Transition } from '../Transition';
 import { NavigationProvider } from './SideNavigation.context';
 import { StyledNavigation } from './SideNavigation.styles';
@@ -21,9 +20,16 @@ export const SideNavigation = React.forwardRef((props, forwardedRef) => {
     ...other
   } = props;
 
-  const { isHovered, hoverProps } = useHover({});
-
   const [isOpen, setOpen] = useControlledState(isOpenProp!, defaultOpen ?? true, onOpenChange);
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  const handleMouseEnter = React.useCallback(() => void setIsHovered(true), []);
+
+  const handleMouseLeave = React.useCallback(() => void setIsHovered(false), []);
+
+  // Handle an issue with safari and edge not trigger mouse leave events when the side
+  // navigation width changes.
+  const handleExited = React.useCallback(() => void setIsHovered(false), []);
 
   const context = React.useMemo(
     () => ({
@@ -41,14 +47,16 @@ export const SideNavigation = React.forwardRef((props, forwardedRef) => {
 
   return (
     <NavigationProvider value={context}>
-      <Transition in={isOpen}>
+      <Transition in={isOpen} onExited={handleExited}>
         <StyledNavigation
-          {...mergeProps(hoverProps, other)}
+          {...other}
           ref={forwardedRef}
           as={as}
           className={className}
           css={css}
           isOpen={isOpen}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           {children}
         </StyledNavigation>
