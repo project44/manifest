@@ -1,5 +1,14 @@
 # @manifest/react
 
+## 3.2.2
+
+### Patch Changes
+
+- [#343](https://github.com/project44/manifest/pull/343)
+  [`6d36d8b`](https://github.com/project44/manifest/commit/6d36d8b20d2870dc568364564f21bb4a383f657b)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - [SideNavigation] fixing issue in safari
+  with side navigation close staying hovered after width transition
+
 ## 3.2.1
 
 ### Patch Changes
