@@ -8,6 +8,7 @@ import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useDateRangePickerState } from '@react-stately/datepicker';
 import type { DateValue } from '@react-types/calendar';
 import type { AriaDateRangePickerProps } from '@react-types/datepicker';
+import { Calendar as CalendarIcon } from '@project44-manifest/react-icons';
 import { cx } from '@project44-manifest/react-styles';
 import { As, createComponent, Options, Props } from '../../system';
 import type { StyleProps } from '../../types';
@@ -15,7 +16,6 @@ import { CalendarRange } from '../CalendarRange';
 import { DefinedRange } from '../CalendarRanges';
 import { useStyles } from '../DatePicker/DatePicker.styles';
 import { FormControl } from '../FormControl';
-import { Icon } from '../Icon';
 import { Overlay, Placement } from '../Overlay';
 import { Popover } from '../Popover';
 import { Typography } from '../Typography';
@@ -233,7 +233,7 @@ export const DateRangePicker = createComponent<DateRangePickerOptions>((props, f
         </button>
 
         <span className={cx('manifest-datepicker__icon', 'manifest-datepicker__icon--end')}>
-          <Icon icon="calendar_month" />
+          <CalendarIcon />
         </span>
 
         <Overlay containerRef={containerRefProp} isOpen={state.isOpen}>

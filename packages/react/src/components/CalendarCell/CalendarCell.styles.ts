@@ -23,8 +23,7 @@ export const useStyles = css({
   '.manifest-calendar-cell__text': {
     alignItems: 'center',
     backgroundColor: 'transparent',
-    border: '2px solid transparent',
-    borderRadius: '$full',
+    borderRadius: '$small',
     color: '$text-primary',
     display: 'flex',
     justifyContent: 'center',
@@ -85,17 +84,13 @@ export const useStyles = css({
         '.manifest-calendar-cell__button': {
           '&::after': {
             content: '""',
-            backgroundColor: '$primary-default',
+            backgroundColor: '$colors$text$primary',
             height: 1,
             left: pxToRem(17),
             position: 'absolute',
             top: pxToRem(20),
             width: 11,
           },
-        },
-
-        '.manifest-calendar-cell__text': {
-          fontWeight: '$semibold',
         },
       },
     },
@@ -204,6 +199,23 @@ export const useStyles = css({
       css: {
         '.manifest-calendar-cell__text': {
           color: '$text-disabled',
+        },
+      },
+    },
+    {
+      isToday: true,
+      isSelected: true,
+      css: {
+        '.manifest-calendar-cell__button': {
+          '&::after': {
+            content: '""',
+            backgroundColor: '$palette-white',
+            height: 1,
+            left: pxToRem(17),
+            position: 'absolute',
+            top: pxToRem(20),
+            width: 11,
+          },
         },
       },
     },
