@@ -1,27 +1,26 @@
+import * as React from 'react';
 import { mergeProps } from '@react-aria/utils';
 import { useVisuallyHidden } from '@react-aria/visually-hidden';
-import { As, createComponent, Options, Props } from '../../system';
-import type { StyleProps } from '../../types';
+import { cx } from '@project44-manifest/react-styles';
+import type { ForwardRefComponent } from '@project44-manifest/react-types';
+import { StyledVisuallyHidden } from './VisuallyHidden.styles';
+import { VisuallyHiddenElement, VisuallyHiddenProps } from './VisuallyHidden.types';
 
-export type VisuallyHiddenElement = 'div';
-
-export interface VisuallyHiddenOptions<T extends As = VisuallyHiddenElement>
-  extends Options<T>,
-    StyleProps {
-  /**
-   * Whether the element should become visible on focus, for example skip links.
-   */
-  isFocusable?: boolean;
-}
-
-export type VisuallyHiddenProps<T extends As = VisuallyHiddenElement> = Props<
-  VisuallyHiddenOptions<T>
->;
-
-export const VisuallyHidden = createComponent<VisuallyHiddenOptions>((props, forwardedRef) => {
-  const { as: Comp = 'div', isFocusable, ...other } = props;
+export const VisuallyHidden = React.forwardRef((props, forwardedRef) => {
+  const { as, children, className: classNameProp, css, ...other } = props;
 
   const { visuallyHiddenProps } = useVisuallyHidden(props);
 
-  return <Comp {...mergeProps(visuallyHiddenProps, other)} ref={forwardedRef} />;
-});
+  const classes = cx('manifest-visually-hidden', classNameProp);
+
+  return (
+    <StyledVisuallyHidden
+      className={classes}
+      {...mergeProps(visuallyHiddenProps, other)}
+      ref={forwardedRef}
+      css={css}
+    >
+      {children}
+    </StyledVisuallyHidden>
+  );
+}) as ForwardRefComponent<VisuallyHiddenElement, VisuallyHiddenProps>;
