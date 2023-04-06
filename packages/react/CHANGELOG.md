@@ -1,5 +1,23 @@
 # @manifest/react
 
+## 3.2.3
+
+### Patch Changes
+
+- [#350](https://github.com/project44/manifest/pull/350)
+  [`e47bcfa`](https://github.com/project44/manifest/commit/e47bcfad067fe2f1bc5564b1c7a733d15612f43d)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Fixing text fields from rendering text in
+  monospace
+
+* [#349](https://github.com/project44/manifest/pull/349)
+  [`080e73b`](https://github.com/project44/manifest/commit/080e73b08746545ca2bb8daf90c6e62e833e5447)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Fixing trigger prop overridding consumer
+  props
+
+* Updated dependencies
+  [[`617e8f8`](https://github.com/project44/manifest/commit/617e8f8416c7c0a84460f693f55adfa4cf7dc490)]:
+  - @project44-manifest/react-icons@1.1.0
+
 ## 3.2.2
 
 ### Patch Changes

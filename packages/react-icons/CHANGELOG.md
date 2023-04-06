@@ -1,5 +1,13 @@
 # @project44-manifest/react-icons
 
+## 1.1.0
+
+### Minor Changes
+
+- [#347](https://github.com/project44/manifest/pull/347)
+  [`617e8f8`](https://github.com/project44/manifest/commit/617e8f8416c7c0a84460f693f55adfa4cf7dc490)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - updated wifi-icon svg
+
 ## 1.0.1
 
 ### Patch Changes

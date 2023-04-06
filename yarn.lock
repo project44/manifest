@@ -4072,7 +4072,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@project44-manifest/react-icons@^1.0.0, @project44-manifest/react-icons@workspace:packages/react-icons":
+"@project44-manifest/react-icons@^1.0.0, @project44-manifest/react-icons@^1.1.0, @project44-manifest/react-icons@workspace:packages/react-icons":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-icons@workspace:packages/react-icons"
   dependencies:
@@ -4150,7 +4150,7 @@ __metadata:
   resolution: "@project44-manifest/react@workspace:packages/react"
   dependencies:
     "@internationalized/date": ^3.0.0
-    "@project44-manifest/react-icons": ^1.0.0
+    "@project44-manifest/react-icons": ^1.1.0
     "@project44-manifest/react-styles": ^2.0.0
     "@project44-manifest/react-types": ^0.2.1
     "@project44-manifest/theme": ^2.0.0
