@@ -48,6 +48,7 @@ export const useStyles = css({
     boxSizing: 'border-box',
     color: '$$textColor',
     cursor: 'text',
+    fontFamily: '$text',
     margin: 0,
     outline: 0,
     padding: '$small',
