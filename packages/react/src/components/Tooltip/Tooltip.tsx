@@ -3,6 +3,7 @@ import { useOverlayPosition } from '@react-aria/overlays';
 import { useTooltipTrigger } from '@react-aria/tooltip';
 import { useTooltipTriggerState } from '@react-stately/tooltip';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
+import { mergeProps } from '../../utils';
 import { Overlay } from '../Overlay';
 import { TooltipContent } from '../TooltipContent';
 import { TooltipProvider } from './Tooltip.context';
@@ -51,7 +52,7 @@ export const Tooltip = React.forwardRef((props, forwardedRef) => {
   return (
     <>
       {React.cloneElement(children, {
-        ...triggerProps,
+        ...(mergeProps(children.props, triggerProps) as React.Attributes),
         ref: triggerRef,
       })}
 
