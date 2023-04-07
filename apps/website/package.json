@@ -26,6 +26,7 @@
     "@react-aria/i18n": "^3.7.0",
     "clsx": "^1.2.1",
     "docusaurus-plugin-sass": "^0.2.3",
+    "dotenv": "^16.0.3",
     "fuse.js": "^6.6.2",
     "lodash.kebabcase": "^4.1.1",
     "lodash.startcase": "^4.4.0",

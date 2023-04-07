@@ -1,6 +1,8 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
+require('dotenv').config();
+
 const config = {
   title: 'Manifest Design System',
   tagline: 'Manifesting experiences through design',
@@ -39,6 +41,12 @@ const config = {
     ],
   ],
   themeConfig: {
+    algolia: {
+      appId: process.env.ALGOLIA_APP_ID,
+      apiKey: process.env.ALGOLIA_API_KEY,
+      indexName: process.env.ALGOLIA_INDEX_NAME,
+      contextualSearch: true,
+    },
     navbar: {
       title: 'Manifest Design System',
       logo: {
