@@ -1,5 +1,13 @@
 # website
 
+## 0.1.0
+
+### Minor Changes
+
+- [#351](https://github.com/project44/manifest/pull/351)
+  [`1670f71`](https://github.com/project44/manifest/commit/1670f71a897abdb8f2a36bc73cc6ce3559811eda)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - add Algolia search
+
 ## 0.0.1
 
 ### Patch Changes
