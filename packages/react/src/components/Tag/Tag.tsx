@@ -1,34 +1,16 @@
+import * as React from 'react';
 import { cx } from '@project44-manifest/react-styles';
-import { As, createComponent, Options, Props } from '../../system';
-import type { StyleProps } from '../../types';
-import { Icon, IconProps } from '../Icon';
+import type { ForwardRefComponent } from '@project44-manifest/react-types';
+import { Icon } from '../Icon';
 import { Typography } from '../Typography';
-import { useStyles } from './Tag.styles';
+import { StyledTag } from './Tag.styles';
+import type { TagElement, TagProps } from './Tag.types';
 
-export type TagElement = 'div';
-
-export interface TagOptions<T extends As = TagElement> extends Options<T>, StyleProps {
-  /**
-   * Props passed to the icon component
-   */
-  iconProps?: IconProps;
-  /**
-   * Whether the tag is removeable.
-   */
-  isRemovable?: boolean;
-  /**
-   * Handler called on tag removable.
-   */
-  onRemove?: () => void;
-}
-
-export type TagProps<T extends As = TagElement> = Props<TagOptions<T>>;
-
-export const Tag = createComponent<TagOptions>((props, forwardedRef) => {
+export const Tag = React.forwardRef((props, forwardedRef) => {
   const {
-    as: Comp = 'div',
-    children,
+    as,
     className: classNameProp,
+    children,
     css,
     iconProps = {},
     isRemovable,
@@ -36,16 +18,16 @@ export const Tag = createComponent<TagOptions>((props, forwardedRef) => {
     ...other
   } = props;
 
-  const { className } = useStyles({ css, isRemovable });
+  const className = cx('manifest-tag', classNameProp);
 
   return (
-    <Comp {...other} ref={forwardedRef} className={cx(className, classNameProp, 'manifest-tag')}>
+    <StyledTag {...other} ref={forwardedRef} as={as} className={className} css={css}>
       <Typography className="manifest-tag__text" variant="caption">
         {children}
       </Typography>
       {isRemovable && (
         <Icon {...iconProps} className="manifest-tag__icon" icon="clear" onClick={onRemove} />
       )}
-    </Comp>
+    </StyledTag>
   );
-});
+}) as ForwardRefComponent<TagElement, TagProps>;
