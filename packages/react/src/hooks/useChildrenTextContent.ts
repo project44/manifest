@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function useChildrenTextContent(children?: React.ReactNode[]) {
+export function useChildrenTextContent(children?: React.ReactNode) {
   const childrenTextContent = React.useMemo(
     () =>
       children === undefined

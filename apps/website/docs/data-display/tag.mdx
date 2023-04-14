@@ -15,10 +15,48 @@ Label, categorize, or organize items using keywords that describe them.
 
 ### Removable
 
-Set the `isRemovable` prop to render a remove button within the tag.
+Set the `isRemovable` prop to render a remove button within the tag. Can also be triggered by
+Backspace/Delete key.
 
 ```jsx live
 <Tag isRemovable>Tag</Tag>
+```
+
+### Click-to-copy
+
+Set the `isCopyable` prop to enable click-to-copy functionality.
+
+````jsx live
+
+```jsx live
+<Tag isCopyable>Tag</Tag>
+````
+
+### Removable
+
+Set the `isRemovable` prop to render a remove button within the tag. Can also be triggered by
+Backspace/Delete key.
+
+```jsx live
+<Tag isRemovable>Tag</Tag>
+```
+
+### Disabled
+
+To indicate that a tag is disabled, set the `isDisabled` prop.
+
+```jsx live
+<Tag isDisabled>Tag</Tag>
+```
+
+### Adornments
+
+To add a leading adornment to a tag, set the `startAdornment` prop.
+
+```jsx live
+<Tag isRemovable startAdornment={<Flatbed size="small" />}>
+  Tag
+</Tag>
 ```
 
 ## Props
