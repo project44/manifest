@@ -42,9 +42,9 @@ const config = {
   ],
   themeConfig: {
     algolia: {
-      appId: process.env.ALGOLIA_APP_ID,
-      apiKey: process.env.ALGOLIA_API_KEY,
-      indexName: process.env.ALGOLIA_INDEX_NAME,
+      appId: 'R83KK3IWHV',
+      apiKey: '5132717c5548f16a15ad365188c00574',
+      indexName: 'manifestdesignsystem',
       contextualSearch: true,
     },
     navbar: {
