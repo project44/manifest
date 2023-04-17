@@ -17,6 +17,9 @@ const range = (start: number, end: number) => {
   return Array.from({ length }, (_, i) => start + i);
 };
 
+const defaultPagiationLabel = ({ count, from, to }: { count: number; from: number; to: number }) =>
+  `${from}-${to} of ${count}`;
+
 function defaultGetItemAriaLabel(
   type: 'next' | 'page' | 'previous',
   page?: number,
@@ -37,6 +40,7 @@ export const Pagination = React.forwardRef((props, forwardedRef) => {
     className: classNameProp,
     css,
     defaultPage = 1,
+    getPaginationLabel = defaultPagiationLabel,
     getItemAriaLabel = defaultGetItemAriaLabel,
     onChange = noop,
     nextLabel = 'Next',
@@ -44,6 +48,7 @@ export const Pagination = React.forwardRef((props, forwardedRef) => {
     previousLabel = 'Previous',
     rowsPerPage = 10,
     siblings = 1,
+    showLabel = false,
     showPageNumbers = true,
     totalRowCount = 1,
     ...other
@@ -103,44 +108,57 @@ export const Pagination = React.forwardRef((props, forwardedRef) => {
 
   return (
     <StyledPagination {...other} ref={forwardedRef} as={as} className={className} css={css}>
-      <PaginationItem
-        aria-label={getItemAriaLabel('previous')}
-        isDisabled={activePage === 1}
-        onPress={previous}
-      >
-        <ChevronLeft aria-hidden className="manifest-pagination-item__icon--start" />
-        <Typography variant="subtextBold">{previousLabel}</Typography>
-      </PaginationItem>
+      {showLabel && (
+        <div className="manifest-pagination__label">
+          <Typography>
+            {getPaginationLabel({
+              count: totalRowCount,
+              from: (page - 1) * rowsPerPage + 1,
+              to: Math.min(totalRowCount, rowsPerPage * page),
+            })}
+          </Typography>
+        </div>
+      )}
+      <div className="manifest-pagination__actions">
+        <PaginationItem
+          aria-label={getItemAriaLabel('previous')}
+          isDisabled={activePage === 1}
+          onPress={previous}
+        >
+          <ChevronLeft aria-hidden className="manifest-pagination-item__icon--start" />
+          <Typography variant="subtextBold">{previousLabel}</Typography>
+        </PaginationItem>
 
-      {showPageNumbers &&
-        pages.map((item, index) => (
-          <React.Fragment key={item}>
-            {item === 'dots' && (
-              <div aria-hidden className="manifest-pagination__ellipsis">
-                <Typography variant="subtextBold">...</Typography>
-              </div>
-            )}
-            {item !== 'dots' && (
-              <PaginationItem
-                aria-current={item === activePage ? 'true' : undefined}
-                aria-label={getItemAriaLabel('page', item as number, item === activePage)}
-                isActive={item === activePage}
-                onPress={setPage(item as number)}
-              >
-                <Typography variant="subtextBold">{item.toString()}</Typography>
-              </PaginationItem>
-            )}
-          </React.Fragment>
-        ))}
+        {showPageNumbers &&
+          pages.map((item, index) => (
+            <React.Fragment key={item}>
+              {item === 'dots' && (
+                <div aria-hidden className="manifest-pagination__ellipsis">
+                  <Typography variant="subtextBold">...</Typography>
+                </div>
+              )}
+              {item !== 'dots' && (
+                <PaginationItem
+                  aria-current={item === activePage ? 'true' : undefined}
+                  aria-label={getItemAriaLabel('page', item as number, item === activePage)}
+                  isActive={item === activePage}
+                  onPress={setPage(item as number)}
+                >
+                  <Typography variant="subtextBold">{item.toString()}</Typography>
+                </PaginationItem>
+              )}
+            </React.Fragment>
+          ))}
 
-      <PaginationItem
-        aria-label={defaultGetItemAriaLabel('next')}
-        isDisabled={activePage === pageCount}
-        onPress={next}
-      >
-        <Typography variant="subtextBold">{nextLabel}</Typography>
-        <ChevronRight aria-hidden className="manifest-pagination-item__icon--end" />
-      </PaginationItem>
+        <PaginationItem
+          aria-label={defaultGetItemAriaLabel('next')}
+          isDisabled={activePage === pageCount}
+          onPress={next}
+        >
+          <Typography variant="subtextBold">{nextLabel}</Typography>
+          <ChevronRight aria-hidden className="manifest-pagination-item__icon--end" />
+        </PaginationItem>
+      </div>
     </StyledPagination>
   );
 }) as ForwardRefComponent<PaginationElement, PaginationProps>;

@@ -20,6 +20,20 @@ export interface PaginationProps {
    */
   css?: CSS;
   /**
+   * Generate a localized label for the rows per page label (localization).
+   *
+   * @default `${from}-${to} of ${totalRowCount}`
+   */
+  getPaginationLabel?: ({
+    count,
+    from,
+    to,
+  }: {
+    count: number;
+    from: number;
+    to: number;
+  }) => React.ReactNode;
+  /**
    * Generate screen reader friendly aria-labels for pagination items, used for internationalized strings.
    */
   getItemAriaLabel?: (
@@ -49,6 +63,12 @@ export interface PaginationProps {
    * @default 10
    */
   rowsPerPage?: number;
+  /**
+   * Whether to show the pagination label.
+   *
+   * @default false
+   */
+  showLabel?: boolean;
   /**
    * Whether to show page numbers buttons.
    *
