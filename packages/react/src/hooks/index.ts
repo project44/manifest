@@ -1,3 +1,4 @@
+export * from './useChildrenTextContent';
 export * from './useControlledState';
 export * from './useDebouncedState';
 export * from './useIsomorphicLayoutEffect';
