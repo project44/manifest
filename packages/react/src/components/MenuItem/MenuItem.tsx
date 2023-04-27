@@ -2,8 +2,8 @@ import * as React from 'react';
 import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
 import { useMenuGroup } from '../MenuGroup/MenuGroup.context';
-import { TypographyProps } from '../Typography';
-import { StyledMenuItem, StyledMenuItemIcon, StyledMenuItemLabel } from './MenuItem.styles';
+import { Typography, TypographyProps } from '../Typography';
+import { StyledMenuItem, StyledMenuItemIcon } from './MenuItem.styles';
 import type { MenuItemElement, MenuItemProps } from './MenuItem.types';
 
 export const MenuItem = React.forwardRef((props, forwardedRef) => {
@@ -40,19 +40,21 @@ export const MenuItem = React.forwardRef((props, forwardedRef) => {
       isGrouped={isGrouped}
       isSelected={isSelected}
     >
-      {startIcon && (
-        <StyledMenuItemIcon className="manifest-menu-item__icon--start" placement="start">
-          {startIcon}
-        </StyledMenuItemIcon>
-      )}
-      <StyledMenuItemLabel {...labelProps} className="manifest-menu-item__label" variant={variant}>
-        {label}
-      </StyledMenuItemLabel>
-      {endIcon && (
-        <StyledMenuItemIcon className="manifest-menu-item__icon--end" placement="end">
-          {endIcon}
-        </StyledMenuItemIcon>
-      )}
+      <div className="manifest-menu-item__container">
+        {startIcon && (
+          <StyledMenuItemIcon className="manifest-menu-item__icon--start" placement="start">
+            {startIcon}
+          </StyledMenuItemIcon>
+        )}
+        <Typography {...labelProps} className="manifest-menu-item__label" variant={variant}>
+          {label}
+        </Typography>
+        {endIcon && (
+          <StyledMenuItemIcon className="manifest-menu-item__icon--end" placement="end">
+            {endIcon}
+          </StyledMenuItemIcon>
+        )}
+      </div>
     </StyledMenuItem>
   );
 }) as ForwardRefComponent<MenuItemElement, MenuItemProps>;

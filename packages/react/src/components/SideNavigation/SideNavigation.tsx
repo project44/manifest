@@ -58,7 +58,7 @@ export const SideNavigation = React.forwardRef((props, forwardedRef) => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          {children}
+          <div className="manifest-navigation__container">{children}</div>
         </StyledNavigation>
       </Transition>
     </NavigationProvider>
