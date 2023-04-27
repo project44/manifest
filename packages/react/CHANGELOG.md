@@ -1,5 +1,19 @@
 # @manifest/react
 
+## 3.3.0
+
+### Minor Changes
+
+- [#359](https://github.com/project44/manifest/pull/359)
+  [`1e9da3e`](https://github.com/project44/manifest/commit/1e9da3e810e25ee2c37cb4f1496756e39f9e7258)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - add useChildrenTextContent hook
+
+### Patch Changes
+
+- [#361](https://github.com/project44/manifest/pull/361)
+  [`01e6671`](https://github.com/project44/manifest/commit/01e667122fcf3b16bc29dc51c70f40a27b7ccc58)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Fixing SideNavigationItem text overflow
+
 ## 3.2.3
 
 ### Patch Changes
