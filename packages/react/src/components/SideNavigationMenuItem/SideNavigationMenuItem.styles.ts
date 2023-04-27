@@ -4,8 +4,16 @@ import { MenuItem } from '../MenuItem';
 export const StyledMenuItem = styled(MenuItem, {
   variants: {
     isOpen: {
-      true: {},
-      false: {},
+      true: {
+        '.manifest-menu-item__label': {
+          opacity: 1,
+        },
+      },
+      false: {
+        '.manifest-menu-item__label': {
+          opacity: 0,
+        },
+      },
     },
   },
 });
