@@ -202,7 +202,12 @@ export const MultiCombobox = createComponent<MultiComboboxOptions>((props, forwa
 
         <Stack css={{ flexWrap: 'wrap' }} gap="x-small" orientation="horizontal">
           {state.selectedItems?.map((item) => (
-            <Tag key={item.key} isRemovable onRemove={handleRemove(item.key)}>
+            <Tag
+              key={item.key}
+              isRemovable
+              label={item.textValue}
+              onRemove={handleRemove(item.key)}
+            >
               {item.textValue}
             </Tag>
           ))}

@@ -1,22 +1,122 @@
-import type { ComponentStory } from '@storybook/react';
-import { Tag } from '../src';
+import { Flatbed } from '@project44-manifest/react-icons';
+import { Stack, Tag } from '../src';
 
 export default {
   title: 'Components/Tag',
   component: Tag,
 };
 
-const Template: ComponentStory<typeof Tag> = (args) => <Tag {...args} />;
+export const Default = () => (
+  <Stack gap="medium" style={{ alignItems: 'flex-start' }}>
+    <Tag
+      aria-label="truckload tag"
+      label="Truckload"
+      removeButtonProps={{ 'aria-label': 'remove truckload' }}
+    >
+      Truckload
+    </Tag>
+    <Tag
+      isRemovable
+      aria-label="truckload tag"
+      label="Truckload"
+      removeButtonProps={{ 'aria-label': 'remove truckload' }}
+      // eslint-disable-next-line react/jsx-no-bind, no-console
+      onRemove={() => void console.log('removed')}
+    >
+      Truckload
+    </Tag>
+    <Tag
+      isCopyable
+      aria-label="truckload tag"
+      label="Truckload"
+      removeButtonProps={{ 'aria-label': 'remove truckload' }}
+    >
+      Truckload
+    </Tag>
+    <Tag
+      aria-label="truckload tag"
+      label="Truckload"
+      removeButtonProps={{ 'aria-label': 'remove truckload' }}
+      startAdornment={<Flatbed size="small" />}
+    >
+      Truckload
+    </Tag>
+    <Tag
+      isDisabled
+      isRemovable
+      aria-label="truckload tag"
+      label="Truckload"
+      removeButtonProps={{ 'aria-label': 'remove truckload' }}
+      startAdornment={<Flatbed size="small" />}
+    >
+      Truckload
+    </Tag>
+  </Stack>
+);
 
-export const Default = Template.bind({});
+export const Removable = () => (
+  <Tag
+    isRemovable
+    aria-label="truckload tag"
+    label="Truckload"
+    removeButtonProps={{ 'aria-label': 'remove truckload' }}
+    // eslint-disable-next-line react/jsx-no-bind, no-console
+    onRemove={() => void console.log('removed')}
+  >
+    Truckload
+  </Tag>
+);
 
-Default.args = {
-  children: 'Tag',
-};
+export const Copyable = () => (
+  <Tag
+    isCopyable
+    aria-label="truckload tag"
+    label="Truckload"
+    removeButtonProps={{ 'aria-label': 'remove truckload' }}
+  >
+    Truckload
+  </Tag>
+);
 
-export const Removeable = Template.bind({});
+export const StartAdornment = () => (
+  <Tag
+    aria-label="truckload tag"
+    label="Truckload"
+    removeButtonProps={{ 'aria-label': 'remove truckload' }}
+    startAdornment={<Flatbed size="small" />}
+  >
+    Truckload
+  </Tag>
+);
 
-Removeable.args = {
-  children: 'Tag',
-  isRemovable: true,
-};
+export const Disabled = () => (
+  <Stack gap="medium" style={{ alignItems: 'flex-start' }}>
+    <Tag
+      isDisabled
+      isRemovable
+      aria-label="truckload tag"
+      label="Truckload"
+      removeButtonProps={{ 'aria-label': 'remove truckload' }}
+    >
+      Truckload
+    </Tag>
+    <Tag
+      isCopyable
+      isDisabled
+      aria-label="truckload tag"
+      label="Truckload"
+      removeButtonProps={{ 'aria-label': 'remove truckload' }}
+    >
+      Truckload
+    </Tag>
+    <Tag
+      isDisabled
+      aria-label="truckload tag"
+      label="Truckload"
+      removeButtonProps={{ 'aria-label': 'remove truckload' }}
+      startAdornment={<Flatbed size="small" />}
+    >
+      Truckload
+    </Tag>
+  </Stack>
+);
