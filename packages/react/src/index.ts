@@ -1,11 +1,4 @@
-export type { ActionCardProps } from './components/ActionCard';
-export { ActionCard } from './components/ActionCard';
-export type { ActionCardBodyProps } from './components/ActionCardBody';
-export { ActionCardBody } from './components/ActionCardBody';
-export type { ActionCardHeaderProps } from './components/ActionCardHeader';
-export { ActionCardHeader } from './components/ActionCardHeader';
-export type { ActionCardImageProps } from './components/ActionCardImage';
-export { ActionCardImage } from './components/ActionCardImage';
+export * from './components/action-card';
 export type { AvatarProps } from './components/Avatar';
 export { Avatar } from './components/Avatar';
 export type { BoxProps } from './components/Box';
