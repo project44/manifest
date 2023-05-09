@@ -1,10 +1,32 @@
 import * as React from 'react';
-import { cx } from '@project44-manifest/react-styles';
+import { CSS, cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
-import { StyledAvatar, StyledAvatarFallback, StyledAvatarImage } from './Avatar.styles';
-import type { AvatarElement, AvatarProps } from './Avatar.types';
+import { StyledAvatar, StyledAvatarFallback, StyledAvatarImage } from './avatar.styles';
 
-export const Avatar = React.forwardRef((props, forwardedRef) => {
+/* -------------------------------------------------------------------------------------------------
+ * Avatar
+ * -----------------------------------------------------------------------------------------------*/
+
+type AvatarElement = 'div';
+
+interface AvatarProps {
+  /** The alt text passed to the image */
+  alt?: string;
+  /** Theme aware style object */
+  css?: CSS;
+  /** Name used as a fallback if src is not provided or image cannot be found */
+  fallback?: React.ReactNode;
+  /**
+   * The size of the avatar.
+   *
+   * @default 'medium'
+   */
+  size?: 'medium' | 'small';
+  /** The `src` attribute for the `img` element */
+  src?: string;
+}
+
+const Avatar = React.forwardRef((props, forwardedRef) => {
   const {
     alt,
     as,
@@ -57,3 +79,6 @@ export const Avatar = React.forwardRef((props, forwardedRef) => {
     </StyledAvatar>
   );
 }) as ForwardRefComponent<AvatarElement, AvatarProps>;
+
+export type { AvatarProps };
+export { Avatar };
