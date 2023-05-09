@@ -1,10 +1,7 @@
 export * from './components/action-card';
 export * from './components/avatar';
 export * from './components/box';
-export type { BreadcrumbProps } from './components/Breadcrumb';
-export { Breadcrumb } from './components/Breadcrumb';
-export type { BreadcrumbItemProps } from './components/BreadcrumbItem';
-export { BreadcrumbItem } from './components/BreadcrumbItem';
+export * from './components/breadcrumb';
 export type { ButtonProps } from './components/Button';
 export { Button } from './components/Button';
 export type { ButtonGroupProps } from './components/ButtonGroup';
