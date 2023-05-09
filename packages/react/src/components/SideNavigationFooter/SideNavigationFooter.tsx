@@ -3,7 +3,7 @@ import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
 import { mergeProps } from '../../utils';
 import { Avatar } from '../avatar';
-import { useButton, useHover } from '../Button';
+import { useButton, useHover } from '../button';
 import { Typography } from '../Typography';
 import {
   StyledSideNavigationFooter,
