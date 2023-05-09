@@ -3,7 +3,7 @@ import { ChevronDown } from '@project44-manifest/react-icons';
 import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
 import { mergeProps } from '../../utils';
-import { Avatar } from '../Avatar';
+import { Avatar } from '../avatar';
 import { useButton, useHover } from '../Button';
 import { Dropdown } from '../Dropdown';
 import { DropdownMenu, DropdownMenuProps } from '../DropdownMenu';

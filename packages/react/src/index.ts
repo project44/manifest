@@ -1,6 +1,5 @@
 export * from './components/action-card';
-export type { AvatarProps } from './components/Avatar';
-export { Avatar } from './components/Avatar';
+export * from './components/avatar';
 export type { BoxProps } from './components/Box';
 export { Box } from './components/Box';
 export type { BreadcrumbProps } from './components/Breadcrumb';

@@ -1,5 +1,5 @@
 import type { CSS } from '@project44-manifest/react-styles';
-import type { AvatarProps } from '../Avatar';
+import type { AvatarProps } from '../avatar';
 import type { ButtonProps } from '../Button';
 
 export type SideNavigationFooterElement = 'button';

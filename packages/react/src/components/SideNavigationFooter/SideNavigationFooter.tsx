@@ -2,7 +2,7 @@ import * as React from 'react';
 import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
 import { mergeProps } from '../../utils';
-import { Avatar } from '../Avatar';
+import { Avatar } from '../avatar';
 import { useButton, useHover } from '../Button';
 import { Typography } from '../Typography';
 import {
