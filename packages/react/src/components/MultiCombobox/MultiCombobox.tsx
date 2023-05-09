@@ -15,7 +15,7 @@ import { Icon } from '../Icon';
 import { ListBoxBase, ListBoxBaseProps } from '../ListBoxBase';
 import { Overlay, Placement } from '../Overlay';
 import { Popover } from '../Popover';
-import { Stack } from '../Stack';
+import { Stack } from '../stack';
 import { Tag } from '../Tag';
 import { useStyles } from './MultiCombobox.styles';
 

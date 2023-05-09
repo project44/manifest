@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { Container } from '../src';
 
-describe('react-layout - Container', () => {
+describe('container', () => {
   it('should render correctly', () => {
     render(<Container>Hello World</Container>);
 
