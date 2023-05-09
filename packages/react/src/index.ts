@@ -115,6 +115,8 @@ export type { RadioProps } from './components/Radio';
 export { Radio } from './components/Radio';
 export type { RadioGroupProps } from './components/RadioGroup';
 export { RadioGroup } from './components/RadioGroup';
+export type { SegmentedControlProps, SegmentProps } from './components/SegmentedControl';
+export { Segment, SegmentedControl } from './components/SegmentedControl';
 export type { SelectProps } from './components/Select';
 export { Select } from './components/Select';
 export type { SelectItemProps } from './components/SelectItem';
