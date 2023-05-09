@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { Stack } from '../src';
 
-describe('react-layout - Stack', () => {
+describe('stack', () => {
   it('should render correctly', () => {
     render(<Stack>Hello World</Stack>);
 

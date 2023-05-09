@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { Flex } from '../src';
 
-describe('react-layout - Flex', () => {
+describe('flex', () => {
   it('should render correctly', () => {
     render(<Flex>Hello World</Flex>);
 

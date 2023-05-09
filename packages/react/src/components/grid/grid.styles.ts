@@ -58,3 +58,5 @@ export const StyledGrid = styled('div', {
     },
   },
 });
+
+export const StyledGridItem = styled('div', { boxSizing: 'border-box' });

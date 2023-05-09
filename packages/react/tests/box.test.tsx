@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { Box } from '../src';
 
-describe('react-layout - Box', () => {
+describe('box', () => {
   it('should render correctly', () => {
     render(<Box>Hello World</Box>);
 
