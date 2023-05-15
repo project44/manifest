@@ -8,7 +8,7 @@ import { TextFieldBase, TextFieldBaseElement, TextFieldBaseOptions } from '../Te
 import { useStyles } from './TextArea.styles';
 
 export interface TextAreaOptions<T extends As = TextFieldBaseElement>
-  extends Omit<TextFieldBaseOptions<T>, 'endIcon' | 'startIcon'> {
+  extends TextFieldBaseOptions<T> {
   /**
    * The default value (uncontrolled).
    */
