@@ -1,5 +1,5 @@
 import type { CSS } from '@project44-manifest/react-styles';
-import type { IconButton } from '../IconButton';
+import type { IconButton } from '../button';
 
 export type ToastVariant = 'default' | 'error' | 'info' | 'success' | 'warning';
 

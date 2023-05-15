@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
-import { ButtonGroup } from '../ButtonGroup';
+import { ButtonGroup } from '../button';
 import { StyledDialogFooter } from './DialogFooter.styles';
 import type { DialogFooterElement, DialogFooterProps } from './DialogFooter.types';
 

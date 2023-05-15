@@ -1,5 +1,5 @@
 import { keyframes, pxToRem, styled } from '@project44-manifest/react-styles';
-import { IconButton } from '../IconButton';
+import { IconButton } from '../button';
 import { Typography } from '../Typography';
 
 const fadeIn = keyframes({

@@ -1,5 +1,5 @@
 import { styled } from '@project44-manifest/react-styles';
-import { IconButton } from '../IconButton';
+import { IconButton } from '../button';
 
 export const StyledDialogHeader = styled('div', {
   alignItems: 'center',

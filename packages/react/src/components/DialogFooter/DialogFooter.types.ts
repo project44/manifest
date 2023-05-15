@@ -1,5 +1,5 @@
 import type { CSS } from '@project44-manifest/react-styles';
-import type { ButtonGroupProps } from '../ButtonGroup/ButtonGroup.types';
+import type { ButtonGroupProps } from '../button';
 
 export type DialogFooterElement = 'div';
 
