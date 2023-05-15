@@ -62,6 +62,8 @@ export type { ListBoxItemProps } from './components/ListBoxItem';
 export { ListBoxItem } from './components/ListBoxItem';
 export type { ListBoxSectionProps } from './components/ListBoxSection';
 export { ListBoxSection } from './components/ListBoxSection';
+export type { LocalNavigationItemProps, LocalNavigationProps } from './components/LocalNavigation';
+export { LocalNavigation, LocalNavigationItem } from './components/LocalNavigation';
 export type { MenuElement, MenuProps } from './components/Menu';
 export { Menu } from './components/Menu';
 export type { MenuGroupElement, MenuGroupProps } from './components/MenuGroup';
