@@ -1,0 +1,29 @@
+{
+  "space": {
+    "medium": {
+      "value": "16px",
+      "deprecated": true,
+      "deprecated_comment": "Replace with `space-400`"
+    },
+    "small": {
+      "value": "8px",
+      "deprecated": true,
+      "deprecated_comment": "Replace with `space-200`"
+    },
+    "large": {
+      "value": "24px",
+      "deprecated": true,
+      "deprecated_comment": "Replace with `space-600`"
+    },
+    "x-large": {
+      "value": "32px",
+      "deprecated": true,
+      "deprecated_comment": "Replace with `space-800`"
+    },
+    "x-small": {
+      "value": "4px",
+      "deprecated": true,
+      "deprecated_comment": "Replace with `space-100`"
+    }
+  }
+}

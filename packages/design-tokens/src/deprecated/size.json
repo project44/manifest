@@ -1,0 +1,29 @@
+{
+  "size": {
+    "x-large": {
+      "value": "1920px",
+      "deprecated": true,
+      "deprecated_comment": "Replace with `breakpoint-x-large`"
+    },
+    "large": {
+      "value": "1400px",
+      "deprecated": true,
+      "deprecated_comment": "Replace with `breakpoint-large`"
+    },
+    "medium": {
+      "value": "1280px",
+      "deprecated": true,
+      "deprecated_comment": "Replace with `breakpoint-medium`"
+    },
+    "small": {
+      "value": "960px",
+      "deprecated": true,
+      "deprecated_comment": "Replace with `breakpoint-small`"
+    },
+    "x-small": {
+      "value": "650px",
+      "deprecated": true,
+      "deprecated_comment": "Replace with `breakpoint-x-small`"
+    }
+  }
+}

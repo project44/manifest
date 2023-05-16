@@ -1,5 +1,8 @@
 {
-  "size": {
+  "breakpoint": {
+    "x-large": {
+      "value": "1920px"
+    },
     "large": {
       "value": "1400px"
     },
@@ -8,9 +11,6 @@
     },
     "small": {
       "value": "960px"
-    },
-    "x-large": {
-      "value": "1920px"
     },
     "x-small": {
       "value": "650px"

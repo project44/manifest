@@ -1,0 +1,59 @@
+{
+  "opacity": {
+    "5": {
+      "category": "opacity",
+      "comment": "Applies 5% opacity to an element",
+      "value": 0.05
+    },
+    "10": {
+      "category": "opacity",
+      "comment": "Applies 10% opacity to an element",
+      "value": 0.1
+    },
+    "15": {
+      "category": "opacity",
+      "comment": "Applies 15% opacity to an element",
+      "value": 0.15
+    },
+    "20": {
+      "category": "opacity",
+      "comment": "Applies 20% opacity to an element",
+      "value": 0.2
+    },
+    "30": {
+      "category": "opacity",
+      "comment": "Applies 30% opacity to an element",
+      "value": 0.3
+    },
+    "40": {
+      "category": "opacity",
+      "comment": "Applies 40% opacity to an element",
+      "value": 0.4
+    },
+    "50": {
+      "category": "opacity",
+      "comment": "Applies 50% opacity to an element",
+      "value": 0.5
+    },
+    "60": {
+      "category": "opacity",
+      "comment": "Applies 60% opacity to an element",
+      "value": 0.6
+    },
+    "70": {
+      "category": "opacity",
+      "comment": "Applies 70% opacity to an element",
+      "value": 0.7
+    },
+    "80": {
+      "category": "opacity",
+      "comment": "Applies 80% opacity to an element",
+      "value": 0.8
+    },
+    "90": {
+      "category": "opacity",
+      "comment": "Applies 90% opacity to an element",
+      "value": 0.9
+    }
+  }
+}

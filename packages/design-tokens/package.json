@@ -16,7 +16,7 @@
   "files": [
     "dts/**/*.d.ts",
     "esm/**/*.{js,map}",
-    "lib/**/*.{js,map}",
+    "lib/**/*",
     "src/**/*.{ts,tsx,json}"
   ],
   "sideEffects": false,
@@ -29,22 +29,8 @@
     "access": "public"
   },
   "devDependencies": {
-    "rollup-plugin-copy": "^3.4.0",
+    "@types/chroma-js": "^2.4.0",
+    "chroma-js": "^2.4.2",
     "style-dictionary": "^3.7.2"
-  },
-  "packemon": {
-    "platform": "browser"
-  },
-  "exports": {
-    "./package.json": "./package.json",
-    ".": {
-      "types": "./dts/index.d.ts",
-      "browser": {
-        "module": "./esm/index.js",
-        "import": "./esm/index.js",
-        "default": "./lib/index.js"
-      },
-      "default": "./lib/index.js"
-    }
   }
 }

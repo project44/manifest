@@ -1,5 +1,11 @@
 {
-  "zIndex": {
+  "z-index": {
+    "deep": {
+      "value": -99999
+    },
+    "default": {
+      "value": 1
+    },
     "dialog": {
       "value": 6000
     },

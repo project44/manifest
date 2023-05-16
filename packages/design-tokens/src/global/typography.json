@@ -1,0 +1,70 @@
+{
+  "font": {
+    "family": {
+      "mono": {
+        "value": "\"Fira Mono\", Courier, monospace",
+        "comment": "Used as the font family for code blocks"
+      },
+      "sans": {
+        "value": "\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+        "comment": "Used as the font family for the application"
+      }
+    },
+    "size": {
+      "xx-large": {
+        "value": "32px"
+      },
+      "x-large": {
+        "value": "24px"
+      },
+      "large": {
+        "value": "20px"
+      },
+      "medium": {
+        "value": "16px"
+      },
+      "small": {
+        "value": "14px"
+      },
+      "x-small": {
+        "value": "12px"
+      }
+    },
+    "weight": {
+      "regular": {
+        "value": 400
+      },
+      "medium": {
+        "value": 500
+      },
+      "semibold": {
+        "value": 600
+      },
+      "bold": {
+        "value": 700
+      }
+    }
+  },
+  "line": {
+    "height": {
+      "xx-large": {
+        "value": "42px"
+      },
+      "x-large": {
+        "value": "32px"
+      },
+      "large": {
+        "value": "30px"
+      },
+      "medium": {
+        "value": "24px"
+      },
+      "small": {
+        "value": "20px"
+      },
+      "x-small": {
+        "value": "18px"
+      }
+    }
+  }
+}

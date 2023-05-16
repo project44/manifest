@@ -1,0 +1,14 @@
+{
+  "radius": {
+    "full": {
+      "value": "999em",
+      "deprecated": true,
+      "deprecated_comment": "Replace with `border-radius-full`"
+    },
+    "small": {
+      "value": "2px",
+      "deprecated": true,
+      "deprecated_comment": "Replace with `border-radius-x-small`"
+    }
+  }
+}

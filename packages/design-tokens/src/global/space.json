@@ -1,0 +1,34 @@
+{
+  "space": {
+    "100": {
+      "value": "4px",
+      "comment": "Used for grouping instances of related inline content, like tags, as if it’s a space between words. (default key line for spacing)"
+    },
+    "200": {
+      "value": "8px",
+      "comment": "Used for grouping related components (e.g. fields in a form) and separating elements within a component (e.g. space between an icon and text label)"
+    },
+    "300": {
+      "value": "12px",
+      "comment": "Used for left/right padding inside components like buttons and form elements"
+    },
+    "400": {
+      "value": "16px",
+      "comment": "Used for creating a relationship between two groups of related content"
+    },
+    "600": {
+      "value": "24px",
+      "comment": "Used for separating sub-sections of content; padding within main page container"
+    },
+    "800": {
+      "value": "32px",
+      "comment": "Used for separating sections of content"
+    },
+    "1000": {
+      "value": "40px"
+    },
+    "1200": {
+      "value": "48px"
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "color": {
+    "background": {
+      "primary": {
+        "value": "{color.palette.white.value}",
+        "deprecated": true,
+        "deprecated_comment": "Replace with `color-background`"
+      },
+      "secondary": {
+        "value": "{color.palette.grey.100.value}",
+        "deprecated": true,
+        "deprecated_comment": "Replace with `color-background-inset`"
+      },
+      "sideNav": {
+        "value": "#021C6B",
+        "deprecated": true,
+        "deprecated_comment": "Replace with `side-bar-background-color`"
+      },
+      "surface": {
+        "value": "{color.palette.white.value}",
+        "deprecated": true,
+        "deprecated_comment": "Replace with `color-background`"
+      },
+      "tertiary": {
+        "value": "{color.palette.grey.200.value}",
+        "deprecated": true,
+        "deprecated_comment": "Replace with `color-background-inset`"
+      },
+      "topNav": {
+        "value": "#1F3987",
+        "deprecated": true,
+        "deprecated_comment": "Replace with `top-bar-background-color`"
+      }
+    },
+    "border": {
+      "primary": {
+        "value": "{color.palette.grey.200.value}",
+        "deprecated": true,
+        "deprecated_comment": "Replace with `color-border`"
+      }
+    },
+    "brand": {
+      "default": {
+        "value": "{color.palette.blue.500.value}",
+        "deprecated": true,
+        "deprecated_comment": "Will be removed in the next major release"
+      },
+      "active": {
+        "value": "linear-gradient(0deg, rgba(9, 21, 33, 0.4), rgba(9, 21, 33, 0.4)), linear-gradient(90deg, {color.palette.blue.500.value} 0%, {color.palette.purple.900.value} 163.65%, {color.palette.purple.500.value}  191.59%)",
+        "deprecated": true,
+        "deprecated_comment": "Will be removed in the next major release"
+      },
+      "hover": {
+        "value": "linear-gradient(0deg, rgba(9, 21, 33, 0.2), rgba(9, 21, 33, 0.2)), linear-gradient(90deg, {color.palette.blue.500.value} 0%, {color.palette.purple.900.value} 163.65%, {color.palette.purple.500.value}  191.59%)",
+        "deprecated": true,
+        "deprecated_comment": "Will be removed in the next major release"
+      },
+      "gradient": {
+        "value": "linear-gradient(90deg, {color.palette.blue.500.value} 0%, {color.palette.purple.900.value} 163.65%, {color.palette.purple.500.value}  191.59%)",
+        "deprecated": true,
+        "deprecated_comment": "Will be removed in the next major release"
+      }
+    },
+    "primary": {
+      "default": {
+        "value": "{color.palette.indigo.500.value}",
+        "deprecated": true,
+        "deprecated_comment": "Replace with `color-background-accent`"
+      },
+      "active": {
+        "value": "{color.palette.indigo.900.value}",
+        "deprecated": true,
+        "deprecated_comment": "Replace with `color-background-accent-active`"
+      },
+      "hover": {
+        "value": "{color.palette.indigo.700.value}",
+        "deprecated": true,
+        "deprecated_comment": "Replace with `color-background-accent-hover`"
+      }
+    },
+    "text": {
+      "contrast": {
+        "value": "{color.palette.white.value}",
+        "deprecated": true,
+        "deprecated_comment": "Replace with `color-text-on-color`"
+      },
+      "primary": {
+        "value": "{color.palette.black.value}",
+        "deprecated": true,
+        "deprecated_comment": "Replace with `color-text`"
+      },
+      "secondary": {
+        "value": "{color.palette.grey.700.value}",
+        "deprecated": true,
+        "deprecated_comment": "Replace with `color-text`"
+      },
+      "tertiary": {
+        "value": "{color.palette.grey.500.value}",
+        "deprecated": true,
+        "deprecated_comment": "Replace with `color-text`"
+      }
+    }
+  }
+}

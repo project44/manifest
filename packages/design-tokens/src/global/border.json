@@ -1,0 +1,38 @@
+{
+  "border": {
+    "radius": {
+      "x-small": {
+        "value": "2px"
+      },
+      "small": {
+        "value": "2px"
+      },
+      "medium": {
+        "value": "2px"
+      },
+      "large": {
+        "value": "2px"
+      },
+      "x-large": {
+        "value": "2px"
+      },
+      "full": {
+        "value": "9999px"
+      }
+    }
+  },
+  "width": {
+    "x-large": {
+      "value": "4px"
+    },
+    "large": {
+      "value": "3px"
+    },
+    "medium": {
+      "value": "2px"
+    },
+    "small": {
+      "value": "1px"
+    }
+  }
+}

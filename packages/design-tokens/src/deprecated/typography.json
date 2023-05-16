@@ -1,0 +1,11 @@
+{
+  "font": {
+    "family": {
+      "text": {
+        "value": "\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+        "deprecated": true,
+        "deprecated_comment": "Replace with `font-family-sans`"
+      }
+    }
+  }
+}
