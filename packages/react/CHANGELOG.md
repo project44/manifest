@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 3.4.1
+
+### Patch Changes
+
+- [#372](https://github.com/project44/manifest/pull/372)
+  [`88c5c67`](https://github.com/project44/manifest/commit/88c5c67946bf10b8618f8a54a33729d94f8403f1)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Fixing data-children prop on copyable tags
+
 ## 3.4.0
 
 ### Minor Changes
