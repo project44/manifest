@@ -69,7 +69,7 @@ export const useStyles = css({
       true: {
         '@media (prefers-reduced-motion: no-preference)': {
           '.manifest-tag__text::before': {
-            content: 'attr(dataChildren)',
+            content: 'attr(data-children)',
             position: 'absolute',
             top: 2,
             left: 8,
