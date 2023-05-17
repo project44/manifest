@@ -8,7 +8,7 @@ import { useChildrenTextContent, useCopyToClipboard } from '../../hooks';
 import { As, createComponent, Options, Props } from '../../system';
 import type { StyleProps } from '../../types';
 import { mergeProps, mergeRefs } from '../../utils';
-import { Typography, TypographyProps } from '../Typography';
+import { Typography } from '../Typography';
 import { useStyles } from './Tag.styles';
 
 export type TagElement = 'div';
@@ -131,10 +131,9 @@ export const Tag = createComponent<TagOptions>((props, forwardedRef) => {
       <Typography
         className="manifest-tag__text"
         variant="caption"
-        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-        {...({
-          dataChildren: children,
-        } as TypographyProps)}
+        {...{
+          'data-children': children,
+        }}
       >
         {children}
       </Typography>
