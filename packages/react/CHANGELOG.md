@@ -1,5 +1,28 @@
 # @manifest/react
 
+## 3.4.0
+
+### Minor Changes
+
+- [#358](https://github.com/project44/manifest/pull/358)
+  [`148b24e`](https://github.com/project44/manifest/commit/148b24e8d68069022e41ed72979127f0051ed358)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - add click-to-copy, update styles
+
+* [#364](https://github.com/project44/manifest/pull/364)
+  [`42d4f5a`](https://github.com/project44/manifest/commit/42d4f5ac4461e638688d2d38268e67b9f7e1c294)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Adding LocalNavigation component
+
+- [#365](https://github.com/project44/manifest/pull/365)
+  [`4c26812`](https://github.com/project44/manifest/commit/4c26812a9375f2243c875885c9ab6493a8435f31)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Adding Segmented Control component
+
+### Patch Changes
+
+- [#371](https://github.com/project44/manifest/pull/371)
+  [`926db57`](https://github.com/project44/manifest/commit/926db57d53901c58255b84e8b962b5c41feb2373)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Removing omission of icons props on text
+  area
+
 ## 3.3.0
 
 ### Minor Changes
