@@ -1,33 +1,73 @@
 {
-  "extends": "./tsconfig.options.json",
-  "files": [],
-  "references": [
-    {
-      "path": "apps/storybook"
+  "compilerOptions": {
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "exclude": [
+      "**/node_modules"
+    ],
+    "experimentalDecorators": false,
+    "forceConsistentCasingInFileNames": true,
+    "include": [
+      "apps",
+      "packages",
+      "types",
+      "scripts"
+    ],
+    "incremental": true,
+    "isolatedModules": true,
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable"
+    ],
+    "jsx": "react-jsx",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "paths": {
+      "@project44-manifest/css": [
+        "./packages/css/src"
+      ],
+      "@project44-manifest/design-tokens": [
+        "./packages/design-tokens/src"
+      ],
+      "@project44-manifest/react": [
+        "./packages/react/src"
+      ],
+      "@project44-manifest/react-icons": [
+        "./packages/react-icons/src"
+      ],
+      "@project44-manifest/react-styles": [
+        "./packages/react-styles/src"
+      ],
+      "@project44-manifest/react-types": [
+        "./packages/react-types/src"
+      ],
+      "@project44-manifest/theme": [
+        "./packages/theme/src"
+      ]
     },
-    {
-      "path": "apps/website"
-    },
-    {
-      "path": "packages/css"
-    },
-    {
-      "path": "packages/design-tokens"
-    },
-    {
-      "path": "packages/react"
-    },
-    {
-      "path": "packages/react-icons"
-    },
-    {
-      "path": "packages/react-styles"
-    },
-    {
-      "path": "packages/theme"
-    },
-    {
-      "path": "tools/jest-preset"
-    }
-  ]
+    "pretty": true,
+    "removeComments": false,
+    "resolveJsonModule": false,
+    "skipLibCheck": true,
+    "sourceMap": false,
+    "strict": true,
+    "target": "es2022",
+    "types": [
+      "node"
+    ],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./types"
+    ]
+  }
 }

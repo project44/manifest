@@ -29,20 +29,5 @@
   },
   "dependencies": {
     "@project44-manifest/design-tokens": "^2.0.0"
-  },
-  "packemon": {
-    "platform": "browser"
-  },
-  "exports": {
-    "./package.json": "./package.json",
-    ".": {
-      "types": "./dts/index.d.ts",
-      "browser": {
-        "module": "./esm/index.js",
-        "import": "./esm/index.js",
-        "default": "./lib/index.js"
-      },
-      "default": "./lib/index.js"
-    }
   }
 }
