@@ -1,20 +1,14 @@
 {
   "extends": "../../tsconfig.options.json",
-  "compilerOptions": {
-    "outDir": "../../.moon/cache/types/packages/design-tokens"
-  },
   "include": [
-    "src/**/*",
-    "tests/**/*"
+    "scripts/**/*"
   ],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
   },
-  "references": [
-    {
-      "path": "./tsconfig.build.json"
-    }
-  ]
+  "compilerOptions": {
+    "outDir": "../../.moon/cache/types/packages/design-tokens"
+  }
 }
