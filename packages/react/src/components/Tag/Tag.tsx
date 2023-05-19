@@ -137,12 +137,16 @@ export const Tag = createComponent<TagOptions>((props, forwardedRef) => {
       >
         {children}
       </Typography>
-      {isCopyable &&
-        (isCopied ? (
-          <Check className="manifest-tag__copy-icon" size="small" />
-        ) : (
-          <CopyAll className="manifest-tag__copy-icon" size="small" />
-        ))}
+      {isCopyable && (
+        <div className="manifest-tag__copy-icon-container">
+          {isCopied ? (
+            <Check className="manifest-tag__copy-icon" size="small" />
+          ) : (
+            <CopyAll className="manifest-tag__copy-icon" size="small" />
+          )}
+          <span className="manifest-tag__copy-icon-fade" />
+        </div>
+      )}
       {isRemovable && (
         <button
           {...removeButtonCombinedProps}

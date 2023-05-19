@@ -120,24 +120,28 @@ export const useStyles = css({
       css: {
         background: '$background-secondary',
 
-        '.manifest-tag__copy-icon': {
-          display: 'block',
+        '.manifest-tag__copy-icon-container': {
+          isolation: 'isolate',
           position: 'absolute',
           top: '15%',
           right: pxToRem(4),
+        },
+
+        '.manifest-tag__copy-icon': {
+          display: 'block',
           color: '$text-secondary',
         },
 
-        '.manifest-tag__text::after': {
+        '.manifest-tag__copy-icon-fade::after': {
+          zIndex: -1,
           content: '',
           position: 'absolute',
           top: 0,
           right: 0,
-          width: '100%',
+          width: '110%',
           height: '100%',
           backgroundImage:
-            'linear-gradient(to right, rgba(245, 245, 245, 0) 60%, rgba(245, 245, 245, 1) 75%)',
-          borderRadius: '0 1px 1px 0',
+            'linear-gradient(to right, rgba(245, 245, 245, 0) 0%, rgba(245, 245, 245, 1) 18%)',
           pointerEvents: 'none',
         },
       },

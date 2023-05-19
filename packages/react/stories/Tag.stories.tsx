@@ -68,14 +68,32 @@ export const Removable = () => (
 );
 
 export const Copyable = () => (
-  <Tag
-    isCopyable
-    aria-label="truckload tag"
-    label="Truckload"
-    removeButtonProps={{ 'aria-label': 'remove truckload' }}
-  >
-    Truckload
-  </Tag>
+  <Stack gap="medium" style={{ alignItems: 'flex-start' }}>
+    <Tag
+      isCopyable
+      aria-label="truckload tag"
+      label="Truckload"
+      removeButtonProps={{ 'aria-label': 'remove truckload' }}
+    >
+      Truckload
+    </Tag>
+    <Tag
+      isCopyable
+      aria-label="truckload tag"
+      label="Tag"
+      removeButtonProps={{ 'aria-label': 'remove truckload' }}
+    >
+      Tag
+    </Tag>
+    <Tag
+      isCopyable
+      aria-label="truckload tag"
+      label="1"
+      removeButtonProps={{ 'aria-label': 'remove truckload' }}
+    >
+      1
+    </Tag>
+  </Stack>
 );
 
 export const StartAdornment = () => (
