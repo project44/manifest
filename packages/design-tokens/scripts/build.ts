@@ -28,7 +28,9 @@ StyleDictionary.registerFormat({
       .join('\n');
 
     const tokens = `tokens: ${JSON.stringify(
-      formatHelpers.minifyDictionary(dictionary.tokens),
+      dictionary.allProperties.map(({ filePath, isSource, original, ...rest }) => ({
+        ...rest,
+      })),
       null,
       2,
     )},`;
@@ -59,7 +61,9 @@ StyleDictionary.registerFormat({
       .join('\n');
 
     const tokens = `export const tokens = ${JSON.stringify(
-      formatHelpers.minifyDictionary(dictionary.tokens),
+      dictionary.allProperties.map(({ filePath, isSource, original, ...rest }) => ({
+        ...rest,
+      })),
       null,
       2,
     )},`;
