@@ -28,7 +28,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "scripts": {
+    "build": "ts-node ./scripts/build.ts"
+  },
   "devDependencies": {
-    "style-dictionary": "^3.7.2"
+    "style-dictionary": "^3.7.2",
+    "ts-node": "^10.9.1"
   }
 }

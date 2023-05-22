@@ -4047,6 +4047,7 @@ __metadata:
   resolution: "@project44-manifest/design-tokens@workspace:packages/design-tokens"
   dependencies:
     style-dictionary: ^3.7.2
+    ts-node: ^10.9.1
   languageName: unknown
   linkType: soft
 
