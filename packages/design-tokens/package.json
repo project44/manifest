@@ -28,23 +28,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "scripts": {
+    "build": "ts-node ./scripts/build.ts"
+  },
   "devDependencies": {
-    "rollup-plugin-copy": "^3.4.0",
-    "style-dictionary": "^3.7.2"
-  },
-  "packemon": {
-    "platform": "browser"
-  },
-  "exports": {
-    "./package.json": "./package.json",
-    ".": {
-      "types": "./dts/index.d.ts",
-      "browser": {
-        "module": "./esm/index.js",
-        "import": "./esm/index.js",
-        "default": "./lib/index.js"
-      },
-      "default": "./lib/index.js"
-    }
+    "style-dictionary": "^3.7.2",
+    "ts-node": "^10.9.1"
   }
 }

@@ -19,13 +19,10 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:project-44/manifest.git",
-    "directory": "packages/system/css"
+    "directory": "packages/css"
   },
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "@project44-manifest/design-tokens": "^1.2.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",

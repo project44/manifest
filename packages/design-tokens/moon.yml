@@ -1,25 +1,11 @@
 type: 'library'
-language: 'typescript'
 
 workspace:
   inheritedTasks:
-    rename:
-      buildPackage: 'build'
+    exclude: ['buildPackage', 'format', 'format-write', 'lint', 'test', 'typecheck']
 
 tasks:
   build:
-    args:
-      - '--loadConfigs'
-    outputs:
-      - 'esm'
-      - 'lib'
-    deps:
-      - '~:generate-tokens'
-
-  generate-tokens:
     command: 'ts-node'
     args:
       - './scripts/build.ts'
-    options:
-      cache: false
-      runInCI: false

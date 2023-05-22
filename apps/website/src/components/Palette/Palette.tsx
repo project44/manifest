@@ -46,7 +46,7 @@ export function Palette(props: PaletteProps) {
       </Flex>
       <Stack className="palette__scale">
         {Object.keys(scale).map((shade) => {
-          const colorShade = scale[shade as keyof typeof scale];
+          const colorShade = scale[shade as unknown as keyof typeof scale];
           const contrastColor = getContrastColor(colorShade);
 
           return (
