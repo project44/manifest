@@ -4,12 +4,10 @@
     "apps/**/*",
     "packages/**/*",
     "scripts/*",
-    "tools/**/*",
     "tests/*",
     "website/**/*",
     "**/.eslintrc.js",
-    "**/jest.config.js",
-    "vite.config.ts"
+    "**/jest.config.js"
   ],
   "exclude": [
     "**/.cache/**/*",

@@ -1,7 +1,6 @@
 {
   "extends": "../../tsconfig.options.json",
   "compilerOptions": {
-    "outDir": "../../.moon/cache/types/apps/website",
     "baseUrl": ".",
     "resolveJsonModule": true,
     "types": [
@@ -24,9 +23,6 @@
     },
     {
       "path": "../../packages/react-icons"
-    },
-    {
-      "path": "../../packages/design-tokens"
     }
   ]
 }

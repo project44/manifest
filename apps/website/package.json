@@ -5,11 +5,11 @@
   "scripts": {
     "generate-props": "node ./scripts/propsDoc.mjs",
     "build": "yarn run generate-props && docusaurus build",
+    "dev": "docusaurus start",
     "clear": "docusaurus clear",
     "deploy": "docusaurus deploy",
     "docusaurus": "docusaurus",
     "serve": "docusaurus serve",
-    "start": "docusaurus start",
     "swizzle": "docusaurus swizzle"
   },
   "dependencies": {

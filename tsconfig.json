@@ -9,12 +9,6 @@
       "path": "apps/website"
     },
     {
-      "path": "packages/css"
-    },
-    {
-      "path": "packages/design-tokens"
-    },
-    {
       "path": "packages/react"
     },
     {
@@ -25,9 +19,6 @@
     },
     {
       "path": "packages/theme"
-    },
-    {
-      "path": "tools/jest-preset"
     }
   ]
 }

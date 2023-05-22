@@ -24,6 +24,13 @@
   "publishConfig": {
     "access": "public"
   },
+  "scripts": {
+    "build": "yarn run build:sass && yarn run build:postcss && yarn run build:minifiy",
+    "build:sass": "sass --load-path=../../../node_modules/ --style=expanded --source-map --embed-sources --no-error-css scss/:css/",
+    "build:postcss": "postcss --config postcss.config.js --replace \"css/*.css\" \"!css/*.min.css\"",
+    "build:minifiy": "cleancss -O1 --format breakWith=lf --with-rebase --source-map --source-map-inline-sources --output css/ --batch --batch-suffix \".min\" \"css/*.css\" \"!css/*.min.css\"",
+    "clean": "rimraf css"
+  },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
     "clean-css-cli": "^5.6.2",
