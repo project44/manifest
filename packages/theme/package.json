@@ -27,6 +27,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "scripts": {
+    "build": "packemon build --addEngines --declaration --declarationConfig tsconfig.build.json",
+    "clean": "packemon clean",
+    "typecheck": "tsc --noEmit"
+  },
   "dependencies": {
     "@project44-manifest/design-tokens": "^2.0.0"
   },

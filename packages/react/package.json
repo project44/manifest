@@ -29,6 +29,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "scripts": {
+    "build": "packemon build --addEngines --declaration --declarationConfig tsconfig.build.json",
+    "clean": "packemon clean",
+    "typecheck": "tsc --noEmit"
+  },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0"

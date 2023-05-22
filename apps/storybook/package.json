@@ -3,7 +3,8 @@
   "version": "0.0.9",
   "private": true,
   "scripts": {
-    "build": "build-storybook -c .storybook -o ./build"
+    "build": "build-storybook -c .storybook -o ./build",
+    "dev": "start-storybook -p 6006 --quiet"
   },
   "dependencies": {
     "@project44-manifest/react": "^3.0.0",

@@ -1,5 +1,8 @@
 {
   "extends": "../../tsconfig.options.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
   "include": [
     "scripts/**/*"
   ],
@@ -7,8 +10,5 @@
     "compilerOptions": {
       "module": "CommonJS"
     }
-  },
-  "compilerOptions": {
-    "outDir": "../../.moon/cache/types/packages/design-tokens"
   }
 }

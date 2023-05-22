@@ -27,14 +27,14 @@ jobs:
         shell: bash
         run: yarn install --immutable
 
-      - name: Setup tooling
-        run: yarn setup
+      - name: Build
+        run: yarn build
 
-      - name: Run checks
-        run: yarn moon ci --concurrency 4
+      - name: Lint
+        run: yarn lint
 
-      - name: Report results
-        uses: moonrepo/run-report-action@v1
-        if: success() || failure()
-        with:
-          access-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Format
+        run: yarn format
+
+      - name: Test
+        run: yarn test

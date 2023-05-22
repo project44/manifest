@@ -9,9 +9,6 @@
   ],
   "references": [
     {
-      "path": "../design-tokens"
-    },
-    {
       "path": "./tsconfig.build.json"
     }
   ]
