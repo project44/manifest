@@ -1,5 +1,19 @@
 import { css, pxToRem } from '@project44-manifest/react-styles';
 
+const calendarCellUnderlineLight = {
+  '.manifest-calendar-cell__text': {
+    '&::after': {
+      content: '""',
+      backgroundColor: 'white',
+      borderRadius: '$full',
+      height: 1,
+      position: 'absolute',
+      top: pxToRem(23),
+      width: 12,
+    },
+  },
+};
+
 export const useStyles = css({
   height: pxToRem(32),
   textAlign: 'center',
@@ -7,12 +21,26 @@ export const useStyles = css({
   position: 'relative',
   width: pxToRem(44),
 
+  '&:last-of-type': {
+    '.manifest-calendar-cell__button': {
+      borderTopRightRadius: pxToRem(4),
+      borderBottomRightRadius: pxToRem(4),
+    },
+  },
+
+  '&:first-of-type': {
+    '.manifest-calendar-cell__button': {
+      borderTopLeftRadius: pxToRem(4),
+      borderBottomLeftRadius: pxToRem(4),
+    },
+  },
+
   '.manifest-calendar-cell__button': {
     background: 'transparent',
     boxSizing: 'border-box',
     cursor: 'pointer',
     display: 'block',
-    height: pxToRem(24),
+    height: pxToRem(28),
     margin: 0,
     outline: 'none',
     padding: 0,
@@ -23,8 +51,7 @@ export const useStyles = css({
   '.manifest-calendar-cell__text': {
     alignItems: 'center',
     backgroundColor: 'transparent',
-    border: '2px solid transparent',
-    borderRadius: '$full',
+    borderRadius: pxToRem(4),
     color: '$text-primary',
     display: 'flex',
     justifyContent: 'center',
@@ -33,7 +60,7 @@ export const useStyles = css({
     position: 'absolute',
     top: 0,
     typography: '$caption',
-    size: pxToRem(24),
+    size: pxToRem(28),
     whiteSpace: 'nowrap',
   },
 
@@ -82,20 +109,16 @@ export const useStyles = css({
     },
     isToday: {
       true: {
-        '.manifest-calendar-cell__button': {
+        '.manifest-calendar-cell__text': {
           '&::after': {
             content: '""',
-            backgroundColor: '$primary-default',
+            backgroundColor: '$text-primary',
+            borderRadius: '$full',
             height: 1,
-            left: pxToRem(17),
             position: 'absolute',
-            top: pxToRem(20),
-            width: 11,
+            top: pxToRem(23),
+            width: 12,
           },
-        },
-
-        '.manifest-calendar-cell__text': {
-          fontWeight: '$semibold',
         },
       },
     },
@@ -132,7 +155,7 @@ export const useStyles = css({
       isSelectionStart: true,
       css: {
         '.manifest-calendar-cell__button': {
-          background: 'linear-gradient(to left, $colors$palette-indigo-50 50%, transparent 50%)',
+          background: 'linear-gradient(to left, $colors$palette-indigo-100 50%, transparent 50%)',
 
           '&::after': {
             display: 'none',
@@ -152,7 +175,7 @@ export const useStyles = css({
       isSelectionEnd: true,
       css: {
         '.manifest-calendar-cell__button': {
-          background: 'linear-gradient(to right, $colors$palette-indigo-50 50%, transparent 50%)',
+          background: 'linear-gradient(to right, $colors$palette-indigo-100 50%, transparent 50%)',
 
           '&::after': {
             display: 'none',
@@ -194,7 +217,7 @@ export const useStyles = css({
       isSelectionStart: false,
       css: {
         '.manifest-calendar-cell__button': {
-          background: '$palette-indigo-50',
+          background: '$palette-indigo-100',
         },
       },
     },
@@ -206,6 +229,22 @@ export const useStyles = css({
           color: '$text-disabled',
         },
       },
+    },
+    {
+      isToday: true,
+      isSelected: true,
+      isRangeSelection: false,
+      css: calendarCellUnderlineLight,
+    },
+    {
+      isToday: true,
+      isSelectionEnd: true,
+      css: calendarCellUnderlineLight,
+    },
+    {
+      isToday: true,
+      isSelectionStart: true,
+      css: calendarCellUnderlineLight,
     },
   ],
 });

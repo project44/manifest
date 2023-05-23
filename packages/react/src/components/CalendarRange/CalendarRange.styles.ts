@@ -6,6 +6,10 @@ export const useStyles = css({
   flexDirection: 'row',
   minHeight: 289,
 
+  '.manifest-range-calendar__separator-container': {
+    paddingInline: '$small',
+  },
+
   variants: {
     showCalendar: {
       false: {

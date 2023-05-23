@@ -49,7 +49,7 @@ export function CalendarHeader(props: CalendarHeaderProps) {
         size="small"
         variant="tertiary"
       >
-        <Icon icon={direction === 'rtl' ? 'arrow_right' : 'arrow_left'} />
+        <Icon icon={direction === 'rtl' ? 'chevron_right' : 'chevron_left'} />
       </IconButton>
       <Typography className="manifest-calendar-header__text" variant="subtext">
         {dateFormatter.format(state.visibleRange.start.toDate(state.timeZone))}
@@ -60,7 +60,7 @@ export function CalendarHeader(props: CalendarHeaderProps) {
         size="small"
         variant="tertiary"
       >
-        <Icon icon={direction === 'rtl' ? 'arrow_left' : 'arrow_right'} />
+        <Icon icon={direction === 'rtl' ? 'chevron_left' : 'chevron_right'} />
       </IconButton>
     </div>
   );

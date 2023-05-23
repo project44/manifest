@@ -51,8 +51,8 @@ ReadOnly.decorators = [
     <DateRangePicker
       isReadOnly
       defaultValue={{
-        start: new CalendarDate(2022, 7, 2),
-        end: new CalendarDate(2022, 7, 12),
+        start: new CalendarDate(2023, 5, 10),
+        end: new CalendarDate(2023, 5, 23),
       }}
     />
   ),
