@@ -27,44 +27,48 @@ For usage guidelines and full documentation please visit our
 
 > Please refer the individual packages READMEs for installation and usage instructions.
 
-### Install Moonrepo
 
-Manifest uses [Moonrepo](https://moonrepo.dev) as it's build system and repo management tool. We
-suggest installing moon globally with npm:
+### Install Turborepo
+Manifest uses [Turborepo](https://turbo.build) as it's build system and repo management tool. We
+suggest installing Turborepo globally with npm:
 
 ```sh
-npm install -g @moonrepo/cli
+npm install -g turborepo
 ```
 
-### Install dependencies and setup workspaces
+### Install dependencies and build turbo repository
 
 ```sh
-yarn && yarn setup
+yarn && yarn build
 ```
 
 ### Run a command
 
-Moonrepo includes a builtin [toolchain](https://moonrepo.dev/docs/concepts/toolchain) which will
-install and dedupe yarn dependencies automatically. This means that you shoudn't need to run any
-install scripts before running commands via moonrepo.
-
-Once `moonrepo` is installed, the following commands are available:
+Once `Turborepo` is installed, the following commands are available:
 
 | Command               | Purpose                    |
 | --------------------- | -------------------------- |
-| `moon check --all`    | Runs all tasks             |
-| `moon run :build`     | Builds all projects.       |
-| `moon run :format`    | Format all projects.       |
-| `moon run :lint`      | Lints all projects.        |
-| `moon run :test`      | Runs test in all projects. |
-| `moon run :typecheck` | Type checks all projects.  |
+| `yarn build`          | Builds all projects.       |
+| `yarn format:write`   | Format all projects.       |
+| `yarn format`         | Check formatting on all projects.|
+| `yarn lint:write`      | Lints all projects.        |
+| `yarn lint`      | Lints linting in all projects.        |
+| `yarn test`      | Runs test in all projects. |
+| `yarn typecheck` | Type checks all projects.  |
 
-Tasks can all be run on individual projects, a list of projects can be found in
-`.moon/workspace.yml`.
+Tasks can all be run on individual apps - you can view a list of available project by running
+```
+yarn workspaces list
+```
 
 ```sh
-moon run <project>:<task>
+yarn workspace <subapp-name> <command>
 ```
+
+
+## Project structure
+1. Apps - Contains Storybook and Manifest documentation website.
+2. Packages - All typescript code that is intended to be used as a package and consumed by client applications.
 
 ## Contributing
 
