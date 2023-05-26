@@ -1,6 +1,6 @@
 {
   "name": "@project44-manifest/theme",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Manifest Design System themes",
   "license": "MIT",
   "author": "project44",
@@ -33,7 +33,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@project44-manifest/design-tokens": "^2.0.0"
+    "@project44-manifest/design-tokens": "^3.0.0"
   },
   "packemon": {
     "platform": "browser"

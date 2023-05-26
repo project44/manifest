@@ -1,5 +1,15 @@
 # website
 
+## 0.1.1
+
+### Patch Changes
+
+- Updated dependencies
+  [[`98ffc5f`](https://github.com/project44/manifest/commit/98ffc5f42e5d3dca06712f795c96cdd80a0b8bf6),
+  [`6f483f3`](https://github.com/project44/manifest/commit/6f483f38362cbf153d9c09c025294da5de4f88c7)]:
+  - @project44-manifest/design-tokens@3.0.0
+  - @project44-manifest/react@3.4.2
+
 ## 0.1.0
 
 ### Minor Changes
