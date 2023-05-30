@@ -1,5 +1,14 @@
 # @manifest/design-tokens
 
+## 3.0.0
+
+### Major Changes
+
+- [#376](https://github.com/project44/manifest/pull/376)
+  [`98ffc5f`](https://github.com/project44/manifest/commit/98ffc5f42e5d3dca06712f795c96cdd80a0b8bf6)
+  Thanks [@bclark-p44](https://github.com/bclark-p44)! - Using style-dictionary to build the design
+  tokens
+
 ## 2.0.0
 
 ### Major Changes

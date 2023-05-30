@@ -1,5 +1,13 @@
 # @project44-manifest/react-styles
 
+## 2.0.1
+
+### Patch Changes
+
+- Updated dependencies
+  [[`98ffc5f`](https://github.com/project44/manifest/commit/98ffc5f42e5d3dca06712f795c96cdd80a0b8bf6)]:
+  - @project44-manifest/design-tokens@3.0.0
+
 ## 2.0.0
 
 ### Major Changes

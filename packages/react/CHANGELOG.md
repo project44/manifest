@@ -1,5 +1,18 @@
 # @manifest/react
 
+## 3.4.2
+
+### Patch Changes
+
+- [#378](https://github.com/project44/manifest/pull/378)
+  [`6f483f3`](https://github.com/project44/manifest/commit/6f483f38362cbf153d9c09c025294da5de4f88c7)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - fix tag copy button overlay
+  alignment
+
+- Updated dependencies []:
+  - @project44-manifest/react-styles@2.0.1
+  - @project44-manifest/theme@2.0.1
+
 ## 3.4.1
 
 ### Patch Changes
