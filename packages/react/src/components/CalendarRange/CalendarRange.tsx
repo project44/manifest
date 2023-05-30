@@ -115,7 +115,9 @@ export const CalendarRange = createComponent<CalendarRangeOptions>((props, forwa
               prevButtonProps={prevButtonProps}
               state={state}
             />
-            <Separator />
+            <div className="manifest-range-calendar__separator-container">
+              <Separator />
+            </div>
             <CalendarTable state={state} />
           </div>
         </>

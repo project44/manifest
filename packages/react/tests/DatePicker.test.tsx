@@ -33,7 +33,7 @@ describe('@project44-manifest/react - DatePicker', () => {
       </OverlayProvider>,
     );
 
-    expect(screen.getByText('7 / 12 / 2022')).toBeVisible();
+    expect(screen.getByText('Jul 12, 2022')).toBeVisible();
 
     fireEvent.click(screen.getByRole('button'));
 
@@ -70,7 +70,7 @@ describe('@project44-manifest/react - DatePicker', () => {
       </OverlayProvider>,
     );
 
-    expect(screen.getByText('7 / 12 / 2022')).toBeVisible();
+    expect(screen.getByText('Jul 12, 2022')).toBeVisible();
 
     fireEvent.click(screen.getByRole('button'));
 

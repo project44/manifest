@@ -44,7 +44,9 @@ export const Calendar = createComponent<CalendarOptions>((props, forwardedRef) =
         prevButtonProps={prevButtonProps}
         state={state}
       />
-      <Separator />
+      <div className="manifest-calendar__separator-container">
+        <Separator />
+      </div>
       <CalendarTable state={state} />
     </Comp>
   );

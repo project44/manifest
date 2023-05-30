@@ -13,6 +13,10 @@ export const useStyles = css({
     border: 0,
   },
 
+  '.manifest-calendar-table__head': {
+    color: '$colors$text-tertiary',
+  },
+
   '.manifest-calendar-table__row': {
     height: '100%',
   },

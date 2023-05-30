@@ -7,4 +7,9 @@ export const useStyles = css({
   margin: 0,
   padding: '$small $medium',
   flexDirection: 'row',
+
+  '.manifest-calendar-header__text': {
+    color: '$text-secondary',
+    fontWeight: '$bold',
+  },
 });

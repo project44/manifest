@@ -42,7 +42,7 @@ Disabled.decorators = [() => <DatePicker isDisabled />];
 export const ReadOnly = Template.bind({});
 
 ReadOnly.decorators = [
-  () => <DatePicker isReadOnly defaultValue={new CalendarDate(2022, 7, 12)} />,
+  () => <DatePicker isReadOnly defaultValue={new CalendarDate(2023, 5, 23)} />,
 ];
 
 export const Invalid = Template.bind({});

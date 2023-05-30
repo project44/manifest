@@ -8,12 +8,12 @@ import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useDatePickerState } from '@react-stately/datepicker';
 import type { DateValue } from '@react-types/calendar';
 import type { AriaDatePickerProps } from '@react-types/datepicker';
+import { Calendar as CalendarIcon } from '@project44-manifest/react-icons';
 import { cx } from '@project44-manifest/react-styles';
 import { As, createComponent, Options, Props } from '../../system';
 import type { StyleProps } from '../../types';
 import { Calendar } from '../Calendar';
 import { FormControl } from '../FormControl';
-import { Icon } from '../Icon';
 import { Overlay, Placement } from '../Overlay';
 import { Popover } from '../Popover';
 import { Typography } from '../Typography';
@@ -166,7 +166,14 @@ export const DatePicker = createComponent<DatePickerOptions>((props, forwardedRe
   });
 
   const displayValue = state.value
-    ? `${state.value.month} / ${state.value.day} / ${state.value.year}`
+    ? `${new Date(state.value.year, state.value.month - 1, state.value.day).toLocaleDateString(
+        undefined,
+        {
+          month: 'short',
+          day: 'numeric',
+          year: 'numeric',
+        },
+      )}`
     : placeholder;
 
   return (
@@ -199,7 +206,7 @@ export const DatePicker = createComponent<DatePickerOptions>((props, forwardedRe
         </button>
 
         <span className={cx('manifest-datepicker__icon', 'manifest-datepicker__icon--end')}>
-          <Icon icon="calendar_month" />
+          <CalendarIcon />
         </span>
 
         <Overlay containerRef={containerRefProp} isOpen={state.isOpen}>
