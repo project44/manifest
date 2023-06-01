@@ -3,7 +3,12 @@ import { Meta, Story } from '@storybook/react';
 import {
   Box,
   Button,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
   Flex,
+  Icon,
+  IconButton,
   Overlay,
   Placement as PopoverPlacement,
   Popover,
@@ -67,6 +72,41 @@ export const Default: Story<PopoverProps> = (props) => {
         </Popover>
       </Overlay>
     </>
+  );
+};
+
+export const Nested: Story<PopoverProps> = (props) => {
+  const state = usePopoverTriggerState({});
+  const { overlayProps, overlayRef, triggerProps, triggerRef } = usePopoverTrigger({}, state);
+
+  const handleClose = React.useCallback(() => {
+    state.close();
+  }, [state]);
+
+  const containerRef = React.useRef(null);
+
+  return (
+    <div ref={containerRef}>
+      <Button {...triggerProps} ref={triggerRef}>
+        Open Popover
+      </Button>
+      {/* Override the default mounting position (global document) to a specific element */}
+      <Overlay containerRef={containerRef} isOpen={state.isOpen}>
+        <Popover {...overlayProps} ref={overlayRef} isOpen={state.isOpen} onClose={handleClose}>
+          <Box css={{ p: '$medium' }}>
+            <Dropdown>
+              <IconButton variant="primary">
+                <Icon icon="expand_more" />
+              </IconButton>
+              <DropdownMenu>
+                <DropdownItem key="profile">Profile</DropdownItem>
+                <DropdownItem key="account">Account</DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          </Box>
+        </Popover>
+      </Overlay>
+    </div>
   );
 };
 
