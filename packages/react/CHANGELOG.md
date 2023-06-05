@@ -1,5 +1,21 @@
 # @manifest/react
 
+## 3.5.0
+
+### Minor Changes
+
+- [#386](https://github.com/project44/manifest/pull/386)
+  [`9a2e938`](https://github.com/project44/manifest/commit/9a2e938405dfa4b16dd594998fc42439a21766b0)
+  Thanks [@dmorton-p44](https://github.com/dmorton-p44)! - Combobox autocomplete variant, loading
+  state configuration, and no results state configuration
+
+### Patch Changes
+
+- [#381](https://github.com/project44/manifest/pull/381)
+  [`ebf63a9`](https://github.com/project44/manifest/commit/ebf63a9d40723327b7373c554cd46b554f5079f5)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - updated DatePicker styles with
+  design refresh
+
 ## 3.4.2
 
 ### Patch Changes
