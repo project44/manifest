@@ -79,6 +79,23 @@ export interface ComboboxOptions<T extends As = ComboboxElement>
    * Icon displayed at the start of the combobox.
    */
   startIcon?: React.ReactElement;
+  /**
+   * Combobox variant
+   */
+  variant?: 'autocomplete' | 'dropdown';
+  /**
+   * Specifies if the component is in a loading state
+   */
+  loading?: boolean;
+  /**
+   * Specifies the loading state content for the combobox. If not provided
+   * no text will be desiplayed in the loading state
+   */
+  loadingText?: string;
+  /**
+   * Specifies the no results ui elements for the combobox
+   */
+  noResultsChildren?: React.ReactElement | React.ReactElement[];
 }
 
 export type ComboboxProps<T extends As = ComboboxElement> = Props<ComboboxOptions<T>>;
@@ -102,6 +119,10 @@ export const Combobox = createComponent<ComboboxOptions>((props, forwardedRef) =
     validationState,
     size = 'medium',
     startIcon,
+    variant = 'dropdown',
+    loading = false,
+    loadingText,
+    noResultsChildren,
   } = props;
 
   const isInvalid = validationState === 'invalid';
@@ -117,6 +138,10 @@ export const Combobox = createComponent<ComboboxOptions>((props, forwardedRef) =
   const state = useComboBoxState({
     ...props,
     defaultFilter: contains,
+    // allow menu to open with no results if the user has set an
+    // empty state or the combobox is indicated to be loading.
+    // This enables us to open the menu and show these two states.
+    allowsEmptyCollection: noResultsChildren !== undefined || loading,
   });
 
   const {
@@ -198,10 +223,11 @@ export const Combobox = createComponent<ComboboxOptions>((props, forwardedRef) =
 
         <input {...inputProps} ref={inputRef} className="manifest-combobox__input" />
 
-        <button {...buttonProps} ref={buttonRef} className="manifest-combobox__button">
-          <Icon icon="expand_more" />
-        </button>
-
+        {variant === 'dropdown' && (
+          <button {...buttonProps} ref={buttonRef} className="manifest-combobox__button">
+            <Icon icon="expand_more" />
+          </button>
+        )}
         <Overlay containerRef={containerRefProp} isOpen={state.isOpen && !isDisabled}>
           <Popover
             {...overlayProps}
@@ -216,6 +242,9 @@ export const Combobox = createComponent<ComboboxOptions>((props, forwardedRef) =
               ref={listBoxRef}
               disallowEmptySelection
               className="manifest-combobox__list-box"
+              loading={loading}
+              loadingText={loadingText}
+              noResultsChildren={noResultsChildren}
               state={state}
             />
           </Popover>

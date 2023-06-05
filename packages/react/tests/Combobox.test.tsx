@@ -187,4 +187,71 @@ describe('@project44-manifest/react - Combobox', () => {
     expect(onInputChange).toHaveBeenCalled();
     expect(onOpenChange).toHaveBeenCalled();
   });
+
+  it('should render the autocomplete variant', () => {
+    render(
+      <OverlayProvider>
+        <Combobox label="Combobox" variant="autocomplete">
+          <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+          <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+          <ComboboxItem key="snake">Snake</ComboboxItem>
+        </Combobox>
+      </OverlayProvider>,
+    );
+
+    // Assert that there the drop down button isn't rendered
+    const buttons = screen.queryAllByText('expand_more');
+    expect(buttons).toHaveLength(0);
+  });
+
+  it('should render the dropdown variant', () => {
+    render(
+      <OverlayProvider>
+        <Combobox label="Combobox">
+          <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+          <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+          <ComboboxItem key="snake">Snake</ComboboxItem>
+        </Combobox>
+      </OverlayProvider>,
+    );
+
+    const button = screen.getByText('expand_more');
+    expect(button).toBeVisible();
+  });
+
+  it('should show empty state', () => {
+    const items: object[] = [];
+    render(
+      <OverlayProvider>
+        <Combobox items={[]} label="Combobox" noResultsChildren={<p>empty-state</p>}>
+          {items.map((x, i) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <ComboboxItem key={i}>Test</ComboboxItem>
+          ))}
+        </Combobox>
+      </OverlayProvider>,
+    );
+
+    const button = screen.getByText('expand_more');
+    fireEvent.click(button);
+    expect(screen.getByText('empty-state')).toBeVisible();
+  });
+
+  it('should show loading state', () => {
+    const items: object[] = [];
+    render(
+      <OverlayProvider>
+        <Combobox loading label="Combobox" loadingText="test-loading">
+          {items.map((x, i) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <ComboboxItem key={i}>Test</ComboboxItem>
+          ))}
+        </Combobox>
+      </OverlayProvider>,
+    );
+
+    const button = screen.getByText('expand_more');
+    fireEvent.click(button);
+    expect(screen.getByText('test-loading')).toBeVisible();
+  });
 });

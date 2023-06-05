@@ -68,6 +68,58 @@ Group items within a dropdown using a section.
 </Combobox>
 ```
 
+### Variant
+
+Combobox has two variant, dropdown and autocomplete. The main difference between the two is that
+the dropdown variant renders a dropdown button next to the input.
+
+```jsx live
+<Flex gap="small">
+<Combobox variant="dropdown" helperText="Dropdown variant">
+  <ComboboxItem>United States</ComboboxItem>
+  <ComboboxItem>Canada</ComboboxItem>
+  <ComboboxItem>Mexico</ComboboxItem>
+</Combobox>
+<Combobox variant="autocomplete" helperText="Autocomplete variant">
+  <ComboboxItem>United States</ComboboxItem>
+  <ComboboxItem>Canada</ComboboxItem>
+  <ComboboxItem>Mexico</ComboboxItem>
+</Combobox>
+</div>
+```
+
+### Loading state
+
+Combobox gives you the control over what text should be rendered in a loading state
+
+```jsx live
+  <Combobox 
+    loading 
+    loadingText="Loading state text goes here..." 
+    helperText="Click dropdown arrow to view loading state...">
+      <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+      <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+      <ComboboxItem key="snake">Snake</ComboboxItem>
+    </Combobox>
+```
+
+### No results state
+
+```jsx live
+ <Combobox
+      helperText="Start typing 'test' to see no results state..."
+      noResultsChildren={
+        <Flex justify="center">
+          <Typography variant="caption" css={{ color: '$text-secondary' }}>
+            No results state goes here...
+          </Typography>
+        </Flex>
+      }
+    >
+  <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+</Combobox>
+```
+
 ### Async
 
 Items can be loaded asynchronously use the `useAsyncData` hook. It also supports infinite scrolling
@@ -75,23 +127,44 @@ to load more data on demand as the user scrolls, via the onLoadMore prop.
 
 ```jsx live
 function Async() {
-  const list = useAsyncList({
-    async load({ signal }) {
-      const res = await fetch('https://restcountries.com/v3.1/alpha?codes=US,CA,MX,GB,FR,CN,IN', {
-        signal,
-      });
+    const list = useAsyncList({
+      async load({ signal, filterText }) {
+        const res = await fetch(`https://restcountries.com/v3.1/name/${filterText}`, {
+          signal,
+        });
 
-      const items = await res.json();
+        if (res.status !== 200) return { items: [] };
+        const items = await res.json()
+        return {
+          items: items.map((x) => ({
+            value: x.name.common,
+          })),
+        };
+      },
+    });
 
-      return { items };
-    },
-  });
+    const handleInputChanged = React.useCallback(
+      (value) => list.setFilterText(value),
+      [list],
+    );
 
-  return (
-    <Combobox aria-label="Country Select" items={list.items}>
-      {(item) => <ComboboxItem key={item.name.common}>{item.name.common}</ComboboxItem>}
-    </Combobox>
-  );
+    return (
+      <Combobox
+        aria-label="test"
+        inputValue={list.filterText}
+        items={list.items}
+        loading={list.isLoading}
+        loadingText="Searching an free list of countries..."
+        noResultsChildren={<Flex justify="center"><Typography variant="caption">😭 No results found</Typography></Flex>}
+        onInputChange={handleInputChanged}
+        variant="autocomplete"
+        placeholder="Start typing to search for a country..."
+      >
+        {(item) => (
+          <ComboboxItem key={item.value}>{item.value}</ComboboxItem>
+        )}
+      </Combobox>
+    );
 }
 ```
 
