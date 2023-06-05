@@ -1,5 +1,5 @@
 import type { ComponentStory } from '@storybook/react';
-import { Combobox, ComboboxItem, ComboboxSection, Flex, Icon } from '../src';
+import { Combobox, ComboboxItem, ComboboxSection, Flex, Icon, Typography } from '../src';
 
 export default {
   title: 'Components/Combobox',
@@ -48,6 +48,51 @@ StartIcon.decorators = [
       <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
       <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
       <ComboboxItem key="snake">Snake</ComboboxItem>
+    </Combobox>
+  ),
+];
+
+export const Variant = Template.bind({});
+
+Variant.decorators = [
+  () => (
+    <Flex css={{ gap: '$small' }} orientation="vertical">
+      <Combobox>
+        <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+        <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+        <ComboboxItem key="snake">Snake</ComboboxItem>
+      </Combobox>
+      <Combobox variant="autocomplete">
+        <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+        <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+        <ComboboxItem key="snake">Snake</ComboboxItem>
+      </Combobox>
+    </Flex>
+  ),
+];
+
+export const Loading = Template.bind({});
+
+Loading.decorators = [
+  () => (
+    <Combobox loading loadingText="Loading...">
+      <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+      <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+      <ComboboxItem key="snake">Snake</ComboboxItem>
+    </Combobox>
+  ),
+];
+
+export const NoResultsChildren = Template.bind({});
+
+NoResultsChildren.decorators = [
+  () => (
+    // eslint-disable-next-line react/self-closing-comp
+    <Combobox
+      helperText="Start typing 'test' to see no results state..."
+      noResultsChildren={<Typography variant="caption">No results</Typography>}
+    >
+      <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
     </Combobox>
   ),
 ];

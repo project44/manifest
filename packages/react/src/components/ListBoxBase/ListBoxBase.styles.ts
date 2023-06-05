@@ -1,4 +1,4 @@
-import { css } from '@project44-manifest/react-styles';
+import { css, pxToRem } from '@project44-manifest/react-styles';
 
 export const useStyles = css({
   boxSizing: 'border-box',
@@ -17,5 +17,24 @@ export const useStyles = css({
     my: '$small',
     overflow: 'visible',
     width: 'auto',
+  },
+
+  '.manifest-listbox__no-results-container': {
+    py: '$small',
+  },
+
+  '.manifest-listbox__loading-container': {
+    py: '$small',
+    '.manifest-spinner': {
+      height: pxToRem(24),
+      width: pxToRem(24),
+      color: '$text-secondary',
+    },
+
+    '.manifest-typography--caption': {
+      alignSelf: 'center',
+      color: '$text-secondary',
+      pl: '$x-small',
+    },
   },
 });
