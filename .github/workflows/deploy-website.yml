@@ -1,5 +1,4 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy website to Pages
+name: Deploy website
 
 on:
   # Runs on pushes targeting the default branch
@@ -38,13 +37,12 @@ jobs:
           node-version: 18.x
           cache: yarn
 
-      - name: Install
+      - name: Install dependencies
+        shell: bash
         run: yarn install
 
       - name: Build
-        run: |
-          cd apps/website  
-          yarn build
+        run: yarn build
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
