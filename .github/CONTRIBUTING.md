@@ -16,7 +16,7 @@ installed:
 
 - [Node.js](https://nodejs.org/en/download/)
 - [Yarn](https://yarnpkg.com/en/docs/install)
-- [Moonrepo](https://moonrepo.dev)
+- [Turborepo](https://turbo.build/)
 
 ## Versioning
 
@@ -140,8 +140,8 @@ of the commit message is then used for this.
 
 ## Pull Request
 
-Before working on an issue or feature please review any tickets, pr's, and discussions to be certain
-that no one is actively working on the same issue or feature.
+Before working on an issue or feature please review any tickets, pull requests, and discussions to
+be certain that no one is actively working on the same issue or feature.
 
 ### Making a Pull Request
 
@@ -195,24 +195,33 @@ When working with react components and packages, we have provided a
 [storybook](https://storybook.js.org/) development server to use for validation.
 
 ```sh
-yarn storybook
+yarn workspace storybook dev
 ```
 
-## Creating components
+### Docs Site
 
-If you need to create a new component packages, we have provided a script that will bootstrap the
-new component package for you.
+We use [Docusuarus](https://docusaurus.io/) to generate our documentation site. To run the docs site
+locally, run the following command:
 
+```sh
+yarn workspace website dev
 ```
-moon generate component ./packages/react/components/<component-name>
+
+#### Props generation
+
+If changing a React component prop, you will need to regenerate the prop types. To do so, run the
+following command:
+
+```sh
+yarn workspace react generate-props
 ```
 
 ## Testing
 
 We use [jest](https://jestjs.io/) as our test runner along with
 [react testing library](https://testing-library.com/docs/react-testing-library/intro/) for our react
-code base. Please be sure to add or update unit tests for any code changes. Run `moon run :test` to
-run jest.
+code base. Please be sure to add or update unit tests for any code changes. Run `yarn test` to run
+jest.
 
 ## Code Style
 
@@ -221,10 +230,10 @@ coding style. We recommend enabling linting in your editor for the best develope
 
 You may run code style checks manually with the following commands:
 
-| Command            | Purpose              |
-| ------------------ | -------------------- |
-| `moon run :format` | Format all projects. |
-| `moon run :lint`   | Lints all projects.  |
+| Command             | Purpose              |
+| ------------------- | -------------------- |
+| `yarn format`       | Lints all projects.  |
+| `yarn format:write` | Format all projects. |
 
 ## License
 
