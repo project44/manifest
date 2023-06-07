@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://www.manifestdesignsystem.com"><img src="apps/docs/public/images/logo.png" width="200" height="200" /></a>
+  <a href="https://project44.github.io/manifest/ "><img src="apps/docs/public/images/logo.png" width="200" height="200" /></a>
 </div>
 
 <h1 align="center">Manifest Design System</h1>
@@ -21,14 +21,14 @@
 ## Documentation
 
 For usage guidelines and full documentation please visit our
-[documentation website](https://www.manifestdesignsystem.com).
+[documentation website](https://project44.github.io/manifest/).
 
 ## Getting Started
 
 > Please refer the individual packages READMEs for installation and usage instructions.
 
-
 ### Install Turborepo
+
 Manifest uses [Turborepo](https://turbo.build) as it's build system and repo management tool. We
 suggest installing Turborepo globally with npm:
 
@@ -46,17 +46,18 @@ yarn && yarn build
 
 Once `Turborepo` is installed, the following commands are available:
 
-| Command               | Purpose                    |
-| --------------------- | -------------------------- |
-| `yarn build`          | Builds all projects.       |
-| `yarn format:write`   | Format all projects.       |
-| `yarn format`         | Check formatting on all projects.|
-| `yarn lint:write`      | Lints all projects.        |
-| `yarn lint`      | Lints linting in all projects.        |
-| `yarn test`      | Runs test in all projects. |
-| `yarn typecheck` | Type checks all projects.  |
+| Command             | Purpose                           |
+| ------------------- | --------------------------------- |
+| `yarn build`        | Builds all projects.              |
+| `yarn format:write` | Format all projects.              |
+| `yarn format`       | Check formatting on all projects. |
+| `yarn lint:write`   | Lints all projects.               |
+| `yarn lint`         | Lints linting in all projects.    |
+| `yarn test`         | Runs test in all projects.        |
+| `yarn typecheck`    | Type checks all projects.         |
 
 Tasks can all be run on individual apps - you can view a list of available project by running
+
 ```
 yarn workspaces list
 ```
@@ -65,10 +66,11 @@ yarn workspaces list
 yarn workspace <subapp-name> <command>
 ```
 
-
 ## Project structure
+
 1. Apps - Contains Storybook and Manifest documentation website.
-2. Packages - All typescript code that is intended to be used as a package and consumed by client applications.
+2. Packages - All typescript code that is intended to be used as a package and consumed by client
+   applications.
 
 ## Contributing
 

@@ -1,7 +1,7 @@
 # @project44-manifest/react
 
 > A react library consisting of components, patterns and a styling engine that implement the design
-> principles of the [Manifest Design System](https://www.manifestdesignsystem.com) by project44.
+> principles of the [Manifest Design System](https://project44.github.io/manifest/) by project44.
 
 ## Installation
 
@@ -148,8 +148,8 @@ control layout and composing components.
 
 These primitives include a `Container`, `Flex`, `Grid`, and `Stack` component.
 
-Please refer the the [documentation website](https://www.manifestdesignsystem.com/docs/components)
-for usage information and best practices.
+Please refer the the [documentation website](https://project44.github.io/manifest/) for usage
+information and best practices.
 
 ## Contributing
 

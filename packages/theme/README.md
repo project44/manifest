@@ -11,7 +11,7 @@ yarn add @project44-manifest/theme
 ## Getting Started
 
 The `@project44-manifest/theme` library provides a set of themes based on
-[Manifest Design System design tokens](https://www.manifestdesignsystem.com/docs/tokens).
+[Manifest Design System design tokens](https://project44.github.io/manifest/core/design-tokens).
 
 > Currently we only support a light theme, support for additional themes coming soon.
 
@@ -23,7 +23,8 @@ import { lightTheme } from '@project44-manifest/theme';
 
 The theme specification is based on the
 [system-ui theme specification](https://github.com/system-ui/theme-specification) and follow the
-Manifest Design System [design tokens](https://www.manifestdesignsystem.com/docs/tokens) guidelines.
+Manifest Design System [design tokens](https://project44.github.io/manifest/core/design-tokens)
+guidelines.
 
 ```json
 {

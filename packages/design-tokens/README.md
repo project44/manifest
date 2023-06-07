@@ -3,7 +3,7 @@
 Design Tokens for Manifest Design System, project44's design system.
 
 For a full list of tokens, please see the
-[documentation website](https://www.manifestdesignsystem.com/docs/tokens)
+[documentation website](https://project44.github.io/manifest/core/design-tokens)
 
 ## Installation
 
