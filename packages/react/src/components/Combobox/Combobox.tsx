@@ -89,7 +89,7 @@ export interface ComboboxOptions<T extends As = ComboboxElement>
   loading?: boolean;
   /**
    * Specifies the loading state content for the combobox. If not provided
-   * no text will be desiplayed in the loading state
+   * no text will be displayed in the loading state
    */
   loadingText?: string;
   /**

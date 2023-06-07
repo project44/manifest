@@ -1,230 +1,4 @@
 {
-  "ActionCard": [
-    {
-      "name": "css",
-      "type": "CSS",
-      "required": false,
-      "description": "Theme aware style object"
-    },
-    {
-      "name": "href",
-      "type": "string",
-      "required": true,
-      "description": "The href link to navigate to when the card is clicked"
-    }
-  ],
-  "ActionCardBody": [
-    {
-      "name": "css",
-      "type": "CSS",
-      "required": false,
-      "description": "Theme aware style object"
-    }
-  ],
-  "ActionCardHeader": [
-    {
-      "name": "css",
-      "type": "CSS",
-      "required": false,
-      "description": "Theme aware style object"
-    }
-  ],
-  "ActionCardImage": [
-    {
-      "name": "css",
-      "type": "CSS",
-      "required": false,
-      "description": "Theme aware style object"
-    },
-    {
-      "name": "size",
-      "type": "\"small\" | \"large\"",
-      "defaultValue": "'large'",
-      "required": false,
-      "description": "The size of the card image"
-    },
-    {
-      "name": "src",
-      "type": "string",
-      "required": true,
-      "description": "The source for the image"
-    }
-  ],
-  "Avatar": [
-    {
-      "name": "alt",
-      "type": "string",
-      "required": false,
-      "description": "The alt text passed to the image."
-    },
-    {
-      "name": "fallback",
-      "type": "ReactNode",
-      "required": false,
-      "description": "Name used as a fallback if src is not provided or image cannot be found."
-    },
-    {
-      "name": "size",
-      "type": "\"small\" | \"medium\"",
-      "defaultValue": "'medium'",
-      "required": false,
-      "description": "The size of the avatar."
-    },
-    {
-      "name": "src",
-      "type": "string",
-      "required": false,
-      "description": "The `src` attribute for the `img` element."
-    },
-    {
-      "name": "css",
-      "type": "CSS",
-      "required": false,
-      "description": "Theme aware style object"
-    }
-  ],
-  "Box": [
-    {
-      "name": "css",
-      "type": "CSS",
-      "required": false,
-      "description": "Theme aware style object"
-    }
-  ],
-  "Breadcrumb": [
-    {
-      "name": "css",
-      "type": "CSS",
-      "required": false,
-      "description": "Theme aware style object"
-    }
-  ],
-  "BreadcrumbItem": [
-    {
-      "name": "css",
-      "type": "CSS",
-      "required": false,
-      "description": "Theme aware style object"
-    },
-    {
-      "name": "href",
-      "type": "string",
-      "required": true,
-      "description": "Breadcrumb item link href"
-    }
-  ],
-  "Button": [
-    {
-      "name": "autoFocus",
-      "type": "boolean",
-      "required": false,
-      "description": "Whether the element should receive focus on render."
-    },
-    {
-      "name": "css",
-      "type": "CSS",
-      "required": false,
-      "description": "Theme aware style object"
-    },
-    {
-      "name": "endIcon",
-      "type": "ReactElement<any, string | JSXElementConstructor<any>>",
-      "required": false,
-      "description": "Icon added after the button text."
-    },
-    {
-      "name": "href",
-      "type": "string",
-      "required": false,
-      "description": "A URL to link to if as=\"a\"."
-    },
-    {
-      "name": "excludeFromTabOrder",
-      "type": "boolean",
-      "required": false,
-      "description": "Whether to exclude the element from the sequential tab order. If true,\nthe element will not be focusable via the keyboard by tabbing. This should\nbe avoided except in rare scenarios where an alternative means of accessing\nthe element or its functionality via the keyboard is available."
-    },
-    {
-      "name": "isDisabled",
-      "type": "boolean",
-      "required": false,
-      "description": "Whether the button is disabled."
-    },
-    {
-      "name": "rel",
-      "type": "string",
-      "required": false,
-      "description": "The relationship between the linked resource and the current page. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel)."
-    },
-    {
-      "name": "size",
-      "type": "ButtonSize",
-      "defaultValue": "'medium'",
-      "required": false,
-      "description": "The size of the button."
-    },
-    {
-      "name": "startIcon",
-      "type": "ReactElement<any, string | JSXElementConstructor<any>>",
-      "required": false,
-      "description": "Icon added before the button text."
-    },
-    {
-      "name": "target",
-      "type": "string",
-      "required": false,
-      "description": "The target window for the link."
-    },
-    {
-      "name": "type",
-      "type": "\"button\" | \"reset\" | \"submit\"",
-      "defaultValue": "'button'",
-      "required": false,
-      "description": "The behavior of the button when used in an HTML form."
-    },
-    {
-      "name": "variant",
-      "type": "ButtonVariant",
-      "defaultValue": "'primary'",
-      "required": false,
-      "description": "The display variant of the button."
-    }
-  ],
-  "ButtonGroup": [
-    {
-      "name": "css",
-      "type": "CSS",
-      "required": false,
-      "description": "Theme aware style object"
-    },
-    {
-      "name": "isDisabled",
-      "type": "boolean",
-      "defaultValue": "false",
-      "required": false,
-      "description": "Whether the buttons in the button group are all disabled."
-    },
-    {
-      "name": "isAttached",
-      "type": "boolean",
-      "required": false,
-      "description": "Whether the buttons in the button are attached."
-    },
-    {
-      "name": "size",
-      "type": "ButtonSize",
-      "defaultValue": "'medium'",
-      "required": false,
-      "description": "The size of the buttons in the group."
-    },
-    {
-      "name": "variant",
-      "type": "ButtonVariant",
-      "defaultValue": "'primary'",
-      "required": false,
-      "description": "The group variant"
-    }
-  ],
   "Calendar": [
     {
       "name": "children",
@@ -516,6 +290,30 @@
       "description": "Icon displayed at the start of the combobox."
     },
     {
+      "name": "variant",
+      "type": "\"autocomplete\" | \"dropdown\"",
+      "required": false,
+      "description": "Combobox variant"
+    },
+    {
+      "name": "loading",
+      "type": "boolean",
+      "required": false,
+      "description": "Specifies if the component is in a loading state"
+    },
+    {
+      "name": "loadingText",
+      "type": "string",
+      "required": false,
+      "description": "Specifies the loading state content for the combobox. If not provided\nno text will be displayed in the loading state"
+    },
+    {
+      "name": "noResultsChildren",
+      "type": "ReactElement<any, string | JSXElementConstructor<any>> | ReactElement<any, string | JSXElementConstructor<any>>[]",
+      "required": false,
+      "description": "Specifies the no results ui elements for the combobox"
+    },
+    {
       "name": "as",
       "type": "NonNullable<T>",
       "required": false,
@@ -566,28 +364,6 @@
       "type": "CSS",
       "required": false,
       "description": "Theme aware style object."
-    }
-  ],
-  "Container": [
-    {
-      "name": "css",
-      "type": "CSS",
-      "required": false,
-      "description": "Theme aware style object"
-    },
-    {
-      "name": "fixed",
-      "type": "boolean",
-      "defaultValue": "true",
-      "required": false,
-      "description": "Whether the container should adjust its max-width based on the current screen size."
-    },
-    {
-      "name": "maxWidth",
-      "type": "\"small\" | \"large\" | \"medium\" | \"x-large\" | \"x-small\"",
-      "defaultValue": "'large'",
-      "required": false,
-      "description": "The max-width of the container."
     }
   ],
   "DatePicker": [
@@ -862,7 +638,7 @@
     },
     {
       "name": "buttonProps",
-      "type": "Omit<Pick<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, \"key\" | keyof ButtonHTMLAttributes<...>> & { ...; }, \"size\" | ... 19 more ... | \"onPressUp\"> & IconButtonProps & { ...; }",
+      "type": "Omit<Pick<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, \"key\" | keyof ButtonHTMLAttributes<...>> & { ...; }, \"as\" | ... 19 more ... | \"onPressUp\"> & IconButtonProps & { ...; }",
       "required": false,
       "description": "Props bassed to the button component."
     },
@@ -1097,44 +873,6 @@
       "description": "By default the child component stays mounted after it reaches the\n'exited' state. Set `unmountOnExit` if you'd prefer to unmount the\ncomponent after it finishes exiting."
     }
   ],
-  "Flex": [
-    {
-      "name": "align",
-      "type": "\"center\" | \"end\" | \"baseline\" | \"start\"",
-      "required": false,
-      "description": "The alignment of the container's children."
-    },
-    {
-      "name": "css",
-      "type": "CSS",
-      "required": false,
-      "description": "Theme aware style object"
-    },
-    {
-      "name": "gap",
-      "type": "\"small\" | \"large\" | \"medium\" | \"x-large\" | \"x-small\"",
-      "required": false,
-      "description": "The gap between rows and columns."
-    },
-    {
-      "name": "justify",
-      "type": "\"center\" | \"end\" | \"start\" | \"around\" | \"between\"",
-      "required": false,
-      "description": "The justification of the container's children."
-    },
-    {
-      "name": "orientation",
-      "type": "\"horizontal\" | \"vertical\"",
-      "required": false,
-      "description": "The orientation of the container's children."
-    },
-    {
-      "name": "wrap",
-      "type": "boolean",
-      "required": false,
-      "description": "Whether the container's should wrap when overflown."
-    }
-  ],
   "FormControl": [
     {
       "name": "children",
@@ -1193,174 +931,7 @@
       "description": "Theme aware style object."
     }
   ],
-  "Grid": [
-    {
-      "name": "columnGap",
-      "type": "\"small\" | \"large\" | \"medium\" | \"x-large\" | \"x-small\"",
-      "required": false,
-      "description": "The gap between columns"
-    },
-    {
-      "name": "columns",
-      "type": "GridTemplateColumns<0 | (string & {})>",
-      "defaultValue": "'auto'",
-      "required": false,
-      "description": "Shorthand for the gridTemplateColumns css property."
-    },
-    {
-      "name": "css",
-      "type": "CSS",
-      "required": false,
-      "description": "Theme aware style object"
-    },
-    {
-      "name": "flow",
-      "type": "GridAutoFlow",
-      "required": false,
-      "description": "Shorthand for the gridAutoFlow css property."
-    },
-    {
-      "name": "gap",
-      "type": "\"small\" | \"large\" | \"medium\" | \"x-large\" | \"x-small\"",
-      "required": false,
-      "description": "The gap between rows and columns."
-    },
-    {
-      "name": "rowGap",
-      "type": "\"small\" | \"large\" | \"medium\" | \"x-large\" | \"x-small\"",
-      "required": false,
-      "description": "The gap between rows"
-    },
-    {
-      "name": "rows",
-      "type": "GridTemplateRows<0 | (string & {})>",
-      "defaultValue": "'auto'",
-      "required": false,
-      "description": "Shorthand for the gridTemplateRows css property."
-    }
-  ],
-  "GridItem": [
-    {
-      "name": "area",
-      "type": "GridArea",
-      "required": false,
-      "description": "Shorthand for the gridArea css property."
-    },
-    {
-      "name": "column",
-      "type": "GridColumn",
-      "required": false,
-      "description": "Shorthand for the gridColumn css property."
-    },
-    {
-      "name": "columnEnd",
-      "type": "GridColumnEnd",
-      "required": false,
-      "description": "Shorthand for the gridColumnEnd css property."
-    },
-    {
-      "name": "columnStart",
-      "type": "GridColumnStart",
-      "required": false,
-      "description": "Shorthand for the gridColumnStart css property."
-    },
-    {
-      "name": "css",
-      "type": "CSS",
-      "required": false,
-      "description": "Theme aware style object"
-    },
-    {
-      "name": "order",
-      "type": "Order",
-      "required": false,
-      "description": "Shorthand for the order css property."
-    },
-    {
-      "name": "row",
-      "type": "GridRow",
-      "required": false,
-      "description": "Shorthand for the gridRow css property."
-    },
-    {
-      "name": "rowEnd",
-      "type": "GridRowEnd",
-      "required": false,
-      "description": "Shorthand for the gridRowEnd css property."
-    },
-    {
-      "name": "rowStart",
-      "type": "GridRowStart",
-      "required": false,
-      "description": "Shorthand for the gridRowStart css property."
-    }
-  ],
   "Icon": [],
-  "IconButton": [
-    {
-      "name": "size",
-      "type": "ButtonSize",
-      "defaultValue": "'medium'",
-      "required": false,
-      "description": "The size of the button."
-    },
-    {
-      "name": "isDisabled",
-      "type": "boolean",
-      "required": false,
-      "description": "Whether the button is disabled."
-    },
-    {
-      "name": "autoFocus",
-      "type": "boolean",
-      "required": false,
-      "description": "Whether the element should receive focus on render."
-    },
-    {
-      "name": "css",
-      "type": "CSS",
-      "required": false,
-      "description": "Theme aware style object"
-    },
-    {
-      "name": "target",
-      "type": "string",
-      "required": false,
-      "description": "The target window for the link."
-    },
-    {
-      "name": "type",
-      "type": "\"button\" | \"reset\" | \"submit\"",
-      "defaultValue": "'button'",
-      "required": false,
-      "description": "The behavior of the button when used in an HTML form."
-    },
-    {
-      "name": "href",
-      "type": "string",
-      "required": false,
-      "description": "A URL to link to if as=\"a\"."
-    },
-    {
-      "name": "rel",
-      "type": "string",
-      "required": false,
-      "description": "The relationship between the linked resource and the current page. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel)."
-    },
-    {
-      "name": "excludeFromTabOrder",
-      "type": "boolean",
-      "required": false,
-      "description": "Whether to exclude the element from the sequential tab order. If true,\nthe element will not be focusable via the keyboard by tabbing. This should\nbe avoided except in rare scenarios where an alternative means of accessing\nthe element or its functionality via the keyboard is available."
-    },
-    {
-      "name": "variant",
-      "type": "ButtonVariant",
-      "defaultValue": "'primary'",
-      "required": false,
-      "description": "The display variant of the button."
-    }
-  ],
   "Link": [],
   "ListBox": [
     {
@@ -1380,10 +951,50 @@
       "type": "CSS",
       "required": false,
       "description": "Theme aware style object."
+    },
+    {
+      "name": "loading",
+      "type": "boolean",
+      "required": false,
+      "description": ""
+    },
+    {
+      "name": "loadingText",
+      "type": "string",
+      "required": false,
+      "description": ""
+    },
+    {
+      "name": "noResultsChildren",
+      "type": "ReactElement<any, string | JSXElementConstructor<any>> | ReactElement<any, string | JSXElementConstructor<any>>[]",
+      "required": false,
+      "description": ""
     }
   ],
   "ListBoxItem": [],
   "ListBoxSection": [],
+  "LocalNavigationItem": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    },
+    {
+      "name": "isSelected",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the navigation item is currently selected"
+    }
+  ],
+  "LocalNavigation": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    }
+  ],
   "Menu": [
     {
       "name": "css",
@@ -1816,10 +1427,30 @@
       "description": "Theme aware style object"
     },
     {
+      "name": "getItemAriaLabel",
+      "type": "(type: \"next\" | \"previous\" | \"page\", page?: number | undefined, isActive?: boolean | undefined) => string",
+      "required": false,
+      "description": "Generate screen reader friendly aria-labels for pagination items, used for internationalized strings."
+    },
+    {
+      "name": "nextLabel",
+      "type": "string",
+      "defaultValue": "'Next'",
+      "required": false,
+      "description": "The label to render in the next button, used for internationalized strings."
+    },
+    {
       "name": "page",
       "type": "number",
       "required": false,
       "description": "The current page (controlled)."
+    },
+    {
+      "name": "previousLabel",
+      "type": "string",
+      "defaultValue": "'Previous'",
+      "required": false,
+      "description": "The label to render in the previous button, used for internationalized strings."
     },
     {
       "name": "rowsPerPage",
@@ -2009,7 +1640,7 @@
     },
     {
       "name": "type",
-      "type": "\"grid\" | \"dialog\" | \"menu\" | \"listbox\" | \"tree\"",
+      "type": "\"dialog\" | \"menu\" | \"grid\" | \"listbox\" | \"tree\"",
       "defaultValue": "'dialog'",
       "required": false,
       "description": "Type of popover that is opened by the trigger."
@@ -2116,6 +1747,64 @@
       "type": "CSS",
       "required": false,
       "description": "Theme aware style object."
+    }
+  ],
+  "SegmentedControl": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "The current value (controlled)."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "required": false,
+      "description": "The default value (uncontrolled)."
+    },
+    {
+      "name": "onChange",
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "Handler that is called when the value changes."
+    }
+  ],
+  "Segment": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    },
+    {
+      "name": "endAdornment",
+      "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Element added after the segment text."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "The rendered label of the segment."
+    },
+    {
+      "name": "startAdornment",
+      "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Element added before the segment text."
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": true,
+      "description": "The value of the segment item"
     }
   ],
   "Select": [
@@ -2391,7 +2080,7 @@
     },
     {
       "name": "type",
-      "type": "\"button\" | \"reset\" | \"submit\"",
+      "type": "\"button\" | \"submit\" | \"reset\"",
       "defaultValue": "'button'",
       "required": false,
       "description": "The behavior of the button when used in an HTML form."
@@ -2549,27 +2238,6 @@
       "description": "The size of the spinner"
     }
   ],
-  "Stack": [
-    {
-      "name": "css",
-      "type": "CSS",
-      "required": false,
-      "description": "Theme aware style object"
-    },
-    {
-      "name": "gap",
-      "type": "\"small\" | \"large\" | \"medium\" | \"x-large\" | \"x-small\"",
-      "required": false,
-      "description": "The gap between elements in the stack."
-    },
-    {
-      "name": "orientation",
-      "type": "\"horizontal\" | \"vertical\"",
-      "defaultValue": "'vertical'",
-      "required": false,
-      "description": "The layout orientation  of the stack."
-    }
-  ],
   "Switch": [],
   "Table": [
     {
@@ -2583,6 +2251,24 @@
       "type": "boolean",
       "required": false,
       "description": "Visually compact vertical spacing. Defaults to false"
+    },
+    {
+      "name": "showHover",
+      "type": "boolean",
+      "required": false,
+      "description": ""
+    },
+    {
+      "name": "onMouseEnter",
+      "type": "(event: MouseEvent<Element, MouseEvent>) => void",
+      "required": false,
+      "description": ""
+    },
+    {
+      "name": "onMouseLeave",
+      "type": "(event: MouseEvent<Element, MouseEvent>) => void",
+      "required": false,
+      "description": ""
     }
   ],
   "TableBody": [
@@ -2676,6 +2362,18 @@
       "type": "CSS",
       "required": false,
       "description": "Theme aware style object"
+    },
+    {
+      "name": "onMouseEnter",
+      "type": "(event: MouseEvent<HTMLTableRowElement, MouseEvent>) => void",
+      "required": false,
+      "description": "Handler called on mouse enter."
+    },
+    {
+      "name": "onMouseLeave",
+      "type": "(event: MouseEvent<HTMLTableRowElement, MouseEvent>) => void",
+      "required": false,
+      "description": "Handler called on mouse leave."
     }
   ],
   "Tag": [
@@ -2686,16 +2384,46 @@
       "description": ""
     },
     {
+      "name": "isCopyable",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the tag supports click to copy"
+    },
+    {
       "name": "isRemovable",
       "type": "boolean",
       "required": false,
-      "description": "Whether the tag is removeable."
+      "description": "Whether the tag is removable."
+    },
+    {
+      "name": "isDisabled",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the tag is disabled."
     },
     {
       "name": "onRemove",
       "type": "() => void",
       "required": false,
       "description": "Handler called on tag removable."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "description": "The tag label."
+    },
+    {
+      "name": "removeButtonProps",
+      "type": "ButtonHTMLAttributes<HTMLButtonElement>",
+      "required": false,
+      "description": "Props passed to the remove button."
+    },
+    {
+      "name": "startAdornment",
+      "type": "ReactNode",
+      "required": false,
+      "description": "The start adornment."
     },
     {
       "name": "as",
@@ -2742,46 +2470,10 @@
       "description": "Handler that is called when the value changes."
     },
     {
-      "name": "as",
-      "type": "NonNullable<T>",
-      "required": false,
-      "description": ""
-    },
-    {
-      "name": "isDisabled",
-      "type": "boolean",
-      "required": false,
-      "description": "Whether the input is disabled."
-    },
-    {
-      "name": "isReadOnly",
-      "type": "boolean",
-      "required": false,
-      "description": "Whether the input can be selected but not changed by the user."
-    },
-    {
-      "name": "validationState",
-      "type": "ValidationState",
-      "required": false,
-      "description": "Whether the input should display its \"valid\" or \"invalid\" visual styling."
-    },
-    {
-      "name": "css",
-      "type": "CSS",
-      "required": false,
-      "description": "Theme aware style object."
-    },
-    {
-      "name": "label",
+      "name": "endIcon",
       "type": "ReactNode",
       "required": false,
-      "description": "Label of the input element"
-    },
-    {
-      "name": "isRequired",
-      "type": "boolean",
-      "required": false,
-      "description": "Whether user input is required on the input before form submission."
+      "description": "Icon displayed at the end of the text field."
     },
     {
       "name": "helperText",
@@ -2796,12 +2488,6 @@
       "description": "Props passed to the helper text."
     },
     {
-      "name": "labelProps",
-      "type": "LabelHTMLAttributes<HTMLLabelElement>",
-      "required": false,
-      "description": "Props passed to the label."
-    },
-    {
       "name": "inputRef",
       "type": "RefObject<HTMLInputElement | HTMLTextAreaElement>",
       "required": false,
@@ -2814,10 +2500,64 @@
       "description": "Props passed to the input element."
     },
     {
+      "name": "isDisabled",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input is disabled."
+    },
+    {
+      "name": "isReadOnly",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input can be selected but not changed by the user."
+    },
+    {
+      "name": "isRequired",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether user input is required on the input before form submission."
+    },
+    {
+      "name": "label",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Label of the input element"
+    },
+    {
+      "name": "labelProps",
+      "type": "LabelHTMLAttributes<HTMLLabelElement>",
+      "required": false,
+      "description": "Props passed to the label."
+    },
+    {
       "name": "multiline",
       "type": "boolean",
       "required": false,
       "description": "Whether the textfield should support multiline input (textarea)."
+    },
+    {
+      "name": "startIcon",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Icon displayed at the start of the text field."
+    },
+    {
+      "name": "validationState",
+      "type": "ValidationState",
+      "required": false,
+      "description": "Whether the input should display its \"valid\" or \"invalid\" visual styling."
+    },
+    {
+      "name": "as",
+      "type": "NonNullable<T>",
+      "required": false,
+      "description": ""
+    },
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object."
     }
   ],
   "TextField": [
@@ -3017,7 +2757,7 @@
     },
     {
       "name": "placement",
-      "type": "\"bottom\" | \"left\" | \"right\" | \"top\" | \"end\" | \"start\"",
+      "type": "\"end\" | \"start\" | \"left\" | \"right\" | \"top\" | \"bottom\"",
       "defaultValue": "'top'",
       "required": false,
       "description": "The placement of the element with respect to its anchor element."
@@ -3138,7 +2878,7 @@
     },
     {
       "name": "variant",
-      "type": "\"display\" | \"body\" | \"caption\" | \"title\" | \"heading\" | \"bodyBold\" | \"captionBold\" | \"subtext\" | \"subtextBold\" | \"subtitle\"",
+      "type": "\"body\" | \"caption\" | \"title\" | \"display\" | \"heading\" | \"bodyBold\" | \"captionBold\" | \"subtext\" | \"subtextBold\" | \"subtitle\"",
       "defaultValue": "'primary'",
       "required": false,
       "description": "The display variant of the text."
