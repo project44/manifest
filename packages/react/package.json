@@ -1,6 +1,6 @@
 {
   "name": "@project44-manifest/react",
-  "version": "3.5.0",
+  "version": "3.5.1",
   "description": "Manifest Design System react components",
   "license": "MIT",
   "author": "project44",
@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@internationalized/date": "^3.0.0",
-    "@project44-manifest/react-icons": "^1.1.0",
+    "@project44-manifest/react-icons": "^1.1.1",
     "@project44-manifest/react-styles": "^2.0.1",
     "@project44-manifest/react-types": "^0.2.1",
     "@project44-manifest/theme": "^2.0.1",
