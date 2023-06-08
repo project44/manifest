@@ -1,5 +1,13 @@
 # @project44-manifest/react-icons
 
+## 1.1.1
+
+### Patch Changes
+
+- [#396](https://github.com/project44/manifest/pull/396)
+  [`4902ea2`](https://github.com/project44/manifest/commit/4902ea27ebb5f71122bf58cec959dc9a5f571696)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - Update WifiEmpty icon
+
 ## 1.1.0
 
 ### Minor Changes

@@ -1,5 +1,17 @@
 # @manifest/react
 
+## 3.5.1
+
+### Patch Changes
+
+- [#393](https://github.com/project44/manifest/pull/393)
+  [`d60405a`](https://github.com/project44/manifest/commit/d60405a37bd4d10db5ee722efb68465ceb69091b)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - document Combobox variant prop
+
+- Updated dependencies
+  [[`4902ea2`](https://github.com/project44/manifest/commit/4902ea27ebb5f71122bf58cec959dc9a5f571696)]:
+  - @project44-manifest/react-icons@1.1.1
+
 ## 3.5.0
 
 ### Minor Changes
