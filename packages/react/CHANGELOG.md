@@ -1,5 +1,14 @@
 # @manifest/react
 
+## 3.5.2
+
+### Patch Changes
+
+- [#398](https://github.com/project44/manifest/pull/398)
+  [`1ad7657`](https://github.com/project44/manifest/commit/1ad7657828c7e9643850375887048cb63e9005d4)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - Fix button font-family override
+  vulnerability user agent stylesheets
+
 ## 3.5.1
 
 ### Patch Changes
