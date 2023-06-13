@@ -11,6 +11,7 @@ export const StyledButton = styled('button', {
   color: '$text-primary',
   cursor: 'pointer',
   display: 'inline-flex',
+  fontFamily: 'inherit',
   fontSize: '$small',
   fontWeight: '$semibold',
   justifyContent: 'center',
