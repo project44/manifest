@@ -15,6 +15,10 @@ export const useStyles = css({
   py: pxToRem(6),
   position: 'relative',
 
+  '.manifest-checkbox': {
+    pointerEvents: 'none',
+  },
+
   '.manifest-listbox-item__icon': {
     alignSelf: 'center',
     color: '$text-secondary',
