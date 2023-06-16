@@ -44,7 +44,8 @@ export const defineds = {
   endOfToday: calendarDate,
   startOfYesterday: addDays(calendarDate, -1),
   endOfYesterday: addDays(calendarDate, -1),
-  startOfWeek: startOfWeek(calendarDate, 'en-US'),
+  sevenDaysAgo: addDays(calendarDate, -7),
+  thirtyDaysAgo: addDays(calendarDate, -30),
   endOfWeek: endOfWeek(calendarDate, 'en-US'),
   startOfLastWeek: startOfWeek(addDays(calendarDate, -7), 'en-US'),
   endOfLastWeek: endOfWeek(addDays(calendarDate, -7), 'en-US'),
@@ -72,19 +73,19 @@ export const getDefaultRanges = (): DefinedRange[] => [
     },
   },
   {
-    key: 'thisWeek',
-    label: 'This Week',
+    key: 'last7Days',
+    label: 'Last 7 days',
     value: {
-      start: defineds.startOfWeek,
-      end: defineds.endOfWeek,
+      start: defineds.sevenDaysAgo,
+      end: defineds.endOfToday,
     },
   },
   {
-    key: 'lastWeek',
-    label: 'Last Week',
+    key: 'last30Days',
+    label: 'Last 30 days',
     value: {
-      start: defineds.startOfLastWeek,
-      end: defineds.endOfLastWeek,
+      start: defineds.thirtyDaysAgo,
+      end: defineds.endOfToday,
     },
   },
   {

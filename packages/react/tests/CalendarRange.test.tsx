@@ -103,8 +103,8 @@ describe('@project44-manifest/react - CalendarRange', () => {
     expect(results).toBeDefined();
     expect(results).toContainHTML('Today');
     expect(results).toContainHTML('Yesterday');
-    expect(results).toContainHTML('This Week');
-    expect(results).toContainHTML('Last Week');
+    expect(results).toContainHTML('Last 7 days');
+    expect(results).toContainHTML('Last 30 days');
     expect(results).toContainHTML('This Month');
     expect(results).toContainHTML('Last Month');
   });

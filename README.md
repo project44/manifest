@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://project44.github.io/manifest/ "><img src="apps/docs/public/images/logo.png" width="200" height="200" /></a>
+  <a href="https://project44.github.io/manifest/ "><img src="apps/website/static/img/logo.svg" width="200" height="200" /></a>
 </div>
 
 <h1 align="center">Manifest Design System</h1>
