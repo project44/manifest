@@ -74,6 +74,8 @@ export type { MultiComboboxProps } from './components/MultiCombobox';
 export { MultiCombobox } from './components/MultiCombobox';
 export type { MultiSelectProps } from './components/MultiSelect';
 export { MultiSelect } from './components/MultiSelect';
+export type { NumberFieldProps } from './components/NumberField';
+export { NumberField } from './components/NumberField';
 export type { OverlayProps, Placement } from './components/Overlay';
 export { Overlay } from './components/Overlay';
 export type { PaginationElement, PaginationProps } from './components/Pagination';
