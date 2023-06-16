@@ -30,12 +30,12 @@ Sizes.decorators = [
   () => (
     <Flex css={{ gap: '$small' }} orientation="vertical">
       <Select size="medium">
-        <SelectItem key="Ardvark">Ardvark</SelectItem>
+        <SelectItem key="Aardvark">Aardvark</SelectItem>
         <SelectItem key="Kangaroo">Kangaroo</SelectItem>
         <SelectItem key="Snake">Snake</SelectItem>
       </Select>
       <Select size="small">
-        <SelectItem key="Ardvark">Ardvark</SelectItem>
+        <SelectItem key="Aardvark">Aardvark</SelectItem>
         <SelectItem key="Kangaroo">Kangaroo</SelectItem>
         <SelectItem key="Snake">Snake</SelectItem>
       </Select>
@@ -48,7 +48,7 @@ export const StartIcon = Template.bind({});
 StartIcon.decorators = [
   () => (
     <Select startIcon={<Icon icon="search" />}>
-      <SelectItem key="Ardvark">Ardvark</SelectItem>
+      <SelectItem key="Aardvark">Aardvark</SelectItem>
       <SelectItem key="Kangaroo">Kangaroo</SelectItem>
       <SelectItem key="Snake">Snake</SelectItem>
     </Select>
@@ -60,7 +60,7 @@ export const Label = Template.bind({});
 Label.decorators = [
   () => (
     <Select label="Animal">
-      <SelectItem key="Ardvark">Ardvark</SelectItem>
+      <SelectItem key="Aardvark">Aardvark</SelectItem>
       <SelectItem key="Kangaroo">Kangaroo</SelectItem>
       <SelectItem key="Snake">Snake</SelectItem>
     </Select>
@@ -72,7 +72,7 @@ export const HelperText = Template.bind({});
 HelperText.decorators = [
   () => (
     <Select helperText="Please select an animal">
-      <SelectItem key="Ardvark">Ardvark</SelectItem>
+      <SelectItem key="Aardvark">Aardvark</SelectItem>
       <SelectItem key="Kangaroo">Kangaroo</SelectItem>
       <SelectItem key="Snake">Snake</SelectItem>
     </Select>
@@ -84,7 +84,7 @@ export const Invalid = Template.bind({});
 Invalid.decorators = [
   () => (
     <Select helperText="Error text" validationState="invalid">
-      <SelectItem key="Ardvark">Ardvark</SelectItem>
+      <SelectItem key="Aardvark">Aardvark</SelectItem>
       <SelectItem key="Kangaroo">Kangaroo</SelectItem>
       <SelectItem key="Snake">Snake</SelectItem>
     </Select>
@@ -99,7 +99,7 @@ Controlled.decorators = [
 
     return (
       <Select selectedKey={selected} onSelectionChange={setSelected}>
-        <SelectItem key="Ardvark">Ardvark</SelectItem>
+        <SelectItem key="Aardvark">Aardvark</SelectItem>
         <SelectItem key="Kangaroo">Kangaroo</SelectItem>
         <SelectItem key="Snake">Snake</SelectItem>
       </Select>
