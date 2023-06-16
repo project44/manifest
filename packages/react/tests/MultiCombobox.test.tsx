@@ -24,7 +24,7 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       render(
         <OverlayProvider>
           <MultiCombobox label="Select">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
             <SelectSection title="Section">
@@ -55,7 +55,7 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       render(
         <OverlayProvider>
           <MultiCombobox defaultInputValue="hsdjhnkjfd" label="Select" onOpenChange={onOpenChange}>
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiCombobox>
@@ -83,7 +83,7 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       render(
         <OverlayProvider>
           <MultiCombobox label="Select" menuTrigger="focus">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiCombobox>
@@ -109,7 +109,7 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       render(
         <OverlayProvider>
           <MultiCombobox label="Select">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiCombobox>
@@ -138,7 +138,7 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       render(
         <OverlayProvider>
           <MultiCombobox label="Select">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiCombobox>
@@ -169,7 +169,7 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       render(
         <OverlayProvider>
           <MultiCombobox label="Select" onOpenChange={onOpenChange}>
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiCombobox>
@@ -203,7 +203,7 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       render(
         <OverlayProvider>
           <MultiCombobox label="Select">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiCombobox>
@@ -239,7 +239,7 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       render(
         <OverlayProvider>
           <MultiCombobox label="Select">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiCombobox>
@@ -275,7 +275,7 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       render(
         <OverlayProvider>
           <MultiCombobox label="Select">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiCombobox>
@@ -307,8 +307,8 @@ describe('@project44-manifest/react - MultiCombobox', () => {
     it('should reset the input value on escape key down and custom value', () => {
       render(
         <OverlayProvider>
-          <MultiCombobox allowsCustomValue label="Select" selectedKeys={['ardvark']}>
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+          <MultiCombobox allowsCustomValue label="Select" selectedKeys={['Aardvark']}>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiCombobox>
@@ -349,7 +349,7 @@ describe('@project44-manifest/react - MultiCombobox', () => {
             label="Select"
             onSelectionChange={onSelectionChange}
           >
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiCombobox>
@@ -378,7 +378,7 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       render(
         <OverlayProvider>
           <MultiCombobox label="Select" onSelectionChange={onSelectionChange}>
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiCombobox>
@@ -409,7 +409,7 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       render(
         <OverlayProvider>
           <MultiCombobox label="Select" onSelectionChange={onSelectionChange}>
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiCombobox>
@@ -440,11 +440,11 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       render(
         <OverlayProvider>
           <MultiCombobox
-            defaultSelectedKeys={['ardvark']}
+            defaultSelectedKeys={['Aardvark']}
             label="Select"
             onInputChange={onInputChange}
           >
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiCombobox>
@@ -453,7 +453,7 @@ describe('@project44-manifest/react - MultiCombobox', () => {
 
       const combobox: HTMLInputElement = screen.getByRole('combobox');
 
-      expect(screen.getByText('Ardvark')).toBeVisible();
+      expect(screen.getByText('Aardvark')).toBeVisible();
 
       act(() => {
         combobox.focus();
@@ -485,12 +485,12 @@ describe('@project44-manifest/react - MultiCombobox', () => {
           <MultiCombobox
             allowsCustomValue
             label="Select"
-            selectedKeys={['ardvark']}
+            selectedKeys={['Aardvark']}
             onKeyDown={onKeyDown}
             onOpenChange={onOpenChange}
             onSelectionChange={onSelectionChange}
           >
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiCombobox>
@@ -539,7 +539,7 @@ describe('@project44-manifest/react - MultiCombobox', () => {
       render(
         <OverlayProvider>
           <MultiCombobox label="Select" {...focusProps}>
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiCombobox>

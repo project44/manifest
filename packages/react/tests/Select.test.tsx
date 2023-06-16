@@ -9,7 +9,7 @@ describe('@project44-manifest/react - Select', () => {
     render(
       <OverlayProvider>
         <Select disabledKeys={['snake']} label="Select" onSelectionChange={onSelectionChange}>
-          <SelectItem key="ardvark">Ardvark</SelectItem>
+          <SelectItem key="Aardvark">Aardvark</SelectItem>
           <SelectItem key="kangaroo">Kangaroo</SelectItem>
           <SelectItem key="snake">Snake</SelectItem>
           <SelectSection title="Section">
@@ -52,7 +52,7 @@ describe('@project44-manifest/react - Select', () => {
     render(
       <OverlayProvider>
         <Select label="Select" onOpenChange={onOpenChange} onSelectionChange={onSelectionChange}>
-          <SelectItem key="ardvark">Ardvark</SelectItem>
+          <SelectItem key="Aardvark">Aardvark</SelectItem>
           <SelectItem key="kangaroo">Kangaroo</SelectItem>
           <SelectItem key="snake">Snake</SelectItem>
         </Select>

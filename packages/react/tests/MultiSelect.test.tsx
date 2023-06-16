@@ -24,7 +24,7 @@ describe('@project44-manifest/react - MultiSelect', () => {
       render(
         <OverlayProvider>
           <MultiSelect label="Select">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
             <SelectSection title="Section">
@@ -58,7 +58,7 @@ describe('@project44-manifest/react - MultiSelect', () => {
       render(
         <OverlayProvider>
           <MultiSelect label="Select">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiSelect>
@@ -84,7 +84,7 @@ describe('@project44-manifest/react - MultiSelect', () => {
       render(
         <OverlayProvider>
           <MultiSelect label="Select">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiSelect>
@@ -109,7 +109,7 @@ describe('@project44-manifest/react - MultiSelect', () => {
       render(
         <OverlayProvider>
           <MultiSelect label="Select">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiSelect>
@@ -134,7 +134,7 @@ describe('@project44-manifest/react - MultiSelect', () => {
       render(
         <OverlayProvider>
           <MultiSelect label="Select">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiSelect>
@@ -160,7 +160,7 @@ describe('@project44-manifest/react - MultiSelect', () => {
       render(
         <OverlayProvider>
           <MultiSelect label="Select">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiSelect>
@@ -188,7 +188,7 @@ describe('@project44-manifest/react - MultiSelect', () => {
       render(
         <OverlayProvider>
           <MultiSelect label="Select">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiSelect>
@@ -228,7 +228,7 @@ describe('@project44-manifest/react - MultiSelect', () => {
       render(
         <OverlayProvider>
           <MultiSelect label="Select">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiSelect>
@@ -273,7 +273,7 @@ describe('@project44-manifest/react - MultiSelect', () => {
             label="Select"
             onSelectionChange={onSelectionChange}
           >
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiSelect>
@@ -308,7 +308,7 @@ describe('@project44-manifest/react - MultiSelect', () => {
       render(
         <OverlayProvider>
           <MultiSelect label="Select" onSelectionChange={onSelectionChange}>
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiSelect>
@@ -348,7 +348,7 @@ describe('@project44-manifest/react - MultiSelect', () => {
       render(
         <OverlayProvider>
           <MultiSelect label="Select" onSelectionChange={onSelectionChange}>
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiSelect>
@@ -388,7 +388,7 @@ describe('@project44-manifest/react - MultiSelect', () => {
       render(
         <OverlayProvider>
           <MultiSelect label="Select" onSelectionChange={onSelectionChange}>
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiSelect>
@@ -428,7 +428,7 @@ describe('@project44-manifest/react - MultiSelect', () => {
       render(
         <OverlayProvider>
           <MultiSelect label="Select" placeholder="Select an option...">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiSelect>
@@ -448,7 +448,7 @@ describe('@project44-manifest/react - MultiSelect', () => {
       render(
         <OverlayProvider>
           <MultiSelect aria-label="Select" placeholder="Select an option...">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiSelect>
@@ -468,7 +468,7 @@ describe('@project44-manifest/react - MultiSelect', () => {
       render(
         <OverlayProvider>
           <MultiSelect aria-labelledby="select" placeholder="Select an option...">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiSelect>
@@ -493,7 +493,7 @@ describe('@project44-manifest/react - MultiSelect', () => {
       render(
         <OverlayProvider>
           <MultiSelect label="Select" placeholder="Select an option...">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiSelect>
@@ -525,7 +525,7 @@ describe('@project44-manifest/react - MultiSelect', () => {
       render(
         <OverlayProvider>
           <MultiSelect label="Select" {...focusProps}>
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiSelect>
@@ -543,7 +543,7 @@ describe('@project44-manifest/react - MultiSelect', () => {
       render(
         <OverlayProvider>
           <MultiSelect label="Select">
-            <SelectItem key="ardvark">Ardvark</SelectItem>
+            <SelectItem key="Aardvark">Aardvark</SelectItem>
             <SelectItem key="kangaroo">Kangaroo</SelectItem>
             <SelectItem key="snake">Snake</SelectItem>
           </MultiSelect>

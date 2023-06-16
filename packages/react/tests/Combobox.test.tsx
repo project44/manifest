@@ -23,7 +23,7 @@ describe('@project44-manifest/react - Combobox', () => {
     render(
       <OverlayProvider>
         <Combobox label="Combobox" startIcon={<>icon</>}>
-          <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+          <ComboboxItem key="Aardvark">Aardvark</ComboboxItem>
           <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
           <ComboboxItem key="snake">Snake</ComboboxItem>
           <ComboboxSection title="Section">
@@ -50,7 +50,7 @@ describe('@project44-manifest/react - Combobox', () => {
     render(
       <OverlayProvider>
         <Combobox label="Combobox">
-          <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+          <ComboboxItem key="Aardvark">Aardvark</ComboboxItem>
           <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
           <ComboboxItem key="snake">Snake</ComboboxItem>
         </Combobox>
@@ -78,7 +78,7 @@ describe('@project44-manifest/react - Combobox', () => {
     render(
       <OverlayProvider>
         <Combobox label="Combobox" onOpenChange={onOpenChange}>
-          <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+          <ComboboxItem key="Aardvark">Aardvark</ComboboxItem>
           <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
           <ComboboxItem key="snake">Snake</ComboboxItem>
         </Combobox>
@@ -108,7 +108,7 @@ describe('@project44-manifest/react - Combobox', () => {
     render(
       <OverlayProvider>
         <Combobox label="Combobox" onSelectionChange={onSelectionChange}>
-          <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+          <ComboboxItem key="Aardvark">Aardvark</ComboboxItem>
           <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
           <ComboboxItem key="snake">Snake</ComboboxItem>
         </Combobox>
@@ -131,14 +131,14 @@ describe('@project44-manifest/react - Combobox', () => {
     fireEvent.click(items[0]);
 
     expect(onSelectionChange).toHaveBeenCalled();
-    expect(onSelectionChange).toHaveBeenCalledWith('ardvark');
+    expect(onSelectionChange).toHaveBeenCalledWith('Aardvark');
   });
 
   it('should open the listbox when opened by the keyboard', () => {
     render(
       <OverlayProvider>
         <Combobox label="Combobox">
-          <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+          <ComboboxItem key="Aardvark">Aardvark</ComboboxItem>
           <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
           <ComboboxItem key="snake">Snake</ComboboxItem>
         </Combobox>
@@ -163,7 +163,7 @@ describe('@project44-manifest/react - Combobox', () => {
     render(
       <OverlayProvider>
         <Combobox label="Combobox" onInputChange={onInputChange} onOpenChange={onOpenChange}>
-          <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+          <ComboboxItem key="Aardvark">Aardvark</ComboboxItem>
           <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
           <ComboboxItem key="snake">Snake</ComboboxItem>
         </Combobox>
@@ -192,7 +192,7 @@ describe('@project44-manifest/react - Combobox', () => {
     render(
       <OverlayProvider>
         <Combobox label="Combobox" variant="autocomplete">
-          <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+          <ComboboxItem key="Aardvark">Aardvark</ComboboxItem>
           <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
           <ComboboxItem key="snake">Snake</ComboboxItem>
         </Combobox>
@@ -208,7 +208,7 @@ describe('@project44-manifest/react - Combobox', () => {
     render(
       <OverlayProvider>
         <Combobox label="Combobox">
-          <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+          <ComboboxItem key="Aardvark">Aardvark</ComboboxItem>
           <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
           <ComboboxItem key="snake">Snake</ComboboxItem>
         </Combobox>

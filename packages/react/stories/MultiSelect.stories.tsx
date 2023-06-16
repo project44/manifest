@@ -29,7 +29,7 @@ export const StartIcon = Template.bind({});
 StartIcon.decorators = [
   () => (
     <MultiSelect startIcon={<Icon icon="search" />}>
-      <SelectItem key="Ardvark">Ardvark</SelectItem>
+      <SelectItem key="Aardvark">Aardvark</SelectItem>
       <SelectItem key="Kangaroo">Kangaroo</SelectItem>
       <SelectItem key="Snake">Snake</SelectItem>
     </MultiSelect>
@@ -41,7 +41,7 @@ export const Label = Template.bind({});
 Label.decorators = [
   () => (
     <MultiSelect label="Animal">
-      <SelectItem key="Ardvark">Ardvark</SelectItem>
+      <SelectItem key="Aardvark">Aardvark</SelectItem>
       <SelectItem key="Kangaroo">Kangaroo</SelectItem>
       <SelectItem key="Snake">Snake</SelectItem>
     </MultiSelect>
@@ -53,7 +53,7 @@ export const HelperText = Template.bind({});
 HelperText.decorators = [
   () => (
     <MultiSelect helperText="Please select an animal">
-      <SelectItem key="Ardvark">Ardvark</SelectItem>
+      <SelectItem key="Aardvark">Aardvark</SelectItem>
       <SelectItem key="Kangaroo">Kangaroo</SelectItem>
       <SelectItem key="Snake">Snake</SelectItem>
     </MultiSelect>
@@ -65,7 +65,7 @@ export const Invalid = Template.bind({});
 Invalid.decorators = [
   () => (
     <MultiSelect helperText="Error text" validationState="invalid">
-      <SelectItem key="Ardvark">Ardvark</SelectItem>
+      <SelectItem key="Aardvark">Aardvark</SelectItem>
       <SelectItem key="Kangaroo">Kangaroo</SelectItem>
       <SelectItem key="Snake">Snake</SelectItem>
     </MultiSelect>
@@ -84,7 +84,7 @@ Controlled.decorators = [
 
     return (
       <MultiSelect selectedKeys={selected} onSelectionChange={handleSelectionChange}>
-        <SelectItem key="Ardvark">Ardvark</SelectItem>
+        <SelectItem key="Aardvark">Aardvark</SelectItem>
         <SelectItem key="Kangaroo">Kangaroo</SelectItem>
         <SelectItem key="Snake">Snake</SelectItem>
       </MultiSelect>

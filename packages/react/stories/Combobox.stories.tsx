@@ -14,7 +14,7 @@ export const Default = Template.bind({});
 Default.decorators = [
   () => (
     <Combobox>
-      <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+      <ComboboxItem key="Aardvark">Aardvark</ComboboxItem>
       <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
       <ComboboxItem key="snake">Snake</ComboboxItem>
     </Combobox>
@@ -27,12 +27,12 @@ Sizes.decorators = [
   () => (
     <Flex css={{ gap: '$small' }} orientation="vertical">
       <Combobox size="medium">
-        <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+        <ComboboxItem key="Aardvark">Aardvark</ComboboxItem>
         <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
         <ComboboxItem key="snake">Snake</ComboboxItem>
       </Combobox>
       <Combobox size="small">
-        <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+        <ComboboxItem key="Aardvark">Aardvark</ComboboxItem>
         <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
         <ComboboxItem key="snake">Snake</ComboboxItem>
       </Combobox>
@@ -45,7 +45,7 @@ export const StartIcon = Template.bind({});
 StartIcon.decorators = [
   () => (
     <Combobox startIcon={<Icon icon="search" />}>
-      <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+      <ComboboxItem key="Aardvark">Aardvark</ComboboxItem>
       <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
       <ComboboxItem key="snake">Snake</ComboboxItem>
     </Combobox>
@@ -58,12 +58,12 @@ Variant.decorators = [
   () => (
     <Flex css={{ gap: '$small' }} orientation="vertical">
       <Combobox>
-        <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+        <ComboboxItem key="Aardvark">Aardvark</ComboboxItem>
         <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
         <ComboboxItem key="snake">Snake</ComboboxItem>
       </Combobox>
       <Combobox variant="autocomplete">
-        <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+        <ComboboxItem key="Aardvark">Aardvark</ComboboxItem>
         <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
         <ComboboxItem key="snake">Snake</ComboboxItem>
       </Combobox>
@@ -76,7 +76,7 @@ export const Loading = Template.bind({});
 Loading.decorators = [
   () => (
     <Combobox loading loadingText="Loading...">
-      <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+      <ComboboxItem key="Aardvark">Aardvark</ComboboxItem>
       <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
       <ComboboxItem key="snake">Snake</ComboboxItem>
     </Combobox>
@@ -92,7 +92,7 @@ NoResultsChildren.decorators = [
       helperText="Start typing 'test' to see no results state..."
       noResultsChildren={<Typography variant="caption">No results</Typography>}
     >
-      <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+      <ComboboxItem key="Aardvark">Aardvark</ComboboxItem>
     </Combobox>
   ),
 ];
@@ -102,7 +102,7 @@ export const FormControl = Template.bind({});
 FormControl.decorators = [
   () => (
     <Combobox helperText="Helper text" label="Label" startIcon={<Icon icon="search" />}>
-      <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+      <ComboboxItem key="Aardvark">Aardvark</ComboboxItem>
       <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
       <ComboboxItem key="snake">Snake</ComboboxItem>
     </Combobox>
@@ -119,7 +119,7 @@ Invalid.decorators = [
       startIcon={<Icon icon="search" />}
       validationState="invalid"
     >
-      <ComboboxItem key="ardvark">Ardvark</ComboboxItem>
+      <ComboboxItem key="Aardvark">Aardvark</ComboboxItem>
       <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
       <ComboboxItem key="snake">Snake</ComboboxItem>
     </Combobox>

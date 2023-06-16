@@ -13,7 +13,7 @@ it('should render and support selection', () => {
           <Collapsed />
         </IconButton>
         <DropdownMenu onAction={onAction}>
-          <DropdownItem key="ardvark">Ardvark</DropdownItem>
+          <DropdownItem key="Aardvark">Aardvark</DropdownItem>
           <DropdownItem key="kangaroo">Kangaroo</DropdownItem>
           <DropdownItem key="snake">Snake</DropdownItem>
           <DropdownSection title="Section">
@@ -34,7 +34,7 @@ it('should render and support selection', () => {
   expect(menu).toBeVisible();
   expect(items).toHaveLength(4);
 
-  fireEvent.click(screen.getByText('Ardvark'));
+  fireEvent.click(screen.getByText('Aardvark'));
 
   expect(onAction).toHaveBeenCalled();
 });
@@ -49,7 +49,7 @@ it('should keyboard navigation', () => {
           <Collapsed />
         </IconButton>
         <DropdownMenu onAction={onAction}>
-          <DropdownItem key="ardvark">Ardvark</DropdownItem>
+          <DropdownItem key="Aardvark">Aardvark</DropdownItem>
           <DropdownItem key="kangaroo">Kangaroo</DropdownItem>
           <DropdownItem key="snake">Snake</DropdownItem>
         </DropdownMenu>
@@ -96,7 +96,7 @@ it('should support disabled keys', () => {
           <Collapsed />
         </IconButton>
         <DropdownMenu disabledKeys={['kangaroo']} onAction={onAction}>
-          <DropdownItem key="ardvark">Ardvark</DropdownItem>
+          <DropdownItem key="Aardvark">Aardvark</DropdownItem>
           <DropdownItem key="kangaroo">Kangaroo</DropdownItem>
           <DropdownItem key="snake">Snake</DropdownItem>
         </DropdownMenu>
@@ -135,7 +135,7 @@ it('should support single selection', () => {
           selectionMode="single"
           onSelectionChange={onSelectionChange}
         >
-          <DropdownItem key="ardvark">Ardvark</DropdownItem>
+          <DropdownItem key="Aardvark">Aardvark</DropdownItem>
           <DropdownItem key="kangaroo">Kangaroo</DropdownItem>
           <DropdownItem key="snake">Snake</DropdownItem>
         </DropdownMenu>
@@ -179,7 +179,7 @@ it('should support multi selection', () => {
           selectionMode="multiple"
           onSelectionChange={onSelectionChange}
         >
-          <DropdownItem key="ardvark">Ardvark</DropdownItem>
+          <DropdownItem key="Aardvark">Aardvark</DropdownItem>
           <DropdownItem key="kangaroo">Kangaroo</DropdownItem>
           <DropdownItem key="snake">Snake</DropdownItem>
         </DropdownMenu>
