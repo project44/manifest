@@ -1,5 +1,17 @@
 # @manifest/react
 
+## 3.6.0
+
+### Minor Changes
+
+- [#400](https://github.com/project44/manifest/pull/400)
+  [`697e8b9`](https://github.com/project44/manifest/commit/697e8b9e47102bd9d60210aa85d3702b2d8594f0)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - add last N days presets
+
+* [#405](https://github.com/project44/manifest/pull/405)
+  [`5b1b6c7`](https://github.com/project44/manifest/commit/5b1b6c7188b4005711a662e94a953dbab3e123ab)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - fix ListBox click area
+
 ## 3.5.2
 
 ### Patch Changes
