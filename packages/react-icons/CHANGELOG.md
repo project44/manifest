@@ -1,5 +1,14 @@
 # @project44-manifest/react-icons
 
+## 1.2.0
+
+### Minor Changes
+
+- [#406](https://github.com/project44/manifest/pull/406)
+  [`451cb10`](https://github.com/project44/manifest/commit/451cb10f18434353dcd8d80320fa064d5d440892)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - Add person check/arrows, pause,
+  key, delete, reinstate, deactivate icons
+
 ## 1.1.1
 
 ### Patch Changes
