@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { PressEvent } from '@react-types/shared';
 import { ChevronDown } from '@project44-manifest/react-icons';
 import { RowData } from '@tanstack/react-table';
-import { IconButton } from '../../../IconButton';
+import { IconButton } from '../../../button';
 import type { DataTableExpandAllButtonProps } from './DataTableExpandAllButton.types';
 
 export function DataTableExpandAllButton<TData extends RowData>(

@@ -11,8 +11,8 @@ import type {
   SortingState,
   Table,
 } from '@tanstack/react-table';
+import type { IconButtonProps } from '../button';
 import type { CheckboxProps } from '../Checkbox';
-import type { IconButtonProps } from '../IconButton';
 import type { PaginationProps } from '../Pagination';
 
 export { ColumnDef };
