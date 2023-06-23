@@ -37,3 +37,26 @@ Collapsible.decorators = [
     </Flex>
   ),
 ];
+
+export const CustomColor = Template.bind({});
+
+CustomColor.decorators = [
+  () => (
+    <Flex align="center" css={{ gap: '$small' }}>
+      <Pill
+        css={{
+          backgroundColor: '$colors$palette-green-50',
+          '.manifest-pill__text': {
+            backgroundColor: 'inherit',
+            color: '$palette-green-700',
+          },
+          '.manifest-pill__icon': {
+            backgroundColor: '$palette-green-700',
+          },
+        }}
+        icon={<AirplaneFilled />}
+        label="In Transit"
+      />
+    </Flex>
+  ),
+];

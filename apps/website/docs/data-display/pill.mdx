@@ -37,6 +37,27 @@ Set the `isCollapsible` prop to make the pill collapse by default. The label wil
 <Pill icon={<AirplaneFilled />} isCollapsible label="In Transit" />
 ```
 
+### Custom theme
+
+An example of a custom theming
+
+```jsx live
+<Pill
+  css={{
+    backgroundColor: '$colors$palette-green-50',
+    '.manifest-pill__text': {
+      backgroundColor: 'inherit',
+      color: '$palette-green-700',
+    },
+    '.manifest-pill__icon': {
+      backgroundColor: '$palette-green-700',
+    },
+  }}
+  icon={<AirplaneFilled />}
+  label="In Transit"
+/>
+```
+
 ## Props
 
 <PropsTable component="Pill" />
