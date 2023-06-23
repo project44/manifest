@@ -1,7 +1,7 @@
 import { css, pxToRem } from '@project44-manifest/react-styles';
 
 export const useStyles = css({
-  $$backgroundColor: 'tranparent',
+  $$backgroundColor: 'transparent',
 
   alignItems: 'center',
   backgroundColor: '$$backgroundColor',
