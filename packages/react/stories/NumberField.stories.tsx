@@ -142,8 +142,8 @@ Units.decorators = [
           <SelectItem key="pound">Pound</SelectItem>
         </Select>
         <Select
-          label="Unit formating style"
-          placeholder="Select unit formating style..."
+          label="Unit formatting style"
+          placeholder="Select unit formatting style..."
           selectedKey={unitDisplay}
           onSelectionChange={onUnitDisplayChange}
         >

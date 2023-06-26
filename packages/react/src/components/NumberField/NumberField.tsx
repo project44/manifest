@@ -23,7 +23,7 @@ export interface NumberFieldOptions<T extends As = NumberFieldBaseElement>
    */
   defaultValue?: number;
   /**
-   * Formating options (Intl - ECMAScript Internationalization API)
+   * Formatting options (Intl - ECMAScript Internationalization API)
    */
   formatOptions?: Intl.NumberFormatOptions;
   /**

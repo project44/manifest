@@ -5,8 +5,8 @@ sidebar_custom_props:
   status: 'production'
 ---
 
-Allows users to enter and edit numeric information. Number is displayed with default local formating
-(using `Intl` - ECMAScript Internationalization API)
+Allows users to enter and edit numeric information. Number is displayed with default local
+formatting (using `Intl` - ECMAScript Internationalization API)
 
 ```jsx live
 <NumberField aria-label="number" />
@@ -43,13 +43,13 @@ function ControlledExample() {
 }
 ```
 
-### Custom formating - currency - simple
+### Custom formatting - currency - simple
 
 A input area's state can be controlled by a parent React component by setting the `value` prop and
 passing a handler to the `onChange` prop.
 
 ```jsx live
-function FormatingCurrencyExample() {
+function FormattingCurrencyExample() {
   const [value, setValue] = React.useState('1234');
 
   return (
@@ -66,13 +66,13 @@ function FormatingCurrencyExample() {
 }
 ```
 
-### Custom formating - currency - advanced
+### Custom formatting - currency - advanced
 
 A input area's state can be controlled by a parent React component by setting the `value` prop and
 passing a handler to the `onChange` prop.
 
 ```jsx live
-function FormatingCurrencyAdvancedExample() {
+function FormattingCurrencyAdvancedExample() {
   const [value, setValue] = React.useState('1234');
 
   return (
@@ -92,12 +92,12 @@ function FormatingCurrencyAdvancedExample() {
 }
 ```
 
-### Custom formating - units
+### Custom formatting - units
 
 Set the `isDisabled` prop to prevent a user from inputting.
 
 ```jsx live
-function FormatingUnitsExample() {
+function FormattingUnitsExample() {
   const [value, setValue] = React.useState('1234');
 
   return (
