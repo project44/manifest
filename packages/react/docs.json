@@ -327,12 +327,7 @@
     }
   ],
   "ComboboxItem": [
-    {
-      "name": "as",
-      "type": "\"div\"",
-      "required": false,
-      "description": ""
-    },
+    { "name": "as", "type": "\"div\"", "required": false, "description": "" },
     {
       "name": "css",
       "type": "CSS",
@@ -347,12 +342,7 @@
     }
   ],
   "ComboboxSection": [
-    {
-      "name": "as",
-      "type": "\"div\"",
-      "required": false,
-      "description": ""
-    },
+    { "name": "as", "type": "\"div\"", "required": false, "description": "" },
     {
       "name": "children",
       "type": "ReactNode & (ItemElement<object> | ItemElement<object>[] | ItemRenderer<object>)",
@@ -364,6 +354,226 @@
       "type": "CSS",
       "required": false,
       "description": "Theme aware style object."
+    }
+  ],
+  "Container": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    },
+    {
+      "name": "fixed",
+      "type": "boolean",
+      "defaultValue": "true",
+      "required": false,
+      "description": "Whether the container should adjust its max-width based on the current screen size."
+    },
+    {
+      "name": "maxWidth",
+      "type": "\"small\" | \"medium\" | \"large\" | \"x-large\" | \"x-small\"",
+      "defaultValue": "'large'",
+      "required": false,
+      "description": "The max-width of the container."
+    }
+  ],
+  "DataTable": [
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    },
+    {
+      "name": "data",
+      "type": "TData[]",
+      "required": true,
+      "description": "The data used to populate the table."
+    },
+    {
+      "name": "defaultColumn",
+      "type": "Partial<ColumnDef<TData, unknown>>",
+      "required": false,
+      "description": "A default ColumnDef applied to all components in the table."
+    },
+    {
+      "name": "columns",
+      "type": "ColumnDef<TData, unknown>[]",
+      "required": true,
+      "description": "The column definition for the table.\n\nShould follow the `@tanstack/react-table` [ColumnDef](https://tanstack.com/table/v8/docs/guide/column-defs)"
+    },
+    {
+      "name": "initialState",
+      "type": "Partial<DataTableState>",
+      "required": false,
+      "description": "The initial state of the table, can be set without controlling the state completely."
+    },
+    {
+      "name": "isLoading",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the table is currently loading data."
+    },
+    {
+      "name": "enableExpandAll",
+      "type": "boolean",
+      "defaultValue": "false",
+      "required": false,
+      "description": "Whether the table supports expanding all table rows."
+    },
+    {
+      "name": "enableExpanding",
+      "type": "boolean",
+      "defaultValue": "true",
+      "required": false,
+      "description": "Whether the table supports row expansion."
+    },
+    {
+      "name": "enablePagination",
+      "type": "boolean",
+      "defaultValue": "true",
+      "required": false,
+      "description": "Whether the table supports pagination."
+    },
+    {
+      "name": "enablePinning",
+      "type": "boolean",
+      "defaultValue": "true",
+      "required": false,
+      "description": "Whether the table supports pinned columns."
+    },
+    {
+      "name": "enableMultiRowSelection",
+      "type": "boolean | ((row: Row<TData>) => boolean)",
+      "defaultValue": "true",
+      "required": false,
+      "description": "Whether to enable multiple row selection for all rows in the table.\n\nOptionally pass in a function that given a row, returns whether to enable/disable row selection for the children in that row"
+    },
+    {
+      "name": "enableRowSelection",
+      "type": "boolean | ((row: Row<TData>) => boolean)",
+      "defaultValue": "false",
+      "required": false,
+      "description": "Whether to enable row selection for all rows in the table.\n\nOptionally pass in a function that given a row, returns whether to enable/disable row selection for that row"
+    },
+    {
+      "name": "enableSelectAll",
+      "type": "boolean",
+      "defaultValue": "true",
+      "required": false,
+      "description": "Whether the table supports selecting all table rows."
+    },
+    {
+      "name": "enableSorting",
+      "type": "boolean",
+      "defaultValue": "true",
+      "required": false,
+      "description": "Whether sorting is enabled for the table."
+    },
+    {
+      "name": "enableSortingRemoval",
+      "type": "boolean",
+      "defaultValue": "true",
+      "required": false,
+      "description": "Whether the sort can removed from columns"
+    },
+    {
+      "name": "enableStickyHeader",
+      "type": "boolean",
+      "defaultValue": "false",
+      "required": false,
+      "description": "Whether the table header should stick when scrolling vertically"
+    },
+    {
+      "name": "expandAllButtonProps",
+      "type": "IconButtonProps | ((props: { table: DataTable<TData>; }) => IconButtonProps)",
+      "required": false,
+      "description": "Props passed to the expand all button component"
+    },
+    {
+      "name": "expandButtonProps",
+      "type": "IconButtonProps | ((props: { table: DataTable<TData>; row: Row<TData>; }) => IconButtonProps)",
+      "required": false,
+      "description": "Props passed to the expand button component"
+    },
+    {
+      "name": "manualExpanding",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the expanding state for the table is controlled."
+    },
+    {
+      "name": "manualPagination",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the pagination state for the table is controlled."
+    },
+    {
+      "name": "manualSorting",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the sorting state for the table is controlled."
+    },
+    {
+      "name": "pageCount",
+      "type": "number",
+      "required": false,
+      "description": "A total pageCount of the table (controlled)."
+    },
+    {
+      "name": "paginationProps",
+      "type": "(props: { table: DataTable<TData>; }) => Partial<Omit<PaginationProps, \"rowsPerPage\">>",
+      "required": false,
+      "description": "Props passed to the pagination component"
+    },
+    {
+      "name": "rowCount",
+      "type": "number",
+      "required": false,
+      "description": "The total number of rows for the total table (controlled).\n\nUsed to display the total count in the table pagination"
+    },
+    {
+      "name": "selectCheckboxProps",
+      "type": "CheckboxProps<\"label\"> | ((props: { table: DataTable<TData>; row: Row<TData>; }) => CheckboxProps<\"label\">)",
+      "required": false,
+      "description": "Props passed to the select checkbox"
+    },
+    {
+      "name": "selectAllCheckboxProps",
+      "type": "CheckboxProps<\"label\"> | ((props: { table: DataTable<TData>; }) => CheckboxProps<\"label\">)",
+      "required": false,
+      "description": "Props passed to the select all checkbox"
+    },
+    {
+      "name": "state",
+      "type": "Partial<DataTableState>",
+      "required": false,
+      "description": "State object for the table (controlled)."
+    },
+    {
+      "name": "onExpandedChange",
+      "type": "OnChangeFn<ExpandedState>",
+      "required": false,
+      "description": "Handler that is called on expanded change."
+    },
+    {
+      "name": "onPaginationChange",
+      "type": "OnChangeFn<PaginationState>",
+      "required": false,
+      "description": "Handler that is called on pagination change."
+    },
+    {
+      "name": "onRowSelectionChange",
+      "type": "OnChangeFn<RowSelectionState>",
+      "required": false,
+      "description": "Handler that is called on row selection change."
+    },
+    {
+      "name": "onSortingChange",
+      "type": "OnChangeFn<SortingState>",
+      "required": false,
+      "description": "Handler that is called on sort change."
     }
   ],
   "DatePicker": [
@@ -1427,6 +1637,13 @@
       "description": "Theme aware style object"
     },
     {
+      "name": "getPaginationLabel",
+      "type": "({ count, from, to, }: { count: number; from: number; to: number; }) => ReactNode",
+      "defaultValue": "`${from}-${to} of ${totalRowCount}`",
+      "required": false,
+      "description": "Generate a localized label for the rows per page label (localization)."
+    },
+    {
       "name": "getItemAriaLabel",
       "type": "(type: \"next\" | \"previous\" | \"page\", page?: number | undefined, isActive?: boolean | undefined) => string",
       "required": false,
@@ -1458,6 +1675,13 @@
       "defaultValue": "10",
       "required": false,
       "description": "The number of rows rendered per page."
+    },
+    {
+      "name": "showLabel",
+      "type": "boolean",
+      "defaultValue": "false",
+      "required": false,
+      "description": "Whether to show the pagination label."
     },
     {
       "name": "showPageNumbers",
@@ -1898,12 +2122,7 @@
     }
   ],
   "SelectItem": [
-    {
-      "name": "as",
-      "type": "\"div\"",
-      "required": false,
-      "description": ""
-    },
+    { "name": "as", "type": "\"div\"", "required": false, "description": "" },
     {
       "name": "css",
       "type": "CSS",
@@ -1918,12 +2137,7 @@
     }
   ],
   "SelectSection": [
-    {
-      "name": "as",
-      "type": "\"div\"",
-      "required": false,
-      "description": ""
-    },
+    { "name": "as", "type": "\"div\"", "required": false, "description": "" },
     {
       "name": "children",
       "type": "ReactNode & (ItemElement<object> | ItemElement<object>[] | ItemRenderer<object>)",

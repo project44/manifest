@@ -1,0 +1,389 @@
+---
+title: DataTable
+description: A rich data table component.
+sidebar_custom_props:
+  status: 'alpha'
+---
+
+DataTable provides advanced functionality over Table, including sorting, pagination, column pinning,
+row selection, filtering, and row expansion.
+
+```jsx live
+<DataTable
+  columns={[
+    {
+      header: 'First Name',
+      accessorKey: 'firstName',
+    },
+    {
+      header: 'Last Name',
+      accessorKey: 'lastName',
+    },
+    {
+      header: 'gender',
+      accessorKey: 'gender',
+    },
+    {
+      header: 'Age',
+      accessorKey: 'age',
+    },
+    {
+      header: 'Address',
+      accessorKey: 'address',
+    },
+    {
+      header: 'City',
+      accessorKey: 'city',
+    },
+    {
+      header: 'State',
+      accessorKey: 'state',
+    },
+    {
+      header: 'Zip',
+      accessorKey: 'zipCode',
+    },
+  ]}
+  data={[
+    {
+      firstName: 'Ramona',
+      lastName: 'Greenfelder',
+      gender: 'male',
+      age: 40,
+      address: '93042 Chadd Loaf',
+      city: 'Baltimore',
+      state: 'New Hampshire',
+      zipCode: '92745',
+    },
+    {
+      firstName: 'Trent',
+      lastName: 'Windler',
+      gender: 'female',
+      age: 42,
+      address: '658 Emard Common',
+      city: 'Issacborough',
+      state: 'Florida',
+      zipCode: '91634',
+    },
+    {
+      firstName: 'Charlotte',
+      lastName: 'Hoppe',
+      gender: 'female',
+      age: 68,
+      address: '3835 Name Fort',
+      city: 'Rogahnville',
+      state: 'Kansas',
+      zipCode: '59431-6467',
+    },
+    {
+      firstName: 'Scarlett',
+      lastName: 'Schuster',
+      gender: 'male',
+      age: 7,
+      address: '4403 Retta Points',
+      city: 'Dublin',
+      state: 'Vermont',
+      zipCode: '22208-7524',
+    },
+    {
+      firstName: 'Randi',
+      lastName: 'Runte',
+      gender: 'male',
+      age: 64,
+      address: '635 Kassulke Rest',
+      city: 'McLean',
+      state: 'South Carolina',
+      zipCode: '66430',
+    },
+  ]}
+/>
+```
+
+### Typescript
+
+DataTable leverages Typescript to provide type safety. The column definition for the table should
+follow the `@tanstack/react-table` [ColumnDef](https://tanstack.com/table/v8/docs/guide/column-defs)
+type.
+
+```jsx
+import { faker } from '@faker-js/faker';
+import { ColumnDef, DataTable } from '@project44-manifest/react';
+
+function Default() {
+  const data = [...Array.from({ length: 5 })].map(() => ({
+    firstName: faker.name.firstName(),
+    lastName: faker.name.lastName(),
+    gender: faker.name.sex(),
+    age: faker.datatype.number(80),
+    address: faker.address.streetAddress(),
+    city: faker.address.city(),
+    state: faker.address.state(),
+    zipCode: faker.address.zipCode(),
+  }));
+
+  const columns: ColumnDef<(typeof data)[0]>[] = [
+    {
+      header: 'First Name',
+      accessorKey: 'firstName',
+    },
+    {
+      header: 'Last Name',
+      accessorKey: 'lastName',
+    },
+    {
+      header: 'gender',
+      accessorKey: 'gender',
+    },
+    {
+      header: 'Age',
+      accessorKey: 'age',
+    },
+    {
+      header: 'Address',
+      accessorKey: 'address',
+    },
+    {
+      header: 'City',
+      accessorKey: 'city',
+    },
+    {
+      header: 'State',
+      accessorKey: 'state',
+    },
+    {
+      header: 'Zip',
+      accessorKey: 'zipCode',
+    },
+  ];
+
+  return <DataTable columns={columns} data={data} />;
+}
+```
+
+## Usage
+
+### Sticky Header
+
+Enable sticky header with `enableStickyHeader` prop.
+
+```jsx live
+<DataTable
+  enableStickyHeader
+  initialState={{ pagination: { pageSize: 25, pageIndex: 0 } }}
+  css={{ '.manifest-data-table__container': { maxHeight: 250 } }}
+  columns={[
+    {
+      header: 'First Name',
+      accessorKey: 'firstName',
+    },
+    {
+      header: 'Last Name',
+      accessorKey: 'lastName',
+    },
+    {
+      header: 'Address',
+      accessorKey: 'address',
+    },
+    {
+      header: 'State',
+      accessorKey: 'state',
+    },
+    {
+      header: 'Zip',
+      accessorKey: 'zipCode',
+    },
+  ]}
+  data={[
+    {
+      firstName: 'Ramona',
+      lastName: 'Greenfelder',
+      address: '93042 Chadd Loaf',
+      state: 'New Hampshire',
+      zipCode: '92745',
+    },
+    {
+      firstName: 'Trent',
+      lastName: 'Windler',
+      address: '658 Emard Common',
+      state: 'Florida',
+      zipCode: '91634',
+    },
+    {
+      firstName: 'Charlotte',
+      lastName: 'Hoppe',
+      address: '3835 Name Fort',
+      state: 'Kansas',
+      zipCode: '59431-6467',
+    },
+    {
+      firstName: 'Scarlett',
+      lastName: 'Schuster',
+      address: '4403 Retta Points',
+      state: 'Vermont',
+      zipCode: '22208-7524',
+    },
+    {
+      firstName: 'Randi',
+      lastName: 'Runte',
+      address: '635 Kassulke Rest',
+      state: 'South Carolina',
+      zipCode: '66430',
+    },
+    {
+      firstName: 'Nicole',
+      lastName: 'Kris',
+      address: '0344 Larkin Locks',
+      state: 'Massachusetts',
+      zipCode: '86262',
+    },
+    {
+      firstName: 'Linda',
+      lastName: 'Leffler',
+      address: '8039 Kuhn Tunnel',
+      state: 'Missouri',
+      zipCode: '96777',
+    },
+    {
+      firstName: 'Terry',
+      lastName: 'Schroeder',
+      address: '9516 Koss Terrace',
+      state: 'New Hampshire',
+      zipCode: '66240',
+    },
+    {
+      firstName: 'Linda',
+      lastName: 'Kuhic',
+      address: '8403 Kautzer Mission',
+      state: 'New York',
+      zipCode: '06228',
+    },
+  ]}
+/>
+```
+
+### Column pinning
+
+Pin columns to `left` and `right` using `initiateState` prop
+
+```jsx live
+<DataTable
+  enableStickyHeader
+  initialState={{ columnPinning: { left: ['email'], right: ['state'] } }}
+  columns={[
+    {
+      header: 'First Name',
+      accessorKey: 'firstName',
+    },
+    {
+      header: 'Last Name',
+      accessorKey: 'lastName',
+    },
+    {
+      header: 'Email Address',
+      accessorKey: 'email',
+    },
+    {
+      header: 'Address',
+      accessorKey: 'address',
+    },
+    {
+      header: 'City',
+      accessorKey: 'city',
+    },
+    {
+      header: 'State',
+      accessorKey: 'state',
+    },
+  ]}
+  data={[
+    {
+      firstName: 'Earlene',
+      lastName: 'Shanahan',
+      email: 'Americo41@hotmail.com',
+      address: '3750 Providenci Lakes',
+      city: 'East Willie',
+      state: 'North Dakota',
+    },
+    {
+      firstName: 'Barney',
+      lastName: 'Ruecker',
+      email: 'Abdiel97@gmail.com',
+      address: '9756 Berge Dale',
+      city: 'New Hubertfurt',
+      state: 'Rhode Island',
+    },
+    {
+      firstName: 'Freeman',
+      lastName: 'Pfannerstill',
+      email: 'Glennie_Batz@hotmail.com',
+      address: '168 Homenick Keys',
+      city: 'East Edmundborough',
+      state: 'Maryland',
+    },
+    {
+      firstName: 'Earnestine',
+      lastName: 'Krajcik',
+      email: 'Kaitlyn.McClure@gmail.com',
+      address: '02623 Heidenreich River',
+      city: 'Veumhaven',
+      state: 'New Jersey',
+    },
+    {
+      firstName: 'Herman',
+      lastName: 'Towne',
+      email: 'Eva.Gottlieb80@gmail.com',
+      address: '877 Greta Lodge',
+      city: 'Daisyborough',
+      state: 'Vermont',
+    },
+    {
+      firstName: 'Alford',
+      lastName: 'Bauch',
+      email: 'Earl.Schamberger@gmail.com',
+      address: '2739 Franey Valleys',
+      city: 'East Juvenal',
+      state: 'Iowa',
+    },
+    {
+      firstName: 'Queenie',
+      lastName: 'Runte',
+      email: 'Kariane.Brown@yahoo.com',
+      address: '86904 Boehm Ramp',
+      city: 'Tobinview',
+      state: 'North Carolina',
+    },
+    {
+      firstName: 'Rosie',
+      lastName: 'Gutkowski',
+      email: 'Reilly_McDermott89@gmail.com',
+      address: '70261 Heaney Views',
+      city: 'Shyannville',
+      state: 'Georgia',
+    },
+    {
+      firstName: 'Priscilla',
+      lastName: 'Swift',
+      email: 'River_Gerlach@hotmail.com',
+      address: '4825 Nils Estates',
+      city: 'North Shany',
+      state: 'South Carolina',
+    },
+    {
+      firstName: 'Tyrel',
+      lastName: 'Schmidt',
+      email: 'Allen_Will56@hotmail.com',
+      address: '8115 Palma Skyway',
+      city: 'West Geovanystad',
+      state: 'North Dakota',
+    },
+  ]}
+/>
+```
+
+### Loading
+
+Indicate loading state with `isLoading` prop
+
+## Props
+
+<PropsTable component="DataTable" />

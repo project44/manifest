@@ -1,0 +1,52 @@
+[
+  {
+    "firstName": "Ramona",
+    "lastName": "Greenfelder",
+    "gender": "male",
+    "age": 40,
+    "address": "93042 Chadd Loaf",
+    "city": "Baltimore",
+    "state": "New Hampshire",
+    "zipCode": "92745"
+  },
+  {
+    "firstName": "Trent",
+    "lastName": "Windler",
+    "gender": "female",
+    "age": 42,
+    "address": "658 Emard Common",
+    "city": "Issacborough",
+    "state": "Florida",
+    "zipCode": "91634"
+  },
+  {
+    "firstName": "Charlotte",
+    "lastName": "Hoppe",
+    "gender": "female",
+    "age": 68,
+    "address": "3835 Name Fort",
+    "city": "Rogahnville",
+    "state": "Kansas",
+    "zipCode": "59431-6467"
+  },
+  {
+    "firstName": "Scarlett",
+    "lastName": "Schuster",
+    "gender": "male",
+    "age": 7,
+    "address": "4403 Retta Points",
+    "city": "Dublin",
+    "state": "Vermont",
+    "zipCode": "22208-7524"
+  },
+  {
+    "firstName": "Randi",
+    "lastName": "Runte",
+    "gender": "male",
+    "age": 64,
+    "address": "635 Kassulke Rest",
+    "city": "McLean",
+    "state": "South Carolina",
+    "zipCode": "66430"
+  }
+]
