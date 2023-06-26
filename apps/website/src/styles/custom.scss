@@ -61,6 +61,11 @@
 
   /** Pagination settings */
   --ifm-pagination-nav-color-hover: var(--ifm-color-emphasis-300);
+
+
+  .prism-code {
+    font-family: monospace !important; 
+  }  
 }
 
 @import "fonts";
