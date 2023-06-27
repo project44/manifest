@@ -21,6 +21,10 @@ export const StyledDataTable = styled('div', {
     '&--sticky-header, &--pagination': {
       maxHeight: 'clamp(350px, calc(100vh - 48px), 9999px)',
     },
+
+    '.manifest-table tr:hover td': {
+      backgroundColor: '$background-secondary',
+    },
   },
 
   '.manifest-data-table__checkbox': {
@@ -89,7 +93,7 @@ export const StyledDataTable = styled('div', {
       color: 'inherit',
       display: 'table-row',
       verticalAlign: 'middle',
-      outine: 0,
+      outline: 0,
     },
   },
 

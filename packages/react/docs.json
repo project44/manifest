@@ -327,7 +327,12 @@
     }
   ],
   "ComboboxItem": [
-    { "name": "as", "type": "\"div\"", "required": false, "description": "" },
+    {
+      "name": "as",
+      "type": "\"div\"",
+      "required": false,
+      "description": ""
+    },
     {
       "name": "css",
       "type": "CSS",
@@ -342,7 +347,12 @@
     }
   ],
   "ComboboxSection": [
-    { "name": "as", "type": "\"div\"", "required": false, "description": "" },
+    {
+      "name": "as",
+      "type": "\"div\"",
+      "required": false,
+      "description": ""
+    },
     {
       "name": "children",
       "type": "ReactNode & (ItemElement<object> | ItemElement<object>[] | ItemRenderer<object>)",
@@ -2122,7 +2132,12 @@
     }
   ],
   "SelectItem": [
-    { "name": "as", "type": "\"div\"", "required": false, "description": "" },
+    {
+      "name": "as",
+      "type": "\"div\"",
+      "required": false,
+      "description": ""
+    },
     {
       "name": "css",
       "type": "CSS",
@@ -2137,7 +2152,12 @@
     }
   ],
   "SelectSection": [
-    { "name": "as", "type": "\"div\"", "required": false, "description": "" },
+    {
+      "name": "as",
+      "type": "\"div\"",
+      "required": false,
+      "description": ""
+    },
     {
       "name": "children",
       "type": "ReactNode & (ItemElement<object> | ItemElement<object>[] | ItemRenderer<object>)",
