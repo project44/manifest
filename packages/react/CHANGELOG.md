@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 3.8.0
+
+### Minor Changes
+
+- [#413](https://github.com/project44/manifest/pull/413)
+  [`c4f8358`](https://github.com/project44/manifest/commit/c4f8358a55d0c68fcd0065967eb1df790b1e9fce)
+  Thanks [@predragtesovic](https://github.com/predragtesovic)! - Adding NumberField component
+
 ## 3.7.0
 
 ### Minor Changes
