@@ -1,5 +1,21 @@
 # @manifest/react
 
+## 3.7.0
+
+### Minor Changes
+
+- [#410](https://github.com/project44/manifest/pull/410)
+  [`f621f6f`](https://github.com/project44/manifest/commit/f621f6f2b802b250aa14b344e2bd6f3833fbdb12)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - fix Tag onRemove extraneous
+  invocation
+
+### Patch Changes
+
+- [#414](https://github.com/project44/manifest/pull/414)
+  [`0e67869`](https://github.com/project44/manifest/commit/0e6786966315df34897142228a703ba95f503316)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - Fix Pill styles transparent
+  background and custom theme example
+
 ## 3.6.0
 
 ### Minor Changes

@@ -18,6 +18,6 @@ describe('tag', () => {
 
     expect(screen.getByRole('button')).toBeDefined();
     fireEvent.click(screen.getByRole('button'));
-    expect(onRemove).toHaveBeenCalled();
+    expect(onRemove).toHaveBeenCalledTimes(1);
   });
 });

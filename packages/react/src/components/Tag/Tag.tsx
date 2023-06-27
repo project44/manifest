@@ -75,7 +75,6 @@ export const Tag = createComponent<TagOptions>((props, forwardedRef) => {
     {
       ...removeButtonProps,
       isDisabled,
-      onClick: onRemove,
       onPress: onRemove,
     } as AriaButtonProps,
     removeButtonRef,

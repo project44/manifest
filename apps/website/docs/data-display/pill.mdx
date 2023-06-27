@@ -18,7 +18,7 @@ Represents an object or status
 Include an icon before the pill label.
 
 ```jsx live
-<Pill icon={<Icon icon="flight" />} label="In Transit" />
+<Pill icon={<AirplaneFilled />} label="In Transit" />
 ```
 
 ### Color
@@ -26,7 +26,7 @@ Include an icon before the pill label.
 Use the `colorScheme` prop to adjust the color of the pill.
 
 ```jsx live
-<Pill colorScheme="red" icon={<Icon icon="front_hand" />} label="On Hold" />
+<Pill colorScheme="red" icon={<Clock />} label="On Hold" />
 ```
 
 ### Collapsible
@@ -34,7 +34,28 @@ Use the `colorScheme` prop to adjust the color of the pill.
 Set the `isCollapsible` prop to make the pill collapse by default. The label will display on hover.
 
 ```jsx live
-<Pill icon={<Icon icon="flight" />} isCollapsible label="In Transit" />
+<Pill icon={<AirplaneFilled />} isCollapsible label="In Transit" />
+```
+
+### Custom theme
+
+An example of a custom theming
+
+```jsx live
+<Pill
+  css={{
+    backgroundColor: '$colors$palette-green-50',
+    '.manifest-pill__text': {
+      backgroundColor: 'inherit',
+      color: '$palette-green-700',
+    },
+    '.manifest-pill__icon': {
+      backgroundColor: '$palette-green-700',
+    },
+  }}
+  icon={<AirplaneFilled />}
+  label="In Transit"
+/>
 ```
 
 ## Props
