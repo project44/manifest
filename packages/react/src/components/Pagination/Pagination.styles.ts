@@ -2,11 +2,17 @@ import { pxToRem, styled } from '@project44-manifest/react-styles';
 
 export const StyledPagination = styled('div', {
   alignItems: 'center',
-  boxSizing: 'border-box',
-  columnGap: '$x-small',
   display: 'flex',
-  flexWrap: 'wrap',
-  rowGap: '$small',
+  justifyContent: 'space-between',
+
+  '.manifest-pagination__actions': {
+    alignItems: 'center',
+    boxSizing: 'border-box',
+    columnGap: '$x-small',
+    display: 'flex',
+    flexWrap: 'wrap',
+    rowGap: '$small',
+  },
 
   '.manifest-pagination__ellipsis': {
     backgroundColor: '$palette-grey-50',
