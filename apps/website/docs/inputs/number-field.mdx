@@ -1,0 +1,127 @@
+---
+title: Number Field
+description: Allows users to enter and edit numeric information.
+sidebar_custom_props:
+  status: 'production'
+---
+
+Allows users to enter and edit numeric information. Number is displayed with default local
+formatting (using `Intl` - ECMAScript Internationalization API)
+
+```jsx live
+<NumberField aria-label="number" />
+```
+
+## Usage
+
+### Label & placeholder
+
+Attach a label and placeholder to the input field using the `label` and `placeholder` prop.
+
+```jsx live
+<NumberField label="Amount" placeholder="Enter amount..." />
+```
+
+### HelperText
+
+Add additional context as well as display error messages with the `helperText` prop.
+
+```jsx live
+<NumberField aria-label="number" helperText="Please enter a number" validationState="invalid" />
+```
+
+### Controled
+
+A input area's state can be controlled by a parent React component by setting the `value` prop and
+passing a handler to the `onChange` prop.
+
+```jsx live
+function ControlledExample() {
+  const [value, setValue] = React.useState('1234');
+
+  return <NumberField aria-label="number" onChange={setValue} value={value} />;
+}
+```
+
+### Custom formatting - currency - simple
+
+A input area's state can be controlled by a parent React component by setting the `value` prop and
+passing a handler to the `onChange` prop.
+
+```jsx live
+function FormattingCurrencyExample() {
+  const [value, setValue] = React.useState('1234');
+
+  return (
+    <NumberField
+      formatOptions={{
+        currency: 'USD',
+        style: 'currency',
+      }}
+      label="Price"
+      onChange={setValue}
+      value={value}
+    />
+  );
+}
+```
+
+### Custom formatting - currency - advanced
+
+A input area's state can be controlled by a parent React component by setting the `value` prop and
+passing a handler to the `onChange` prop.
+
+```jsx live
+function FormattingCurrencyAdvancedExample() {
+  const [value, setValue] = React.useState('1234');
+
+  return (
+    <NumberField
+      customLocale="de-DE"
+      formatOptions={{
+        currency: 'EUR',
+        currencyDisplay: 'code',
+        maximumFractionDigits: 0,
+        style: 'currency',
+      }}
+      label="Price"
+      onChange={setValue}
+      value={value}
+    />
+  );
+}
+```
+
+### Custom formatting - units
+
+Set the `isDisabled` prop to prevent a user from inputting.
+
+```jsx live
+function FormattingUnitsExample() {
+  const [value, setValue] = React.useState('1234');
+
+  return (
+    <NumberField
+      customLocale="en-US"
+      formatOptions={{
+        style: 'unit',
+        unit: 'pound',
+        unitDisplay: 'short',
+      }}
+      label="Weight"
+      onChange={setValue}
+      value={value}
+    />
+  );
+}
+```
+
+## Accessibility
+
+If a visible label isn't specified, an aria-label must be provided to the input area for
+accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be
+provided using the id of the labeling element instead.
+
+## Props
+
+<PropsTable component="NumberField" />
