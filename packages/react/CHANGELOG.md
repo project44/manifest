@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 3.9.0
+
+### Minor Changes
+
+- [#415](https://github.com/project44/manifest/pull/415)
+  [`802e92c`](https://github.com/project44/manifest/commit/802e92cb4bc3aba60f96af7dba013f5d1072a286)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - Adding DataTable component
+
 ## 3.8.0
 
 ### Minor Changes
