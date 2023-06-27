@@ -97,9 +97,9 @@ export const NumberFieldBase = createComponent<NumberFieldBaseOptions>((props, f
   });
 
   const classes = cx(className, classNameProp, {
-    'manifest-textfield-base': true,
-    'manifest-textfield-base--disabled': isDisabled,
-    'manifest-textfield-base--invalid': isInvalid,
+    'manifest-numberfield-base': true,
+    'manifest-numberfield-base--disabled': isDisabled,
+    'manifest-numberfield-base--invalid': isInvalid,
   });
 
   return (
@@ -112,11 +112,11 @@ export const NumberFieldBase = createComponent<NumberFieldBaseOptions>((props, f
       labelProps={labelProps}
       validationState={validationState}
     >
-      <div ref={forwardedRef} className="manifest-textfield-base__wrapper">
+      <div ref={forwardedRef} className="manifest-numberfield-base__wrapper">
         <input
           {...mergeProps(inputProps, focusProps, hoverProps)}
           ref={mergeRefs(fieldRef, inputRef!) as never}
-          className="manifest-textfield-base__input"
+          className="manifest-numberfield-base__input"
         />
       </div>
     </FormControl>

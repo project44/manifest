@@ -76,8 +76,8 @@ export const NumberField = createComponent<NumberFieldOptions>((props, forwarded
   const { className } = useStyles({ size });
 
   const classes = cx(className, {
-    'manifest-textfield': true,
-    [`manifest-textfield--${size}`]: size,
+    'manifest-numberfield': true,
+    [`manifest-numberfield--${size}`]: size,
   });
 
   return (
