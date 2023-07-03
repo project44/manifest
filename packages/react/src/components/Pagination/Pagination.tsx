@@ -17,7 +17,7 @@ const range = (start: number, end: number) => {
   return Array.from({ length }, (_, i) => start + i);
 };
 
-const defaultPagiationLabel = ({ count, from, to }: { count: number; from: number; to: number }) =>
+const defaultPaginationLabel = ({ count, from, to }: { count: number; from: number; to: number }) =>
   `${from}-${to} of ${count}`;
 
 function defaultGetItemAriaLabel(
@@ -40,7 +40,7 @@ export const Pagination = React.forwardRef((props, forwardedRef) => {
     className: classNameProp,
     css,
     defaultPage = 1,
-    getPaginationLabel = defaultPagiationLabel,
+    getPaginationLabel = defaultPaginationLabel,
     getItemAriaLabel = defaultGetItemAriaLabel,
     onChange = noop,
     nextLabel = 'Next',

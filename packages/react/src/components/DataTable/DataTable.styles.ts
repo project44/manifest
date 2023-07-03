@@ -32,6 +32,12 @@ export const StyledDataTable = styled('div', {
     display: 'flex',
   },
 
+  '.manifest-pagination__label .manifest-typography--body': {
+    fontSize: '$small',
+    fontWeight: '$semibold',
+    color: '$text-tertiary',
+  },
+
   '.manifest-data-table__footer': {
     alignItems: 'center',
     borderTop: '1px solid $border-primary',
@@ -40,7 +46,7 @@ export const StyledDataTable = styled('div', {
     minHeight: pxToRem(48),
     px: pxToRem(12),
 
-    '> .manifest-pagination': {
+    '.manifest-pagination': {
       width: '100%',
     },
   },
@@ -70,8 +76,13 @@ export const StyledDataTable = styled('div', {
 
     '&__cell--header': {
       fontSize: '$x-small',
-      fontWeight: '$semibold',
       lineHeight: '$x-small',
+      backgroundColor: '$colors$background-secondary',
+      color: '$text-secondary',
+
+      '.manifest-table__heading': {
+        fontWeight: '$semibold',
+      },
 
       '&.manifest-table__cell--pinned': {
         zIndex: 2,

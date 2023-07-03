@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ArrowDown, ArrowUp, Sort } from '@project44-manifest/react-icons';
+import { ChevronDown, ChevronUp, Sort } from '@project44-manifest/react-icons';
 import { cx } from '@project44-manifest/react-styles';
 import { flexRender, RowData } from '@tanstack/react-table';
 import { getColumnLayoutStyles } from '../../utils';
@@ -32,8 +32,8 @@ export function DataTableColumn<TData extends RowData, TVaue>(
           {isSortable && !header.column.getIsSorted() && <Sort size="small" />}
           {
             {
-              asc: <ArrowDown size="small" />,
-              desc: <ArrowUp size="small" />,
+              asc: <ChevronDown size="small" />,
+              desc: <ChevronUp size="small" />,
             }[header.column.getIsSorted() as string]
           }
         </button>
