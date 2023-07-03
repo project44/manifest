@@ -1,0 +1,46 @@
+---
+title: Local Navigation
+description: Navigation component for sections or pages
+sidebar_custom_props:
+  status: 'production'
+---
+
+Navigation component for sections or pages
+
+```jsx live
+<Flex align="center" css={{ backgroundColor: '$background-top-nav', height: '56px', px: '$large' }}>
+  <LocalNavigation>
+    <LocalNavigationItem>Overview</LocalNavigationItem>
+    <LocalNavigationItem>Lanes</LocalNavigationItem>
+    <LocalNavigationItem>Carriers</LocalNavigationItem>
+    <LocalNavigationItem>Containers</LocalNavigationItem>
+  </LocalNavigation>
+</Flex>
+```
+
+## Usage
+
+### Selected
+
+Use the `isSelected` prop to indicate current location
+
+```jsx live
+<Flex align="center" css={{ backgroundColor: '$background-top-nav', height: '56px', px: '$large' }}>
+  <LocalNavigation>
+    <LocalNavigationItem isSelected>Overview</LocalNavigationItem>
+    <LocalNavigationItem>Lanes</LocalNavigationItem>
+    <LocalNavigationItem>Carriers</LocalNavigationItem>
+    <LocalNavigationItem>Containers</LocalNavigationItem>
+  </LocalNavigation>
+</Flex>
+```
+
+## Props
+
+### LocalNavigation Props
+
+<PropsTable component="LocalNavigation" />
+
+### LocalNavigationItem Props
+
+<PropsTable component="LocalNavigationItem" />
