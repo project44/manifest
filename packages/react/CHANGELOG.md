@@ -1,5 +1,21 @@
 # @manifest/react
 
+## 3.10.0
+
+### Minor Changes
+
+- [#426](https://github.com/project44/manifest/pull/426)
+  [`b3ca5ff`](https://github.com/project44/manifest/commit/b3ca5ff884e09b33f70426ffcaaa82a1bf064ee4)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - Add DataTable custom cell
+  rendering support
+
+### Patch Changes
+
+- [#421](https://github.com/project44/manifest/pull/421)
+  [`81b8192`](https://github.com/project44/manifest/commit/81b819278c7c6f370c0194aa0964c682192dbe54)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - Update DataTable iconography and
+  styles
+
 ## 3.9.0
 
 ### Minor Changes
