@@ -1,2 +1,2 @@
-export * from './DataTable';
-export type { ColumnDef, DataTableProps } from './DataTable.types';
+export { createDataTableColumnHelper, DataTable } from './DataTable';
+export type { ColumnDef as DataTableColumnDef, DataTableProps } from './DataTable.types';

@@ -20,7 +20,7 @@ row selection, filtering, and row expansion.
       accessorKey: 'lastName',
     },
     {
-      header: 'gender',
+      header: 'Gender',
       accessorKey: 'gender',
     },
     {
@@ -36,64 +36,64 @@ row selection, filtering, and row expansion.
       accessorKey: 'city',
     },
     {
-      header: 'State',
-      accessorKey: 'state',
+      header: 'Subscribed',
+      accessorKey: 'isSubscribed',
     },
     {
-      header: 'Zip',
-      accessorKey: 'zipCode',
+      header: 'Birthday',
+      accessorKey: 'birthday',
     },
   ]}
   data={[
     {
-      firstName: 'Ramona',
-      lastName: 'Greenfelder',
+      firstName: 'Jovany',
+      lastName: 'Moore',
       gender: 'male',
-      age: 40,
-      address: '93042 Chadd Loaf',
-      city: 'Baltimore',
-      state: 'New Hampshire',
-      zipCode: '92745',
+      age: 46,
+      address: '85115 Pouros Burgs',
+      city: 'Sammyfort',
+      isSubscribed: true,
+      birthday: '12/5/2022',
     },
     {
-      firstName: 'Trent',
-      lastName: 'Windler',
+      firstName: 'Tyrique',
+      lastName: 'Hermiston',
       gender: 'female',
-      age: 42,
-      address: '658 Emard Common',
-      city: 'Issacborough',
-      state: 'Florida',
-      zipCode: '91634',
+      age: 36,
+      address: '866 Justyn Ridge',
+      city: 'Stehrtown',
+      isSubscribed: false,
+      birthday: '7/19/2022',
     },
     {
-      firstName: 'Charlotte',
-      lastName: 'Hoppe',
+      firstName: 'Isobel',
+      lastName: 'Ondricka',
+      gender: 'male',
+      age: 74,
+      address: '7236 Jada Lock',
+      city: 'Keller',
+      isSubscribed: false,
+      birthday: '8/22/2022',
+    },
+    {
+      firstName: 'Deontae',
+      lastName: 'Haag',
       gender: 'female',
-      age: 68,
-      address: '3835 Name Fort',
-      city: 'Rogahnville',
-      state: 'Kansas',
-      zipCode: '59431-6467',
+      age: 14,
+      address: '90595 Bridgette Court',
+      city: 'Kshlerinstad',
+      isSubscribed: true,
+      birthday: '6/17/2023',
     },
     {
-      firstName: 'Scarlett',
-      lastName: 'Schuster',
-      gender: 'male',
-      age: 7,
-      address: '4403 Retta Points',
-      city: 'Dublin',
-      state: 'Vermont',
-      zipCode: '22208-7524',
-    },
-    {
-      firstName: 'Randi',
-      lastName: 'Runte',
-      gender: 'male',
-      age: 64,
-      address: '635 Kassulke Rest',
-      city: 'McLean',
-      state: 'South Carolina',
-      zipCode: '66430',
+      firstName: 'Randal',
+      lastName: 'Boyer',
+      gender: 'female',
+      age: 33,
+      address: '2786 Yundt Ford',
+      city: 'Portland',
+      isSubscribed: true,
+      birthday: '10/22/2022',
     },
   ]}
 />
@@ -101,15 +101,34 @@ row selection, filtering, and row expansion.
 
 ### Typescript
 
+:::info
+
+Live Typescript examples are currently not supported in this documentation. Please refer to the
+[DataTable Storybook](https://github.com/project44/manifest/blob/main/packages/react/stories/DataTable.stories.tsx)
+for live Typescript examples. Work is underway to support live Typescript in the documentation and
+is [tracked here](https://github.com/project44/manifest/issues/424).
+
+:::
+
 DataTable leverages Typescript to provide type safety. The column definition for the table should
 follow the `@tanstack/react-table` [ColumnDef](https://tanstack.com/table/v8/docs/guide/column-defs)
-type.
+type, exported as `DataTableColumnDef` from Manifest.
 
 ```jsx
 import { faker } from '@faker-js/faker';
-import { ColumnDef, DataTable } from '@project44-manifest/react';
+import { DataTable, DataTableColumnDef } from '@project44-manifest/react';
 
 function Default() {
+  interface Person {
+    firstName: string;
+    lastName: string;
+    gender: string;
+    age: number;
+    address: string;
+    city: string;
+    isSubscribed: boolean;
+    birthday: string;
+  }
   const data = [...Array.from({ length: 5 })].map(() => ({
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),
@@ -117,11 +136,11 @@ function Default() {
     age: faker.datatype.number(80),
     address: faker.address.streetAddress(),
     city: faker.address.city(),
-    state: faker.address.state(),
-    zipCode: faker.address.zipCode(),
+    isSubscribed: faker.datatype.boolean(),
+    birthday: faker.date.past().toLocaleDateString('en-US'),
   }));
 
-  const columns: ColumnDef<(typeof data)[0]>[] = [
+  const columns: DataTableColumnDef<Person>[] = [
     {
       header: 'First Name',
       accessorKey: 'firstName',
@@ -131,7 +150,7 @@ function Default() {
       accessorKey: 'lastName',
     },
     {
-      header: 'gender',
+      header: 'Gender',
       accessorKey: 'gender',
     },
     {
@@ -147,12 +166,12 @@ function Default() {
       accessorKey: 'city',
     },
     {
-      header: 'State',
-      accessorKey: 'state',
+      header: 'Subscribed',
+      accessorKey: 'isSubscribed',
     },
     {
-      header: 'Zip',
-      accessorKey: 'zipCode',
+      header: 'Birthday',
+      accessorKey: 'birthday',
     },
   ];
 
@@ -161,6 +180,80 @@ function Default() {
 ```
 
 ## Usage
+
+### Custom Cell Rendering
+
+To render arbitrary non-string values, use the `createDataTableColumnHelper` function, which is an
+alias to
+[createColumnHelper function](https://tanstack.com/table/v8/docs/guide/column-defs#column-helpers)
+from `@tanstack/react-table`.
+
+```jsx
+import { createDataTableColumnHelper, DataTable, Link, Pill } from '@project44-manifest/react
+
+function CustomCellRendering() {
+interface Shipment {
+    shipmentId: string;
+    status: string;
+    carrier: string;
+    rate: string;
+    origin: string;
+    destination: string;
+    pickupDate: string;
+  }
+
+  const columnHelper = createDataTableColumnHelper<Shipment>();
+
+  const data = [...Array.from({ length: 5 })].map(() => ({
+    shipmentId: faker.random.numeric(6),
+    status: faker.helpers.arrayElement(['Pending', 'Booked']),
+    carrier: `${faker.name.firstName()}'s Trucking`,
+    rate: faker.commerce.price(),
+    origin: faker.address.city(),
+    destination: faker.address.state(),
+    pickupDate: faker.date.future().toLocaleDateString('en-US'),
+  }));
+
+  const columns = [
+    columnHelper.accessor('shipmentId', {
+      header: 'Shipment ID',
+      cell: (id) => <Link href="#">{id.getValue()}</Link>,
+    }),
+    columnHelper.accessor('status', {
+      header: 'Status',
+      cell: (status) =>
+        status.getValue() === 'Pending' ? (
+          <Pill colorScheme="red" icon={<Clock />} label={status.getValue()} />
+        ) : (
+          <Pill colorScheme="indigo" icon={<ClipboardWithCheck />} label={status.getValue()} />
+        ),
+    }),
+    {
+      header: 'Carrier',
+      accessorKey: 'carrier',
+    },
+    columnHelper.accessor('rate', {
+      id: 'rate',
+      header: 'Rate',
+      cell: (rate) => <span>${rate.getValue()}</span>,
+    }),
+    {
+      header: 'Origin',
+      accessorKey: 'origin',
+    },
+    {
+      header: 'Destination',
+      accessorKey: 'destination',
+    },
+    {
+      header: 'Pickup Date',
+      accessorKey: 'pickupDate',
+    },
+  ];
+
+  return <DataTable columns={columns} data={data} />;
+}
+```
 
 ### Sticky Header
 
