@@ -62,7 +62,7 @@ export interface DataTableProps<TData extends RowData> {
    *
    * Should follow the `@tanstack/react-table` [ColumnDef](https://tanstack.com/table/v8/docs/guide/column-defs)
    */
-  columns: ColumnDef<TData>[];
+  columns: ColumnDef<TData, string>[] | ColumnDef<TData>[];
   /**
    * The initial state of the table, can be set without controlling the state completely.
    */

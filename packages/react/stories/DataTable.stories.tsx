@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker';
-import { ColumnDef, DataTable } from '../src';
+import { ClipboardWithCheck, Clock } from '@project44-manifest/react-icons';
+import { createDataTableColumnHelper, DataTable, DataTableColumnDef, Link, Pill } from '../src';
 
 export default {
   title: 'Components/DataTable',
@@ -7,6 +8,16 @@ export default {
 };
 
 export const Default = () => {
+  interface Person {
+    firstName: string;
+    lastName: string;
+    gender: string;
+    age: number;
+    address: string;
+    city: string;
+    isSubscribed: boolean;
+    birthday: string;
+  }
   const data = [...Array.from({ length: 5 })].map(() => ({
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),
@@ -14,11 +25,11 @@ export const Default = () => {
     age: faker.datatype.number(80),
     address: faker.address.streetAddress(),
     city: faker.address.city(),
-    state: faker.address.state(),
-    zipCode: faker.address.zipCode(),
+    isSubscribed: faker.datatype.boolean(),
+    birthday: faker.date.past().toLocaleDateString('en-US'),
   }));
 
-  const columns: ColumnDef<(typeof data)[0]>[] = [
+  const columns: DataTableColumnDef<Person>[] = [
     {
       header: 'First Name',
       accessorKey: 'firstName',
@@ -28,7 +39,7 @@ export const Default = () => {
       accessorKey: 'lastName',
     },
     {
-      header: 'gender',
+      header: 'Gender',
       accessorKey: 'gender',
     },
     {
@@ -44,12 +55,78 @@ export const Default = () => {
       accessorKey: 'city',
     },
     {
-      header: 'State',
-      accessorKey: 'state',
+      header: 'Subscribed',
+      accessorKey: 'isSubscribed',
     },
     {
-      header: 'Zip',
-      accessorKey: 'zipCode',
+      header: 'Birthday',
+      accessorKey: 'birthday',
+    },
+  ];
+
+  return <DataTable columns={columns} data={data} />;
+};
+
+export const CustomCellRendering = () => {
+  interface Shipment {
+    shipmentId: string;
+    status: string;
+    carrier: string;
+    rate: string;
+    origin: string;
+    destination: string;
+    pickupDate: string;
+  }
+
+  const columnHelper = createDataTableColumnHelper<Shipment>();
+
+  const data = [...Array.from({ length: 5 })].map(() => ({
+    shipmentId: faker.random.numeric(6),
+    status: faker.helpers.arrayElement(['Pending', 'Booked']),
+    carrier: `${faker.name.firstName()}'s Trucking`,
+    rate: faker.commerce.price(),
+    origin: faker.address.city(),
+    destination: faker.address.state(),
+    pickupDate: faker.date.future().toLocaleDateString('en-US'),
+  }));
+
+  const columns = [
+    columnHelper.accessor('shipmentId', {
+      header: 'Shipment ID',
+      // eslint-disable-next-line react/no-unstable-nested-components
+      cell: (id) => <Link href="#">{id.getValue()}</Link>,
+    }),
+    columnHelper.accessor('status', {
+      header: 'Status',
+      // eslint-disable-next-line react/no-unstable-nested-components
+      cell: (status) =>
+        status.getValue() === 'Pending' ? (
+          <Pill colorScheme="red" icon={<Clock />} label={status.getValue()} />
+        ) : (
+          <Pill colorScheme="indigo" icon={<ClipboardWithCheck />} label={status.getValue()} />
+        ),
+    }),
+    {
+      header: 'Carrier',
+      accessorKey: 'carrier',
+    },
+    columnHelper.accessor('rate', {
+      id: 'rate',
+      header: 'Rate',
+      // eslint-disable-next-line react/no-unstable-nested-components
+      cell: (rate) => <span>${rate.getValue()}</span>,
+    }),
+    {
+      header: 'Origin',
+      accessorKey: 'origin',
+    },
+    {
+      header: 'Destination',
+      accessorKey: 'destination',
+    },
+    {
+      header: 'Pickup Date',
+      accessorKey: 'pickupDate',
     },
   ];
 
@@ -65,7 +142,7 @@ export const StickyHeader = () => {
     phoneNumber: faker.phone.number(),
   }));
 
-  const columns: ColumnDef<(typeof data)[0]>[] = [
+  const columns: DataTableColumnDef<(typeof data)[0]>[] = [
     {
       header: 'First Name',
       accessorKey: 'firstName',
@@ -107,7 +184,7 @@ export const StickyHeaderFixedTableHeight = () => {
     phoneNumber: faker.phone.number(),
   }));
 
-  const columns: ColumnDef<(typeof data)[0]>[] = [
+  const columns: DataTableColumnDef<(typeof data)[0]>[] = [
     {
       header: 'First Name',
       accessorKey: 'firstName',
@@ -151,7 +228,7 @@ export const ColumnPinning = () => {
     state: faker.address.state(),
   }));
 
-  const columns: ColumnDef<(typeof data)[0]>[] = [
+  const columns: DataTableColumnDef<(typeof data)[0]>[] = [
     {
       header: 'First Name',
       accessorKey: 'firstName',
@@ -196,7 +273,7 @@ export const RowSelection = () => {
     address: faker.address.streetAddress(),
   }));
 
-  const columns: ColumnDef<(typeof data)[0]>[] = [
+  const columns: DataTableColumnDef<(typeof data)[0]>[] = [
     {
       header: 'First Name',
       accessorKey: 'firstName',
@@ -219,7 +296,7 @@ export const RowSelection = () => {
 };
 
 export const RowExpanding = () => {
-  const columns: ColumnDef<(typeof data)[0]>[] = [
+  const columns: DataTableColumnDef<(typeof data)[0]>[] = [
     {
       header: 'First Name',
       accessorKey: 'firstName',
@@ -261,16 +338,16 @@ export const RowExpanding = () => {
 };
 
 export const Loading = () => {
-  const data = [...Array.from({ length: 100 })].map(() => ({
-    firstName: faker.name.firstName(),
-    lastName: faker.name.lastName(),
-    email: faker.internet.email(),
-    address: faker.address.streetAddress(),
-    city: faker.address.city(),
-    state: faker.address.state(),
-  }));
+  interface Person {
+    firstName: string;
+    lastName: string;
+    email: string;
+    address: string;
+    city: string;
+    state: string;
+  }
 
-  const columns: ColumnDef<(typeof data)[0]>[] = [
+  const columns: DataTableColumnDef<Person>[] = [
     {
       header: 'First Name',
       accessorKey: 'firstName',

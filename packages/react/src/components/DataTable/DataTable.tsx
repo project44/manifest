@@ -2,6 +2,7 @@ import * as React from 'react';
 import { cx } from '@project44-manifest/react-styles';
 import {
   ColumnDef,
+  createColumnHelper,
   getCoreRowModel,
   getExpandedRowModel,
   getPaginationRowModel,
@@ -158,3 +159,5 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
     </StyledDataTable>
   );
 }
+
+export const createDataTableColumnHelper = createColumnHelper;
