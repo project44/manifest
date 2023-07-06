@@ -49,6 +49,11 @@ export const Tooltip = React.forwardRef((props, forwardedRef) => {
     targetRef: triggerRef,
   });
 
+  if (title === undefined || title?.toString().length === 0) {
+    // do not render tooltip if nothing to display
+    return React.cloneElement(children);
+  }
+
   return (
     <>
       {React.cloneElement(children, {
