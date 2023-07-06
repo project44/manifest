@@ -90,7 +90,7 @@ export const StyledDataTable = styled('div', {
     },
 
     '&__cell--sticky-header': {
-      backgroundColor: '$$tableBackgroundColor',
+      backgroundColor: '$colors$background-secondary',
       position: 'sticky',
       top: 0,
       zIndex: 1,
