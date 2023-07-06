@@ -1,5 +1,21 @@
 # @manifest/react
 
+## 3.11.0
+
+### Minor Changes
+
+- [#429](https://github.com/project44/manifest/pull/429)
+  [`97ed426`](https://github.com/project44/manifest/commit/97ed4260d76cfeb4eedec489f5f5fa49c8443340)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - Update Tooltip to only render
+  when there is content to display
+
+### Patch Changes
+
+- [#428](https://github.com/project44/manifest/pull/428)
+  [`ef143ce`](https://github.com/project44/manifest/commit/ef143ce97ae8963ca27e9b859c53a13f6c9a1c78)
+  Thanks [@danielrobertson](https://github.com/danielrobertson)! - Fix DataTable sticky header
+  styles
+
 ## 3.10.0
 
 ### Minor Changes
