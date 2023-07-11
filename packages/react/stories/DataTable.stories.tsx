@@ -220,22 +220,24 @@ export const StickyHeaderFixedTableHeight = () => {
 
 export const ColumnPinning = () => {
   const data = [...Array.from({ length: 100 })].map(() => ({
-    firstName: faker.name.firstName(),
-    lastName: faker.name.lastName(),
+    name: faker.name.fullName(),
+    age: faker.datatype.number(100),
     email: faker.internet.email(),
     address: faker.address.streetAddress(),
+    isSubscribed: faker.datatype.boolean(),
     city: faker.address.city(),
     state: faker.address.state(),
+    birthday: faker.date.past().toLocaleDateString('en-US'),
   }));
 
   const columns: DataTableColumnDef<(typeof data)[0]>[] = [
     {
-      header: 'First Name',
-      accessorKey: 'firstName',
+      header: 'Name',
+      accessorKey: 'name',
     },
     {
-      header: 'Last Name',
-      accessorKey: 'lastName',
+      header: 'Age',
+      accessorKey: 'age',
     },
     {
       header: 'Email Address',
@@ -246,12 +248,20 @@ export const ColumnPinning = () => {
       accessorKey: 'address',
     },
     {
+      header: 'Subscribed',
+      accessorKey: 'isSubscribed',
+    },
+    {
       header: 'City',
       accessorKey: 'city',
     },
     {
       header: 'State',
       accessorKey: 'state',
+    },
+    {
+      header: 'Birthday',
+      accessorKey: 'birthday',
     },
   ];
 
