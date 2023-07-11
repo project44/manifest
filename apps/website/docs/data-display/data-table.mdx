@@ -9,94 +9,55 @@ DataTable provides advanced functionality over Table, including sorting, paginat
 row selection, filtering, and row expansion.
 
 ```jsx live
-<DataTable
-  columns={[
+function DataTableDemo() {
+  const data = [...Array.from({ length: 100 })].map(() => ({
+    name: faker.name.fullName(),
+    age: faker.datatype.number(100),
+    email: faker.internet.email(),
+    address: faker.address.streetAddress(),
+    isSubscribed: faker.datatype.boolean(),
+    city: faker.address.city(),
+    state: faker.address.state(),
+    birthday: faker.date.past().toLocaleDateString('en-US'),
+  }));
+
+  const columns = [
     {
-      header: 'First Name',
-      accessorKey: 'firstName',
-    },
-    {
-      header: 'Last Name',
-      accessorKey: 'lastName',
-    },
-    {
-      header: 'Gender',
-      accessorKey: 'gender',
+      header: 'Name',
+      accessorKey: 'name',
     },
     {
       header: 'Age',
       accessorKey: 'age',
     },
     {
-      header: 'Address',
-      accessorKey: 'address',
+      header: 'Email Address',
+      accessorKey: 'email',
     },
     {
-      header: 'City',
-      accessorKey: 'city',
+      header: 'Address',
+      accessorKey: 'address',
     },
     {
       header: 'Subscribed',
       accessorKey: 'isSubscribed',
     },
     {
+      header: 'City',
+      accessorKey: 'city',
+    },
+    {
+      header: 'State',
+      accessorKey: 'state',
+    },
+    {
       header: 'Birthday',
       accessorKey: 'birthday',
     },
-  ]}
-  data={[
-    {
-      firstName: 'Jovany',
-      lastName: 'Moore',
-      gender: 'male',
-      age: 46,
-      address: '85115 Pouros Burgs',
-      city: 'Sammyfort',
-      isSubscribed: true,
-      birthday: '12/5/2022',
-    },
-    {
-      firstName: 'Tyrique',
-      lastName: 'Hermiston',
-      gender: 'female',
-      age: 36,
-      address: '866 Justyn Ridge',
-      city: 'Stehrtown',
-      isSubscribed: false,
-      birthday: '7/19/2022',
-    },
-    {
-      firstName: 'Isobel',
-      lastName: 'Ondricka',
-      gender: 'male',
-      age: 74,
-      address: '7236 Jada Lock',
-      city: 'Keller',
-      isSubscribed: false,
-      birthday: '8/22/2022',
-    },
-    {
-      firstName: 'Deontae',
-      lastName: 'Haag',
-      gender: 'female',
-      age: 14,
-      address: '90595 Bridgette Court',
-      city: 'Kshlerinstad',
-      isSubscribed: true,
-      birthday: '6/17/2023',
-    },
-    {
-      firstName: 'Randal',
-      lastName: 'Boyer',
-      gender: 'female',
-      age: 33,
-      address: '2786 Yundt Ford',
-      city: 'Portland',
-      isSubscribed: true,
-      birthday: '10/22/2022',
-    },
-  ]}
-/>
+  ];
+
+  return <DataTable columns={columns} data={data} />;
+}
 ```
 
 ### Typescript
@@ -260,116 +221,26 @@ interface Shipment {
 Enable sticky header with `enableStickyHeader` prop.
 
 ```jsx live
-<DataTable
-  enableStickyHeader
-  initialState={{ pagination: { pageSize: 25, pageIndex: 0 } }}
-  css={{ '.manifest-data-table__container': { maxHeight: 250 } }}
-  columns={[
-    {
-      header: 'First Name',
-      accessorKey: 'firstName',
-    },
-    {
-      header: 'Last Name',
-      accessorKey: 'lastName',
-    },
-    {
-      header: 'Address',
-      accessorKey: 'address',
-    },
-    {
-      header: 'State',
-      accessorKey: 'state',
-    },
-    {
-      header: 'Zip',
-      accessorKey: 'zipCode',
-    },
-  ]}
-  data={[
-    {
-      firstName: 'Ramona',
-      lastName: 'Greenfelder',
-      address: '93042 Chadd Loaf',
-      state: 'New Hampshire',
-      zipCode: '92745',
-    },
-    {
-      firstName: 'Trent',
-      lastName: 'Windler',
-      address: '658 Emard Common',
-      state: 'Florida',
-      zipCode: '91634',
-    },
-    {
-      firstName: 'Charlotte',
-      lastName: 'Hoppe',
-      address: '3835 Name Fort',
-      state: 'Kansas',
-      zipCode: '59431-6467',
-    },
-    {
-      firstName: 'Scarlett',
-      lastName: 'Schuster',
-      address: '4403 Retta Points',
-      state: 'Vermont',
-      zipCode: '22208-7524',
-    },
-    {
-      firstName: 'Randi',
-      lastName: 'Runte',
-      address: '635 Kassulke Rest',
-      state: 'South Carolina',
-      zipCode: '66430',
-    },
-    {
-      firstName: 'Nicole',
-      lastName: 'Kris',
-      address: '0344 Larkin Locks',
-      state: 'Massachusetts',
-      zipCode: '86262',
-    },
-    {
-      firstName: 'Linda',
-      lastName: 'Leffler',
-      address: '8039 Kuhn Tunnel',
-      state: 'Missouri',
-      zipCode: '96777',
-    },
-    {
-      firstName: 'Terry',
-      lastName: 'Schroeder',
-      address: '9516 Koss Terrace',
-      state: 'New Hampshire',
-      zipCode: '66240',
-    },
-    {
-      firstName: 'Linda',
-      lastName: 'Kuhic',
-      address: '8403 Kautzer Mission',
-      state: 'New York',
-      zipCode: '06228',
-    },
-  ]}
-/>
-```
+function DataTableDemo() {
+  const data = [...Array.from({ length: 100 })].map(() => ({
+    name: faker.name.fullName(),
+    age: faker.datatype.number(100),
+    email: faker.internet.email(),
+    address: faker.address.streetAddress(),
+    isSubscribed: faker.datatype.boolean(),
+    city: faker.address.city(),
+    state: faker.address.state(),
+    birthday: faker.date.past().toLocaleDateString('en-US'),
+  }));
 
-### Column pinning
-
-Pin columns to `left` and `right` using `initiateState` prop
-
-```jsx live
-<DataTable
-  enableStickyHeader
-  initialState={{ columnPinning: { left: ['email'], right: ['state'] } }}
-  columns={[
+  const columns = [
     {
-      header: 'First Name',
-      accessorKey: 'firstName',
+      header: 'Name',
+      accessorKey: 'name',
     },
     {
-      header: 'Last Name',
-      accessorKey: 'lastName',
+      header: 'Age',
+      accessorKey: 'age',
     },
     {
       header: 'Email Address',
@@ -380,6 +251,10 @@ Pin columns to `left` and `right` using `initiateState` prop
       accessorKey: 'address',
     },
     {
+      header: 'Subscribed',
+      accessorKey: 'isSubscribed',
+    },
+    {
       header: 'City',
       accessorKey: 'city',
     },
@@ -387,90 +262,84 @@ Pin columns to `left` and `right` using `initiateState` prop
       header: 'State',
       accessorKey: 'state',
     },
-  ]}
-  data={[
     {
-      firstName: 'Earlene',
-      lastName: 'Shanahan',
-      email: 'Americo41@hotmail.com',
-      address: '3750 Providenci Lakes',
-      city: 'East Willie',
-      state: 'North Dakota',
+      header: 'Birthday',
+      accessorKey: 'birthday',
+    },
+  ];
+
+  return (
+    <DataTable
+      enableStickyHeader
+      columns={columns}
+      css={{ '.manifest-data-table__container': { maxHeight: 250 } }}
+      data={data}
+      initialState={{ pagination: { pageSize: 25, pageIndex: 0 } }}
+    />
+  );
+}
+```
+
+### Column pinning
+
+Pin columns to `left` and `right` using `initiateState` prop
+
+```jsx live
+function DataTableDemo() {
+  const data = [...Array.from({ length: 100 })].map(() => ({
+    name: faker.name.fullName(),
+    age: faker.datatype.number(100),
+    email: faker.internet.email(),
+    address: faker.address.streetAddress(),
+    isSubscribed: faker.datatype.boolean(),
+    city: faker.address.city(),
+    state: faker.address.state(),
+    birthday: faker.date.past().toLocaleDateString('en-US'),
+  }));
+
+  const columns = [
+    {
+      header: 'Name',
+      accessorKey: 'name',
     },
     {
-      firstName: 'Barney',
-      lastName: 'Ruecker',
-      email: 'Abdiel97@gmail.com',
-      address: '9756 Berge Dale',
-      city: 'New Hubertfurt',
-      state: 'Rhode Island',
+      header: 'Age',
+      accessorKey: 'age',
     },
     {
-      firstName: 'Freeman',
-      lastName: 'Pfannerstill',
-      email: 'Glennie_Batz@hotmail.com',
-      address: '168 Homenick Keys',
-      city: 'East Edmundborough',
-      state: 'Maryland',
+      header: 'Email Address',
+      accessorKey: 'email',
     },
     {
-      firstName: 'Earnestine',
-      lastName: 'Krajcik',
-      email: 'Kaitlyn.McClure@gmail.com',
-      address: '02623 Heidenreich River',
-      city: 'Veumhaven',
-      state: 'New Jersey',
+      header: 'Address',
+      accessorKey: 'address',
     },
     {
-      firstName: 'Herman',
-      lastName: 'Towne',
-      email: 'Eva.Gottlieb80@gmail.com',
-      address: '877 Greta Lodge',
-      city: 'Daisyborough',
-      state: 'Vermont',
+      header: 'Subscribed',
+      accessorKey: 'isSubscribed',
     },
     {
-      firstName: 'Alford',
-      lastName: 'Bauch',
-      email: 'Earl.Schamberger@gmail.com',
-      address: '2739 Franey Valleys',
-      city: 'East Juvenal',
-      state: 'Iowa',
+      header: 'City',
+      accessorKey: 'city',
     },
     {
-      firstName: 'Queenie',
-      lastName: 'Runte',
-      email: 'Kariane.Brown@yahoo.com',
-      address: '86904 Boehm Ramp',
-      city: 'Tobinview',
-      state: 'North Carolina',
+      header: 'State',
+      accessorKey: 'state',
     },
     {
-      firstName: 'Rosie',
-      lastName: 'Gutkowski',
-      email: 'Reilly_McDermott89@gmail.com',
-      address: '70261 Heaney Views',
-      city: 'Shyannville',
-      state: 'Georgia',
+      header: 'Birthday',
+      accessorKey: 'birthday',
     },
-    {
-      firstName: 'Priscilla',
-      lastName: 'Swift',
-      email: 'River_Gerlach@hotmail.com',
-      address: '4825 Nils Estates',
-      city: 'North Shany',
-      state: 'South Carolina',
-    },
-    {
-      firstName: 'Tyrel',
-      lastName: 'Schmidt',
-      email: 'Allen_Will56@hotmail.com',
-      address: '8115 Palma Skyway',
-      city: 'West Geovanystad',
-      state: 'North Dakota',
-    },
-  ]}
-/>
+  ];
+
+  return (
+    <DataTable
+      columns={columns}
+      data={data}
+      initialState={{ columnPinning: { left: ['email'], right: ['state'] } }}
+    />
+  );
+}
 ```
 
 ### Loading
