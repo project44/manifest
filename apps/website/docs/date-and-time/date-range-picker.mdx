@@ -15,7 +15,7 @@ Choose a date range from a visual calendar.
 
 ### Label
 
-Attach a label to the datepicker using the `label` prop.
+Attach a label to the DateRangePicker using the `label` prop.
 
 ```jsx live
 <DateRangePicker label="Estimated Delivery Date" />
@@ -31,7 +31,7 @@ Add additional context as well as display error messages with the `helperText` p
 
 ### Small
 
-A small datepicker is used when vertical spacing is limited.
+A small DateRangePicker is used when vertical spacing is limited.
 
 ```jsx live
 <DateRangePicker aria-label="delivery date" size="small" />
@@ -53,10 +53,67 @@ Set the `showRanges` prop to display a pre-set list of relative date ranges.
 <DateRangePicker aria-label="delivery date" showRanges />
 ```
 
+#### Custom Ranges
+
+Provide custom relative ranges using the `ranges` prop and `@internationalized/date` date objects.
+
+```jsx
+import { CalendarDate, DateValue, endOfMonth, startOfMonth } from '@internationalized/date';
+
+const calendarDate = createCalendarDate(defaultDate);
+const defineds = {
+  startOfLastThreeMonths: startOfMonth(addMonths(calendarDate, -3)),
+  endOfLastThreeMonths: endOfMonth(addMonths(calendarDate, -1)),
+  startOfLastSixMonths: startOfMonth(addMonths(calendarDate, -6)),
+  endOfLastSixMonths: endOfMonth(addMonths(calendarDate, -1)),
+  startOfLastYear: startOfMonth(addMonths(calendarDate, -13)),
+  endOfLastYear: endOfMonth(addMonths(calendarDate, -1)),
+  startOfLastTwoYears: startOfMonth(addMonths(calendarDate, -25)),
+  endOfLastTwoYears: endOfMonth(addMonths(calendarDate, -1)),
+};
+
+const customRanges = [
+  {
+    key: 'lastThreeMonths',
+    label: 'Last three months',
+    value: {
+      start: defineds.startOfLastThreeMonths,
+      end: defineds.endOfLastThreeMonths,
+    },
+  },
+  {
+    key: 'lastSixMonths',
+    label: 'Last six months',
+    value: {
+      start: defineds.startOfLastSixMonths,
+      end: defineds.endOfLastSixMonths,
+    },
+  },
+  {
+    key: 'lastYear',
+    label: 'Last Year',
+    value: {
+      start: defineds.startOfLastYear,
+      end: defineds.endOfLastYear,
+    },
+  },
+  {
+    key: 'lastTwoYears',
+    label: 'Last Two Years',
+    value: {
+      start: defineds.startOfLastTwoYears,
+      end: defineds.endOfLastTwoYears,
+    },
+  },
+];
+
+<DateRangePicker showRanges ranges={customRanges} />;
+```
+
 ### Controlled
 
-A datepickers's state can be controlled by a parent React component by setting the `value` prop and
-passing a handler to the `onChange` prop.
+A DateRangePicker's state can be controlled by a parent React component by setting the `value` prop
+and passing a handler to the `onChange` prop.
 
 :::info
 
@@ -93,7 +150,7 @@ function UnavailableExample() {
 
 ### Disabled State
 
-Set the `isDisabled` prop to prevent a user from interacting with the datepicker.
+Set the `isDisabled` prop to prevent a user from interacting with the DateRangePicker.
 
 ```jsx live
 <DateRangePicker aria-label="delivery date" isDisabled />
@@ -101,7 +158,7 @@ Set the `isDisabled` prop to prevent a user from interacting with the datepicker
 
 ### Invalid State
 
-Set the `validationState` prop to `invalid` to render the datepicker in an invalid state.
+Set the `validationState` prop to `invalid` to render the DateRangePicker in an invalid state.
 
 ```jsx live
 <DateRangePicker
