@@ -10,76 +10,6 @@ row selection, filtering, and row expansion.
 
 ```jsx live
 function DataTableDemo() {
-  const data = [...Array.from({ length: 100 })].map(() => ({
-    name: faker.name.fullName(),
-    age: faker.datatype.number(100),
-    email: faker.internet.email(),
-    address: faker.address.streetAddress(),
-    isSubscribed: faker.datatype.boolean(),
-    city: faker.address.city(),
-    state: faker.address.state(),
-    birthday: faker.date.past().toLocaleDateString('en-US'),
-  }));
-
-  const columns = [
-    {
-      header: 'Name',
-      accessorKey: 'name',
-    },
-    {
-      header: 'Age',
-      accessorKey: 'age',
-    },
-    {
-      header: 'Email Address',
-      accessorKey: 'email',
-    },
-    {
-      header: 'Address',
-      accessorKey: 'address',
-    },
-    {
-      header: 'Subscribed',
-      accessorKey: 'isSubscribed',
-    },
-    {
-      header: 'City',
-      accessorKey: 'city',
-    },
-    {
-      header: 'State',
-      accessorKey: 'state',
-    },
-    {
-      header: 'Birthday',
-      accessorKey: 'birthday',
-    },
-  ];
-
-  return <DataTable columns={columns} data={data} />;
-}
-```
-
-### Typescript
-
-:::info
-
-Live Typescript examples are currently not supported in this documentation. Please refer to the
-[DataTable Storybook](https://github.com/project44/manifest/blob/main/packages/react/stories/DataTable.stories.tsx)
-for live Typescript examples. Work is underway to support live Typescript in the documentation and
-is [tracked here](https://github.com/project44/manifest/issues/424).
-
-:::
-
-DataTable leverages Typescript to provide type safety. The column definition for the table should
-follow the `@tanstack/react-table` [ColumnDef](https://tanstack.com/table/v8/docs/guide/column-defs)
-type, exported as `DataTableColumnDef` from Manifest.
-
-```jsx
-import { faker } from '@faker-js/faker';
-import { DataTable, DataTableColumnDef } from '@project44-manifest/react';
-
-function Default() {
   interface Person {
     firstName: string;
     lastName: string;
@@ -90,7 +20,8 @@ function Default() {
     isSubscribed: boolean;
     birthday: string;
   }
-  const data = [...Array.from({ length: 5 })].map(() => ({
+
+  const data = [...Array.from({ length: 100 })].map(() => ({
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),
     gender: faker.name.sex(),
@@ -142,6 +73,14 @@ function Default() {
 
 ## Usage
 
+:::note
+
+DataTable leverages Typescript to provide type safety. The column definition for the table should
+follow the `@tanstack/react-table` [ColumnDef](https://tanstack.com/table/v8/docs/guide/column-defs)
+type, exported as `DataTableColumnDef` from Manifest.
+
+:::
+
 ### Custom Cell Rendering
 
 To render arbitrary non-string values, use the `createDataTableColumnHelper` function, which is an
@@ -149,11 +88,9 @@ alias to
 [createColumnHelper function](https://tanstack.com/table/v8/docs/guide/column-defs#column-helpers)
 from `@tanstack/react-table`.
 
-```jsx
-import { createDataTableColumnHelper, DataTable, Link, Pill } from '@project44-manifest/react
-
+```jsx live
 function CustomCellRendering() {
-interface Shipment {
+  interface Shipment {
     shipmentId: string;
     status: string;
     carrier: string;
@@ -165,7 +102,7 @@ interface Shipment {
 
   const columnHelper = createDataTableColumnHelper<Shipment>();
 
-  const data = [...Array.from({ length: 5 })].map(() => ({
+  const data = [...Array.from({ length: 100 })].map(() => ({
     shipmentId: faker.random.numeric(6),
     status: faker.helpers.arrayElement(['Pending', 'Booked']),
     carrier: `${faker.name.firstName()}'s Trucking`,
