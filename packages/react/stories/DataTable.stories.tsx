@@ -306,7 +306,14 @@ export const RowSelection = () => {
 };
 
 export const RowExpanding = () => {
-  const columns: DataTableColumnDef<(typeof data)[0]>[] = [
+  interface Person {
+    firstName: string;
+    lastName: string;
+    age: number;
+    address: string;
+    phoneNumber: string;
+  }
+  const columns: DataTableColumnDef<Person>[] = [
     {
       header: 'First Name',
       accessorKey: 'firstName',

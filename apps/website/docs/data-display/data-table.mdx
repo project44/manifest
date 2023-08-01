@@ -2,7 +2,7 @@
 title: DataTable
 description: A rich data table component.
 sidebar_custom_props:
-  status: 'alpha'
+  status: 'production'
 ---
 
 DataTable provides advanced functionality over Table, including sorting, pagination, column pinning,
@@ -282,6 +282,61 @@ function DataTableDemo() {
 ### Loading
 
 Indicate loading state with `isLoading` prop
+
+### Row Expansion
+
+Enable row expansion with `enableRowExpansion` prop
+
+```jsx live
+function DataTableDemo() {
+  interface Person {
+    firstName: string;
+    lastName: string;
+    age: number;
+    address: string;
+    phoneNumber: string;
+  }
+  const columns: DataTableColumnDef<Person>[] = [
+    {
+      header: 'First Name',
+      accessorKey: 'firstName',
+    },
+    {
+      header: 'Last Name',
+      accessorKey: 'lastName',
+    },
+    {
+      header: 'Age',
+      accessorKey: 'age',
+    },
+    {
+      header: 'Address',
+      accessorKey: 'address',
+    },
+    {
+      header: 'Phone Number',
+      accessorKey: 'phoneNumber',
+    },
+  ];
+
+  const data = [...Array.from({ length: 5 })].map(() => ({
+    firstName: faker.name.firstName(),
+    lastName: faker.name.lastName(),
+    age: faker.datatype.number(80),
+    address: faker.address.streetAddress(),
+    phoneNumber: faker.phone.number(),
+    subRows: [...Array.from({ length: faker.datatype.number(4) })].map(() => ({
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      age: faker.datatype.number(80),
+      address: faker.address.streetAddress(),
+      phoneNumber: faker.phone.number(),
+    })),
+  }));
+
+  return <DataTable enableExpanding columns={columns} data={data} />;
+}
+```
 
 ## Props
 
