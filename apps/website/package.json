@@ -22,7 +22,7 @@
     "@internationalized/date": "^3.1.0",
     "@mdx-js/react": "^1.6.22",
     "@project44-manifest/design-tokens": "^3.0.0",
-    "@project44-manifest/react": "^3.5.0",
+    "@project44-manifest/react": "workspace:^",
     "@project44-manifest/react-icons": "^1.0.0",
     "@react-aria/i18n": "^3.7.0",
     "clsx": "^1.2.1",

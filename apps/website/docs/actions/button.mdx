@@ -1,90 +1,151 @@
 ---
 title: Button
-description: Clickable elements that communicate actions that users can take.
+description: Buttons are clickable elements used for performing interface actions.
 sidebar_custom_props:
   status: 'production'
 ---
 
-Clickable elements that communicate actions that users can take.
+Buttons are clickable elements used for performing interface actions. Button labels let users know what will happen next.
 
-```jsx live
-<Button>Button</Button>
-```
+:::note
+Buttons are not links and should not be used for navigation. Buttons _do something_, links _go somewhere_. When you want to navigate a user to another page or website, use a [link](link).
+:::
 
-## Usage
+## Appearance
 
 ### Primary
 
-Primary buttons are used to indicate the highest priority action a user can perform.
+Use a `primary` button variant to indicate the strongest call to action on a page. Primary buttons should appear only once per section. Not every page needs a primary button.
+
 
 ```jsx live
-<Button variant="primary">Primary</Button>
+<Button variant="primary">Primary button</Button>
 ```
 
 ### Secondary
 
-Secondary buttons are second in priority to primary buttons and are used for important actions that
-aren't the primary action.
+The `secondary` button should be the default button variant for most use cases.
 
 ```jsx live
-<Button variant="secondary">Secondary</Button>
+<Button variant="secondary">Secondary button</Button>
 ```
 
 ### Tertiary
 
-Tertiary buttons are the lowest priority actions and should be used for less commonly used actions.
+Use a `tertiary` button to deprioritize actions when placed next to secondary or primary buttons. Tertiary buttons may also be used to lessen visual distraction when a multitude of similar actions are being used, or when the button exists inside an element with little spacing.
+
+For example, a table that includes a download button in each row should use the `tertiary` variant.
 
 ```jsx live
-<Button variant="tertiary">Tertiary</Button>
+<Button variant="tertiary">Tertiary button</Button>
 ```
 
-### Destructive
+### Danger
 
-Destructive buttons are used to indicate an action that is destructive and cannot be undone.
+The `danger` variant is used to indicate an action that is destructive and cannot be undone.
 
 ```jsx live
-<Button variant="danger">Danger</Button>
+<Button variant="danger">Danger button</Button>
 ```
 
 ### Brand
 
-Brand buttons are used for project44 specific marketing moments and should be use sparingly.
+Use a `brand` button variant for project44 specific marketing moments. This should be used sparingly.
 
 ```jsx live
-<Button variant="brand">Brand</Button>
+<Button variant="brand">Brand button</Button>
 ```
+
+## States
+
+### Disabled
+
+Use the `isDisabled` prop to disable a button that isn’t usable. Disabled buttons present a number of accessibility issues, particularly in forms, so they should be used sparingly.
+
+```jsx live
+<Button isDisabled>Button</Button>
+```
+
+## Sizing
 
 ### Small
 
-Small buttons are used when vertical spacing is limited.
+Set the button size to `small` when vertical spacing is limited, like inside a table row.
 
 ```jsx live
 <Button size="small">Button</Button>
 ```
 
+## Icons
+
 ### Start Icon
 
-Include an icon before the button label.
+Use `startIcon` to include [icon](/core/icons) before the button label.
 
 ```jsx live
-<Button startIcon={<Add />}>Button</Button>
+<Button startIcon={<Add />}>Create template</Button>
 ```
 
 ### End Icon
 
-Include an icon after the button label.
+Use `endIcon` to include an [icon](/core/icons) after the button label. End icons should be used to imply _directionality_ to the button's action, like traversing pages in a table or revealing a menu under the button.
 
 ```jsx live
-<Button endIcon={<Add />}>Button</Button>
+<Button variant="tertiary" endIcon={<ChevronRight />}>Next page</Button>
 ```
 
-### Disabled State
+## Common configurations
 
-Set the `isDisabled` prop to prevent a user from pressing a button.
+### Dropdown button
+
+Create a dropdown button by adding the `ChevronDown` icon at the end.
 
 ```jsx live
-<Button isDisabled>Button</Button>
+<Button variant="secondary" endIcon={<ChevronDown />}>Select an item</Button>
 ```
+
+## Content guidelines
+
+Button labels should be concise and predictable. A user should understand what action will take place after clicking the button. When writing labels, start with a **verb** to imply action and add context with a supportive **noun**.
+
+:::tip Correct
+View shipments
+:::
+
+:::danger Incorrect
+Shipments list
+:::
+
+:::caution
+Do not rely on an icon to stand in as a label's verb.
+:::
+
+
+### Sentence case
+
+Use sentence case, not title case, when writing button labels. Capitalize only the first word in a string, as well as any other words that require capitalization, like proper nouns, initialisms, or acronyms.
+
+We use sentence case because it's more conversational and makes it easier for users to distinguish between common nouns and proper nouns.
+
+:::tip Correct
+Sign up
+:::
+
+:::danger Incorrect
+Sign Up
+:::
+
+### Brevity
+
+Don't use long, redundant button labels and avoid unnecessary articles such as "a", "an", or "the" for a more concise label.
+
+:::tip Correct
+Create user
+:::
+
+:::danger Incorrect
+Click here to create a new user
+:::
 
 ## Props
 
