@@ -140,6 +140,14 @@ of the commit message is then used for this.
 
 ## Pull Request
 
+Pull Request titles should follow the following format:
+
+```
+<type>: <subject>
+```
+
+_Note this excludes scope `<type>(<scope>): ...`_
+
 Before working on an issue or feature please review any tickets, pull requests, and discussions to
 be certain that no one is actively working on the same issue or feature.
 
@@ -207,6 +215,12 @@ They are divided into
 2. `packages` - Packages that are used by other applications or packages
    - `@project44-manifest/react` is the primary package that contains all of the react components
      and exports them for consumption outside Manifest
+
+Run commands from the global root of the repository. For example, to run the `website` application:
+
+```sh
+yarn workspace website dev
+```
 
 ### Storybook
 
