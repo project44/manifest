@@ -29,7 +29,6 @@
     "@commitlint/config-conventional": "^17.0.0",
     "@percy/cli": "^1.16.0",
     "@percy/storybook": "^4.3.4",
-    "@project44-manifest/react": "workspace:^",
     "@swc/core": "^1.3.59",
     "@swc/jest": "^0.2.26",
     "@testing-library/jest-dom": "^5.16.5",
