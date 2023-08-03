@@ -168,7 +168,7 @@ git remote add upstream https://github.com/project44/manifest.git
 
 We use [changesets](https://github.com/changesets/changesets) for changelog and release management.
 
-1. Add a changet
+1. Add a changeset
 
 ```sh
 yarn changeset
@@ -191,6 +191,25 @@ yarn changeset add --empty
 
 ## Development
 
+### Monorepo
+
+Manifest uses [Turborepo](https://turbo.build/) to manage applications.
+
+```sh
+yarn workspaces list
+```
+
+They are divided into
+
+1. `apps` - Applications that are deployed to production
+   - `storybook`
+   - `website` - Documentation site
+2. `packages` - Packages that are used by other applications or packages
+   - `@project44-manifest/react` is the primary package that contains all of the react components
+     and exports them for consumption outside Manifest
+
+### Storybook
+
 When working with react components and packages, we have provided a
 [storybook](https://storybook.js.org/) development server to use for validation.
 
@@ -207,13 +226,15 @@ locally, run the following command:
 yarn workspace website dev
 ```
 
-#### Props generation
+The website is deployed to GitHub Pages via the `deploy-website` GitHub Action.
+
+### Props generation
 
 If changing a React component prop, you will need to regenerate the prop types. To do so, run the
 following command:
 
 ```sh
-yarn workspace react generate-props
+yarn workspace @project44-manifest/react generate-props
 ```
 
 ## Testing
