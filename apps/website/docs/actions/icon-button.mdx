@@ -1,23 +1,22 @@
 ---
 title: Icon Button
-description: Clickable elements that communicate actions that users can take.
+description: Icon buttons are clickable elements used for performing interface actions in environments when space is limited.
 sidebar_custom_props:
   status: 'production'
 ---
 
-Clickable elements that communicate actions that users can take.
+Buttons are clickable elements used for performing interface actions. When space is limited, an icon button may be used.
 
-```jsx live
-<IconButton>
-  <Add />
-</IconButton>
-```
+:::note
+Buttons are not links and should not be used for navigation. Buttons _do something_, links _go somewhere_. When you want to navigate a user to another page or website, use a [link](link).
+:::
 
-## Usage
+
+## Appearance
 
 ### Primary
 
-Primary buttons are used to indicate the highest priority action a user can perform.
+Use a `primary` button variant to indicate the strongest call to action on a page. Primary buttons should appear only once per section. Not every page needs a primary button.
 
 ```jsx live
 <IconButton variant="primary">
@@ -27,8 +26,7 @@ Primary buttons are used to indicate the highest priority action a user can perf
 
 ### Secondary
 
-Secondary buttons are second in priority to primary buttons and are used for important actions that
-aren't the primary action.
+The `secondary` button should be the default button variant for most use cases.
 
 ```jsx live
 <IconButton variant="secondary">
@@ -38,27 +36,29 @@ aren't the primary action.
 
 ### Tertiary
 
-Tertiary buttons are the lowest priority actions and should be used for less commonly used actions.
+Use a `tertiary` button to deprioritize actions when placed next to secondary or primary buttons. Tertiary buttons may also be used to lessen visual distraction when a multitude of similar actions are being used, or when the button exists inside an element with little spacing.
+
+For example, a table that includes a download button in each row should use the `tertiary` variant.
 
 ```jsx live
 <IconButton variant="tertiary">
-  <Add />
+  <Download />
 </IconButton>
 ```
 
-### Destructive
+### Danger
 
-Destructive buttons are used to indicate an action that is destructive and cannot be undone.
+The `danger` variant is used to indicate an action that is destructive and cannot be undone.
 
 ```jsx live
 <IconButton variant="danger">
-  <Add />
+  <TrashCan />
 </IconButton>
 ```
 
 ### Brand
 
-Brand buttons are used for project44 specific marketing moments and should be use sparingly.
+Use a `brand` button variant for project44 specific marketing moments. This should be used sparingly.
 
 ```jsx live
 <IconButton variant="brand">
@@ -66,23 +66,90 @@ Brand buttons are used for project44 specific marketing moments and should be us
 </IconButton>
 ```
 
-### Small
+## States
 
-Small buttons are used when vertical spacing is limited.
+### Disabled
 
-```jsx live
-<IconButton size="small">
-  <Add />
-</IconButton>
-```
-
-### Disabled State
-
-Set the `isDisabled` prop to prevent a user from pressing a button.
+Use the `isDisabled` prop to disable a button that isn’t usable. Disabled buttons present a number of accessibility issues, particularly in forms, so they should be used sparingly.
 
 ```jsx live
 <IconButton isDisabled>
   <Add />
+</IconButton>
+```
+
+## Sizing
+
+### Small
+
+Set the button size to `small` when vertical spacing is limited, like inside a table row.
+
+```jsx live
+<IconButton variant="secondary" size="small">
+  <Add />
+</IconButton>
+```
+
+## Common configurations
+
+### Popular icon-only buttons
+
+Some icons have meanings that are understood universally across software experiences. For example, a trash can always conveys _delete_, where a plus symbol says _add_.
+
+When this is true, a designer should feel empowered to rely solely on the button's icon to convey meaning.
+
+```jsx live
+<ButtonGroup>
+	<IconButton>
+  		<Add />
+	</IconButton>
+	
+	<IconButton variant="secondary">
+  		<Download />
+	</IconButton>
+	
+	<IconButton variant="secondary">
+  		<More />
+	</IconButton>
+	
+	<IconButton variant="danger">
+  		<TrashCan />
+	</IconButton>
+	
+	<IconButton variant="tertiary">
+  		<Close />
+	</IconButton>
+</ButtonGroup>
+```
+
+### Overflow menu
+
+Overflow menus give users a place to find additional relevant actions that are deprioritized enough to obscure under a dropdown menu.
+
+Use the `More` icon to indicate an overflow menu. When space is limited or multiple overflow menus exist in one section (like a table, for example), use the `small` size and `tertiary` variant.
+
+```jsx live
+<IconButton variant="tertiary" size="small">
+  <More />
+</IconButton>
+```
+
+### Multiple icons
+
+The icon button actually supports multiple icons, though there is often little point to that except for instances where we want an icon button to convey a dropdown action.
+
+In this example, we add a `ChevronDown` icon to imply you can choose from a variety of download options.
+
+:::note
+
+If you want to combine a promoted action with alternative actions, use a [Button Group](button-group#combo-button).
+
+:::
+
+```jsx live
+<IconButton variant="secondary">
+	<Download />
+	<ChevronDown />
 </IconButton>
 ```
 
