@@ -7,9 +7,10 @@ export const StyledItem = styled('button', {
   border: 'none',
   borderRadius: '$small',
   boxSizing: 'border-box',
-  color: '$palette-indigo-50',
+  color: '$text-primary',
   cursor: 'pointer',
   display: 'inline-flex',
+  fontFamily: 'inherit',
   outline: 'none',
   position: 'relative',
   p: `${pxToRem(6)} ${pxToRem(12)}`,
@@ -18,23 +19,19 @@ export const StyledItem = styled('button', {
   whiteSpace: 'nowrap',
 
   '&:active': {
-    backgroundColor: '$palette-white',
-    color: '$text-primary',
+    backgroundColor: '$background-tertiary',
   },
 
   '&:hover': {
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    color: '$text-contrast',
+    backgroundColor: '$background-secondary',
   },
 
   '&.manifest-local-navigation-item--selected': {
-    backgroundColor: '$palette-white',
-    color: '$text-primary',
+    backgroundColor: '$background-tertiary',
     typography: '$subtext-bold',
 
     '&:hover, &:active': {
-      backgroundColor: '$palette-white',
-      color: '$text-primary',
+      backgroundColor: '$background-tertiary',
     },
   },
 });
