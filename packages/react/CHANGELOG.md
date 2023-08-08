@@ -1,5 +1,14 @@
 # @manifest/react
 
+## 3.11.1
+
+### Patch Changes
+
+- [#447](https://github.com/project44/manifest/pull/447)
+  [`4029d12`](https://github.com/project44/manifest/commit/4029d12654e489e58aae8c51941e621ba6619478)
+  Thanks [@michalmaj-p44](https://github.com/michalmaj-p44)! - Update Local Navigation styling to
+  white mode
+
 ## 3.11.0
 
 ### Minor Changes
