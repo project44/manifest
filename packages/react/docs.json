@@ -1205,6 +1205,13 @@
       "type": "boolean",
       "required": false,
       "description": "Whether the navigation item is currently selected"
+    },
+    {
+      "name": "variant",
+      "type": "LocalNavigationVariant",
+      "defaultValue": "'primary'",
+      "required": false,
+      "description": "The display variant."
     }
   ],
   "LocalNavigation": [
@@ -1213,6 +1220,13 @@
       "type": "CSS",
       "required": false,
       "description": "Theme aware style object"
+    },
+    {
+      "name": "variant",
+      "type": "LocalNavigationVariant",
+      "defaultValue": "'primary'",
+      "required": false,
+      "description": "The display variant."
     }
   ],
   "Menu": [
