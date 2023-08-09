@@ -35,11 +35,34 @@ Use the `isSelected` prop to indicate current location
 </Flex>
 ```
 
+### With dropdown button
+
+Use the `LocalNavigationDropdownItem` component to display a button item with dropdown
+
+```jsx live
+<LocalNavigation>
+  <LocalNavigationDropdownItem title="Parent section">
+    <DropdownMenu>
+      <DropdownItem key="Profile">Profile</DropdownItem>
+      <DropdownItem key="Search">Search</DropdownItem>
+    </DropdownMenu>
+  </LocalNavigationDropdownItem>
+  <LocalNavigationItem>Overview</LocalNavigationItem>
+  <LocalNavigationItem>Lanes</LocalNavigationItem>
+  <LocalNavigationItem>Carriers</LocalNavigationItem>
+  <LocalNavigationItem>Containers</LocalNavigationItem>
+</LocalNavigation>
+```
+
 ## Props
 
 ### LocalNavigation Props
 
 <PropsTable component="LocalNavigation" />
+
+### LocalNavigationDropdownItem Props
+
+<PropsTable component="LocalNavigationDropdownItem" />
 
 ### LocalNavigationItem Props
 

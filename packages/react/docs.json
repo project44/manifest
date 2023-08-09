@@ -1193,6 +1193,99 @@
   ],
   "ListBoxItem": [],
   "ListBoxSection": [],
+  "LocalNavigationDropdownItem": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Should contain DropdownMenu with DropdownItems"
+    },
+    {
+      "name": "css",
+      "type": "CSS",
+      "required": false,
+      "description": "Theme aware style object"
+    },
+    {
+      "name": "localNavigationItemProps",
+      "type": "AriaButtonProps<\"button\">",
+      "required": false,
+      "description": "Props passed down to LocalNavigationItem"
+    },
+    {
+      "name": "title",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Title of LocalNavigationItem"
+    },
+    {
+      "name": "isDisabled",
+      "type": "boolean",
+      "defaultValue": "false",
+      "required": false,
+      "description": "Whether menu trigger is disabled."
+    },
+    {
+      "name": "type",
+      "type": "\"menu\" | \"listbox\"",
+      "defaultValue": "'menu'",
+      "required": false,
+      "description": "The type of menu that the menu trigger opens."
+    },
+    {
+      "name": "offset",
+      "type": "number",
+      "defaultValue": "4",
+      "required": false,
+      "description": "The additional offset applied along the main axis between the element and its\nanchor element."
+    },
+    {
+      "name": "placement",
+      "type": "Placement",
+      "defaultValue": "'bottom'",
+      "required": false,
+      "description": "The placement of the element with respect to its anchor element."
+    },
+    {
+      "name": "shouldFlip",
+      "type": "boolean",
+      "defaultValue": "true",
+      "required": false,
+      "description": "Whether the element should flip its orientation (e.g. top to bottom or left to right) when\nthere is insufficient room for it to render completely."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(isOpen: boolean) => void",
+      "required": false,
+      "description": "Handler that is called when the overlay's open state changes."
+    },
+    {
+      "name": "isOpen",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the overlay is open by default (controlled)."
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the overlay is open by default (uncontrolled)."
+    },
+    {
+      "name": "closeOnSelect",
+      "type": "boolean",
+      "defaultValue": "true",
+      "required": false,
+      "description": "Whether the dropdown closes when a selection is made."
+    },
+    {
+      "name": "trigger",
+      "type": "MenuTriggerType",
+      "defaultValue": "'press'",
+      "required": false,
+      "description": "How the menu is triggered."
+    }
+  ],
   "LocalNavigationItem": [
     {
       "name": "css",

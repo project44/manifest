@@ -1,5 +1,11 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { LocalNavigation, LocalNavigationItem } from '../src';
+import {
+  DropdownItem,
+  DropdownMenu,
+  LocalNavigation,
+  LocalNavigationDropdownItem,
+  LocalNavigationItem,
+} from '../src';
 
 describe('react: LocalNavigation', () => {
   it('should render', () => {
@@ -57,5 +63,30 @@ describe('react: LocalNavigation', () => {
     fireEvent.click(button[0]);
 
     expect(onPress).toHaveBeenCalled();
+  });
+
+  it('should render dropdown item and dropdown options after click', () => {
+    const onOpenChange = jest.fn();
+
+    render(
+      <LocalNavigation>
+        <LocalNavigationDropdownItem title="Parent section" onOpenChange={onOpenChange}>
+          <DropdownMenu>
+            <DropdownItem key="Profile">Profile</DropdownItem>
+            <DropdownItem key="Search">Search</DropdownItem>
+          </DropdownMenu>
+        </LocalNavigationDropdownItem>
+        <LocalNavigationItem>Overview</LocalNavigationItem>
+      </LocalNavigation>,
+    );
+
+    const button = screen.getAllByRole('button');
+
+    fireEvent.click(button[0]);
+
+    const dropdownOption = screen.getByRole('menuitem', { name: 'Profile' });
+
+    expect(onOpenChange).toHaveBeenCalled();
+    expect(dropdownOption).toBeVisible();
   });
 });
