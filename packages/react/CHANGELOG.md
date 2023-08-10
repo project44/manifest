@@ -1,5 +1,21 @@
 # @manifest/react
 
+## 3.12.0
+
+### Minor Changes
+
+- [#450](https://github.com/project44/manifest/pull/450)
+  [`764308f`](https://github.com/project44/manifest/commit/764308fae7c98931465d6c15e91c3152369b8c8f)
+  Thanks [@michalmaj-p44](https://github.com/michalmaj-p44)! - LocalNavigationDropdownItem added for
+  using dropdown button in LocalNavigation component.
+
+### Patch Changes
+
+- [#449](https://github.com/project44/manifest/pull/449)
+  [`643bfe6`](https://github.com/project44/manifest/commit/643bfe6eabc84fc84fad53bc6f66133f79e9de9a)
+  Thanks [@michalmaj-p44](https://github.com/michalmaj-p44)! - Fix LocalNavigation default styling
+  to previous blue one. Add new LocalNavigation variant for white mode.
+
 ## 3.11.1
 
 ### Patch Changes
