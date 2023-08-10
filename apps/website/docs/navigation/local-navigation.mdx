@@ -5,11 +5,11 @@ sidebar_custom_props:
   status: 'production'
 ---
 
-Navigation component for sections or pages
+Navigation component for sections or pages.
 
 ## Appearance
 
-Use the `variant` prop to display primary or secondary variant of the component
+Use the `variant` prop to display primary or secondary variant of the component.
 
 ### Primary
 
@@ -41,11 +41,30 @@ Mainly for use on white pages as a navigation in header.
 
 ### Selected
 
-Use the `isSelected` prop to indicate current location
+Use the `isSelected` prop to indicate current location.
 
 ```jsx live
 <LocalNavigation css={{ flex: 1 }}>
   <LocalNavigationItem isSelected>Overview</LocalNavigationItem>
+  <LocalNavigationItem>Lanes</LocalNavigationItem>
+  <LocalNavigationItem>Carriers</LocalNavigationItem>
+  <LocalNavigationItem>Containers</LocalNavigationItem>
+</LocalNavigation>
+```
+
+### With dropdown button
+
+Use the `LocalNavigationDropdownItem` component to display a button item with dropdown.
+
+```jsx live
+<LocalNavigation>
+  <LocalNavigationDropdownItem title="Parent section">
+    <DropdownMenu>
+      <DropdownItem key="Profile">Profile</DropdownItem>
+      <DropdownItem key="Search">Search</DropdownItem>
+    </DropdownMenu>
+  </LocalNavigationDropdownItem>
+  <LocalNavigationItem>Overview</LocalNavigationItem>
   <LocalNavigationItem>Lanes</LocalNavigationItem>
   <LocalNavigationItem>Carriers</LocalNavigationItem>
   <LocalNavigationItem>Containers</LocalNavigationItem>
@@ -57,6 +76,10 @@ Use the `isSelected` prop to indicate current location
 ### LocalNavigation Props
 
 <PropsTable component="LocalNavigation" />
+
+### LocalNavigationDropdownItem Props
+
+<PropsTable component="LocalNavigationDropdownItem" />
 
 ### LocalNavigationItem Props
 
