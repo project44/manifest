@@ -1,4 +1,11 @@
-import { DropdownItem, DropdownMenu, LocalNavigation, LocalNavigationItem } from '../src';
+import {
+  DropdownItem,
+  DropdownMenu,
+  LocalNavigation,
+  LocalNavigationItem,
+  Stack,
+  Typography,
+} from '../src';
 import { LocalNavigationDropdownItem } from '../src/components/LocalNavigation';
 
 export default {
@@ -14,6 +21,25 @@ export const Default = () => (
     <LocalNavigationItem>Carriers</LocalNavigationItem>
     <LocalNavigationItem>Containers</LocalNavigationItem>
   </LocalNavigation>
+);
+
+export const Variant = () => (
+  <Stack gap="large">
+    <Typography variant="subtextBold">Primary</Typography>
+    <LocalNavigation>
+      <LocalNavigationItem isSelected>Overview</LocalNavigationItem>
+      <LocalNavigationItem>Lanes</LocalNavigationItem>
+      <LocalNavigationItem>Carriers</LocalNavigationItem>
+      <LocalNavigationItem>Containers</LocalNavigationItem>
+    </LocalNavigation>
+    <Typography variant="subtextBold">Secondary</Typography>
+    <LocalNavigation variant="secondary">
+      <LocalNavigationItem isSelected>Overview</LocalNavigationItem>
+      <LocalNavigationItem>Lanes</LocalNavigationItem>
+      <LocalNavigationItem>Carriers</LocalNavigationItem>
+      <LocalNavigationItem>Containers</LocalNavigationItem>
+    </LocalNavigation>
+  </Stack>
 );
 
 export const Selected = () => (

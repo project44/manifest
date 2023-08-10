@@ -6,6 +6,7 @@ import { mergeProps, mergeRefs } from '@react-aria/utils';
 import type { AriaButtonProps } from '@react-types/button';
 import { CSS, cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
+import { LocalNavigationVariant, useLocalNavigation } from '../../LocalNavigation';
 import { StyledItem } from './LocalNavigationItem.styles';
 
 export interface LocalNavigationItemProps extends AriaButtonProps {
@@ -13,10 +14,26 @@ export interface LocalNavigationItemProps extends AriaButtonProps {
   css?: CSS;
   /** Whether the navigation item is currently selected */
   isSelected?: boolean;
+  /**
+   * The display variant.
+   *
+   * @default 'primary'
+   */
+  variant?: LocalNavigationVariant;
 }
 
 export const LocalNavigationItem = React.forwardRef((props, forwardedRef) => {
-  const { as, autoFocus, className: classNameProp, css, isSelected, ...other } = props;
+  const localNavigation = useLocalNavigation();
+
+  const {
+    as,
+    autoFocus,
+    className: classNameProp,
+    css,
+    isSelected,
+    variant = localNavigation?.variant ?? 'primary',
+    ...other
+  } = props;
 
   const itemRef = React.useRef<HTMLButtonElement>(null);
 
@@ -48,6 +65,7 @@ export const LocalNavigationItem = React.forwardRef((props, forwardedRef) => {
       as={as}
       className={className}
       css={css}
+      variant={variant}
     />
   );
 }) as ForwardRefComponent<'button', LocalNavigationItemProps>;

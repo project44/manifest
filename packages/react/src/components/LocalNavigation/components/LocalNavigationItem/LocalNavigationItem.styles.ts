@@ -7,7 +7,6 @@ export const StyledItem = styled('button', {
   border: 'none',
   borderRadius: '$small',
   boxSizing: 'border-box',
-  color: '$text-primary',
   cursor: 'pointer',
   display: 'inline-flex',
   fontFamily: 'inherit',
@@ -18,20 +17,52 @@ export const StyledItem = styled('button', {
   userSelect: 'none',
   whiteSpace: 'nowrap',
 
-  '&:active': {
-    backgroundColor: '$background-tertiary',
-  },
+  variants: {
+    variant: {
+      primary: {
+        color: '$palette-indigo-50',
 
-  '&:hover': {
-    backgroundColor: '$background-secondary',
-  },
+        '&:active': {
+          backgroundColor: '$palette-white',
+          color: '$text-primary',
+        },
 
-  '&.manifest-local-navigation-item--selected': {
-    backgroundColor: '$background-tertiary',
-    typography: '$subtext-bold',
+        '&:hover': {
+          backgroundColor: 'rgba(255, 255, 255, 0.2)',
+          color: '$text-contrast',
+        },
 
-    '&:hover, &:active': {
-      backgroundColor: '$background-tertiary',
+        '&.manifest-local-navigation-item--selected': {
+          backgroundColor: '$palette-white',
+          color: '$text-primary',
+          typography: '$subtext-bold',
+
+          '&:hover, &:active': {
+            backgroundColor: '$palette-white',
+            color: '$text-primary',
+          },
+        },
+      },
+      secondary: {
+        color: '$text-primary',
+
+        '&:active': {
+          backgroundColor: '$background-tertiary',
+        },
+
+        '&:hover': {
+          backgroundColor: '$background-secondary',
+        },
+
+        '&.manifest-local-navigation-item--selected': {
+          backgroundColor: '$background-tertiary',
+          typography: '$subtext-bold',
+
+          '&:hover, &:active': {
+            backgroundColor: '$background-tertiary',
+          },
+        },
+      },
     },
   },
 });

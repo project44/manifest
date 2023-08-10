@@ -7,15 +7,34 @@ sidebar_custom_props:
 
 Navigation component for sections or pages
 
+## Appearance
+
+Use the `variant` prop to display primary or secondary variant of the component
+
+### Primary
+
+Mainly for use with sidebars.
+
 ```jsx live
-<Flex align="center" css={{ backgroundColor: '$background-top-nav', height: '56px', px: '$large' }}>
-  <LocalNavigation>
-    <LocalNavigationItem>Overview</LocalNavigationItem>
-    <LocalNavigationItem>Lanes</LocalNavigationItem>
-    <LocalNavigationItem>Carriers</LocalNavigationItem>
-    <LocalNavigationItem>Containers</LocalNavigationItem>
-  </LocalNavigation>
-</Flex>
+<LocalNavigation css={{ flex: 1 }}>
+  <LocalNavigationItem>Overview</LocalNavigationItem>
+  <LocalNavigationItem>Lanes</LocalNavigationItem>
+  <LocalNavigationItem>Carriers</LocalNavigationItem>
+  <LocalNavigationItem>Containers</LocalNavigationItem>
+</LocalNavigation>
+```
+
+### Secondary
+
+Mainly for use on white pages as a navigation in header.
+
+```jsx live
+<LocalNavigation css={{ flex: 1 }} variant="secondary">
+  <LocalNavigationItem>Overview</LocalNavigationItem>
+  <LocalNavigationItem>Lanes</LocalNavigationItem>
+  <LocalNavigationItem>Carriers</LocalNavigationItem>
+  <LocalNavigationItem>Containers</LocalNavigationItem>
+</LocalNavigation>
 ```
 
 ## Usage
@@ -25,14 +44,12 @@ Navigation component for sections or pages
 Use the `isSelected` prop to indicate current location
 
 ```jsx live
-<Flex align="center" css={{ backgroundColor: '$background-top-nav', height: '56px', px: '$large' }}>
-  <LocalNavigation>
-    <LocalNavigationItem isSelected>Overview</LocalNavigationItem>
-    <LocalNavigationItem>Lanes</LocalNavigationItem>
-    <LocalNavigationItem>Carriers</LocalNavigationItem>
-    <LocalNavigationItem>Containers</LocalNavigationItem>
-  </LocalNavigation>
-</Flex>
+<LocalNavigation css={{ flex: 1 }}>
+  <LocalNavigationItem isSelected>Overview</LocalNavigationItem>
+  <LocalNavigationItem>Lanes</LocalNavigationItem>
+  <LocalNavigationItem>Carriers</LocalNavigationItem>
+  <LocalNavigationItem>Containers</LocalNavigationItem>
+</LocalNavigation>
 ```
 
 ### With dropdown button
