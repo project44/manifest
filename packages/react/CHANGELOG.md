@@ -1,5 +1,14 @@
 # @manifest/react
 
+## 3.13.0
+
+### Minor Changes
+
+- [#452](https://github.com/project44/manifest/pull/452)
+  [`9d40057`](https://github.com/project44/manifest/commit/9d40057d65eff76b26227845fa64d9dc7b92b8ae)
+  Thanks [@dmorton-p44](https://github.com/dmorton-p44)! - Removed use of useId from manifest
+  skeleton component
+
 ## 3.12.0
 
 ### Minor Changes
