@@ -1198,25 +1198,25 @@
       "name": "children",
       "type": "ReactNode",
       "required": false,
-      "description": "Should contain DropdownMenu with DropdownItems"
+      "description": "Should contain DropdownMenu with DropdownItems."
     },
     {
       "name": "css",
       "type": "CSS",
       "required": false,
-      "description": "Theme aware style object"
+      "description": "Theme aware style object."
     },
     {
       "name": "localNavigationItemProps",
       "type": "AriaButtonProps<\"button\">",
       "required": false,
-      "description": "Props passed down to LocalNavigationItem"
+      "description": "Props passed down to LocalNavigationItem."
     },
     {
       "name": "title",
       "type": "ReactNode",
       "required": false,
-      "description": "Title of LocalNavigationItem"
+      "description": "Title of LocalNavigationItem."
     },
     {
       "name": "isDisabled",

@@ -7,13 +7,13 @@ import { Dropdown, DropdownProps } from '../../../Dropdown';
 import { LocalNavigationItem } from '../LocalNavigationItem';
 
 export interface LocalNavigationDropdownItemProps extends Omit<DropdownProps, 'children'> {
-  /** Should contain DropdownMenu with DropdownItems */
+  /** Should contain DropdownMenu with DropdownItems. */
   children: ReactNode;
-  /** Theme aware style object */
+  /** Theme aware style object. */
   css?: CSS;
-  /** Props passed down to LocalNavigationItem */
+  /** Props passed down to LocalNavigationItem. */
   localNavigationItemProps?: AriaButtonProps;
-  /** Title of LocalNavigationItem */
+  /** Title of LocalNavigationItem. */
   title: ReactNode | string;
 }
 
