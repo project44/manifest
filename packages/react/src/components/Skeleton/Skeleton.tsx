@@ -8,11 +8,7 @@ export function Skeleton(props: SkeletonProps) {
   const className = cx('manifest-skeleton', classNameProp);
 
   return (
-    <StyledSkeleton
-      {...other}
-      className={className}
-      css={css}
-    >
+    <StyledSkeleton {...other} className={className} css={css}>
       {children}
     </StyledSkeleton>
   );
