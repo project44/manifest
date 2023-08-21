@@ -84,10 +84,7 @@ export function useMultiComboboxState<T extends object>(
     items: items ?? defaultItems,
     onSelectionChange: (keys: Selection) => {
       onSelectionChange?.(keys);
-
       resetInputValue();
-
-      triggerState.close();
     },
   });
 
