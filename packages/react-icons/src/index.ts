@@ -5,6 +5,7 @@ export * from './ArrowDown';
 export * from './ArrowLeft';
 export * from './ArrowRight';
 export * from './ArrowUp';
+export * from './ArrowUpAndRight';
 export * from './Backslash';
 export * from './BackslashCircleFilled';
 export * from './Boat';
