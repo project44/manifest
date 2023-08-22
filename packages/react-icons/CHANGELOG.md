@@ -1,5 +1,14 @@
 # @project44-manifest/react-icons
 
+## 1.3.0
+
+### Minor Changes
+
+- [#454](https://github.com/project44/manifest/pull/454)
+  [`a746b8b`](https://github.com/project44/manifest/commit/a746b8b26863717bbbccc4159bec59d7b7370cd3)
+  Thanks [@vitaliy-p44](https://github.com/vitaliy-p44)! - added arrow-up-and-right icon fixed
+  generate-icons script
+
 ## 1.2.0
 
 ### Minor Changes
