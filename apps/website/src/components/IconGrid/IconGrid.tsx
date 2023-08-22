@@ -53,6 +53,7 @@ export function IconGrid() {
           <TextField startIcon={<Icons.Search />} value={searchText} onChange={handleSearch} />
           <Grid className="icon-grid" columns="repeat(auto-fill, minmax(200px, 1fr))">
             {icons.map((item) => {
+              if (item === 'createIcon' || item === 'Icon') return null;
               const Comp = Icons[item as keyof typeof Icons];
 
               return (
