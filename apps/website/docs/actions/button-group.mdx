@@ -1,63 +1,121 @@
 ---
 title: Button Group
-description: Group related buttons.
+description: Button groups are designed to bring together buttons that are categorically related to each other.
 sidebar_custom_props:
   status: 'production'
 ---
 
-Group related buttons.
+Button groups are designed to bring together buttons that are categorically related to each other. For example, you'd use a button group to group text formatting controls like Bold, Underline, and Italicize.
 
 ```jsx live
-<ButtonGroup>
-  <Button>Button</Button>
-  <Button>Button</Button>
+<ButtonGroup variant="secondary" isAttached>
+  <Button>Bold</Button>
+  <Button>Underline</Button>
+  <Button>Italicize</Button>
 </ButtonGroup>
 ```
 
-## Usage
+## Appearance
 
-### Variant
+### Variants
 
 The button group can control the variant for all buttons within the group.
 
 ```jsx live
-<ButtonGroup variant="secondary">
+<ButtonGroup variant="secondary" size="small">
+  <Button>Button</Button>
   <Button>Button</Button>
   <Button>Button</Button>
 </ButtonGroup>
 ```
 
-### Small
+#### Design considerations
 
-Small buttons are used when vertical spacing is limited.
+:::caution Do not mix styles
+Do not combine variants and button types within a single group. All buttons in the same group should share the same `variant` and `size` properties.
 
 ```jsx live
-<ButtonGroup size="small">
-  <Button>Button</Button>
-  <Button>Button</Button>
+<ButtonGroup variant="secondary">
+  <Button variant="primary" startIcon={<Filter />}>Filter</Button>
+  <Button>Columns</Button>
+  <IconButton><Download /></IconButton>
 </ButtonGroup>
 ```
+:::
+
+:::warning Do not use primary variant
+Do not use the `primary` button variant for button groups. There should only be one primary button per section, so we certainly wouldn't want three primary buttons next to each other.
+
+The only exception to this rule is when you are configuring a button group to behave like a [combo button](#combo-button).
+:::
+
 
 ### Attached
 
-All buttons within a button group can be attached to each other.
+By using `isAttached`, buttons within a group can be attached to each other, creating a stronger relationship between their actions.
 
 ```jsx live
-<ButtonGroup isAttached>
+<ButtonGroup variant="secondary" isAttached>
+  <Button>Button</Button>
   <Button>Button</Button>
   <Button>Button</Button>
 </ButtonGroup>
 ```
 
-### Disabled state
+## States
 
-All buttons within a button group can be disabled to prevent a user from taking action on all
-buttons within the group.
+### Disabled
+
+Use the `isDisabled` prop to disable all buttons within that group. Disabled buttons present a number of accessibility issues, particularly in forms, so they should be used sparingly.
 
 ```jsx live
-<ButtonGroup isDisabled>
+<ButtonGroup variant="secondary" isDisabled>
   <Button>Button</Button>
   <Button>Button</Button>
+  <Button>Button</Button>
+</ButtonGroup>
+```
+
+## Common configurations
+
+### Multiple groups
+
+When you have multiple controls that can't reasonably fit into a single group, you can use multiple groups separated by a `small` gap to logically organize related functions.
+
+In this example, one group contains similar text formating controls and the other controls related to font selection.
+
+```jsx live
+<Flex gap="small">
+	<ButtonGroup variant="secondary" isAttached>
+	  <Button>Bold</Button>
+	  <Button>Underline</Button>
+	  <Button>Italicize</Button>
+	</ButtonGroup>
+	
+	<Button variant="secondary" endIcon={<ChevronDown />}>Font</Button>
+</Flex>
+```
+
+### Combo button
+
+By combining a Button with an Icon Button inside an attached Button Group, you can create a control that gives a promoted primary action and a dropdown for alternative actions.
+
+In this example, we have a primary action to save changes, but a dropdown might contain alternative options like "Save as" or "Revert changes."
+
+:::note Primary variant exception
+Because this button group configuration could reasonably act as a primary CTA, you may use the `primary` button variant.
+:::
+
+```jsx live
+<ButtonGroup variant="secondary" isAttached>
+	<Button>Save changes</Button>
+	<Dropdown>
+		<IconButton><ChevronDown /></IconButton>
+		<DropdownMenu>
+			<DropdownItem key="save-as">Save as</DropdownItem>
+			<DropdownItem key="revert">Revert changes</DropdownItem>
+		</DropdownMenu>
+	</Dropdown>
 </ButtonGroup>
 ```
 
