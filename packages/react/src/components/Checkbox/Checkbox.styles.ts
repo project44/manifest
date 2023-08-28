@@ -64,6 +64,11 @@ export const useStyles = css({
         pointerEvents: 'none',
       },
     },
+    isActive: {
+      true: {
+        $$borderColor: '$colors$palette-grey-800',
+      }
+    },
     isFocusVisible: {
       true: {
         '.manifest-checkbox__control': {
@@ -120,6 +125,14 @@ export const useStyles = css({
       css: {
         $$backgroundColor: '$colors$primary-default',
         $$borderColor: '$colors$primary-default',
+      },
+    },
+    {
+      isChecked: true,
+      isActive: true,
+      css: {
+        $$backgroundColor: '$colors$primary-active',
+        $$borderColor: '$colors$primary-active',
       },
     },
   ],
