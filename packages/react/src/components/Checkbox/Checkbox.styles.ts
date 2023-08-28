@@ -53,8 +53,8 @@ export const useStyles = css({
   variants: {
     isChecked: {
       true: {
-        $$backgroundColor: '$colors$primary-active',
-        $$borderColor: '$colors$primary-active',
+        $$backgroundColor: '$colors$primary-default',
+        $$borderColor: '$colors$primary-default',
       },
     },
     isDisabled: {
