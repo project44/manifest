@@ -34,7 +34,7 @@ export const Switch = createComponent<SwitchOptions>((props, forwardedRef) => {
   const { inputProps } = useSwitch(props, state, inputRef);
   const { hoverProps, isHovered } = useHover({ isDisabled });
   const { focusProps, isFocusVisible } = useFocusRing({ autoFocus });
-  const { pressProps } = usePress({ isDisabled: inputProps.disabled });
+  const { pressProps, isPressed } = usePress({ isDisabled: inputProps.disabled });
 
   const { className } = useStyles({
     css,
@@ -42,6 +42,7 @@ export const Switch = createComponent<SwitchOptions>((props, forwardedRef) => {
     isDisabled,
     isFocusVisible,
     isHovered,
+    isActive: isPressed,
   });
 
   const classes = cx(className, classNameProp, {

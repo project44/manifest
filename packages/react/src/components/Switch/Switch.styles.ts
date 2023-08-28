@@ -64,7 +64,7 @@ export const useStyles = css({
     isDisabled: {
       true: {
         cursor: 'not-allowed',
-        opacity: 0.58,
+        opacity: 0.38,
         pointerEvents: 'none',
       },
     },
@@ -91,5 +91,27 @@ export const useStyles = css({
         $$switchBackgroundColor: '$colors$palette-grey-600',
       },
     },
+    isActive: {
+      true: {
+        $$switchBackgroundColor: '$colors$palette-grey-800',
+      }
+    },
   },
+
+  compoundVariants: [
+    {
+      isChecked: true,
+      isHovered: true,
+      css: {
+        $$switchBackgroundColor: '$colors$primary-hover',
+      },
+    },
+    {
+      isChecked: true,
+      isActive: true,
+      css: {
+        $$switchBackgroundColor: '$colors$primary-active',
+      },
+    },
+  ],
 });
