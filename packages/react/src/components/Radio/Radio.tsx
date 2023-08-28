@@ -32,7 +32,7 @@ export const Radio = createComponent<RadioOptions>((props, forwardedRef) => {
   const { inputProps } = useRadio(props, state, inputRef);
   const { isFocusVisible, focusProps } = useFocusRing({ autoFocus });
   const { isHovered, hoverProps } = useHover({ isDisabled });
-  const { pressProps } = usePress({ isDisabled: inputProps.disabled });
+  const { pressProps, isPressed } = usePress({ isDisabled: inputProps.disabled });
 
   const { className } = useStyles({
     css,
@@ -40,6 +40,7 @@ export const Radio = createComponent<RadioOptions>((props, forwardedRef) => {
     isDisabled: inputProps.disabled,
     isFocusVisible,
     isHovered,
+    isActive: isPressed,
   });
 
   const classes = cx(className, classNameProp, {

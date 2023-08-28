@@ -65,10 +65,15 @@ export const useStyles = css({
         $$indicatorSize: pxToRem(10),
       },
     },
+    isActive: {
+      true: {
+        $$borderColor: '$colors$primary-active',
+      },
+    },
     isDisabled: {
       true: {
         cursor: 'not-allowed',
-        opacity: 0.58,
+        opacity: 0.38,
         pointerEvents: 'none',
       },
     },
@@ -102,7 +107,31 @@ export const useStyles = css({
       isChecked: true,
       isHovered: true,
       css: {
+        $$borderColor: '$colors$primary-hover',
+        $$backgroundColor: '$colors$primary-hover'
+      },
+    },
+    {
+      isChecked: true,
+      isFocusVisible: true,
+      css: {
         $$borderColor: '$colors$primary-default',
+        $$backgroundColor: '$colors$primary-default'
+      },
+    },
+    {
+      isChecked: false,
+      isActive: true,
+      css: {
+        $$borderColor: '$colors$palette-grey-800',
+      },
+    },
+    {
+      isChecked: true,
+      isActive: true,
+      css: {
+        $$borderColor: '$colors$primary-active',
+        $$backgroundColor: '$colors$primary-active',
       },
     },
   ],
