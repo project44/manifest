@@ -15,10 +15,10 @@ export const StyledPaginationItem = styled(
     cursor: 'pointer',
     display: 'inline-flex',
     margin: 0,
-    outline: 0,
+    outline: 'none',
     position: 'relative',
     px: pxToRem(12),
-    py: pxToRem(6),
+    py: pxToRem(5),
     transition: '$color',
     textDecoration: 'none',
     userSelect: 'none',
@@ -55,6 +55,11 @@ export const StyledPaginationItem = styled(
       },
       isPressed: {
         true: {},
+      },
+      isFocusVisible: {
+        true: {
+          outlineOffset: '1px'
+        },
       },
     },
 
