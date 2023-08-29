@@ -54,7 +54,7 @@ export const Icon = () => (
   <>
     <Button startIcon={<i className="material-icons">add</i>}>Start Icon</Button>
     <Button endIcon={<i className="material-icons">add</i>}>End Icon</Button>
-    <Button startIcon={<i className='material-icons'>add</i>} size="small">Start icon</Button>
+    <Button size="small" startIcon={<i className='material-icons'>add</i>}>Start icon</Button>
     <Button endIcon={<i className='material-icons'>add</i>} size="small">End icon</Button>
   </>
 );
