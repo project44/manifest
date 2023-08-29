@@ -110,7 +110,7 @@ export const Pagination = React.forwardRef((props, forwardedRef) => {
     <StyledPagination {...other} ref={forwardedRef} as={as} className={className} css={css}>
       {showLabel && (
         <div className="manifest-pagination__label">
-          <Typography variant='subtextBold'>
+          <Typography variant="subtextBold">
             {getPaginationLabel({
               count: totalRowCount,
               from: (page - 1) * rowsPerPage + 1,

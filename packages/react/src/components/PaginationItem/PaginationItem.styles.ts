@@ -58,7 +58,7 @@ export const StyledPaginationItem = styled(
       },
       isFocusVisible: {
         true: {
-          outlineOffset: '1px'
+          outlineOffset: '1px',
         },
       },
     },
