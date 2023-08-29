@@ -67,7 +67,7 @@ export const useStyles = css({
     isActive: {
       true: {
         $$borderColor: '$colors$palette-grey-800',
-      }
+      },
     },
     isFocusVisible: {
       true: {
