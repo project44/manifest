@@ -39,7 +39,7 @@ export const StyledButton = styled('button', {
         cursor: 'not-allowed',
         pointerEvents: 'none',
         opacity: 0.57,
-        boxShadow: 'none'
+        boxShadow: 'none',
       },
     },
     isFocusVisible: {
