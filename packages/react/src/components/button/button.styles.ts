@@ -83,7 +83,7 @@ export const StyledButton = styled('button', {
         backgroundColor: '$palette-white',
       },
       tertiary: {
-        backgroundColor: '$palette-white',
+        backgroundColor: 'transparent',
         boxShadow: 'none',
       },
     },
