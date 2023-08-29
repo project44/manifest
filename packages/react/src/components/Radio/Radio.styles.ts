@@ -108,7 +108,7 @@ export const useStyles = css({
       isHovered: true,
       css: {
         $$borderColor: '$colors$primary-hover',
-        $$backgroundColor: '$colors$primary-hover'
+        $$backgroundColor: '$colors$primary-hover',
       },
     },
     {
@@ -116,7 +116,7 @@ export const useStyles = css({
       isFocusVisible: true,
       css: {
         $$borderColor: '$colors$primary-default',
-        $$backgroundColor: '$colors$primary-default'
+        $$backgroundColor: '$colors$primary-default',
       },
     },
     {
