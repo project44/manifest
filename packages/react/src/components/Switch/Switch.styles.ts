@@ -94,7 +94,7 @@ export const useStyles = css({
     isActive: {
       true: {
         $$switchBackgroundColor: '$colors$palette-grey-800',
-      }
+      },
     },
   },
 
