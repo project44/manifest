@@ -1,5 +1,23 @@
 # @project44-manifest/react-icons
 
+## 1.4.0
+
+### Minor Changes
+
+- [#443](https://github.com/project44/manifest/pull/443)
+  [`298f19e`](https://github.com/project44/manifest/commit/298f19e34d1db8c60fe26e96f730bcf7d4df0816)
+  Thanks [@partlysean44](https://github.com/partlysean44)! - svgo optimization for all svg files
+
+  added bolt icon added bulb icon added category icon added chat icon added clock-filled icon added
+  columns icon added exclamation-point-triangle icon added lock icon added lock-open icon added mail
+  icon added mail-opened icon added notification icon added notification-active icon added
+  notification-filled icon added notification-off icon added notification-paused icon added
+  related-entity icon added thumb-down icon added thumb-down-filled icon added thumb-up icon added
+  thumb-up-filled icon added vertical-bars-circle-filled icon update exclamation-point-triangle icon
+  updated calendar icon updated list icon
+
+  ***
+
 ## 1.3.0
 
 ### Minor Changes
