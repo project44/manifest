@@ -1,5 +1,38 @@
 # @manifest/react
 
+## 3.13.1
+
+### Patch Changes
+
+- [#457](https://github.com/project44/manifest/pull/457)
+  [`9d196ca`](https://github.com/project44/manifest/commit/9d196cafc3341c295ff13f453a362d350f178556)
+  Thanks [@SikindarMirza-p44](https://github.com/SikindarMirza-p44)! - fix: TextField background and
+  focus style updates
+
+* [#460](https://github.com/project44/manifest/pull/460)
+  [`adc0716`](https://github.com/project44/manifest/commit/adc07168d318cd04d0341bdf431e7e2f85e77d66)
+  Thanks [@kaushik-sa](https://github.com/kaushik-sa)! - - fix: changed background color for
+  tertiary button
+  - fix: added border for disabled secondary button
+  - fix: updated icon size for small button to 16px
+
+- [#462](https://github.com/project44/manifest/pull/462)
+  [`ce4e74a`](https://github.com/project44/manifest/commit/ce4e74aadd3fea05ba82415a3ae8f04a98ad0e67)
+  Thanks [@kaushik-sa](https://github.com/kaushik-sa)! - Design fixes for pagination component
+
+  - change internal padding of pagination buttons from 6px to 5px
+  - change outline offset to 1px for buttons in focus
+  - change font color and font weight for pagiantion row count
+
+* [#456](https://github.com/project44/manifest/pull/456)
+  [`0307fea`](https://github.com/project44/manifest/commit/0307fea41833fe276215f88fc3d00e5b0c813dc2)
+  Thanks [@kaushik-sa](https://github.com/kaushik-sa)! - fix: disblaed auto dismiss for
+  MultiComboBox menu
+
+* Updated dependencies
+  [[`298f19e`](https://github.com/project44/manifest/commit/298f19e34d1db8c60fe26e96f730bcf7d4df0816)]:
+  - @project44-manifest/react-icons@1.4.0
+
 ## 3.13.0
 
 ### Minor Changes
