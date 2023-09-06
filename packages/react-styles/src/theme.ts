@@ -193,6 +193,9 @@ const theme = {
     'text-tertiary': tokens.colorTextTertiary,
     'text-warning': tokens.colorTextWarning,
   },
+  opacity: {
+    disabled: tokens.opacityDisabled
+  },
   fonts: {
     character: "'Noto Sans', sans-serif",
     mono: tokens.fontFamilyMono,
