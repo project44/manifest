@@ -194,7 +194,7 @@ const theme = {
     'text-warning': tokens.colorTextWarning,
   },
   opacity: {
-    disabled: tokens.opacityDisabled
+    disabled: tokens.opacityDisabled,
   },
   fonts: {
     character: "'Noto Sans', sans-serif",
