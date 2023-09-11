@@ -64,7 +64,7 @@ export const useStyles = css({
     isDisabled: {
       true: {
         cursor: 'not-allowed',
-        opacity: 0.38,
+        opacity: '$opacity$disabled',
         pointerEvents: 'none',
       },
     },
