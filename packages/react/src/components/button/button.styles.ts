@@ -39,6 +39,7 @@ export const StyledButton = styled('button', {
         cursor: 'not-allowed',
         pointerEvents: 'none',
         opacity: 0.57,
+        boxShadow: 'none',
       },
     },
     isFocusVisible: {
@@ -91,7 +92,7 @@ export const StyledButton = styled('button', {
         height: pxToRem(40),
         py: '$small',
 
-        '> .material-icons': {
+        '.material-icons': {
           fontSize: '$x-large',
         },
       },
@@ -99,14 +100,23 @@ export const StyledButton = styled('button', {
         height: pxToRem(32),
         py: pxToRem(6),
 
-        '> .material-icons': {
-          fontSize: pxToRem(18),
+        '.material-icons': {
+          fontSize: pxToRem(16),
         },
       },
     },
   },
 
   compoundVariants: [
+    {
+      isDisabled: true,
+      variant: 'secondary',
+      css: {
+        borderWidth: '$small',
+        borderStyle: 'solid',
+        borderColor: '$border-disabled',
+      },
+    },
     {
       isHovered: true,
       variant: 'primary',
