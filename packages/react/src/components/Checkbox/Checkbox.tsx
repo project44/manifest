@@ -38,7 +38,7 @@ export const Checkbox = createComponent<CheckboxOptions>((props, forwardedRef) =
   const { inputProps } = useCheckbox(props, state, inputRef);
   const { isFocusVisible, focusProps } = useFocusRing({ autoFocus });
   const { isHovered, hoverProps } = useHover({ isDisabled });
-  const { pressProps } = usePress({ isDisabled: inputProps.disabled });
+  const { pressProps, isPressed } = usePress({ isDisabled: inputProps.disabled });
 
   const { className } = useStyles({
     css,
@@ -47,6 +47,7 @@ export const Checkbox = createComponent<CheckboxOptions>((props, forwardedRef) =
     isFocusVisible,
     isHovered,
     isIndeterminate,
+    isActive: isPressed,
   });
 
   const classes = cx(className, classNameProp, {
