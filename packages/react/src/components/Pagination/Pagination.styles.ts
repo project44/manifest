@@ -5,6 +5,10 @@ export const StyledPagination = styled('div', {
   display: 'flex',
   justifyContent: 'space-between',
 
+  '.manifest-pagination__label': {
+    color: '$text-secondary',
+  },
+
   '.manifest-pagination__actions': {
     alignItems: 'center',
     boxSizing: 'border-box',
@@ -24,6 +28,6 @@ export const StyledPagination = styled('div', {
     outline: 0,
     position: 'relative',
     px: pxToRem(12),
-    py: pxToRem(6),
+    py: pxToRem(5),
   },
 });

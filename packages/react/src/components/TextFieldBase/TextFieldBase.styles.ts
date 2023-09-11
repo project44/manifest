@@ -1,7 +1,7 @@
 import { css, pxToRem } from '@project44-manifest/react-styles';
 
 export const useStyles = css({
-  $$backgroundColor: '$colors$background-primary',
+  $$backgroundColor: 'transparent',
   $$borderColor: '$colors$palette-grey-500',
   $$iconColor: '$colors$text-tertiary',
   $$textColor: '$colors$text-primary',
@@ -87,7 +87,7 @@ export const useStyles = css({
     },
     isFocused: {
       true: {
-        $$borderColor: '$colors$primary-default',
+        $$borderColor: '$colors$primary-active',
       },
     },
     isFocusVisible: {
