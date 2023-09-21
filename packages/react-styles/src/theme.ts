@@ -196,6 +196,18 @@ const theme = {
   opacity: {
     disabled: tokens.opacityDisabled,
   },
+
+  motion: {
+    'duration-instant': tokens.motionDurationInstant,
+    'duration-short': tokens.motionDurationShort,
+    'duration-medium': tokens.motionDurationMedium,
+    'duration-long': tokens.motionDurationLong,
+    'easing-linear': tokens.motionEasingLinear,
+    'easing-standard': tokens.motionEasingStandard,
+    'easing-entrance': tokens.motionEasingEntrance,
+    'easing-exit': tokens.motionEasingExit,
+  },
+
   fonts: {
     character: "'Noto Sans', sans-serif",
     mono: tokens.fontFamilyMono,
