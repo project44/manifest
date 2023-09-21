@@ -9,7 +9,7 @@ export function Overlay(props: OverlayProps) {
 
   return (
     <ReactAriaOverlay portalContainer={portalContainer!}>
-      {isOpen && <Provider>{children}</Provider>}
+      <Provider>{isOpen && children}</Provider>
     </ReactAriaOverlay>
   );
 }
