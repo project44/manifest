@@ -1,5 +1,28 @@
 # @manifest/react
 
+## 3.13.2
+
+### Patch Changes
+
+- [#458](https://github.com/project44/manifest/pull/458)
+  [`846f97e`](https://github.com/project44/manifest/commit/846f97eb74f5d676d558e2d2e024a4d6b9d790d1)
+  Thanks [@SikindarMirza-p44](https://github.com/SikindarMirza-p44)! - fix: checkbox colors for
+  active, hover and foucssed states
+
+* [#468](https://github.com/project44/manifest/pull/468)
+  [`c660a4a`](https://github.com/project44/manifest/commit/c660a4a6600aaefbae91e97a6288e020ff738dc6)
+  Thanks [@vitaliy-p44](https://github.com/vitaliy-p44)! - fix modal error after close
+
+- [#459](https://github.com/project44/manifest/pull/459)
+  [`0233f4f`](https://github.com/project44/manifest/commit/0233f4fe0fd63b4f31ced69fe6d1d4e3fddd0d82)
+  Thanks [@SikindarMirza-p44](https://github.com/SikindarMirza-p44)! - fix: updated styles for
+  active, focus and hover
+
+* [#461](https://github.com/project44/manifest/pull/461)
+  [`8c02e35`](https://github.com/project44/manifest/commit/8c02e35eededbcc32cccb723b2996db474113259)
+  Thanks [@SikindarMirza-p44](https://github.com/SikindarMirza-p44)! - fix: switch component style
+  fixes for hover and active states
+
 ## 3.13.1
 
 ### Patch Changes
