@@ -1,28 +1,28 @@
 {
-	"motion": {
-		"duration-instant": {
-			"value": "0ms"
-		},
-		"duration-Short": {
-			"value": "100ms"
-		},
-		"duration-medium": {
-			"value": "200ms"
-		},
-		"duration-long": {
-			"value": "300ms"
-		},
-		"easing-linear": {
-			"value": "linear"
-		},
-		"easing-standard": {
-			"value": "cubic-bezier(0.4, 0.14, 0.3, 1)"
-		},
-		"easing-entrance": {
-			"value": "cubic-bezier(0, 0, 0.3, 1)"
-		},
-		"easing-exit": {
-			"value": "cubic-bezier(0.4, 0.14, 1, 1)"
-		}
-	}
+  "motion": {
+    "duration-instant": {
+      "value": "0ms"
+    },
+    "duration-Short": {
+      "value": "100ms"
+    },
+    "duration-medium": {
+      "value": "200ms"
+    },
+    "duration-long": {
+      "value": "300ms"
+    },
+    "easing-linear": {
+      "value": "linear"
+    },
+    "easing-standard": {
+      "value": "cubic-bezier(0.4, 0.14, 0.3, 1)"
+    },
+    "easing-entrance": {
+      "value": "cubic-bezier(0, 0, 0.3, 1)"
+    },
+    "easing-exit": {
+      "value": "cubic-bezier(0.4, 0.14, 1, 1)"
+    }
+  }
 }
