@@ -38,7 +38,7 @@ export const StyledButton = styled('button', {
       true: {
         cursor: 'not-allowed',
         pointerEvents: 'none',
-        opacity: 0.57,
+        opacity: 0.37,
         boxShadow: 'none',
       },
     },
