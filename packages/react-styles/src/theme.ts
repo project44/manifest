@@ -44,6 +44,7 @@ const theme = {
     'background-tertiary': tokens.colorBackgroundTertiary,
     'background-top-nav': tokens.colorBackgroundTopNav,
     'background-warning': tokens.colorBackgroundWarning,
+    'background-backdrop': tokens.colorBackgroundBackdrop,
 
     'border-danger': tokens.colorBorderDanger,
     'border-disabled': tokens.colorBorderDisabled,
