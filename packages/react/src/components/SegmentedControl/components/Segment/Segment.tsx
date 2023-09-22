@@ -40,7 +40,10 @@ export const Segment = React.forwardRef((props, forwardedRef) => {
 
   const state = useSegmentedControl();
 
-  const { inputProps } = useRadio(props, state, inputRef);
+  const { inputProps } = useRadio({
+    'aria-label': props.value,
+    ...props
+  }, state, inputRef);
   const { isFocusVisible, focusProps } = useFocusRing({ autoFocus });
   const { isHovered, hoverProps } = useHover({});
   const { pressProps, isPressed } = usePress({});

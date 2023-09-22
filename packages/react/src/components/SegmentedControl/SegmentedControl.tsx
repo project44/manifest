@@ -22,7 +22,10 @@ export const SegmentedControl = React.forwardRef((props, forwardedRef) => {
 
   const state = useRadioGroupState(props);
 
-  const { radioGroupProps } = useRadioGroup(props, state);
+  const { radioGroupProps } = useRadioGroup({
+    'aria-label': props?.value || 'Radio Group',
+    ...props
+  }, state);
 
   const className = cx('manifest-segmented-control', classNameProp);
 

@@ -37,6 +37,7 @@ export const RadioGroup = createComponent<RadioGroupOptions>((props, forwardedRe
 
   const state = useRadioGroupState(props);
   const { radioGroupProps } = useRadioGroup(props, state);
+  const { isDisabled: disabled, ...rest } = radioGroupProps;
 
   const context = React.useMemo(() => ({ state }), [state]);
 
@@ -48,8 +49,13 @@ export const RadioGroup = createComponent<RadioGroupOptions>((props, forwardedRe
   });
 
   return (
-    <Comp {...mergeProps(radioGroupProps, other)} ref={forwardedRef} className={classes}>
-      <RadioGroupContext.Provider value={context}>{children}</RadioGroupContext.Provider>
+    <Comp
+      {...mergeProps(radioGroupProps, { disabled, ...rest })}
+      ref={forwardedRef}
+      className={classes}>
+      <RadioGroupContext.Provider value={context}>
+        {children}
+      </RadioGroupContext.Provider>
     </Comp>
   );
 });
