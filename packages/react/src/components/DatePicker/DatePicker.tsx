@@ -135,6 +135,15 @@ export const DatePicker = createComponent<DatePickerOptions>((props, forwardedRe
     targetRef: containerRef,
   });
 
+  // TODO find real solution
+  const overlayPositionProps = {
+    ...overlayProps,
+    style:{
+      ...overlayProps.style,
+      left: isNaN(overlayProps.left) ? 0 : overlayProps.left
+    }
+  }
+
   const isInvalid = validationState === 'invalid';
 
   const { buttonProps, isPressed } = useButton({ ...triggerProps, isDisabled }, triggerRef);
@@ -211,7 +220,7 @@ export const DatePicker = createComponent<DatePickerOptions>((props, forwardedRe
 
         <Overlay containerRef={containerRefProp} isOpen={state.isOpen}>
           <Popover
-            {...mergeProps(dialogProps, overlayProps)}
+            {...mergeProps(dialogProps, overlayPositionProps)}
             ref={popoverRef}
             className="manifest-datepicker__popover"
             isOpen={state.isOpen}
