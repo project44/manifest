@@ -76,7 +76,7 @@ export const StyledUnderlay = styled(
     zIndex: 1,
 
     backgroundColor: '$background-backdrop',
-    opacity: '0.6 !important'
+    opacity: '0.6 !important',
   },
   modalStyles,
 );
