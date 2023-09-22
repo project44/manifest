@@ -33,11 +33,13 @@ export const LocalNavigationItem = React.forwardRef((props, forwardedRef) => {
     isSelected,
     variant = localNavigation?.variant ?? 'primary',
     onPress, // omit onPress from mergeProps
+    onPressStart, // omit onPressStart fromm mergeProps
     ...other
   } = props;
 
   const itemRef = React.useRef<HTMLButtonElement>(null);
 
+  // TODO buttonProps returns onClick - fix onClick deprecated warning
   const { buttonProps, isPressed } = useButton(
     {
       ...props,

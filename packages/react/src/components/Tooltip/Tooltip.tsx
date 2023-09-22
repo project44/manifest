@@ -35,6 +35,7 @@ export const Tooltip = React.forwardRef((props, forwardedRef) => {
     trigger,
   });
 
+  // TODO triggerProps returns onClick - fix onClick deprecated warning
   const { tooltipProps, triggerProps } = useTooltipTrigger(
     { isDisabled, trigger },
     state,
@@ -54,20 +55,10 @@ export const Tooltip = React.forwardRef((props, forwardedRef) => {
     return React.cloneElement(children);
   }
 
-  const {
-    onClick, // Omit onClick
-    ...rest
-  } = triggerProps
-
-  const onPress = (event) =>{
-    event.currentTarget = event?.currentTarget || event.target;
-    triggerProps.onClick(event)
-  }
-
   return (
     <>
       {React.cloneElement(children, {
-        ...(mergeProps(children.props, {...rest, onPress }) as React.Attributes),
+        ...(mergeProps(children.props, triggerProps) as React.Attributes),
         ref: triggerRef,
       })}
 
