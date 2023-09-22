@@ -54,10 +54,20 @@ export const Tooltip = React.forwardRef((props, forwardedRef) => {
     return React.cloneElement(children);
   }
 
+  const {
+    onClick, // Omit onClick
+    ...rest
+  } = triggerProps
+
+  const onPress = (event) =>{
+    event.currentTarget = event?.currentTarget || event.target;
+    triggerProps.onClick(event)
+  }
+
   return (
     <>
       {React.cloneElement(children, {
-        ...(mergeProps(children.props, triggerProps) as React.Attributes),
+        ...(mergeProps(children.props, {...rest, onPress }) as React.Attributes),
         ref: triggerRef,
       })}
 

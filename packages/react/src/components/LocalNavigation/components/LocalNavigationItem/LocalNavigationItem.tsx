@@ -32,6 +32,7 @@ export const LocalNavigationItem = React.forwardRef((props, forwardedRef) => {
     css,
     isSelected,
     variant = localNavigation?.variant ?? 'primary',
+    onPress, // omit onPress from mergeProps
     ...other
   } = props;
 
