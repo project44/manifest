@@ -27,6 +27,9 @@
       },
       "warning": {
         "value": "{color.palette.orange.50.value}"
+      },
+      "backdrop": {
+        "value": "rgb(9, 21, 33)"
       }
     }
   }

@@ -75,8 +75,8 @@ export const StyledUnderlay = styled(
     overflow: 'hidden',
     zIndex: 1,
 
-    // TODO: update once we have opacity tokens
-    backgroundColor: 'rgba(9, 21, 33, 0.2)',
+    backgroundColor: '$background-backdrop',
+    opacity: '0.6 !important',
   },
   modalStyles,
 );
