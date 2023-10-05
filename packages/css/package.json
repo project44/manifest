@@ -34,7 +34,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.13",
     "clean-css-cli": "^5.6.2",
-    "postcss": "^8.4.21",
+    "postcss": "^8.4.31",
     "postcss-cli": "^10.1.0",
     "sass": "^1.58.0"
   }
