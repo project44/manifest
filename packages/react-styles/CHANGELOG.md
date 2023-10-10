@@ -1,5 +1,18 @@
 # @project44-manifest/react-styles
 
+## 2.0.2
+
+### Patch Changes
+
+- [#470](https://github.com/project44/manifest/pull/470)
+  [`d5be7e7`](https://github.com/project44/manifest/commit/d5be7e74b1afcc4f75bb1635e7b408ffa44a316c)
+  Thanks [@SikindarMirza-p44](https://github.com/SikindarMirza-p44)! - Added design token for
+  backdrop color Fixed the modal dialog background with backdrop token
+- Updated dependencies
+  [[`d5be7e7`](https://github.com/project44/manifest/commit/d5be7e74b1afcc4f75bb1635e7b408ffa44a316c),
+  [`6486c92`](https://github.com/project44/manifest/commit/6486c92cadc9341ae8357572997e0041fb1872a4)]:
+  - @project44-manifest/design-tokens@3.1.0
+
 ## 2.0.1
 
 ### Patch Changes

@@ -1,5 +1,22 @@
 # @manifest/react
 
+## 3.13.3
+
+### Patch Changes
+
+- [#470](https://github.com/project44/manifest/pull/470)
+  [`d5be7e7`](https://github.com/project44/manifest/commit/d5be7e74b1afcc4f75bb1635e7b408ffa44a316c)
+  Thanks [@SikindarMirza-p44](https://github.com/SikindarMirza-p44)! - Added design token for
+  backdrop color Fixed the modal dialog background with backdrop token
+
+* [#474](https://github.com/project44/manifest/pull/474)
+  [`98c25b5`](https://github.com/project44/manifest/commit/98c25b5326d6f389a4b32a2006b91ec6023203cc)
+  Thanks [@kaushik-sa](https://github.com/kaushik-sa)! - Fix for relative date range selection
+
+* Updated dependencies
+  [[`d5be7e7`](https://github.com/project44/manifest/commit/d5be7e74b1afcc4f75bb1635e7b408ffa44a316c)]:
+  - @project44-manifest/react-styles@2.0.2
+
 ## 3.13.2
 
 ### Patch Changes
