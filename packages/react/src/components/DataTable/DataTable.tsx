@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import * as React from 'react';
 import { cx } from '@project44-manifest/react-styles';
 import {
@@ -20,6 +21,7 @@ import {
   DataTableHeader,
   DataTablePagination,
 } from './components';
+import { DataTableFooter } from './components/DataTableFooter/DataTableFooter';
 import { StyledDataTable } from './DataTable.styles';
 import type { DataTable, DataTableProps } from './DataTable.types';
 
@@ -50,6 +52,9 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
     manualSorting,
     pageCount,
     paginationProps = {},
+    enableTotalFooter = false,
+    totalsProps = {},
+    getTotalValue,
     selectAllCheckboxProps = {},
     selectCheckboxProps = {},
     rowCount,
@@ -142,7 +147,6 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
     ...(manualPagination && { onPaginationChange }),
     ...(manualSorting && { onSortingChange }),
   } as TableOptions<TData>) as DataTable<TData>;
-
   return (
     <StyledDataTable className="manifest-data-table" {...other}>
       <div
@@ -153,6 +157,7 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
         <table className="manifest-table">
           <DataTableHeader table={table} />
           <DataTableBody table={table} />
+          {enableTotalFooter && <DataTableFooter getTotalValue={getTotalValue} table={table} totalObj={totalsProps}/>}
         </table>
       </div>
       <DataTablePagination table={table} {...paginationProps} />

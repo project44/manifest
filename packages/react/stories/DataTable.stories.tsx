@@ -1,6 +1,8 @@
+
 import { faker } from '@faker-js/faker';
 import { ClipboardWithCheck, Clock } from '@project44-manifest/react-icons';
 import { createDataTableColumnHelper, DataTable, DataTableColumnDef, Link, Pill } from '../src';
+import { TotalsDataObj, TotalsHeaderObj } from '../src/components/DataTable/DataTable.types';
 
 export default {
   title: 'Components/DataTable',
@@ -33,38 +35,46 @@ export const Default = () => {
     {
       header: 'First Name',
       accessorKey: 'firstName',
+      footer: (props )=> props.column.id
     },
     {
       header: 'Last Name',
       accessorKey: 'lastName',
+      footer: props => props.column.id,
     },
     {
       header: 'Gender',
       accessorKey: 'gender',
+      footer: props => props.column.id,
     },
     {
       header: 'Age',
       accessorKey: 'age',
+      footer: props => props.column.id,
     },
     {
       header: 'Address',
       accessorKey: 'address',
+      footer: props => props.column.id,
     },
     {
       header: 'City',
       accessorKey: 'city',
+      footer: props => props.column.id,
     },
     {
       header: 'Subscribed',
       accessorKey: 'isSubscribed',
+      footer: props => props.column.id,
     },
     {
       header: 'Birthday',
       accessorKey: 'birthday',
+      footer: props => props.column.id,
     },
   ];
 
-  return <DataTable columns={columns} data={data} />;
+  return <DataTable columns={columns} data={data}/>;
 };
 
 export const CustomCellRendering = () => {
@@ -394,3 +404,151 @@ export const Loading = () => {
 
   return <DataTable isLoading columns={columns} data={[]} />;
 };
+
+export const TotalFooterRow = ()=>{
+  interface Person {
+    firstName: string;
+    lastName: string;
+    gender: string;
+    age: number;
+    address: string;
+    city: string;
+    isSubscribed: boolean;
+    birthday: string;
+  }
+  const data = [...Array.from({ length: 5 })].map(() => ({
+    firstName: faker.name.firstName(),
+    lastName: faker.name.lastName(),
+    gender: faker.name.sex(),
+    age: faker.datatype.number(80),
+    address: faker.address.streetAddress(),
+    city: faker.address.city(),
+    isSubscribed: faker.datatype.boolean(),
+    birthday: faker.date.past().toLocaleDateString('en-US'),
+  }));
+
+  const columns: DataTableColumnDef<Person>[] = [
+    {
+      header: 'First Name',
+      accessorKey: 'firstName',
+      footer: (props )=> {
+        // eslint-disable-next-line no-console
+        console.log('props', props)
+        return props.column.id
+      }
+    },
+    {
+      header: 'Last Name',
+      accessorKey: 'lastName',
+      footer: props => props.column.id,
+    },
+    {
+      header: 'Gender',
+      accessorKey: 'gender',
+      footer: props => props.column.id,
+    },
+    {
+      header: 'Age',
+      accessorKey: 'age',
+      footer: props => props.column.id,
+    },
+    {
+      header: 'Address',
+      accessorKey: 'address',
+      footer: props => props.column.id,
+    },
+    {
+      header: 'City',
+      accessorKey: 'city',
+      footer: props => props.column.id,
+    },
+    {
+      header: 'Subscribed',
+      accessorKey: 'isSubscribed',
+      footer: props => props.column.id,
+    },
+    {
+      header: 'Birthday',
+      accessorKey: 'birthday',
+      footer: props => props.column.id,
+    },
+  ];
+
+  const totalsObj:TotalsDataObj={
+    'lastName': {
+      'value': 0.572284,
+      'has_custom_html': false,
+      'html': '57.2%',
+      'links': [
+        {
+          'url': false
+        }
+      ]
+    },
+    'gender': {
+      'value': -0.148,
+      'has_custom_html': false,
+      'html': '-0.1 p.p.',
+      'links': [
+        {
+          'url': false
+        }
+      ]
+    },
+    'age': {
+      'value': 0.062509,
+      'has_custom_html': false,
+      'html': '6.3%',
+      'links': [
+        {
+          'url': false
+        }
+      ]
+    },
+    'address': {
+      'value': 0.317,
+      'has_custom_html': false,
+      'html': '0.3 p.p.',
+      'links': [
+        {
+          'url': false
+        }
+      ]
+    },
+    'city': {
+      'value': 0.064555,
+      'has_custom_html': false,
+      'html': '6.5%',
+      'links': [
+        {
+          'url': false
+        }
+      ]
+    },
+    'isSubscribed': {
+      'value': 0.3123,
+      'has_custom_html': false,
+      'html': '0.3 p.p.',
+      'links': [
+        {
+          'url': false
+        }
+      ]
+    },
+    'birthday': {
+      'value': 0.005304,
+      'has_custom_html': false,
+      'html': '0.5%',
+      'links': [
+        {
+          'url': false
+        }
+      ]
+    }
+  };
+
+  const getTotalValue = (headerTotalObj: TotalsHeaderObj)=>headerTotalObj.value
+
+  // eslint-disable-next-line react/jsx-no-bind
+  return <DataTable enableTotalFooter columns={columns} data={data} enablePagination={false} getTotalValue={getTotalValue} totalsProps={totalsObj}/>;
+}

@@ -171,6 +171,21 @@ export interface DataTableProps<TData extends RowData> {
   }) =>
     | Partial<Omit<PaginationProps, 'rowsPerPage'>>
     | Partial<Omit<PaginationProps, 'rowsPerPage'>>;
+
+  /**
+   * prop to enable total footer
+   */
+  enableTotalFooter?:boolean;
+  /**
+   * Props passed to the Total footer component
+   * if these prop is missing total footer wont be rendered
+   */
+  totalsProps?:TotalsDataObj;
+  /**
+   * callBack function for passing value to totalcolumns
+   * if these prop is missing total footer wont be rendered
+   */
+  getTotalValue?:(headerTotalObj: TotalsDataObj) => number | string
   /**
    * The total number of rows for the total table (controlled).
    *
@@ -208,3 +223,19 @@ export interface DataTableProps<TData extends RowData> {
    */
   onSortingChange?: OnChangeFn<SortingState>;
 }
+
+
+export type TotalsDataObj = Record<string, TotalsHeaderObj>;
+
+export interface TotalsHeaderObj {
+  value: number
+  has_custom_html: boolean
+  html: string
+  links: Link[]
+}
+
+export interface Link {
+   url: boolean
+}
+
+
