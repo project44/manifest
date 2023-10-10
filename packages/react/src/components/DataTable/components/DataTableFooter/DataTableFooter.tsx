@@ -15,8 +15,8 @@ export function DataTableFooter<TData extends RowData>(props: DataTableFooterPro
           })}>
           {table.getFooterGroups().map(footerGroup => (
             <tr key={footerGroup.id}>
-              {footerGroup.headers.map(header => (
-                <DataTableFooterColumn key={header.id} getTotalValue={getTotalValue} header={header} table={table} totalObj={totalObj }/>
+              {footerGroup.headers.map((header,i) => (
+                <DataTableFooterColumn key={header.id} getTotalValue={getTotalValue} header={header} index ={i} table={table} totalObj={totalObj }/>
               ))}
             </tr>
           ))}

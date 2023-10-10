@@ -53,7 +53,11 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
     pageCount,
     paginationProps = {},
     enableTotalFooter = false,
-    totalsProps = {},
+    totalsProps = {
+      totalsData:{
+      },
+      totalsKeyword:'Total'
+    },
     getTotalValue,
     selectAllCheckboxProps = {},
     selectCheckboxProps = {},

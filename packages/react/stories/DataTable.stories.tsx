@@ -431,11 +431,7 @@ export const TotalFooterRow = ()=>{
     {
       header: 'First Name',
       accessorKey: 'firstName',
-      footer: (props )=> {
-        // eslint-disable-next-line no-console
-        console.log('props', props)
-        return props.column.id
-      }
+      footer: (props )=> props.column.id
     },
     {
       header: 'Last Name',
@@ -475,6 +471,16 @@ export const TotalFooterRow = ()=>{
   ];
 
   const totalsObj:TotalsDataObj={
+    'firstName': {
+      'value': 0.572284,
+      'has_custom_html': false,
+      'html': '57.2%',
+      'links': [
+        {
+          'url': false
+        }
+      ]
+    },
     'lastName': {
       'value': 0.572284,
       'has_custom_html': false,
@@ -547,8 +553,13 @@ export const TotalFooterRow = ()=>{
     }
   };
 
+  const totalsProp = {
+    totalsData : totalsObj,
+    totalsKeyword : 'SUMMARY'
+  }
+
   const getTotalValue = (headerTotalObj: TotalsHeaderObj)=>headerTotalObj.value
 
   // eslint-disable-next-line react/jsx-no-bind
-  return <DataTable enableTotalFooter columns={columns} data={data} enablePagination={false} getTotalValue={getTotalValue} totalsProps={totalsObj}/>;
+  return <DataTable enableTotalFooter columns={columns} data={data} enablePagination={false} getTotalValue={getTotalValue} totalsProps={totalsProp}/>;
 }

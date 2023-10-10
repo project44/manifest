@@ -180,12 +180,12 @@ export interface DataTableProps<TData extends RowData> {
    * Props passed to the Total footer component
    * if these prop is missing total footer wont be rendered
    */
-  totalsProps?:TotalsDataObj;
+  totalsProps?:TotalsProps;
   /**
    * callBack function for passing value to totalcolumns
    * if these prop is missing total footer wont be rendered
    */
-  getTotalValue?:(headerTotalObj: TotalsDataObj) => number | string
+  getTotalValue?:(headerTotalObj: TotalsHeaderObj) => number | string
   /**
    * The total number of rows for the total table (controlled).
    *
@@ -224,6 +224,10 @@ export interface DataTableProps<TData extends RowData> {
   onSortingChange?: OnChangeFn<SortingState>;
 }
 
+export interface TotalsProps {
+  totalsData: TotalsDataObj,
+  totalsKeyword: string
+}
 
 export type TotalsDataObj = Record<string, TotalsHeaderObj>;
 
