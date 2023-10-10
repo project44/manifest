@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { faker } from '@faker-js/faker';
 import { ClipboardWithCheck, Clock } from '@project44-manifest/react-icons';
 import { createDataTableColumnHelper, DataTable, DataTableColumnDef, Link, Pill } from '../src';
@@ -34,38 +36,46 @@ export const Default = () => {
     {
       header: 'First Name',
       accessorKey: 'firstName',
+      footer: (props )=> props.column.id
     },
     {
       header: 'Last Name',
       accessorKey: 'lastName',
+      footer: props => props.column.id,
     },
     {
       header: 'Gender',
       accessorKey: 'gender',
+      footer: props => props.column.id,
     },
     {
       header: 'Age',
       accessorKey: 'age',
+      footer: props => props.column.id,
     },
     {
       header: 'Address',
       accessorKey: 'address',
+      footer: props => props.column.id,
     },
     {
       header: 'City',
       accessorKey: 'city',
+      footer: props => props.column.id,
     },
     {
       header: 'Subscribed',
       accessorKey: 'isSubscribed',
+      footer: props => props.column.id,
     },
     {
       header: 'Birthday',
       accessorKey: 'birthday',
+      footer: props => props.column.id,
     },
   ];
 
-  return <DataTable columns={columns} data={data} />;
+  return <DataTable columns={columns} data={data}/>;
 };
 
 export const CustomCellRendering = () => {
@@ -487,8 +497,8 @@ export const TotalFooterRow = () => {
     headerTotalObj: TotalsDataObj,
     headerId: number | string,
     index: number,
-    keyword: number,
-  ) => {
+    keyword: string,
+  ): any => {
     if (headerTotalObj !== undefined) {
       if (
         (headerTotalObj[headerId] === undefined && headerTotalObj[headerId].value === undefined) ||
