@@ -16,22 +16,23 @@ export const createCalendarDate = (date: Date) => {
 
 export const addDays = (calendarDate: CalendarDate, days: number) => {
   const { day, month, year } = calendarDate;
-  const date = new Date(year, month, day);
-  date.setDate(date.getDate() + days);
+  // Date constructor expects monthIndex instead of month, i.e Jan - 0, Feb - 1 and so on
+  const date = new Date(year, month - 1, day);
+  date.setDate(date.getDate() + days + 1);
   return calendarDate.set({
     day: date.getDate(),
-    month: date.getMonth(),
+    month: date.getMonth() + 1,
     year: date.getFullYear(),
   });
 };
 
 export const addMonths = (calendarDate: CalendarDate, months: number) => {
   const { day, month, year } = calendarDate;
-  const date = new Date(year, month, day);
+  const date = new Date(year, month - 1, day);
   date.setMonth(date.getMonth() + months);
   return calendarDate.set({
     day: date.getDate(),
-    month: date.getMonth(),
+    month: date.getMonth() + 1,
     year: date.getFullYear(),
   });
 };
