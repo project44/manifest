@@ -3992,7 +3992,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/design-tokens@^3.0.0, @project44-manifest/design-tokens@workspace:packages/design-tokens":
+"@project44-manifest/design-tokens@^3.0.0, @project44-manifest/design-tokens@^3.1.0, @project44-manifest/design-tokens@workspace:packages/design-tokens":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/design-tokens@workspace:packages/design-tokens"
   dependencies:
@@ -4035,11 +4035,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project44-manifest/react-styles@^2.0.0, @project44-manifest/react-styles@^2.0.1, @project44-manifest/react-styles@workspace:packages/react-styles":
+"@project44-manifest/react-styles@^2.0.0, @project44-manifest/react-styles@^2.0.2, @project44-manifest/react-styles@workspace:packages/react-styles":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react-styles@workspace:packages/react-styles"
   dependencies:
-    "@project44-manifest/design-tokens": ^3.0.0
+    "@project44-manifest/design-tokens": ^3.1.0
     "@stitches/react": ^1.2.8
     "@types/lodash.merge": ^4.6.7
     clsx: ^1.1.1
@@ -4100,7 +4100,7 @@ __metadata:
   dependencies:
     "@internationalized/date": ^3.0.0
     "@project44-manifest/react-icons": ^1.4.0
-    "@project44-manifest/react-styles": ^2.0.1
+    "@project44-manifest/react-styles": ^2.0.2
     "@project44-manifest/react-types": ^0.2.1
     "@project44-manifest/theme": ^2.0.1
     "@react-aria/button": ^3.7.0

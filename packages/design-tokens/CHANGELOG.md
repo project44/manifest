@@ -1,5 +1,21 @@
 # @manifest/design-tokens
 
+## 3.1.0
+
+### Minor Changes
+
+- [#469](https://github.com/project44/manifest/pull/469)
+  [`6486c92`](https://github.com/project44/manifest/commit/6486c92cadc9341ae8357572997e0041fb1872a4)
+  Thanks [@SikindarMirza-p44](https://github.com/SikindarMirza-p44)! - Added motion duration and
+  easing values to designTokens
+
+### Patch Changes
+
+- [#470](https://github.com/project44/manifest/pull/470)
+  [`d5be7e7`](https://github.com/project44/manifest/commit/d5be7e74b1afcc4f75bb1635e7b408ffa44a316c)
+  Thanks [@SikindarMirza-p44](https://github.com/SikindarMirza-p44)! - Added design token for
+  backdrop color Fixed the modal dialog background with backdrop token
+
 ## 3.0.0
 
 ### Major Changes
