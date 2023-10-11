@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import { cx } from '@project44-manifest/react-styles';
 import { flexRender, RowData } from '@tanstack/react-table';
@@ -13,7 +12,7 @@ export function DataTableFooterColumn<TData extends RowData, TVaue>(
   const { data, keyword, callBackFunc } = footerProps;
 
   const styles: React.CSSProperties = getColumnLayoutStyles(table, column);
-  
+
   return (
     <th
       key={header.id}
