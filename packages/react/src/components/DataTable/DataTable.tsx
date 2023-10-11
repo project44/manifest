@@ -52,8 +52,8 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
     pageCount,
     paginationProps = {},
     enableTotalFooter = false,
-    totalsData={},
-    totalsKeyword='Total',
+    totalsData = {},
+    totalsKeyword = 'Total',
     getTotalValue,
     selectAllCheckboxProps = {},
     selectCheckboxProps = {},
@@ -147,10 +147,10 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
     ...(manualPagination && { onPaginationChange }),
     ...(manualSorting && { onSortingChange }),
   } as TableOptions<TData>) as DataTable<TData>;
-  const totalsProps : TotalsProps = {
+  const totalsProps: TotalsProps = {
     totalsData,
     totalsKeyword,
-  }
+  };
   return (
     <StyledDataTable className="manifest-data-table" {...other}>
       <div
@@ -161,7 +161,9 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
         <table className="manifest-table">
           <DataTableHeader table={table} />
           <DataTableBody table={table} />
-          {enableTotalFooter && <DataTableFooter getTotalValue={getTotalValue} table={table} totalObj={totalsProps}/>}
+          {enableTotalFooter && (
+            <DataTableFooter getTotalValue={getTotalValue} table={table} totalObj={totalsProps} />
+          )}
         </table>
       </div>
       <DataTablePagination table={table} {...paginationProps} />

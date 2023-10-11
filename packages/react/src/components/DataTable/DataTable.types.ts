@@ -175,22 +175,22 @@ export interface DataTableProps<TData extends RowData> {
   /**
    * prop to enable total footer
    */
-  enableTotalFooter?:boolean;
+  enableTotalFooter?: boolean;
   /**
    * Props passed to the Total footer component
    * if these prop is missing total footer wont be rendered
    */
-  totalsData?:TotalsDataObj;
+  totalsData?: TotalsDataObj;
   /**
    * Props passed to the Total footer keyword
-   * 
+   *
    */
-  totalsKeyword?: string
+  totalsKeyword?: string;
   /**
    * callBack function for passing value to totalcolumns
    * if these prop is missing total footer wont be rendered
    */
-  getTotalValue?:(headerTotalObj: TotalsHeaderObj) => number | string
+  getTotalValue?: (headerTotalObj: TotalsHeaderObj) => number | string;
   /**
    * The total number of rows for the total table (controlled).
    *
@@ -230,21 +230,19 @@ export interface DataTableProps<TData extends RowData> {
 }
 
 export interface TotalsProps {
-  totalsData: TotalsDataObj,
-  totalsKeyword: string
+  totalsData: TotalsDataObj;
+  totalsKeyword: string;
 }
 
 export type TotalsDataObj = Record<string, TotalsHeaderObj>;
 
 export interface TotalsHeaderObj {
-  value: number
-  has_custom_html: boolean
-  html: string
-  links: Link[]
+  value: number;
+  has_custom_html: boolean;
+  html: string;
+  links: Link[];
 }
 
 export interface Link {
-   url: boolean
+  url: boolean;
 }
-
-

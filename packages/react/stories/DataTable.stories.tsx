@@ -1,4 +1,3 @@
-
 import { faker } from '@faker-js/faker';
 import { ClipboardWithCheck, Clock } from '@project44-manifest/react-icons';
 import { createDataTableColumnHelper, DataTable, DataTableColumnDef, Link, Pill } from '../src';
@@ -35,46 +34,46 @@ export const Default = () => {
     {
       header: 'First Name',
       accessorKey: 'firstName',
-      footer: (props )=> props.column.id
+      footer: (props) => props.column.id,
     },
     {
       header: 'Last Name',
       accessorKey: 'lastName',
-      footer: props => props.column.id,
+      footer: (props) => props.column.id,
     },
     {
       header: 'Gender',
       accessorKey: 'gender',
-      footer: props => props.column.id,
+      footer: (props) => props.column.id,
     },
     {
       header: 'Age',
       accessorKey: 'age',
-      footer: props => props.column.id,
+      footer: (props) => props.column.id,
     },
     {
       header: 'Address',
       accessorKey: 'address',
-      footer: props => props.column.id,
+      footer: (props) => props.column.id,
     },
     {
       header: 'City',
       accessorKey: 'city',
-      footer: props => props.column.id,
+      footer: (props) => props.column.id,
     },
     {
       header: 'Subscribed',
       accessorKey: 'isSubscribed',
-      footer: props => props.column.id,
+      footer: (props) => props.column.id,
     },
     {
       header: 'Birthday',
       accessorKey: 'birthday',
-      footer: props => props.column.id,
+      footer: (props) => props.column.id,
     },
   ];
 
-  return <DataTable columns={columns} data={data}/>;
+  return <DataTable columns={columns} data={data} />;
 };
 
 export const CustomCellRendering = () => {
@@ -405,7 +404,7 @@ export const Loading = () => {
   return <DataTable isLoading columns={columns} data={[]} />;
 };
 
-export const TotalFooterRow = ()=>{
+export const TotalFooterRow = () => {
   interface Person {
     firstName: string;
     lastName: string;
@@ -431,135 +430,143 @@ export const TotalFooterRow = ()=>{
     {
       header: 'First Name',
       accessorKey: 'firstName',
-      footer: (props )=> props.column.id
+      footer: (props) => props.column.id,
     },
     {
       header: 'Last Name',
       accessorKey: 'lastName',
-      footer: props => props.column.id,
+      footer: (props) => props.column.id,
     },
     {
       header: 'Gender',
       accessorKey: 'gender',
-      footer: props => props.column.id,
+      footer: (props) => props.column.id,
     },
     {
       header: 'Age',
       accessorKey: 'age',
-      footer: props => props.column.id,
+      footer: (props) => props.column.id,
     },
     {
       header: 'Address',
       accessorKey: 'address',
-      footer: props => props.column.id,
+      footer: (props) => props.column.id,
     },
     {
       header: 'City',
       accessorKey: 'city',
-      footer: props => props.column.id,
+      footer: (props) => props.column.id,
     },
     {
       header: 'Subscribed',
       accessorKey: 'isSubscribed',
-      footer: props => props.column.id,
+      footer: (props) => props.column.id,
     },
     {
       header: 'Birthday',
       accessorKey: 'birthday',
-      footer: props => props.column.id,
+      footer: (props) => props.column.id,
     },
   ];
 
-  const totalsObj:TotalsDataObj={
-    'firstName': {
-      'value': 0.572284,
-      'has_custom_html': false,
-      'html': '57.2%',
-      'links': [
+  const totalsObj: TotalsDataObj = {
+    firstName: {
+      value: 0.572284,
+      has_custom_html: false,
+      html: '57.2%',
+      links: [
         {
-          'url': false
-        }
-      ]
+          url: false,
+        },
+      ],
     },
-    'lastName': {
-      'value': 0.572284,
-      'has_custom_html': false,
-      'html': '57.2%',
-      'links': [
+    lastName: {
+      value: 0.572284,
+      has_custom_html: false,
+      html: '57.2%',
+      links: [
         {
-          'url': false
-        }
-      ]
+          url: false,
+        },
+      ],
     },
-    'gender': {
-      'value': -0.148,
-      'has_custom_html': false,
-      'html': '-0.1 p.p.',
-      'links': [
+    gender: {
+      value: -0.148,
+      has_custom_html: false,
+      html: '-0.1 p.p.',
+      links: [
         {
-          'url': false
-        }
-      ]
+          url: false,
+        },
+      ],
     },
-    'age': {
-      'value': 0.062509,
-      'has_custom_html': false,
-      'html': '6.3%',
-      'links': [
+    age: {
+      value: 0.062509,
+      has_custom_html: false,
+      html: '6.3%',
+      links: [
         {
-          'url': false
-        }
-      ]
+          url: false,
+        },
+      ],
     },
-    'address': {
-      'value': 0.317,
-      'has_custom_html': false,
-      'html': '0.3 p.p.',
-      'links': [
+    address: {
+      value: 0.317,
+      has_custom_html: false,
+      html: '0.3 p.p.',
+      links: [
         {
-          'url': false
-        }
-      ]
+          url: false,
+        },
+      ],
     },
-    'city': {
-      'value': 0.064555,
-      'has_custom_html': false,
-      'html': '6.5%',
-      'links': [
+    city: {
+      value: 0.064555,
+      has_custom_html: false,
+      html: '6.5%',
+      links: [
         {
-          'url': false
-        }
-      ]
+          url: false,
+        },
+      ],
     },
-    'isSubscribed': {
-      'value': 0.3123,
-      'has_custom_html': false,
-      'html': '0.3 p.p.',
-      'links': [
+    isSubscribed: {
+      value: 0.3123,
+      has_custom_html: false,
+      html: '0.3 p.p.',
+      links: [
         {
-          'url': false
-        }
-      ]
+          url: false,
+        },
+      ],
     },
-    'birthday': {
-      'value': 0.005304,
-      'has_custom_html': false,
-      'html': '0.5%',
-      'links': [
+    birthday: {
+      value: 0.005304,
+      has_custom_html: false,
+      html: '0.5%',
+      links: [
         {
-          'url': false
-        }
-      ]
-    }
+          url: false,
+        },
+      ],
+    },
   };
 
- 
-   const totalsData = totalsObj;
-    const totalsKeyword = 'SUMMARY';
+  const totalsData = totalsObj;
+  const totalsKeyword = 'SUMMARY';
 
-
-  const getTotalValue = (headerTotalObj: TotalsHeaderObj)=>headerTotalObj.value
+  const getTotalValue = (headerTotalObj: TotalsHeaderObj) => headerTotalObj.value;
 
   // eslint-disable-next-line react/jsx-no-bind
-  return <DataTable enableTotalFooter columns={columns} data={data} enablePagination={false} getTotalValue={getTotalValue} totalsData={totalsData} totalsKeyword={totalsKeyword} />;
-}
+  return (
+    <DataTable
+      enableTotalFooter
+      columns={columns}
+      data={data}
+      enablePagination={false}
+      getTotalValue={getTotalValue}
+      totalsData={totalsData}
+      totalsKeyword={totalsKeyword}
+    />
+  );
+};

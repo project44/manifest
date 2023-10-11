@@ -4,6 +4,6 @@ import type { DataTable, TotalsHeaderObj, TotalsProps } from '../../DataTable.ty
 export interface DataTableFooterProps<TData extends RowData> {
   enableStickyFooter?: boolean;
   table: DataTable<TData>;
-  totalObj: TotalsProps,
-  getTotalValue?:(headerTotalObj: TotalsHeaderObj) => number | string,
+  totalObj: TotalsProps;
+  getTotalValue?: (headerTotalObj: TotalsHeaderObj) => number | string;
 }
