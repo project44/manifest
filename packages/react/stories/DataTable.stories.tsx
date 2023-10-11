@@ -556,14 +556,13 @@ export const TotalFooterRow = () => {
   const totalsKeyword = 'SUMMARY';
 
   const getTotalValue = (headerTotalObj: TotalsHeaderObj) => headerTotalObj.value;
-
-  // eslint-disable-next-line react/jsx-no-bind
   return (
     <DataTable
       enableTotalFooter
       columns={columns}
       data={data}
       enablePagination={false}
+      // eslint-disable-next-line react/jsx-no-bind
       getTotalValue={getTotalValue}
       totalsData={totalsData}
       totalsKeyword={totalsKeyword}
