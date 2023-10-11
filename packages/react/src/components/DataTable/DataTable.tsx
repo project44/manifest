@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import * as React from 'react';
 import { cx } from '@project44-manifest/react-styles';
 import {
@@ -23,7 +22,7 @@ import {
 } from './components';
 import { DataTableFooter } from './components/DataTableFooter/DataTableFooter';
 import { StyledDataTable } from './DataTable.styles';
-import type { DataTable, DataTableProps } from './DataTable.types';
+import type { DataTable, DataTableProps, TotalsProps } from './DataTable.types';
 
 export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
   const {
