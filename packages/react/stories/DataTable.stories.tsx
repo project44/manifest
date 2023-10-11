@@ -553,13 +553,13 @@ export const TotalFooterRow = ()=>{
     }
   };
 
-  const totalsProp = {
-    totalsData : totalsObj,
-    totalsKeyword : 'SUMMARY'
-  }
+ 
+   const totalsData = totalsObj;
+    const totalsKeyword = 'SUMMARY';
+
 
   const getTotalValue = (headerTotalObj: TotalsHeaderObj)=>headerTotalObj.value
 
   // eslint-disable-next-line react/jsx-no-bind
-  return <DataTable enableTotalFooter columns={columns} data={data} enablePagination={false} getTotalValue={getTotalValue} totalsProps={totalsProp}/>;
+  return <DataTable enableTotalFooter columns={columns} data={data} enablePagination={false} getTotalValue={getTotalValue} totalsData={totalsData} totalsKeyword={totalsKeyword} />;
 }

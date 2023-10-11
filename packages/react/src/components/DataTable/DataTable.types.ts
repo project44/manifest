@@ -180,7 +180,12 @@ export interface DataTableProps<TData extends RowData> {
    * Props passed to the Total footer component
    * if these prop is missing total footer wont be rendered
    */
-  totalsProps?:TotalsProps;
+  totalsData?:TotalsDataObj;
+  /**
+   * Props passed to the Total footer keyword
+   * 
+   */
+  totalsKeyword?: string
   /**
    * callBack function for passing value to totalcolumns
    * if these prop is missing total footer wont be rendered
