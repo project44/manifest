@@ -190,7 +190,7 @@ export interface DataTableProps<TData extends RowData> {
    * callBack function for passing value to totalcolumns
    * if these prop is missing total footer wont be rendered
    */
-  getTotalValue?: (headerTotalObj: TotalsHeaderObj) => number | string;
+  getTotalValue?: (headerTotalObj: unknown) => number | string;
   /**
    * The total number of rows for the total table (controlled).
    *
