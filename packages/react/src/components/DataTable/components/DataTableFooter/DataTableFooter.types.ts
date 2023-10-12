@@ -6,3 +6,4 @@ export interface DataTableFooterProps<TData extends RowData> {
   table: DataTable<TData>;
   footerProps: footerPropsType;
 }
+
