@@ -566,7 +566,7 @@ export const TotalFooterRow = () => {
     url: boolean;
   }
 
-  const getTotalValue = (headerTotalObj : TotalsHeaderObj) => headerTotalObj.value;
+  const getTotalValue = (headerTotalObj: TotalsHeaderObj) => headerTotalObj.value;
   return (
     <DataTable
       enableTotalFooter

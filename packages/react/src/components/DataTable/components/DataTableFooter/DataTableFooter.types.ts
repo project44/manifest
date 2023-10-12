@@ -7,4 +7,3 @@ export interface DataTableFooterProps<TData extends RowData> {
   totalObj: TotalsProps;
   getTotalValue?: (headerTotalObj: unknown) => number | string;
 }
-
