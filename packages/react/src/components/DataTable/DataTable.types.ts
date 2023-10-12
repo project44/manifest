@@ -234,14 +234,9 @@ export interface TotalsProps {
   totalsKeyword: string;
 }
 
-export type TotalsDataObj = Record<string, TotalsHeaderObj>;
+export type TotalsDataObj = Record<string, TotalsHeaderObj<unknown>>;
 
-export interface TotalsHeaderObj {
-  value: number;
-  has_custom_html: boolean;
-  html: string;
-  links: Link[];
-}
+export type TotalsHeaderObj<T> = Record<string, T>;
 
 export interface Link {
   url: boolean;
