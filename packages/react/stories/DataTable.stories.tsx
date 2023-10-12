@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker';
 import { ClipboardWithCheck, Clock } from '@project44-manifest/react-icons';
 import { createDataTableColumnHelper, DataTable, DataTableColumnDef, Link, Pill } from '../src';
-import { TotalsDataObj, TotalsHeaderObj } from '../src/components/DataTable/DataTable.types';
+import { TotalsDataObj } from '../src/components/DataTable/DataTable.types';
 
 export default {
   title: 'Components/DataTable',
@@ -555,7 +555,18 @@ export const TotalFooterRow = () => {
   const totalsData = totalsObj;
   const totalsKeyword = 'SUMMARY';
 
-  const getTotalValue = (headerTotalObj: TotalsHeaderObj) => headerTotalObj.value;
+  interface TotalsHeaderObj {
+    value: number;
+    has_custom_html: boolean;
+    html: string;
+    links: Link[];
+  }
+
+  interface Link {
+    url: boolean;
+  }
+
+  const getTotalValue = (headerTotalObj : TotalsHeaderObj) => headerTotalObj.value;
   return (
     <DataTable
       enableTotalFooter

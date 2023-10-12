@@ -237,7 +237,3 @@ export interface TotalsProps {
 export type TotalsDataObj = Record<string, TotalsHeaderObj<unknown>>;
 
 export type TotalsHeaderObj<T> = Record<string, T>;
-
-export interface Link {
-  url: boolean;
-}
