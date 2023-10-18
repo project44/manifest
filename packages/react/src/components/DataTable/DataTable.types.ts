@@ -175,7 +175,28 @@ export interface DataTableProps<TData extends RowData> {
   /**
    * prop to enable total footer
    */
-  footerProps?: footerPropsType;
+  footerProps?: {
+    /**
+     * Props passed to the Total footer component
+     * if these prop is missing total footer wont be rendered
+     */
+    data: TotalsDataObj;
+    /**
+     * Props passed to the Total footer keyword
+     *
+     */
+    keyword: string;
+    /**
+     * callBack function for passing value to totalcolumns
+     * if these prop is missing total footer wont be rendered
+     */
+    callBackFunc: (
+      data: TotalsDataObj,
+      headerId: number | string,
+      index: number,
+      keyword: string,
+    ) => number | string;
+  };
 
   /**
    * The total number of rows for the total table (controlled).
@@ -215,7 +236,7 @@ export interface DataTableProps<TData extends RowData> {
   onSortingChange?: OnChangeFn<SortingState>;
 }
 
-export  interface footerPropsType{
+export interface footerPropsType {
   /**
    * Props passed to the Total footer component
    * if these prop is missing total footer wont be rendered
@@ -230,7 +251,12 @@ export  interface footerPropsType{
    * callBack function for passing value to totalcolumns
    * if these prop is missing total footer wont be rendered
    */
-  callBackFunc: (data: TotalsDataObj,headerId : number | string, index: number , keyword:string , ) => number | string;
+  callBackFunc: (
+    data: TotalsDataObj,
+    headerId: number | string,
+    index: number,
+    keyword: string,
+  ) => number | string;
 }
 
 export interface TotalsProps {

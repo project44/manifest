@@ -9,7 +9,7 @@ export function DataTableFooterColumn<TData extends RowData, TVaue>(
 ) {
   const { header, table, footerProps, index } = props;
   const { column } = header;
-  const {data, keyword, callBackFunc} = footerProps
+  const { data, keyword, callBackFunc } = footerProps;
 
   const styles: React.CSSProperties = getColumnLayoutStyles(table, column);
 

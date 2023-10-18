@@ -154,9 +154,11 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
         <table className="manifest-table">
           <DataTableHeader table={table} />
           <DataTableBody table={table} />
-          {footerProps?.data !==  undefined && footerProps?.keyword !== undefined && footerProps?.callBackFunc !== undefined && (
-            <DataTableFooter footerProps={footerProps}  table={table }/>
-          )}
+          {footerProps?.data !== undefined &&
+            footerProps?.keyword !== undefined &&
+            footerProps?.callBackFunc !== undefined && (
+              <DataTableFooter footerProps={footerProps} table={table} />
+            )}
         </table>
       </div>
       <DataTablePagination table={table} {...paginationProps} />

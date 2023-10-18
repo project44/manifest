@@ -5,5 +5,5 @@ export interface DataTableFooterColumnProps<TData extends RowData, TVaue> {
   header: Header<TData, TVaue>;
   table: DataTable<TData>;
   index: number;
-  footerProps : footerPropsType;
+  footerProps: footerPropsType;
 }

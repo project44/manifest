@@ -547,28 +547,31 @@ export const TotalFooterRow = () => {
   const totalsData = totalsObj;
   const totalsKeyword = 'SUMMARY';
 
-  const getTotalValue = (headerTotalObj:TotalsDataObj ,headerId: number | string, index: number, keyword : number) => {
-      if(headerTotalObj !== undefined){
-        if(headerTotalObj[headerId] === undefined && headerTotalObj[headerId].value === undefined || index === 0){
-          return keyword
-        }
-          
-        return headerTotalObj[headerId].value
+  const getTotalValue = (
+    headerTotalObj: TotalsDataObj,
+    headerId: number | string,
+    index: number,
+    keyword: number,
+  ) => {
+    if (headerTotalObj !== undefined) {
+      if (
+        (headerTotalObj[headerId] === undefined && headerTotalObj[headerId].value === undefined) ||
+        index === 0
+      ) {
+        return keyword;
       }
+
+      return headerTotalObj[headerId].value;
+    }
+    return '';
   };
   const footerObj = {
     data: totalsData,
     keyword: totalsKeyword,
-    callBackFunc: getTotalValue 
-  }
-
+    callBackFunc: getTotalValue,
+  };
 
   return (
-    <DataTable
-      columns={columns}
-      data={data}
-      enablePagination={false}
-      footerProps={footerObj}
-    />
+    <DataTable columns={columns} data={data} enablePagination={false} footerProps={footerObj} />
   );
 };
