@@ -430,49 +430,41 @@ export const TotalFooterRow = () => {
     {
       header: 'First Name',
       accessorKey: 'firstName',
-      footer: (props) => props.column.id,
     },
     {
       header: 'Last Name',
       accessorKey: 'lastName',
-      footer: (props) => props.column.id,
     },
     {
       header: 'Gender',
       accessorKey: 'gender',
-      footer: (props) => props.column.id,
     },
     {
       header: 'Age',
       accessorKey: 'age',
-      footer: (props) => props.column.id,
     },
     {
       header: 'Address',
       accessorKey: 'address',
-      footer: (props) => props.column.id,
     },
     {
       header: 'City',
       accessorKey: 'city',
-      footer: (props) => props.column.id,
     },
     {
       header: 'Subscribed',
       accessorKey: 'isSubscribed',
-      footer: (props) => props.column.id,
     },
     {
       header: 'Birthday',
       accessorKey: 'birthday',
-      footer: (props) => props.column.id,
     },
   ];
 
   const totalsObj: TotalsDataObj = {
     firstName: {
       value: 0.572284,
-      has_custom_html: false,
+      hasCustomHtml: false,
       html: '57.2%',
       links: [
         {
@@ -482,7 +474,7 @@ export const TotalFooterRow = () => {
     },
     lastName: {
       value: 0.572284,
-      has_custom_html: false,
+      hasCustomHtml: false,
       html: '57.2%',
       links: [
         {
@@ -492,7 +484,7 @@ export const TotalFooterRow = () => {
     },
     gender: {
       value: -0.148,
-      has_custom_html: false,
+      hasCustomHtml: false,
       html: '-0.1 p.p.',
       links: [
         {
@@ -502,7 +494,7 @@ export const TotalFooterRow = () => {
     },
     age: {
       value: 0.062509,
-      has_custom_html: false,
+      hasCustomHtml: false,
       html: '6.3%',
       links: [
         {
@@ -512,7 +504,7 @@ export const TotalFooterRow = () => {
     },
     address: {
       value: 0.317,
-      has_custom_html: false,
+      hasCustomHtml: false,
       html: '0.3 p.p.',
       links: [
         {
@@ -522,7 +514,7 @@ export const TotalFooterRow = () => {
     },
     city: {
       value: 0.064555,
-      has_custom_html: false,
+      hasCustomHtml: false,
       html: '6.5%',
       links: [
         {
@@ -532,7 +524,7 @@ export const TotalFooterRow = () => {
     },
     isSubscribed: {
       value: 0.3123,
-      has_custom_html: false,
+      hasCustomHtml: false,
       html: '0.3 p.p.',
       links: [
         {
@@ -542,7 +534,7 @@ export const TotalFooterRow = () => {
     },
     birthday: {
       value: 0.005304,
-      has_custom_html: false,
+      hasCustomHtml: false,
       html: '0.5%',
       links: [
         {
@@ -555,28 +547,28 @@ export const TotalFooterRow = () => {
   const totalsData = totalsObj;
   const totalsKeyword = 'SUMMARY';
 
-  interface TotalsHeaderObj {
-    value: number;
-    has_custom_html: boolean;
-    html: string;
-    links: Link[];
+  const getTotalValue = (headerTotalObj:TotalsDataObj ,headerId: number | string, index: number, keyword : number) => {
+      if(headerTotalObj !== undefined){
+        if(headerTotalObj[headerId] === undefined && headerTotalObj[headerId].value === undefined || index === 0){
+          return keyword
+        }
+          
+        return headerTotalObj[headerId].value
+      }
+  };
+  const footerObj = {
+    data: totalsData,
+    keyword: totalsKeyword,
+    callBackFunc: getTotalValue 
   }
 
-  interface Link {
-    url: boolean;
-  }
 
-  const getTotalValue = (headerTotalObj: TotalsHeaderObj) => headerTotalObj.value;
   return (
     <DataTable
-      enableTotalFooter
       columns={columns}
       data={data}
       enablePagination={false}
-      // eslint-disable-next-line react/jsx-no-bind
-      getTotalValue={getTotalValue}
-      totalsData={totalsData}
-      totalsKeyword={totalsKeyword}
+      footerProps={footerObj}
     />
   );
 };

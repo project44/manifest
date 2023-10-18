@@ -4,7 +4,7 @@ import { DataTableFooterColumn } from '../DataTableFooterColumn/DataTableFooterC
 import { DataTableFooterProps } from './DataTableFooter.types';
 
 export function DataTableFooter<TData extends RowData>(props: DataTableFooterProps<TData>) {
-  const { table, totalObj, getTotalValue } = props;
+  const { table, footerProps } = props;
 
   return (
     <tfoot
@@ -17,11 +17,10 @@ export function DataTableFooter<TData extends RowData>(props: DataTableFooterPro
           {footerGroup.headers.map((header, i) => (
             <DataTableFooterColumn
               key={header.id}
-              getTotalValue={getTotalValue}
+              footerProps={footerProps}
               header={header}
               index={i}
               table={table}
-              totalObj={totalObj}
             />
           ))}
         </tr>

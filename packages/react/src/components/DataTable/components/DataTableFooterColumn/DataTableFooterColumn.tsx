@@ -7,9 +7,9 @@ import { DataTableFooterColumnProps } from './DataTableFooterColumnProps.types';
 export function DataTableFooterColumn<TData extends RowData, TVaue>(
   props: DataTableFooterColumnProps<TData, TVaue>,
 ) {
-  const { header, table, totalObj, getTotalValue, index } = props;
+  const { header, table, footerProps, index } = props;
   const { column } = header;
-  const { totalsData, totalsKeyword } = totalObj;
+  const {data, keyword, callBackFunc} = footerProps
 
   const styles: React.CSSProperties = getColumnLayoutStyles(table, column);
 
@@ -23,9 +23,7 @@ export function DataTableFooterColumn<TData extends RowData, TVaue>(
       colSpan={header.colSpan}
       style={{ ...styles }}
     >
-      {!Object.prototype.hasOwnProperty.call(totalsData, header.id) || index === 0
-        ? totalsKeyword
-        : flexRender(getTotalValue?.(totalsData[header.id]), header.getContext())}
+      {flexRender(callBackFunc?.(data, header.id, index, keyword), header.getContext())}
     </th>
   );
 }
