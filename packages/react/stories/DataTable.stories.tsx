@@ -456,83 +456,27 @@ export const TotalFooterRow = () => {
   const totalsObj: TotalsDataObj = {
     firstName: {
       value: 0.572284,
-      hasCustomHtml: false,
-      html: '57.2%',
-      links: [
-        {
-          url: false,
-        },
-      ],
     },
     lastName: {
       value: 0.572284,
-      hasCustomHtml: false,
-      html: '57.2%',
-      links: [
-        {
-          url: false,
-        },
-      ],
     },
     gender: {
       value: -0.148,
-      hasCustomHtml: false,
-      html: '-0.1 p.p.',
-      links: [
-        {
-          url: false,
-        },
-      ],
     },
     age: {
       value: 0.062509,
-      hasCustomHtml: false,
-      html: '6.3%',
-      links: [
-        {
-          url: false,
-        },
-      ],
     },
     address: {
       value: 0.317,
-      hasCustomHtml: false,
-      html: '0.3 p.p.',
-      links: [
-        {
-          url: false,
-        },
-      ],
     },
     city: {
       value: 0.064555,
-      hasCustomHtml: false,
-      html: '6.5%',
-      links: [
-        {
-          url: false,
-        },
-      ],
     },
     isSubscribed: {
       value: 0.3123,
-      hasCustomHtml: false,
-      html: '0.3 p.p.',
-      links: [
-        {
-          url: false,
-        },
-      ],
     },
     birthday: {
       value: 0.005304,
-      hasCustomHtml: false,
-      html: '0.5%',
-      links: [
-        {
-          url: false,
-        },
-      ],
     },
   };
 
