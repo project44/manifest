@@ -1,6 +1,7 @@
 import { faker } from '@faker-js/faker';
 import { ClipboardWithCheck, Clock } from '@project44-manifest/react-icons';
 import { createDataTableColumnHelper, DataTable, DataTableColumnDef, Link, Pill } from '../src';
+import { TotalsDataObj } from '../src/components/DataTable/DataTable.types';
 
 export default {
   title: 'Components/DataTable',
@@ -393,4 +394,120 @@ export const Loading = () => {
   ];
 
   return <DataTable isLoading columns={columns} data={[]} />;
+};
+
+export const TotalFooterRow = () => {
+  interface Person {
+    firstName: string;
+    lastName: string;
+    gender: string;
+    age: number;
+    address: string;
+    city: string;
+    isSubscribed: boolean;
+    birthday: string;
+  }
+  const data = [...Array.from({ length: 5 })].map(() => ({
+    firstName: faker.name.firstName(),
+    lastName: faker.name.lastName(),
+    gender: faker.name.sex(),
+    age: faker.datatype.number(80),
+    address: faker.address.streetAddress(),
+    city: faker.address.city(),
+    isSubscribed: faker.datatype.boolean(),
+    birthday: faker.date.past().toLocaleDateString('en-US'),
+  }));
+
+  const columns: DataTableColumnDef<Person>[] = [
+    {
+      header: 'First Name',
+      accessorKey: 'firstName',
+    },
+    {
+      header: 'Last Name',
+      accessorKey: 'lastName',
+    },
+    {
+      header: 'Gender',
+      accessorKey: 'gender',
+    },
+    {
+      header: 'Age',
+      accessorKey: 'age',
+    },
+    {
+      header: 'Address',
+      accessorKey: 'address',
+    },
+    {
+      header: 'City',
+      accessorKey: 'city',
+    },
+    {
+      header: 'Subscribed',
+      accessorKey: 'isSubscribed',
+    },
+    {
+      header: 'Birthday',
+      accessorKey: 'birthday',
+    },
+  ];
+
+  const totalsObj: TotalsDataObj = {
+    firstName: {
+      value: 0.572284,
+    },
+    lastName: {
+      value: 0.572284,
+    },
+    gender: {
+      value: -0.148,
+    },
+    age: {
+      value: 0.062509,
+    },
+    address: {
+      value: 0.317,
+    },
+    city: {
+      value: 0.064555,
+    },
+    isSubscribed: {
+      value: 0.3123,
+    },
+    birthday: {
+      value: 0.005304,
+    },
+  };
+
+  const totalsData = totalsObj;
+  const totalsKeyword = 'SUMMARY';
+
+  const getTotalValue = (
+    headerTotalObj: TotalsDataObj,
+    headerId: number | string,
+    index: number,
+    keyword: number,
+  ) => {
+    if (headerTotalObj !== undefined) {
+      if (
+        (headerTotalObj[headerId] === undefined && headerTotalObj[headerId].value === undefined) ||
+        index === 0
+      ) {
+        return keyword;
+      }
+
+      return headerTotalObj[headerId].value;
+    }
+    return '';
+  };
+  const footerObj = {
+    data: totalsData,
+    keyword: totalsKeyword,
+    callBackFunc: getTotalValue,
+  };
+
+  return (
+    <DataTable columns={columns} data={data} enablePagination={false} footerProps={footerObj} />
+  );
 };

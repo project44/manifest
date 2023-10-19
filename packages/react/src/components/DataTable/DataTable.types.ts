@@ -171,6 +171,33 @@ export interface DataTableProps<TData extends RowData> {
   }) =>
     | Partial<Omit<PaginationProps, 'rowsPerPage'>>
     | Partial<Omit<PaginationProps, 'rowsPerPage'>>;
+
+  /**
+   * prop to enable total footer
+   */
+  footerProps?: {
+    /**
+     * Props passed to the Total footer component
+     * if these prop is missing total footer wont be rendered
+     */
+    data: TotalsDataObj;
+    /**
+     * Props passed to the Total footer keyword
+     *
+     */
+    keyword: string;
+    /**
+     * callBack function for passing value to totalcolumns
+     * if these prop is missing total footer wont be rendered
+     */
+    callBackFunc: (
+      data: TotalsDataObj,
+      headerId: number | string,
+      index: number,
+      keyword: string,
+    ) => number | string;
+  };
+
   /**
    * The total number of rows for the total table (controlled).
    *
@@ -208,3 +235,35 @@ export interface DataTableProps<TData extends RowData> {
    */
   onSortingChange?: OnChangeFn<SortingState>;
 }
+
+export interface footerPropsType {
+  /**
+   * Props passed to the Total footer component
+   * if these prop is missing total footer wont be rendered
+   */
+  data: TotalsDataObj;
+  /**
+   * Props passed to the Total footer keyword
+   *
+   */
+  keyword: string;
+  /**
+   * callBack function for passing value to totalcolumns
+   * if these prop is missing total footer wont be rendered
+   */
+  callBackFunc: (
+    data: TotalsDataObj,
+    headerId: number | string,
+    index: number,
+    keyword: string,
+  ) => number | string;
+}
+
+export interface TotalsProps {
+  totalsData: TotalsDataObj;
+  totalsKeyword: string;
+}
+
+export type TotalsDataObj = Record<string, TotalsHeaderObj<unknown>>;
+
+export type TotalsHeaderObj<T> = Record<string, T>;

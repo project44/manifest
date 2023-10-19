@@ -20,6 +20,7 @@ import {
   DataTableHeader,
   DataTablePagination,
 } from './components';
+import { DataTableFooter } from './components/DataTableFooter/DataTableFooter';
 import { StyledDataTable } from './DataTable.styles';
 import type { DataTable, DataTableProps } from './DataTable.types';
 
@@ -50,6 +51,7 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
     manualSorting,
     pageCount,
     paginationProps = {},
+    footerProps,
     selectAllCheckboxProps = {},
     selectCheckboxProps = {},
     rowCount,
@@ -142,7 +144,6 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
     ...(manualPagination && { onPaginationChange }),
     ...(manualSorting && { onSortingChange }),
   } as TableOptions<TData>) as DataTable<TData>;
-
   return (
     <StyledDataTable className="manifest-data-table" {...other}>
       <div
@@ -153,6 +154,11 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
         <table className="manifest-table">
           <DataTableHeader table={table} />
           <DataTableBody table={table} />
+          {footerProps?.data !== undefined &&
+            footerProps?.keyword !== undefined &&
+            footerProps?.callBackFunc !== undefined && (
+              <DataTableFooter footerProps={footerProps} table={table} />
+            )}
         </table>
       </div>
       <DataTablePagination table={table} {...paginationProps} />
