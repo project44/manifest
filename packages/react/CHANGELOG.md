@@ -1,5 +1,14 @@
 # @manifest/react
 
+## 3.14.0
+
+### Minor Changes
+
+- [#476](https://github.com/project44/manifest/pull/476)
+  [`3597f7d`](https://github.com/project44/manifest/commit/3597f7da10e92b5f4344d0cc9887a4b287037bc3)
+  Thanks [@ShubhamBhagat-p44](https://github.com/ShubhamBhagat-p44)! - Added support for totals
+  footer row in datatable
+
 ## 3.13.3
 
 ### Patch Changes
