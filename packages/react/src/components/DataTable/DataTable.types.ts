@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { CSS } from '@project44-manifest/react-styles';
 import type {
   ColumnDef,
@@ -196,6 +197,12 @@ export interface DataTableProps<TData extends RowData> {
       index: number,
       keyword: string,
     ) => number | string;
+    /**
+     * Whether the table header should stick when scrolling vertically
+     *
+     * @default false
+     */
+    enableSticky?: boolean;
   };
 
   /**
@@ -256,7 +263,13 @@ export interface footerPropsType {
     headerId: number | string,
     index: number,
     keyword: string,
-  ) => number | string;
+  ) => any;
+    /**
+   * Whether the table header should stick when scrolling vertically
+   *
+   * @default false
+   */
+    enableSticky?: boolean;
 }
 
 export interface TotalsProps {
@@ -264,6 +277,6 @@ export interface TotalsProps {
   totalsKeyword: string;
 }
 
-export type TotalsDataObj = Record<string, TotalsHeaderObj<unknown>>;
+export type TotalsDataObj = Record<string, TotalsHeaderObj<any>>;
 
 export type TotalsHeaderObj<T> = Record<string, T>;
