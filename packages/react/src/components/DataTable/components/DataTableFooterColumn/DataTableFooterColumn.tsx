@@ -10,15 +10,14 @@ export function DataTableFooterColumn<TData extends RowData, TVaue>(
 ) {
   const { header, table, footerProps, index } = props;
   const { column } = header;
-  const { data, keyword, callBackFunc,enableSticky } = footerProps;
-
+  const { data, keyword, callBackFunc, enableSticky } = footerProps;
 
   const styles: React.CSSProperties = getColumnLayoutStyles(table, column);
-  const sticky :React.CSSProperties ={
+  const sticky: React.CSSProperties = {
     position: 'sticky',
-    bottom:'0px',
+    bottom: '0px',
     zIndex: 0,
-  }
+  };
 
   return (
     <th
@@ -27,14 +26,11 @@ export function DataTableFooterColumn<TData extends RowData, TVaue>(
         // 'manifest-table__cell--sticky-header': table.options.enableStickyHeader,
         'manifest-table__cell--pinned': column.getIsPinned(),
       })}
-      
       colSpan={header.colSpan}
-      style={
-        {
+      style={{
         ...(enableSticky ? sticky : {}),
-        ...styles
+        ...styles,
       }}
-
     >
       {flexRender(callBackFunc?.(data, header.id, index, keyword), header.getContext())}
     </th>

@@ -264,12 +264,12 @@ export interface footerPropsType {
     index: number,
     keyword: string,
   ) => any;
-    /**
+  /**
    * Whether the table header should stick when scrolling vertically
    *
    * @default false
    */
-    enableSticky?: boolean;
+  enableSticky?: boolean;
 }
 
 export interface TotalsProps {

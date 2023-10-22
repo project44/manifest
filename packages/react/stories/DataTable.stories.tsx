@@ -510,6 +510,12 @@ export const TotalFooterRow = () => {
   };
 
   return (
-    <DataTable enableStickyHeader columns={columns} data={data} enablePagination={false} footerProps={footerObj} />
+    <DataTable
+      enableStickyHeader
+      columns={columns}
+      data={data}
+      enablePagination={false}
+      footerProps={footerObj}
+    />
   );
 };
