@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { CSS } from '@project44-manifest/react-styles';
 import type {
   ColumnDef,
@@ -175,28 +176,7 @@ export interface DataTableProps<TData extends RowData> {
   /**
    * prop to enable total footer
    */
-  footerProps?: {
-    /**
-     * Props passed to the Total footer component
-     * if these prop is missing total footer wont be rendered
-     */
-    data: TotalsDataObj;
-    /**
-     * Props passed to the Total footer keyword
-     *
-     */
-    keyword: string;
-    /**
-     * callBack function for passing value to totalcolumns
-     * if these prop is missing total footer wont be rendered
-     */
-    callBackFunc: (
-      data: TotalsDataObj,
-      headerId: number | string,
-      index: number,
-      keyword: string,
-    ) => number | string;
-  };
+  footerProps?: FooterPropsType;
 
   /**
    * The total number of rows for the total table (controlled).
@@ -236,7 +216,7 @@ export interface DataTableProps<TData extends RowData> {
   onSortingChange?: OnChangeFn<SortingState>;
 }
 
-export interface footerPropsType {
+export interface FooterPropsType {
   /**
    * Props passed to the Total footer component
    * if these prop is missing total footer wont be rendered
@@ -256,7 +236,13 @@ export interface footerPropsType {
     headerId: number | string,
     index: number,
     keyword: string,
-  ) => number | string;
+  ) => any;
+  /**
+   * Whether the table header should stick when scrolling vertically
+   *
+   * @default false
+   */
+  enableSticky?: boolean;
 }
 
 export interface TotalsProps {
@@ -264,6 +250,6 @@ export interface TotalsProps {
   totalsKeyword: string;
 }
 
-export type TotalsDataObj = Record<string, TotalsHeaderObj<unknown>>;
+export type TotalsDataObj = Record<string, TotalsHeaderObj<any>>;
 
 export type TotalsHeaderObj<T> = Record<string, T>;

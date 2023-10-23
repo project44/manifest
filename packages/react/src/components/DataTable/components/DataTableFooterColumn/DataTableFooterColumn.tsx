@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import * as React from 'react';
 import { cx } from '@project44-manifest/react-styles';
 import { flexRender, RowData } from '@tanstack/react-table';
@@ -9,19 +10,26 @@ export function DataTableFooterColumn<TData extends RowData, TVaue>(
 ) {
   const { header, table, footerProps, index } = props;
   const { column } = header;
-  const { data, keyword, callBackFunc } = footerProps;
+  const { data, keyword, callBackFunc, enableSticky } = footerProps;
 
   const styles: React.CSSProperties = getColumnLayoutStyles(table, column);
+  const sticky: React.CSSProperties = {
+    position: 'sticky',
+    bottom: '0px',
+    zIndex: 0,
+  };
 
   return (
     <th
       key={header.id}
       className={cx('manifest-table__cell', 'manifest-table__cell--header', {
-        'manifest-table__cell--sticky-header': table.options.enableStickyHeader,
-        'manifest-table__cell--pinned': '',
+        'manifest-table__cell--pinned': column.getIsPinned(),
       })}
       colSpan={header.colSpan}
-      style={{ ...styles }}
+      style={{
+        ...(enableSticky ? sticky : {}),
+        ...styles,
+      }}
     >
       {flexRender(callBackFunc?.(data, header.id, index, keyword), header.getContext())}
     </th>

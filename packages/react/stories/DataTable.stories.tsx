@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { faker } from '@faker-js/faker';
 import { ClipboardWithCheck, Clock } from '@project44-manifest/react-icons';
 import { createDataTableColumnHelper, DataTable, DataTableColumnDef, Link, Pill } from '../src';
@@ -407,7 +408,7 @@ export const TotalFooterRow = () => {
     isSubscribed: boolean;
     birthday: string;
   }
-  const data = [...Array.from({ length: 5 })].map(() => ({
+  const data = [...Array.from({ length: 10 })].map(() => ({
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),
     gender: faker.name.sex(),
@@ -487,8 +488,8 @@ export const TotalFooterRow = () => {
     headerTotalObj: TotalsDataObj,
     headerId: number | string,
     index: number,
-    keyword: number,
-  ) => {
+    keyword: string,
+  ): any => {
     if (headerTotalObj !== undefined) {
       if (
         (headerTotalObj[headerId] === undefined && headerTotalObj[headerId].value === undefined) ||
@@ -505,9 +506,16 @@ export const TotalFooterRow = () => {
     data: totalsData,
     keyword: totalsKeyword,
     callBackFunc: getTotalValue,
+    enableSticky: true,
   };
 
   return (
-    <DataTable columns={columns} data={data} enablePagination={false} footerProps={footerObj} />
+    <DataTable
+      enableStickyHeader
+      columns={columns}
+      data={data}
+      enablePagination={false}
+      footerProps={footerObj}
+    />
   );
 };
