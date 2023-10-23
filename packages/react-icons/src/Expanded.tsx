@@ -3,8 +3,8 @@ import { createIcon } from './utils/createIcon';
 
 export const Expanded = createIcon(
   <path
-    fillRule="evenodd"
-    d="M8.345 7.392a.9.9 0 1 0-1.8 0v9.236a.9.9 0 0 0 1.8 0V7.392Zm8.88.648a.9.9 0 1 0-1.272-1.273l-4.597 4.596a.9.9 0 0 0 0 1.273l4.597 4.596a.9.9 0 1 0 1.273-1.272L13.266 12l3.96-3.96Z"
     clipRule="evenodd"
+    d="M8.345 7.392a.9.9 0 1 0-1.8 0v9.236a.9.9 0 0 0 1.8 0V7.392Zm8.88.648a.9.9 0 1 0-1.272-1.273l-4.597 4.596a.9.9 0 0 0 0 1.273l4.597 4.596a.9.9 0 1 0 1.273-1.272L13.266 12l3.96-3.96Z"
+    fillRule="evenodd"
   />,
 );

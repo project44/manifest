@@ -3,8 +3,8 @@ import { createIcon } from './utils/createIcon';
 
 export const VerticalBarsCircleFilled = createIcon(
   <path
-    fillRule="evenodd"
-    d="M2 12C2 6.48 6.47 2 11.99 2 17.52 2 22 6.48 22 12s-4.48 10-10.01 10C6.47 22 2 17.52 2 12Zm9 5V6c0-.55.45-1 1-1s1 .45 1 1v11c0 .55-.45 1-1 1s-1-.45-1-1Zm-5-7a1 1 0 0 1 2 0v7a1 1 0 1 1-2 0v-7Zm11 3a1 1 0 0 0-1 1v3a1 1 0 1 0 2 0v-3a1 1 0 0 0-1-1Z"
     clipRule="evenodd"
+    d="M2 12C2 6.48 6.47 2 11.99 2 17.52 2 22 6.48 22 12s-4.48 10-10.01 10C6.47 22 2 17.52 2 12Zm9 5V6c0-.55.45-1 1-1s1 .45 1 1v11c0 .55-.45 1-1 1s-1-.45-1-1Zm-5-7a1 1 0 0 1 2 0v7a1 1 0 1 1-2 0v-7Zm11 3a1 1 0 0 0-1 1v3a1 1 0 1 0 2 0v-3a1 1 0 0 0-1-1Z"
+    fillRule="evenodd"
   />,
 );

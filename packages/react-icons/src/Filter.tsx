@@ -3,8 +3,8 @@ import { createIcon } from './utils/createIcon';
 
 export const Filter = createIcon(
   <path
-    fillRule="evenodd"
-    d="M4.1 8a.9.9 0 0 1 .9-.9h14a.9.9 0 1 1 0 1.8H5a.9.9 0 0 1-.9-.9Zm2.5 4a.9.9 0 0 1 .9-.9h9a.9.9 0 0 1 0 1.8h-9a.9.9 0 0 1-.9-.9Zm3.4 3.1a.9.9 0 0 0 0 1.8h4a.9.9 0 1 0 0-1.8h-4Z"
     clipRule="evenodd"
+    d="M4.1 8a.9.9 0 0 1 .9-.9h14a.9.9 0 1 1 0 1.8H5a.9.9 0 0 1-.9-.9Zm2.5 4a.9.9 0 0 1 .9-.9h9a.9.9 0 0 1 0 1.8h-9a.9.9 0 0 1-.9-.9Zm3.4 3.1a.9.9 0 0 0 0 1.8h4a.9.9 0 1 0 0-1.8h-4Z"
+    fillRule="evenodd"
   />,
 );

@@ -3,8 +3,8 @@ import { createIcon } from './utils/createIcon';
 
 export const ArrowUp = createIcon(
   <path
-    fillRule="evenodd"
-    d="M6.497 10.99a.9.9 0 0 1 0-1.272l4.867-4.867a.9.9 0 0 1 1.272 0l4.867 4.867a.9.9 0 1 1-1.273 1.273L12.9 7.66v11.852a.9.9 0 0 1-1.8 0V7.661l-3.33 3.33a.9.9 0 0 1-1.273 0Z"
     clipRule="evenodd"
+    d="M6.497 10.99a.9.9 0 0 1 0-1.272l4.867-4.867a.9.9 0 0 1 1.272 0l4.867 4.867a.9.9 0 1 1-1.273 1.273L12.9 7.66v11.852a.9.9 0 0 1-1.8 0V7.661l-3.33 3.33a.9.9 0 0 1-1.273 0Z"
+    fillRule="evenodd"
   />,
 );
