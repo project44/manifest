@@ -176,34 +176,7 @@ export interface DataTableProps<TData extends RowData> {
   /**
    * prop to enable total footer
    */
-  footerProps?: {
-    /**
-     * Props passed to the Total footer component
-     * if these prop is missing total footer wont be rendered
-     */
-    data: TotalsDataObj;
-    /**
-     * Props passed to the Total footer keyword
-     *
-     */
-    keyword: string;
-    /**
-     * callBack function for passing value to totalcolumns
-     * if these prop is missing total footer wont be rendered
-     */
-    callBackFunc: (
-      data: TotalsDataObj,
-      headerId: number | string,
-      index: number,
-      keyword: string,
-    ) => number | string;
-    /**
-     * Whether the table header should stick when scrolling vertically
-     *
-     * @default false
-     */
-    enableSticky?: boolean;
-  };
+  footerProps?: FooterPropsType;
 
   /**
    * The total number of rows for the total table (controlled).
