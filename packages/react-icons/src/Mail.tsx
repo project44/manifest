@@ -3,8 +3,8 @@ import { createIcon } from './utils/createIcon';
 
 export const Mail = createIcon(
   <path
-    clipRule="evenodd"
-    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2Zm9.06 8.34 6.54-4.09a.85.85 0 1 0-.9-1.44L12 11 5.3 6.81a.85.85 0 1 0-.9 1.44l6.54 4.09c.65.41 1.47.41 2.12 0Z"
     fillRule="evenodd"
+    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2Zm9.06 8.34 6.54-4.09a.85.85 0 1 0-.9-1.44L12 11 5.3 6.81a.85.85 0 1 0-.9 1.44l6.54 4.09c.65.41 1.47.41 2.12 0Z"
+    clipRule="evenodd"
   />,
 );

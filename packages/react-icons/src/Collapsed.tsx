@@ -3,8 +3,8 @@ import { createIcon } from './utils/createIcon';
 
 export const Collapsed = createIcon(
   <path
-    clipRule="evenodd"
-    d="M15.69 7.392a.9.9 0 1 1 1.8 0v9.236a.9.9 0 0 1-1.8 0V7.392Zm-8.881.648A.9.9 0 1 1 8.08 6.767l4.597 4.596a.9.9 0 0 1 0 1.273L8.08 17.232A.9.9 0 1 1 6.81 15.96l3.96-3.96-3.96-3.96Z"
     fillRule="evenodd"
+    d="M15.69 7.392a.9.9 0 1 1 1.8 0v9.236a.9.9 0 0 1-1.8 0V7.392Zm-8.881.648A.9.9 0 1 1 8.08 6.767l4.597 4.596a.9.9 0 0 1 0 1.273L8.08 17.232A.9.9 0 1 1 6.81 15.96l3.96-3.96-3.96-3.96Z"
+    clipRule="evenodd"
   />,
 );

@@ -3,8 +3,8 @@ import { createIcon } from './utils/createIcon';
 
 export const ChevronLeft = createIcon(
   <path
-    clipRule="evenodd"
-    d="M13.54 7.614a.9.9 0 0 1 0 1.273l-3.96 3.96 3.96 3.96a.9.9 0 1 1-1.273 1.273L7.67 13.483a.9.9 0 0 1 0-1.273l4.597-4.596a.9.9 0 0 1 1.273 0Z"
     fillRule="evenodd"
+    d="M13.54 7.614a.9.9 0 0 1 0 1.273l-3.96 3.96 3.96 3.96a.9.9 0 1 1-1.273 1.273L7.67 13.483a.9.9 0 0 1 0-1.273l4.597-4.596a.9.9 0 0 1 1.273 0Z"
+    clipRule="evenodd"
   />,
 );

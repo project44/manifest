@@ -3,8 +3,8 @@ import { createIcon } from './utils/createIcon';
 
 export const Backslash = createIcon(
   <path
-    clipRule="evenodd"
-    d="M7.102 7.068a.9.9 0 0 1 1.273 0l8.554 8.555a.9.9 0 1 1-1.272 1.273L7.101 8.341a.9.9 0 0 1 0-1.273Z"
     fillRule="evenodd"
+    d="M7.102 7.068a.9.9 0 0 1 1.273 0l8.554 8.555a.9.9 0 1 1-1.272 1.273L7.101 8.341a.9.9 0 0 1 0-1.273Z"
+    clipRule="evenodd"
   />,
 );

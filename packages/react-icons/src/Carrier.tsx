@@ -3,8 +3,8 @@ import { createIcon } from './utils/createIcon';
 
 export const Carrier = createIcon(
   <path
-    clipRule="evenodd"
-    d="M10.33 8.053V6.425h3.34v1.628h-3.34Zm-1.8 0V5.625a1 1 0 0 1 1-1h4.94a1 1 0 0 1 1 1v2.428H19a1 1 0 0 1 1 1v9.322a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9.053a1 1 0 0 1 1-1h3.53Z"
     fillRule="evenodd"
+    d="M10.33 8.053V6.425h3.34v1.628h-3.34Zm-1.8 0V5.625a1 1 0 0 1 1-1h4.94a1 1 0 0 1 1 1v2.428H19a1 1 0 0 1 1 1v9.322a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9.053a1 1 0 0 1 1-1h3.53Z"
+    clipRule="evenodd"
   />,
 );

@@ -3,8 +3,8 @@ import { createIcon } from './utils/createIcon';
 
 export const TrendingDown = createIcon(
   <path
-    clipRule="evenodd"
-    d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm12.133 7.335a.9.9 0 0 0-1.8 0v3.725L8.371 7.098a.9.9 0 1 0-1.273 1.273l6.962 6.962h-3.725a.9.9 0 0 0 0 1.8h5.898a.9.9 0 0 0 .9-.9v-5.898Z"
     fillRule="evenodd"
+    d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm12.133 7.335a.9.9 0 0 0-1.8 0v3.725L8.371 7.098a.9.9 0 1 0-1.273 1.273l6.962 6.962h-3.725a.9.9 0 0 0 0 1.8h5.898a.9.9 0 0 0 .9-.9v-5.898Z"
+    clipRule="evenodd"
   />,
 );

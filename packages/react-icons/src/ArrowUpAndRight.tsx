@@ -3,8 +3,8 @@ import { createIcon } from './utils/createIcon';
 
 export const ArrowUpAndRight = createIcon(
   <path
-    clipRule="evenodd"
-    d="M8.86 7.114a.9.9 0 0 1 .9-.9h6.882a.9.9 0 0 1 .9.9v6.882a.9.9 0 1 1-1.8 0v-4.71L7.36 17.669a.9.9 0 1 1-1.273-1.273l8.38-8.381H9.76a.9.9 0 0 1-.9-.9Z"
     fillRule="evenodd"
+    d="M8.86 7.114a.9.9 0 0 1 .9-.9h6.882a.9.9 0 0 1 .9.9v6.882a.9.9 0 1 1-1.8 0v-4.71L7.36 17.669a.9.9 0 1 1-1.273-1.273l8.38-8.381H9.76a.9.9 0 0 1-.9-.9Z"
+    clipRule="evenodd"
   />,
 );

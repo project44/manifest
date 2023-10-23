@@ -3,8 +3,8 @@ import { createIcon } from './utils/createIcon';
 
 export const Check = createIcon(
   <path
-    clipRule="evenodd"
-    d="M19.637 7.235a.9.9 0 0 1 0 1.273l-9.257 9.257a.9.9 0 0 1-1.273 0l-4.743-4.743a.9.9 0 1 1 1.272-1.273l4.107 4.107 8.62-8.62a.9.9 0 0 1 1.274 0Z"
     fillRule="evenodd"
+    d="M19.637 7.235a.9.9 0 0 1 0 1.273l-9.257 9.257a.9.9 0 0 1-1.273 0l-4.743-4.743a.9.9 0 1 1 1.272-1.273l4.107 4.107 8.62-8.62a.9.9 0 0 1 1.274 0Z"
+    clipRule="evenodd"
   />,
 );
