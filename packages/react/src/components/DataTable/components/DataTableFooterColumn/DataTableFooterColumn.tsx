@@ -23,7 +23,6 @@ export function DataTableFooterColumn<TData extends RowData, TVaue>(
     <th
       key={header.id}
       className={cx('manifest-table__cell', 'manifest-table__cell--header', {
-        // 'manifest-table__cell--sticky-header': table.options.enableStickyHeader,
         'manifest-table__cell--pinned': column.getIsPinned(),
       })}
       colSpan={header.colSpan}

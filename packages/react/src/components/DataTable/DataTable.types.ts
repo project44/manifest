@@ -243,7 +243,7 @@ export interface DataTableProps<TData extends RowData> {
   onSortingChange?: OnChangeFn<SortingState>;
 }
 
-export interface footerPropsType {
+export interface FooterPropsType {
   /**
    * Props passed to the Total footer component
    * if these prop is missing total footer wont be rendered
