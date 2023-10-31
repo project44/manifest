@@ -32,6 +32,12 @@ export const LocalNavigationItem = React.forwardRef((props, forwardedRef) => {
     css,
     isSelected,
     variant = localNavigation?.variant ?? 'primary',
+    onClick,
+    onPress,
+    onPressStart,
+    onPressEnd,
+    onPressChange,
+    onPressUp,
     ...other
   } = props;
 
@@ -40,8 +46,14 @@ export const LocalNavigationItem = React.forwardRef((props, forwardedRef) => {
   const { buttonProps, isPressed } = useButton(
     {
       ...props,
+      onClick,
+      onPress,
+      onPressStart,
+      onPressEnd,
+      onPressChange,
+      onPressUp,
       elementType: typeof as === 'string' ? as : 'button',
-    },
+    } as AriaButtonProps,
     itemRef,
   );
   const { isFocusVisible, focusProps } = useFocusRing({ autoFocus });

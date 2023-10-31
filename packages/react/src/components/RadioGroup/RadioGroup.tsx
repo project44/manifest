@@ -32,6 +32,7 @@ export const RadioGroup = createComponent<RadioGroupOptions>((props, forwardedRe
     children,
     css,
     orientation = 'vertical',
+    isDisabled,
     ...other
   } = props;
 
