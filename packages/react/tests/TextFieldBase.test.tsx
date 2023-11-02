@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { TextFieldBase } from '../src/components/TextFieldBase';
 
 describe('@project44-manifest/components - TextFieldBase', () => {
@@ -16,11 +16,10 @@ describe('@project44-manifest/components - TextFieldBase', () => {
   });
 
   it('pointer event should be allowed', () => {
-    const onClick = jest.fn();
     render(
       <TextFieldBase
         endIconClickable
-        endIcon={<span onClick={onClick}>end icon</span>}
+        endIcon={<span>end icon</span>}
         startIcon={<span>start icon</span>}
       />,
     );
