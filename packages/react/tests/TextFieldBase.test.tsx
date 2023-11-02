@@ -30,7 +30,7 @@ describe('@project44-manifest/components - TextFieldBase', () => {
     expect(
       screen
         .getByTestId('end-icon')
-        .classList.contains('.manifest-textfield-base__icon_allow_pointer_events'),
+        .classList.contains('manifest-textfield-base__icon_allow_pointer_events'),
     ).toBeTruthy();
   });
 
@@ -43,7 +43,7 @@ describe('@project44-manifest/components - TextFieldBase', () => {
     expect(
       screen
         .getByTestId('end-icon')
-        .classList.contains('.manifest-textfield-base__icon_allow_pointer_events'),
+        .classList.contains('manifest-textfield-base__icon_allow_pointer_events'),
     ).toBeFalsy();
   });
 });
