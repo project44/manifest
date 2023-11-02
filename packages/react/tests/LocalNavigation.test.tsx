@@ -30,25 +30,6 @@ describe('react: LocalNavigation', () => {
   // we should not be testing for onClick explicitly as react-aria suggests that we need to use onPress
   // which will internally handle all the interactions properly
 
-  // it('should handle click events', () => {
-  //   const onClick = jest.fn();
-
-  //   render(
-  //     <LocalNavigation>
-  //       <LocalNavigationItem onClick={onClick}>Overview</LocalNavigationItem>
-  //       <LocalNavigationItem>Lanes</LocalNavigationItem>
-  //       <LocalNavigationItem>Carriers</LocalNavigationItem>
-  //       <LocalNavigationItem>Containers</LocalNavigationItem>
-  //     </LocalNavigation>,
-  //   );
-
-  //   const button = screen.getAllByRole('button');
-
-  //   fireEvent.click(button[0]);
-
-  //   expect(onClick).toHaveBeenCalled();
-  // });
-
   it('should handle press events', () => {
     const onPress = jest.fn();
 

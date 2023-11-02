@@ -25,18 +25,6 @@ describe('react-button - Button', () => {
   // we should not be testing for onClick explicitly as react-aria suggests that we need to use onPress
   // which will internally handle all the interactions properly
 
-  // it('should handle click events', () => {
-  //   const onClick = jest.fn();
-
-  //   render(<Button onClick={onClick}>Click Me</Button>);
-
-  //   const button = screen.getByRole('button');
-
-  //   fireEvent.click(button);
-
-  //   expect(onClick).toHaveBeenCalled();
-  // });
-
   it('should handle press events', () => {
     const onPress = jest.fn();
 
