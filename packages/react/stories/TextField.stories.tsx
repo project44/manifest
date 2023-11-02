@@ -29,10 +29,14 @@ export const Icons = Template.bind({});
 Icons.decorators = [
   () => (
     <Flex css={{ gap: '$small' }} orientation="vertical">
-      <TextField endIcon={<Icon icon="search" />} placeholder="Search..." />
+      <TextField
+        endIconClickable
+        endIcon={<Icon onClick={() => console.log('Test')} icon="search" />}
+        placeholder="Search..."
+      />
       <TextField placeholder="Search..." startIcon={<Icon icon="search" />} />
     </Flex>
-  ),
+  )
 ];
 
 export const Label = Template.bind({});

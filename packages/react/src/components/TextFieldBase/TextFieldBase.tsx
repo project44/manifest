@@ -20,6 +20,10 @@ export interface TextFieldBaseOptions<T extends As = TextFieldBaseElement>
    */
   endIcon?: React.ReactNode;
   /**
+   * Allows pointer events on endIcon
+   */
+  endIconClickable?: boolean;
+  /**
    * Helper text to append to the form control input element.
    */
   helperText?: React.ReactNode;
@@ -66,6 +70,10 @@ export interface TextFieldBaseOptions<T extends As = TextFieldBaseElement>
    */
   startIcon?: React.ReactNode;
   /**
+   * Allows pointer events on start icon
+   */
+  startIconClickable?: boolean;
+  /**
    * Whether the input should display its "valid" or "invalid" visual styling.
    */
   validationState?: ValidationState;
@@ -82,6 +90,7 @@ export const TextFieldBase = createComponent<TextFieldBaseOptions>((props, forwa
     className: classNameProp,
     css,
     endIcon,
+    endIconClickable = false,
     helperText,
     helperTextProps,
     inputProps = {},
@@ -92,6 +101,7 @@ export const TextFieldBase = createComponent<TextFieldBaseOptions>((props, forwa
     labelProps,
     multiline = false,
     startIcon,
+    startIconClickable = false,
     validationState,
   } = props;
 
@@ -136,7 +146,11 @@ export const TextFieldBase = createComponent<TextFieldBaseOptions>((props, forwa
       <div ref={forwardedRef} className="manifest-textfield-base__wrapper">
         {startIcon && (
           <span
-            className={cx('manifest-textfield-base__icon', 'manifest-textfield-base__icon--start')}
+            className={cx(
+              'manifest-textfield-base__icon',
+              'manifest-textfield-base__icon--start',
+              startIconClickable ? 'manifest-textfield-base__icon_allow_pointer_events' : '',
+            )}
           >
             {startIcon}
           </span>
@@ -151,7 +165,12 @@ export const TextFieldBase = createComponent<TextFieldBaseOptions>((props, forwa
 
         {endIcon && (
           <span
-            className={cx('manifest-textfield-base__icon', 'manifest-textfield-base__icon--end')}
+            className={cx(
+              'manifest-textfield-base__icon',
+              'manifest-textfield-base__icon--end',
+              endIconClickable ? 'manifest-textfield-base__icon_allow_pointer_events' : '',
+            )}
+            data-testid="end-icon"
           >
             {endIcon}
           </span>

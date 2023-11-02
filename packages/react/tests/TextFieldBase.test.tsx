@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { TextFieldBase } from '../src/components/TextFieldBase';
 
 describe('@project44-manifest/components - TextFieldBase', () => {
@@ -13,5 +13,38 @@ describe('@project44-manifest/components - TextFieldBase', () => {
     render(<TextFieldBase multiline />);
 
     expect(screen.getByRole('textbox')).toHaveAttribute('rows');
+  });
+
+  it('pointer event should be allowed', () => {
+    const onClick = jest.fn();
+    render(
+      <TextFieldBase
+        endIconClickable
+        endIcon={<span onClick={onClick}>end icon</span>}
+        startIcon={<span>start icon</span>}
+      />,
+    );
+
+    expect(screen.getByText('end icon')).toBeInTheDocument();
+    expect(screen.getByText('start icon')).toBeInTheDocument();
+
+    expect(
+      screen
+        .getByTestId('end-icon')
+        .classList.contains('.manifest-textfield-base__icon_allow_pointer_events'),
+    ).toBeTruthy();
+  });
+
+  it('pointer event should be stopped', () => {
+    render(<TextFieldBase endIcon={<span>end icon</span>} startIcon={<span>start icon</span>} />);
+
+    expect(screen.getByText('end icon')).toBeInTheDocument();
+    expect(screen.getByText('start icon')).toBeInTheDocument();
+
+    expect(
+      screen
+        .getByTestId('end-icon')
+        .classList.contains('.manifest-textfield-base__icon_allow_pointer_events'),
+    ).toBeFalsy();
   });
 });
