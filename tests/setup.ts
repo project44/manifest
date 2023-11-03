@@ -39,8 +39,6 @@ if (global.window) {
 
   window.open = jest.fn();
 
-
-
   const originalGetComputedStyle = window.getComputedStyle;
 
   const getComputedStyle = (...args: any[]) => {
