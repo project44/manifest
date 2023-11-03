@@ -32,7 +32,6 @@ export const LocalNavigationItem = React.forwardRef((props, forwardedRef) => {
     css,
     isSelected,
     variant = localNavigation?.variant ?? 'primary',
-    ...other
   } = props;
 
   const itemRef = React.useRef<HTMLButtonElement>(null);
@@ -41,7 +40,7 @@ export const LocalNavigationItem = React.forwardRef((props, forwardedRef) => {
     {
       ...props,
       elementType: typeof as === 'string' ? as : 'button',
-    },
+    } as AriaButtonProps,
     itemRef,
   );
   const { isFocusVisible, focusProps } = useFocusRing({ autoFocus });
@@ -60,7 +59,7 @@ export const LocalNavigationItem = React.forwardRef((props, forwardedRef) => {
 
   return (
     <StyledItem
-      {...mergeProps(buttonProps, focusProps, hoverProps, other)}
+      {...mergeProps(buttonProps, focusProps, hoverProps)}
       ref={mergeRefs(itemRef, forwardedRef)}
       as={as}
       className={className}
