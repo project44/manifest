@@ -135,7 +135,7 @@ const Button = React.forwardRef((props, forwardedRef) => {
 
   return (
     <StyledButton
-      {...mergeProps(buttonProps, focusProps, hoverProps, other)}
+      {...mergeProps(buttonProps, focusProps, hoverProps)}
       ref={mergeRefs(buttonRef, forwardedRef)}
       as={as}
       className={classnames}

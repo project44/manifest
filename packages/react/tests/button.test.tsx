@@ -1,55 +1,49 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Button } from '../src';
 
+const mockProps = {
+  'aria-label': 'Mock aria',
+  children: 'Click me',
+  onPress: jest.fn(),
+}
+
 describe('react-button - Button', () => {
+  beforeEach(jest.resetAllMocks)
+
   it('should render', () => {
-    render(<Button>Click Me</Button>);
+    render(<Button {...mockProps} />);
 
     const button = screen.getByRole('button');
-
     expect(button).toBeVisible();
     expect(button).toHaveAttribute('type', 'button');
   });
 
   it('should render icons', () => {
     render(
-      <Button endIcon={<span data-testid="end" />} startIcon={<span data-testid="start" />}>
-        Click Me
-      </Button>,
+      <Button
+        {...mockProps}
+        endIcon={<span data-testid="end" />}
+        startIcon={<span data-testid="start" />}
+      />,
     );
 
     expect(screen.getByTestId('end')).toBeVisible();
     expect(screen.getByTestId('start')).toBeVisible();
   });
 
-  // we should not be testing for onClick explicitly as react-aria suggests that we need to use onPress
-  // which will internally handle all the interactions properly
-
   it('should handle press events', () => {
-    const onPress = jest.fn();
-
-    render(<Button onPress={onPress}>Click Me</Button>);
+    render(<Button {...mockProps} />);
 
     const button = screen.getByRole('button');
-
     fireEvent.click(button);
-
-    expect(onPress).toHaveBeenCalled();
+    expect(mockProps.onPress).toHaveBeenCalled();
   });
 
   it('should handle disabled button', () => {
-    const clickSpy = jest.fn();
-
-    render(
-      <Button isDisabled onClick={clickSpy}>
-        Click Me
-      </Button>,
-    );
+    render(<Button {...mockProps} isDisabled />);
 
     const button = screen.getByRole('button');
-
     fireEvent.click(button);
-
-    expect(clickSpy).not.toHaveBeenCalled();
+    expect(mockProps.onPress).not.toHaveBeenCalled();
   });
 });

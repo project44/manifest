@@ -32,13 +32,6 @@ export const LocalNavigationItem = React.forwardRef((props, forwardedRef) => {
     css,
     isSelected,
     variant = localNavigation?.variant ?? 'primary',
-    onClick,
-    onPress,
-    onPressStart,
-    onPressEnd,
-    onPressChange,
-    onPressUp,
-    ...other
   } = props;
 
   const itemRef = React.useRef<HTMLButtonElement>(null);
@@ -46,12 +39,6 @@ export const LocalNavigationItem = React.forwardRef((props, forwardedRef) => {
   const { buttonProps, isPressed } = useButton(
     {
       ...props,
-      onClick,
-      onPress,
-      onPressStart,
-      onPressEnd,
-      onPressChange,
-      onPressUp,
       elementType: typeof as === 'string' ? as : 'button',
     } as AriaButtonProps,
     itemRef,
@@ -72,7 +59,7 @@ export const LocalNavigationItem = React.forwardRef((props, forwardedRef) => {
 
   return (
     <StyledItem
-      {...mergeProps(buttonProps, focusProps, hoverProps, other)}
+      {...mergeProps(buttonProps, focusProps, hoverProps)}
       ref={mergeRefs(itemRef, forwardedRef)}
       as={as}
       className={className}

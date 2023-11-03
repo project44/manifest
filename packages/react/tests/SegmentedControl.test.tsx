@@ -1,14 +1,18 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Segment, SegmentedControl } from '../src';
 
+const mockProps = {
+  'aria-label': 'Mock aria'
+}
+
 describe('segmented control', () => {
   it('should render and support selection', () => {
     const onChange = jest.fn();
 
     render(
-      <SegmentedControl onChange={onChange}>
-        <Segment label="Overview" value="overview" />
-        <Segment label="Lanes" value="lanes" />
+      <SegmentedControl aria-label="mock aria" onChange={onChange}>
+        <Segment aria-label="overview" label="Overview" value="overview" />
+        <Segment aria-label="lanes" label="Lanes" value="lanes" />
       </SegmentedControl>,
     );
 
@@ -34,9 +38,9 @@ describe('segmented control', () => {
     const onChange = jest.fn();
 
     render(
-      <SegmentedControl defaultValue="lanes" onChange={onChange}>
-        <Segment label="Overview" value="overview" />
-        <Segment label="Lanes" value="lanes" />
+      <SegmentedControl aria-label="mock aria" defaultValue="lanes" onChange={onChange}>
+        <Segment aria-label="overview" label="Overview" value="overview" />
+        <Segment aria-label="lanes" label="Lanes" value="lanes" />
       </SegmentedControl>,
     );
 
