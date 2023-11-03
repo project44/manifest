@@ -1,10 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Segment, SegmentedControl } from '../src';
 
-const mockProps = {
-  'aria-label': 'Mock aria'
-}
-
 describe('segmented control', () => {
   it('should render and support selection', () => {
     const onChange = jest.fn();

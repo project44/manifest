@@ -1,8 +1,46 @@
 import '@testing-library/jest-dom/extend-expect';
 let windowSpy: jest.SpyInstance;
 
+// global.window functions may be unavailable and
+// must be mocked in jest envirionment
+
 if (global.window) {
-  // need to mock this function to pass default values as 0 so that we can avoid NaN warning in some of components
+  global.DOMRect = {
+    fromRect: () => ({
+      bottom: 0,
+      height: 0,
+      left: 0,
+      right: 0,
+      top: 0,
+      width: 0,
+    }),
+  };
+
+  global.ResizeObserver = class ResizeObserver {
+    constructor(cb) {
+      this.cb = cb;
+    }
+    observe() {
+      this.cb([{ borderBoxSize: { blockSize: 0, inlineSize: 0 } }]);
+    }
+    unobserve() {}
+  };
+
+  window.HTMLElement.prototype.scrollTo = () => {};
+
+  window.HTMLElement.prototype.getBoundingClientRect = () => ({
+    height: 1000,
+    width: 1600,
+    left: 0,
+    top: 0,
+    right: 0,
+    bottom: 0,
+  });
+
+  window.open = jest.fn();
+
+
+
   const originalGetComputedStyle = window.getComputedStyle;
 
   const getComputedStyle = (...args: any[]) => {
