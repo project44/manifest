@@ -5,10 +5,10 @@ const mockProps = {
   'aria-label': 'Mock aria',
   children: 'Click me',
   onPress: jest.fn(),
-}
+};
 
 describe('react-button - Button', () => {
-  beforeEach(jest.resetAllMocks)
+  beforeEach(jest.resetAllMocks);
 
   it('should render', () => {
     render(<Button {...mockProps} />);
