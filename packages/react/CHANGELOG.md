@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 3.16.0
+
+### Minor Changes
+
+- [#484](https://github.com/project44/manifest/pull/484)
+  [`747eef4`](https://github.com/project44/manifest/commit/747eef46d9dbe19891456d948aa39af534667b92)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - fix: fixed warnings in tests
+
 ## 3.15.0
 
 ### Minor Changes
