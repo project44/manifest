@@ -40,7 +40,10 @@
     "react-dom": "^17.0.0 || ^18.0.0"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@internationalized/date": "^3.0.0",
+    "@mui/material": "^5.14.17",
     "@project44-manifest/react-icons": "^1.4.0",
     "@project44-manifest/react-styles": "^2.0.2",
     "@project44-manifest/react-types": "^0.2.1",
