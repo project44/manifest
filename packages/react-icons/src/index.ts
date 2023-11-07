@@ -8,6 +8,8 @@ export * from './ArrowUp';
 export * from './ArrowUpAndRight';
 export * from './Backslash';
 export * from './BackslashCircleFilled';
+export * from './Barge';
+export * from './BargeFilled';
 export * from './Boat';
 export * from './BoatFilled';
 export * from './Bolt';
