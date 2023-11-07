@@ -165,6 +165,7 @@ export type { ToasterProps } from './components/Toaster';
 export { Toaster } from './components/Toaster';
 export type { TooltipProps, TooltipState } from './components/Tooltip';
 export { Tooltip } from './components/Tooltip';
+export { TooltipV2 } from './components/TooltipV2';
 export type { TransitionProps, TransitionStatus } from './components/Transition';
 export { Transition } from './components/Transition';
 export type { TypographyProps } from './components/Typography';
