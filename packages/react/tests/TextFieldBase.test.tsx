@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { Button, Icon, IconButton } from '../src';
 import { TextFieldBase } from '../src/components/TextFieldBase';
 
 describe('@project44-manifest/components - TextFieldBase', () => {
@@ -15,35 +16,54 @@ describe('@project44-manifest/components - TextFieldBase', () => {
     expect(screen.getByRole('textbox')).toHaveAttribute('rows');
   });
 
-  it('pointer event should be allowed', () => {
+  it('end icon should be clickable', () => {
+    const onClick = jest.fn();
     render(
       <TextFieldBase
-        endIconClickable
-        endIcon={<span>end icon</span>}
-        startIcon={<span>start icon</span>}
+        endIcon={
+          <IconButton size="small">
+            <Icon data-testid="end-icon" icon="search" onClick={onClick} />
+          </IconButton>
+        }
       />,
     );
 
-    expect(screen.getByText('end icon')).toBeInTheDocument();
-    expect(screen.getByText('start icon')).toBeInTheDocument();
+    fireEvent.click(screen.getByTestId('end-icon'));
 
-    expect(
-      screen
-        .getByTestId('end-icon')
-        .classList.contains('manifest-textfield-base__icon_allow_pointer_events'),
-    ).toBeTruthy();
+    expect(onClick).toHaveBeenCalled();
   });
 
-  it('pointer event should be stopped', () => {
-    render(<TextFieldBase endIcon={<span>end icon</span>} startIcon={<span>start icon</span>} />);
+  it('start icon should be clickable', () => {
+    const onClick = jest.fn();
+    render(
+      <TextFieldBase
+        startIcon={
+          <IconButton size="small">
+            <Icon data-testid="start-icon" icon="search" onClick={onClick} />
+          </IconButton>
+        }
+      />,
+    );
 
-    expect(screen.getByText('end icon')).toBeInTheDocument();
-    expect(screen.getByText('start icon')).toBeInTheDocument();
+    fireEvent.click(screen.getByTestId('start-icon'));
 
-    expect(
-      screen
-        .getByTestId('end-icon')
-        .classList.contains('manifest-textfield-base__icon_allow_pointer_events'),
-    ).toBeFalsy();
+    expect(onClick).toHaveBeenCalled();
+  });
+
+  it('start icon should not be clickable', () => {
+    const onClick = jest.fn();
+    render(
+      <TextFieldBase
+        startIcon={
+          <Button isDisabled data-testid="start-icon" onPress={onClick}>
+            <span>start icon</span>
+          </Button>
+        }
+      />,
+    );
+
+    fireEvent.click(screen.getByTestId('start-icon'));
+
+    expect(onClick).not.toHaveBeenCalled();
   });
 });
