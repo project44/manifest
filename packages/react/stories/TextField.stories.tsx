@@ -26,7 +26,9 @@ Sizes.decorators = [
 
 export const Icons = Template.bind({});
 
-const onClick = () => {};
+const onClick = () => {
+  return;
+};
 
 Icons.decorators = [
   () => (
