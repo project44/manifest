@@ -26,17 +26,13 @@ Sizes.decorators = [
 
 export const Icons = Template.bind({});
 
-const onClick = () => {
-  console.log('Test');
-};
-
 Icons.decorators = [
   () => (
     <Flex css={{ gap: '$small' }} orientation="vertical">
       <TextField
         endIcon={
           <IconButton size="small">
-            <Icon icon="search" onClick={onClick} />
+            <Icon icon="search" />
           </IconButton>
         }
         placeholder="Search..."
