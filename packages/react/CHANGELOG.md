@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 3.17.0
+
+### Minor Changes
+
+- [#490](https://github.com/project44/manifest/pull/490)
+  [`f51d636`](https://github.com/project44/manifest/commit/f51d63650751daf29260974e02c3deeb68a7ab57)
+  Thanks [@dhalyal7](https://github.com/dhalyal7)! - adding new icons (Barge and Barge-filled)
+
 ## 3.16.0
 
 ### Minor Changes
