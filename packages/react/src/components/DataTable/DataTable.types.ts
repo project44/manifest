@@ -214,6 +214,10 @@ export interface DataTableProps<TData extends RowData> {
    * Handler that is called on sort change.
    */
   onSortingChange?: OnChangeFn<SortingState>;
+  /**
+   *  Handler that is invoked on scroll event on table container
+   */
+  onScroll?: (event: React.SyntheticEvent) => void;
 }
 
 export interface FooterPropsType {
