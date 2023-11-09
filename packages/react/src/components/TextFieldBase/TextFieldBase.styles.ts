@@ -32,10 +32,6 @@ export const useStyles = css({
     },
   },
 
-  '.manifest-textfield-base__icon_allow_pointer_events': {
-    pointerEvents: 'auto',
-  },
-
   '.manifest-textfield-base__icon--end': {
     right: 0,
   },
