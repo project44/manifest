@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { ComponentStory } from '@storybook/react';
-import { Flex, Icon, TextField } from '../src';
+import { Flex, Icon, IconButton, TextField } from '../src';
 
 export default {
   title: 'Components/TextField',
@@ -26,10 +26,19 @@ Sizes.decorators = [
 
 export const Icons = Template.bind({});
 
+const onClick = () => {};
+
 Icons.decorators = [
   () => (
     <Flex css={{ gap: '$small' }} orientation="vertical">
-      <TextField endIcon={<Icon icon="search" />} placeholder="Search..." />
+      <TextField
+        endIcon={
+          <IconButton size="small">
+            <Icon icon="search" onClick={onClick} />
+          </IconButton>
+        }
+        placeholder="Search..."
+      />
       <TextField placeholder="Search..." startIcon={<Icon icon="search" />} />
     </Flex>
   ),

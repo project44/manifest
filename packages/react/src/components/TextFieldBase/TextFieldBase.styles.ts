@@ -22,11 +22,11 @@ export const useStyles = css({
     fontSize: '$x-large',
     justifyContent: 'center',
     padding: '$small',
-    pointerEvents: 'none',
+    pointerEvents: 'auto',
     position: 'absolute',
     top: 0,
     zIndex: 2,
-
+    bottom: 0,
     '> .material-icons': {
       fontSize: '$x-large',
     },

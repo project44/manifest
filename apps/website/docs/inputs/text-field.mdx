@@ -42,6 +42,24 @@ function ControlledExample() {
 }
 ```
 
+### Clickable icon
+
+A text area's end and start icon can be clickable. We simply need to pass an icon with click handler. 
+
+```jsx live
+function ControlledExample() {
+  const [value, setValue] = React.useState('Lorem ipsum');
+  const onPress = () => {};
+
+  return (
+    <TextField aria-label="name" onChange={setValue} value={value} endIcon={
+      <IconButton size="small" onPress={onPress} >
+      <Icon icon="search"/>
+    </IconButton>} />
+  );
+}
+```
+
 ### Disabled State
 
 Set the `isDisabled` prop to prevent a user from inputting text.
