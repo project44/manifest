@@ -60,6 +60,7 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
     onPaginationChange,
     onRowSelectionChange,
     onSortingChange,
+    onScroll,
     ...other
   } = props;
 
@@ -150,6 +151,7 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
         className={cx('manifest-data-table__container', {
           'manifest-data-table__container--sticky-header': !!enableStickyHeader,
         })}
+        {...(onScroll && { onScroll })}
       >
         <table className="manifest-table">
           <DataTableHeader table={table} />
