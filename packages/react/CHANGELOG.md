@@ -1,5 +1,20 @@
 # @manifest/react
 
+## 3.18.0
+
+### Minor Changes
+
+- [#496](https://github.com/project44/manifest/pull/496)
+  [`f394b4b`](https://github.com/project44/manifest/commit/f394b4baca63abea511d21e19c6a35283c1142a3)
+  Thanks [@dhalyal7](https://github.com/dhalyal7)! - fix: added children prop to LocalNavigationItem
+  component
+
+### Patch Changes
+
+- [#495](https://github.com/project44/manifest/pull/495)
+  [`0a47e32`](https://github.com/project44/manifest/commit/0a47e322873bd5453d3446a8b6d8c778f2b789e7)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - feat: added onScroll support on data table
+
 ## 3.17.0
 
 ### Minor Changes
