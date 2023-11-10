@@ -20,6 +20,7 @@ export interface LocalNavigationItemProps extends AriaButtonProps {
    * @default 'primary'
    */
   variant?: LocalNavigationVariant;
+  children?: React.ReactNode;
 }
 
 export const LocalNavigationItem = React.forwardRef((props, forwardedRef) => {
@@ -28,6 +29,7 @@ export const LocalNavigationItem = React.forwardRef((props, forwardedRef) => {
   const {
     as,
     autoFocus,
+    children,
     className: classNameProp,
     css,
     isSelected,
@@ -65,6 +67,8 @@ export const LocalNavigationItem = React.forwardRef((props, forwardedRef) => {
       className={className}
       css={css}
       variant={variant}
-    />
+    >
+      {children}
+    </StyledItem>
   );
 }) as ForwardRefComponent<'button', LocalNavigationItemProps>;
