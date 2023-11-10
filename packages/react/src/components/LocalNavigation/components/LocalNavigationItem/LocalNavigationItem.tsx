@@ -10,7 +10,6 @@ import { LocalNavigationVariant, useLocalNavigation } from '../../LocalNavigatio
 import type { AriaButtonProps } from '@react-types/button';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
 
-
 export interface LocalNavigationItemProps extends AriaButtonProps {
   /** Theme aware style object */
   css?: CSS;
