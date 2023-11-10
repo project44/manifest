@@ -1,14 +1,13 @@
 import * as React from 'react';
-import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { CSS, cx } from '@project44-manifest/react-styles';
-import { StyledItem } from './LocalNavigationItem.styles';
 import { useButton } from '@react-aria/button';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
-import { LocalNavigationVariant, useLocalNavigation } from '../../LocalNavigation';
-
+import { mergeProps, mergeRefs } from '@react-aria/utils';
 import type { AriaButtonProps } from '@react-types/button';
+import { CSS, cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
+import { LocalNavigationVariant, useLocalNavigation } from '../../LocalNavigation';
+import { StyledItem } from './LocalNavigationItem.styles';
 
 export interface LocalNavigationItemProps extends AriaButtonProps {
   /** Theme aware style object */
@@ -67,8 +66,9 @@ export const LocalNavigationItem = React.forwardRef((props, forwardedRef) => {
       as={as}
       className={className}
       css={css}
-      children={children}
       variant={variant}
-    />
+    >
+      {children}
+    </StyledItem>
   );
 }) as ForwardRefComponent<'button', LocalNavigationItemProps>;
