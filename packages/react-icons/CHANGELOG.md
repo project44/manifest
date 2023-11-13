@@ -1,5 +1,13 @@
 # @project44-manifest/react-icons
 
+## 1.6.0
+
+### Minor Changes
+
+- [#497](https://github.com/project44/manifest/pull/497)
+  [`fca0d8a`](https://github.com/project44/manifest/commit/fca0d8abf18934d7f4a62524872e3f5abbad2e71)
+  Thanks [@dhalyal7](https://github.com/dhalyal7)! - Bump react icons version to include barge icons
+
 ## 1.5.0
 
 ### Minor Changes
