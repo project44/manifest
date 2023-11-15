@@ -60,6 +60,7 @@ export * from './List';
 export * from './ListWithArrow';
 export * from './Location';
 export * from './Lock';
+export * from './LockFilled';
 export * from './LockOpen';
 export * from './Login';
 export * from './Mail';
