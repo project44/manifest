@@ -1,5 +1,13 @@
 # @project44-manifest/react-icons
 
+## 2.0.0
+
+### Major Changes
+
+- [#499](https://github.com/project44/manifest/pull/499)
+  [`a6b08a0`](https://github.com/project44/manifest/commit/a6b08a042e5e5adcc595f0829aa72efa8789f77e)
+  Thanks [@vitaliy-p44](https://github.com/vitaliy-p44)! - lock icon added
+
 ## 1.6.0
 
 ### Minor Changes

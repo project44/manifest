@@ -1,5 +1,14 @@
 # storybook
 
+## 0.0.10
+
+### Patch Changes
+
+- Updated dependencies
+  [[`a6b08a0`](https://github.com/project44/manifest/commit/a6b08a042e5e5adcc595f0829aa72efa8789f77e)]:
+  - @project44-manifest/react-icons@2.0.0
+  - @project44-manifest/react@3.18.1
+
 ## 0.0.9
 
 ### Patch Changes
