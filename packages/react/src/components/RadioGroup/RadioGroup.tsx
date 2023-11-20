@@ -48,7 +48,11 @@ export const RadioGroup = createComponent<RadioGroupOptions>((props, forwardedRe
   });
 
   return (
-    <Comp {...mergeProps(radioGroupProps, htmlIntristicAttributes)} ref={forwardedRef} className={classes}>
+    <Comp
+      {...mergeProps(radioGroupProps, htmlIntristicAttributes)}
+      ref={forwardedRef}
+      className={classes}
+    >
       <RadioGroupContext.Provider value={context}>{children}</RadioGroupContext.Provider>
     </Comp>
   );
