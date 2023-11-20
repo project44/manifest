@@ -32,6 +32,7 @@ export const RadioGroup = createComponent<RadioGroupOptions>((props, forwardedRe
     children,
     css,
     orientation = 'vertical',
+    ...htmlIntristicAttributes
   } = props;
 
   const state = useRadioGroupState(props);
@@ -47,7 +48,7 @@ export const RadioGroup = createComponent<RadioGroupOptions>((props, forwardedRe
   });
 
   return (
-    <Comp {...mergeProps(radioGroupProps)} ref={forwardedRef} className={classes}>
+    <Comp {...mergeProps(radioGroupProps, htmlIntristicAttributes)} ref={forwardedRef} className={classes}>
       <RadioGroupContext.Provider value={context}>{children}</RadioGroupContext.Provider>
     </Comp>
   );
