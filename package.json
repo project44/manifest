@@ -15,6 +15,7 @@
     "format:write": "prettier --write ./packages",
     "lint": "eslint ./packages --ext .tsx,.ts",
     "lint:write": "eslint ./packages --ext .tsx,.ts --fix",
+    "prepare": "husky install",
     "prerelease": "yarn run build",
     "release": "yarn changeset publish",
     "test": "jest",
