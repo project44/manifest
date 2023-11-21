@@ -34,6 +34,7 @@ export const LocalNavigationItem = React.forwardRef((props, forwardedRef) => {
     css,
     isSelected,
     variant = localNavigation?.variant ?? 'primary',
+    ...htmlIntristicAttributes
   } = props;
 
   const itemRef = React.useRef<HTMLButtonElement>(null);
@@ -61,7 +62,9 @@ export const LocalNavigationItem = React.forwardRef((props, forwardedRef) => {
 
   return (
     <StyledItem
-      {...mergeProps(buttonProps, focusProps, hoverProps)}
+      // mergeProps contains invalid <button> prop onPress, causing significant
+      // warning log spam when passed to StyledItem
+      {...mergeProps(buttonProps, focusProps, hoverProps, htmlIntristicAttributes)}
       ref={mergeRefs(itemRef, forwardedRef)}
       as={as}
       className={className}
