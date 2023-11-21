@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "@internationalized/date": "^3.0.0",
+    "@project44-manifest/design-tokens": "^3.0.0",
     "@project44-manifest/react-icons": "^2.0.0",
     "@project44-manifest/react-styles": "^2.0.2",
     "@project44-manifest/react-types": "^0.2.1",
