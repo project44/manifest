@@ -79,6 +79,8 @@ export const NavigationTabs = React.forwardRef((props, forwardedRef) => {
         alignSelf: 'center',
         ...css,
       }}
+      role="group"
+      aria-label="Navigation Tabs"
     >
       {tabs.map(({ label, count, onClick, toolTip }, index) => {
         const isActive = activeTab === index;
@@ -96,6 +98,7 @@ export const NavigationTabs = React.forwardRef((props, forwardedRef) => {
           >
             <Button
               aria-checked={isActive}
+              aria-label={label}
               css={{
                 backgroundColor: 'transparent',
                 color: designTokens.colorPaletteWhite,
