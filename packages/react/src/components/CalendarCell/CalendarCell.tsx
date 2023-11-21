@@ -95,3 +95,5 @@ export function CalendarCell(props: CalendarCellProps) {
     </td>
   );
 }
+
+CalendarCell.displayName = 'CalendarCell';

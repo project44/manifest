@@ -53,3 +53,5 @@ export const LocalNavigation = React.forwardRef((props, forwardedRef) => {
     </StyledNavigation>
   );
 }) as ForwardRefComponent<'div', LocalNavigationProps>;
+
+LocalNavigation.displayName = 'LocalNavigation';

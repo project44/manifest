@@ -63,3 +63,5 @@ export const LocalNavigationDropdownItem = React.forwardRef((props, forwardedRef
     </Dropdown>
   );
 }) as ForwardRefComponent<'button', LocalNavigationDropdownItemProps>;
+
+LocalNavigationDropdownItem.displayName = 'LocalNavigationDropdownItem';

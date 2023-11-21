@@ -73,3 +73,5 @@ export const Fade = React.forwardRef<HTMLElement, FadeProps>((props, forwardedRe
     </Transition>
   );
 });
+
+Fade.displayName = 'Fade';

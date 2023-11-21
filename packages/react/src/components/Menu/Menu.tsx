@@ -15,3 +15,5 @@ export const Menu = React.forwardRef((props, forwardedRef) => {
     </StyledMenu>
   );
 }) as ForwardRefComponent<MenuElement, MenuProps>;
+
+Menu.displayName = 'Menu';

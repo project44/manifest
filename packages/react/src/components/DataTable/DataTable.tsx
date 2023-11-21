@@ -167,5 +167,4 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
     </StyledDataTable>
   );
 }
-
 export const createDataTableColumnHelper = createColumnHelper;

@@ -41,6 +41,8 @@ const ActionCard = React.forwardRef((props, forwardedRef) => {
   );
 }) as ForwardRefComponent<ActionCardElement, ActionCardProps>;
 
+ActionCard.displayName = 'ActionCard';
+
 /* -------------------------------------------------------------------------------------------------
  * ActionCardBody
  * -----------------------------------------------------------------------------------------------*/
@@ -63,6 +65,8 @@ const ActionCardBody = React.forwardRef((props, forwardedRef) => {
     </StyledActionCardBody>
   );
 }) as ForwardRefComponent<ActionCardBodyElement, ActionCardBodyProps>;
+
+ActionCardBody.displayName = 'ActionCardBody';
 
 /* -------------------------------------------------------------------------------------------------
  * ActionCardHeader
@@ -87,6 +91,8 @@ const ActionCardHeader = React.forwardRef((props, forwardedRef) => {
     </StyledActionCardHeader>
   );
 }) as ForwardRefComponent<ActionCardHeaderElement, ActionCardHeaderProps>;
+
+ActionCardHeader.displayName = 'ActionCardHeader';
 
 /* -------------------------------------------------------------------------------------------------
  * ActionCardImage
@@ -125,6 +131,8 @@ const ActionCardImage = React.forwardRef((props, forwardedRef) => {
     />
   );
 }) as ForwardRefComponent<ActionCardImageElement, ActionCardImageProps>;
+
+ActionCardImage.displayName = 'ActionCardImage';
 
 export type { ActionCardBodyProps, ActionCardHeaderProps, ActionCardImageProps, ActionCardProps };
 export { ActionCard, ActionCardBody, ActionCardHeader, ActionCardImage };

@@ -55,3 +55,5 @@ export const DropdownSection = React.forwardRef((props, forwardedRef) => {
     </>
   );
 }) as ForwardRefComponent<DropdownSectionElement, DropdownSectionOptions>;
+
+DropdownSection.displayName = 'DropdownSection';

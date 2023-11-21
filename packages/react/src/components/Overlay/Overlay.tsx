@@ -13,3 +13,5 @@ export function Overlay(props: OverlayProps) {
     </ReactAriaOverlay>
   );
 }
+
+Overlay.displayName = 'Overlay';

@@ -241,3 +241,5 @@ export const MultiCombobox = createComponent<MultiComboboxOptions>((props, forwa
     </FormControl>
   );
 });
+
+MultiCombobox.displayName = 'MultiCombobox';

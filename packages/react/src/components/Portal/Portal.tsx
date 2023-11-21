@@ -14,3 +14,5 @@ export function Portal(props: PortalProps) {
 
   return container ? ReactDom.createPortal(children, container) : container;
 }
+
+Portal.displayName = 'Portal';

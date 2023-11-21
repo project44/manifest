@@ -172,6 +172,8 @@ const Button = React.forwardRef((props, forwardedRef) => {
   );
 }) as ForwardRefComponent<ButtonElement, ButtonProps>;
 
+Button.displayName = 'Button';
+
 /* -------------------------------------------------------------------------------------------------
  * ButtonGroup
  * -----------------------------------------------------------------------------------------------*/
@@ -242,6 +244,8 @@ const ButtonGroup = React.forwardRef((props, forwardedRef) => {
   );
 }) as ForwardRefComponent<ButtonGroupElement, ButtonGroupProps>;
 
+ButtonGroup.displayName = 'ButtonGroup';
+
 /* -------------------------------------------------------------------------------------------------
  * IconButton
  * -----------------------------------------------------------------------------------------------*/
@@ -267,6 +271,8 @@ const IconButton = React.forwardRef((props, forwardedRef) => {
     />
   );
 }) as ForwardRefComponent<IconButtonElement, IconButtonProps>;
+
+IconButton.displayName = 'IconButton';
 
 export type { ButtonGroupProps, ButtonProps, IconButtonProps };
 export { Button, ButtonGroup, IconButton };

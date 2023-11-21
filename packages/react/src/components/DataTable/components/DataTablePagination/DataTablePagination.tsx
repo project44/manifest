@@ -36,3 +36,5 @@ export function DataTablePagination<TData extends RowData>(props: DataTablePagin
     </div>
   );
 }
+
+DataTablePagination.displayName = 'DataTablePagination';

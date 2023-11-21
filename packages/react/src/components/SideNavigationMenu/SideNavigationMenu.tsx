@@ -14,3 +14,5 @@ export const SideNavigationMenu = React.forwardRef((props, forwardedRef) => {
 
   return <Menu {...other} ref={forwardedRef} className={className} />;
 }) as ForwardRefComponent<SideNavigationMenuElement, SideNavigationMenuProps>;
+
+SideNavigationMenu.displayName = 'SideNavigationMenu';

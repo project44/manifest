@@ -58,3 +58,5 @@ export const SideNavigationFooter = React.forwardRef((props, forwardedRef) => {
     </StyledSideNavigationFooter>
   );
 }) as ForwardRefComponent<SideNavigationFooterElement, SideNavigationFooterProps>;
+
+SideNavigationFooter.displayName = 'SideNavigationFooter';

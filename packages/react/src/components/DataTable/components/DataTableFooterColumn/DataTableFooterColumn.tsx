@@ -35,3 +35,5 @@ export function DataTableFooterColumn<TData extends RowData, TVaue>(
     </th>
   );
 }
+
+DataTableFooterColumn.displayName = 'DataTableFooterColumn';

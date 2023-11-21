@@ -86,3 +86,5 @@ export function Dropdown(props: DropdownProps) {
     </DropdownProvider>
   );
 }
+
+Dropdown.displayName = 'Dropdown';

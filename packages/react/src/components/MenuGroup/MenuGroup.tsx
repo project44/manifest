@@ -58,3 +58,5 @@ export const MenuGroup = React.forwardRef((props, forwardedRef) => {
     </StyledMenuGroup>
   );
 }) as ForwardRefComponent<MenuGroupElement, MenuGroupProps>;
+
+MenuGroup.displayName = 'MenuGroup';

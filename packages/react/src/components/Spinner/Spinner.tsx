@@ -20,3 +20,5 @@ export const Spinner = React.forwardRef((props, forwardedRef) => {
     />
   );
 }) as ForwardRefComponent<SpinnerElement, SpinnerProps>;
+
+Spinner.displayName = 'Spinner';

@@ -37,3 +37,5 @@ export const Separator = createComponent<SeparatorOptions>((props, forwardedRef)
 
   return <Comp {...mergeProps(separatorProps, other)} ref={forwardedRef} className={classes} />;
 });
+
+Separator.displayName = 'Separator';

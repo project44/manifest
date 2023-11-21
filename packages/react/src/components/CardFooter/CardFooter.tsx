@@ -15,3 +15,5 @@ export const CardFooter = React.forwardRef((props, forwardedRef) => {
     </StyledCardFooter>
   );
 }) as ForwardRefComponent<CardFooterElement, CardFooterProps>;
+
+CardFooter.displayName = 'CardFooter';

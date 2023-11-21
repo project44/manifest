@@ -46,3 +46,5 @@ export const DialogHeader = React.forwardRef((props, forwardedRef) => {
     </StyledDialogHeader>
   );
 }) as ForwardRefComponent<DialogHeaderElement, DialogHeaderProps>;
+
+DialogHeader.displayName = 'DialogHeader';

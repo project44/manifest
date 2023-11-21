@@ -53,3 +53,5 @@ export function HiddenMultiSelect<T>(props: HiddenMultiSelectProps<T>) {
 
   return null;
 }
+
+HiddenMultiSelect.displayName = 'HiddenMultiSelect';

@@ -99,3 +99,5 @@ export const DropdownItem = React.forwardRef((props, forwardedRef) => {
     </StyledDropdownItem>
   );
 }) as ForwardRefComponent<DropdownItemElement, DropdownItemOptions>;
+
+DropdownItem.displayName = 'DropdownItem';

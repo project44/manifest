@@ -111,3 +111,5 @@ export const ListBoxItem = createComponent<ListBoxItemOptions>((props, forwarded
     </Comp>
   );
 });
+
+ListBoxItem.displayName = 'ListBoxItem';

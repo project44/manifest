@@ -64,3 +64,5 @@ export function CalendarRanges(props: CalendarRangesProps) {
     </div>
   );
 }
+
+CalendarRanges.displayName = 'CalendarRanges';

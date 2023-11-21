@@ -17,3 +17,5 @@ export const SideNavigationMenuItem = React.forwardRef((props, forwardedRef) => 
 
   return <StyledMenuItem {...other} ref={forwardedRef} className={className} isOpen={isOpen} />;
 }) as ForwardRefComponent<SideNavigationMenuItemElement, SideNavigationMenuItemProps>;
+
+SideNavigationMenuItem.displayName = 'SideNavigationMenuItem';

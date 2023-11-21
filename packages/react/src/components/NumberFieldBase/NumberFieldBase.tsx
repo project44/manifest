@@ -122,3 +122,5 @@ export const NumberFieldBase = createComponent<NumberFieldBaseOptions>((props, f
     </FormControl>
   );
 });
+
+NumberFieldBase.displayName = 'NumberFieldBase';

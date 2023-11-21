@@ -74,3 +74,5 @@ export const TextField = createComponent<TextFieldOptions>((props, forwardedRef)
     />
   );
 });
+
+TextField.displayName = 'TextField';

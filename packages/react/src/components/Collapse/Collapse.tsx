@@ -98,3 +98,5 @@ export const Collapse = React.forwardRef<HTMLElement, CollapseProps>((props, for
     </Transition>
   );
 });
+
+Collapse.displayName = 'Collapse';

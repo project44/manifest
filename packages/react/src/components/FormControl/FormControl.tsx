@@ -99,3 +99,5 @@ export const FormControl = createComponent<FormControlOptions>((props, forwarded
     </div>
   );
 });
+
+FormControl.displayName = 'FormControl';

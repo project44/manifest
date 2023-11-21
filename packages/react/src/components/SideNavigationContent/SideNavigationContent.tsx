@@ -24,3 +24,5 @@ export const SideNavigationContent = React.forwardRef((props, forwardedRef) => {
     </StyledSideNavigationContent>
   );
 }) as ForwardRefComponent<SideNavigationContentElement, SideNavigationContentProps>;
+
+SideNavigationContent.displayName = 'SideNavigationContent';

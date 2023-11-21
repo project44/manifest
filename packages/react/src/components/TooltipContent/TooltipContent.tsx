@@ -28,3 +28,5 @@ export const TooltipContent = React.forwardRef((props, forwardedRef) => {
     </StyledTooltipContent>
   );
 }) as ForwardRefComponent<TooltipContentElement, TooltipContentProps>;
+
+TooltipContent.displayName = 'TooltipContent';

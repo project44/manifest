@@ -74,3 +74,5 @@ export const Segment = React.forwardRef((props, forwardedRef) => {
     </StyledSegment>
   );
 }) as ForwardRefComponent<'input', SegmentProps>;
+
+Segment.displayName = 'Segment';

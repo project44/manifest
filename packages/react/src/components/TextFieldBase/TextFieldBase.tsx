@@ -160,3 +160,5 @@ export const TextFieldBase = createComponent<TextFieldBaseOptions>((props, forwa
     </FormControl>
   );
 });
+
+TextFieldBase.displayName = 'TextFieldBase';

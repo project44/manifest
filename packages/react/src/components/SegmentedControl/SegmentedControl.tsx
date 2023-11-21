@@ -40,3 +40,5 @@ export const SegmentedControl = React.forwardRef((props, forwardedRef) => {
     </SegmentedControlProvider>
   );
 }) as ForwardRefComponent<'div', SegmentedControlProps>;
+
+SegmentedControl.displayName = 'SegmentedControl';

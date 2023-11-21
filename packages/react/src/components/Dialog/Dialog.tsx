@@ -58,6 +58,8 @@ const DialogImpl = React.forwardRef((props, forwardedRef) => {
   );
 }) as ForwardRefComponent<DialogElement, DialogProps>;
 
+DialogImpl.displayName = 'DialogImpl';
+
 export const Dialog = React.forwardRef((props, forwardedRef) => {
   const {
     isDismissable = true,
@@ -78,3 +80,5 @@ export const Dialog = React.forwardRef((props, forwardedRef) => {
     </Modal>
   );
 }) as ForwardRefComponent<DialogElement, DialogProps>;
+
+Dialog.displayName = 'Dialog';

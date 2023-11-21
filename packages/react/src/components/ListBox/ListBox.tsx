@@ -13,3 +13,5 @@ export const ListBox = createComponent<ListBoxOptions>((props, forwardedRef) => 
 
   return <ListBoxBase {...props} ref={forwardedRef} state={state} />;
 });
+
+ListBox.displayName = 'ListBox';

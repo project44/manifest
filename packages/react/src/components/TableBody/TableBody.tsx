@@ -15,3 +15,5 @@ export const TableBody = React.forwardRef((props, forwardedRef) => {
     </StyledTableBody>
   );
 }) as ForwardRefComponent<TableBodyElement, TableBodyProps>;
+
+TableBody.displayName = 'TableBody';

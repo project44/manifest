@@ -53,3 +53,5 @@ export const TableColumn = React.forwardRef((props, forwardedRef) => {
     </StyledTableColumn>
   );
 }) as ForwardRefComponent<TableColumnElement, TableColumnProps>;
+
+TableColumn.displayName = 'TableColumn';

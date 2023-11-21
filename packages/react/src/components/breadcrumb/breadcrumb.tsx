@@ -28,6 +28,8 @@ const Breadcrumb = React.forwardRef((props, forwardedRef) => {
   );
 }) as ForwardRefComponent<BreadcrumbElement, BreadcrumbProps>;
 
+Breadcrumb.displayName = 'Breadcrumb';
+
 /* -------------------------------------------------------------------------------------------------
  * BreadcrumbItem
  * -----------------------------------------------------------------------------------------------*/
@@ -53,6 +55,8 @@ const BreadcrumbItem = React.forwardRef((props, forwardedRef) => {
     </StyledBreadcrumbItem>
   );
 }) as ForwardRefComponent<BreadcrumbItemElement, BreadcrumbItemProps>;
+
+BreadcrumbItem.displayName = 'BreadcrumbItem';
 
 export type { BreadcrumbItemProps, BreadcrumbProps };
 export { Breadcrumb, BreadcrumbItem };

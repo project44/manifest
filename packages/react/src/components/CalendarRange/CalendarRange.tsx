@@ -125,3 +125,5 @@ export const CalendarRange = createComponent<CalendarRangeOptions>((props, forwa
     </Comp>
   );
 });
+
+CalendarRange.displayName = 'CalendarRange';

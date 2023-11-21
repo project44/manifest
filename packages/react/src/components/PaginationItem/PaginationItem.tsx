@@ -51,3 +51,5 @@ export const PaginationItem = React.forwardRef((props, forwardedRef) => {
     </StyledPaginationItem>
   );
 }) as ForwardRefComponent<PaginationItemElement, PaginationItemProps>;
+
+PaginationItem.displayName = 'PaginationItem';

@@ -67,3 +67,5 @@ export const ListBoxSection = createComponent<ListBoxSectionOptions>((props, for
     </>
   );
 });
+
+ListBoxSection.displayName = 'ListBoxSection';

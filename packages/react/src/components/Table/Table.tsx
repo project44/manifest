@@ -31,3 +31,5 @@ export const Table = React.forwardRef((props, forwardedRef) => {
     </StyledTable>
   );
 }) as ForwardRefComponent<TableElement, TableProps>;
+
+Table.displayName = 'Table';

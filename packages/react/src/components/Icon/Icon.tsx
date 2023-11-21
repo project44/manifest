@@ -29,3 +29,5 @@ export const Icon = createComponent<IconOptions>((props, forwardedRef) => {
     </Comp>
   );
 });
+
+Icon.displayName = 'Icon';

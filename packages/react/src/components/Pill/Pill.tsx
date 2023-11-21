@@ -98,3 +98,5 @@ export const Pill = createComponent<PillOptions>((props, forwaredRef) => {
     </Comp>
   );
 });
+
+Pill.displayName = 'Pill';

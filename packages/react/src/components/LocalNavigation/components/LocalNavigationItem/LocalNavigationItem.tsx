@@ -75,3 +75,5 @@ export const LocalNavigationItem = React.forwardRef((props, forwardedRef) => {
     </StyledItem>
   );
 }) as ForwardRefComponent<'button', LocalNavigationItemProps>;
+
+LocalNavigationItem.displayName = 'LocalNavigationItem';

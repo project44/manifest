@@ -15,3 +15,5 @@ export const TableHeader = React.forwardRef((props, forwardedRef) => {
     </StyledTableHeader>
   );
 }) as ForwardRefComponent<TableHeaderElement, TableHeaderProps>;
+
+TableHeader.displayName = 'TableHeader';

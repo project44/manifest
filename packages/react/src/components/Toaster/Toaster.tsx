@@ -95,3 +95,5 @@ export const Toaster = React.forwardRef((props, forwardedRef) => {
     </StyledToaster>
   );
 }) as ForwardRefComponent<ToasterElement, ToasterProps>;
+
+Toaster.displayName = 'Toaster';

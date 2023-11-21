@@ -57,3 +57,5 @@ export const Popover = React.forwardRef((props, forwardedRef) => {
     </FocusScope>
   );
 }) as ForwardRefComponent<PopoverElement, PopoverProps>;
+
+Popover.displayName = 'Popover';

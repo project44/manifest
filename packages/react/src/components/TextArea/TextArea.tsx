@@ -89,3 +89,5 @@ export const TextArea = createComponent<TextAreaOptions>((props, forwardedRef) =
     />
   );
 });
+
+TextArea.displayName = 'TextArea';

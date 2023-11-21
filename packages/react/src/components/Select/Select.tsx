@@ -226,3 +226,5 @@ export const Select = createComponent<SelectOptions>((props, forwardedRef) => {
     </FormControl>
   );
 });
+
+Select.displayName = 'Select';

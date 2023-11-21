@@ -15,3 +15,5 @@ export const CardHeader = React.forwardRef((props, forwardedRef) => {
     </StyledCardHeader>
   );
 }) as ForwardRefComponent<CardHeaderElement, CardHeaderProps>;
+
+CardHeader.displayName = 'CardHeader';

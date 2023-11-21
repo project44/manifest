@@ -15,3 +15,5 @@ export const DialogContent = React.forwardRef((props, forwardedRef) => {
     </StyledDialogContent>
   );
 }) as ForwardRefComponent<DialogContentElement, DialogContentProps>;
+
+DialogContent.displayName = 'DialogContent';

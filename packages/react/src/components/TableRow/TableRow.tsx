@@ -44,3 +44,5 @@ export const TableRow = React.forwardRef((props, forwardedRef) => {
     </StyledTableRow>
   );
 }) as ForwardRefComponent<TableRowElement, TableRowProps>;
+
+TableRow.displayName = 'TableRow';

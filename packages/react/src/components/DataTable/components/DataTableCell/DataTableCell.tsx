@@ -31,3 +31,5 @@ export function DataTableCell<TData extends RowData, TVaue>(
     </td>
   );
 }
+
+DataTableCell.displayName = 'DataTableCell';
