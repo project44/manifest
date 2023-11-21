@@ -67,6 +67,7 @@ export const NavigationTabs = React.forwardRef((props, forwardedRef) => {
     <Flex
       ref={forwardedRef}
       align="center"
+      aria-label="Navigation Tabs"
       css={{
         backgroundColor: 'rgba(9, 21, 33, 0.1)',
         borderColor: 'rgba(9, 21, 33, 0.1)',
@@ -80,7 +81,6 @@ export const NavigationTabs = React.forwardRef((props, forwardedRef) => {
         ...css,
       }}
       role="group"
-      aria-label="Navigation Tabs"
     >
       {tabs.map(({ label, count, onClick, toolTip }, index) => {
         const isActive = activeTab === index;

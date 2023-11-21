@@ -24,6 +24,7 @@ export const Default = () => {
     label: name,
     toolTip: name,
     onClick: () => {
+      // eslint-disable-next-line
       console.log(name);
     },
   }));
@@ -59,6 +60,7 @@ export const WithCount = () => {
     label: name,
     toolTip: name,
     onClick: () => {
+      // eslint-disable-next-line
       console.log(name);
     },
   }));
