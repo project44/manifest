@@ -253,3 +253,5 @@ export const Combobox = createComponent<ComboboxOptions>((props, forwardedRef) =
     </FormControl>
   );
 });
+
+Combobox.displayName = 'Combobox';

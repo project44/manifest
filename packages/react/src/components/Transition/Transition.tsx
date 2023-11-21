@@ -119,3 +119,5 @@ export const Transition = React.forwardRef<HTMLElement, TransitionProps>((props,
     </TransitionComponent>
   );
 });
+
+Transition.displayName = 'Transition';

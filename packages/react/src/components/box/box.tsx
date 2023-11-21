@@ -28,5 +28,7 @@ const Box = React.forwardRef((props, forwardedRef) => {
   );
 }) as ForwardRefComponent<BoxElement, BoxProps>;
 
+Box.displayName = 'Box';
+
 export type { BoxProps };
 export { Box };

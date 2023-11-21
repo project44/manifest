@@ -73,3 +73,5 @@ export const Tooltip = React.forwardRef((props, forwardedRef) => {
     </>
   );
 }) as ForwardRefComponent<TooltipElement, TooltipProps>;
+
+Tooltip.displayName = 'Tooltip';

@@ -65,3 +65,5 @@ export function CalendarHeader(props: CalendarHeaderProps) {
     </div>
   );
 }
+
+CalendarHeader.displayName = 'CalendarHeader';

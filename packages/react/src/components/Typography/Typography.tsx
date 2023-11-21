@@ -40,3 +40,5 @@ export const Typography = createComponent<TypographyOptions>((props, forwardedRe
 
   return <Comp {...other} ref={forwardedRef} className={classes} />;
 });
+
+Typography.displayName = 'Typography';

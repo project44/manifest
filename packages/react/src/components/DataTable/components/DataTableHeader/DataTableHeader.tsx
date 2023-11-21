@@ -22,3 +22,5 @@ export function DataTableHeader<TData extends RowData>(props: DataTableHeaderPro
     </thead>
   );
 }
+
+DataTableHeader.displayName = 'DataTableHeader';

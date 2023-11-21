@@ -15,3 +15,5 @@ export const TableFooter = React.forwardRef((props, forwardedRef) => {
     </StyledTableFooter>
   );
 }) as ForwardRefComponent<TableFooterElement, TableFooterProps>;
+
+TableFooter.displayName = 'TableFooter';

@@ -31,6 +31,8 @@ const ProviderImpl = React.forwardRef((props, forwardedRef) => {
   );
 }) as ForwardRefComponent<ProviderElement, ProviderProps>;
 
+ProviderImpl.displayName = 'ProviderImpl';
+
 export const Provider = React.forwardRef((props, forwardedRef) => {
   const { locale: prevLocale } = useLocale();
 
@@ -47,3 +49,5 @@ export const Provider = React.forwardRef((props, forwardedRef) => {
     </I18nProvider>
   );
 }) as ForwardRefComponent<ProviderElement, ProviderProps>;
+
+Provider.displayName = 'Provider';

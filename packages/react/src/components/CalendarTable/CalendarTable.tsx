@@ -72,3 +72,5 @@ export function CalendarTable(props: CalendarTableProps) {
     </div>
   );
 }
+
+CalendarTable.displayName = 'CalendarTable';

@@ -69,3 +69,5 @@ export const Radio = createComponent<RadioOptions>((props, forwardedRef) => {
     </Comp>
   );
 });
+
+Radio.displayName = 'Radio';

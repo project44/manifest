@@ -56,3 +56,5 @@ export const SideNavigationFooterMenu = React.forwardRef((props, forwardedRef) =
     </Dropdown>
   );
 }) as ForwardRefComponent<SideNavigationFooterMenuElement, SideNavigationFooterMenuProps>;
+
+SideNavigationFooterMenu.displayName = 'SideNavigationFooterMenu';

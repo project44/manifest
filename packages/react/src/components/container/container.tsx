@@ -42,5 +42,7 @@ const Container = React.forwardRef((props, forwardedRef) => {
   );
 }) as ForwardRefComponent<ContainerElement, ContainerProps>;
 
+Container.displayName = 'Container';
+
 export type { ContainerProps };
 export { Container };

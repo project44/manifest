@@ -93,3 +93,5 @@ export const Toast = React.forwardRef((props, forwardedRef) => {
     </StyledToast>
   );
 }) as ForwardRefComponent<ToastElement, ToastProps>;
+
+Toast.displayName = 'Toast';

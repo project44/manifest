@@ -71,3 +71,5 @@ export const Switch = createComponent<SwitchOptions>((props, forwardedRef) => {
     </Comp>
   );
 });
+
+Switch.displayName = 'Switch';

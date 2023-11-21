@@ -266,3 +266,5 @@ export const DateRangePicker = createComponent<DateRangePickerOptions>((props, f
     </FormControl>
   );
 });
+
+DateRangePicker.displayName = 'DateRangePicker';

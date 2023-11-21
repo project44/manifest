@@ -51,3 +51,4 @@ export const SideNavigationHeader = React.forwardRef((props, forwardedRef) => {
     </StyledSideNavigationHeader>
   );
 }) as ForwardRefComponent<SideNavigationHeaderElement, SideNavigationHeaderProps>;
+SideNavigationHeader.displayName = 'SideNavigationHeader';

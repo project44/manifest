@@ -10,3 +10,5 @@ export const CssBaseline = React.memo<React.PropsWithChildren<unknown>>((props) 
   // eslint-disable-next-line react/jsx-no-useless-fragment
   return <>{children}</>;
 });
+
+CssBaseline.displayName = 'CssBaseline';

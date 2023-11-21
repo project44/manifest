@@ -17,3 +17,4 @@ export const Link = React.forwardRef((props, forwardedRef) => {
 }) as ForwardRefComponent<LinkElement, LinkProps>;
 
 Link.toString = () => '.manifest-link';
+Link.displayName = 'Link';

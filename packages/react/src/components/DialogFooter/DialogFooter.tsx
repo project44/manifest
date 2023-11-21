@@ -18,3 +18,5 @@ export const DialogFooter = React.forwardRef((props, forwardedRef) => {
     </StyledDialogFooter>
   );
 }) as ForwardRefComponent<DialogFooterElement, DialogFooterProps>;
+
+DialogFooter.displayName = 'DialogFooter';

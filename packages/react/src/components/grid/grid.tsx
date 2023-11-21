@@ -76,6 +76,8 @@ const Grid = React.forwardRef((props, forwardedRef) => {
   );
 }) as ForwardRefComponent<GridElement, GridProps>;
 
+Grid.displayName = 'Grid';
+
 /* -------------------------------------------------------------------------------------------------
  * GridItem
  * -----------------------------------------------------------------------------------------------*/
@@ -155,6 +157,8 @@ const GridItem = React.forwardRef((props, forwardedRef) => {
     />
   );
 }) as ForwardRefComponent<GridItemElement, GridItemProps>;
+
+GridItem.displayName = 'GridItem';
 
 export type { GridItemProps, GridProps };
 export { Grid, GridItem };

@@ -47,3 +47,5 @@ export function DataTableCheckbox<TData extends RowData>(props: DataTableCheckbo
     </div>
   );
 }
+
+DataTableCheckbox.displayName = 'DataTableCheckbox';

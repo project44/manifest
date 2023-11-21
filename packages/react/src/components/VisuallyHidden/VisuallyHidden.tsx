@@ -25,3 +25,5 @@ export const VisuallyHidden = createComponent<VisuallyHiddenOptions>((props, for
 
   return <Comp {...mergeProps(visuallyHiddenProps, other)} ref={forwardedRef} />;
 });
+
+VisuallyHidden.displayName = 'VisuallyHidden';

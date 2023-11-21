@@ -79,3 +79,5 @@ export const Checkbox = createComponent<CheckboxOptions>((props, forwardedRef) =
     </Comp>
   );
 });
+
+Checkbox.displayName = 'Checkbox';

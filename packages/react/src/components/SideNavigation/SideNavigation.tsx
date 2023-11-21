@@ -64,3 +64,5 @@ export const SideNavigation = React.forwardRef((props, forwardedRef) => {
     </NavigationProvider>
   );
 }) as ForwardRefComponent<NavigationElement, NavigationProps>;
+
+SideNavigation.displayName = 'SideNavigation';

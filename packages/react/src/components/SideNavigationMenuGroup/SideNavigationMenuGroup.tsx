@@ -25,3 +25,5 @@ export const SideNavigationMenuGroup = React.forwardRef((props, forwardedRef) =>
     />
   );
 }) as ForwardRefComponent<SideNavigationMenuGroupElement, SideNavigationMenuGroupProps>;
+
+SideNavigationMenuGroup.displayName = 'SideNavigationMenuGroup';

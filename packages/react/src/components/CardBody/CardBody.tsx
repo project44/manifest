@@ -15,3 +15,5 @@ export const CardBody = React.forwardRef((props, forwardedRef) => {
     </StyledCardBody>
   );
 }) as ForwardRefComponent<CardBodyElement, CardBodyProps>;
+
+CardBody.displayName = 'CardBody';

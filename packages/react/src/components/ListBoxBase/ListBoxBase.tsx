@@ -81,3 +81,5 @@ export const ListBoxBase = createComponent<ListBoxBaseOptions>((props, forwarded
     </ListBoxContext.Provider>
   );
 });
+
+ListBoxBase.displayName = 'ListBoxBase';

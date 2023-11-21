@@ -43,3 +43,5 @@ export function DataTableColumn<TData extends RowData, TVaue>(
     </th>
   );
 }
+
+DataTableColumn.displayName = 'DataTableColumn';

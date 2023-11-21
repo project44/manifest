@@ -13,3 +13,5 @@ export function Skeleton(props: SkeletonProps) {
     </StyledSkeleton>
   );
 }
+
+Skeleton.displayName = 'Skeleton';

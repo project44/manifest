@@ -17,3 +17,5 @@ export function DataTableBody<TData extends RowData>(props: DataTableBodyProps<T
     </tbody>
   );
 }
+
+DataTableBody.displayName = 'DataTableBody';

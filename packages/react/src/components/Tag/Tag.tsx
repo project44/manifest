@@ -159,3 +159,5 @@ export const Tag = createComponent<TagOptions>((props, forwardedRef) => {
     </Comp>
   );
 });
+
+Tag.displayName = 'Tag';

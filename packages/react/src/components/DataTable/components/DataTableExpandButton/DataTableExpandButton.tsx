@@ -45,3 +45,5 @@ export function DataTableExpandButton<TData extends RowData>(
     </IconButton>
   );
 }
+
+DataTableExpandButton.displayName = 'DataTableExpandButton';

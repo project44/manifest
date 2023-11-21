@@ -52,3 +52,5 @@ export const RadioGroup = createComponent<RadioGroupOptions>((props, forwardedRe
     </Comp>
   );
 });
+
+RadioGroup.displayName = 'RadioGroup';

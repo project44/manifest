@@ -67,6 +67,8 @@ const ModalImpl = React.forwardRef((props, forwardedRef) => {
   );
 }) as ForwardRefComponent<ModalElement, ModalProps>;
 
+ModalImpl.displayName = 'ModalImpl';
+
 export const Modal = React.forwardRef((props, forwardedRef) => {
   const { isOpen, ...other } = props;
 
@@ -76,3 +78,4 @@ export const Modal = React.forwardRef((props, forwardedRef) => {
     </Overlay>
   );
 }) as ForwardRefComponent<ModalElement, ModalProps>;
+Modal.displayName = 'Modal';

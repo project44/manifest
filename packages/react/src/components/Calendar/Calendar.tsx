@@ -51,3 +51,5 @@ export const Calendar = createComponent<CalendarOptions>((props, forwardedRef) =
     </Comp>
   );
 });
+
+Calendar.displayName = 'Calendar';

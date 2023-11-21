@@ -236,3 +236,5 @@ export const MultiSelect = createComponent<MultiSelectOptions>((props, forwarded
     </FormControl>
   );
 });
+
+MultiSelect.displayName = 'MultiSelect';

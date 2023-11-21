@@ -39,6 +39,7 @@ const Stack = React.forwardRef((props, forwardedRef) => {
     />
   );
 }) as ForwardRefComponent<StackElement, StackProps>;
+Stack.displayName = 'Stack';
 
 export type { StackProps };
 export { Stack };

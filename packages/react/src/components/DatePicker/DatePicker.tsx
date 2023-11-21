@@ -224,3 +224,5 @@ export const DatePicker = createComponent<DatePickerOptions>((props, forwardedRe
     </FormControl>
   );
 });
+
+DatePicker.displayName = 'DatePicker';

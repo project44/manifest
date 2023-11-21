@@ -94,3 +94,5 @@ export const NumberField = createComponent<NumberFieldOptions>((props, forwarded
     />
   );
 });
+
+NumberField.displayName = 'NumberField';

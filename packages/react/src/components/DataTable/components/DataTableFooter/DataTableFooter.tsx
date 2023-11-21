@@ -28,3 +28,5 @@ export function DataTableFooter<TData extends RowData>(props: DataTableFooterPro
     </tfoot>
   );
 }
+
+DataTableFooter.displayName = 'DataTableFooter';
