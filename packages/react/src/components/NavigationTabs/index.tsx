@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import * as designTokens from '@project44-manifest/design-tokens';
 import { CSS } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
 import { Button } from '../button';
@@ -43,8 +42,8 @@ export interface Props {
 }
 
 const activeTabStyle: CSS = {
-  background: designTokens.colorPaletteWhite,
-  color: designTokens.colorBackgroundTopNav,
+  background: '$palette-white',
+  color: '$background-top-nav',
 };
 
 export const NavigationTabs = React.forwardRef((props, forwardedRef) => {
@@ -101,7 +100,7 @@ export const NavigationTabs = React.forwardRef((props, forwardedRef) => {
               aria-label={label}
               css={{
                 backgroundColor: 'transparent',
-                color: designTokens.colorPaletteWhite,
+                color: '$palette-white',
                 justifyContent: 'center',
                 borderRadius: '20px',
                 minWidth: 120,

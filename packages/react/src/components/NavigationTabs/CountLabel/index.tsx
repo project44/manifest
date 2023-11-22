@@ -1,4 +1,3 @@
-import * as designTokens from '@project44-manifest/design-tokens';
 import { CSS } from '@project44-manifest/react-styles';
 import { Box } from '../../box';
 import { Spinner } from '../../Spinner';
@@ -17,43 +16,43 @@ export function CountLabel({ value, variant = 'default', dense = false, css, isL
     switch (variant) {
       case 'black':
         return {
-          backgroundColor: designTokens.colorTextPrimary,
-          color: designTokens.colorTextContrast,
+          backgroundColor: '$text-primary',
+          color: '$text-contrast',
         };
       case 'blue':
         return {
-          backgroundColor: designTokens.colorPrimaryActive,
-          color: designTokens.colorPaletteWhite,
+          backgroundColor: '$primary-active',
+          color: '$palette-white',
         };
       case 'darkBlue':
         return {
-          backgroundColor: designTokens.colorPaletteBlue900,
-          color: designTokens.colorPaletteWhite,
+          backgroundColor: '$palette-blue-900',
+          color: '$palette-white',
         };
       case 'lightGrey':
         return {
-          backgroundColor: designTokens.colorPaletteGrey200,
-          color: designTokens.colorPaletteBlack,
+          backgroundColor: '$palette-grey-200',
+          color: '$palette-black',
         };
       case 'grey':
         return {
-          backgroundColor: designTokens.colorPaletteGrey100,
-          color: designTokens.colorPaletteGrey900,
+          backgroundColor: '$palette-grey-100',
+          color: '$palette-grey-900',
         };
       case 'darkGrey':
         return {
-          backgroundColor: designTokens.colorPaletteGrey600,
-          color: designTokens.colorTextContrast,
+          backgroundColor: '$palette-grey-600',
+          color: '$text-contrast',
         };
       case 'red':
         return {
-          backgroundColor: designTokens.colorPaletteRed100,
-          color: designTokens.colorPaletteRed900,
+          backgroundColor: '$palette-red-100',
+          color: '$palette-red-900',
         };
       default:
         return {
-          backgroundColor: designTokens.colorPaletteBlack,
-          color: designTokens.colorPaletteWhite,
+          backgroundColor: '$palette-black',
+          color: '$palette-white',
         };
     }
   };
