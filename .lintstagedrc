@@ -1,9 +1,8 @@
 {
-	"**/*.{ts,tsx,js,jsx}": [
-		"prettier --write",
-		"eslint --fix --max-warnings 0"
-	],
-	"**/*.{md,mdx,yml,json}": [
+	"**/*.{ts,tsx,js,jsx,md,mdx,yml,json}": [
 		"prettier --write"
+	],
+	"**/*.{ts,tsx,js,jsx} !(**/.storybook/*.js)": [
+		"eslint --fix --max-warnings 0"
 	]
 }
