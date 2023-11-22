@@ -1,21 +1,26 @@
 {
-  "name": "storybook",
+  "name": "storybook-manifest",
   "version": "0.0.10",
   "private": true,
   "scripts": {
-    "build": "build-storybook -c .storybook -o ./build",
-    "dev": "start-storybook -p 8000 --quiet"
+    "build": "storybook build -c .storybook -o ./build",
+    "dev": "storybook dev -p 8000 --quiet"
   },
   "dependencies": {
     "@project44-manifest/react": "^3.18.1",
     "@project44-manifest/react-icons": "^2.0.0",
-    "@storybook/addon-a11y": "^6.5.16",
-    "@storybook/addon-essentials": "^6.5.16",
-    "@storybook/addon-links": "^6.5.16",
-    "@storybook/builder-webpack5": "^6.5.16",
-    "@storybook/manager-webpack5": "^6.5.16",
-    "@storybook/react": "^6.5.16",
+    "@storybook/addon-a11y": "^7.5.3",
+    "@storybook/addon-essentials": "^7.5.3",
+    "@storybook/addon-links": "^7.5.3",
+    "@storybook/react": "^7.5.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.23.3",
+    "@babel/preset-react": "^7.23.3",
+    "@babel/preset-typescript": "^7.23.3",
+    "@storybook/react-webpack5": "^7.5.3",
+    "storybook": "next"
   }
 }

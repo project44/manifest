@@ -24,8 +24,15 @@ export const Range = Template.bind({});
 
 Range.decorators = [
   () => (
-    <Box css={{ width: 324 }}>
-      <CalendarRange />
+    <Box css={{ width: 450 }}>
+      <CalendarRange
+        showCalendar
+        showRanges
+        value={{
+          start: new CalendarDate(2022, 7, 2),
+          end: new CalendarDate(2022, 7, 12),
+        }}
+      />
     </Box>
   ),
 ];
@@ -97,7 +104,7 @@ ControlledRange.decorators = [
 
     return (
       <Box css={{ width: 324 }}>
-        <CalendarRange value={value} onChange={setValue} />
+        <CalendarRange showCalendar value={value} onChange={setValue} />
       </Box>
     );
   },

@@ -8,6 +8,11 @@ export const decorators = [
   ),
 ];
 
-export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
+const parameters = {
+  decorators: decorators,
+  parameters: {
+    actions: { argTypesRegex: '^on[A-Z].*' },
+  },
 };
+
+export default parameters;
