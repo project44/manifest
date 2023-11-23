@@ -2,11 +2,11 @@ import {
   DropdownItem,
   DropdownMenu,
   LocalNavigation,
+  LocalNavigationDropdownItem,
   LocalNavigationItem,
   Stack,
   Typography,
 } from '../../..';
-import { LocalNavigationDropdownItem } from '../../LocalNavigation';
 
 export default {
   title: 'Components/LocalNavigation',

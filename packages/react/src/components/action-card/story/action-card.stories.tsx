@@ -6,7 +6,7 @@ import {
   ActionCardImage,
   Box,
   Stack,
-} from '../../../';
+} from '../../..';
 
 export default {
   title: 'Components/ActionCard',
