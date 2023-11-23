@@ -1,5 +1,4 @@
 ---
-'storybook': patch
 'website': patch
 '@project44-manifest/css': patch
 '@project44-manifest/design-tokens': patch
