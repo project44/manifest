@@ -9,7 +9,7 @@ import type {
 } from './SideNavigationMenuGroup.types';
 
 export const SideNavigationMenuGroup = React.forwardRef((props, forwardedRef) => {
-  const { className: classNameProp, isExpanded: isExpandedProp, ...other } = props;
+  const { className: classNameProp, isExpanded: isExpandedProp, isSelected, ...other } = props;
 
   const { isOpen } = useNavigation();
 
@@ -22,6 +22,7 @@ export const SideNavigationMenuGroup = React.forwardRef((props, forwardedRef) =>
       className={className}
       isExpanded={!isOpen ? false : undefined}
       isOpen={isOpen}
+      isSelected={isSelected}
     />
   );
 }) as ForwardRefComponent<SideNavigationMenuGroupElement, SideNavigationMenuGroupProps>;

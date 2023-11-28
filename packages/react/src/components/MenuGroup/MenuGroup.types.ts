@@ -42,4 +42,8 @@ export interface MenuGroupProps {
    * Icon added before the button text.
    */
   startIcon?: React.ReactElement;
+  /**
+   * Adds a highlight style when a submenu is selected and menu group is not in expanded mode.
+   */
+  isSelected?: boolean;
 }
