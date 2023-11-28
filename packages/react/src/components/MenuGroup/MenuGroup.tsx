@@ -44,11 +44,11 @@ export const MenuGroup = React.forwardRef((props, forwardedRef) => {
       <MenuItem
         {...itemProps}
         endIcon={<StyledIcon {...iconProps} isExpanded={isExpanded} />}
+        isSelected={isSelected && !isExpanded} // Need to highlight menu group only if it not expanded
         label={label}
         labelProps={labelProps}
         startIcon={startIcon}
         onClick={handleExpand}
-        isSelected={isSelected && !isExpanded} // Need to highlight menu group only if it not expanded
       />
       <MenuGroupProvider value={{ isGrouped: true }}>
         <Collapse appear unmountOnExit duration={100} in={isExpanded}>
