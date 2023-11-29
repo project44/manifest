@@ -23,6 +23,7 @@ export const MenuGroup = React.forwardRef((props, forwardedRef) => {
     labelProps,
     onExpandedChange = noop,
     startIcon,
+    isSelected = false,
     ...other
   } = props;
 
@@ -43,6 +44,7 @@ export const MenuGroup = React.forwardRef((props, forwardedRef) => {
       <MenuItem
         {...itemProps}
         endIcon={<StyledIcon {...iconProps} isExpanded={isExpanded} />}
+        isSelected={isSelected && !isExpanded} // Need to highlight menu group only if it not expanded
         label={label}
         labelProps={labelProps}
         startIcon={startIcon}
