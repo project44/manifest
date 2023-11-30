@@ -4,7 +4,7 @@ import type { ForwardRefComponent } from '@project44-manifest/react-types';
 import { Button } from '../button';
 import { Flex } from '../flex';
 import { Tooltip } from '../Tooltip';
-import { CountLabel } from './CountLabel';
+import { CountLabel, Variant } from './CountLabel';
 
 export interface NavigationTab {
   label: string;
@@ -21,24 +21,9 @@ export interface Props {
   activeButtonCss?: CSS;
   counterCss?: CSS;
   isLoading?: boolean;
-  activeCountColor?:
-    | 'black'
-    | 'blue'
-    | 'darkBlue'
-    | 'darkGrey'
-    | 'default'
-    | 'grey'
-    | 'lightGrey'
-    | 'red';
-  countColor?:
-    | 'black'
-    | 'blue'
-    | 'darkBlue'
-    | 'darkGrey'
-    | 'default'
-    | 'grey'
-    | 'lightGrey'
-    | 'red';
+  activeCountColor?: Variant;
+  countColor?: Variant;
+  navigationTabsAriaLabel?: string;
 }
 
 const activeTabStyle: CSS = {
@@ -57,16 +42,19 @@ export const NavigationTabs = React.forwardRef((props, forwardedRef) => {
     isLoading,
     activeCountColor = 'black',
     countColor = 'darkGrey',
+    navigationTabsAriaLabel = '', // pass translated aria label for accessibility
   } = props;
   const [activeTab, setActiveTab] = useState(defaultActive);
 
-  useEffect(() => void setActiveTab(defaultActive), [defaultActive]);
+  useEffect(() => {
+    setActiveTab(defaultActive);
+  }, [defaultActive]);
 
   return (
     <Flex
       ref={forwardedRef}
       align="center"
-      aria-label="Navigation Tabs"
+      aria-label={navigationTabsAriaLabel}
       css={{
         backgroundColor: 'rgba(9, 21, 33, 0.1)',
         borderColor: 'rgba(9, 21, 33, 0.1)',

@@ -3,60 +3,60 @@ import { Box } from '../../box';
 import { Spinner } from '../../Spinner';
 import { Typography } from '../../Typography';
 
+export type Variant =
+  | 'black'
+  | 'blue'
+  | 'darkBlue'
+  | 'darkGrey'
+  | 'default'
+  | 'grey'
+  | 'lightGrey'
+  | 'red';
+
 interface Props {
   value: number | string;
-  variant?: 'black' | 'blue' | 'darkBlue' | 'darkGrey' | 'default' | 'grey' | 'lightGrey' | 'red';
+  variant?: Variant;
   dense?: boolean;
   css?: CSS;
   isLoading?: boolean;
 }
 
-export function CountLabel({ value, variant = 'default', dense = false, css, isLoading }: Props) {
-  const theme = () => {
-    switch (variant) {
-      case 'black':
-        return {
-          backgroundColor: '$text-primary',
-          color: '$text-contrast',
-        };
-      case 'blue':
-        return {
-          backgroundColor: '$primary-active',
-          color: '$palette-white',
-        };
-      case 'darkBlue':
-        return {
-          backgroundColor: '$palette-blue-900',
-          color: '$palette-white',
-        };
-      case 'lightGrey':
-        return {
-          backgroundColor: '$palette-grey-200',
-          color: '$palette-black',
-        };
-      case 'grey':
-        return {
-          backgroundColor: '$palette-grey-100',
-          color: '$palette-grey-900',
-        };
-      case 'darkGrey':
-        return {
-          backgroundColor: '$palette-grey-600',
-          color: '$text-contrast',
-        };
-      case 'red':
-        return {
-          backgroundColor: '$palette-red-100',
-          color: '$palette-red-900',
-        };
-      default:
-        return {
-          backgroundColor: '$palette-black',
-          color: '$palette-white',
-        };
-    }
-  };
+const themeStyles: Record<Variant, CSS> = {
+  black: {
+    backgroundColor: '$text-primary',
+    color: '$text-contrast',
+  },
+  blue: {
+    backgroundColor: '$primary-active',
+    color: '$palette-white',
+  },
+  darkBlue: {
+    backgroundColor: '$palette-blue-900',
+    color: '$palette-white',
+  },
+  lightGrey: {
+    backgroundColor: '$palette-grey-200',
+    color: '$palette-black',
+  },
+  grey: {
+    backgroundColor: '$palette-grey-100',
+    color: '$palette-grey-900',
+  },
+  darkGrey: {
+    backgroundColor: '$palette-grey-600',
+    color: '$text-contrast',
+  },
+  red: {
+    backgroundColor: '$palette-red-100',
+    color: '$palette-red-900',
+  },
+  default: {
+    backgroundColor: '$palette-black',
+    color: '$palette-white',
+  },
+};
 
+export function CountLabel({ value, variant = 'default', dense = false, css, isLoading }: Props) {
   return (
     <Box
       css={{
@@ -65,7 +65,7 @@ export function CountLabel({ value, variant = 'default', dense = false, css, isL
         py: dense ? '1px' : '2px',
         px: dense ? '6px' : '12px',
         borderRadius: '100px',
-        ...theme(),
+        ...themeStyles[variant],
         ...css,
       }}
       data-testid="counter-pill"
