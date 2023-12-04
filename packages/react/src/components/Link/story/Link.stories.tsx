@@ -1,14 +1,22 @@
-import { Link, Typography } from '../../..';
+import { Link, LinkProps, Typography } from '../../..';
 
 export default {
   title: 'Components/Link',
   component: Link,
 };
 
-export const Default = () => <Link href="https://p44design.systems/">Manifest</Link>;
+export const Default = (args: LinkProps) => <Link {...args}>Manifest</Link>;
 
-export const Inline = () => (
+Default.args = {
+  href: 'https://p44design.systems/',
+};
+
+export const Inline = (args: LinkProps) => (
   <Typography>
-    Visit the manifest design system <Link href="https://p44design.systems/">website</Link>
+    Visit the manifest design system <Link {...args}>website</Link>
   </Typography>
 );
+
+Inline.args = {
+  href: 'https://p44design.systems/',
+};
