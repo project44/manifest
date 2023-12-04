@@ -1,6 +1,6 @@
+import { ReactNode } from 'react';
 import { StoryFn } from '@storybook/react';
 import { Button, ButtonProps, Stack } from '../../..';
-import { ReactNode } from 'react';
 
 export default {
   title: 'Components/Button',
@@ -25,9 +25,7 @@ export default {
 };
 
 export const Variant = ({ children, ...args }: { children: ReactNode; args: ButtonProps }) => (
-  <>
-    <Button {...args}>{children}</Button>
-  </>
+  <Button {...args}>{children}</Button>
 );
 
 Variant.args = {
@@ -35,21 +33,13 @@ Variant.args = {
   children: 'Button text',
 };
 
-export const Size = (args: ButtonProps) => (
-  <>
-    <Button {...args}>Button</Button>
-  </>
-);
+export const Size = (args: ButtonProps) => <Button {...args}>Button</Button>;
 
 Size.args = {
   size: 'small',
 };
 
-export const Disabled = (args: ButtonProps) => (
-  <>
-    <Button {...args}>Button</Button>
-  </>
-);
+export const Disabled = (args: ButtonProps) => <Button {...args}>Button</Button>;
 
 Disabled.args = {
   isDisabled: true,

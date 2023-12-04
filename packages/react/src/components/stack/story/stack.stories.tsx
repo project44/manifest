@@ -15,17 +15,15 @@ export default {
   },
 };
 
-export const Default = (args: StackProps) => {
-  return (
-    <Stack {...args}>
-      <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-      <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-      <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-      <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-      <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-    </Stack>
-  );
-};
+export const Default = (args: StackProps) => (
+  <Stack {...args}>
+    <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+    <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+    <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+    <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+    <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
+  </Stack>
+);
 
 Default.args = {
   gap: 'x-large',
