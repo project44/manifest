@@ -1,36 +1,50 @@
-import { Container } from '../../..';
+import { Container, ContainerProps } from '../../..';
 
 export default {
   title: 'Components/Container',
   component: Container,
+  argTypes: {
+    maxWidth: {
+      control: 'radio',
+      options: ['large', 'medium', 'small', 'x-large', 'x-small'],
+    },
+  },
 };
 
-export function Default() {
+export const Default = (args: ContainerProps) => {
   return (
-    <Container>
+    <Container {...args}>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
       labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
       laboris nisi ut aliquip ex ea commodo consequat.
     </Container>
   );
-}
+};
 
-export function MaxWidth() {
+export const MaxWidth = (args: ContainerProps) => {
   return (
-    <Container maxWidth="small">
+    <Container {...args}>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
       labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
       laboris nisi ut aliquip ex ea commodo consequat.
     </Container>
   );
-}
+};
 
-export function Fixed() {
+MaxWidth.args = {
+  maxWidth: 'small',
+};
+
+export const Fixed = (args: ContainerProps) => {
   return (
-    <Container fixed>
+    <Container {...args}>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
       labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
       laboris nisi ut aliquip ex ea commodo consequat.
     </Container>
   );
-}
+};
+
+Fixed.args = {
+  fixed: true,
+};
