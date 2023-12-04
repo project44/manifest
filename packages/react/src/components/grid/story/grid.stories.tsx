@@ -1,13 +1,27 @@
-import { Grid, GridItem } from '../../..';
+import { Grid, GridItem, GridProps } from '../../..';
 
 export default {
   title: 'Components/Grid',
   component: Grid,
+  argTypes: {
+    gap: {
+      control: 'select',
+      options: ['large', 'medium', 'small', 'x-large', 'x-small'],
+    },
+    rowGap: {
+      control: 'select',
+      options: ['large', 'medium', 'small', 'x-large', 'x-small'],
+    },
+    colGap: {
+      control: 'select',
+      options: ['large', 'medium', 'small', 'x-large', 'x-small'],
+    },
+  },
 };
 
-export function Default() {
+export const Default = (args: GridProps) => {
   return (
-    <Grid columns="repeat(5, 1fr)" css={{ width: '100%' }} gap="small">
+    <Grid {...args}>
       <GridItem css={{ backgroundColor: '$background-secondary' }} />
       <GridItem css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }} />
       <GridItem css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }} />
@@ -15,11 +29,17 @@ export function Default() {
       <GridItem css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }} />
     </Grid>
   );
-}
+};
 
-export function Rows() {
+Default.args = {
+  gap: 'small',
+  columns: 'repeat(5, 1fr)',
+  css: { width: '100%' },
+};
+
+export const Rows = (args: GridProps) => {
   return (
-    <Grid css={{ width: '100%' }} gap="small" rows="repeat(5, 1fr)">
+    <Grid {...args}>
       <GridItem css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }} />
       <GridItem css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }} />
       <GridItem css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }} />
@@ -27,27 +47,35 @@ export function Rows() {
       <GridItem css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }} />
     </Grid>
   );
-}
+};
 
-export function Spanning() {
+Rows.args = {
+  css: { width: '100%' },
+  gap: 'small',
+  rows: 'repeat(5, 1fr)',
+};
+
+export const Spanning = (args: GridProps) => {
   return (
-    <Grid
-      columns="repeat(5, 1fr)"
-      css={{ height: '200px', width: '100%' }}
-      gap="small"
-      rows="repeat(2, 1fr)"
-    >
+    <Grid {...args}>
       <GridItem column={1} css={{ backgroundColor: '$background-secondary' }} row={2} />
       <GridItem column={2} css={{ backgroundColor: '$background-secondary' }} />
       <GridItem column={2} css={{ backgroundColor: '$background-secondary' }} />
       <GridItem column={4} css={{ backgroundColor: '$background-secondary' }} />
     </Grid>
   );
-}
+};
 
-export function Position() {
+Spanning.args = {
+  columns: 'repeat(5, 1fr)',
+  css: { height: '200px', width: '100%' },
+  gap: 'small',
+  rows: 'repeat(2, 1fr)',
+};
+
+export const Position = (args: GridProps) => {
   return (
-    <Grid columns="repeat(5, 1fr)" css={{ width: '100%' }} gap="small">
+    <Grid {...args}>
       <GridItem
         column={2}
         css={{ backgroundColor: '$background-secondary', height: '80px', width: '100%' }}
@@ -59,4 +87,10 @@ export function Position() {
       />
     </Grid>
   );
-}
+};
+
+Position.args = {
+  columns: 'repeat(5, 1fr)',
+  css: { width: '100%' },
+  gap: 'small',
+};
