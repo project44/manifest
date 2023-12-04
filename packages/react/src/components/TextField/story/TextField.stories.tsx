@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { ComponentStory } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import { Flex, Icon, IconButton, TextField } from '../../..';
 
 export default {
@@ -7,7 +7,7 @@ export default {
   component: TextField,
 };
 
-const Template: ComponentStory<typeof TextField> = (args) => <TextField {...args} />;
+const Template: StoryFn<typeof TextField> = (args) => <TextField {...args} />;
 
 export const Default = Template.bind({});
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import {
   Box,
   Button,
@@ -48,7 +48,7 @@ const meta: Meta<PopoverProps> = {
 
 export default meta;
 
-export const Default: Story<PopoverProps> = (props) => {
+export const Default: StoryFn<PopoverProps> = (props) => {
   const state = usePopoverTriggerState({});
   const { overlayProps, overlayRef, triggerProps, triggerRef } = usePopoverTrigger({}, state);
 

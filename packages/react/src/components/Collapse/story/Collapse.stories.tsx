@@ -1,12 +1,17 @@
 import * as React from 'react';
-import { Button, Collapse } from '../../..';
+import { Button, Collapse, CollapseProps } from '../../..';
 
 export default {
   title: 'Components/Collapse',
   component: Collapse,
+  argTypes: {
+    in: {
+      control: 'boolean',
+    },
+  },
 };
 
-export const Default = () => {
+export const Default = (args: CollapseProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const handleSetOpen = React.useCallback(() => {
@@ -16,7 +21,7 @@ export const Default = () => {
   return (
     <>
       <Button onClick={handleSetOpen}>Toogle</Button>
-      <Collapse in={isOpen}>
+      <Collapse {...args} in={isOpen}>
         <div>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
@@ -28,4 +33,8 @@ export const Default = () => {
       </Collapse>
     </>
   );
+};
+
+Default.args = {
+  duration: '200',
 };

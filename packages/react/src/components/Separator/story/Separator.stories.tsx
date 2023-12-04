@@ -1,4 +1,4 @@
-import type { ComponentStory } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import { Flex, Separator } from '../../..';
 
 export default {
@@ -6,7 +6,7 @@ export default {
   component: Separator,
 };
 
-const Template: ComponentStory<typeof Separator> = (args) => <Separator {...args} />;
+const Template: StoryFn<typeof Separator> = (args) => <Separator {...args} />;
 
 export const Default = Template.bind({});
 

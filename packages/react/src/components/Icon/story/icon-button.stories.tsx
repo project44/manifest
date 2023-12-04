@@ -1,57 +1,25 @@
-import type { ComponentStory } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import { IconButton } from '../../..';
 
 export default {
   title: 'Components/IconButton',
   component: IconButton,
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: ['brand', 'danger', 'primary', 'secondary', 'tertiary'],
+    },
+    size: {
+      control: 'radio',
+      options: ['medium', 'small'],
+    },
+  },
 };
 
-const Template: ComponentStory<typeof IconButton> = (args) => (
+const Template: StoryFn<typeof IconButton> = (args) => (
   <IconButton {...args}>
     <i className="material-icons">add</i>
   </IconButton>
 );
 
 export const Default = Template.bind({});
-
-export const Primary = Template.bind({});
-
-Primary.args = {
-  variant: 'primary',
-};
-
-export const Secondary = Template.bind({});
-
-Secondary.args = {
-  variant: 'secondary',
-};
-
-export const Tertiary = Template.bind({});
-
-Tertiary.args = {
-  variant: 'tertiary',
-};
-
-export const Danger = Template.bind({});
-
-Danger.args = {
-  variant: 'danger',
-};
-
-export const Brand = Template.bind({});
-
-Brand.args = {
-  variant: 'brand',
-};
-
-export const Medium = Template.bind({});
-
-Medium.args = {
-  size: 'medium',
-};
-
-export const Small = Template.bind({});
-
-Small.args = {
-  size: 'small',
-};

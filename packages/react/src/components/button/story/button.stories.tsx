@@ -1,5 +1,6 @@
+import { ReactNode } from 'react';
 import { StoryFn } from '@storybook/react';
-import { Button, Stack } from '../../..';
+import { Button, ButtonProps, Stack } from '../../..';
 
 export default {
   title: 'Components/Button',
@@ -11,53 +12,52 @@ export default {
       </Stack>
     ),
   ],
+  argTypes: {
+    variant: {
+      control: 'radio',
+      options: ['brand', 'danger', 'primary', 'secondary', 'tertiary'],
+    },
+    size: {
+      control: 'radio',
+      options: ['medium', 'small'],
+    },
+  },
 };
 
-export const Variant = () => (
-  <>
-    <Button variant="primary">Primary</Button>
-    <Button variant="secondary">Secondary</Button>
-    <Button variant="tertiary">Tertiary</Button>
-    <Button variant="danger">Danger</Button>
-    <Button variant="brand">Brand</Button>
-  </>
+export const Variant = ({ children, ...args }: { children: ReactNode; args: ButtonProps }) => (
+  <Button {...args}>{children}</Button>
 );
 
-export const Size = () => (
-  <>
-    <Button size="medium">Medium</Button>
-    <Button size="small">Small</Button>
-  </>
-);
+Variant.args = {
+  variant: 'brand',
+  children: 'Button text',
+};
 
-export const Disabled = () => (
-  <>
-    <Button isDisabled variant="primary">
-      Primary
-    </Button>
-    <Button isDisabled variant="secondary">
-      Secondary
-    </Button>
-    <Button isDisabled variant="tertiary">
-      Tertiary
-    </Button>
-    <Button isDisabled variant="danger">
-      Danger
-    </Button>
-    <Button isDisabled variant="brand">
-      Brand
-    </Button>
-  </>
-);
+export const Size = (args: ButtonProps) => <Button {...args}>Button</Button>;
 
-export const Icon = () => (
+Size.args = {
+  size: 'small',
+};
+
+export const Disabled = (args: ButtonProps) => <Button {...args}>Button</Button>;
+
+Disabled.args = {
+  isDisabled: true,
+  variant: 'brand',
+};
+
+export const Icon = (args: ButtonProps) => (
   <>
-    <Button startIcon={<i className="material-icons">add</i>}>Start Icon</Button>
-    <Button endIcon={<i className="material-icons">add</i>}>End Icon</Button>
-    <Button size="small" startIcon={<i className="material-icons">add</i>}>
+    <Button {...args} startIcon={<i className="material-icons">add</i>}>
+      Start Icon
+    </Button>
+    <Button {...args} endIcon={<i className="material-icons">add</i>}>
+      End Icon
+    </Button>
+    <Button {...args} size="small" startIcon={<i className="material-icons">add</i>}>
       Start icon
     </Button>
-    <Button endIcon={<i className="material-icons">add</i>} size="small">
+    <Button {...args} endIcon={<i className="material-icons">add</i>} size="small">
       End icon
     </Button>
   </>

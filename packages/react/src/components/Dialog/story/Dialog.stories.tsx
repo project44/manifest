@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { Button, Dialog, DialogContent, DialogFooter, DialogHeader, DialogProps } from '../../..';
 
 const meta: Meta<DialogProps> = {
@@ -9,7 +9,7 @@ const meta: Meta<DialogProps> = {
 
 export default meta;
 
-export const Default: Story<DialogProps> = () => {
+export const Default: StoryFn<DialogProps> = (args: DialogProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const handleClose = React.useCallback(() => void setIsOpen(false), []);
@@ -18,7 +18,7 @@ export const Default: Story<DialogProps> = () => {
   return (
     <>
       <Button onPress={handleOpen}>Open Dialog</Button>
-      <Dialog isOpen={isOpen} onClose={handleClose}>
+      <Dialog {...args} isOpen={isOpen} onClose={handleClose}>
         <DialogHeader>Dialog Title</DialogHeader>
         <DialogContent>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -37,4 +37,9 @@ export const Default: Story<DialogProps> = () => {
       </Dialog>
     </>
   );
+};
+
+Default.args = {
+  isDismissable: true,
+  isKeyboardDismissDisabled: true,
 };

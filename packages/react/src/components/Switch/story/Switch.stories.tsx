@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { ComponentStory } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import { Switch } from '../../..';
 
 export default {
@@ -7,7 +7,7 @@ export default {
   component: Switch,
 };
 
-const Template: ComponentStory<typeof Switch> = (args) => <Switch {...args} />;
+const Template: StoryFn<typeof Switch> = (args) => <Switch {...args} />;
 
 export const Default = Template.bind({});
 
