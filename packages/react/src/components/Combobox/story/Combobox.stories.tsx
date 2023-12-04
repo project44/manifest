@@ -1,4 +1,4 @@
-import type { ComponentStory } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import { Combobox, ComboboxItem, ComboboxSection, Flex, Icon, Typography } from '../../..';
 
 export default {
@@ -7,7 +7,7 @@ export default {
   subcomponents: { ComboboxItem, ComboboxSection },
 };
 
-const Template: ComponentStory<typeof Combobox> = (args) => <Combobox {...args} />;
+const Template: StoryFn<typeof Combobox> = (args) => <Combobox {...args} />;
 
 export const Default = Template.bind({});
 
