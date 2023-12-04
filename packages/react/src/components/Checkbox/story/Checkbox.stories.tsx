@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { ComponentStory } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import { Checkbox } from '../../..';
 
 export default {
@@ -7,7 +7,7 @@ export default {
   component: Checkbox,
 };
 
-const Template: ComponentStory<typeof Checkbox> = (args) => <Checkbox {...args} />;
+const Template: StoryFn<typeof Checkbox> = (args) => <Checkbox {...args} />;
 
 export const Default = Template.bind({});
 
