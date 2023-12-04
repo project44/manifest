@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { ComponentStory } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import { Flex, Icon, Select, SelectItem, SelectSection } from '../../..';
 
 export default {
@@ -8,7 +8,7 @@ export default {
   subcomponents: { SelectItem, SelectSection },
 };
 
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
+const Template: StoryFn<typeof Select> = (args) => <Select {...args} />;
 
 export const Default = Template.bind({});
 

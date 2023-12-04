@@ -1,13 +1,23 @@
-import { Box, Stack } from '../../..';
+import { Box, Stack, StackProps } from '../../..';
 
 export default {
   title: 'Components/Stack',
   component: Stack,
+  argTypes: {
+    gap: {
+      control: 'select',
+      options: ['large', 'medium', 'small', 'x-large', 'x-small'],
+    },
+    orientation: {
+      control: 'radio',
+      options: ['horizontal', 'vertical'],
+    },
+  },
 };
 
-export function Default() {
+export const Default = (args: StackProps) => {
   return (
-    <Stack>
+    <Stack {...args}>
       <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
       <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
       <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
@@ -15,28 +25,9 @@ export function Default() {
       <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
     </Stack>
   );
-}
+};
 
-export function Gap() {
-  return (
-    <Stack gap="x-large">
-      <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-      <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-      <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-      <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-      <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-    </Stack>
-  );
-}
-
-export function Orientation() {
-  return (
-    <Stack gap="medium" orientation="horizontal">
-      <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-      <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-      <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-      <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-      <Box css={{ backgroundColor: '$background-secondary', size: '80px' }} />
-    </Stack>
-  );
-}
+Default.args = {
+  gap: 'x-large',
+  orientation: 'horizontal',
+};

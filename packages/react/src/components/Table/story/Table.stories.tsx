@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { ComponentStory } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '../../..';
 
 export default {
@@ -8,7 +8,7 @@ export default {
   subcomponents: { TableBody, TableCell, TableColumn, TableHeader, TableRow },
 };
 
-const Template: ComponentStory<typeof Table> = (args) => <Table {...args} />;
+const Template: StoryFn<typeof Table> = (args) => <Table {...args} />;
 
 export const Default = Template.bind({});
 

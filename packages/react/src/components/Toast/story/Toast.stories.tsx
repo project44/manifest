@@ -1,25 +1,30 @@
 import * as React from 'react';
 import { Button, toast, Toaster } from '../../..';
+import { ToasterProps } from '../../..';
 
 export default {
   title: 'Components/Toast',
   component: Toaster,
 };
 
-export const Default = () => {
+export const Default = (args: ToasterProps) => {
   const handlePress = React.useCallback(() => {
     toast('Lorem ipsum dolor');
   }, []);
 
   return (
     <>
-      <Toaster />
+      <Toaster {...args} />
       <Button onPress={handlePress}>Open Toast</Button>
     </>
   );
 };
 
-export const Description = () => {
+Default.args = {
+  duration: '200',
+};
+
+export const Description = (args: ToasterProps) => {
   const handlePress = React.useCallback(() => {
     toast('Lorem ipsum dolor', {
       description:
@@ -29,13 +34,13 @@ export const Description = () => {
 
   return (
     <>
-      <Toaster />
+      <Toaster {...args} />
       <Button onPress={handlePress}>Open Toast</Button>
     </>
   );
 };
 
-export const Action = () => {
+export const Action = (args: ToasterProps) => {
   const handlePress = React.useCallback(() => {
     toast('Lorem ipsum dolor', {
       action: <Button>Refresh Page</Button>,
@@ -46,13 +51,13 @@ export const Action = () => {
 
   return (
     <>
-      <Toaster />
+      <Toaster {...args} />
       <Button onPress={handlePress}>Open Toast</Button>
     </>
   );
 };
 
-export const Info = () => {
+export const Info = (args: ToasterProps) => {
   const handlePress = React.useCallback(() => {
     toast.info('Lorem ipsum dolor', {
       description:
@@ -63,13 +68,13 @@ export const Info = () => {
 
   return (
     <>
-      <Toaster />
+      <Toaster {...args} />
       <Button onPress={handlePress}>Open Toast</Button>
     </>
   );
 };
 
-export const Success = () => {
+export const Success = (args: ToasterProps) => {
   const handlePress = React.useCallback(() => {
     toast.success('Lorem ipsum dolor', {
       description:
@@ -80,13 +85,13 @@ export const Success = () => {
 
   return (
     <>
-      <Toaster />
+      <Toaster {...args} />
       <Button onPress={handlePress}>Open Toast</Button>
     </>
   );
 };
 
-export const Warning = () => {
+export const Warning = (args: ToasterProps) => {
   const handlePress = React.useCallback(() => {
     toast.warning('Lorem ipsum dolor', {
       description:
@@ -97,13 +102,13 @@ export const Warning = () => {
 
   return (
     <>
-      <Toaster />
+      <Toaster {...args} />
       <Button onPress={handlePress}>Open Toast</Button>
     </>
   );
 };
 
-export const Error = () => {
+export const Error = (args: ToasterProps) => {
   const handlePress = React.useCallback(() => {
     toast.error('Lorem ipsum dolor', {
       description:
@@ -114,7 +119,7 @@ export const Error = () => {
 
   return (
     <>
-      <Toaster />
+      <Toaster {...args} />
       <Button onPress={handlePress}>Open Toast</Button>
     </>
   );

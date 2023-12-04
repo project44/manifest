@@ -1,5 +1,5 @@
 import { AirplaneFilled, Clock } from '@project44-manifest/react-icons';
-import type { ComponentStory } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import { Flex, Pill } from '../../..';
 
 export default {
@@ -7,7 +7,7 @@ export default {
   component: Pill,
 };
 
-const Template: ComponentStory<typeof Pill> = (args) => <Pill {...args} />;
+const Template: StoryFn<typeof Pill> = (args) => <Pill {...args} />;
 
 export const Default = Template.bind({});
 

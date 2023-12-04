@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { ComponentStory } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import { Flex, NumberField, Select, SelectItem, Separator, Switch } from '../../..';
 
 export default {
@@ -7,7 +7,7 @@ export default {
   component: NumberField,
 };
 
-const Template: ComponentStory<typeof NumberField> = (args) => <NumberField {...args} />;
+const Template: StoryFn<typeof NumberField> = (args) => <NumberField {...args} />;
 
 export const Default = Template.bind({});
 
