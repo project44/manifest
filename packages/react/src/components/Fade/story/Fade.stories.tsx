@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { Button, Fade } from '../../..';
+import { Button, Fade, FadeProps } from '../../..';
 
 export default {
   title: 'Components/Fade',
   component: Fade,
 };
 
-export const Default = () => {
+export const Default = (args: FadeProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const handleSetOpen = React.useCallback(() => {
@@ -16,7 +16,7 @@ export const Default = () => {
   return (
     <>
       <Button onClick={handleSetOpen}>Toogle</Button>
-      <Fade in={isOpen}>
+      <Fade {...args} in={isOpen}>
         <div>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
