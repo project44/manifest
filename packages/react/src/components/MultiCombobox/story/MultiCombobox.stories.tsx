@@ -1,5 +1,5 @@
 import { Search } from '@project44-manifest/react-icons';
-import type { ComponentStory } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import { MultiCombobox, SelectItem, SelectSection } from '../../..';
 
 export default {
@@ -8,7 +8,7 @@ export default {
   subcomponents: { SelectItem, SelectSection },
 };
 
-const Template: ComponentStory<typeof MultiCombobox> = (args) => (
+const Template: StoryFn<typeof MultiCombobox> = (args) => (
   <MultiCombobox {...args}>
     <SelectItem key="late">Running Late</SelectItem>
     <SelectItem key="early">Running Early</SelectItem>
