@@ -1,5 +1,6 @@
 import type { StoryFn } from '@storybook/react';
 import { Avatar, Stack } from '../../..';
+import type { AvatarProps } from '../index';
 
 export default {
   title: 'Components/Avatar',
@@ -11,24 +12,32 @@ export default {
       </Stack>
     ),
   ],
+  argTypes: {
+    size: {
+      control: 'radio',
+      options: ['medium', 'small'],
+    },
+  },
 };
 
-export const Size = () => (
+export const Size = (args: AvatarProps) => (
   <>
-    <Avatar
-      size="small"
-      src="https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&w=128&h=128&dpr=2&q=80"
-    />
-    <Avatar
-      size="medium"
-      src="https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&w=128&h=128&dpr=2&q=80"
-    />
+    <Avatar {...args} />
   </>
 );
 
-export const Fallback = () => (
+Size.args = {
+  size: 'small',
+  src: 'https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&w=128&h=128&dpr=2&q=80',
+};
+
+export const Fallback = (args: AvatarProps) => (
   <>
-    <Avatar fallback="MD" size="small" />
-    <Avatar fallback="MD" size="medium" />
+    <Avatar {...args} />
   </>
 );
+
+Fallback.args = {
+  fallback: 'MD',
+  size: 'medium',
+};
