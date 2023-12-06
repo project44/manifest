@@ -1,5 +1,38 @@
 # website
 
+## 0.3.0
+
+### Minor Changes
+
+- [#505](https://github.com/project44/manifest/pull/505)
+  [`1713706`](https://github.com/project44/manifest/commit/1713706686d27227cc811e5da5d17157239c2e64)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - Added NavigationTabs component
+
+### Patch Changes
+
+- [#513](https://github.com/project44/manifest/pull/513)
+  [`8f24d3a`](https://github.com/project44/manifest/commit/8f24d3aae79ad54c19b0763a5fceae3d67d49c3a)
+  Thanks [@vitaliy-p44](https://github.com/vitaliy-p44)! - fix colors page
+
+* [#508](https://github.com/project44/manifest/pull/508)
+  [`c02fc94`](https://github.com/project44/manifest/commit/c02fc94649628c7a80a2074d3fafecbe1722f755)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - Updated dependencies to their proper
+  categories
+
+* Updated dependencies
+  [[`7121b40`](https://github.com/project44/manifest/commit/7121b4046c9c094bae839bf8cb73e39332e01dc7),
+  [`409daa7`](https://github.com/project44/manifest/commit/409daa7c7ff75ee737c2eaebc91bf07f42b6d772),
+  [`4d63af6`](https://github.com/project44/manifest/commit/4d63af6c7359f7748e31f6ba3fac951db040cdae),
+  [`c02fc94`](https://github.com/project44/manifest/commit/c02fc94649628c7a80a2074d3fafecbe1722f755),
+  [`c81fb79`](https://github.com/project44/manifest/commit/c81fb79a18975194529d512c001932d463cadfb4),
+  [`7437218`](https://github.com/project44/manifest/commit/7437218a1bcbff0f37f3c7c089cb0508ec55b6a3),
+  [`6b70e3d`](https://github.com/project44/manifest/commit/6b70e3d45669b99ac77ef208bca736793f6ca676),
+  [`a5e6f1f`](https://github.com/project44/manifest/commit/a5e6f1f560e81dfef04b0af039ff445eec69866f),
+  [`1713706`](https://github.com/project44/manifest/commit/1713706686d27227cc811e5da5d17157239c2e64)]:
+  - @project44-manifest/react@3.19.0
+  - @project44-manifest/design-tokens@3.1.1
+  - @project44-manifest/react-icons@2.1.1
+
 ## 0.2.1
 
 ### Patch Changes

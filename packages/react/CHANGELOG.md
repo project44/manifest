@@ -1,5 +1,59 @@
 # @manifest/react
 
+## 3.19.0
+
+### Minor Changes
+
+- [#518](https://github.com/project44/manifest/pull/518)
+  [`c81fb79`](https://github.com/project44/manifest/commit/c81fb79a18975194529d512c001932d463cadfb4)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - Made changes to add support for empty header
+  grouping
+
+* [#507](https://github.com/project44/manifest/pull/507)
+  [`7437218`](https://github.com/project44/manifest/commit/7437218a1bcbff0f37f3c7c089cb0508ec55b6a3)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - Added displayName to components
+
+- [#505](https://github.com/project44/manifest/pull/505)
+  [`1713706`](https://github.com/project44/manifest/commit/1713706686d27227cc811e5da5d17157239c2e64)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - Added NavigationTabs component
+
+### Patch Changes
+
+- [#503](https://github.com/project44/manifest/pull/503)
+  [`7121b40`](https://github.com/project44/manifest/commit/7121b4046c9c094bae839bf8cb73e39332e01dc7)
+  Thanks [@p44dyoachim](https://github.com/p44dyoachim)! - Correct prop passing to button,
+  LocalNavigationItem, RadioGroup components
+
+* [#514](https://github.com/project44/manifest/pull/514)
+  [`409daa7`](https://github.com/project44/manifest/commit/409daa7c7ff75ee737c2eaebc91bf07f42b6d772)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - added isSelected prop to menu group to
+  highlight it when it is not expanded and one of it's child is selected
+
+- [#512](https://github.com/project44/manifest/pull/512)
+  [`4d63af6`](https://github.com/project44/manifest/commit/4d63af6c7359f7748e31f6ba3fac951db040cdae)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - Move test in same folder as component
+
+* [#508](https://github.com/project44/manifest/pull/508)
+  [`c02fc94`](https://github.com/project44/manifest/commit/c02fc94649628c7a80a2074d3fafecbe1722f755)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - Updated dependencies to their proper
+  categories
+
+- [#511](https://github.com/project44/manifest/pull/511)
+  [`6b70e3d`](https://github.com/project44/manifest/commit/6b70e3d45669b99ac77ef208bca736793f6ca676)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - Updated story structure so that stories can
+  be in component folder itself
+
+* [#516](https://github.com/project44/manifest/pull/516)
+  [`a5e6f1f`](https://github.com/project44/manifest/commit/a5e6f1f560e81dfef04b0af039ff445eec69866f)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - made changes to update controls
+
+* Updated dependencies
+  [[`c02fc94`](https://github.com/project44/manifest/commit/c02fc94649628c7a80a2074d3fafecbe1722f755)]:
+  - @project44-manifest/react-icons@2.1.1
+  - @project44-manifest/react-styles@2.0.3
+  - @project44-manifest/react-types@0.2.2
+  - @project44-manifest/theme@2.0.2
+
 ## 3.18.1
 
 ### Patch Changes

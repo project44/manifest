@@ -1,6 +1,6 @@
 {
   "name": "@project44-manifest/react-styles",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Manifest Design System react styling tools",
   "license": "MIT",
   "author": "project44",
@@ -39,7 +39,7 @@
     "react-dom": "^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@project44-manifest/design-tokens": "^3.1.0",
+    "@project44-manifest/design-tokens": "^3.1.1",
     "@stitches/react": "^1.2.8",
     "clsx": "^1.1.1",
     "lodash.merge": "^4.6.2"
