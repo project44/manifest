@@ -11,18 +11,6 @@ Navigation tabs are useful for having buttons to navigate between different view
 
 ```jsx live
 function NavigationTabsDemo() {
-  const style = {
-    tabsStyle: {
-      backgroundColor: '$background-top-nav',
-      borderColor: '$palette-grey-200',
-      borderRadius: '100px',
-      gap: '10px',
-      height: '40px',
-      maxHeight: 'auto',
-      padding: '3px',
-      width: 'max-content',
-    },
-  };
   const tabData: NavigationTab = ['creation', 'tracking', 'quality'].map((name) => {
     return {
       label: name,
@@ -32,7 +20,7 @@ function NavigationTabsDemo() {
       },
     };
   });
-  return <NavigationTabs tabs={tabData} css={style.tabsStyle} />;
+  return <NavigationTabs tabs={tabData} />;
 }
 ```
 
