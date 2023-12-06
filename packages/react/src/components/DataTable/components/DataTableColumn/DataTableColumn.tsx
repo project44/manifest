@@ -15,6 +15,21 @@ export function DataTableColumn<TData extends RowData, TVaue>(
 
   const styles: React.CSSProperties = getColumnLayoutStyles(table, column);
 
+  const headerComponent = isSortable ? (
+    <button className="manifest-table__heading">
+      {flexRender(header.column.columnDef.header, header.getContext())}
+      {isSortable && !header.column.getIsSorted() && <Sort size="small" />}
+      {
+        {
+          asc: <ChevronDown size="small" />,
+          desc: <ChevronUp size="small" />,
+        }[header.column.getIsSorted() as string]
+      }
+    </button>
+  ) : (
+    flexRender(header.column.columnDef.header, header.getContext())
+  );
+
   return (
     <th
       key={header.id}
@@ -26,20 +41,7 @@ export function DataTableColumn<TData extends RowData, TVaue>(
       style={{ ...styles }}
       onClick={header.column.getToggleSortingHandler()}
     >
-      {header.isPlaceholder ? null : isSortable ? (
-        <button className="manifest-table__heading">
-          {flexRender(header.column.columnDef.header, header.getContext())}
-          {isSortable && !header.column.getIsSorted() && <Sort size="small" />}
-          {
-            {
-              asc: <ChevronDown size="small" />,
-              desc: <ChevronUp size="small" />,
-            }[header.column.getIsSorted() as string]
-          }
-        </button>
-      ) : (
-        flexRender(header.column.columnDef.header, header.getContext())
-      )}
+      {header.isPlaceholder ? null : headerComponent}
     </th>
   );
 }
