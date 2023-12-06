@@ -26,7 +26,7 @@ export function DataTableColumn<TData extends RowData, TVaue>(
       style={{ ...styles }}
       onClick={header.column.getToggleSortingHandler()}
     >
-      {isSortable ? (
+      {header.isPlaceholder ? null : isSortable ? (
         <button className="manifest-table__heading">
           {flexRender(header.column.columnDef.header, header.getContext())}
           {isSortable && !header.column.getIsSorted() && <Sort size="small" />}
