@@ -8,18 +8,6 @@ export default {
 };
 
 export const Default = () => {
-  const style = {
-    tabsStyle: {
-      backgroundColor: '$background-top-nav',
-      borderColor: '$palette-grey-200',
-      borderRadius: '100px',
-      gap: '10px',
-      height: '40px',
-      maxHeight: 'auto',
-      padding: '3px',
-      width: 'max-content',
-    },
-  };
   const tabData: NavigationTab[] = ['creation', 'tracking', 'quality'].map((name) => ({
     label: name,
     toolTip: name,
@@ -28,7 +16,7 @@ export const Default = () => {
       console.log(name);
     },
   }));
-  return <NavigationTabs css={style.tabsStyle} tabs={tabData} />;
+  return <NavigationTabs tabs={tabData} />;
 };
 
 export const WithCount = () => {

@@ -35,7 +35,6 @@ export const NavigationTabs = React.forwardRef((props, forwardedRef) => {
   const {
     tabs,
     defaultActive = 0,
-    css,
     buttonCss,
     activeButtonCss,
     counterCss,
@@ -50,20 +49,31 @@ export const NavigationTabs = React.forwardRef((props, forwardedRef) => {
     setActiveTab(defaultActive);
   }, [defaultActive]);
 
+  const defaultCss = {
+    backgroundColor: '$background-top-nav',
+    borderColor: '$palette-grey-200',
+    borderRadius: '100px',
+    gap: '10px',
+    height: '40px',
+    maxHeight: 'auto',
+    padding: '3px',
+    width: 'max-content',
+  };
+
+  // override default css with user passed CSS
+  const css = {
+    ...defaultCss,
+    ...props.css,
+  };
+
   return (
     <Flex
       ref={forwardedRef}
       align="center"
       aria-label={navigationTabsAriaLabel}
       css={{
-        backgroundColor: 'rgba(9, 21, 33, 0.1)',
-        borderColor: 'rgba(9, 21, 33, 0.1)',
-        borderRadius: '20px',
         borderStyle: 'solid',
         borderWidth: '1px',
-        padding: 1,
-        gap: '1px',
-        maxHeight: 50,
         alignSelf: 'center',
         ...css,
       }}
