@@ -3385,5 +3385,81 @@
       "required": false,
       "description": "Theme aware style object."
     }
+  ],
+  "NavigationTabs": [
+    {
+      "name": "tabs",
+      "type": "NavigationTab",
+      "required": true,
+      "description": "Tab Data"
+    },
+    {
+      "name": "defaultActive",
+      "type": "number",
+      "required": false,
+      "description": "Default selected tab"
+    },
+    {
+      "name": "buttonCss",
+      "type": "CSS",
+      "required": false,
+      "description": "Control look and feel of button using css"
+    },
+    {
+      "name": "activeButtonCss",
+      "type": "CSS",
+      "required": false,
+      "description": "Control look and feel of selected button using css"
+    },
+    {
+      "name": "counterCss",
+      "type": "CSS",
+      "required": false,
+      "description": "Add count in button"
+    },
+    {
+      "name": "isLoading",
+      "type": "boolean",
+      "required": false,
+      "description": "Handle loading experience"
+    },
+    {
+      "name": "activeCountColor",
+      "type": "'black'| 'blue' | 'darkBlue' | 'darkGrey' | 'lightGrey' | 'default' | 'grey'| 'red';",
+      "required": false,
+      "description": "Color of active counter"
+    },
+    {
+      "name": "countColor",
+      "type": "'black' | 'blue' | 'darkBlue' | 'darkGrey' | 'lightGrey' | 'default' | 'grey'| 'red'",
+      "required": false,
+      "description": "Color of active count"
+    }
+  ],
+  "NavigationTab": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "description": "Name of tab"
+    },
+    {
+      "name": "count",
+      "type": "number",
+      "required": false,
+      "description": "Count to be displayed of count label"
+    },
+    {
+      "name": "onClick",
+      "type": "() => void",
+      "required": false,
+      "description": "Click handler"
+    },
+    {
+      "name": "toolTip",
+      "type": "string",
+      "required": false,
+      "description": "Tooltip for count label"
+    }
   ]
 }

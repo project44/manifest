@@ -85,6 +85,8 @@ export type { MultiComboboxProps } from './components/MultiCombobox';
 export { MultiCombobox } from './components/MultiCombobox';
 export type { MultiSelectProps } from './components/MultiSelect';
 export { MultiSelect } from './components/MultiSelect';
+export type { NavigationTab } from './components/NavigationTabs';
+export { NavigationTabs } from './components/NavigationTabs';
 export type { NumberFieldProps } from './components/NumberField';
 export { NumberField } from './components/NumberField';
 export type { OverlayProps, Placement } from './components/Overlay';
