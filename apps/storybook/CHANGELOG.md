@@ -1,5 +1,36 @@
 # storybook
 
+## 0.1.0
+
+### Minor Changes
+
+- [#509](https://github.com/project44/manifest/pull/509)
+  [`ec8aa6c`](https://github.com/project44/manifest/commit/ec8aa6c2c7f1363515ca12e01e6106ee62325624)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - Upgraded storybook to v7
+
+### Patch Changes
+
+- [#510](https://github.com/project44/manifest/pull/510)
+  [`87bc513`](https://github.com/project44/manifest/commit/87bc513b9dfe318fbb1a1d4c6609e6b707d588f5)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - Updated package name
+
+* [#516](https://github.com/project44/manifest/pull/516)
+  [`a5e6f1f`](https://github.com/project44/manifest/commit/a5e6f1f560e81dfef04b0af039ff445eec69866f)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - made changes to update controls
+
+* Updated dependencies
+  [[`7121b40`](https://github.com/project44/manifest/commit/7121b4046c9c094bae839bf8cb73e39332e01dc7),
+  [`409daa7`](https://github.com/project44/manifest/commit/409daa7c7ff75ee737c2eaebc91bf07f42b6d772),
+  [`4d63af6`](https://github.com/project44/manifest/commit/4d63af6c7359f7748e31f6ba3fac951db040cdae),
+  [`c02fc94`](https://github.com/project44/manifest/commit/c02fc94649628c7a80a2074d3fafecbe1722f755),
+  [`c81fb79`](https://github.com/project44/manifest/commit/c81fb79a18975194529d512c001932d463cadfb4),
+  [`7437218`](https://github.com/project44/manifest/commit/7437218a1bcbff0f37f3c7c089cb0508ec55b6a3),
+  [`6b70e3d`](https://github.com/project44/manifest/commit/6b70e3d45669b99ac77ef208bca736793f6ca676),
+  [`a5e6f1f`](https://github.com/project44/manifest/commit/a5e6f1f560e81dfef04b0af039ff445eec69866f),
+  [`1713706`](https://github.com/project44/manifest/commit/1713706686d27227cc811e5da5d17157239c2e64)]:
+  - @project44-manifest/react@3.19.0
+  - @project44-manifest/react-icons@2.1.1
+
 ## 0.0.10
 
 ### Patch Changes

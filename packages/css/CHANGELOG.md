@@ -1,5 +1,14 @@
 # @project44-manifest/styles
 
+## 0.1.4
+
+### Patch Changes
+
+- [#508](https://github.com/project44/manifest/pull/508)
+  [`c02fc94`](https://github.com/project44/manifest/commit/c02fc94649628c7a80a2074d3fafecbe1722f755)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - Updated dependencies to their proper
+  categories
+
 ## 0.1.3
 
 ### Patch Changes
