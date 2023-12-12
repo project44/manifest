@@ -247,6 +247,15 @@ export interface FooterPropsType {
    * @default false
    */
   enableSticky?: boolean;
+
+  /**
+   * To limit the footers we want to show in ui
+   * start < end
+   */
+  footerDepthRange?: {
+    start: number;
+    end: number;
+  };
 }
 
 export interface TotalsProps {
