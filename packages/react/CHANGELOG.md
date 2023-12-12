@@ -1,5 +1,14 @@
 # @manifest/react
 
+## 3.20.0
+
+### Minor Changes
+
+- [#519](https://github.com/project44/manifest/pull/519)
+  [`66d3947`](https://github.com/project44/manifest/commit/66d39470977c908773c529bab0bf49523da68910)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - made changes to add support for custom footer
+  depth range
+
 ## 3.19.0
 
 ### Minor Changes
