@@ -34,6 +34,12 @@ export const LocalNavigationItem = React.forwardRef((props, forwardedRef) => {
     css,
     isSelected,
     variant = localNavigation?.variant ?? 'primary',
+    onClick,
+    onPress,
+    onPressStart,
+    onPressEnd,
+    onPressChange,
+    onPressUp,
     ...htmlIntristicAttributes
   } = props;
 
@@ -42,10 +48,17 @@ export const LocalNavigationItem = React.forwardRef((props, forwardedRef) => {
   const { buttonProps, isPressed } = useButton(
     {
       ...props,
+      onClick,
+      onPress,
+      onPressStart,
+      onPressEnd,
+      onPressChange,
+      onPressUp,
       elementType: typeof as === 'string' ? as : 'button',
     } as AriaButtonProps,
     itemRef,
   );
+
   const { isFocusVisible, focusProps } = useFocusRing({ autoFocus });
   const { isHovered, hoverProps } = useHover({});
 
@@ -62,8 +75,6 @@ export const LocalNavigationItem = React.forwardRef((props, forwardedRef) => {
 
   return (
     <StyledItem
-      // mergeProps contains invalid <button> prop onPress, causing significant
-      // warning log spam when passed to StyledItem
       {...mergeProps(buttonProps, focusProps, hoverProps, htmlIntristicAttributes)}
       ref={mergeRefs(itemRef, forwardedRef)}
       as={as}
