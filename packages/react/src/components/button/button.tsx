@@ -135,8 +135,6 @@ const Button = React.forwardRef((props, forwardedRef) => {
 
   return (
     <StyledButton
-      // mergeProps contains invalid <button> prop onPress, causing significant
-      // warning log spam when passed to StyledItem
       {...mergeProps(buttonProps, focusProps, hoverProps, other)}
       ref={mergeRefs(buttonRef, forwardedRef)}
       as={as}
