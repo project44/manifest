@@ -1,5 +1,14 @@
 # @manifest/react
 
+## 3.21.0
+
+### Minor Changes
+
+- [#522](https://github.com/project44/manifest/pull/522)
+  [`ef0f6ee`](https://github.com/project44/manifest/commit/ef0f6ee09e606256ddad6f4fce0021d83db330fc)
+  Thanks [@vitaliy-p44](https://github.com/vitaliy-p44)! - Fix onPress/onPressStart warnings on
+  LocalNavigationItem
+
 ## 3.20.0
 
 ### Minor Changes
