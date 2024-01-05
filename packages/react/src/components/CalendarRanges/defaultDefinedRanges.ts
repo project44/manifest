@@ -43,8 +43,8 @@ const calendarDate = createCalendarDate(defaultDate);
 export const defineds = {
   startOfToday: calendarDate,
   endOfToday: calendarDate,
-  startOfYesterday: addDays(calendarDate, -2),  // since addDays includes current day in the range
-  endOfYesterday: addDays(calendarDate, -2),    // to get 1 day previous we have to subtract 2
+  startOfYesterday: addDays(calendarDate, -2), // since addDays includes current day in the range
+  endOfYesterday: addDays(calendarDate, -2), // to get 1 day previous we have to subtract 2
   sevenDaysAgo: addDays(calendarDate, -7),
   thirtyDaysAgo: addDays(calendarDate, -30),
   endOfWeek: endOfWeek(calendarDate, 'en-US'),
