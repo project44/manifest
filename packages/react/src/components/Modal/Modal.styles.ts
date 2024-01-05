@@ -36,7 +36,7 @@ export const StyledModalWrapper = styled('div', {
 
   pointerEvents: 'none',
 
-  zIndex: 2,
+  zIndex: '$modal',
 
   transition: 'visibilty 200ms linear 200ms',
 
@@ -58,7 +58,7 @@ export const StyledModal = styled(
     outline: 'none',
     overflow: 'hidden',
 
-    zIndex: 2,
+    zIndex: '$modal',
   },
   modalStyles,
 );
@@ -73,7 +73,7 @@ export const StyledUnderlay = styled(
     top: 0,
 
     overflow: 'hidden',
-    zIndex: 1,
+    zIndex: '$overlay',
 
     backgroundColor: '$background-backdrop',
     opacity: '0.6 !important',
