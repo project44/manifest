@@ -3,8 +3,8 @@ import * as React from 'react';
 import { cx } from '@project44-manifest/react-styles';
 import { flexRender, RowData } from '@tanstack/react-table';
 import { getColumnLayoutStyles } from '../../utils';
-import { DataTableFooterColumnProps } from './DataTableFooterColumnProps.types';
 import { ExtendedColumnDef } from '../DataTableColumn';
+import { DataTableFooterColumnProps } from './DataTableFooterColumnProps.types';
 
 export function DataTableFooterColumn<TData extends RowData, TVaue>(
   props: DataTableFooterColumnProps<TData, TVaue>,

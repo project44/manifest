@@ -3,8 +3,8 @@ import { cx } from '@project44-manifest/react-styles';
 import { flexRender, RowData } from '@tanstack/react-table';
 import { Skeleton } from '../../../Skeleton';
 import { getColumnLayoutStyles } from '../../utils';
-import { DataTableCellProps } from './DataTableCell.types';
 import { ExtendedColumnDef } from '../DataTableColumn';
+import { DataTableCellProps } from './DataTableCell.types';
 
 export function DataTableCell<TData extends RowData, TVaue>(
   props: DataTableCellProps<TData, TVaue>,
