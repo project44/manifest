@@ -127,3 +127,25 @@ Invalid.decorators = [
     </Combobox>
   ),
 ];
+
+export const CustomWidth = Template.bind({});
+
+CustomWidth.decorators = [
+  () => (
+    <div style={{ width: '300px' }}>
+      <Combobox
+        helperText="Error text"
+        label="Label"
+        startIcon={<Icon icon="search" />}
+        validationState="invalid"
+        customPopoverWidthFlag
+      >
+        <ComboboxItem key="Aardvark">
+          Aardvark Aardvark Aardvark Aardvark Aardvark Aardvark Aardvark
+        </ComboboxItem>
+        <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+        <ComboboxItem key="snake">Snake</ComboboxItem>
+      </Combobox>
+    </div>
+  ),
+];
