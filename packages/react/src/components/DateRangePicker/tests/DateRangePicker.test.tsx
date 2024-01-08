@@ -262,4 +262,43 @@ describe('@project44-manifest/components - DateRangePicker', () => {
       end: chosenRange?.value.end,
     });
   });
+
+  it('should render the yesterday date when clicked on yesterday', () => {
+    const onChange = jest.fn();
+
+    render(
+      <OverlayProvider>
+        <DateRangePicker
+          showCalendar
+          showRanges
+          aria-label="Calendar"
+          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+          onChange={onChange}
+        />
+      </OverlayProvider>,
+    );
+    expect(screen.getByText('Jul 2, 2022 - Jul 12, 2022')).toBeVisible();
+
+    fireEvent.click(screen.getByRole('button'));
+
+    const dialog = screen.getByRole('presentation');
+
+    expect(dialog).toBeInTheDocument();
+
+    fireEvent.click(screen.getByText('Yesterday'));
+    act(() => {
+      jest.runAllTimers();
+    });
+    const today = new Date();
+
+    const yesterday = new Date(today);
+      yesterday.setDate(today.getDate() - 1);
+
+    const yesterdayDateString = `${yesterday.toLocaleDateString(undefined, {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    })}`;
+    expect(screen.getByText(`${yesterdayDateString} - ${yesterdayDateString}`)).toBeVisible();
+  });
 });
