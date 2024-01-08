@@ -1,5 +1,14 @@
 # @manifest/react
 
+## 3.21.2
+
+### Patch Changes
+
+- [#524](https://github.com/project44/manifest/pull/524)
+  [`6fd08c6`](https://github.com/project44/manifest/commit/6fd08c619f881a9772c84349e4feec16e484fac1)
+  Thanks [@kaushik-sa](https://github.com/kaushik-sa)! - fix: updated logic to calculate the start
+  and end of Yesterday on date range picker
+
 ## 3.21.1
 
 ### Patch Changes
