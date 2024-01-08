@@ -1,5 +1,14 @@
 # @manifest/react
 
+## 3.21.1
+
+### Patch Changes
+
+- [#525](https://github.com/project44/manifest/pull/525)
+  [`ab1a947`](https://github.com/project44/manifest/commit/ab1a94731a74cac11db033f2b3f431e334db793f)
+  Thanks [@kaushik-sa](https://github.com/kaushik-sa)! - fix: updated z-index of modal to avoid
+  overlapping with other components having z-index 1/2 in the DOM
+
 ## 3.21.0
 
 ### Minor Changes
