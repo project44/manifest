@@ -99,7 +99,7 @@ export interface ComboboxOptions<T extends As = ComboboxElement>
   /**
    * Custom popover width with max-width as 400px
    */
-  customPopoverWidthFlag?: string;
+  customPopoverWidthFlag?: boolean;
 }
 
 export type ComboboxProps<T extends As = ComboboxElement> = Props<ComboboxOptions<T>>;
@@ -127,7 +127,7 @@ export const Combobox = createComponent<ComboboxOptions>((props, forwardedRef) =
     loading = false,
     loadingText,
     noResultsChildren,
-    customPopoverWidthFlag = true,
+    customPopoverWidthFlag,
   } = props;
 
   const isInvalid = validationState === 'invalid';
