@@ -4,6 +4,7 @@ import { cx } from '@project44-manifest/react-styles';
 import { flexRender, RowData } from '@tanstack/react-table';
 import { getColumnLayoutStyles } from '../../utils';
 import { DataTableFooterColumnProps } from './DataTableFooterColumnProps.types';
+import { ExtendedColumnDef } from '../DataTableColumn';
 
 export function DataTableFooterColumn<TData extends RowData, TVaue>(
   props: DataTableFooterColumnProps<TData, TVaue>,
@@ -24,6 +25,7 @@ export function DataTableFooterColumn<TData extends RowData, TVaue>(
       key={header.id}
       className={cx('manifest-table__cell', 'manifest-table__cell--header', {
         'manifest-table__cell--pinned': column.getIsPinned(),
+        isGroupStart: (column.columnDef as ExtendedColumnDef<TData>)?.isGroupStart,
       })}
       colSpan={header.colSpan}
       style={{

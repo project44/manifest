@@ -4,6 +4,7 @@ import { flexRender, RowData } from '@tanstack/react-table';
 import { Skeleton } from '../../../Skeleton';
 import { getColumnLayoutStyles } from '../../utils';
 import { DataTableCellProps } from './DataTableCell.types';
+import { ExtendedColumnDef } from '../DataTableColumn';
 
 export function DataTableCell<TData extends RowData, TVaue>(
   props: DataTableCellProps<TData, TVaue>,
@@ -17,6 +18,7 @@ export function DataTableCell<TData extends RowData, TVaue>(
     <td
       className={cx('manifest-table__cell', {
         'manifest-table__cell--pinned': cell.column.getIsPinned(),
+        isGroupStart: (cell.column.columnDef as ExtendedColumnDef<TData>)?.isGroupStart,
       })}
       style={{ ...styles, paddingLeft: isNested ? `${cell.row.depth + 0.75}rem` : undefined }}
     >
