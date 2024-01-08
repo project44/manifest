@@ -134,11 +134,11 @@ CustomWidth.decorators = [
   () => (
     <div style={{ width: '300px' }}>
       <Combobox
+        customPopoverWidthFlag
         helperText="Error text"
         label="Label"
         startIcon={<Icon icon="search" />}
         validationState="invalid"
-        customPopoverWidthFlag
       >
         <ComboboxItem key="Aardvark">
           Aardvark Aardvark Aardvark Aardvark Aardvark Aardvark Aardvark
