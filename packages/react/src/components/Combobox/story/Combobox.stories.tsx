@@ -14,7 +14,9 @@ export const Default = Template.bind({});
 Default.decorators = [
   () => (
     <Combobox>
-      <ComboboxItem key="Aardvark">Aardvark</ComboboxItem>
+      <ComboboxItem key="Aardvark">
+        AardvarkAardvarkAardvarkAardvarkAardvarkAardvarkAardvarkAardvarkAardvarkAardvarkAardvark
+      </ComboboxItem>
       <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
       <ComboboxItem key="snake">Snake</ComboboxItem>
     </Combobox>
