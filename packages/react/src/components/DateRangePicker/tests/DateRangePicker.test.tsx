@@ -292,7 +292,7 @@ describe('@project44-manifest/components - DateRangePicker', () => {
     const today = new Date();
 
     const yesterday = new Date(today);
-      yesterday.setDate(today.getDate() - 1);
+    yesterday.setDate(today.getDate() - 1);
 
     const yesterdayDateString = `${yesterday.toLocaleDateString(undefined, {
       month: 'short',
