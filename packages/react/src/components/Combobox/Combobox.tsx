@@ -127,7 +127,7 @@ export const Combobox = createComponent<ComboboxOptions>((props, forwardedRef) =
     loading = false,
     loadingText,
     noResultsChildren,
-    customPopoverWidthFlag,
+    customPopoverWidthFlag = true,
   } = props;
 
   const isInvalid = validationState === 'invalid';
@@ -215,7 +215,7 @@ export const Combobox = createComponent<ComboboxOptions>((props, forwardedRef) =
   const popoverCss = customPopoverWidthFlag
     ? {
         minWidth: containerDimensions?.width,
-        maxWidth: 400,
+        maxWidth: 'max(400px, 100%)',
         left: containerDimensions?.left,
       }
     : {
