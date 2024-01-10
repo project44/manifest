@@ -14,7 +14,9 @@ export const Default = Template.bind({});
 Default.decorators = [
   () => (
     <Combobox>
-      <ComboboxItem key="Aardvark">Aardvark</ComboboxItem>
+      <ComboboxItem key="Aardvark">
+        AardvarkAardvarkAardvarkAardvarkAardvarkAardvarkAardvarkAardvarkAardvarkAardvarkAardvark
+      </ComboboxItem>
       <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
       <ComboboxItem key="snake">Snake</ComboboxItem>
     </Combobox>
@@ -123,5 +125,27 @@ Invalid.decorators = [
       <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
       <ComboboxItem key="snake">Snake</ComboboxItem>
     </Combobox>
+  ),
+];
+
+export const CustomWidth = Template.bind({});
+
+CustomWidth.decorators = [
+  () => (
+    <div style={{ width: '300px' }}>
+      <Combobox
+        wide
+        helperText="Error text"
+        label="Label"
+        startIcon={<Icon icon="search" />}
+        validationState="invalid"
+      >
+        <ComboboxItem key="Aardvark">
+          Aardvark Aardvark Aardvark Aardvark Aardvark Aardvark Aardvark
+        </ComboboxItem>
+        <ComboboxItem key="kangaroo">Kangaroo</ComboboxItem>
+        <ComboboxItem key="snake">Snake</ComboboxItem>
+      </Combobox>
+    </div>
   ),
 ];

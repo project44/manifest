@@ -8,7 +8,7 @@ import { useOverlayPosition } from '@react-aria/overlays';
 import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { useComboBoxState } from '@react-stately/combobox';
 import type { AriaComboBoxProps } from '@react-types/combobox';
-import { cx } from '@project44-manifest/react-styles';
+import { CSS, cx } from '@project44-manifest/react-styles';
 import { As, createComponent, Options, Props } from '../../system';
 import type { StyleProps } from '../../types';
 import { FormControl } from '../FormControl';
@@ -96,6 +96,10 @@ export interface ComboboxOptions<T extends As = ComboboxElement>
    * Specifies the no results ui elements for the combobox
    */
   noResultsChildren?: React.ReactElement | React.ReactElement[];
+  /**
+   * Custom popover width with max-width as 400px
+   */
+  wide?: boolean;
 }
 
 export type ComboboxProps<T extends As = ComboboxElement> = Props<ComboboxOptions<T>>;
@@ -123,6 +127,7 @@ export const Combobox = createComponent<ComboboxOptions>((props, forwardedRef) =
     loading = false,
     loadingText,
     noResultsChildren,
+    wide,
   } = props;
 
   const isInvalid = validationState === 'invalid';
@@ -205,6 +210,17 @@ export const Combobox = createComponent<ComboboxOptions>((props, forwardedRef) =
 
   const containerDimensions = containerRef.current?.getBoundingClientRect();
 
+  // this flag lets consumer controls width of popover to be customised
+  // with minimum width be same as container width and max width will be 400px
+  const popoverCss: CSS = wide
+    ? {
+        minWidth: containerDimensions?.width,
+        maxWidth: 'max(400px, 100%)',
+      }
+    : {
+        width: containerDimensions?.width,
+      };
+  popoverCss.left = containerDimensions?.left;
   return (
     <FormControl
       className={classes}
@@ -233,7 +249,7 @@ export const Combobox = createComponent<ComboboxOptions>((props, forwardedRef) =
             {...overlayProps}
             ref={popoverRef}
             className="manifest-combobox__popover"
-            css={{ left: containerDimensions?.left, width: containerDimensions?.width }}
+            css={popoverCss}
             isOpen={state.isOpen}
             onClose={handleClose}
           >
