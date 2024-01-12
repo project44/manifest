@@ -1,9 +1,22 @@
 import * as React from 'react';
 import { ChevronDown, ChevronUp, Sort } from '@project44-manifest/react-icons';
 import { cx } from '@project44-manifest/react-styles';
-import { flexRender, RowData } from '@tanstack/react-table';
+import {
+  AccessorColumnDef,
+  DisplayColumnDef,
+  flexRender,
+  GroupColumnDef,
+  RowData,
+} from '@tanstack/react-table';
 import { getColumnLayoutStyles } from '../../utils';
 import { DataTableColumnProps } from './DataTableColumn.types';
+
+export interface ExtendedColumnDef<TData extends RowData, TValue = unknown>
+  extends Omit<DisplayColumnDef<TData, TValue>, 'isGroupStart'>,
+    Omit<GroupColumnDef<TData, TValue>, 'isGroupStart'>,
+    Omit<AccessorColumnDef<TData, TValue>, 'isGroupStart'> {
+  isGroupStart?: boolean;
+}
 
 export function DataTableColumn<TData extends RowData, TVaue>(
   props: DataTableColumnProps<TData, TVaue>,
@@ -36,6 +49,7 @@ export function DataTableColumn<TData extends RowData, TVaue>(
       className={cx('manifest-table__cell', 'manifest-table__cell--header', {
         'manifest-table__cell--sticky-header': table.options.enableStickyHeader,
         'manifest-table__cell--pinned': column.getIsPinned(),
+        isGroupStart: (column.columnDef as ExtendedColumnDef<TData>)?.isGroupStart,
       })}
       colSpan={header.colSpan}
       style={{ ...styles }}
