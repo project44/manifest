@@ -1,5 +1,19 @@
 # @manifest/react
 
+## 3.22.0
+
+### Minor Changes
+
+- [#526](https://github.com/project44/manifest/pull/526)
+  [`0ab4b01`](https://github.com/project44/manifest/commit/0ab4b018f03530fab9c265536d9064db226b9761)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - Made changes to add class name based on
+  isGroupStart prop to control group start css
+
+* [#528](https://github.com/project44/manifest/pull/528)
+  [`a49c01d`](https://github.com/project44/manifest/commit/a49c01d330e0d3989d5026f76c1e6dd5fcf112b3)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - Made changes to update width of combobox
+  popover based on flag
+
 ## 3.21.2
 
 ### Patch Changes
