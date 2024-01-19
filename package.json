@@ -1,5 +1,6 @@
 {
   "name": "manifest-root",
+  "sideEffects": false,
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
