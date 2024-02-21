@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import { Button } from '../../..';
 import { DialogV2, DialogV2Props, DialogV2Size } from '../dialogv2';
+import { ModalPosition } from '../../Modal/Modal.types';
 
 const meta: Meta<DialogV2Props> = {
   component: DialogV2,
@@ -9,6 +10,10 @@ const meta: Meta<DialogV2Props> = {
   argTypes: {
     size: {
       options: [DialogV2Size.small, DialogV2Size.medium, DialogV2Size.large],
+      control: { type: 'radio' },
+    },
+    position: {
+      options: [ModalPosition.top, ModalPosition.center],
       control: { type: 'radio' },
     },
   },
@@ -57,4 +62,5 @@ Default.args = {
   isKeyboardDismissDisabled: true,
   edgeToEdge: false,
   size: DialogV2Size.small,
+  position: ModalPosition.top,
 };

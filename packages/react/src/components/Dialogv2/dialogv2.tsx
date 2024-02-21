@@ -11,6 +11,7 @@ import { useDialog } from '@react-aria/dialog';
 import { DialogProvider } from '../Dialog/Dialog.context';
 import { mergeProps } from '@react-aria/utils';
 import { Modal } from '../Modal';
+import { ModalPosition } from '../Modal/Modal.types';
 
 export enum DialogV2Size {
   small = 'small',
@@ -30,6 +31,7 @@ export interface DialogV2Props {
   isKeyboardDismissDisabled?: boolean;
   size?: DialogV2Size;
   edgeToEdge?: boolean;
+  position?: ModalPosition;
 }
 
 export const DialogV2Impl = React.forwardRef((props, forwardedRef) => {
@@ -89,7 +91,13 @@ export const DialogV2Impl = React.forwardRef((props, forwardedRef) => {
 DialogV2Impl.displayName = 'DialogImpl';
 
 export const DialogV2 = React.forwardRef((props, forwardedRef) => {
-  const { isDismissable = true, isKeyboardDismissDisabled = false, isOpen, ...other } = props;
+  const {
+    isDismissable = true,
+    isKeyboardDismissDisabled = false,
+    isOpen,
+    position,
+    ...other
+  } = props;
 
   const { onClose } = other.headerProps;
   return (
@@ -99,6 +107,7 @@ export const DialogV2 = React.forwardRef((props, forwardedRef) => {
       isOpen={isOpen}
       onClose={onClose}
       data-testid="dialogV2Modal"
+      position={position}
     >
       <DialogV2Impl {...other} isDismissable={isDismissable} />
     </Modal>

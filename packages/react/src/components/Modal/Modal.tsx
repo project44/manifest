@@ -6,7 +6,7 @@ import { useMergedRef } from '../../hooks';
 import { mergeProps } from '../../utils';
 import { Overlay } from '../Overlay';
 import { StyledModal, StyledModalWrapper, StyledUnderlay } from './Modal.styles';
-import type { ModalElement, ModalProps } from './Modal.types';
+import { ModalElement, ModalProps, ModalPosition } from './Modal.types';
 
 /**
  * Modal implementation; Need to initialize the overlay component before calling
@@ -24,6 +24,7 @@ const ModalImpl = React.forwardRef((props, forwardedRef) => {
     isKeyboardDismissDisabled,
     isOpen,
     onClose,
+    position = ModalPosition.top,
     ...other
   } = props;
 
@@ -51,7 +52,7 @@ const ModalImpl = React.forwardRef((props, forwardedRef) => {
   return (
     <>
       <StyledUnderlay {...underlayProps} className="manifest-underlay" isOpen={isOpen} />
-      <StyledModalWrapper className="manifest-modal-wrapper" isOpen={isOpen}>
+      <StyledModalWrapper className="manifest-modal-wrapper" isOpen={isOpen} position={position}>
         <StyledModal
           {...mergeProps(overlayProps, other)}
           ref={mergedRef}
