@@ -6,7 +6,7 @@ import { useMergedRef } from '../../hooks';
 import { mergeProps } from '../../utils';
 import { Overlay } from '../Overlay';
 import { StyledModal, StyledModalWrapper, StyledUnderlay } from './Modal.styles';
-import { ModalElement, ModalProps, ModalPosition } from './Modal.types';
+import { ModalElement, ModalPosition, ModalProps } from './Modal.types';
 
 /**
  * Modal implementation; Need to initialize the overlay component before calling

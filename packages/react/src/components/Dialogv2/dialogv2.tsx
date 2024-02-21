@@ -1,17 +1,17 @@
 import React from 'react';
-import { ForwardRefComponent } from '@project44-manifest/react-types';
+import { useDialog } from '@react-aria/dialog';
+import { mergeProps } from '@react-aria/utils';
+import { cx } from '@project44-manifest/react-styles';
+import type { ForwardRefComponent } from '@project44-manifest/react-types';
+import { useMergedRef } from '../../hooks';
+import { DialogProvider } from '../Dialog/Dialog.context';
 import { DialogElement } from '../Dialog/Dialog.types';
-import { DialogV2Wrapper } from './dialogv2.styles';
-import { DialogHeader } from '../DialogHeader';
 import { DialogContent } from '../DialogContent';
 import { DialogFooter } from '../DialogFooter';
-import { cx } from '@project44-manifest/react-styles';
-import { useMergedRef } from '../../hooks';
-import { useDialog } from '@react-aria/dialog';
-import { DialogProvider } from '../Dialog/Dialog.context';
-import { mergeProps } from '@react-aria/utils';
+import { DialogHeader } from '../DialogHeader';
 import { Modal } from '../Modal';
 import { ModalPosition } from '../Modal/Modal.types';
+import { DialogV2Wrapper } from './dialogv2.styles';
 
 export enum DialogV2Size {
   small = 'small',
@@ -25,8 +25,8 @@ export interface DialogV2Props {
     title: string;
     onClose: () => void;
   };
-  body: string | React.ReactNode;
-  footer?: string | React.ReactNode;
+  body: React.ReactNode | string;
+  footer?: React.ReactNode | string;
   isDismissable?: boolean;
   isKeyboardDismissDisabled?: boolean;
   size?: DialogV2Size;
@@ -66,7 +66,7 @@ export const DialogV2Impl = React.forwardRef((props, forwardedRef) => {
 
   const className = cx('manifest-dialog', classNameProp, {
     [`manifest-dialog-${size}`]: size,
-    [`manifest-dialog-edgeToEdge`]: edgeToEdge,
+    'manifest-dialog-edgeToEdge': edgeToEdge,
   });
 
   return (
@@ -76,13 +76,13 @@ export const DialogV2Impl = React.forwardRef((props, forwardedRef) => {
         ref={mergedRef}
         as={as}
         className={className}
-        size={size}
+        data-testid="dialogV2Wrapper"
         edgeToEdge={edgeToEdge ? 'noPadding' : undefined}
-        data-testid={'dialogV2Wrapper'}
+        size={size}
       >
-        <DialogHeader data-testid={'dialogV2Header'}>{title}</DialogHeader>
-        <DialogContent data-testid={'dialogV2Content'}>{body}</DialogContent>
-        {footer && <DialogFooter data-testid={'dialogV2Footer'}>{footer}</DialogFooter>}
+        <DialogHeader data-testid="dialogV2Header">{title}</DialogHeader>
+        <DialogContent data-testid="dialogV2Content">{body}</DialogContent>
+        {footer && <DialogFooter data-testid="dialogV2Footer">{footer}</DialogFooter>}
       </DialogV2Wrapper>
     </DialogProvider>
   );
@@ -102,12 +102,12 @@ export const DialogV2 = React.forwardRef((props, forwardedRef) => {
   const { onClose } = other.headerProps;
   return (
     <Modal
+      data-testid="dialogV2Modal"
       isDismissable={isDismissable}
       isKeyboardDismissDisabled={isKeyboardDismissDisabled}
       isOpen={isOpen}
-      onClose={onClose}
-      data-testid="dialogV2Modal"
       position={position}
+      onClose={onClose}
     >
       <DialogV2Impl {...other} isDismissable={isDismissable} />
     </Modal>

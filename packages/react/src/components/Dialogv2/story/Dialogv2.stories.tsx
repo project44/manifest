@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import { Button } from '../../..';
-import { DialogV2, DialogV2Props, DialogV2Size } from '../dialogv2';
 import { ModalPosition } from '../../Modal/Modal.types';
+import { DialogV2, DialogV2Props, DialogV2Size } from '../dialogv2';
 
 const meta: Meta<DialogV2Props> = {
   component: DialogV2,
@@ -28,7 +28,7 @@ export const Default: StoryFn<DialogV2Props> = (args: DialogV2Props) => {
   const handleOpen = React.useCallback(() => void setIsOpen(true), []);
 
   const props: DialogV2Props = {
-    isOpen: isOpen,
+    isOpen,
     headerProps: {
       title: 'Dialog Title',
       onClose: handleClose,
@@ -52,7 +52,7 @@ export const Default: StoryFn<DialogV2Props> = (args: DialogV2Props) => {
   return (
     <>
       <Button onPress={handleOpen}>Open Dialog</Button>
-      <DialogV2 {...args} {...props}></DialogV2>
+      <DialogV2 {...args} {...props} />
     </>
   );
 };

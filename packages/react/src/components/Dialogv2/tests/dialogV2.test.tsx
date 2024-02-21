@@ -18,13 +18,13 @@ afterAll(() => {
 });
 
 it('should render dialogV2', () => {
-  let onClose = jest.fn();
+  const onClose = jest.fn();
   render(
     <DialogV2
-      isOpen={true}
+      isOpen
       body="Some string"
       headerProps={{
-        onClose: onClose,
+        onClose,
         title: 'some title',
       }}
     />,
@@ -34,16 +34,16 @@ it('should render dialogV2', () => {
 });
 
 it('should render footer', () => {
-  let onClose = jest.fn();
+  const onClose = jest.fn();
   render(
     <DialogV2
-      isOpen={true}
+      isOpen
       body="Some string"
+      footer="Some footer text that i need to place"
       headerProps={{
-        onClose: onClose,
+        onClose,
         title: 'some title',
       }}
-      footer="Some footer text that i need to place"
     />,
   );
 
@@ -51,20 +51,18 @@ it('should render footer', () => {
 });
 
 it('should react to size', () => {
-  let onClose = jest.fn();
+  const onClose = jest.fn();
   render(
     <DialogV2
-      size={DialogV2Size.small}
-      isOpen={true}
+      isOpen
       body="Some string"
+      footer="Some footer text that i need to place"
       headerProps={{
-        onClose: onClose,
+        onClose,
         title: 'some title',
       }}
-      footer="Some footer text that i need to place"
+      size={DialogV2Size.small}
     />,
   );
-  expect(screen.getByTestId('dialogV2Wrapper').className.includes('manifest-dialog-small')).toBe(
-    true,
-  );
+  expect(screen.getByTestId('dialogV2Wrapper').className).toContain('manifest-dialog-small');
 });
