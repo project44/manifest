@@ -1,5 +1,13 @@
 # @project44-manifest/react-icons
 
+## 2.2.0
+
+### Minor Changes
+
+- [#533](https://github.com/project44/manifest/pull/533)
+  [`a23bdf4`](https://github.com/project44/manifest/commit/a23bdf4e15f7db99d8896bc1d0c6e32c023aacbb)
+  Thanks [@dhalyal7](https://github.com/dhalyal7)! - add new icon (Globe)
+
 ## 2.1.1
 
 ### Patch Changes
