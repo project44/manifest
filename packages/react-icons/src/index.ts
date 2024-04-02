@@ -49,6 +49,7 @@ export * from './EyeOpen';
 export * from './Filter';
 export * from './Flatbed';
 export * from './Folder';
+export * from './Globe';
 export * from './Grow';
 export * from './InfoCircled';
 export * from './InfoCircleFilled';
