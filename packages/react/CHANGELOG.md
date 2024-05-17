@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 3.22.1
+
+### Patch Changes
+
+- [#535](https://github.com/project44/manifest/pull/535)
+  [`0676b2a`](https://github.com/project44/manifest/commit/0676b2ad0ae3f496451f14aebe4c7a0618d4a143)
+  Thanks [@p44dyoachim](https://github.com/p44dyoachim)! - add key to NavigationTabs button element
+
 ## 3.22.0
 
 ### Minor Changes
