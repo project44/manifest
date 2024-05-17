@@ -96,6 +96,7 @@ export const NavigationTabs = React.forwardRef((props, forwardedRef) => {
             <Button
               aria-checked={isActive}
               aria-label={label}
+              key={label}
               css={{
                 backgroundColor: 'transparent',
                 color: '$palette-white',
