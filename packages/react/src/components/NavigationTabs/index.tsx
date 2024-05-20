@@ -66,6 +66,22 @@ export const NavigationTabs = React.forwardRef((props, forwardedRef) => {
     ...props.css,
   };
 
+  const renderTabItemWithTooltip = (toolTip: string, children: React.ReactElement) => (
+    <Tooltip
+      key={toolTip}
+      css={{
+        marginLeft: '80px',
+        width: '350px',
+      }}
+      data-testid="navigation-tooltip"
+      delay={250}
+      placement="bottom"
+      title={toolTip}
+    >
+      {children}
+    </Tooltip>
+  );
+
   return (
     <Flex
       ref={forwardedRef}
@@ -81,58 +97,48 @@ export const NavigationTabs = React.forwardRef((props, forwardedRef) => {
     >
       {tabs.map(({ label, count, onClick, toolTip }, index) => {
         const isActive = activeTab === index;
-        return (
-          <Tooltip
-            key={toolTip}
+        const tabItem = (
+          <Button
+            key={label}
+            aria-checked={isActive}
+            aria-label={label}
             css={{
-              marginLeft: '80px',
-              width: '350px',
+              backgroundColor: 'transparent',
+              color: '$palette-white',
+              justifyContent: 'center',
+              borderRadius: '20px',
+              minWidth: 120,
+              ...(isActive && activeTabStyle),
+              '&:focus:after': {
+                boxShadow: 'none',
+                outline: 'none',
+              },
+              ...buttonCss,
+              ...(isActive && activeButtonCss),
             }}
-            data-testid="navigation-tooltip"
-            delay={250}
-            placement="bottom"
-            title={toolTip}
+            size="small"
+            startIcon={
+              isLoading || typeof count === 'number' || typeof count === 'string' ? (
+                <CountLabel
+                  css={counterCss}
+                  isLoading={isLoading}
+                  value={count ?? ''}
+                  variant={isActive ? activeCountColor : countColor}
+                />
+              ) : undefined
+            }
+            variant="tertiary"
+            // eslint-disable-next-line
+            onPress={() => {
+              setActiveTab(index);
+              onClick?.();
+            }}
           >
-            <Button
-              key={label}
-              aria-checked={isActive}
-              aria-label={label}
-              css={{
-                backgroundColor: 'transparent',
-                color: '$palette-white',
-                justifyContent: 'center',
-                borderRadius: '20px',
-                minWidth: 120,
-                ...(isActive && activeTabStyle),
-                '&:focus:after': {
-                  boxShadow: 'none',
-                  outline: 'none',
-                },
-                ...buttonCss,
-                ...(isActive && activeButtonCss),
-              }}
-              size="small"
-              startIcon={
-                isLoading || typeof count === 'number' || typeof count === 'string' ? (
-                  <CountLabel
-                    css={counterCss}
-                    isLoading={isLoading}
-                    value={count ?? ''}
-                    variant={isActive ? activeCountColor : countColor}
-                  />
-                ) : undefined
-              }
-              variant="tertiary"
-              // eslint-disable-next-line
-              onPress={() => {
-                setActiveTab(index);
-                onClick?.();
-              }}
-            >
-              {label}
-            </Button>
-          </Tooltip>
+            {label}
+          </Button>
         );
+
+        return toolTip ? renderTabItemWithTooltip(toolTip, tabItem) : tabItem;
       })}
     </Flex>
   );

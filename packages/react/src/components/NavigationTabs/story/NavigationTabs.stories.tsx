@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { Button, Flex, NavigationTab, NavigationTabs, Tooltip } from '../src';
+import { Button, Flex, NavigationTab, NavigationTabs, Tooltip } from '../../..';
 
 export default {
   title: 'Components/NavigationTabs',
@@ -10,7 +9,6 @@ export default {
 export const Default = () => {
   const tabData: NavigationTab[] = ['creation', 'tracking', 'quality'].map((name) => ({
     label: name,
-    toolTip: name,
     onClick: () => {
       // eslint-disable-next-line
       console.log(name);
