@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 3.22.2
+
+### Patch Changes
+
+- [#537](https://github.com/project44/manifest/pull/537)
+  [`9d79500`](https://github.com/project44/manifest/commit/9d79500919d8a4c64ed538094bdc2b9c3ed1db36)
+  Thanks [@vitaliy-p44](https://github.com/vitaliy-p44)! - fix duplicate key warning
+
 ## 3.22.1
 
 ### Patch Changes
