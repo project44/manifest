@@ -18,21 +18,19 @@ export const useStyles = css({
     color: '$palette-white',
     cursor: 'pointer',
     display: 'inline-flex',
-    height: pxToRem(24),
     margin: 0,
     padding: 0,
     position: 'relative',
-    width: pxToRem(44),
+    transition: 'background 200ms cubic-bezier(0.4, 0.14, 0.3, 1) 0ms',
   },
 
   '.manifest-switch__indicator': {
     backgroundColor: '$palette-white',
     borderRadius: '$full',
     display: 'block',
-    size: pxToRem(18),
     transform: 'translateX(3px)',
-    transition: '$transform',
     willChange: 'transform',
+    transition: 'transform 200ms cubic-bezier(0.4, 0.14, 0.3, 1) 0ms',
   },
 
   '.manifest-switch__input': {
@@ -52,6 +50,26 @@ export const useStyles = css({
   },
 
   variants: {
+    size: {
+      medium: {
+        '.manifest-switch__control': {
+          height: pxToRem(24),
+          width: pxToRem(44),
+        },
+        '.manifest-switch__indicator': {
+          size: pxToRem(18),
+        },
+      },
+      small: {
+        '.manifest-switch__control': {
+          height: pxToRem(16),
+          width: pxToRem(30),
+        },
+        '.manifest-switch__indicator': {
+          size: pxToRem(12),
+        },
+      },
+    },
     isChecked: {
       true: {
         $$switchBackgroundColor: '$colors$primary-default',
@@ -113,5 +131,18 @@ export const useStyles = css({
         $$switchBackgroundColor: '$colors$primary-active',
       },
     },
+    {
+      isChecked: true,
+      size: 'small',
+      css: {
+        '.manifest-switch__indicator': {
+          transform: 'translateX(15px)',
+        },
+      },
+    },
   ],
+
+  defaultVariants: {
+    size: 'medium',
+  },
 });

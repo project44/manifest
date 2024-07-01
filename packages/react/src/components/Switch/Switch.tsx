@@ -12,8 +12,18 @@ import { Typography } from '../Typography';
 import { useStyles } from './Switch.styles';
 
 export type SwitchElement = 'label';
-export type SwitchOptions<T extends As = SwitchElement> = AriaSwitchProps & Options<T> & StyleProps;
 export type SwitchProps<T extends As = SwitchElement> = Props<SwitchOptions<T>>;
+export interface SwitchOptions<T extends As = SwitchElement>
+  extends AriaSwitchProps,
+    Options<T>,
+    StyleProps {
+  /**
+   * The size of the component
+   *
+   * @default medium
+   */
+  size?: 'medium' | 'small';
+}
 
 export const Switch = createComponent<SwitchOptions>((props, forwardedRef) => {
   const {
@@ -23,6 +33,7 @@ export const Switch = createComponent<SwitchOptions>((props, forwardedRef) => {
     className: classNameProp,
     css,
     isDisabled,
+    size = 'medium',
   } = props;
 
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -38,6 +49,7 @@ export const Switch = createComponent<SwitchOptions>((props, forwardedRef) => {
 
   const { className } = useStyles({
     css,
+    size,
     isChecked,
     isDisabled,
     isFocusVisible,
@@ -49,6 +61,7 @@ export const Switch = createComponent<SwitchOptions>((props, forwardedRef) => {
     'manifest-switch': true,
     'manifest-switch--checked': isChecked,
     'manifest-switch--disabled': isDisabled,
+    [`manifest-switch--${size}`]: size,
   });
 
   return (
@@ -64,7 +77,10 @@ export const Switch = createComponent<SwitchOptions>((props, forwardedRef) => {
       </div>
 
       {children && (
-        <Typography className="manifest-switch__text" variant="subtext">
+        <Typography
+          className="manifest-switch__text"
+          variant={size === 'small' ? 'caption' : 'subtext'}
+        >
           {children}
         </Typography>
       )}
