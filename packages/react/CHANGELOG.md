@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 3.23.0
+
+### Minor Changes
+
+- [#539](https://github.com/project44/manifest/pull/539)
+  [`efdbb2e`](https://github.com/project44/manifest/commit/efdbb2e5c5f007160243b35a9262be07b1e0ec01)
+  Thanks [@vitaliy-p44](https://github.com/vitaliy-p44)! - switch component size property
+
 ## 3.22.2
 
 ### Patch Changes
