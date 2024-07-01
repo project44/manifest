@@ -15,6 +15,13 @@ Default.args = {
   children: 'Switch',
 };
 
+export const Small = Template.bind({});
+
+Small.args = {
+  children: 'Switch',
+  size: 'small',
+};
+
 export const Disabled = Template.bind({});
 
 Disabled.args = {
