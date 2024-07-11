@@ -141,6 +141,7 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
     selectAllCheckboxProps,
     selectCheckboxProps,
     state,
+    onRowSelectionChange,
     ...(manualExpanding && { onExpandedChange }),
     ...(manualPagination && { onPaginationChange }),
     ...(manualSorting && { onSortingChange }),
