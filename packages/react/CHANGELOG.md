@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 3.23.1
+
+### Patch Changes
+
+- [#541](https://github.com/project44/manifest/pull/541)
+  [`4b69d9c`](https://github.com/project44/manifest/commit/4b69d9c3661b27b1ae401bbc0d344665e3319371)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - added onRowSeclectionChange callback
+
 ## 3.23.0
 
 ### Minor Changes
