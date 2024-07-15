@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 3.23.2
+
+### Patch Changes
+
+- [#543](https://github.com/project44/manifest/pull/543)
+  [`9cde4eb`](https://github.com/project44/manifest/commit/9cde4ebc349572ef93689c74732e822581f1355b)
+  Thanks [@vitaliy-p44](https://github.com/vitaliy-p44)! - fix switch flexbox styles
+
 ## 3.23.1
 
 ### Patch Changes
