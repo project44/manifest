@@ -12,6 +12,7 @@ export const useStyles = css({
 
   '.manifest-switch__control': {
     alignItems: 'center',
+    flexShrink: 0,
     backgroundColor: '$$switchBackgroundColor',
     borderRadius: '$full',
     boxSizing: 'border-box',
