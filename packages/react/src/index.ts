@@ -161,7 +161,7 @@ export type { TextAreaProps } from './components/TextArea';
 export { TextArea } from './components/TextArea';
 export type { TextFieldProps } from './components/TextField';
 export { TextField } from './components/TextField';
-export type { ToastOptions, ToastVariant } from './components/Toast';
+export type { ToastOptions, ToastPosition, ToastVariant } from './components/Toast';
 export { toast } from './components/Toast';
 export type { ToasterProps } from './components/Toaster';
 export { Toaster } from './components/Toaster';

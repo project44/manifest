@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, toast, Toaster, ToasterProps } from '../../..';
+import { Button, ButtonGroup, Flex, toast, Toaster, ToasterProps, ToastPosition } from '../../..';
 
 export default {
   title: 'Components/Toast',
@@ -121,5 +121,51 @@ export const Error = (args: ToasterProps) => {
       <Toaster {...args} />
       <Button onPress={handlePress}>Open Toast</Button>
     </>
+  );
+};
+
+export const Positioning = (args: ToasterProps) => {
+  const handlePress = (position: ToastPosition): void => {
+    toast.info('Lorem ipsum dolor', {
+      description:
+        'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      duration: 1000,
+      position,
+    });
+  };
+
+  const handleTopLeft = React.useCallback(() => {
+    handlePress('top-left');
+  }, []);
+  const handleTopCenter = React.useCallback(() => {
+    handlePress('top-center');
+  }, []);
+  const handleTopRight = React.useCallback(() => {
+    handlePress('top-right');
+  }, []);
+  const handleBottomLeft = React.useCallback(() => {
+    handlePress('bottom-left');
+  }, []);
+  const handleBottomCenter = React.useCallback(() => {
+    handlePress('bottom-center');
+  }, []);
+  const handleBottomRight = React.useCallback(() => {
+    handlePress('bottom-right');
+  }, []);
+
+  return (
+    <Flex css={{ width: 600, height: 400 }}>
+      <Toaster {...args} />
+      <Flex>
+        <ButtonGroup>
+          <Button onPress={handleTopLeft}>top-left</Button>
+          <Button onPress={handleTopCenter}>top-center</Button>
+          <Button onPress={handleTopRight}>top-right</Button>
+          <Button onPress={handleBottomLeft}>bottom-left</Button>
+          <Button onPress={handleBottomCenter}>bottom-center</Button>
+          <Button onPress={handleBottomRight}>bottom-right</Button>
+        </ButtonGroup>
+      </Flex>
+    </Flex>
   );
 };
