@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 3.24.0
+
+### Minor Changes
+
+- [#545](https://github.com/project44/manifest/pull/545)
+  [`831104c`](https://github.com/project44/manifest/commit/831104c4efe53ac13d50228eb588fc3a66e0ba75)
+  Thanks [@vitaliy-p44](https://github.com/vitaliy-p44)! - toast position support
+
 ## 3.23.2
 
 ### Patch Changes
