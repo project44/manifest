@@ -3,6 +3,14 @@ import type { IconButton } from '../button';
 
 export type ToastVariant = 'default' | 'error' | 'info' | 'success' | 'warning';
 
+export type ToastPosition =
+  | 'bottom-center'
+  | 'bottom-left'
+  | 'bottom-right'
+  | 'top-center'
+  | 'top-left'
+  | 'top-right';
+
 export type ToastElement = 'div';
 
 export interface ToastProps {
@@ -48,6 +56,10 @@ export interface ToastProps {
    * @default 'default'
    */
   variant?: ToastVariant;
+  /**
+   * The position
+   */
+  position?: ToastPosition;
 }
 
 export interface ToastOptions {
@@ -95,4 +107,8 @@ export interface ToastOptions {
    * The display variant of the toast.
    */
   variant?: ToastVariant;
+  /**
+   * The position
+   */
+  position?: ToastPosition;
 }

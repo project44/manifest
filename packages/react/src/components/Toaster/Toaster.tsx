@@ -6,14 +6,7 @@ import type { ToastOptions } from '../Toast';
 import { Toast } from '../Toast';
 import { StyledToaster } from './Toaster.styles';
 import type { ToasterElement, ToasterProps } from './Toaster.types';
-
-const getPositionStyle = (offset: number): React.CSSProperties => ({
-  position: 'absolute',
-  right: 0,
-  top: 0,
-  transform: `translateY(${Number(offset)}px)`,
-  transition: 'all 200ms cubic-bezier(0.4, 0.14, 0.3, 1)',
-});
+import { getPositionStyle } from './utils';
 
 export const Toaster = React.forwardRef((props, forwardedRef) => {
   const { as, className: classNameProp, css: cssProp, duration = 5000, ...other } = props;
@@ -56,19 +49,19 @@ export const Toaster = React.forwardRef((props, forwardedRef) => {
           message,
           onDismiss,
           variant,
+          position = 'top-right',
         } = rest as ToastOptions;
 
         const offset = handlers.calculateOffset(toast, {
           gutter: 8,
-          defaultPosition: 'top-right',
+          defaultPosition: position,
         });
 
-        const styles = getPositionStyle(offset);
+        const styles = getPositionStyle(position as string, offset);
 
         const toastRef = (element: HTMLElement | null) => {
           if (element && typeof toast.height !== 'number') {
             const { height } = element.getBoundingClientRect();
-
             updateHeight(toast.id, height);
           }
         };
