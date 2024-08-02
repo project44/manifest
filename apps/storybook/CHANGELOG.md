@@ -1,5 +1,13 @@
 # storybook
 
+## 0.2.0
+
+### Minor Changes
+
+- [#547](https://github.com/project44/manifest/pull/547)
+  [`3e5792e`](https://github.com/project44/manifest/commit/3e5792eb3420928a489e378c43acd0f2e6e03477)
+  Thanks [@vitaliy-p44](https://github.com/vitaliy-p44)! - fix: update Toast position docs
+
 ## 0.1.0
 
 ### Minor Changes
