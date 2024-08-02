@@ -53,6 +53,24 @@ function Duration() {
 }
 ```
 
+### Position
+
+Set toast position on the screen using the `position` prop.
+
+```jsx live
+function Position() {
+  const handlePress = React.useCallback(() => {
+    toast('Lorem ipsum dolor', {
+      position: 'bottom-left',
+      description:
+        'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    });
+  }, []);
+
+  return <Button onPress={handlePress}>Open bottom-left toast</Button>;
+}
+```
+
 ### Description
 
 Add additional information to a toast using the `description` prop.
