@@ -23,6 +23,22 @@ export const StyledButton = styled('button', {
   userSelect: 'none',
   whiteSpace: 'nowrap',
 
+  '&:focus-visible': {
+    '&:after': {
+      backgroundColor: 'transparent',
+      border: '2px solid $colors$palette-indigo-200',
+      // TODO: replace with design token once its defined
+      borderRadius: '4px',
+      bottom: '-4px',
+      content: '',
+      display: 'block',
+      left: '-4px',
+      position: 'absolute',
+      right: '-4px',
+      top: '-4px',
+    },
+  },
+
   variants: {
     hasEndIcon: {
       true: {
@@ -42,49 +58,60 @@ export const StyledButton = styled('button', {
         boxShadow: 'none',
       },
     },
-    isFocusVisible: {
-      true: {
-        '&:after': {
-          backgroundColor: 'transparent',
-          border: '2px solid $colors$palette-indigo-200',
-          // TODO: replace with design token once its defined.s
-          borderRadius: '4px',
-          bottom: '-4px',
-          content: '',
-          display: 'block',
-          left: '-4px',
-          position: 'absolute',
-          right: '-4px',
-          top: '-4px',
-        },
-      },
-      false: {},
-    },
-    isHovered: {
-      true: {},
-    },
-    isPressed: {
-      true: {},
-    },
     variant: {
       danger: {
         backgroundColor: '$palette-red-500',
         color: '$palette-white',
+        '&:hover': {
+          background:
+            'linear-gradient(0deg, rgba(9, 21, 33, 0.15), rgba(9, 21, 33, 0.15)), $colors$palette-red-500',
+        },
+        '&:active': {
+          background:
+            'linear-gradient(0deg, rgba(9, 21, 33, 0.3), rgba(9, 21, 33, 0.3)), $colors$palette-red-500',
+          boxShadow: 'inset 0px 1px 1px rgba(5, 10, 26, 0.25)',
+        },
       },
       brand: {
         background: '$brand-gradient',
         color: '$palette-white',
+        '&:hover': {
+          background: '$brand-hover',
+        },
+        '&:active': {
+          background: '$brand-active',
+        },
       },
       primary: {
         backgroundColor: '$primary-default',
         color: '$palette-white',
+        '&:hover': {
+          backgroundColor: '$primary-hover',
+        },
+        '&:active': {
+          backgroundColor: '$primary-active',
+          boxShadow: 'inset 0px 1px 1px rgba(5, 10, 26, 0.25)',
+        },
       },
       secondary: {
         backgroundColor: '$palette-white',
+        '&:hover': {
+          backgroundColor: '$palette-grey-100',
+        },
+        '&:active': {
+          backgroundColor: '$palette-grey-300',
+          boxShadow: 'inset 0px 1px 1px rgba(5, 10, 26, 0.25)',
+        },
       },
       tertiary: {
         backgroundColor: 'transparent',
         boxShadow: 'none',
+        '&:hover': {
+          backgroundColor: '$palette-grey-100',
+        },
+        '&:active': {
+          backgroundColor: '$palette-grey-300',
+        },
       },
     },
     size: {
@@ -117,83 +144,7 @@ export const StyledButton = styled('button', {
         borderColor: '$border-disabled',
       },
     },
-    {
-      isHovered: true,
-      variant: 'primary',
-      css: {
-        backgroundColor: '$primary-hover',
-      },
-    },
-    {
-      isHovered: true,
-      variant: 'secondary',
-      css: {
-        backgroundColor: '$palette-grey-100',
-      },
-    },
-    {
-      isHovered: true,
-      variant: 'tertiary',
-      css: {
-        backgroundColor: '$palette-grey-100',
-      },
-    },
-    {
-      isHovered: true,
-      variant: 'brand',
-      css: {
-        background: '$brand-hover',
-      },
-    },
-    {
-      isHovered: true,
-      variant: 'danger',
-      css: {
-        background:
-          'linear-gradient(0deg, rgba(9, 21, 33, 0.15), rgba(9, 21, 33, 0.15)), $colors$palette-red-500',
-      },
-    },
-    {
-      isPressed: true,
-      variant: 'primary',
-      css: {
-        backgroundColor: '$primary-active',
-        boxShadow: 'inset 0px 1px 1px rgba(5, 10, 26, 0.25)',
-      },
-    },
-    {
-      isPressed: true,
-      variant: 'secondary',
-      css: {
-        backgroundColor: '$palette-grey-300',
-        boxShadow: 'inset 0px 1px 1px rgba(5, 10, 26, 0.25)',
-      },
-    },
-    {
-      isPressed: true,
-      variant: 'tertiary',
-      css: {
-        backgroundColor: '$palette-grey-300',
-      },
-    },
-    {
-      isPressed: true,
-      variant: 'brand',
-      css: {
-        background: '$brand-active',
-      },
-    },
-    {
-      isPressed: true,
-      variant: 'danger',
-      css: {
-        background:
-          'linear-gradient(0deg, rgba(9, 21, 33, 0.3), rgba(9, 21, 33, 0.3)), $colors$palette-red-500',
-        boxShadow: 'inset 0px 1px 1px rgba(5, 10, 26, 0.25)',
-      },
-    },
   ],
-
   defaultVariants: {
     size: 'medium',
     variant: 'primary',
