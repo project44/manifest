@@ -73,8 +73,9 @@ export const FormControl = createComponent<FormControlOptions>((props, forwarded
         <Typography
           as="label"
           className="manifest-form-control__label"
-          variant="subtextBold"
           {...labelProps}
+          color="primary"
+          variant="subtextBold"
         >
           {label}
           {!isRequired && (
@@ -90,8 +91,9 @@ export const FormControl = createComponent<FormControlOptions>((props, forwarded
       {helperText && (
         <Typography
           className="manifest-form-control__helper-text"
-          variant="caption"
           {...helperTextProps}
+          color="primary"
+          variant="subtextBold"
         >
           {helperText}
         </Typography>

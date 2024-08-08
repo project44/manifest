@@ -21,9 +21,15 @@ export const useStyles = css({
       caption: { typography: '$caption' },
       captionBold: { typography: '$caption-bold' },
     },
+    color: {
+      primary: { color: '$text-primary' },
+      secondary: { color: '$text-secondary' },
+      tertiary: { color: '$text-tertiary' },
+    },
   },
 
   defaultVariants: {
     variant: 'body',
+    color: 'primary',
   },
 });
