@@ -417,7 +417,7 @@ export const RowExpandingAndSelection = () => {
       columns={columns}
       data={data}
       expandIconFunction={expandFn}
-      isCanExpandIconVisible={false}
+      showCanExpandIcon={false}
       state={{ rowSelection }}
       onRowSelectionChange={setRowSelection}
     />

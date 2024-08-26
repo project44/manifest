@@ -42,7 +42,7 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
     enableSelectAll = true,
     enableSorting = true,
     enableStickyHeader = false,
-    isCanExpandIconVisible = true,
+    showCanExpandIcon = true,
     expandIconFunction = (isExpanded) => (isExpanded ? -180 : 0),
     expandAllButtonProps = {},
     expandButtonProps = {},
@@ -84,8 +84,8 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
           cell: ({ row, table }: { row: Row<TData>; table: DataTable<TData> }) => (
             <DataTableExpandButton
               expandIconFunction={expandIconFunction}
-              isCanExpandIconVisible={isCanExpandIconVisible}
               row={row}
+              showCanExpandIcon={showCanExpandIcon}
               table={table}
             />
           ),
@@ -110,7 +110,7 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
       enableExpanding,
       enableRowSelection,
       enableSelectAll,
-      isCanExpandIconVisible,
+      showCanExpandIcon,
       expandIconFunction,
     ],
   );

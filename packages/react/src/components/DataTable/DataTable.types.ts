@@ -140,7 +140,7 @@ export interface DataTableProps<TData extends RowData> {
    * Whether the canExpand icon is visible or not.
    * @default true
    */
-  isCanExpandIconVisible?: boolean;
+  showCanExpandIcon?: boolean;
   /**
    * Prop that can be passed to expand icon returns
    * number of degree with ChevronDown icon.
