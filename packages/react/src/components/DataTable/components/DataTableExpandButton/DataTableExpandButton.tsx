@@ -31,11 +31,11 @@ export function DataTableExpandButton<TData extends RowData>(
   return (
     <IconButton
       {...parsedProps}
+      css={{ display: canExpand || isCanExpandIconVisible ? 'block' : 'none'  }}
       isDisabled={isLoading || !canExpand}
       size="small"
       variant="tertiary"
       onPress={handleToggleExpand}
-      css={{ display: canExpand || isCanExpandIconVisible ? 'block' : 'none'  }}
     >
       <ChevronDown
         style={{

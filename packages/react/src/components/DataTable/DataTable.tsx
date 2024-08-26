@@ -82,7 +82,7 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
             enableExpandAll && <DataTableExpandAllButton table={table} />,
           // eslint-disable-next-line react/no-unstable-nested-components
           cell: ({ row, table }: { row: Row<TData>; table: DataTable<TData> }) => (
-            <DataTableExpandButton row={row} table={table} isCanExpandIconVisible={isCanExpandIconVisible} expandIconFunction={expandIconFunction} />
+            <DataTableExpandButton expandIconFunction={expandIconFunction} isCanExpandIconVisible={isCanExpandIconVisible} row={row} table={table} />
           ),
           size: 40,
         },
@@ -99,7 +99,7 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
         },
         ...columnsProp,
       ].filter(Boolean) as ColumnDef<TData>[],
-    [columnsProp, enableExpandAll, enableExpanding, enableRowSelection, enableSelectAll],
+    [columnsProp, enableExpandAll, enableExpanding, enableRowSelection, enableSelectAll, isCanExpandIconVisible, expandIconFunction],
   );
 
   const data: TData[] = React.useMemo(

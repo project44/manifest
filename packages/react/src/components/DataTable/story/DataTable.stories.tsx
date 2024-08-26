@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import React from 'react';
 import { faker } from '@faker-js/faker';
 import { ClipboardWithCheck, Clock } from '@project44-manifest/react-icons';
+import { RowSelectionState } from '@tanstack/react-table';
 import { createDataTableColumnHelper, DataTable, DataTableColumnDef, Link, Pill } from '../../..';
 import { TotalsDataObj } from '../DataTable.types';
-import React from 'react';
-import { RowSelectionState } from '@tanstack/react-table';
 
 export default {
   title: 'Components/DataTable',
@@ -408,17 +408,18 @@ export const RowExpandingAndSelection = () => {
     [],
   );
   const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({});
+  const expandFn = React.useMemo( () => (isExpanded: boolean) => isExpanded ? 0 : -90, []);
 
   return (
     <DataTable
-      isCanExpandIconVisible={false}
       enableExpanding
+      enableRowSelection
       columns={columns}
       data={data}
-      enableRowSelection
+      expandIconFunction={expandFn}
+      isCanExpandIconVisible={false}
       state={{ rowSelection }}
       onRowSelectionChange={setRowSelection}
-      expandIconFunction={(isExpanded) => isExpanded ? 0 : -90}
     />
   );
 };
