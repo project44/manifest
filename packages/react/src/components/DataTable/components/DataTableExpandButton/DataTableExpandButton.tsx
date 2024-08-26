@@ -31,7 +31,7 @@ export function DataTableExpandButton<TData extends RowData>(
   return (
     <IconButton
       {...parsedProps}
-      css={{ display: canExpand || isCanExpandIconVisible ? 'block' : 'none'  }}
+      css={{ display: canExpand || isCanExpandIconVisible ? 'block' : 'none' }}
       isDisabled={isLoading || !canExpand}
       size="small"
       variant="tertiary"

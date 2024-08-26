@@ -5,5 +5,5 @@ export interface DataTableExpandButtonProps<TData extends RowData> {
   row: Row<TData>;
   table: DataTable<TData>;
   isCanExpandIconVisible: boolean;
-  expandIconFunction: (isExpanded: boolean) => number;  
+  expandIconFunction: (isExpanded: boolean) => number;
 }
