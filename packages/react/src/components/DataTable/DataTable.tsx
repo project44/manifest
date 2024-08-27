@@ -43,7 +43,6 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
     enableSorting = true,
     enableStickyHeader = false,
     showCanExpandIcon = true,
-    expandIconFunction = (isExpanded) => (isExpanded ? -180 : 0),
     expandAllButtonProps = {},
     expandButtonProps = {},
     initialState,
@@ -82,12 +81,7 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
             enableExpandAll && <DataTableExpandAllButton table={table} />,
           // eslint-disable-next-line react/no-unstable-nested-components
           cell: ({ row, table }: { row: Row<TData>; table: DataTable<TData> }) => (
-            <DataTableExpandButton
-              expandIconFunction={expandIconFunction}
-              row={row}
-              showCanExpandIcon={showCanExpandIcon}
-              table={table}
-            />
+            <DataTableExpandButton row={row} showCanExpandIcon={showCanExpandIcon} table={table} />
           ),
           size: 40,
         },
@@ -111,7 +105,6 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
       enableRowSelection,
       enableSelectAll,
       showCanExpandIcon,
-      expandIconFunction,
     ],
   );
 

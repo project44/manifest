@@ -142,12 +142,6 @@ export interface DataTableProps<TData extends RowData> {
    */
   showCanExpandIcon?: boolean;
   /**
-   * Prop that can be passed to expand icon returns
-   * number of degree with ChevronDown icon.
-   * @default (isExpanded) => -180 : 0
-   */
-  expandIconFunction?: (isExpanded: boolean) => number;
-  /**
    * Props passed to the expand all button component
    */
   expandAllButtonProps?:

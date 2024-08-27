@@ -408,7 +408,6 @@ export const RowExpandingAndSelection = () => {
     [],
   );
   const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({});
-  const expandFn = React.useMemo(() => (isExpanded: boolean) => isExpanded ? 0 : -90, []);
 
   return (
     <DataTable
@@ -416,7 +415,6 @@ export const RowExpandingAndSelection = () => {
       enableRowSelection
       columns={columns}
       data={data}
-      expandIconFunction={expandFn}
       showCanExpandIcon={false}
       state={{ rowSelection }}
       onRowSelectionChange={setRowSelection}
