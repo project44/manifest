@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 3.25.0
+
+### Minor Changes
+
+- [#550](https://github.com/project44/manifest/pull/550)
+  [`1ae33ed`](https://github.com/project44/manifest/commit/1ae33eda373b95a2071f3247f9a4b184da66a894)
+  Thanks [@vishwath11](https://github.com/vishwath11)! - Changed row expand icon design
+
 ## 3.24.0
 
 ### Minor Changes
