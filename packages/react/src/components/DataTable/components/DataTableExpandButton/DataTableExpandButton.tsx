@@ -8,7 +8,7 @@ import type { DataTableExpandButtonProps } from './DataTableExpandButton.types';
 export function DataTableExpandButton<TData extends RowData>(
   props: DataTableExpandButtonProps<TData>,
 ) {
-  const { row, table } = props;
+  const { row, table, showCanExpandIcon } = props;
 
   const { options } = table;
   const { expandButtonProps, isLoading } = options;
@@ -31,6 +31,7 @@ export function DataTableExpandButton<TData extends RowData>(
   return (
     <IconButton
       {...parsedProps}
+      css={{ display: canExpand || showCanExpandIcon ? 'block' : 'none' }}
       isDisabled={isLoading || !canExpand}
       size="small"
       variant="tertiary"
@@ -38,7 +39,7 @@ export function DataTableExpandButton<TData extends RowData>(
     >
       <ChevronDown
         style={{
-          transform: `rotate(${isExpanded ? -180 : 0}deg)`,
+          transform: `rotate(${isExpanded ? 0 : -90}deg)`,
           transition: 'transform 100ms',
         }}
       />
