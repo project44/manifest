@@ -57,6 +57,17 @@ export const useStyles = css({
           backgroundColor: '$palette-red-600',
         },
       },
+      yellow: {
+        $$backgroundColor: '$colors$palette-yellow-100',
+
+        '.manifest-pill__text': {
+          color: '#BF7000',
+        },
+
+        '.manifest-pill__icon': {
+          backgroundColor: '#BF7000',
+        },
+      },
     },
     isCollapsible: {
       true: {
