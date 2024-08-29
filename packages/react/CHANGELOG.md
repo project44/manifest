@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 3.26.0
+
+### Minor Changes
+
+- [#552](https://github.com/project44/manifest/pull/552)
+  [`9238488`](https://github.com/project44/manifest/commit/9238488af53d2f6973e19ce49560c9df473d3834)
+  Thanks [@Ajit-p44](https://github.com/Ajit-p44)! - Add new pill variant
+
 ## 3.25.0
 
 ### Minor Changes
