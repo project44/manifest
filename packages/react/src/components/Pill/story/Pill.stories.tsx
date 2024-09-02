@@ -24,6 +24,7 @@ ColorScheme.decorators = [
       <Pill colorScheme="indigo" icon={<AirplaneFilled />} label="In Transit" />
       <Pill colorScheme="red" icon={<Clock />} label="On Hold" />
       <Pill colorScheme="yellow" icon={<Boat />} label="Held" />
+      <Pill colorScheme="grey" icon={<Boat />} label="Held" />
     </Flex>
   ),
 ];

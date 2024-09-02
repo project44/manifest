@@ -17,7 +17,7 @@ export interface PillOptions<T extends As = PillElement> extends Options<T>, Sty
    *
    * @default 'indigo'
    */
-  colorScheme?: 'indigo' | 'red' | 'yellow';
+  colorScheme?: 'indigo' | 'red' | 'yellow' | 'grey';
   /**
    * The icon to render in the pill.
    */
