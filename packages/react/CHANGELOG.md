@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 3.26.1
+
+### Patch Changes
+
+- [#554](https://github.com/project44/manifest/pull/554)
+  [`11e13cc`](https://github.com/project44/manifest/commit/11e13cc3f6200d21aa507064fb3d98419b3faa55)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - Added grey variant for pill
+
 ## 3.26.0
 
 ### Minor Changes
