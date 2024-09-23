@@ -1,10 +1,17 @@
 import * as React from 'react';
+import type { AriaButtonProps } from '@react-aria/button';
+import { useButton } from '@react-aria/button';
+import { useFocusRing } from '@react-aria/focus';
+import { useHover } from '@react-aria/interactions';
+import type { FocusableProps, PressEvents } from '@react-types/shared';
 import { CSS, cx, pxToRem } from '@project44-manifest/react-styles';
-import type { ForwardRefComponent, PressEvent } from '@project44-manifest/react-types';
+import type { ForwardRefComponent } from '@project44-manifest/react-types';
+import { mergeProps, mergeRefs } from '../../utils';
 import { createContext } from '../../utils/context';
 import { StyledButton, StyledButtonGroup, StyledButtonIcon } from './button.styles';
 
 type ButtonSize = 'medium' | 'small';
+
 type ButtonVariant = 'brand' | 'danger' | 'primary' | 'secondary' | 'tertiary';
 
 /* -------------------------------------------------------------------------------------------------
@@ -27,7 +34,7 @@ const [ButtonGroupProvider, useButtonGroup] = createContext<ButtonGroupContext>(
 
 type ButtonElement = 'button';
 
-interface ButtonProps {
+interface ButtonProps extends PressEvents, FocusableProps {
   /** Whether the element should receive focus on render. */
   autoFocus?: boolean;
   /** Theme aware style object */
@@ -36,8 +43,19 @@ interface ButtonProps {
   startIcon?: React.ReactElement;
   /** Icon added after the button text. */
   endIcon?: React.ReactElement;
+  /** A URL to link to if as="a". */
+  href?: string;
+  /**
+   * Whether to exclude the element from the sequential tab order. If true,
+   * the element will not be focusable via the keyboard by tabbing. This should
+   * be avoided except in rare scenarios where an alternative means of accessing
+   * the element or its functionality via the keyboard is available.
+   */
+  excludeFromTabOrder?: boolean;
   /** Whether the button is disabled. */
   isDisabled?: boolean;
+  /** The relationship between the linked resource and the current page. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel). */
+  rel?: string;
   /** @deprecated
    * for backward compatibility
    * */
@@ -63,6 +81,10 @@ interface ButtonProps {
    * @default 'medium'
    */
   size?: ButtonSize;
+  /** Icon added before the button text. */
+  startIcon?: React.ReactElement;
+  /** The target window for the link. */
+  target?: string;
   /**
    * The behavior of the button when used in an HTML form.
    * @default 'button'
@@ -80,18 +102,50 @@ const Button = React.forwardRef((props, forwardedRef) => {
 
   const {
     as,
+    autoFocus,
     children,
     className: classNameProp,
     css,
     isDisabled = group?.isDisabled,
     endIcon,
+    href,
+    onClick,
+    onPress,
+    onPressStart,
+    onPressEnd,
+    onPressChange,
+    onPressUp,
+    rel,
     size = group?.size ?? 'medium',
     startIcon,
     variant = group?.variant ?? 'primary',
-    role = 'button',
+    target,
     type = 'button',
     ...other
   } = props;
+
+  const buttonRef = React.useRef<HTMLButtonElement>(null);
+
+  const { buttonProps, isPressed } = useButton(
+    {
+      ...other,
+      elementType: typeof as === 'string' ? as : 'button',
+      href,
+      isDisabled,
+      onClick,
+      onPress,
+      onPressStart,
+      onPressEnd,
+      onPressChange,
+      onPressUp,
+      rel,
+      target,
+      type,
+    } as AriaButtonProps,
+    buttonRef,
+  );
+  const { isFocusVisible, focusProps } = useFocusRing({ autoFocus });
+  const { isHovered, hoverProps } = useHover({ isDisabled });
 
   const classnames = cx('manifest-button', classNameProp, {
     'manifest-button--disabled': isDisabled,
@@ -115,15 +169,16 @@ const Button = React.forwardRef((props, forwardedRef) => {
 
   return (
     <StyledButton
-      {...other}
-      ref={forwardedRef}
+      {...mergeProps(buttonProps, focusProps, hoverProps, other)}
+      ref={mergeRefs(buttonRef, forwardedRef)}
       as={as}
       className={classnames}
       css={css}
       isDisabled={isDisabled}
-      role={role}
+      isFocusVisible={isFocusVisible}
+      isHovered={isHovered}
+      isPressed={isPressed}
       size={size}
-      type={type}
       variant={variant}
       onClick={clickHandler}
     >

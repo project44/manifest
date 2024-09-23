@@ -1,5 +1,4 @@
 import * as React from 'react';
-import type { AriaButtonProps } from '@react-types/button';
 import { cx } from '@project44-manifest/react-styles';
 import type { ForwardRefComponent } from '@project44-manifest/react-types';
 import { mergeProps } from '../../utils';
@@ -30,7 +29,7 @@ export const SideNavigationFooter = React.forwardRef((props, forwardedRef) => {
 
   const buttonRef = React.useRef<HTMLButtonElement>(null);
 
-  const { buttonProps } = useButton(other as AriaButtonProps, buttonRef);
+  const { buttonProps } = useButton(other, buttonRef);
   const { hoverProps, isHovered } = useHover({});
 
   const className = cx('manifest-navigation-footer', classNameProp);
