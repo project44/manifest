@@ -11,7 +11,7 @@ export interface TypographyOptions<T extends As = TypographyElement>
   /**
    * The display variant of the text.
    *
-   * @default 'primary'
+   * @default 'body'
    */
   variant?:
     | 'body'
@@ -24,14 +24,28 @@ export interface TypographyOptions<T extends As = TypographyElement>
     | 'subtextBold'
     | 'subtitle'
     | 'title';
+
+  /**
+   * The display color of the text.
+   *
+   * @default 'primary'
+   */
+  color?: 'primary' | 'secondary' | 'tertiary';
 }
 
 export type TypographyProps<T extends As = TypographyElement> = Props<TypographyOptions<T>>;
 
 export const Typography = createComponent<TypographyOptions>((props, forwardedRef) => {
-  const { as: Comp = 'span', className: classNameProp, css, variant = 'body', ...other } = props;
+  const {
+    as: Comp = 'span',
+    className: classNameProp,
+    css,
+    variant = 'body',
+    color = 'primary',
+    ...other
+  } = props;
 
-  const { className } = useStyles({ css, variant });
+  const { className } = useStyles({ css, color, variant });
 
   const classes = cx(className, classNameProp, {
     'manifest-typography': true,
