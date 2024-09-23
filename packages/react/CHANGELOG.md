@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 3.27.0
+
+### Minor Changes
+
+- [#549](https://github.com/project44/manifest/pull/549)
+  [`7dcd35d`](https://github.com/project44/manifest/commit/7dcd35dc70cc4c57ec07749cab63ff33c9326189)
+  Thanks [@vitaliy-p44](https://github.com/vitaliy-p44)! - typography standard colors
+
 ## 3.26.1
 
 ### Patch Changes
