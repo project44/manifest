@@ -39,8 +39,6 @@ interface ButtonProps extends PressEvents, FocusableProps {
   autoFocus?: boolean;
   /** Theme aware style object */
   css?: CSS;
-  /** Icon added before the button text. */
-  startIcon?: React.ReactElement;
   /** Icon added after the button text. */
   endIcon?: React.ReactElement;
   /** A URL to link to if as="a". */
@@ -56,26 +54,6 @@ interface ButtonProps extends PressEvents, FocusableProps {
   isDisabled?: boolean;
   /** The relationship between the linked resource and the current page. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel). */
   rel?: string;
-  /** @deprecated
-   * for backward compatibility
-   * */
-  onPress?: (e: PressEvent) => void;
-  /** @deprecated
-   * for backward compatibility
-   * */
-  onPressStart?: (e: PressEvent) => void;
-  /** @deprecated
-   * for backward compatibility
-   * */
-  onPressEnd?: (e: PressEvent) => void;
-  /** @deprecated
-   * for backward compatibility
-   * */
-  onPressChange?: (isPressed: boolean) => void;
-  /** @deprecated
-   * for backward compatibility
-   * */
-  onPressUp?: (e: PressEvent) => void;
   /**
    * The size of the button.
    * @default 'medium'
@@ -153,20 +131,6 @@ const Button = React.forwardRef((props, forwardedRef) => {
     [`manifest-button--${variant}`]: variant,
   });
 
-  const clickHandler = React.useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>) => {
-      if (isDisabled) return;
-      props.onClick?.(e);
-      const pressEvent = e as unknown as PressEvent;
-      props.onPress?.(pressEvent);
-      props.onPressStart?.(pressEvent);
-      props.onPressEnd?.(pressEvent);
-      props.onPressUp?.(pressEvent);
-      props.onPressChange?.(true);
-    },
-    [isDisabled, props],
-  );
-
   return (
     <StyledButton
       {...mergeProps(buttonProps, focusProps, hoverProps, other)}
@@ -180,7 +144,6 @@ const Button = React.forwardRef((props, forwardedRef) => {
       isPressed={isPressed}
       size={size}
       variant={variant}
-      onClick={clickHandler}
     >
       {startIcon && (
         <StyledButtonIcon
