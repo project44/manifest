@@ -57,6 +57,7 @@ interface ButtonProps extends PressEvents, FocusableProps {
   /**
    * The size of the button.
    * @default 'medium'
+   *
    */
   size?: ButtonSize;
   /** Icon added before the button text. */
@@ -70,6 +71,7 @@ interface ButtonProps extends PressEvents, FocusableProps {
   type?: 'button' | 'reset' | 'submit';
   /**
    * The display variant of the button.
+   *
    * @default 'primary'
    */
   variant?: ButtonVariant;

@@ -193,6 +193,7 @@ export const StyledButton = styled('button', {
       },
     },
   ],
+
   defaultVariants: {
     size: 'medium',
     variant: 'primary',
