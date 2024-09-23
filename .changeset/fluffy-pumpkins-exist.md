@@ -1,5 +1,5 @@
 ---
-'@project44-manifest/react': major
+'@project44-manifest/react': minor
 ---
 
 typography standard colors

@@ -56,8 +56,8 @@ interface ButtonProps extends PressEvents, FocusableProps {
   rel?: string;
   /**
    * The size of the button.
-   * @default 'medium'
    *
+   * @default 'medium'
    */
   size?: ButtonSize;
   /** Icon added before the button text. */
