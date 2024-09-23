@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import React from 'react';
 import { faker } from '@faker-js/faker';
 import { ClipboardWithCheck, Clock } from '@project44-manifest/react-icons';
+import { RowSelectionState } from '@tanstack/react-table';
 import { createDataTableColumnHelper, DataTable, DataTableColumnDef, Link, Pill } from '../../..';
 import { TotalsDataObj } from '../DataTable.types';
 
@@ -354,6 +356,70 @@ export const RowExpanding = () => {
   }));
 
   return <DataTable enableExpanding columns={columns} data={data} />;
+};
+
+export const RowExpandingAndSelection = () => {
+  interface Person {
+    firstName: string;
+    lastName: string;
+    age: number;
+    address: string;
+    phoneNumber: string;
+  }
+  const columns: DataTableColumnDef<Person>[] = [
+    {
+      header: 'First Name',
+      accessorKey: 'firstName',
+    },
+    {
+      header: 'Last Name',
+      accessorKey: 'lastName',
+    },
+    {
+      header: 'Age',
+      accessorKey: 'age',
+    },
+    {
+      header: 'Address',
+      accessorKey: 'address',
+    },
+    {
+      header: 'Phone Number',
+      accessorKey: 'phoneNumber',
+    },
+  ];
+
+  const data = React.useMemo(
+    () =>
+      [...Array.from({ length: 5 })].map(() => ({
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        age: faker.datatype.number(80),
+        address: faker.address.streetAddress(),
+        phoneNumber: faker.phone.number(),
+        subRows: [...Array.from({ length: faker.datatype.number(4) })].map(() => ({
+          firstName: faker.name.firstName(),
+          lastName: faker.name.lastName(),
+          age: faker.datatype.number(80),
+          address: faker.address.streetAddress(),
+          phoneNumber: faker.phone.number(),
+        })),
+      })),
+    [],
+  );
+  const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({});
+
+  return (
+    <DataTable
+      enableExpanding
+      enableRowSelection
+      columns={columns}
+      data={data}
+      showCanExpandIcon={false}
+      state={{ rowSelection }}
+      onRowSelectionChange={setRowSelection}
+    />
+  );
 };
 
 export const Loading = () => {

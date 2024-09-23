@@ -1,4 +1,4 @@
-import { AirplaneFilled, Clock } from '@project44-manifest/react-icons';
+import { AirplaneFilled, Boat, Clock } from '@project44-manifest/react-icons';
 import type { StoryFn } from '@storybook/react';
 import { Flex, Pill } from '../../..';
 
@@ -23,6 +23,8 @@ ColorScheme.decorators = [
     <Flex align="center" css={{ gap: '$small' }}>
       <Pill colorScheme="indigo" icon={<AirplaneFilled />} label="In Transit" />
       <Pill colorScheme="red" icon={<Clock />} label="On Hold" />
+      <Pill colorScheme="yellow" icon={<Boat />} label="Held" />
+      <Pill colorScheme="grey" icon={<Boat />} label="Held" />
     </Flex>
   ),
 ];
@@ -34,6 +36,7 @@ Collapsible.decorators = [
     <Flex align="center" css={{ gap: '$small' }}>
       <Pill isCollapsible colorScheme="indigo" icon={<AirplaneFilled />} label="In Transit" />
       <Pill isCollapsible colorScheme="red" icon={<Clock />} label="On Hold" />
+      <Pill isCollapsible colorScheme="yellow" icon={<Boat />} label="Held" />
     </Flex>
   ),
 ];

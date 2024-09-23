@@ -137,6 +137,11 @@ export interface DataTableProps<TData extends RowData> {
    */
   enableStickyHeader?: boolean;
   /**
+   * Whether the canExpand icon is visible or not.
+   * @default true
+   */
+  showCanExpandIcon?: boolean;
+  /**
    * Props passed to the expand all button component
    */
   expandAllButtonProps?:

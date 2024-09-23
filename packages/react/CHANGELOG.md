@@ -1,5 +1,29 @@
 # @manifest/react
 
+## 3.26.1
+
+### Patch Changes
+
+- [#554](https://github.com/project44/manifest/pull/554)
+  [`11e13cc`](https://github.com/project44/manifest/commit/11e13cc3f6200d21aa507064fb3d98419b3faa55)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - Added grey variant for pill
+
+## 3.26.0
+
+### Minor Changes
+
+- [#552](https://github.com/project44/manifest/pull/552)
+  [`9238488`](https://github.com/project44/manifest/commit/9238488af53d2f6973e19ce49560c9df473d3834)
+  Thanks [@Ajit-p44](https://github.com/Ajit-p44)! - Add new pill variant
+
+## 3.25.0
+
+### Minor Changes
+
+- [#550](https://github.com/project44/manifest/pull/550)
+  [`1ae33ed`](https://github.com/project44/manifest/commit/1ae33eda373b95a2071f3247f9a4b184da66a894)
+  Thanks [@vishwath11](https://github.com/vishwath11)! - Changed row expand icon design
+
 ## 3.24.0
 
 ### Minor Changes
