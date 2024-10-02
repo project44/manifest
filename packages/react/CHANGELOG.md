@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 3.28.0
+
+### Minor Changes
+
+- [#557](https://github.com/project44/manifest/pull/557)
+  [`81ab1bf`](https://github.com/project44/manifest/commit/81ab1bf3187e7d3a78ac6492bac46236eece2d3a)
+  Thanks [@vitaliy-p44](https://github.com/vitaliy-p44)! - fix: typography color
+
 ## 3.27.0
 
 ### Minor Changes
