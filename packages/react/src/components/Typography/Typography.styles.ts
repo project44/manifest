@@ -30,6 +30,5 @@ export const useStyles = css({
 
   defaultVariants: {
     variant: 'body',
-    color: 'primary',
   },
 });
