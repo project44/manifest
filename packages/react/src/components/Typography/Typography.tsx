@@ -27,8 +27,6 @@ export interface TypographyOptions<T extends As = TypographyElement>
 
   /**
    * The display color of the text.
-   *
-   * @default 'primary'
    */
   color?: 'primary' | 'secondary' | 'tertiary';
 }
@@ -41,7 +39,7 @@ export const Typography = createComponent<TypographyOptions>((props, forwardedRe
     className: classNameProp,
     css,
     variant = 'body',
-    color = 'primary',
+    color = undefined,
     ...other
   } = props;
 
