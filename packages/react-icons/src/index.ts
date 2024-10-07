@@ -76,6 +76,7 @@ export * from './OpenInNewTab';
 export * from './Parcel';
 export * from './Pause';
 export * from './Pencil';
+export * from './PencilCentered';
 export * from './Person';
 export * from './PersonArrow';
 export * from './PersonCheck';
