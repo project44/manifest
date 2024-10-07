@@ -1,5 +1,13 @@
 # @project44-manifest/react-icons
 
+## 2.3.0
+
+### Minor Changes
+
+- [#559](https://github.com/project44/manifest/pull/559)
+  [`2c17332`](https://github.com/project44/manifest/commit/2c173327a43a469bd7f536ad726c251eef0c22ee)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - Added centred pencil icon
+
 ## 2.2.0
 
 ### Minor Changes
