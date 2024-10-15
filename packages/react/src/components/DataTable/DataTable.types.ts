@@ -166,6 +166,10 @@ export interface DataTableProps<TData extends RowData> {
    */
   manualSorting?: boolean;
   /**
+   * Enable this setting to automatically reset the expanded state of the table when expanding state changes.
+   */
+  autoResetExpanded?: boolean;
+  /**
    * A total pageCount of the table (controlled).
    */
   pageCount?: number;
@@ -223,6 +227,11 @@ export interface DataTableProps<TData extends RowData> {
    *  Handler that is invoked on scroll event on table container
    */
   onScroll?: (event: React.SyntheticEvent) => void;
+  /**
+   * Optional function used to access the sub rows for the table .
+   * @default * (row: Row<TData>) => row?.subRows as TData[]
+   */
+  getSubRows?: (Row: Row<TData>) => TData[];
 }
 
 export interface FooterPropsType {

@@ -8,7 +8,7 @@ export function DataTableBody<TData extends RowData>(props: DataTableBodyProps<T
   return (
     <tbody className="manifest-table__body">
       {table.getRowModel().rows.map((row) => (
-        <tr key={row.id} className="manifest-table__row">
+        <tr key={row.id} className={`manifest-table__row  ${row.depth > 0 ? 'manifest-table__child-row' : ''}`}>
           {row.getVisibleCells().map((cell) => (
             <DataTableCell key={cell.id} cell={cell} table={table} />
           ))}
