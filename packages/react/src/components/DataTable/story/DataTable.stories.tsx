@@ -388,23 +388,8 @@ export const RowExpandingReset = () => {
       accessorKey: 'phoneNumber',
     },
   ];
-  const [data, setData] = useState([...Array.from({ length: 5 })].map(() => ({
-    firstName: faker.name.firstName(),
-    lastName: faker.name.lastName(),
-    age: faker.datatype.number(80),
-    address: faker.address.streetAddress(),
-    phoneNumber: faker.phone.number(),
-    subRows: [...Array.from({ length: faker.datatype.number(4) })].map(() => ({
-      firstName: faker.name.firstName(),
-      lastName: faker.name.lastName(),
-      age: faker.datatype.number(80),
-      address: faker.address.streetAddress(),
-      phoneNumber: faker.phone.number(),
-    })),
-  })))
-
-  const resetData = () => {
-    setData([...Array.from({ length: 5 })].map(() => ({
+  const [data, setData] = useState(
+    [...Array.from({ length: 5 })].map(() => ({
       firstName: faker.name.firstName(),
       lastName: faker.name.lastName(),
       age: faker.datatype.number(80),
@@ -417,13 +402,34 @@ export const RowExpandingReset = () => {
         address: faker.address.streetAddress(),
         phoneNumber: faker.phone.number(),
       })),
-    })))
-  }
+    })),
+  );
 
-  return <>
-  <button onClick={resetData} > reset </button>
-  <DataTable autoResetExpanded enableExpanding columns={columns} data={data} />
-  </>;
+  const resetData = () => {
+    setData(
+      [...Array.from({ length: 5 })].map(() => ({
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        age: faker.datatype.number(80),
+        address: faker.address.streetAddress(),
+        phoneNumber: faker.phone.number(),
+        subRows: [...Array.from({ length: faker.datatype.number(4) })].map(() => ({
+          firstName: faker.name.firstName(),
+          lastName: faker.name.lastName(),
+          age: faker.datatype.number(80),
+          address: faker.address.streetAddress(),
+          phoneNumber: faker.phone.number(),
+        })),
+      })),
+    );
+  };
+
+  return (
+    <>
+      <button onClick={resetData}> reset </button>
+      <DataTable autoResetExpanded enableExpanding columns={columns} data={data} />
+    </>
+  );
 };
 
 export const RowExpandingAndSelection = () => {

@@ -158,7 +158,7 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
   } as TableOptions<TData>) as DataTable<TData>;
 
   React.useEffect(() => {
-    if(autoResetExpanded) {
+    if (autoResetExpanded) {
       table.resetExpanded();
     }
   }, [data, autoResetExpanded, table]);
