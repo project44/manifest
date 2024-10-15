@@ -422,7 +422,7 @@ export const RowExpandingReset = () => {
 
   return <>
   <button onClick={resetData} > reset </button>
-  <DataTable enableExpanding columns={columns} data={data} autoResetExpanded />
+  <DataTable autoResetExpanded enableExpanding columns={columns} data={data} />
   </>;
 };
 

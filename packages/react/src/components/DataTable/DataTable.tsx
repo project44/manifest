@@ -158,8 +158,10 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
   } as TableOptions<TData>) as DataTable<TData>;
 
   React.useEffect(() => {
-    autoResetExpanded && table.resetExpanded();
-  }, [data]);
+    if(autoResetExpanded) {
+      table.resetExpanded();
+    }
+  }, [data, autoResetExpanded, table]);
 
   return (
     <StyledDataTable className="manifest-data-table" {...other}>
