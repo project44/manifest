@@ -1,13 +1,13 @@
 {
   "name": "storybook-manifest",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "scripts": {
     "build": "storybook build -c .storybook -o ./build",
     "dev": "storybook dev -p 8000 --quiet"
   },
   "dependencies": {
-    "@project44-manifest/react": "^3.24.0",
+    "@project44-manifest/react": "^3.28.1",
     "@project44-manifest/react-icons": "^2.2.0",
     "@storybook/addon-a11y": "^7.5.3",
     "@storybook/addon-essentials": "^7.5.3",

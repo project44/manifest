@@ -1,5 +1,14 @@
 # @manifest/react
 
+## 3.28.1
+
+### Patch Changes
+
+- [#561](https://github.com/project44/manifest/pull/561)
+  [`8bfe010`](https://github.com/project44/manifest/commit/8bfe0109f1cf0c9104b05e6d237404cd7c4352c8)
+  Thanks [@vishwath11](https://github.com/vishwath11)! - Added new prop autoResetExpanded, Added new
+  prop getSubRows, Added class for child rows.
+
 ## 3.28.0
 
 ### Minor Changes
