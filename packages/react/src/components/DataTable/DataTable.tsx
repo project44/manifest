@@ -62,6 +62,8 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
     onRowSelectionChange,
     onSortingChange,
     onScroll,
+    autoResetExpanded,
+    getSubRows = (row: Row<TData>) => row?.subRows as TData[],
     ...other
   } = props;
 
@@ -138,7 +140,7 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
     getExpandedRowModel: getExpandedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
-    getSubRows: (row: Row<TData>) => row?.subRows as TData[],
+    getSubRows,
     initialState,
     isLoading,
     manualExpanding,
@@ -154,6 +156,13 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
     ...(manualPagination && { onPaginationChange }),
     ...(manualSorting && { onSortingChange }),
   } as TableOptions<TData>) as DataTable<TData>;
+
+  React.useEffect(() => {
+    if (autoResetExpanded) {
+      table.resetExpanded();
+    }
+  }, [data, autoResetExpanded, table]);
+
   return (
     <StyledDataTable className="manifest-data-table" {...other}>
       <div

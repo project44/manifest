@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react';
+import React, { useState } from 'react';
 import { faker } from '@faker-js/faker';
 import { ClipboardWithCheck, Clock } from '@project44-manifest/react-icons';
 import { RowSelectionState } from '@tanstack/react-table';
@@ -356,6 +356,80 @@ export const RowExpanding = () => {
   }));
 
   return <DataTable enableExpanding columns={columns} data={data} />;
+};
+
+export const RowExpandingReset = () => {
+  interface Person {
+    firstName: string;
+    lastName: string;
+    age: number;
+    address: string;
+    phoneNumber: string;
+  }
+  const columns: DataTableColumnDef<Person>[] = [
+    {
+      header: 'First Name',
+      accessorKey: 'firstName',
+    },
+    {
+      header: 'Last Name',
+      accessorKey: 'lastName',
+    },
+    {
+      header: 'Age',
+      accessorKey: 'age',
+    },
+    {
+      header: 'Address',
+      accessorKey: 'address',
+    },
+    {
+      header: 'Phone Number',
+      accessorKey: 'phoneNumber',
+    },
+  ];
+  const [data, setData] = useState(
+    [...Array.from({ length: 5 })].map(() => ({
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      age: faker.datatype.number(80),
+      address: faker.address.streetAddress(),
+      phoneNumber: faker.phone.number(),
+      subRows: [...Array.from({ length: faker.datatype.number(4) })].map(() => ({
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        age: faker.datatype.number(80),
+        address: faker.address.streetAddress(),
+        phoneNumber: faker.phone.number(),
+      })),
+    })),
+  );
+
+  const resetData = () => {
+    setData(
+      [...Array.from({ length: 5 })].map(() => ({
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        age: faker.datatype.number(80),
+        address: faker.address.streetAddress(),
+        phoneNumber: faker.phone.number(),
+        subRows: [...Array.from({ length: faker.datatype.number(4) })].map(() => ({
+          firstName: faker.name.firstName(),
+          lastName: faker.name.lastName(),
+          age: faker.datatype.number(80),
+          address: faker.address.streetAddress(),
+          phoneNumber: faker.phone.number(),
+        })),
+      })),
+    );
+  };
+
+  return (
+    <>
+      <button onClick={resetData}> reset </button>
+      <DataTable autoResetExpanded enableExpanding columns={columns} data={data} />
+    </>
+  );
 };
 
 export const RowExpandingAndSelection = () => {
