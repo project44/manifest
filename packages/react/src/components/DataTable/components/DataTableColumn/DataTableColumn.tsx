@@ -3,6 +3,7 @@ import { ChevronDown, ChevronUp, Sort } from '@project44-manifest/react-icons';
 import { cx } from '@project44-manifest/react-styles';
 import {
   AccessorColumnDef,
+  CellContext,
   DisplayColumnDef,
   flexRender,
   GroupColumnDef,
@@ -12,10 +13,11 @@ import { getColumnLayoutStyles } from '../../utils';
 import { DataTableColumnProps } from './DataTableColumn.types';
 
 export interface ExtendedColumnDef<TData extends RowData, TValue = unknown>
-  extends Omit<DisplayColumnDef<TData, TValue>, 'isGroupStart'>,
-    Omit<GroupColumnDef<TData, TValue>, 'isGroupStart'>,
-    Omit<AccessorColumnDef<TData, TValue>, 'isGroupStart'> {
+  extends Omit<DisplayColumnDef<TData, TValue>, 'isGroupStart' | 'validate'>,
+    Omit<GroupColumnDef<TData, TValue>, 'isGroupStart' | 'validate'>,
+    Omit<AccessorColumnDef<TData, TValue>, 'isGroupStart' | 'validate'> {
   isGroupStart?: boolean;
+  validate?: (row: CellContext<TData, TValue>) => { hasError: boolean; isDuplicate: boolean };
 }
 
 export function DataTableColumn<TData extends RowData, TVaue>(

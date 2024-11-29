@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { faker } from '@faker-js/faker';
 import { ClipboardWithCheck, Clock } from '@project44-manifest/react-icons';
-import { RowSelectionState } from '@tanstack/react-table';
+import { CellContext, RowSelectionState } from '@tanstack/react-table';
 import { createDataTableColumnHelper, DataTable, DataTableColumnDef, Link, Pill } from '../../..';
 import { TotalsDataObj } from '../DataTable.types';
 
@@ -656,6 +656,91 @@ export const TotalFooterRow = () => {
       data={data}
       enablePagination={false}
       footerProps={footerObj}
+    />
+  );
+};
+
+export const CellErrorAndDuplicate = () => {
+  interface Person {
+    firstName: string;
+    lastName: string;
+    gender: string;
+    age: number;
+    address: string;
+    city: string;
+    isSubscribed: boolean;
+    birthday: string;
+  }
+  const data = [...Array.from({ length: 10 })].map(() => ({
+    firstName: faker.name.firstName(),
+    lastName: faker.name.lastName(),
+    gender: faker.name.sex(),
+    age: faker.datatype.number(80),
+    address: faker.address.streetAddress(),
+    city: faker.address.city(),
+    isSubscribed: faker.datatype.boolean(),
+    birthday: faker.date.past().toLocaleDateString('en-US'),
+  }));
+
+  const columns = [
+    {
+      header: 'First Name',
+      accessorKey: 'firstName',
+      validate: (cellContext: CellContext<Person, string>) => {
+        if (cellContext.getValue().startsWith('E')) {
+          return { hasError: true, isDuplicate: false };
+        }
+        return { hasError: false, isDuplicate: false };
+      },
+    },
+    {
+      header: 'Last Name',
+      accessorKey: 'lastName',
+      validate: (cellContext: CellContext<Person, string>) => {
+        if (cellContext.getValue().startsWith('C')) {
+          return { hasError: true, isDuplicate: true };
+        }
+        return { hasError: false, isDuplicate: false };
+      },
+    },
+    {
+      header: 'Gender',
+      accessorKey: 'gender',
+    },
+    {
+      header: 'Age',
+      accessorKey: 'age',
+    },
+    {
+      header: 'Address',
+      accessorKey: 'address',
+    },
+    {
+      header: 'City',
+      accessorKey: 'city',
+    },
+    {
+      header: 'Subscribed',
+      accessorKey: 'isSubscribed',
+    },
+    {
+      header: 'Birthday',
+      accessorKey: 'birthday',
+    },
+  ];
+
+  return (
+    <DataTable
+      columns={columns}
+      css={{
+        '.manifest-cell-error': {
+          backgroundColor: '$background-danger',
+        },
+        '.manifest-cell-duplicate': {
+          backgroundColor: '$palette-yellow-100',
+        },
+      }}
+      data={data}
     />
   );
 };

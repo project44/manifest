@@ -14,11 +14,16 @@ export function DataTableCell<TData extends RowData, TVaue>(
   const styles: React.CSSProperties = getColumnLayoutStyles(table, cell.column);
   const isNested = cell.column.id === 'manifest-data-table-row-expand';
 
+  const validate = (cell.column.columnDef as ExtendedColumnDef<TData>)?.validate;
+  const { hasError = false, isDuplicate = false } = validate?.(cell.getContext()) ?? {};
+
   return (
     <td
       className={cx('manifest-table__cell', {
         'manifest-table__cell--pinned': cell.column.getIsPinned(),
         isGroupStart: (cell.column.columnDef as ExtendedColumnDef<TData>)?.isGroupStart,
+        'manifest-cell-error': hasError,
+        'manifest-cell-duplicate': isDuplicate,
       })}
       style={{ ...styles, paddingLeft: isNested ? `${cell.row.depth + 0.75}rem` : undefined }}
     >
