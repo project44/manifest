@@ -1,5 +1,14 @@
 # @manifest/react
 
+## 3.29.0
+
+### Minor Changes
+
+- [#563](https://github.com/project44/manifest/pull/563)
+  [`6c19d25`](https://github.com/project44/manifest/commit/6c19d25c2d5ff88bbe330ded71b8f4c413d16fa5)
+  Thanks [@Ajit-p44](https://github.com/Ajit-p44)! - feat(DataTable): Add cell validation in Data
+  Table
+
 ## 3.28.1
 
 ### Patch Changes
