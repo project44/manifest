@@ -37,13 +37,15 @@ export function DataTableCheckbox<TData extends RowData>(props: DataTableCheckbo
 
   return (
     <div className="manifest-data-table__checkbox">
-      <Checkbox
-        isDisabled={isDisabled}
-        isIndeterminate={isIndeterminate}
-        isSelected={isSelected}
-        onChange={handleChange}
-        {...parsedProps}
-      />
+      {!row?.parentId && (
+        <Checkbox
+          isDisabled={isDisabled}
+          isIndeterminate={isIndeterminate}
+          isSelected={isSelected}
+          onChange={handleChange}
+          {...parsedProps}
+        />
+      )}
     </div>
   );
 }
