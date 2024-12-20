@@ -1,5 +1,14 @@
 # @manifest/react
 
+## 3.30.0
+
+### Minor Changes
+
+- [#565](https://github.com/project44/manifest/pull/565)
+  [`6828205`](https://github.com/project44/manifest/commit/6828205a784cbfa4447cd19fa2dff2e522cd9ebb)
+  Thanks [@Anirudh-p44](https://github.com/Anirudh-p44)! - Adding code to make checkbox
+  enabled/disable for datatable's child row
+
 ## 3.29.0
 
 ### Minor Changes
