@@ -73,6 +73,10 @@ export interface DataTableProps<TData extends RowData> {
    */
   isLoading?: boolean;
   /**
+   * Whether the checkbox for children row  is enabled.
+   */
+  enableCheckboxForChildren?: boolean;
+  /**
    * Whether the table supports expanding all table rows.
    *
    * @default false

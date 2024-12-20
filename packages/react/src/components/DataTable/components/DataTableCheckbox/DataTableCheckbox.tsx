@@ -4,7 +4,7 @@ import { Checkbox } from '../../../Checkbox';
 import type { DataTableCheckboxProps } from './DataTableCheckbox.types';
 
 export function DataTableCheckbox<TData extends RowData>(props: DataTableCheckboxProps<TData>) {
-  const { row, table } = props;
+  const { row, table, enableCheckboxForChildren } = props;
 
   const { options } = table;
   const { selectCheckboxProps, selectAllCheckboxProps } = options;
@@ -37,13 +37,15 @@ export function DataTableCheckbox<TData extends RowData>(props: DataTableCheckbo
 
   return (
     <div className="manifest-data-table__checkbox">
-      <Checkbox
-        isDisabled={isDisabled}
-        isIndeterminate={isIndeterminate}
-        isSelected={isSelected}
-        onChange={handleChange}
-        {...parsedProps}
-      />
+      {(!row?.parentId || enableCheckboxForChildren) && (
+        <Checkbox
+          isDisabled={isDisabled}
+          isIndeterminate={isIndeterminate}
+          isSelected={isSelected}
+          onChange={handleChange}
+          {...parsedProps}
+        />
+      )}
     </div>
   );
 }

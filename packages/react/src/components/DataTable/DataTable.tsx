@@ -33,6 +33,7 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
       size: 180,
     },
     columns: columnsProp,
+    enableCheckboxForChildren = true,
     enableExpandAll = true,
     enableExpanding = false,
     enableMultiRowSelection = true,
@@ -94,7 +95,11 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
             enableSelectAll && <DataTableCheckbox table={table} />,
           // eslint-disable-next-line react/no-unstable-nested-components
           cell: ({ row, table }: { row: Row<TData>; table: DataTable<TData> }) => (
-            <DataTableCheckbox row={row} table={table} />
+            <DataTableCheckbox
+              enableCheckboxForChildren={enableCheckboxForChildren}
+              row={row}
+              table={table}
+            />
           ),
           size: 40,
         },
@@ -106,6 +111,7 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
       enableExpanding,
       enableRowSelection,
       enableSelectAll,
+      enableCheckboxForChildren,
       showCanExpandIcon,
     ],
   );
