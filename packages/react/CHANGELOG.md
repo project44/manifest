@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 3.31.0
+
+### Minor Changes
+
+- [#567](https://github.com/project44/manifest/pull/567)
+  [`767ab29`](https://github.com/project44/manifest/commit/767ab2928ec52db6b911260664adbb175e6eac4c)
+  Thanks [@Anirudh-p44](https://github.com/Anirudh-p44)! - Adding hover state to expand button
+
 ## 3.30.0
 
 ### Minor Changes
