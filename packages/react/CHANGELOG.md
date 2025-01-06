@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 3.32.0
+
+### Minor Changes
+
+- [#569](https://github.com/project44/manifest/pull/569)
+  [`49c18bf`](https://github.com/project44/manifest/commit/49c18bf4aaa60040e5f0704147a011a11aa78265)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - Made change to pink variant for pill
+
 ## 3.31.0
 
 ### Minor Changes
