@@ -1,5 +1,13 @@
 # @project44-manifest/react-icons
 
+## 2.4.1
+
+### Patch Changes
+
+- [#573](https://github.com/project44/manifest/pull/573)
+  [`3704032`](https://github.com/project44/manifest/commit/37040324b61f31a428575237af5384d26207663c)
+  Thanks [@vitaliy-p44](https://github.com/vitaliy-p44)! - fix: task icon name fix
+
 ## 2.4.0
 
 ### Minor Changes
