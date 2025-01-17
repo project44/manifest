@@ -1,5 +1,13 @@
 # @project44-manifest/react-icons
 
+## 2.4.0
+
+### Minor Changes
+
+- [#571](https://github.com/project44/manifest/pull/571)
+  [`c70c75d`](https://github.com/project44/manifest/commit/c70c75dbe6609ec1b08dd0d29d3ac2a05a29a5f8)
+  Thanks [@vitaliy-p44](https://github.com/vitaliy-p44)! - add task icons
+
 ## 2.3.0
 
 ### Minor Changes
