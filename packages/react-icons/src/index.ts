@@ -36,6 +36,7 @@ export * from './ClockFilled';
 export * from './Close';
 export * from './Collapsed';
 export * from './Columns';
+export * from './Comment';
 export * from './CopyAll';
 export * from './Cube';
 export * from './Deactivate';
