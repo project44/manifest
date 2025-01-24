@@ -1,5 +1,13 @@
 # @project44-manifest/react-icons
 
+## 2.5.0
+
+### Minor Changes
+
+- [#575](https://github.com/project44/manifest/pull/575)
+  [`8e717d4`](https://github.com/project44/manifest/commit/8e717d42aab34b733c328a70f9c7af465f03a0b0)
+  Thanks [@vitaliy-p44](https://github.com/vitaliy-p44)! - add comment icon
+
 ## 2.4.1
 
 ### Patch Changes
