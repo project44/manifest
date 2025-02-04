@@ -1,5 +1,17 @@
 # website
 
+## 0.5.1
+
+### Patch Changes
+
+- [#577](https://github.com/project44/manifest/pull/577)
+  [`b5aaef1`](https://github.com/project44/manifest/commit/b5aaef138d521e4046c00dc5f033d5de7a3e2772)
+  Thanks [@vitaliy-p44](https://github.com/vitaliy-p44)! - fix: dedupe packages versions
+
+- Updated dependencies
+  [[`b5aaef1`](https://github.com/project44/manifest/commit/b5aaef138d521e4046c00dc5f033d5de7a3e2772)]:
+  - @project44-manifest/react@3.32.1
+
 ## 0.5.0
 
 ### Minor Changes

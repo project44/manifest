@@ -5622,7 +5622,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@project44-manifest/react@^3.32.0, @project44-manifest/react@workspace:packages/react":
+"@project44-manifest/react@^3.32.1, @project44-manifest/react@workspace:packages/react":
   version: 0.0.0-use.local
   resolution: "@project44-manifest/react@workspace:packages/react"
   dependencies:
@@ -23780,7 +23780,7 @@ __metadata:
     "@babel/preset-env": ^7.23.3
     "@babel/preset-react": ^7.23.3
     "@babel/preset-typescript": ^7.23.3
-    "@project44-manifest/react": ^3.32.0
+    "@project44-manifest/react": ^3.32.1
     "@project44-manifest/react-icons": ^2.5.0
     "@storybook/addon-a11y": ^7.5.3
     "@storybook/addon-essentials": ^7.5.3
@@ -25887,7 +25887,7 @@ __metadata:
     "@internationalized/date": ^3.1.0
     "@mdx-js/react": ^1.6.22
     "@project44-manifest/design-tokens": ^3.1.1
-    "@project44-manifest/react": ^3.32.0
+    "@project44-manifest/react": ^3.32.1
     "@project44-manifest/react-icons": ^2.5.0
     "@react-aria/i18n": ^3.7.0
     "@types/lodash.kebabcase": ^4.1.7
