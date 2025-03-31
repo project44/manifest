@@ -11,6 +11,16 @@ export function DataTableBody<TData extends RowData>(props: DataTableBodyProps<T
         <tr
           key={row.id}
           className={`manifest-table__row  ${row.depth > 0 ? 'manifest-table__child-row' : ''}`}
+          style={
+            table.options.onRowClick
+              ? {
+                  cursor: 'pointer',
+                }
+              : {}
+          }
+          onClick={() => {
+            table.options.onRowClick?.(row.original);
+          }}
         >
           {row.getVisibleCells().map((cell) => (
             <DataTableCell key={cell.id} cell={cell} table={table} />

@@ -63,6 +63,7 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
     onRowSelectionChange,
     onSortingChange,
     onScroll,
+    onRowClick,
     autoResetExpanded,
     getSubRows = (row: Row<TData>) => row?.subRows as TData[],
     ...other
@@ -157,6 +158,7 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
     selectAllCheckboxProps,
     selectCheckboxProps,
     state,
+    onRowClick,
     onRowSelectionChange,
     ...(manualExpanding && { onExpandedChange }),
     ...(manualPagination && { onPaginationChange }),

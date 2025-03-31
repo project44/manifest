@@ -584,6 +584,12 @@
       "type": "OnChangeFn<SortingState>",
       "required": false,
       "description": "Handler that is called on sort change."
+    },
+    {
+      "name": "onRowClick",
+      "type": "(row: Row<TData>) => void",
+      "required": false,
+      "description": "Handler that is called on row click."
     }
   ],
   "DatePicker": [
