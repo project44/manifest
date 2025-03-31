@@ -587,7 +587,7 @@
     },
     {
       "name": "onRowClick",
-      "type": "(row: Row<TData>) => void",
+      "type": "(rowId: string, row: TData) => void",
       "required": false,
       "description": "Handler that is called on row click."
     }

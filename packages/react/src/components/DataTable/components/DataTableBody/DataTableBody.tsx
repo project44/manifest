@@ -19,7 +19,7 @@ export function DataTableBody<TData extends RowData>(props: DataTableBodyProps<T
               : {}
           }
           onClick={() => {
-            table.options.onRowClick?.(row.original);
+            table.options.onRowClick?.(row.id, row.original);
           }}
         >
           {row.getVisibleCells().map((cell) => (

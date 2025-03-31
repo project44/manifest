@@ -338,15 +338,18 @@ export const RowClick = () => {
     },
   ];
 
-  const [selectedRow, setSelectedRow] = useState<(typeof data)[0] | null>(null);
+  const [selectedRow, setSelectedRow] = useState<string | null>(null);
 
-  const handleRowClick = (row: (typeof data)[0]) => {
-    setSelectedRow(row);
+  const handleRowClick = (rowId: string) => {
+    setSelectedRow(rowId);
   };
 
   return (
     <>
-      <p>Selected row: {selectedRow ? JSON.stringify(selectedRow) : 'None'}</p>
+      <p>
+        Selected row index: {selectedRow}, row:{' '}
+        {selectedRow ? JSON.stringify(data[Number(selectedRow)]) : 'None'}
+      </p>
       <DataTable
         columns={columns}
         css={{
