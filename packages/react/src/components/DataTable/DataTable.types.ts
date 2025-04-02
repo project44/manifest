@@ -232,6 +232,10 @@ export interface DataTableProps<TData extends RowData> {
    */
   onScroll?: (event: React.SyntheticEvent) => void;
   /**
+   * Handler that is called on row click.
+   */
+  onRowClick?: (rowId: string, row: TData) => void;
+  /**
    * Optional function used to access the sub rows for the table .
    * @default * (row: Row<TData>) => row?.subRows as TData[]
    */

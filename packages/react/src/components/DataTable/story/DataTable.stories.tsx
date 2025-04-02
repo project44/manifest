@@ -309,6 +309,62 @@ export const RowSelection = () => {
   return <DataTable enableRowSelection columns={columns} data={data} />;
 };
 
+const sampleData = [...Array.from({ length: 5 })].map(() => ({
+  firstName: faker.name.firstName(),
+  lastName: faker.name.lastName(),
+  age: faker.datatype.number(80),
+  address: faker.address.streetAddress(),
+}));
+
+export const RowClick = () => {
+  const data = sampleData;
+
+  const columns: DataTableColumnDef<(typeof data)[0]>[] = [
+    {
+      header: 'First Name',
+      accessorKey: 'firstName',
+    },
+    {
+      header: 'Last Name',
+      accessorKey: 'lastName',
+    },
+    {
+      header: 'Age',
+      accessorKey: 'age',
+    },
+    {
+      header: 'Address',
+      accessorKey: 'address',
+    },
+  ];
+
+  const [selectedRow, setSelectedRow] = useState<string | null>(null);
+
+  const handleRowClick = (rowId: string) => {
+    setSelectedRow(rowId);
+  };
+
+  return (
+    <>
+      <p>
+        Selected row index: {selectedRow}, row:{' '}
+        {selectedRow ? JSON.stringify(data[Number(selectedRow)]) : 'None'}
+      </p>
+      <DataTable
+        columns={columns}
+        css={{
+          '.manifest-table__row:hover': {
+            backgroundColor: '$background-hover',
+          },
+        }}
+        data={data}
+        // eslint-disable-next-line react/jsx-no-bind
+        onRowClick={handleRowClick}
+      />
+    </>
+  );
+};
+
 export const RowExpanding = () => {
   interface Person {
     firstName: string;
