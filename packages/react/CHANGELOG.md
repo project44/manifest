@@ -1,5 +1,13 @@
 # @manifest/react
 
+## 3.33.0
+
+### Minor Changes
+
+- [#580](https://github.com/project44/manifest/pull/580)
+  [`668524a`](https://github.com/project44/manifest/commit/668524a5532ec3a46d87552a9488a327485e98a9)
+  Thanks [@ssolanki-p44](https://github.com/ssolanki-p44)! - added row click handler for DataTable
+
 ## 3.32.1
 
 ### Patch Changes
