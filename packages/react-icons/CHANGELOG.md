@@ -1,5 +1,13 @@
 # @project44-manifest/react-icons
 
+## 2.6.0
+
+### Minor Changes
+
+- [#582](https://github.com/project44/manifest/pull/582)
+  [`ca347db`](https://github.com/project44/manifest/commit/ca347dbbc0e643640c1c743e6ac678013d592db0)
+  Thanks [@vivek-p44](https://github.com/vivek-p44)! - Added new icons
+
 ## 2.5.0
 
 ### Minor Changes
