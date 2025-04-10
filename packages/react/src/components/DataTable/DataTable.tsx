@@ -65,6 +65,7 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
     onScroll,
     autoResetExpanded,
     getSubRows = (row: Row<TData>) => row?.subRows as TData[],
+    getRowCanExpand,
     ...other
   } = props;
 
@@ -147,6 +148,7 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getSubRows,
+    getRowCanExpand,
     initialState,
     isLoading,
     manualExpanding,

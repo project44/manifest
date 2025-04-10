@@ -236,6 +236,11 @@ export interface DataTableProps<TData extends RowData> {
    * @default * (row: Row<TData>) => row?.subRows as TData[]
    */
   getSubRows?: (Row: Row<TData>) => TData[];
+  /**
+   * Optional function used to force all rows (or conditionally some rows) to be expandable.
+   * @default * (row: Row<TData>) => boolean
+   */
+  getRowCanExpand?: (row: Row<TData>) => boolean;
 }
 
 export interface FooterPropsType {
