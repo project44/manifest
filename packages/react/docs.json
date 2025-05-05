@@ -496,6 +496,12 @@
       "description": "Whether the table header should stick when scrolling vertically"
     },
     {
+      "name": "enableRowClick",
+      "type": "boolean | ((row: Row<TData>, rowId: string) => boolean)",
+      "required": false,
+      "description": "Whether the table supports row clicking."
+    },
+    {
       "name": "expandAllButtonProps",
       "type": "IconButtonProps | ((props: { table: DataTable<TData>; }) => IconButtonProps)",
       "required": false,
@@ -587,7 +593,7 @@
     },
     {
       "name": "onRowClick",
-      "type": "(rowId: string, row: TData) => void",
+      "type": "(row: TDat, rowId: string) => void",
       "required": false,
       "description": "Handler that is called on row click."
     }
