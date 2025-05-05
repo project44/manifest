@@ -400,7 +400,7 @@ export const RowClickWithClickableRowDisabled = () => {
   return (
     <>
       <p>
-        Click on 2nd row to see disabled row <br />
+        Hover/Click on row with age less than 50 to see disabled row <br />
         Selected row index: {selectedRowIndex}, row:{' '}
         {selectedRowIndex ? JSON.stringify(selectedRow) : 'None'}
       </p>
@@ -413,7 +413,7 @@ export const RowClickWithClickableRowDisabled = () => {
         }}
         data={data}
         // eslint-disable-next-line react/jsx-no-bind
-        enableRowClick={(row, rowId) => rowId !== '3'}
+        enableRowClick={(row) => row.age > 50}
         // eslint-disable-next-line react/jsx-no-bind
         onRowClick={handleRowClick}
       />

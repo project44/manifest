@@ -10,7 +10,9 @@ export function DataTableBody<TData extends RowData>(props: DataTableBodyProps<T
       {table.getRowModel().rows.map((row) => {
         const { enableRowClick, onRowClick } = table.options;
         const isRowClickable =
-          typeof enableRowClick === 'function' ? enableRowClick(row, row.id) : enableRowClick;
+          typeof enableRowClick === 'function'
+            ? enableRowClick(row.original, row.id)
+            : enableRowClick;
 
         return (
           <tr

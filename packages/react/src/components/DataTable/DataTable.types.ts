@@ -145,7 +145,7 @@ export interface DataTableProps<TData extends RowData> {
    *
    * @default true
    */
-  enableRowClick?: boolean | ((row: Row<TData>, rowId: string) => boolean);
+  enableRowClick?: boolean | ((row: TData, rowId: string) => boolean);
   /**
    * Whether the canExpand icon is visible or not.
    * @default true

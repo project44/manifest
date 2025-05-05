@@ -497,7 +497,7 @@
     },
     {
       "name": "enableRowClick",
-      "type": "boolean | ((row: Row<TData>, rowId: string) => boolean)",
+      "type": "boolean | ((row: TData, rowId: string) => boolean)",
       "required": false,
       "description": "Whether the table supports row clicking."
     },
@@ -593,7 +593,7 @@
     },
     {
       "name": "onRowClick",
-      "type": "(row: TDat, rowId: string) => void",
+      "type": "(row: TData, rowId: string) => void",
       "required": false,
       "description": "Handler that is called on row click."
     }
