@@ -141,6 +141,12 @@ export interface DataTableProps<TData extends RowData> {
    */
   enableStickyHeader?: boolean;
   /**
+   * Whether the table supports entire row clicking.
+   *
+   * @default false
+   */
+  enableRowClick?: boolean | ((row: TData, rowId: string) => boolean);
+  /**
    * Whether the canExpand icon is visible or not.
    * @default true
    */
@@ -234,7 +240,7 @@ export interface DataTableProps<TData extends RowData> {
   /**
    * Handler that is called on row click.
    */
-  onRowClick?: (rowId: string, row: TData) => void;
+  onRowClick?: (row: TData, rowId: string) => void;
   /**
    * Optional function used to access the sub rows for the table .
    * @default * (row: Row<TData>) => row?.subRows as TData[]

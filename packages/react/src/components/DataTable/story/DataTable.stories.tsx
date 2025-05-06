@@ -338,17 +338,19 @@ export const RowClick = () => {
     },
   ];
 
-  const [selectedRow, setSelectedRow] = useState<string | null>(null);
+  const [selectedRow, setSelectedRow] = useState<(typeof data)[0] | null>(null);
+  const [selectedRowIndex, setSelectedRowIndex] = useState<string | null>(null);
 
-  const handleRowClick = (rowId: string) => {
-    setSelectedRow(rowId);
+  const handleRowClick = (row: (typeof data)[0], rowId: string) => {
+    setSelectedRow(row);
+    setSelectedRowIndex(rowId);
   };
 
   return (
     <>
       <p>
-        Selected row index: {selectedRow}, row:{' '}
-        {selectedRow ? JSON.stringify(data[Number(selectedRow)]) : 'None'}
+        Selected row index: {selectedRowIndex}, row:{' '}
+        {selectedRowIndex ? JSON.stringify(selectedRow) : 'None'}
       </p>
       <DataTable
         columns={columns}
@@ -358,6 +360,60 @@ export const RowClick = () => {
           },
         }}
         data={data}
+        // eslint-disable-next-line react/jsx-no-bind
+        onRowClick={handleRowClick}
+      />
+    </>
+  );
+};
+
+export const RowClickWithClickableRowDisabled = () => {
+  const data = sampleData;
+
+  const columns: DataTableColumnDef<(typeof data)[0]>[] = [
+    {
+      header: 'First Name',
+      accessorKey: 'firstName',
+    },
+    {
+      header: 'Last Name',
+      accessorKey: 'lastName',
+    },
+    {
+      header: 'Age',
+      accessorKey: 'age',
+    },
+    {
+      header: 'Address',
+      accessorKey: 'address',
+    },
+  ];
+
+  const [selectedRow, setSelectedRow] = useState<(typeof data)[0] | null>(null);
+  const [selectedRowIndex, setSelectedRowIndex] = useState<string | null>(null);
+
+  const handleRowClick = (row: (typeof data)[0], rowId: string) => {
+    setSelectedRow(row);
+    setSelectedRowIndex(rowId);
+  };
+
+  return (
+    <>
+      <p>
+        Hover/Click on row with age less than 50 to see disabled row <br />
+        Selected row index: {selectedRowIndex}, row:{' '}
+        {selectedRowIndex ? JSON.stringify(selectedRow) : 'None'}
+      </p>
+      <DataTable
+        columns={columns}
+        css={{
+          '.manifest-table__row:hover': {
+            backgroundColor: '$background-hover',
+          },
+        }}
+        data={data}
+        // eslint-disable-next-line react/jsx-no-bind
+        enableRowClick={(row) => row.age > 50}
         // eslint-disable-next-line react/jsx-no-bind
         onRowClick={handleRowClick}
       />

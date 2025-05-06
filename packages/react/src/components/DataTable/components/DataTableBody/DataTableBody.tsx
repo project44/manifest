@@ -7,26 +7,37 @@ export function DataTableBody<TData extends RowData>(props: DataTableBodyProps<T
 
   return (
     <tbody className="manifest-table__body">
-      {table.getRowModel().rows.map((row) => (
-        <tr
-          key={row.id}
-          className={`manifest-table__row  ${row.depth > 0 ? 'manifest-table__child-row' : ''}`}
-          style={
-            table.options.onRowClick
-              ? {
-                  cursor: 'pointer',
-                }
-              : {}
-          }
-          onClick={() => {
-            table.options.onRowClick?.(row.id, row.original);
-          }}
-        >
-          {row.getVisibleCells().map((cell) => (
-            <DataTableCell key={cell.id} cell={cell} table={table} />
-          ))}
-        </tr>
-      ))}
+      {table.getRowModel().rows.map((row) => {
+        const { enableRowClick, onRowClick } = table.options;
+        const isRowClickable =
+          typeof enableRowClick === 'function'
+            ? enableRowClick(row.original, row.id)
+            : enableRowClick;
+
+        return (
+          <tr
+            key={row.id}
+            className={`manifest-table__row  ${row.depth > 0 ? 'manifest-table__child-row' : ''}`}
+            style={
+              // Apply style only if row is clickable and onRowClick is defined
+              isRowClickable && onRowClick
+                ? {
+                    cursor: 'pointer',
+                  }
+                : {}
+            }
+            onClick={() => {
+              if (isRowClickable) {
+                onRowClick?.(row.original, row.id);
+              }
+            }}
+          >
+            {row.getVisibleCells().map((cell) => (
+              <DataTableCell key={cell.id} cell={cell} table={table} />
+            ))}
+          </tr>
+        );
+      })}
     </tbody>
   );
 }
