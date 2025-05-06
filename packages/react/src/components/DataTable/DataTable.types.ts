@@ -143,7 +143,7 @@ export interface DataTableProps<TData extends RowData> {
   /**
    * Whether the table supports entire row clicking.
    *
-   * @default true
+   * @default false
    */
   enableRowClick?: boolean | ((row: TData, rowId: string) => boolean);
   /**
