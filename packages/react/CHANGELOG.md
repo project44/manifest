@@ -1,5 +1,14 @@
 # @manifest/react
 
+## 3.34.0
+
+### Minor Changes
+
+- [#584](https://github.com/project44/manifest/pull/584)
+  [`32be0b2`](https://github.com/project44/manifest/commit/32be0b22e64ca034d68cf716ff43c3e9dfc78259)
+  Thanks [@ssolanki-p44](https://github.com/ssolanki-p44)! - added conditionally row click disable
+  functionality
+
 ## 3.33.0
 
 ### Minor Changes
