@@ -121,7 +121,7 @@ export const Tag = createComponent<TagOptions>((props, forwardedRef) => {
   React.useEffect(() => {
     if (isCopied) {
       setShowCopiedAnimation(true);
-      setTimeout(() => setShowCopiedAnimation(false), 600); // slightly less than animation duration
+      setTimeout(() => void setShowCopiedAnimation(false), 600); // slightly less than animation duration
     }
   }, [isCopied]);
 
