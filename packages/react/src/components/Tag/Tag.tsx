@@ -119,10 +119,16 @@ export const Tag = createComponent<TagOptions>((props, forwardedRef) => {
   }
 
   React.useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
     if (isCopied) {
       setShowCopiedAnimation(true);
-      setTimeout(() => void setShowCopiedAnimation(false), 600); // slightly less than animation duration
+      timeoutId = setTimeout(() => void setShowCopiedAnimation(false), 600); // slightly less than animation duration
     }
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
   }, [isCopied]);
 
   return (
