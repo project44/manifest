@@ -476,8 +476,6 @@ export const SelectAllRowsWithManualPagination = () => {
         data={pageData}
         // eslint-disable-next-line react/jsx-no-bind
         getRowId={(row) => row.id}
-        onPaginationChange={handlePaginationChange}
-        onRowSelectionChange={handleRowSelectionChange}
         pageCount={Math.ceil(TOTAL_ROWS / PAGE_SIZE)}
         // eslint-disable-next-line react/jsx-no-bind
         paginationProps={() => ({
@@ -492,6 +490,10 @@ export const SelectAllRowsWithManualPagination = () => {
           onChange: handleSelectAllCheckboxChange,
         })}
         state={{ pagination, rowSelection: tableRowSelection }}
+        // eslint-disable-next-line react/jsx-no-bind
+        onPaginationChange={handlePaginationChange}
+        // eslint-disable-next-line react/jsx-no-bind
+        onRowSelectionChange={handleRowSelectionChange}
       />
     </>
   );
