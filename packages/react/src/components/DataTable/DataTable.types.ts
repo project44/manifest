@@ -246,6 +246,12 @@ export interface DataTableProps<TData extends RowData> {
    * @default * (row: Row<TData>) => row?.subRows as TData[]
    */
   getSubRows?: (Row: Row<TData>) => TData[];
+  /**
+   * Optional function to derive a stable unique ID for each row.
+   * When provided, row selection state keys will use this ID instead of the
+   * default numeric index, making selection stable across sorts and re-renders.
+   */
+  getRowId?: (row: TData, index: number) => string;
 }
 
 export interface FooterPropsType {

@@ -67,6 +67,7 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
     onRowClick,
     autoResetExpanded,
     getSubRows = (row: Row<TData>) => row?.subRows as TData[],
+    getRowId,
     ...other
   } = props;
 
@@ -149,6 +150,7 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getSubRows,
+    getRowId,
     initialState,
     isLoading,
     manualExpanding,

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { faker } from '@faker-js/faker';
 import { ClipboardWithCheck, Clock } from '@project44-manifest/react-icons';
-import { CellContext, RowSelectionState } from '@tanstack/react-table';
+import { CellContext, PaginationState, RowSelectionState } from '@tanstack/react-table';
 import { createDataTableColumnHelper, DataTable, DataTableColumnDef, Link, Pill } from '../../..';
 import { TotalsDataObj } from '../DataTable.types';
 
@@ -315,6 +315,189 @@ const sampleData = [...Array.from({ length: 5 })].map(() => ({
   age: faker.datatype.number(80),
   address: faker.address.streetAddress(),
 }));
+
+export const SelectAllRowsWithManualPagination = () => {
+  const TOTAL_ROWS = 50;
+  const PAGE_SIZE = 10;
+
+  const allData = React.useMemo(
+    () =>
+      [...Array.from({ length: TOTAL_ROWS })].map((_, index) => ({
+        id: `user-${index + 1}`,
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        age: faker.datatype.number(80),
+        address: faker.address.streetAddress(),
+      })),
+    [],
+  );
+
+  const columns: DataTableColumnDef<(typeof allData)[0]>[] = [
+    { header: 'ID', accessorKey: 'id' },
+    { header: 'First Name', accessorKey: 'firstName' },
+    { header: 'Last Name', accessorKey: 'lastName' },
+    { header: 'Age', accessorKey: 'age' },
+    { header: 'Address', accessorKey: 'address' },
+  ];
+
+  const [pagination, setPagination] = React.useState<PaginationState>({
+    pageIndex: 0,
+    pageSize: PAGE_SIZE,
+  });
+
+  // True when the user has opted into "select all pages" mode
+  const [isAllSelected, setIsAllSelected] = React.useState(false);
+  // Row IDs explicitly excluded after "select all" (user unchecked them)
+  const [excludedIds, setExcludedIds] = React.useState<Set<string>>(new Set());
+  // Row IDs manually selected when isAllSelected is false
+  const [selectedIds, setSelectedIds] = React.useState<Set<string>>(new Set());
+
+  // Simulated server-side page slice — only the current page is in memory
+  const pageData = allData.slice(
+    pagination.pageIndex * PAGE_SIZE,
+    (pagination.pageIndex + 1) * PAGE_SIZE,
+  );
+
+  // Effective total selected count:
+  //   isAllSelected → every row except exclusions
+  //   otherwise    → only manually selected rows
+  const selectedCount = isAllSelected ? TOTAL_ROWS - excludedIds.size : selectedIds.size;
+
+  // Derive the rowSelection map the table sees (current page only)
+  const tableRowSelection = React.useMemo<RowSelectionState>(() => {
+    if (isAllSelected) {
+      return Object.fromEntries(
+        pageData.filter((row) => !excludedIds.has(row.id)).map((row) => [row.id, true]),
+      );
+    }
+    return Object.fromEntries(
+      pageData.filter((row) => selectedIds.has(row.id)).map((row) => [row.id, true]),
+    );
+  }, [isAllSelected, excludedIds, selectedIds, pageData]);
+
+  const allPageRowsSelected =
+    pageData.length > 0 &&
+    pageData.every((row) => (isAllSelected ? !excludedIds.has(row.id) : selectedIds.has(row.id)));
+
+  // Called by the table when an individual row checkbox is toggled
+  const handleRowSelectionChange = (
+    updater: RowSelectionState | ((old: RowSelectionState) => RowSelectionState),
+  ) => {
+    const newSelection = typeof updater === 'function' ? updater(tableRowSelection) : updater;
+
+    if (isAllSelected) {
+      // Update the exclusion list based on what changed on this page
+      setExcludedIds((prev) => {
+        const next = new Set(prev);
+        pageData.forEach((row) => {
+          const wasSelected = !prev.has(row.id);
+          const isNowSelected = !!newSelection[row.id];
+          if (wasSelected && !isNowSelected) next.add(row.id);
+          else if (!wasSelected && isNowSelected) next.delete(row.id);
+        });
+        return next;
+      });
+    } else {
+      setSelectedIds((prev) => {
+        const next = new Set(prev);
+        pageData.forEach((row) => {
+          if (newSelection[row.id]) next.add(row.id);
+          else next.delete(row.id);
+        });
+        return next;
+      });
+    }
+  };
+
+  const handleClearSelection = () => {
+    setIsAllSelected(false);
+    setExcludedIds(new Set());
+    setSelectedIds(new Set());
+  };
+
+  const handlePaginationChange = (
+    updater: PaginationState | ((old: PaginationState) => PaginationState),
+  ) => {
+    setPagination((prev) => (typeof updater === 'function' ? updater(prev) : updater));
+  };
+
+  // Header checkbox onChange: selects/deselects all 50 rows across all pages
+  const handleSelectAllCheckboxChange = () => {
+    if (isAllSelected && excludedIds.size === 0) {
+      // All 50 selected → clear everything
+      handleClearSelection();
+    } else {
+      // Select all 50 rows across all pages
+      setIsAllSelected(true);
+      setExcludedIds(new Set());
+      setSelectedIds(new Set());
+    }
+  };
+
+  return (
+    <>
+      <p>
+        Selected rows: {selectedCount} of {TOTAL_ROWS}
+        {selectedCount > 0 && (
+          // eslint-disable-next-line react/jsx-no-bind
+          <button style={{ marginLeft: 12 }} onClick={handleClearSelection}>
+            Clear selection
+          </button>
+        )}
+      </p>
+
+      {/* Banner: shown when all current-page rows are selected but not yet in "select all" mode */}
+      {allPageRowsSelected && !isAllSelected && (
+        <p>
+          All {PAGE_SIZE} rows on this page are selected.{' '}
+          {/* eslint-disable-next-line react/jsx-no-bind */}
+          <button
+            onClick={() => {
+              setIsAllSelected(true);
+              setExcludedIds(new Set());
+            }}
+          >
+            Select all {TOTAL_ROWS} rows
+          </button>
+        </p>
+      )}
+
+      {/* Manual selection IDs: shown when not in "select all" mode */}
+      {!isAllSelected && selectedIds.size > 0 && <p>Selected IDs: {[...selectedIds].join(', ')}</p>}
+
+      {/* Exclusion feedback: shown when in "select all" mode but some rows are unchecked */}
+      {isAllSelected && excludedIds.size > 0 && <p>Excluded IDs: {[...excludedIds].join(', ')}</p>}
+
+      <DataTable
+        enableRowSelection
+        enableSelectAll
+        manualPagination
+        columns={columns}
+        data={pageData}
+        // eslint-disable-next-line react/jsx-no-bind
+        getRowId={(row) => row.id}
+        pageCount={Math.ceil(TOTAL_ROWS / PAGE_SIZE)}
+        // eslint-disable-next-line react/jsx-no-bind
+        paginationProps={() => ({
+          page: pagination.pageIndex + 1,
+          totalRowCount: TOTAL_ROWS,
+        })}
+        rowCount={TOTAL_ROWS}
+        // eslint-disable-next-line react/jsx-no-bind
+        selectAllCheckboxProps={() => ({
+          isSelected: isAllSelected && excludedIds.size === 0,
+          isIndeterminate: selectedCount > 0 && !(isAllSelected && excludedIds.size === 0),
+          onChange: handleSelectAllCheckboxChange,
+        })}
+        state={{ pagination, rowSelection: tableRowSelection }}
+        // eslint-disable-next-line react/jsx-no-bind
+        onPaginationChange={handlePaginationChange}
+        // eslint-disable-next-line react/jsx-no-bind
+        onRowSelectionChange={handleRowSelectionChange}
+      />
+    </>
+  );
+};
 
 export const RowClick = () => {
   const data = sampleData;
