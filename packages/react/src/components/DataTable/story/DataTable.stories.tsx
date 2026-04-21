@@ -451,21 +451,22 @@ export const SelectAllRowsWithManualPagination = () => {
         <p>
           All {PAGE_SIZE} rows on this page are selected.{' '}
           {/* eslint-disable-next-line react/jsx-no-bind */}
-          <button onClick={() => { setIsAllSelected(true); setExcludedIds(new Set()); }}>
+          <button
+            onClick={() => {
+              setIsAllSelected(true);
+              setExcludedIds(new Set());
+            }}
+          >
             Select all {TOTAL_ROWS} rows
           </button>
         </p>
       )}
 
       {/* Manual selection IDs: shown when not in "select all" mode */}
-      {!isAllSelected && selectedIds.size > 0 && (
-        <p>Selected IDs: {[...selectedIds].join(', ')}</p>
-      )}
+      {!isAllSelected && selectedIds.size > 0 && <p>Selected IDs: {[...selectedIds].join(', ')}</p>}
 
       {/* Exclusion feedback: shown when in "select all" mode but some rows are unchecked */}
-      {isAllSelected && excludedIds.size > 0 && (
-        <p>Excluded IDs: {[...excludedIds].join(', ')}</p>
-      )}
+      {isAllSelected && excludedIds.size > 0 && <p>Excluded IDs: {[...excludedIds].join(', ')}</p>}
 
       <DataTable
         enableRowSelection
