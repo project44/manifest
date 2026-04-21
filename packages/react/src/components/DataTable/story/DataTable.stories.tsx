@@ -415,6 +415,12 @@ export const SelectAllRowsWithManualPagination = () => {
     setSelectedIds(new Set());
   };
 
+  const handlePaginationChange = (
+    updater: PaginationState | ((old: PaginationState) => PaginationState),
+  ) => {
+    setPagination((prev) => (typeof updater === 'function' ? updater(prev) : updater));
+  };
+
   // Header checkbox onChange: selects/deselects all 50 rows across all pages
   const handleSelectAllCheckboxChange = () => {
     if (isAllSelected && excludedIds.size === 0) {
@@ -464,18 +470,20 @@ export const SelectAllRowsWithManualPagination = () => {
       <DataTable
         enableRowSelection
         enableSelectAll
+        manualPagination
         columns={columns}
         data={pageData}
         // eslint-disable-next-line react/jsx-no-bind
         getRowId={(row) => row.id}
-        manualPagination
+        onPaginationChange={handlePaginationChange}
+        onRowSelectionChange={handleRowSelectionChange}
         pageCount={Math.ceil(TOTAL_ROWS / PAGE_SIZE)}
-        rowCount={TOTAL_ROWS}
         // eslint-disable-next-line react/jsx-no-bind
         paginationProps={() => ({
-          totalRowCount: TOTAL_ROWS,
           page: pagination.pageIndex + 1,
+          totalRowCount: TOTAL_ROWS,
         })}
+        rowCount={TOTAL_ROWS}
         // eslint-disable-next-line react/jsx-no-bind
         selectAllCheckboxProps={() => ({
           isSelected: isAllSelected && excludedIds.size === 0,
@@ -483,11 +491,6 @@ export const SelectAllRowsWithManualPagination = () => {
           onChange: handleSelectAllCheckboxChange,
         })}
         state={{ pagination, rowSelection: tableRowSelection }}
-        // eslint-disable-next-line react/jsx-no-bind
-        onPaginationChange={(updater) =>
-          setPagination((prev) => (typeof updater === 'function' ? updater(prev) : updater))
-        }
-        onRowSelectionChange={handleRowSelectionChange}
       />
     </>
   );
