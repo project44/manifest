@@ -1,5 +1,15 @@
 # @manifest/react
 
+## 3.35.0
+
+### Minor Changes
+
+- [#587](https://github.com/project44/manifest/pull/587)
+  [`02a1bf97`](https://github.com/project44/manifest/commit/02a1bf973e9be3d16855a85ca461059a3204d629)
+  Thanks [@vishwath11](https://github.com/vishwath11)! - DataTable: added `getRowId` prop for stable
+  row ID derivation and added Storybook stories for select all across pages with manual pagination
+  using an exclusion list pattern
+
 ## 3.34.0
 
 ### Minor Changes
