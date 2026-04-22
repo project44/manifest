@@ -63,6 +63,9 @@ export const Tag = createComponent<TagOptions>((props, forwardedRef) => {
   } = props;
 
   const [isCopied, setIsCopied] = React.useState(false);
+
+  const [showCopiedAnimation, setShowCopiedAnimation] = React.useState(false);
+
   const childrenText = useChildrenTextContent(children);
 
   const removeButtonRef = React.useRef<HTMLButtonElement>(null);
@@ -107,12 +110,26 @@ export const Tag = createComponent<TagOptions>((props, forwardedRef) => {
     isDisabled,
     isHovered,
     isRemovable,
+    showCopiedAnimation,
   });
 
   if (isCopyable && (!label || label === '')) {
     // eslint-disable-next-line no-console
     console.warn('Tag component requires a label prop for click-to-copy');
   }
+
+  React.useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
+    if (isCopied) {
+      setShowCopiedAnimation(true);
+      timeoutId = setTimeout(() => void setShowCopiedAnimation(false), 600); // slightly less than animation duration
+    }
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
+  }, [isCopied]);
 
   return (
     <Comp

@@ -65,7 +65,7 @@ export const useStyles = css({
   },
 
   variants: {
-    isCopied: {
+    showCopiedAnimation: {
       true: {
         '@media (prefers-reduced-motion: no-preference)': {
           '.manifest-tag__text::before': {

@@ -73,23 +73,23 @@ export const Copyable = () => (
       isCopyable
       aria-label="truckload tag"
       label="Truckload"
-      removeButtonProps={{ 'aria-label': 'remove truckload' }}
+      removeButtonProps={{ 'aria-label': 'copy truckload' }}
     >
       Truckload
     </Tag>
     <Tag
       isCopyable
       aria-label="truckload tag"
-      label="Tag"
-      removeButtonProps={{ 'aria-label': 'remove truckload' }}
+      label="Tag with long text"
+      removeButtonProps={{ 'aria-label': 'copy tag' }}
     >
-      Tag
+      Tag with long text
     </Tag>
     <Tag
       isCopyable
       aria-label="truckload tag"
       label="1"
-      removeButtonProps={{ 'aria-label': 'remove truckload' }}
+      removeButtonProps={{ 'aria-label': 'copy 1' }}
     >
       1
     </Tag>
