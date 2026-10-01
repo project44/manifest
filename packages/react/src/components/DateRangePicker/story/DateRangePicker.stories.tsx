@@ -1,5 +1,14 @@
 import * as React from 'react';
-import { CalendarDate, DateValue, endOfMonth, startOfMonth } from '@internationalized/date';
+import {
+  CalendarDate,
+  DateValue,
+  endOfMonth,
+  endOfWeek,
+  getLocalTimeZone,
+  startOfMonth,
+  startOfWeek,
+  today,
+} from '@internationalized/date';
 import type { ComponentStory } from '@storybook/react';
 import { DateRangePicker, Flex, Icon } from '../../..';
 import type { RangeValue } from '../../CalendarRange';
@@ -133,4 +142,76 @@ CustomRelativeRanges.decorators = [
 
     return <DateRangePicker showRanges ranges={customRanges} />;
   },
+];
+
+// Sample relative-date presets (Today, Last 7 Days, etc.) reused by the two
+// rangeDisplayMode stories below.
+function buildRelativeDateRanges() {
+  const tz = getLocalTimeZone();
+  const ref = today(tz);
+  const dayBefore = (n: number) => ref.subtract({ days: n });
+  const dayAfter = (n: number) => ref.add({ days: n });
+  const thisWeekStart = startOfWeek(ref, 'en-US');
+  const thisWeekEnd = endOfWeek(ref, 'en-US');
+  const nextWeekStart = thisWeekStart.add({ weeks: 1 });
+  const nextWeekEnd = thisWeekEnd.add({ weeks: 1 });
+
+  return [
+    { key: 'today', label: 'Today', value: { start: ref, end: ref } },
+    { key: 'tomorrow', label: 'Tomorrow', value: { start: dayAfter(1), end: dayAfter(1) } },
+    {
+      key: 'next-week',
+      label: 'Next Week',
+      value: { start: nextWeekStart, end: nextWeekEnd },
+    },
+    { key: 'next-7-days', label: 'Next 7 Days', value: { start: ref, end: dayAfter(6) } },
+    { key: 'yesterday', label: 'Yesterday', value: { start: dayBefore(1), end: dayBefore(1) } },
+    {
+      key: 'last-24-hours',
+      label: 'Last 24 Hours',
+      value: { start: dayBefore(1), end: ref },
+    },
+    {
+      key: 'last-48-hours',
+      label: 'Last 48 Hours',
+      value: { start: dayBefore(2), end: ref },
+    },
+    { key: 'this-week', label: 'This Week', value: { start: thisWeekStart, end: thisWeekEnd } },
+    { key: 'last-7-days', label: 'Last 7 Days', value: { start: dayBefore(6), end: ref } },
+    {
+      key: 'this-month',
+      label: 'This Month',
+      value: {
+        start: startOfMonth(ref),
+        end: endOfMonth(ref),
+      },
+    },
+    { key: 'last-30-days', label: 'Last 30 Days', value: { start: dayBefore(29), end: ref } },
+    { key: 'last-60-days', label: 'Last 60 Days', value: { start: dayBefore(59), end: ref } },
+    { key: 'last-90-days', label: 'Last 90 Days', value: { start: dayBefore(89), end: ref } },
+  ];
+}
+
+export const WithPresetLabel = Template.bind({});
+
+// rangeDisplayMode="preset" — trigger shows just the preset's label (e.g.
+// "Last 7 Days") instead of the resolved date range.
+WithPresetLabel.decorators = [
+  () => (
+    <DateRangePicker showRanges rangeDisplayMode="preset" ranges={buildRelativeDateRanges()} />
+  ),
+];
+
+export const WithPresetLabelAndRange = Template.bind({});
+
+// rangeDisplayMode="presetWithRange" — trigger shows the preset's label plus
+// the resolved date range (e.g. "Last 7 Days (Jun 1, 2026 - Jun 7, 2026)").
+WithPresetLabelAndRange.decorators = [
+  () => (
+    <DateRangePicker
+      showRanges
+      rangeDisplayMode="presetWithRange"
+      ranges={buildRelativeDateRanges()}
+    />
+  ),
 ];
