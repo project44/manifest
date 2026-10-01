@@ -7,6 +7,7 @@ export type { CalendarProps } from './components/Calendar';
 export { Calendar } from './components/Calendar';
 export type { CalendarRangeProps } from './components/CalendarRange';
 export { CalendarRange } from './components/CalendarRange';
+export type { CalendarRangesProps, DefinedRange } from './components/CalendarRanges';
 export type { CardProps } from './components/Card';
 export { Card } from './components/Card';
 export type { CardBodyProps } from './components/CardBody';

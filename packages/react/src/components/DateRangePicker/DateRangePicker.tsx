@@ -106,6 +106,35 @@ export interface DateRangePickerOptions<T extends As = DateRangePickerElement>
    * Brings the list of ranges defined to the component
    */
   ranges?: DefinedRange[];
+
+  /**
+   * Controls what the closed trigger shows after picking an item from the
+   * ranges rail. Falls back to `'range'`'s text as soon as the user edits
+   * the calendar manually. Has no effect when `showRanges` is false.
+   *
+   * - `'range'` (default) — original behavior: always the resolved date
+   *   range, e.g. "Jun 1, 2026 - Jun 7, 2026".
+   * - `'preset'` — just the preset label, e.g. "Last 7 Days".
+   * - `'presetWithRange'` — the preset label plus the resolved range, e.g.
+   *   "Last 7 Days (Jun 1, 2026 - Jun 7, 2026)".
+   *
+   * @default 'range'
+   * @example
+   * <DateRangePicker showRanges rangeDisplayMode="preset" />
+   * <DateRangePicker showRanges rangeDisplayMode="presetWithRange" />
+   */
+  rangeDisplayMode?: 'preset' | 'presetWithRange' | 'range';
+
+  /**
+   * Called when the user picks an item from the ranges rail (not called for
+   * manual day-by-day selection on the calendar table). Fires before
+   * `onChange` for the same pick, so a consumer can stash the preset's
+   * stable `key` in a ref and read it back inside its own `onChange`
+   * handler — useful for persisting which preset produced a given range
+   * without re-deriving it by comparing dates against their own preset
+   * list.
+   */
+  onRangeSelect?: (range: DefinedRange) => void;
 }
 
 export type DateRangePickerProps<T extends As = DateRangePickerElement> = Props<
@@ -127,6 +156,8 @@ export const DateRangePicker = createComponent<DateRangePickerOptions>((props, f
     ranges,
     showCalendar = true,
     showRanges = false,
+    rangeDisplayMode = 'range',
+    onRangeSelect: onRangeSelectProp,
     label,
     labelProps: labelPropsProp = {},
     offset = 4,
@@ -172,6 +203,37 @@ export const DateRangePicker = createComponent<DateRangePickerOptions>((props, f
 
   const handleClose = React.useCallback(() => void state.setOpen(false), [state]);
 
+  // Tracks the label of the last-clicked ranges-rail preset so the trigger
+  // can show it instead of (or alongside) the resolved date range when
+  // rangeDisplayMode isn't 'range'. presetSelectedRef flags a value change as
+  // "came from a preset click" so the effect below can tell it apart from a
+  // manual calendar-table pick and clear the label in that case.
+  const presetSelectedRef = React.useRef(false);
+  const [selectedRangeLabel, setSelectedRangeLabel] = React.useState<string | undefined>();
+
+  const handleRangeSelect = React.useCallback(
+    (range: DefinedRange) => {
+      if (rangeDisplayMode !== 'range') {
+        presetSelectedRef.current = true;
+        setSelectedRangeLabel(range.label);
+      }
+      onRangeSelectProp?.(range);
+    },
+    [rangeDisplayMode, onRangeSelectProp],
+  );
+
+  React.useEffect(() => {
+    // No-op in the default 'range' mode — every other DateRangePicker
+    // consumer in the codebase must see zero behavior change from this
+    // feature.
+    if (rangeDisplayMode === 'range') return;
+    if (presetSelectedRef.current) {
+      presetSelectedRef.current = false;
+      return;
+    }
+    setSelectedRangeLabel(undefined);
+  }, [state.value, rangeDisplayMode]);
+
   const { className } = useStyles({
     hasStartIcon: Boolean(startIcon),
     isActive: state.isOpen,
@@ -209,7 +271,18 @@ export const DateRangePicker = createComponent<DateRangePickerOptions>((props, f
       })}`;
     });
 
-    return fromDate && toDate ? `${fromDate} - ${toDate}` : placeholder;
+    const rangeText = fromDate && toDate ? `${fromDate} - ${toDate}` : placeholder;
+
+    if (selectedRangeLabel) {
+      if (rangeDisplayMode === 'presetWithRange') {
+        return `${selectedRangeLabel} (${rangeText})`;
+      }
+      if (rangeDisplayMode === 'preset') {
+        return selectedRangeLabel;
+      }
+    }
+
+    return rangeText;
   };
 
   return (
@@ -259,6 +332,9 @@ export const DateRangePicker = createComponent<DateRangePickerOptions>((props, f
               ranges={ranges}
               showCalendar={showCalendar}
               showRanges={showRanges}
+              onRangeSelect={
+                rangeDisplayMode === 'range' && !onRangeSelectProp ? undefined : handleRangeSelect
+              }
             />
           </Popover>
         </Overlay>

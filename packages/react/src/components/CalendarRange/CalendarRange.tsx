@@ -43,6 +43,12 @@ export interface CalendarRangeOptions<T extends As = CalendarElement>
    * Brings the list of ranges defined to the component
    */
   ranges?: DefinedRange[];
+
+  /**
+   * Called when the user picks an item from the ranges rail (not called for
+   * manual day-by-day selection on the calendar table).
+   */
+  onRangeSelect?: (range: DefinedRange) => void;
 }
 
 export type CalendarRangeProps<T extends As = CalendarElement> = Props<CalendarRangeOptions<T>>;
@@ -55,6 +61,7 @@ export const CalendarRange = createComponent<CalendarRangeOptions>((props, forwa
     showCalendar,
     showRanges,
     ranges,
+    onRangeSelect,
     ...other
   } = props;
 
@@ -82,13 +89,18 @@ export const CalendarRange = createComponent<CalendarRangeOptions>((props, forwa
       if (selectedRange) {
         const { value } = selectedRange;
 
+        // Fire onRangeSelect BEFORE state.setValue — react-stately setters
+        // invoke the bound onChange synchronously, so a consumer relying on
+        // a ref set inside onRangeSelect to enrich the same onChange call
+        // needs it populated first.
+        onRangeSelect?.(selectedRange);
         state.setValue({
           start: value.start,
           end: value.end,
         });
       }
     },
-    [state],
+    [state, onRangeSelect],
   );
 
   const { calendarProps, nextButtonProps, prevButtonProps } = useRangeCalendar(

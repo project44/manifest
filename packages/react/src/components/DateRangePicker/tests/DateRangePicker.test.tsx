@@ -301,4 +301,157 @@ describe('@project44-manifest/components - DateRangePicker', () => {
     })}`;
     expect(screen.getByText(`${yesterdayDateString} - ${yesterdayDateString}`)).toBeVisible();
   });
+
+  it('shows the preset label instead of the date range when rangeDisplayMode is "preset"', () => {
+    render(
+      <OverlayProvider>
+        <DateRangePicker
+          showCalendar
+          showRanges
+          aria-label="Calendar"
+          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+          rangeDisplayMode="preset"
+        />
+      </OverlayProvider>,
+    );
+
+    expect(screen.getByText('Jul 2, 2022 - Jul 12, 2022')).toBeVisible();
+
+    fireEvent.click(screen.getByRole('button'));
+    fireEvent.click(screen.getByText('Yesterday'));
+
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(screen.getByText('Yesterday')).toBeVisible();
+    expect(screen.queryByText('Jul')).not.toBeInTheDocument();
+  });
+
+  it('shows the preset label plus the date range when rangeDisplayMode is "presetWithRange"', () => {
+    render(
+      <OverlayProvider>
+        <DateRangePicker
+          showCalendar
+          showRanges
+          aria-label="Calendar"
+          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+          rangeDisplayMode="presetWithRange"
+        />
+      </OverlayProvider>,
+    );
+
+    fireEvent.click(screen.getByRole('button'));
+    fireEvent.click(screen.getByText('Yesterday'));
+
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    const today = new Date();
+    const yesterday = new Date(today);
+    yesterday.setDate(today.getDate() - 1);
+    const yesterdayDateString = `${yesterday.toLocaleDateString(undefined, {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    })}`;
+
+    expect(
+      screen.getByText(`Yesterday (${yesterdayDateString} - ${yesterdayDateString})`),
+    ).toBeVisible();
+  });
+
+  it('falls back to the date range once a preset selection is edited manually', () => {
+    render(
+      <OverlayProvider>
+        <DateRangePicker
+          showCalendar
+          showRanges
+          aria-label="Calendar"
+          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+          rangeDisplayMode="preset"
+        />
+      </OverlayProvider>,
+    );
+
+    fireEvent.click(screen.getByRole('button'));
+    fireEvent.click(screen.getByText('Yesterday'));
+
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(screen.getByText('Yesterday')).toBeVisible();
+
+    fireEvent.click(screen.getByRole('button'));
+    fireEvent.click(screen.getByText('Today'));
+
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(screen.queryByText('Yesterday')).not.toBeInTheDocument();
+  });
+
+  it('calls the public onRangeSelect with the picked preset before onChange fires', () => {
+    const callOrder: string[] = [];
+    const onRangeSelect = jest.fn((range: DefinedRange) =>
+      callOrder.push(`onRangeSelect:${range.key}`),
+    );
+    const onChange = jest.fn(() => callOrder.push('onChange'));
+
+    render(
+      <OverlayProvider>
+        <DateRangePicker
+          showCalendar
+          showRanges
+          aria-label="Calendar"
+          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+          onChange={onChange}
+          onRangeSelect={onRangeSelect}
+        />
+      </OverlayProvider>,
+    );
+
+    fireEvent.click(screen.getByRole('button'));
+    fireEvent.click(screen.getByText('Yesterday'));
+
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(onRangeSelect).toHaveBeenCalledTimes(1);
+    expect(onRangeSelect).toHaveBeenCalledWith(expect.objectContaining({ key: 'yesterday' }));
+    expect(callOrder).toEqual(['onRangeSelect:yesterday', 'onChange']);
+  });
+
+  it('does not call onRangeSelect for a manual day-by-day calendar pick', () => {
+    const onRangeSelect = jest.fn();
+    const onChange = jest.fn();
+
+    render(
+      <OverlayProvider>
+        <DateRangePicker
+          showCalendar
+          showRanges
+          aria-label="Calendar"
+          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+          onChange={onChange}
+          onRangeSelect={onRangeSelect}
+        />
+      </OverlayProvider>,
+    );
+
+    fireEvent.click(screen.getByRole('button'));
+    fireEvent.click(screen.getByLabelText('Sunday, July 3, 2022 selected'));
+    fireEvent.click(screen.getByLabelText('Sunday, July 17, 2022'));
+
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(onChange).toHaveBeenCalled();
+    expect(onRangeSelect).not.toHaveBeenCalled();
+  });
 });
