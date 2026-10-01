@@ -144,9 +144,9 @@ CustomRelativeRanges.decorators = [
   },
 ];
 
-// Mirrors the preset rail last-mile-tracking's MultiLevelDateRow builds
-// (buildDefaultRanges) — reused by the two rangeDisplayMode stories below.
-function buildLastMileTrackingRanges() {
+// Sample relative-date presets (Today, Last 7 Days, etc.) reused by the two
+// rangeDisplayMode stories below.
+function buildRelativeDateRanges() {
   const tz = getLocalTimeZone();
   const ref = today(tz);
   const dayBefore = (n: number) => ref.subtract({ days: n });
@@ -198,7 +198,7 @@ export const WithPresetLabel = Template.bind({});
 // "Last 7 Days") instead of the resolved date range.
 WithPresetLabel.decorators = [
   () => (
-    <DateRangePicker showRanges rangeDisplayMode="preset" ranges={buildLastMileTrackingRanges()} />
+    <DateRangePicker showRanges rangeDisplayMode="preset" ranges={buildRelativeDateRanges()} />
   ),
 ];
 
@@ -211,7 +211,7 @@ WithPresetLabelAndRange.decorators = [
     <DateRangePicker
       showRanges
       rangeDisplayMode="presetWithRange"
-      ranges={buildLastMileTrackingRanges()}
+      ranges={buildRelativeDateRanges()}
     />
   ),
 ];
