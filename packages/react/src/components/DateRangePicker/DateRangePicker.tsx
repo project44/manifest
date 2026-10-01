@@ -208,13 +208,13 @@ export const DateRangePicker = createComponent<DateRangePickerOptions>((props, f
   // rangeDisplayMode isn't 'range'. presetSelectedRef flags a value change as
   // "came from a preset click" so the effect below can tell it apart from a
   // manual calendar-table pick and clear the label in that case.
-  const presetSelectedRef = React.useRef(false);
+  const presetSelectedRef = React.useRef<DefinedRange | undefined>(undefined);
   const [selectedRangeLabel, setSelectedRangeLabel] = React.useState<string | undefined>();
 
   const handleRangeSelect = React.useCallback(
     (range: DefinedRange) => {
       if (rangeDisplayMode !== 'range') {
-        presetSelectedRef.current = true;
+        presetSelectedRef.current = range;
         setSelectedRangeLabel(range.label);
       }
       onRangeSelectProp?.(range);
@@ -227,8 +227,20 @@ export const DateRangePicker = createComponent<DateRangePickerOptions>((props, f
     // consumer in the codebase must see zero behavior change from this
     // feature.
     if (rangeDisplayMode === 'range') return;
-    if (presetSelectedRef.current) {
-      presetSelectedRef.current = false;
+    const preset = presetSelectedRef.current;
+    presetSelectedRef.current = undefined;
+    // Only keep the label if the accepted value actually matches the preset
+    // that was picked — guards against a controlled consumer rejecting or
+    // not updating `value` after a preset click (same-reference or ignored
+    // update), which would otherwise leave a stale preset label showing once
+    // a later manual edit changes the dates.
+    if (
+      preset &&
+      state.value?.start &&
+      state.value?.end &&
+      state.value.start.compare(preset.value.start) === 0 &&
+      state.value.end.compare(preset.value.end) === 0
+    ) {
       return;
     }
     setSelectedRangeLabel(undefined);
