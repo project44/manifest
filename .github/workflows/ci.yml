@@ -9,8 +9,7 @@ on:
 jobs:
   validate:
     name: Validate
-    runs-on:
-      labels: ${{ fromJson(vars.SELF_HOSTED_RUNNER) }}
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout branch
