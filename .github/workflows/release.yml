@@ -14,8 +14,7 @@ concurrency:
 jobs:
   release:
     name: Changelog PR or Release
-    runs-on:
-      labels: ${{ fromJson(vars.SELF_HOSTED_RUNNER) }}
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout branch

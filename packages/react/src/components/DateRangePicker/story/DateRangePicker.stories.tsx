@@ -197,9 +197,7 @@ export const WithPresetLabel = Template.bind({});
 // rangeDisplayMode="preset" — trigger shows just the preset's label (e.g.
 // "Last 7 Days") instead of the resolved date range.
 WithPresetLabel.decorators = [
-  () => (
-    <DateRangePicker showRanges rangeDisplayMode="preset" ranges={buildRelativeDateRanges()} />
-  ),
+  () => <DateRangePicker showRanges rangeDisplayMode="preset" ranges={buildRelativeDateRanges()} />,
 ];
 
 export const WithPresetLabelAndRange = Template.bind({});

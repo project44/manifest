@@ -8,8 +8,7 @@ on:
 jobs:
   conventional:
     name: Conventional title
-    runs-on:
-      labels: ${{ fromJson(vars.SELF_HOSTED_RUNNER) }}
+    runs-on: ubuntu-latest
 
     steps:
       - name: Check pr title
@@ -21,8 +20,7 @@ jobs:
     if: github.head_ref != 'changeset-release/main'
 
     name: Changeset
-    runs-on:
-      labels: ${{ fromJson(vars.SELF_HOSTED_RUNNER) }}
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout branch
