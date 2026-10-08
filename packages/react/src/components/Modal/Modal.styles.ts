@@ -46,6 +46,23 @@ export const StyledModalWrapper = styled('div', {
         visibility: 'visible',
       },
     },
+    position: {
+      top: {
+        top: '64px',
+        inlineSize: 'auto',
+        left: '0px',
+        right: '0px',
+        alignItems: 'flex-start',
+      },
+      center: {
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+    },
+  },
+
+  defaultVariants: {
+    position: 'top',
   },
 });
 
