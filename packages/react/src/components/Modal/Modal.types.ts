@@ -1,5 +1,10 @@
 import type { CSS } from '@project44-manifest/react-styles';
 
+export enum ModalPosition {
+  top = 'top',
+  center = 'center',
+}
+
 export type ModalElement = 'div';
 
 export interface ModalProps {
@@ -27,4 +32,9 @@ export interface ModalProps {
    * Handler that is called when the modal should close.
    */
   onClose?: () => void;
+
+  /**
+   * Handles position of modal wrapper
+   */
+  position?: ModalPosition;
 }
