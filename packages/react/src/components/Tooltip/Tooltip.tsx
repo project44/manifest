@@ -41,6 +41,13 @@ export const Tooltip = React.forwardRef((props, forwardedRef) => {
     triggerRef,
   );
 
+  const { close } = state;
+
+  // react-aria onClick handler prevents propagation
+  triggerProps.onClick = React.useCallback(() => {
+    close();
+  }, [close]);
+
   const { overlayProps: positionProps } = useOverlayPosition({
     isOpen: state?.isOpen,
     offset: 4,
