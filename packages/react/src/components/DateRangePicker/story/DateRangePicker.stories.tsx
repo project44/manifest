@@ -213,3 +213,24 @@ WithPresetLabelAndRange.decorators = [
     />
   ),
 ];
+
+export const WithSavedPresetLabel = Template.bind({});
+
+// presetLabel — shows the label for a value that was not picked from the rail
+// in this session (e.g. a saved view). A manual edit drops it.
+WithSavedPresetLabel.decorators = [
+  () => {
+    const tz = getLocalTimeZone();
+    const ref = today(tz);
+
+    return (
+      <DateRangePicker
+        showRanges
+        defaultValue={{ start: ref.subtract({ days: 6 }), end: ref }}
+        presetLabel="Last 7 Days"
+        rangeDisplayMode="preset"
+        ranges={buildRelativeDateRanges()}
+      />
+    );
+  },
+];

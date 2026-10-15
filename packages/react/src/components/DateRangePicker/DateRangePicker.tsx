@@ -135,6 +135,19 @@ export interface DateRangePickerOptions<T extends As = DateRangePickerElement>
    * list.
    */
   onRangeSelect?: (range: DefinedRange) => void;
+
+  /**
+   * Preset label to show for a value that did not come from a ranges-rail
+   * click in this session, e.g. a saved view or rule whose value was
+   * originally picked from a preset. Honoured only when `rangeDisplayMode`
+   * is `'preset'` or `'presetWithRange'`, and only while the value is
+   * unchanged: a manual edit drops it, and a rail pick takes over. Changing
+   * the prop re-anchors it to the current value.
+   *
+   * @example
+   * <DateRangePicker showRanges rangeDisplayMode="preset" presetLabel="Last 7 Days" value={value} />
+   */
+  presetLabel?: string;
 }
 
 export type DateRangePickerProps<T extends As = DateRangePickerElement> = Props<
@@ -158,6 +171,7 @@ export const DateRangePicker = createComponent<DateRangePickerOptions>((props, f
     showRanges = false,
     rangeDisplayMode = 'range',
     onRangeSelect: onRangeSelectProp,
+    presetLabel,
     label,
     labelProps: labelPropsProp = {},
     offset = 4,
@@ -210,6 +224,23 @@ export const DateRangePicker = createComponent<DateRangePickerOptions>((props, f
   // manual calendar-table pick and clear the label in that case.
   const presetSelectedRef = React.useRef<DefinedRange | undefined>(undefined);
   const [selectedRangeLabel, setSelectedRangeLabel] = React.useState<string | undefined>();
+
+  // A consumer-supplied `presetLabel` is anchored to the value it arrived with
+  // (re-anchored whenever the prop changes, during render so there is no
+  // one-frame flash). It stops applying as soon as the value differs, i.e.
+  // after a manual edit. A rail pick sets `selectedRangeLabel`, which wins.
+  const valueKey =
+    state.value?.start && state.value?.end
+      ? `${state.value.start.toString()}|${state.value.end.toString()}`
+      : '';
+  const [supplied, setSupplied] = React.useState({ label: presetLabel, key: valueKey });
+  if (supplied.label !== presetLabel) {
+    setSupplied({ label: presetLabel, key: valueKey });
+  }
+  const suppliedLabel =
+    rangeDisplayMode !== 'range' && presetLabel && supplied.key === valueKey
+      ? presetLabel
+      : undefined;
 
   const handleRangeSelect = React.useCallback(
     (range: DefinedRange) => {
@@ -285,12 +316,14 @@ export const DateRangePicker = createComponent<DateRangePickerOptions>((props, f
 
     const rangeText = fromDate && toDate ? `${fromDate} - ${toDate}` : placeholder;
 
-    if (selectedRangeLabel) {
+    const presetText = selectedRangeLabel ?? suppliedLabel;
+
+    if (presetText) {
       if (rangeDisplayMode === 'presetWithRange') {
-        return `${selectedRangeLabel} (${rangeText})`;
+        return `${presetText} (${rangeText})`;
       }
       if (rangeDisplayMode === 'preset') {
-        return selectedRangeLabel;
+        return presetText;
       }
     }
 
