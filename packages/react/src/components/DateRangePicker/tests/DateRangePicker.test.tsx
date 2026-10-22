@@ -357,9 +357,42 @@ describe('@project44-manifest/components - DateRangePicker', () => {
       year: 'numeric',
     })}`;
 
-    expect(
-      screen.getByText(`Yesterday (${yesterdayDateString} - ${yesterdayDateString})`),
-    ).toBeVisible();
+    // A single-day preset shows one date in the brackets, not a repeated range.
+    expect(screen.getByText(`Yesterday (${yesterdayDateString})`)).toBeVisible();
+  });
+
+  it('shows the full range in the brackets for a multi-day preset in presetWithRange mode', () => {
+    render(
+      <OverlayProvider>
+        <DateRangePicker
+          showCalendar
+          showRanges
+          aria-label="Calendar"
+          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+          presetLabel="Last 10 Days"
+          rangeDisplayMode="presetWithRange"
+        />
+      </OverlayProvider>,
+    );
+
+    expect(screen.getByText('Last 10 Days (Jul 2, 2022 - Jul 12, 2022)')).toBeVisible();
+  });
+
+  it('shows one date in the brackets for a single-day supplied preset label', () => {
+    render(
+      <OverlayProvider>
+        <DateRangePicker
+          showCalendar
+          showRanges
+          aria-label="Calendar"
+          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 2) }}
+          presetLabel="Today"
+          rangeDisplayMode="presetWithRange"
+        />
+      </OverlayProvider>,
+    );
+
+    expect(screen.getByText('Today (Jul 2, 2022)')).toBeVisible();
   });
 
   it('falls back to the date range once a preset selection is edited manually', () => {

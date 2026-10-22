@@ -320,7 +320,12 @@ export const DateRangePicker = createComponent<DateRangePickerOptions>((props, f
 
     if (presetText) {
       if (rangeDisplayMode === 'presetWithRange') {
-        return `${presetText} (${rangeText})`;
+        // A single-day preset (Today, Yesterday, Tomorrow) shows one date in the
+        // brackets, not "Oct 19, 2026 - Oct 19, 2026". Only here: the plain
+        // range text below is unchanged for every other consumer.
+        const isSingleDay = Boolean(fromDate && fromDate === toDate);
+
+        return `${presetText} (${isSingleDay ? fromDate : rangeText})`;
       }
       if (rangeDisplayMode === 'preset') {
         return presetText;
