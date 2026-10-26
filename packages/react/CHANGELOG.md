@@ -1,5 +1,15 @@
 # @manifest/react
 
+## 3.37.0
+
+### Minor Changes
+
+- [#595](https://github.com/project44/manifest/pull/595)
+  [`107c9301`](https://github.com/project44/manifest/commit/107c93012bf835c713bba1f6604c79ddca7c3516)
+  Thanks [@chandankl-p44](https://github.com/chandankl-p44)! - feat(DateRangePicker): add optional
+  `presetLabel` prop to show a preset label for a value that was not picked from the ranges rail
+  (e.g. a saved view)
+
 ## 3.36.0
 
 ### Minor Changes
