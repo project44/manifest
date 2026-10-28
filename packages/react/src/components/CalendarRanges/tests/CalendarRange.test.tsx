@@ -1,7 +1,13 @@
 import { CalendarDate, endOfMonth, startOfMonth } from '@internationalized/date';
 import { render, screen } from '@testing-library/react';
 import { CalendarRange } from '../../..';
-import { addMonths, createCalendarDate } from '../defaultDefinedRanges';
+import {
+  addDays,
+  addMonths,
+  createCalendarDate,
+  getDefaultRanges,
+  getLast14DaysRange,
+} from '../defaultDefinedRanges';
 
 import { DefinedRange } from '..';
 
@@ -194,5 +200,68 @@ describe('@project44-manifest/react - CalendarRange', () => {
     expect(rangesResults).not.toContainHTML('Last Week');
     expect(rangesResults).not.toContainHTML('This Month');
     expect(rangesResults).not.toContainHTML('Last Month');
+  });
+
+  it('should not include Last 14 days in the default ranges', () => {
+    const labels = getDefaultRanges().map((range) => range.label);
+
+    expect(labels).toEqual([
+      'Today',
+      'Yesterday',
+      'Last 7 days',
+      'Last 30 days',
+      'This Month',
+      'Last Month',
+    ]);
+
+    render(
+      <CalendarRange
+        showRanges
+        value={{
+          start: new CalendarDate(2022, 7, 2),
+          end: new CalendarDate(2022, 7, 12),
+        }}
+      />,
+    );
+
+    expect(screen.getAllByRole('listbox')[0]).not.toContainHTML('Last 14 days');
+  });
+
+  it('should return an inclusive 14 day range ending today from getLast14DaysRange', () => {
+    const today = createCalendarDate(new Date());
+    const range = getLast14DaysRange();
+
+    expect(range.key).toBe('last14Days');
+    expect(range.label).toBe('Last 14 days');
+    expect(range.value.end.compare(today)).toBe(0);
+    expect(range.value.start.compare(addDays(today, -14))).toBe(0);
+    expect(range.value.end.compare(range.value.start)).toBe(13);
+  });
+
+  it('should render Last 14 days when it is passed through ranges', () => {
+    const [today, yesterday, last7Days, ...rest] = getDefaultRanges();
+
+    render(
+      <CalendarRange
+        showRanges
+        ranges={[today, yesterday, last7Days, getLast14DaysRange(), ...rest]}
+        value={{
+          start: new CalendarDate(2022, 7, 2),
+          end: new CalendarDate(2022, 7, 12),
+        }}
+      />,
+    );
+
+    const options = screen.getAllByRole('option').map((option) => option.textContent);
+
+    expect(options).toEqual([
+      'Today',
+      'Yesterday',
+      'Last 7 days',
+      'Last 14 days',
+      'Last 30 days',
+      'This Month',
+      'Last Month',
+    ]);
   });
 });

@@ -12,7 +12,12 @@ import {
 import type { ComponentStory } from '@storybook/react';
 import { DateRangePicker, Flex, Icon } from '../../..';
 import type { RangeValue } from '../../CalendarRange';
-import { addMonths, createCalendarDate } from '../../CalendarRanges/defaultDefinedRanges';
+import {
+  addMonths,
+  createCalendarDate,
+  getDefaultRanges,
+  getLast14DaysRange,
+} from '../../CalendarRanges/defaultDefinedRanges';
 
 export default {
   title: 'Components/DateRangePicker',
@@ -212,6 +217,22 @@ WithPresetLabelAndRange.decorators = [
       ranges={buildRelativeDateRanges()}
     />
   ),
+];
+
+export const WithLast14DaysPreset = Template.bind({});
+
+WithLast14DaysPreset.decorators = [
+  () => {
+    const [todayRange, yesterdayRange, last7DaysRange, ...rest] = getDefaultRanges();
+
+    return (
+      <DateRangePicker
+        showRanges
+        rangeDisplayMode="preset"
+        ranges={[todayRange, yesterdayRange, last7DaysRange, getLast14DaysRange(), ...rest]}
+      />
+    );
+  },
 ];
 
 export const WithSavedPresetLabel = Template.bind({});

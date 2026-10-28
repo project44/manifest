@@ -46,6 +46,7 @@ export const defineds = {
   startOfYesterday: addDays(calendarDate, -2), // since addDays includes current day in the range
   endOfYesterday: addDays(calendarDate, -2), // to get 1 day previous we have to subtract 2
   sevenDaysAgo: addDays(calendarDate, -7),
+  fourteenDaysAgo: addDays(calendarDate, -14),
   thirtyDaysAgo: addDays(calendarDate, -30),
   endOfWeek: endOfWeek(calendarDate, 'en-US'),
   startOfLastWeek: startOfWeek(addDays(calendarDate, -7), 'en-US'),
@@ -55,6 +56,15 @@ export const defineds = {
   startOfLastMonth: startOfMonth(addMonths(calendarDate, -1)),
   endOfLastMonth: endOfMonth(addMonths(calendarDate, -1)),
 };
+
+export const getLast14DaysRange = (): DefinedRange => ({
+  key: 'last14Days',
+  label: 'Last 14 days',
+  value: {
+    start: defineds.fourteenDaysAgo,
+    end: defineds.endOfToday,
+  },
+});
 
 export const getDefaultRanges = (): DefinedRange[] => [
   {

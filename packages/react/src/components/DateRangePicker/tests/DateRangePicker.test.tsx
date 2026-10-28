@@ -3,7 +3,12 @@ import { CalendarDate, endOfMonth, startOfMonth } from '@internationalized/date'
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { DateRangePicker } from '../../..';
 import { DefinedRange } from '../../CalendarRanges';
-import { addMonths, createCalendarDate } from '../../CalendarRanges/defaultDefinedRanges';
+import {
+  addMonths,
+  createCalendarDate,
+  getDefaultRanges,
+  getLast14DaysRange,
+} from '../../CalendarRanges/defaultDefinedRanges';
 
 describe('@project44-manifest/components - DateRangePicker', () => {
   let defaultDate: Date;
@@ -326,6 +331,49 @@ describe('@project44-manifest/components - DateRangePicker', () => {
 
     expect(screen.getByText('Yesterday')).toBeVisible();
     expect(screen.queryByText('Jul')).not.toBeInTheDocument();
+  });
+
+  it('shows Last 14 days as the preset label when it is passed through ranges', () => {
+    const [today, yesterday, last7Days, ...rest] = getDefaultRanges();
+
+    render(
+      <OverlayProvider>
+        <DateRangePicker
+          showCalendar
+          showRanges
+          aria-label="Calendar"
+          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+          rangeDisplayMode="preset"
+          ranges={[today, yesterday, last7Days, getLast14DaysRange(), ...rest]}
+        />
+      </OverlayProvider>,
+    );
+
+    fireEvent.click(screen.getByRole('button'));
+    fireEvent.click(screen.getByText('Last 14 days'));
+
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(screen.getByText('Last 14 days')).toBeVisible();
+  });
+
+  it('does not offer Last 14 days unless it is passed through ranges', () => {
+    render(
+      <OverlayProvider>
+        <DateRangePicker
+          showCalendar
+          showRanges
+          aria-label="Calendar"
+          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+        />
+      </OverlayProvider>,
+    );
+
+    fireEvent.click(screen.getByRole('button'));
+
+    expect(screen.queryByText('Last 14 days')).not.toBeInTheDocument();
   });
 
   it('shows the preset label plus the date range when rangeDisplayMode is "presetWithRange"', () => {
