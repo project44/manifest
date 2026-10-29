@@ -293,4 +293,58 @@ describe('@project44-manifest/react - CalendarRange', () => {
       expect(onChange).toHaveBeenCalledTimes(1);
     });
   });
+
+  describe('scrollableRanges', () => {
+    const value = { start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) };
+    const rail = (container: HTMLElement) => container.querySelector('.manifest-calendar-ranges')!;
+
+    it('does not mark the rail scrollable by default', () => {
+      const { container } = render(<CalendarRange showRanges value={value} />);
+
+      expect(rail(container)).not.toHaveClass('manifest-calendar-ranges--scrollable');
+    });
+
+    it('renders exactly the same rail class whether the prop is unset or false', () => {
+      const unset = render(<CalendarRange showRanges value={value} />);
+      const unsetClass = rail(unset.container).className;
+      unset.unmount();
+
+      const explicitFalse = render(
+        <CalendarRange showRanges scrollableRanges={false} value={value} />,
+      );
+
+      expect(rail(explicitFalse.container).className).toBe(unsetClass);
+    });
+
+    it('marks the rail scrollable and styles it differently when set', () => {
+      const unset = render(<CalendarRange showRanges value={value} />);
+      const unsetClass = rail(unset.container).className;
+      unset.unmount();
+
+      const scrollable = render(<CalendarRange scrollableRanges showRanges value={value} />);
+
+      expect(rail(scrollable.container)).toHaveClass('manifest-calendar-ranges--scrollable');
+      expect(rail(scrollable.container).className).not.toBe(unsetClass);
+    });
+
+    it('keeps every preset in the rail and selectable when scrollable', () => {
+      const onRangeSelect = jest.fn();
+
+      render(
+        <CalendarRange scrollableRanges showRanges value={value} onRangeSelect={onRangeSelect} />,
+      );
+
+      expect(screen.getAllByRole('option')).toHaveLength(getDefaultRanges().length);
+
+      fireEvent.click(screen.getByText('Last 30 days'));
+
+      expect(onRangeSelect).toHaveBeenCalledWith(expect.objectContaining({ key: 'last30Days' }));
+    });
+
+    it('does not scroll the rail when only the calendar is shown', () => {
+      const { container } = render(<CalendarRange scrollableRanges showCalendar value={value} />);
+
+      expect(container.querySelector('.manifest-calendar-ranges')).toBeNull();
+    });
+  });
 });

@@ -47,12 +47,13 @@ export interface CalendarRangesProps {
    * function to handle the change on Ranges
    */
   onRangeChange?: (key: Selection, ranges: DefinedRange[]) => void;
+  scrollable?: boolean;
 }
 
 /* @private */
 export function CalendarRanges(props: CalendarRangesProps) {
-  const { listBoxProps = {}, onRangeChange, ranges = getDefaultRanges() } = props;
-  const { className } = useStyles();
+  const { listBoxProps = {}, onRangeChange, ranges = getDefaultRanges(), scrollable } = props;
+  const { className } = useStyles({ scrollable });
 
   const ariaLabel = (listBoxProps as ListBoxProps)?.['aria-label'] || 'listbox';
 
@@ -66,7 +67,11 @@ export function CalendarRanges(props: CalendarRangesProps) {
   );
 
   return (
-    <div className={cx(className, 'manifest-calendar-ranges')}>
+    <div
+      className={cx(className, 'manifest-calendar-ranges', {
+        'manifest-calendar-ranges--scrollable': scrollable,
+      })}
+    >
       <ListBox
         {...listBoxProps}
         aria-label={ariaLabel}

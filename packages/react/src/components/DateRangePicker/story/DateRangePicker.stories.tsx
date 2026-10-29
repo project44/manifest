@@ -249,3 +249,19 @@ WithGroupedRanges.decorators = [
     return <DateRangePicker showRanges ranges={ranges} />;
   },
 ];
+
+export const WithScrollableRanges = Template.bind({});
+
+WithScrollableRanges.decorators = [
+  () => {
+    const base = getDefaultRanges();
+    const ranges = [...base, ...base].map((range, index) => ({
+      ...range,
+      key: `${range.key}-${index}`,
+      label: `${range.label} ${index < base.length ? '' : '(more)'}`.trim(),
+      group: index < base.length ? 'recent' : 'older',
+    }));
+
+    return <DateRangePicker scrollableRanges showRanges ranges={ranges} />;
+  },
+];

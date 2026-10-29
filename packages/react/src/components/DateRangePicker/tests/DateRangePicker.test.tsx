@@ -302,6 +302,45 @@ describe('@project44-manifest/components - DateRangePicker', () => {
     expect(screen.getByText(`${yesterdayDateString} - ${yesterdayDateString}`)).toBeVisible();
   });
 
+  it('does not make the ranges rail scrollable unless scrollableRanges is set', () => {
+    render(
+      <OverlayProvider>
+        <DateRangePicker
+          showCalendar
+          showRanges
+          aria-label="Calendar"
+          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+        />
+      </OverlayProvider>,
+    );
+
+    fireEvent.click(screen.getByRole('button'));
+
+    expect(document.querySelector('.manifest-calendar-ranges')).not.toHaveClass(
+      'manifest-calendar-ranges--scrollable',
+    );
+  });
+
+  it('makes the ranges rail scrollable when scrollableRanges is set', () => {
+    render(
+      <OverlayProvider>
+        <DateRangePicker
+          scrollableRanges
+          showCalendar
+          showRanges
+          aria-label="Calendar"
+          defaultValue={{ start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) }}
+        />
+      </OverlayProvider>,
+    );
+
+    fireEvent.click(screen.getByRole('button'));
+
+    expect(document.querySelector('.manifest-calendar-ranges')).toHaveClass(
+      'manifest-calendar-ranges--scrollable',
+    );
+  });
+
   it('shows the preset label instead of the date range when rangeDisplayMode is "preset"', () => {
     render(
       <OverlayProvider>
