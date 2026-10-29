@@ -1,7 +1,7 @@
 import { CalendarDate, endOfMonth, startOfMonth } from '@internationalized/date';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import { CalendarRange } from '../../..';
-import { addMonths, createCalendarDate } from '../defaultDefinedRanges';
+import { addMonths, createCalendarDate, getDefaultRanges } from '../defaultDefinedRanges';
 
 import { DefinedRange } from '..';
 
@@ -194,5 +194,103 @@ describe('@project44-manifest/react - CalendarRange', () => {
     expect(rangesResults).not.toContainHTML('Last Week');
     expect(rangesResults).not.toContainHTML('This Month');
     expect(rangesResults).not.toContainHTML('Last Month');
+  });
+
+  describe('range groups', () => {
+    const value = { start: new CalendarDate(2022, 7, 2), end: new CalendarDate(2022, 7, 12) };
+    const groupsInRail = () => within(screen.getByRole('listbox')).queryAllByRole('group');
+    const optionLabels = () => screen.getAllByRole('option').map((option) => option.textContent);
+    const withGroups = (groups: (string | undefined)[]): DefinedRange[] =>
+      getDefaultRanges().map((range, index) => ({ ...range, group: groups[index] }));
+
+    it('renders the default ranges with no separators and no groups when none has a group', () => {
+      render(<CalendarRange showRanges value={value} />);
+
+      expect(optionLabels()).toEqual(getDefaultRanges().map((range) => range.label));
+      expect(screen.queryAllByRole('separator')).toHaveLength(0);
+      expect(groupsInRail()).toHaveLength(0);
+    });
+
+    it('renders explicitly ungrouped ranges exactly like ranges without a group field', () => {
+      render(<CalendarRange showRanges ranges={withGroups([])} value={value} />);
+
+      expect(optionLabels()).toEqual(getDefaultRanges().map((range) => range.label));
+      expect(screen.queryAllByRole('separator')).toHaveLength(0);
+      expect(groupsInRail()).toHaveLength(0);
+    });
+
+    it('draws one separator between each pair of groups and keeps the order', () => {
+      render(
+        <CalendarRange
+          showRanges
+          ranges={withGroups(['recent', 'recent', 'rolling', 'rolling', 'month', 'month'])}
+          value={value}
+        />,
+      );
+
+      expect(optionLabels()).toEqual(getDefaultRanges().map((range) => range.label));
+      expect(groupsInRail()).toHaveLength(3);
+      expect(screen.getAllByRole('separator')).toHaveLength(2);
+    });
+
+    it('starts a new group when the same group name appears again after another group', () => {
+      render(
+        <CalendarRange
+          showRanges
+          ranges={withGroups(['a', 'a', 'b', 'b', 'a', 'a'])}
+          value={value}
+        />,
+      );
+
+      expect(groupsInRail()).toHaveLength(3);
+      expect(screen.getAllByRole('separator')).toHaveLength(2);
+    });
+
+    it('separates leading ungrouped ranges from the first group', () => {
+      render(
+        <CalendarRange
+          showRanges
+          ranges={withGroups([undefined, undefined, 'rolling', 'rolling', 'rolling', 'rolling'])}
+          value={value}
+        />,
+      );
+
+      expect(optionLabels()).toEqual(getDefaultRanges().map((range) => range.label));
+      expect(groupsInRail()).toHaveLength(1);
+      expect(screen.getAllByRole('separator')).toHaveLength(1);
+    });
+
+    it('does not show a visible heading for a group', () => {
+      render(
+        <CalendarRange
+          showRanges
+          ranges={withGroups(['recent', 'recent', 'rolling', 'rolling', 'month', 'month'])}
+          value={value}
+        />,
+      );
+
+      expect(screen.queryByText('recent')).not.toBeInTheDocument();
+      expect(screen.queryByText('rolling')).not.toBeInTheDocument();
+    });
+
+    it('reports the picked range with its key from a later group', () => {
+      const onRangeSelect = jest.fn();
+      const onChange = jest.fn();
+
+      render(
+        <CalendarRange
+          showRanges
+          ranges={withGroups(['recent', 'recent', 'rolling', 'rolling', 'month', 'month'])}
+          value={value}
+          onChange={onChange}
+          onRangeSelect={onRangeSelect}
+        />,
+      );
+
+      fireEvent.click(screen.getByText('Last 30 days'));
+
+      expect(onRangeSelect).toHaveBeenCalledWith(expect.objectContaining({ key: 'last30Days' }));
+      expect(onChange).toHaveBeenCalledTimes(1);
+    });
   });
 });
