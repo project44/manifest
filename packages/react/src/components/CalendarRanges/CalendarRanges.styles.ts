@@ -7,4 +7,15 @@ export const useStyles = css({
   margin: 0,
   padding: '$small $medium',
   flexDirection: 'column',
+
+  variants: {
+    scrollable: {
+      true: {
+        boxSizing: 'border-box',
+        justifyContent: 'flex-start',
+        maxHeight: 289,
+        overflowY: 'auto',
+      },
+    },
+  },
 });

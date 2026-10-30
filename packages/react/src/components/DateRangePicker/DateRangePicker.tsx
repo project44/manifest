@@ -148,6 +148,8 @@ export interface DateRangePickerOptions<T extends As = DateRangePickerElement>
    * <DateRangePicker showRanges rangeDisplayMode="preset" presetLabel="Last 7 Days" value={value} />
    */
   presetLabel?: string;
+
+  scrollableRanges?: boolean;
 }
 
 export type DateRangePickerProps<T extends As = DateRangePickerElement> = Props<
@@ -167,6 +169,7 @@ export const DateRangePicker = createComponent<DateRangePickerOptions>((props, f
     isReadOnly,
     isRequired,
     ranges,
+    scrollableRanges,
     showCalendar = true,
     showRanges = false,
     rangeDisplayMode = 'range',
@@ -380,6 +383,7 @@ export const DateRangePicker = createComponent<DateRangePickerOptions>((props, f
               className="manifest-datepicker__calendar"
               {...calendarProps}
               ranges={ranges}
+              scrollableRanges={scrollableRanges}
               showCalendar={showCalendar}
               showRanges={showRanges}
               onRangeSelect={

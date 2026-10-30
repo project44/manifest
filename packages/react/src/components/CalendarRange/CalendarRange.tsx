@@ -49,6 +49,8 @@ export interface CalendarRangeOptions<T extends As = CalendarElement>
    * manual day-by-day selection on the calendar table).
    */
   onRangeSelect?: (range: DefinedRange) => void;
+
+  scrollableRanges?: boolean;
 }
 
 export type CalendarRangeProps<T extends As = CalendarElement> = Props<CalendarRangeOptions<T>>;
@@ -62,6 +64,7 @@ export const CalendarRange = createComponent<CalendarRangeOptions>((props, forwa
     showRanges,
     ranges,
     onRangeSelect,
+    scrollableRanges,
     ...other
   } = props;
 
@@ -117,7 +120,13 @@ export const CalendarRange = createComponent<CalendarRangeOptions>((props, forwa
       ref={mergeRefs(calendarRef, forwardedRef)}
       className={cx(className, classNameProp, 'manifest-range-calendar')}
     >
-      {showRanges && <CalendarRanges ranges={ranges} onRangeChange={handleRangeChange} />}
+      {showRanges && (
+        <CalendarRanges
+          ranges={ranges}
+          scrollable={scrollableRanges}
+          onRangeChange={handleRangeChange}
+        />
+      )}
       {showCalendar && (
         <>
           {showRanges && showCalendar && <Separator orientation="vertical" />}
