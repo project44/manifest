@@ -1,5 +1,17 @@
 # @manifest/react
 
+## 3.38.0
+
+### Minor Changes
+
+- [#598](https://github.com/project44/manifest/pull/598)
+  [`459391c7`](https://github.com/project44/manifest/commit/459391c79715a78f352817cc0d65d8b8e0aed5af)
+  Thanks [@chandankl-p44](https://github.com/chandankl-p44)! - feat(DateRangePicker): add optional
+  `group` to `DefinedRange` and an optional `scrollableRanges` prop. Consecutive ranges that share a
+  `group` render as a list section, with a separator between groups. `scrollableRanges` caps the
+  ranges rail at the calendar height and scrolls it. Without either, the rail renders exactly as
+  before.
+
 ## 3.37.0
 
 ### Minor Changes
